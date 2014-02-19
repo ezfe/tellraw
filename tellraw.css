@@ -1,0 +1,44 @@
+.extraPopup {
+	width:900px !important;
+}
+.extraPopupContent {
+	padding: 60px !important;
+}
+.colorPreview {
+	border: 3px gray solid;;
+	padding: 2px;
+	width: 32px;
+	height: 32px;
+}
+.colorPreviewColor {
+	border-radius: 4px;
+	background-color:#FFFFFF;
+	height:100%;
+	width:100%;
+}
+.bold {
+	font-weight: bold;
+}
+.italic {
+	font-style: italic;
+}
+.underlined {
+	text-decoration: underline;
+}
+.strikethrough {
+	text-decoration: line-through;
+}
+.strikethroughunderlined {
+	text-decoration: underline line-through;
+}
+#nicelookingoutput {
+	max-height: 200px;
+	height:200px;
+	overflow-y: scroll;
+}
+.well {
+	color: black;
+}
+.modal {
+	color: black;
+}
