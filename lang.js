@@ -344,6 +344,9 @@ var lang =
 			"insert":"Inserir",
 			"raw":"Raw",
 			"trn":"Traduzido",
+			"obj":"Objetivo do Scoreboard",
+			"obj2":"Objetivo",
+			"player":"Jogador",
 			"parameter":"Par&acirc;metro"
 		},
 		"command":"Comando:",
@@ -376,15 +379,15 @@ var lang =
 			"importtext":"Digite ou cole o comando. Use o botão Deletar tudo no caso de erros.",
 			"deleteall":{
 				"heading":"Tem certeza?",
-				"body":"Voc&ecirc; perder&aacute; tudo o que fez ao clicar em Deletar",
-				"yes":"Deletar",
+				"body":"Voc&ecirc; perder&aacute; tudo o que fez ao clicar em Deletar tudo",
+				"yes":"Deletar tudo",
 				"no":"Cancelar"
 			},
 			"previewcolor":"Cor de fundo da previs&atilde;o:"
 		},
 		"language":{
 			"name":"Portugu&ecirc;s Brasil",
-			"header":"Lingu&aacute;gem",
+			"header":"Linguagem",
 			"translate":"Traduza sua lingua",
 			"credit":"Traduzido por Gerottinho"
 		}
