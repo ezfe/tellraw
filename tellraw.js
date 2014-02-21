@@ -782,7 +782,7 @@ $( document ).ready(function(){
 	});
 	var translationOptionList = "";
 	for (var i = Object.keys(translationStrings).length - 1; i >= 0; i--) {
-		translationOptionList = translationOptionList + '<option value="'+i+'">'+Object.keys(translationStrings)[i]+'</option>';
+		translationOptionList = translationOptionList + '<option value="'+i+'">'+translationStrings[Object.keys(translationStrings)[i]]+'</option>';
 	};
 	$('#translate_selector').html(translationOptionList);
 	$('#translate_selector').change(function(){
