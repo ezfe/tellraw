@@ -170,7 +170,7 @@ function deleteAllCancel() {
 	$('#deleteConfirm').slideUp();
 }
 function warnFutureVersion(ver,feature,c) {
-	$('#modal_banners').append('<div class="alert alert-warning futureWarning '+c+'"><strong>'+getLanguageString('textsnippets.warning.title')+'</strong> '+getLanguageString('textsnippets.warning.text').replace('%v',ver).replace('%f',feature)+'</div>');
+	$('.modal_banners').append('<div class="alert alert-warning futureWarning '+c+'"><strong>'+getLanguageString('textsnippets.warning.title')+'</strong> '+getLanguageString('textsnippets.warning.text').replace('%v',ver).replace('%f',feature)+'</div>');
 }
 function obfuscationPreviewHandler() {
 	$('.jsonPreviewObfuscated').html(setObfuscatedString($('.jsonPreviewObfuscated').html()));
@@ -675,7 +675,7 @@ function refreshLanguage(jQuery) {
 	$('.language_area#textsnippets_deleteall').html(getLanguageString('settings.deleteall.yes'));
 	$('.language_area#extraModalLabel').html(getLanguageString('textsnippets.addsnippet'));
 	$('.language_area#textsnippets_text').html(getLanguageString('textsnippets.text'));
-	$('.language_area#fmtExtraRaw').html(getLanguageString('textsnippets.raw'));
+	$('#addExtra > .modal-dialog > .modal-content > .fmtExtraRaw').html(getLanguageString('textsnippets.raw'));
 	$('.language_area#fmtExtraTrn').html(getLanguageString('textsnippets.trn'));
 	$('.language_area#fmtExtraObj').html(getLanguageString('textsnippets.obj'));
 	$('#obj_player').attr('placeholder',getLanguageString('textsnippets.player'));
@@ -782,7 +782,7 @@ $( document ).ready(function(){
 	});
 	var translationOptionList = "";
 	for (var i = Object.keys(translationStrings).length - 1; i >= 0; i--) {
-		translationOptionList = translationOptionList + '<option value="'+i+'">'+translationStrings[Object.keys(translationStrings)[i]]+'</option>';
+		translationOptionList = translationOptionList + '<option value="'+i+'">'+Object.keys(translationStrings)[i]+'</option>';
 	};
 	$('#translate_selector').html(translationOptionList);
 	$('#translate_selector').change(function(){
