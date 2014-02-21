@@ -348,6 +348,8 @@ function addExtra() {
 	}
 	if ($('#insertion_text').val() != '') jobject.extra[extraIndex].insertion = $('#insertion_text').val();
 
+	hideModal('addExtraModal');
+
 	clearExtra();
 	refreshOutput();
 
@@ -734,6 +736,8 @@ function refreshLanguage(jQuery) {
 	$('.language_area#parameter6').html(getLanguageString('textsnippets.parameter')+' 6');
 }
 $( document ).ready(function(){
+
+	deleteModal('addExtraModal'); createModal('addExtraModal','Add Extra','Add','addExtra()', 'textsnippets-add-button', true); setModalBody('addExtraModal',$('#addExtraModalData').html());
 
 	for (var i = 0; i < Object.keys(lang).length; i++) {
 		$('#language_keys').append('<li><a onclick="langCode=\''+Object.keys(lang)[i]+'\'; refreshLanguage(); refreshOutput();"><span class="'+Object.keys(lang)[i]+' langSelect language_area" id="language_select_'+Object.keys(lang)[i]+'">'+lang[Object.keys(lang)[i]].language.name+'</span></a></li>');
