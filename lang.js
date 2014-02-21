@@ -15,6 +15,7 @@ var lang =
 			"header":"Text Snippets",
 			"nosnippets":"No text yet",
 			"addsnippet":"Add Text",
+			"editsnippet":"Edit Text",
 			"close":"Close",
 			"text":"Text:",
 			"format":{

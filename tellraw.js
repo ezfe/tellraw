@@ -256,7 +256,7 @@ function clearExtra() {
 }
 function editExtra(index) {
 	deleteModal('editExtra');
-	createModal('editExtra','Edit Extra','Save','saveExtraEdit('+index+')','',true);
+	createModal('editExtra',getLanguageString('textsnippets.editsnippet'),'Save','saveExtraEdit('+index+')','',true);
 	setModalBody('editExtra',$('#editModalData').html());
 	if (jobject.extra[index].text != undefined) {
 		$('#obj_extra_container_edit').hide();
@@ -954,10 +954,6 @@ function refreshLanguage(jQuery) {
 	$('.language_area#parameter6').html(getLanguageString('textsnippets.parameter')+' 6');
 }
 $( document ).ready(function(){
-
-	createModal('addExtraModal','Add Extra','Add','addExtra()', 'textsnippets-add-button', true);
-	setModalBody('addExtraModal',$('#addExtraModalData').html());
-
 	for (var i = 0; i < Object.keys(lang).length; i++) {
 		$('#language_keys').append('<li><a onclick="langCode=\''+Object.keys(lang)[i]+'\'; refreshLanguage(); refreshOutput();"><span class="'+Object.keys(lang)[i]+' langSelect language_area" id="language_select_'+Object.keys(lang)[i]+'">'+lang[Object.keys(lang)[i]].language.name+'</span></a></li>');
 	};
@@ -983,6 +979,10 @@ $( document ).ready(function(){
 		langCode = 'en_us';
 		if (Modernizr.localstorage) localStorage['langCode'] = langCode;
 	}
+
+	createModal('addExtraModal',getLanguageString('textsnippets.addsnippet'),'Add','addExtra()', 'textsnippets-add-button', true);
+	setModalBody('addExtraModal',$('#addExtraModalData').html());
+
 	$('#player').change(function(){refreshOutput()}); 
 	$('#import').click(function() {
 		var inpt = prompt(getLanguageString('settings.importtext'));
