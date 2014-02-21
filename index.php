@@ -73,7 +73,7 @@
 				</div>
 				<div class="row row-margin-top row-margin-bottom">
 					<div class="col-md-4 col-md-offset-2">
-						<button id="addExtraButton" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addExtraModal">
+						<button id="addExtraButton" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addExtra">
 							<span class="language_area" id="textsnippets_addsnippet"></span> <span class="glyphicon glyphicon-plus-sign"></span>
 						</button>
 					</div>
@@ -84,216 +84,226 @@
 					</div>
 				</div>
 			</div>
-			<div style="display:none;" id="addExtraModalData">
-					<div class="row" id="modal_banners">
-					</div>
-					<div class="row row-margin-top row-margin-bottom">
-						<div class="btn-group col-md-10">
-							<button type="button" id="fmtExtraRaw" tellrawType="raw" class="fmtExtra language_area active btn btn-default">Raw</button>
-							<button type="button" id="fmtExtraTrn" tellrawType="trn" class="fmtExtra language_area btn btn-default">Translated</button>
-							<button type="button" id="fmtExtraObj" tellrawType="obj" class="fmtExtra language_area btn btn-default">Objective</button>
+			<div class="modal fade" id="addExtra" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog extraPopup">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="myModalLabel"><span class="language_area" id="extraModalLabel"></span></h4>
 						</div>
-					</div>
-					<div class="row row-margin-top row-margin-bottom" id="text_extra_container_container">
-						<div class="col-md-7" id="obj_extra_container">
-							<div>
-								<input placeholder="Player" id="obj_player" type="text" class="form-control">
+						<div class="modal-body extraPopupContent">
+							<div class="row" id="modal_banners">
 							</div>
-							<div class="row-margin-top">
-								<input placeholder="Objective" id="obj_score" type="text" class="form-control">
+							<div class="row row-margin-top row-margin-bottom">
+								<div class="btn-group col-md-10">
+									<button type="button" id="fmtExtraRaw" tellrawType="raw" class="fmtExtra language_area active btn btn-default">Raw</button>
+									<button type="button" id="fmtExtraTrn" tellrawType="trn" class="fmtExtra language_area btn btn-default">Translated</button>
+									<button type="button" id="fmtExtraObj" tellrawType="obj" class="fmtExtra language_area btn btn-default">Objective</button>
+								</div>
 							</div>
-						</div>
-						<div class="col-md-7" id="text_extra_container">
-							<input placeholder="Text" id="text_extra" type="text" class="form-control">
-						</div>
-						<div class="col-md-7" id="translate_selector_container">
-							<select class="form-control" id="translate_selector"></select>
-						</div>
-						<div class="col-md-4">
+							<div class="row row-margin-top row-margin-bottom" id="text_extra_container_container">
+								<div class="col-md-7" id="obj_extra_container">
+									<div>
+										<input placeholder="Player" id="obj_player" type="text" class="form-control">
+									</div>
+									<div class="row-margin-top">
+										<input placeholder="Objective" id="obj_score" type="text" class="form-control">
+									</div>
+								</div>
+								<div class="col-md-7" id="text_extra_container">
+									<input placeholder="Text" id="text_extra" type="text" class="form-control">
+								</div>
+								<div class="col-md-7" id="translate_selector_container">
+									<select class="form-control" id="translate_selector"></select>
+								</div>
+								<div class="col-md-4">
+									<div class="row">
+										<div class="col-md-10">
+											<select class="form-control" onchange="refreshOutput()" id="color_extra">
+												<option class="language_area" id="color_black" value="black">color_black</option>
+												<option class="language_area" id="color_dark_blue" value="dark_blue">color_dark_blue</option>
+												<option class="language_area" id="color_dark_green" value="dark_green">color_dark_green</option>
+												<option class="language_area" id="color_dark_aqua" value="dark_aqua">color_dark_aqua</option>
+												<option class="language_area" id="color_dark_red" value="dark_red">color_dark_red</option>
+												<option class="language_area" id="color_dark_purple" value="dark_purple">color_dark_purple</option>
+												<option class="language_area" id="color_gold" value="gold">color_gold</option>
+												<option class="language_area" id="color_gray" value="gray">color_gray</option>
+												<option class="language_area" id="color_dark_gray" value="dark_gray">color_dark_gray</option>
+												<option class="language_area" id="color_blue" value="blue">color_blue</option>
+												<option class="language_area" id="color_green" value="green">color_green</option>
+												<option class="language_area" id="color_aqua" value="aqua">color_aqua</option>
+												<option class="language_area" id="color_red" value="red">color_red</option>
+												<option class="language_area" id="color_light_purple" value="light_purple">color_light_purple</option>
+												<option class="language_area" id="color_yellow" value="yellow">color_yellow</option>
+												<option class="language_area" id="color_white" value="white" selected="true">color_white</option>
+											</select>
+										</div>
+										<div class="col-md-2">
+											<div id="colorPreview" class="colorPreview">
+												<div id="colorPreviewColor" class="colorPreviewColor">
+												</div>
+											</div>
+										</div>
+									</div>
+									<label><input type="checkbox" id="bold_text_extra"> <span class="language_area" id="textsnippets_bold"></span></label>
+									<label><input type="checkbox" id="italic_text_extra"> <span class="language_area" id="textsnippets_italic"></span></label>
+									<label><input type="checkbox" id="underlined_text_extra"> <span class="language_area" id="textsnippets_underlined"></span></label>
+									<label><input type="checkbox" id="strikethrough_text_extra"> <span class="language_area" id="textsnippets_strikethrough"></span></label>
+									<label><input type="checkbox" id="obfuscated_text_extra"> <span class="language_area" id="textsnippets_obfuscated"></span></label>
+								</div>
+							</div>
+							<div class="extraTranslationParameterRow row row-margin-top row-margin-bottom" id="parameter0row">
+								<div class="col-md-4 language_area" id="parameter0">
+
+								</div>
+								<div class="col-md-8">
+									<input type="text" class="form-control" class="extraTranslationParameter" id="extraTranslationParameter0">
+								</div>
+							</div>
+							<div class="extraTranslationParameterRow row row-margin-top row-margin-bottom" id="parameter1row">
+								<div class="col-md-4 language_area" id="parameter1">
+
+								</div>
+								<div class="col-md-8">
+									<input type="text" class="form-control" class="extraTranslationParameter" id="extraTranslationParameter1">
+								</div>
+							</div>
+							<div class="extraTranslationParameterRow row row-margin-top row-margin-bottom" id="parameter2row">
+								<div class="col-md-4 language_area" id="parameter2">
+
+								</div>
+								<div class="col-md-8">
+									<input type="text" class="form-control" class="extraTranslationParameter" id="extraTranslationParameter2">
+								</div>
+							</div>
+							<div class="extraTranslationParameterRow row row-margin-top row-margin-bottom" id="parameter3row">
+								<div class="col-md-4 language_area" id="parameter3">
+
+								</div>
+								<div class="col-md-8">
+									<input type="text" class="form-control" class="extraTranslationParameter" id="extraTranslationParameter3">
+								</div>
+							</div>
+							<div class="extraTranslationParameterRow row row-margin-top row-margin-bottom" id="parameter4row">
+								<div class="col-md-4 language_area" id="parameter4">
+
+								</div>
+								<div class="col-md-8">
+									<input type="text" class="form-control" class="extraTranslationParameter" id="extraTranslationParameter4">
+								</div>
+							</div>
+							<div class="extraTranslationParameterRow row row-margin-top row-margin-bottom" id="parameter5row">
+								<div class="col-md-4 language_area" id="parameter5">
+
+								</div>
+								<div class="col-md-8">
+									<input type="text" class="form-control" class="extraTranslationParameter" id="extraTranslationParameter5">
+								</div>
+							</div>
+							<div class="extraTranslationParameterRow row row-margin-top row-margin-bottom" id="parameter6row">
+								<div class="col-md-4 language_area" id="parameter6">
+
+								</div>
+								<div class="col-md-8">
+									<input type="text" class="form-control" class="extraTranslationParameter" id="extraTranslationParameter6">
+								</div>
+							</div>
 							<div class="row">
-								<div class="col-md-10">
-									<select class="form-control" onchange="refreshOutput()" id="color_extra">
-										<option class="language_area" id="color_black" value="black">color_black</option>
-										<option class="language_area" id="color_dark_blue" value="dark_blue">color_dark_blue</option>
-										<option class="language_area" id="color_dark_green" value="dark_green">color_dark_green</option>
-										<option class="language_area" id="color_dark_aqua" value="dark_aqua">color_dark_aqua</option>
-										<option class="language_area" id="color_dark_red" value="dark_red">color_dark_red</option>
-										<option class="language_area" id="color_dark_purple" value="dark_purple">color_dark_purple</option>
-										<option class="language_area" id="color_gold" value="gold">color_gold</option>
-										<option class="language_area" id="color_gray" value="gray">color_gray</option>
-										<option class="language_area" id="color_dark_gray" value="dark_gray">color_dark_gray</option>
-										<option class="language_area" id="color_blue" value="blue">color_blue</option>
-										<option class="language_area" id="color_green" value="green">color_green</option>
-										<option class="language_area" id="color_aqua" value="aqua">color_aqua</option>
-										<option class="language_area" id="color_red" value="red">color_red</option>
-										<option class="language_area" id="color_light_purple" value="light_purple">color_light_purple</option>
-										<option class="language_area" id="color_yellow" value="yellow">color_yellow</option>
-										<option class="language_area" id="color_white" value="white" selected="true">color_white</option>
+								<div class="col-md-12">
+									<h4 class="language_area" id="textsnippets_clickevent_header"></h4>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4">
+									<select onchange="refreshOutput()" class="form-control" id="clickEvent">
+										<option class="language_area" id="clickevent_none" value="none" selected="true"></option>
+										<option class="language_area" id="clickevent_runcommand" value="run_command"></option>
+										<option class="language_area" id="clickevent_suggestcommand" value="suggest_command"></option>
+										<option class="language_area" id="clickevent_openurl" value="open_url"></option>
 									</select>
 								</div>
-								<div class="col-md-2">
-									<div id="colorPreview" class="colorPreview">
-										<div id="colorPreviewColor" class="colorPreviewColor">
-										</div>
+								<div class="col-md-8">
+									<input id="clickEventText" type="text" class="form-control">
+								</div>
+							</div>
+							<div class="row row-margin-top row-margin-bottom">
+								<div class="col-md-4 col-md-offset-4 tooltipObject" id="click_selector_container" data-toggle="tooltip" data-placement="top" title="This text will be inserted into the textbox">
+									<select class="form-control" onchange="refreshOutput()" id="click_selector" disabled></select>
+								</div>
+								<div class="col-md-4">
+									<button id="insertClick" onclick="$('#clickEventText').val(getSelected('click_selector'));" class="btn btn-info btn-block" disabled><span class="language_area" id="textsnippets_insert">Insert</span> <span class="glyphicon glyphicon-plus-sign"></span></button>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<h4 class="language_area" id="textsnippets_hoverevent_header"></h4>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4">
+									<select onchange="refreshOutput()" class="form-control" id="hoverEvent">
+										<option class="language_area" id="hoverevent_none" value="none" selected="true"></option>
+										<option class="language_area" id="hoverevent_show_text" value="show_text"></option>
+										<option class="language_area" id="hoverevent_show_item" value="show_item"></option>
+										<option class="language_area" id="hoverevent_show_entity" value="show_entity"></option>
+										<option class="language_area" id="hoverevent_show_achievement" value="show_achievement"></option>
+									</select>
+								</div>
+								<div class="hovertext_default">
+									<div class="col-md-8">
+										<input id="hoverEventText" type="text" class="form-control">
+									</div>
+								</div>
+								<div class="hovertext_entity">
+									<div class="col-md-2 language_area" id="hoverevent_entity_name">
+										_name
+									</div>
+									<div class="col-md-6">
+										<input id="hoverEventEntityName" type="text" class="form-control">
 									</div>
 								</div>
 							</div>
-							<label><input type="checkbox" id="bold_text_extra"> <span class="language_area" id="textsnippets_bold"></span></label>
-							<label><input type="checkbox" id="italic_text_extra"> <span class="language_area" id="textsnippets_italic"></span></label>
-							<label><input type="checkbox" id="underlined_text_extra"> <span class="language_area" id="textsnippets_underlined"></span></label>
-							<label><input type="checkbox" id="strikethrough_text_extra"> <span class="language_area" id="textsnippets_strikethrough"></span></label>
-							<label><input type="checkbox" id="obfuscated_text_extra"> <span class="language_area" id="textsnippets_obfuscated"></span></label>
-						</div>
-					</div>
-					<div class="extraTranslationParameterRow row row-margin-top row-margin-bottom" id="parameter0row">
-						<div class="col-md-4 language_area" id="parameter0">
+							<div class="hovertext_entity row row-margin-top row-margin-bottom">
+								<div class="col-md-2 col-md-offset-4 language_area" id="hoverevent_entity_id">
+									_id
+								</div>
+								<div class="col-md-6">
+									<input id="hoverEventEntityID" type="text" class="form-control">
+								</div>
+							</div>
+							<div class="hovertext_entity row row-margin-top row-margin-bottom">
+								<div class="col-md-2 col-md-offset-4 language_area" id="hoverevent_entity_type">
+									_type
+								</div>
+								<div class="col-md-6">
+									<input id="hoverEventEntityType" type="text" class="form-control">
+								</div>
+							</div>
 
-						</div>
-						<div class="col-md-8">
-							<input type="text" class="form-control" class="extraTranslationParameter" id="extraTranslationParameter0">
-						</div>
-					</div>
-					<div class="extraTranslationParameterRow row row-margin-top row-margin-bottom" id="parameter1row">
-						<div class="col-md-4 language_area" id="parameter1">
-
-						</div>
-						<div class="col-md-8">
-							<input type="text" class="form-control" class="extraTranslationParameter" id="extraTranslationParameter1">
-						</div>
-					</div>
-					<div class="extraTranslationParameterRow row row-margin-top row-margin-bottom" id="parameter2row">
-						<div class="col-md-4 language_area" id="parameter2">
-
-						</div>
-						<div class="col-md-8">
-							<input type="text" class="form-control" class="extraTranslationParameter" id="extraTranslationParameter2">
-						</div>
-					</div>
-					<div class="extraTranslationParameterRow row row-margin-top row-margin-bottom" id="parameter3row">
-						<div class="col-md-4 language_area" id="parameter3">
-
-						</div>
-						<div class="col-md-8">
-							<input type="text" class="form-control" class="extraTranslationParameter" id="extraTranslationParameter3">
-						</div>
-					</div>
-					<div class="extraTranslationParameterRow row row-margin-top row-margin-bottom" id="parameter4row">
-						<div class="col-md-4 language_area" id="parameter4">
-
-						</div>
-						<div class="col-md-8">
-							<input type="text" class="form-control" class="extraTranslationParameter" id="extraTranslationParameter4">
-						</div>
-					</div>
-					<div class="extraTranslationParameterRow row row-margin-top row-margin-bottom" id="parameter5row">
-						<div class="col-md-4 language_area" id="parameter5">
-
-						</div>
-						<div class="col-md-8">
-							<input type="text" class="form-control" class="extraTranslationParameter" id="extraTranslationParameter5">
-						</div>
-					</div>
-					<div class="extraTranslationParameterRow row row-margin-top row-margin-bottom" id="parameter6row">
-						<div class="col-md-4 language_area" id="parameter6">
-
-						</div>
-						<div class="col-md-8">
-							<input type="text" class="form-control" class="extraTranslationParameter" id="extraTranslationParameter6">
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12">
-							<h4 class="language_area" id="textsnippets_clickevent_header"></h4>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-4">
-							<select onchange="refreshOutput()" class="form-control" id="clickEvent">
-								<option class="language_area" id="clickevent_none" value="none" selected="true"></option>
-								<option class="language_area" id="clickevent_runcommand" value="run_command"></option>
-								<option class="language_area" id="clickevent_suggestcommand" value="suggest_command"></option>
-								<option class="language_area" id="clickevent_openurl" value="open_url"></option>
-							</select>
-						</div>
-						<div class="col-md-8">
-							<input id="clickEventText" type="text" class="form-control">
-						</div>
-					</div>
-					<div class="row row-margin-top row-margin-bottom">
-						<div class="col-md-4 col-md-offset-4 tooltipObject" id="click_selector_container" data-toggle="tooltip" data-placement="top" title="This text will be inserted into the textbox">
-							<select class="form-control" onchange="refreshOutput()" id="click_selector" disabled></select>
-						</div>
-						<div class="col-md-4">
-							<button id="insertClick" onclick="$('#clickEventText').val(getSelected('click_selector'));" class="btn btn-info btn-block" disabled><span class="language_area" id="textsnippets_insert">Insert</span> <span class="glyphicon glyphicon-plus-sign"></span></button>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12">
-							<h4 class="language_area" id="textsnippets_hoverevent_header"></h4>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-4">
-							<select onchange="refreshOutput()" class="form-control" id="hoverEvent">
-								<option class="language_area" id="hoverevent_none" value="none" selected="true"></option>
-								<option class="language_area" id="hoverevent_show_text" value="show_text"></option>
-								<option class="language_area" id="hoverevent_show_item" value="show_item"></option>
-								<option class="language_area" id="hoverevent_show_entity" value="show_entity"></option>
-								<option class="language_area" id="hoverevent_show_achievement" value="show_achievement"></option>
-							</select>
-						</div>
-						<div class="hovertext_default">
-							<div class="col-md-8">
-								<input id="hoverEventText" type="text" class="form-control">
+							<div class="row row-margin-top row-margin-bottom hovertext_default">
+								<div class="col-md-4 col-md-offset-4 tooltipObject" id="hover_selector_container" data-toggle="tooltip" data-placement="top" title="This text will be inserted into the textbox">
+									<select class="form-control" id="hover_selector" disabled></select>
+								</div>
+								<div class="col-md-4">
+									<button id="insertHover" onclick="document.getElementById('hoverEventText').value = getSelected('hover_selector');" class="btn btn-info btn-block" disabled><span class="language_area" id="textsnippets_insert">Insert</span> <span class="glyphicon glyphicon-plus-sign"></span></button>
+								</div>
+							</div>
+							<div class="row" style="height:39px">
+							</div>
+							<div class="row row-margin-top row-margin-bottom">
+								<div class="col-md-4">
+									<h4 class="language_area" id="textsnippets_insertion_header"></h4>
+								</div>
+								<div class="col-md-8">
+									<input id="insertion_text" type="text" class="form-control">
+								</div>
 							</div>
 						</div>
-						<div class="hovertext_entity">
-							<div class="col-md-2 language_area" id="hoverevent_entity_name">
-								_name
-							</div>
-							<div class="col-md-6">
-								<input id="hoverEventEntityName" type="text" class="form-control">
-							</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal"><span class="language_area" id="textsnippets_close"></span></button>
+							<button id="textsnippets-add-button" type="button" class="btn btn-primary" onclick="addExtra()"><span class="language_area" id="textsnippets_add"></span></button>
 						</div>
 					</div>
-					<div class="hovertext_entity row row-margin-top row-margin-bottom">
-						<div class="col-md-2 col-md-offset-4 language_area" id="hoverevent_entity_id">
-							_id
-						</div>
-						<div class="col-md-6">
-							<input id="hoverEventEntityID" type="text" class="form-control">
-						</div>
-					</div>
-					<div class="hovertext_entity row row-margin-top row-margin-bottom">
-						<div class="col-md-2 col-md-offset-4 language_area" id="hoverevent_entity_type">
-							_type
-						</div>
-						<div class="col-md-6">
-							<input id="hoverEventEntityType" type="text" class="form-control">
-						</div>
-					</div>
-
-					<div class="row row-margin-top row-margin-bottom hovertext_default">
-						<div class="col-md-4 col-md-offset-4 tooltipObject" id="hover_selector_container" data-toggle="tooltip" data-placement="top" title="This text will be inserted into the textbox">
-							<select class="form-control" id="hover_selector" disabled></select>
-						</div>
-						<div class="col-md-4">
-							<button id="insertHover" onclick="document.getElementById('hoverEventText').value = getSelected('hover_selector');" class="btn btn-info btn-block" disabled><span class="language_area" id="textsnippets_insert">Insert</span> <span class="glyphicon glyphicon-plus-sign"></span></button>
-						</div>
-					</div>
-					<div class="row" style="height:39px">
-					</div>
-					<div class="row row-margin-top row-margin-bottom">
-						<div class="col-md-4">
-							<h4 class="language_area" id="textsnippets_insertion_header"></h4>
-						</div>
-						<div class="col-md-8">
-							<input id="insertion_text" type="text" class="form-control">
-						</div>
-					</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal"><span class="language_area" id="textsnippets_close"></span></button>
-					<button id="textsnippets-add-button" type="button" class="btn btn-primary" onclick="addExtra()"><span class="language_area" id="textsnippets_add"></span></button>
 				</div>
 			</div>
 
