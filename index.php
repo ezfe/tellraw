@@ -85,7 +85,7 @@
 				</div>
 			</div>
 			<div style="display:none;" id="addExtraModalData">
-				<div class="row" id="modal_banners">
+				<div class="row" class="modal_banners">
 				</div>
 				<div class="row row-margin-top row-margin-bottom">
 					<div class="btn-group col-md-10">
