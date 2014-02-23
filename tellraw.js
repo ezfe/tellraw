@@ -361,7 +361,25 @@ function editExtra(index) {
 function saveExtraEdit(extraIndex) {
 	jobject.extra[extraIndex].color = getSelected("color_extra_edit");
 
-	jobject.extra[extraIndex].text = $('#text_extra_edit').val();
+	if ($('#obj_extra_container_edit').is(":visible")) {
+		jobject.extra[extraIndex].score = new Object;
+		jobject.extra[extraIndex].score.name = escapeQuotes($('#obj_player_edit').val());
+		jobject.extra[extraIndex].score.objective = escapeQuotes($('#obj_score_edit').val());
+	} else if ($('#text_extra_container_edit').is(":visible")) {
+		jobject.extra[extraIndex].text = $('#text_extra_edit').val();
+	} else if ($('#translate_selector_container_edit').is(":visible")) {
+		jobject.extra[extraIndex].translate = escapeQuotes(Object.keys(translationStrings)[getSelected('translate_selector_edit')]);
+		if (matchLength != 0) {
+			if (get_type(jobject.extra.with) != "[object Array]") {
+				jobject.extra[extraIndex].with = new Array();
+			}
+			for (var i = 0; i < matchLength; i++) {
+				jobject.extra[extraIndex].with[i] = $('#extraTranslationParameter'+i+'_edit').val();
+			};
+		}
+	} else {
+		alert('An unexpected error occured.');
+	}
 
 	delete jobject.extra[extraIndex].bold;
 	delete jobject.extra[extraIndex].italic;
