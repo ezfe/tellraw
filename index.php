@@ -6,7 +6,7 @@
 	<meta name="description" content="Tellraw Coder and Generator for Minecraft 1.7+"> 
 	<?php $modernizer = true; $jscolor = true; include($_SERVER['DOCUMENT_ROOT'] . "/includes/head.php"); ?>
 	<link rel="stylesheet" type="text/css" href="tellraw.css">
-	<script src="minecraftLanguageStrings.js"></script>
+	<script src="en_US.js"></script>
 	<script src="lang.js"></script>
 	<script src="tellraw.js"></script>
 	<meta charset="UTF-8">
