@@ -1049,10 +1049,4 @@ $( document ).ready(function(){
 		$(this).addClass('active');
 		refreshOutput();
 	});
-	$('.tooltipObject').mouseover(function(){
-		$(this).tooltip('show');
-	});
-	$('.tooltipObject').mouseout(function(){
-		$(this).tooltip('hide');
-	});
 });
