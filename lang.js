@@ -104,19 +104,20 @@ var lang =
 	},
 	"es_es":{
 		"alert":{
-			"receiveupdates":"Actualiza aqu&iacute; (\"Follow\" the topic)",
-			"changed":"Esta p&aacute;gina ha sido recientemente modificada, as&iacute; que podr&iacute;a haber algunos problemas. Recarga la p&aacute;gina si algo parece no funcionar bien."
+			"receiveupdates":"Mira las últimas actualizaciones aquí (Foro Oficial)",
+			"changed":"Esta página ha sido recientemente modificada, así que podría haber algunos problemas. Recarga la página si algo parece no funcionar bien."
 		},
 		"player":{
 			"header":"Jugador:",
-			"description":"(@a, @p, @r, o un jugador espec&iacute;fico)"
+			"description":"(@a, @p, @r, o un jugador específico)"
 		},
-		"header":"Generador de Tellraw para Minecraft 1.7+",
+		"header":"Generador del comando Tellraw para Minecraft 1.7+",
 		"textsnippets":{
-			"notext":"Sin texto",
-			"header":"Fragmento de Texto",
-			"nosnippets":"A&uacute;n no hay texto",
-			"addsnippet":"A&ntilde;adir texto",
+			"notext":"No hay texto todavía",
+			"header":"Fragmento/s de Texto",
+			"nosnippets":"Aún no hay texto",
+			"addsnippet":"Añadir Texto ",
+			"editsnippet":"Editar",
 			"close":"Cerrar",
 			"text":"Texto:",
 			"format":{
@@ -127,21 +128,21 @@ var lang =
 				"obfuscated":"Confuso"
 			},
 			"clickevent":{
-				"header":"Acci&oacute;n al hacer Clic:",
-				"runcommand":"Ejecutar Comando",
-				"suggestcommand":"Sugerir Comando",
+				"header":"Ejecutar al hacer clic:",
+				"runcommand":"Ejecutar comando",
+				"suggestcommand":"Introducir comando",
 				"openurl":"Abrir URL",
 				"none":"Nada"
 			},
 			"hoverevent":{
-				"header":"Acci&oacute;n al pasar el Puntero:",
-				"showtext":"Mostrar Texto",
-				"showitem":"Mostrar Item",
-				"showentity":"Mostrar Entidad",
-				"showachievement":"Mostrar Achievement",
+				"header":"Acción al pasar el Puntero:",
+				"showtext":"Mostrar texo",
+				"showitem":"Mostrar item",
+				"showentity":"Mostrar entidad",
+				"showachievement":"Mostrar Logro",
 				"name":"Nombre:",
 				"id":"ID:",
-				"type":"Escribir:",
+				"type":"Tipo:",
 				"none":"Nada"
 			},
 			"insertion":{
@@ -149,19 +150,22 @@ var lang =
 				"header_alt":"Insertar en Chat"
 			},
 			"warning":{
-				"title":"&iexcl;Cuidado!",
+				"title":"¡Cuidado!",
 				"text":"Necesitas %v para usar %f"
 			},
 			"insert":"Insertar",
-			"raw":"En Bruto",
-			"trn":"Traducido",
-			"parameter":"Par&aacute;metro"
+			"raw":"Texto Simple",
+			"trn":"Prediseñado",
+			"obj":"Logro",
+			"obj2":"Objetivo",
+			"player":"Jugador",
+			"parameter":"Parámetro"
 		},
-		"command":"Comando:",
+		"command":"Commando:",
 		"commandblock":"Tienes que ejecutar esto en la consola del servidor o en un bloque de comandos.",
 		"output":{
-			"header":"Vista Previa:",
-			"nothing":"Nada todav&iacute;a"
+			"header":"Vista Previa",
+			"nothing":"Nada todavía"
 		},
 		"color":{
 			"color_black":"Negro",
@@ -182,22 +186,22 @@ var lang =
 			"color_white":"Blanco"
 		},
 		"settings":{
-			"header":"Configuraci&oacute;n:",
+			"header":"Configuración:",
 			"import":"Importar",
-			"importtext":"Por favor, introduzca el comando tellraw. Utiliza el botón de Eliminar Todo si no lo importa correctamente.",
+			"importtext":"Introduzca el comando tellraw. Utiliza el botón de \"Eliminar Todo\" si no lo importa correctamente.",
 			"deleteall":{
-				"heading":"&iquest;&iquest;Est&aacute;s seguro??",
-				"body":"Hacer click en Eliminar quitar&aacute; todo el texto y lo sustituir&aacute; por una l&iacute;nea en blanco.",
+				"heading":"¿¿Estás seguro??",
+				"body":"\"Eliminar\" quitará todo el texto y lo sustituirá por una línea en blanco.",
 				"yes":"Eliminar Todo",
 				"no":"Cancelar"
 			},
-			"previewcolor":"Vista Previa del Fondo:"
+			"previewcolor":"Color de Vista Previa del Fondo:"
 		},
 		"language":{
-			"name":"Espa&ntilde;ol",
+			"name":"Español",
 			"header":"Idioma",
 			"translate":"Traducir",
-			"credit":"Translated by KaliNuska"
+			"credit":"Traducido por KaliNuska"
 		}
 	},
 	"cs_cz":{
@@ -294,24 +298,24 @@ var lang =
 	},
 	"pt_br":{
 		"alert":{
-			"receiveupdates":"Receba atualiza&ccedil;&otilde;es aqui (\"Siga\" o t&oacute;pico)",
-			"changed":"P&aacute;gina modificada recentemente. Recarregue a p&aacute;gina se algo parece n&atilde;o funcionar."
+			"receiveupdates":"Receba atualizações aqui (\"Siga\" o tópico)",
+			"changed":"Página modificada recentemente. Recarregue a página se algo parece não funcionar."
 		},
 		"player":{
 			"header":"Jogador:",
-			"description":"(@a, @p, @r, ou um jogador espec&iacute;fico)"
+			"description":"(@a, @p, @r, ou um jogador específico)"
 		},
 		"header":"Gerador de Tellraw para Minecraft 1.7+",
 		"textsnippets":{
-			"notext":"N&atilde;o h&aacute; texto",
+			"notext":"Não há texto",
 			"header":"Linhas de texto",
-			"nosnippets":"N&atilde;o h&aacute; texto ainda",
+			"nosnippets":"Não há texto ainda",
 			"addsnippet":"Adicionar texto",
 			"close":"Fechar",
 			"text":"Texto:",
 			"format":{
 				"bold":"Negrito",
-				"italic":"It&aacute;lico",
+				"italic":"Itálico",
 				"underlined":"Sublinhado",
 				"strikethrough":"Riscado",
 				"obfuscated":"Obfuscado"
@@ -335,12 +339,12 @@ var lang =
 				"none":"Nenhum"
 			},
 			"insertion":{
-				"header":"Inser&ccedil;&atilde;o:",
-				"header_alt":"Inser&ccedil;&atilde;o"
+				"header":"Inserção:",
+				"header_alt":"Inserção"
 			},
 			"warning":{
 				"title":"Aviso!",
-				"text":"Voc&ecirc; precisa da vers&atilde;o %v para usar %f"
+				"text":"Você precisa da versão %v para usar %f"
 			},
 			"insert":"Inserir",
 			"raw":"Raw",
@@ -348,19 +352,19 @@ var lang =
 			"obj":"Objetivo do Scoreboard",
 			"obj2":"Objetivo",
 			"player":"Jogador",
-			"parameter":"Par&acirc;metro"
+			"parameter":"Parâmetro"
 		},
 		"command":"Comando:",
-		"commandblock":"Este comando &eacute; grande demais para ser executado no chat.",
+		"commandblock":"Este comando é grande demais para ser executado no chat.",
 		"output":{
-			"header":"Previs&atilde;o:",
-			"nothing":"N&atilde;o h&aacute; nada para ver aqui."
+			"header":"Previsão:",
+			"nothing":"Não há nada para ver aqui."
 		},
 		"color":{
 			"color_black":"Preto",
 			"color_dark_blue":"Azul escuro",
 			"color_dark_green":"Verde escuro",
-			"color_dark_aqua":"Ci&acirc;no",
+			"color_dark_aqua":"Ciâno",
 			"color_dark_red":"Vermelho escuro",
 			"color_dark_purple":"Roxo",
 			"color_gold":"Laranja Ouro",
@@ -375,19 +379,19 @@ var lang =
 			"color_white":"Branco"
 		},
 		"settings":{
-			"header":"Op&ccedil;&otilde;es:",
+			"header":"Opções:",
 			"import":"Importar",
 			"importtext":"Digite ou cole o comando. Use o botão Deletar tudo no caso de erros.",
 			"deleteall":{
 				"heading":"Tem certeza?",
-				"body":"Voc&ecirc; perder&aacute; tudo o que fez ao clicar em Deletar tudo",
+				"body":"Você perderá tudo o que fez ao clicar em Deletar tudo",
 				"yes":"Deletar tudo",
 				"no":"Cancelar"
 			},
-			"previewcolor":"Cor de fundo da previs&atilde;o:"
+			"previewcolor":"Cor de fundo da previsão:"
 		},
 		"language":{
-			"name":"Portugu&ecirc;s Brasil",
+			"name":"Português Brasil",
 			"header":"Linguagem",
 			"translate":"Traduza sua lingua",
 			"credit":"Traduzido por Gerottinho"
