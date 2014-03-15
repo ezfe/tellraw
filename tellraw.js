@@ -1095,7 +1095,4 @@ $( document ).ready(function(){
 		$(this).addClass('active');
 		refreshOutput();
 	});
-	$( "#translate_extra" ).autocomplete({
-		source: [ "c++", "java", "php", "coldfusion", "javascript", "asp", "ruby" ]
-	});
 });
