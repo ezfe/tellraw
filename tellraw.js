@@ -302,7 +302,7 @@ var textExtraStorageVar; /*DO NOT USE*/
  }
  function editExtra(index) {
  	deleteModal('editExtra');
- 	createModal('editExtra',getLanguageString('textsnippets.editsnippet'),'Save','saveExtraEdit('+index+')','',true);
+ 	createModal('editExtra',getLanguageString('textsnippets.editsnippet'),'Save','saveExtraEdit('+index+')','',true,'Cancel','hideModal(\'editExtra\'); clearExtra()','',true);
  	setModalBody('editExtra',$('#editModalData').html());
  	if (jobject.extra[index].text != undefined) {
  		$('#obj_extra_container_edit').hide();
@@ -1044,7 +1044,7 @@ $( document ).ready(function(){
 		if (Modernizr.localstorage) localStorage['langCode'] = langCode;
 	}
 
-	createModal('addExtraModal',getLanguageString('textsnippets.addsnippet'),'Add','addExtra()', 'textsnippets-add-button', true);
+	createModal('addExtraModal',getLanguageString('textsnippets.addsnippet'),'Add','addExtra()', 'textsnippets-add-button', true,'Cancel','hideModal(\'addExtraModal\'); clearExtra()','',true);
 	setModalBody('addExtraModal',$('#addExtraModalData').html());
 
 	$('#player').change(function(){refreshOutput()}); 
