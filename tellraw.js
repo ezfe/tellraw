@@ -13,7 +13,7 @@ var selectedClick_edit;
 var downButton;
 var upButton;
 var extraTextFormat = 'raw';
-var colorExtraPreviewBox = '#FFFFFF';
+var colorExtraPreviewBox = '#617A80';
 var textExtraStorageVar; /*DO NOT USE*/
 
 /**
@@ -1027,7 +1027,11 @@ $( document ).ready(function(){
 	$('.extraTranslationParameterRow').hide();
 
 	if (Modernizr.localstorage) {
-		if (localStorage['color'] != undefined) $('#previewcolor').val(localStorage["color"]);
+		if (localStorage['color'] != undefined) {
+			$('#previewcolor').val(localStorage["color"]);	
+		} else {
+			$('#previewcolor').val('617A80');	
+		}
 		if (localStorage['jobject'] != undefined) {
 			jobject = JSON.parse(localStorage["jobject"]);	
 		}
@@ -1038,6 +1042,7 @@ $( document ).ready(function(){
 		}
 	} else {
 		langCode = 'en_us';
+		$('#previewcolor').val('617A80');	
 	}
 	if (langCode == undefined) {
 		langCode = 'en_us';
