@@ -956,12 +956,13 @@ function refreshLanguage(jQuery) {
 	$('.language_area#textsnippets_addsnippet').html(getLanguageString('textsnippets.addsnippet'));
 	$('.language_area#textsnippets_deleteall').html(getLanguageString('settings.deleteall.yes'));
 	$('.language_area#extraModalLabel').html(getLanguageString('textsnippets.addsnippet'));
-	$('.language_area#textsnippets_text').html(getLanguageString('textsnippets.text'));
+	$('.language_area#textsnippets_text').html(getLanguageString('textsnippets.text')+':');
 	$('#addExtra > .modal-dialog > .modal-content > .fmtExtraRaw').html(getLanguageString('textsnippets.raw'));
 	$('.language_area#fmtExtraTrn').html(getLanguageString('textsnippets.trn'));
 	$('.language_area#fmtExtraObj').html(getLanguageString('textsnippets.obj'));
 	$('#obj_player').attr('placeholder',getLanguageString('textsnippets.player'));
 	$('#obj_score').attr('placeholder',getLanguageString('textsnippets.obj2'));
+	$('#text_extra').attr('placeholder',getLanguageString('textsnippets.text'));
 	$('.language_area#textsnippets_bold').html(getLanguageString('textsnippets.format.bold'));
 	$('.language_area#textsnippets_italic').html(getLanguageString('textsnippets.format.italic'));
 	$('.language_area#textsnippets_underlined').html(getLanguageString('textsnippets.format.underlined'));

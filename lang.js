@@ -17,7 +17,7 @@ var lang =
 			"addsnippet": "Add Text",
 			"editsnippet": "Edit Text",
 			"close": "Close",
-			"text": "Text:",
+			"text": "Text",
 			"format": {
 				"bold": "Bold",
 				"italic": "Italic",
@@ -119,7 +119,7 @@ var lang =
 			"addsnippet": "Añadir Texto ",
 			"editsnippet": "Editar",
 			"close": "Cerrar",
-			"text": "Texto:",
+			"text": "Texto",
 			"format": {
 				"bold": "Negrita",
 				"italic": "Cursiva",
@@ -219,7 +219,7 @@ var lang =
 			"nosnippets": "Zatím žádný text",
 			"addsnippet": "Přidat text ",
 			"close": "Zavřít",
-			"text": "Text:",
+			"text": "Text",
 			"format": {
 				"bold": "Tučné",
 				"italic": "Kurzíva",
@@ -312,7 +312,7 @@ var lang =
 			"nosnippets": "Não há texto ainda",
 			"addsnippet": "Adicionar texto",
 			"close": "Fechar",
-			"text": "Texto:",
+			"text": "Texto",
 			"format": {
 				"bold": "Negrito",
 				"italic": "Itálico",
@@ -412,7 +412,7 @@ var lang =
 			"nosnippets": "Noch kein Text",
 			"addsnippet": "Text hinzufügen",
 			"close": "Schließen",
-			"text": "Text:",
+			"text": "Text",
 			"format": {
 				"bold": "Fett",
 				"italic": "Kursiv",
@@ -509,7 +509,7 @@ var lang =
 			"nosnippets": "Aucun texte",
 			"addsnippet": "Ajouter du texte",
 			"close": "Fermer",
-			"text": "Texte :",
+			"text": "Texte",
 			"format": {
 				"bold": "Gras",
 				"italic": "Italique",
@@ -594,7 +594,7 @@ var lang =
 			"nosnippets": "Nog geen tekst toegevoegd",
 			"addsnippet": "Voeg tekst toe",
 			"close": "Klaar",
-			"text": "Tekst:",
+			"text": "Tekst",
 			"format": {
 				"bold": "Vetgedrukt",
 				"italic": "Cursief",
@@ -679,7 +679,7 @@ var lang =
 			"nosnippets": "Еще нет текста",
 			"addsnippet": "Добавить текст",
 			"close": "Закрыть",
-			"text": "Текст:",
+			"text": "Текст",
 			"format": {
 				"bold": "Жирный",
 				"italic": "Курсив",
@@ -701,9 +701,15 @@ var lang =
 				"showachievement": "Показывать достижение",
 				"none": "Нечего"
 			},
+			"insertion": {
+				"header": "Вставка"
+			},
 			"insert": "Вставка",
 			"raw": "Обычный",
 			"trn": "Переведенный",
+			"obj": "Объектив ССИС",
+			"obj2": "Объектив",
+			"player": "Игрок",
 			"parameter": "Параметр"
 		},
 		"command": "Команда:",
@@ -766,7 +772,7 @@ var lang =
 			"nosnippets": "אין טקסט בינתיים",
 			"addsnippet": "הוסף טקסט",
 			"close": "סגור",
-			"text": "טקסט:",
+			"text": "טקסט",
 			"format": {
 				"bold": "מודגש",
 				"italic": "נטוי",
@@ -863,7 +869,7 @@ var lang =
 			"nosnippets": "還沒有文字",
 			"addsnippet": "加入文字",
 			"close": "關閉",
-			"text": "文字：",
+			"text": "文字",
 			"format": {
 				"bold": "粗體",
 				"italic": "斜體",

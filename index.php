@@ -104,7 +104,7 @@
 						</div>
 					</div>
 					<div class="col-md-7" id="text_extra_container">
-						<input placeholder="Text" id="text_extra" type="text" class="form-control">
+						<input id="text_extra" type="text" class="form-control">
 					</div>
 					<div class="col-md-7" id="translate_selector_container">
 						<select class="form-control" id="translate_selector"></select>
