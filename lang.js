@@ -38,14 +38,13 @@ var lang =
 				"showitem": "Show Item",
 				"showentity": "Show Entity",
 				"showachievement": "Show Achievement",
-				"name": "Name:",
+				"name": "Name",
 				"id": "ID:",
 				"type": "Type:",
 				"none": "None"
 			},
 			"insertion": {
-				"header": "Insertion:",
-				"header_alt": "Insertion"
+				"header": "Insertion",
 			},
 			"warning": {
 				"title": "Warning!",
@@ -140,14 +139,13 @@ var lang =
 				"showitem": "Mostrar item",
 				"showentity": "Mostrar entidad",
 				"showachievement": "Mostrar Logro",
-				"name": "Nombre:",
+				"name": "Nombre",
 				"id": "ID:",
 				"type": "Tipo:",
 				"none": "Nada"
 			},
 			"insertion": {
-				"header": "Insertar en Chat:",
-				"header_alt": "Insertar en Chat"
+				"header": "Insertar en Chat",
 			},
 			"warning": {
 				"title": "¡Cuidado!",
@@ -240,7 +238,7 @@ var lang =
 				"showitem": "Ukázat předmět (item)",
 				"showentity": "Ukázat subjekt (žijící věc, entity)",
 				"showachievement": "Ukázat ocenění (achievement)",
-				"name": "Jméno:",
+				"name": "Jméno",
 				"id": "ID:",
 				"type": "Typ:",
 				"none": "Nic"
@@ -333,14 +331,13 @@ var lang =
 				"showitem": "Exibir item",
 				"showentity": "Exibir Entity",
 				"showachievement": "Exibir conquista",
-				"name": "Nome:",
+				"name": "Nome",
 				"id": "ID:",
 				"type": "Tipo:",
 				"none": "Nenhum"
 			},
 			"insertion": {
-				"header": "Inserção:",
-				"header_alt": "Inserção"
+				"header": "Inserção"
 			},
 			"warning": {
 				"title": "Aviso!",
@@ -433,14 +430,13 @@ var lang =
 				"showitem": "Zeige Item",
 				"showentity": "Zeige Entity",
 				"showachievement": "Zeige Errungenschaft",
-				"name": "Name:",
+				"name": "Name",
 				"id": "ID:",
 				"type": "Typ:",
 				"none": "Keine"
 			},
 			"insertion": {
-				"header": "Einfügung:",
-				"header_alt": "Einfügung"
+				"header": "Einfügung"
 			},
 			"warning": {
 				"title": "Warnung!",
@@ -793,14 +789,13 @@ var lang =
 				"showitem": "הצג פריט",
 				"showentity": "הצג חיה\מוב",
 				"showachievement": "הצג הישג",
-				"name": "שם:",
+				"name": "שם",
 				"id": "מספר זיהוי:",
 				"type": "סוג:",
 				"none": "ללא"
 			},
 			"insertion": {
-				"header": "תוספת:",
-				"header_alt": "תוספת"
+				"header": "תוספת",
 			},
 			"warning": {
 				"title": "אזהרה!",
@@ -890,13 +885,12 @@ var lang =
 				"showitem": "顯示物品",
 				"showentity": "顯示實體",
 				"showachievement": "顯示成就",
-				"name": "名稱：",
+				"name": "名稱",
 				"type": "類型：",
 				"none": "無"
 			},
 			"insertion": {
-				"header": "插入：",
-				"header_alt": "插入"
+				"header": "插入",
 			},
 			"insert": "插入",
 			"raw": "自訂",
