@@ -16,7 +16,7 @@
 	<div class="row">
 		<div class="col-md-5 col-xs-12">
 			<h4 class="language_area" id="page_header">
-				Tellraw Generator for Minecraft 1.7+
+				Tellraw Command Generator for Minecraft 1.7+
 			</h4>
 		</div>
 		<div class="col-md-1 col-xs-12 row-margin-top row-margin-bottom">
