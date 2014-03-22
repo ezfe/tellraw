@@ -14,10 +14,15 @@
 <body class="minecraft">
 	<?php if (!@$_GET['condensed']) { include($_SERVER['DOCUMENT_ROOT'] . "/includes/navbar.php"); ?>
 	<div class="row">
-		<div class="col-md-5 col-xs-12">
+		<div class="col-md-3 col-xs-12">
 			<h4 class="language_area" id="page_header">
 				Tellraw Command Generator for Minecraft 1.7+
 			</h4>
+		</div>
+		<div class="col-md-2 col-xs-12 row-margin-top row-margin-bottom">
+				<a href="download" class="btn btn-block btn-xs btn-default">
+					<span class="glyphicon glyphicon-download"></span> Beta Download
+				</a>
 		</div>
 		<div class="col-md-1 col-xs-12 row-margin-top row-margin-bottom">
 			<div class="btn-group btn-block">
