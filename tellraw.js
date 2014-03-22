@@ -960,7 +960,7 @@ function refreshLanguage(jQuery) {
 	$('.language_area#settings').html(getLanguageString('settings.header'));
 	$('.language_area#output_header').html(getLanguageString('output.header'));
 	$('.language_area#jsonPreview').html(getLanguageString('output.nothing'));
-	$('.language_area#lang_credit').html(getLanguageString('language.credit'));
+	$('.language_area#lang_credit').html(getLanguageString('language.credit').replace(/@([a-zA-Z0-9]+)/g,'<a href="http://twitter.com/$1">@$1</a>'));
 	$('.language_area#color_black').html(getLanguageString('color.color_black'));
 	$('.language_area#color_dark_blue').html(getLanguageString('color.color_dark_blue'));
 	$('.language_area#color_dark_green').html(getLanguageString('color.color_dark_green'));
