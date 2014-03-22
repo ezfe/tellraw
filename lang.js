@@ -403,7 +403,7 @@ var lang =
 			"header": "Spieler:",
 			"description": "(@a, @p, @r, oder ein bestimmter Spieler)"
 		},
-		"header": "Tellraw Befehls Generator für Minecraft 1.7+",
+		"header": "Tellraw Befehlsgenerator für Minecraft 1.7+",
 		"textsnippets": {
 			"header": "Textabschnitt",
 			"nosnippets": "Noch kein Text",
@@ -474,20 +474,20 @@ var lang =
 		"settings": {
 			"header": "Einstellungen:",
 			"import": "Importieren",
-			"importtext": "Bitte gib hier den /tellraw Befehl ein. Benutze den 'Alles Löschen' Knopf, falls der Befehl falsch importiert wurde.",
+			"importtext": "Bitte gib hier den /tellraw Befehl ein. Benutze den 'Alles löschen' Knopf, falls der Befehl falsch importiert wurde.",
 			"deleteall": {
 				"heading": "Bist du sicher!?!",
-				"body": "Durch Drücken von 'Alles Löschen' werden alle deine Textabschnitte gelöscht.",
-				"yes": "Alles Löschen",
+				"body": "Durch Drücken von 'Alles löschen' werden alle deine Textabschnitte gelöscht.",
+				"yes": "Alles löschen",
 				"no": "Abbrechen"
 			},
-			"previewcolor": "Hintergrundfarbe der Vorschau:"
+			"previewcolor": "Hintergrundfarbe für die Vorschau:"
 		},
 		"language": {
 			"name": "Deutsch",
 			"header": "Sprache",
 			"translate": "Übersetzten",
-			"credit": "Übersetzt von @MrTom0075, @shoutlike und TheRealMinec"
+			"credit": "Übersetzt von @MrTom0075, @shoutlike, Jar und TheRealMinec"
 		}
 	},
 	"fr_fr": {
