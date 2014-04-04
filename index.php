@@ -19,12 +19,7 @@
 				Tellraw Command Generator for Minecraft 1.7+
 			</h4>
 		</div>
-		<div class="col-md-2 col-xs-12 row-margin-top row-margin-bottom">
-				<a href="download" class="btn btn-block btn-xs btn-default">
-					<span class="glyphicon glyphicon-download"></span> Beta Download
-				</a>
-		</div>
-		<div class="col-md-1 col-xs-12 row-margin-top row-margin-bottom">
+		<div class="col-md-1 col-md-offset-1 col-xs-12 row-margin-top row-margin-bottom">
 			<div class="btn-group btn-block">
 				<button type="button" class="btn btn-block btn-xs btn-default dropdown-toggle" data-toggle="dropdown">
 					<span class="glyphicon glyphicon-share-alt"></span>
@@ -34,7 +29,7 @@
 				</ul>
 			</div>
 		</div>
-		<div class="col-md-4 col-xs-12 row-margin-top row-margin-bottom">
+		<div class="col-md-5 col-xs-12 row-margin-top row-margin-bottom">
 			<a href="http://www.minecraftforum.net/topic/1980545-" id="receive_updates" class="language_area btn btn-block btn-xs btn-success">Receive updates here ("Follow" the topic)</a>
 		</div>
 		<div class="col-md-2 col-xs-12 row-margin-top row-margin-bottom">
