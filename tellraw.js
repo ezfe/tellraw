@@ -354,7 +354,7 @@ function makeModals() {
  	$('.language_area#hoverevent_none_edit').html(getLanguageString('textsnippets.hoverevent.none'));
  	$('.language_area#hoverevent_show_text_edit').html(getLanguageString('textsnippets.hoverevent.showtext'));
  	$('.language_area#hoverevent_show_item_edit').html(getLanguageString('textsnippets.hoverevent.showitem'));
- 	$('.language_area#hoverevent_show_entity_edit').html(getLanguageString('textsnippets.hoverevent.showentity'));
+ 	$('.language_area#hoverevent_show_entity_edit').html(getLanguageString('textsnippets.hoverevent.showentity')+' (1.8)');
  	$('.language_area#hoverevent_show_achievement_edit').html(getLanguageString('textsnippets.hoverevent.showachievement'));
  	$('.language_area#hoverevent_entity_name_edit').html(getLanguageString('textsnippets.hoverevent.name')+':');
  	$('.language_area#hoverevent_entity_id_edit').html(getLanguageString('textsnippets.hoverevent.id'));
@@ -940,7 +940,7 @@ function refreshLanguage(jQuery) {
 	$('.language_area#textsnippets_text').html(getLanguageString('textsnippets.text')+':');
 	$('#addExtra > .modal-dialog > .modal-content > .fmtExtraRaw').html(getLanguageString('textsnippets.raw'));
 	$('.language_area#fmtExtraTrn').html(getLanguageString('textsnippets.trn'));
-	$('.language_area#fmtExtraObj').html(getLanguageString('textsnippets.obj'));
+	$('.language_area#fmtExtraObj').html(getLanguageString('textsnippets.obj')+' (1.8)');
 	$('#obj_player').attr('placeholder',getLanguageString('textsnippets.player'));
 	$('#obj_score').attr('placeholder',getLanguageString('textsnippets.obj2'));
 	$('#text_extra').attr('placeholder',getLanguageString('textsnippets.text'));
@@ -984,7 +984,7 @@ function refreshLanguage(jQuery) {
 	$('.language_area#hoverevent_none').html(getLanguageString('textsnippets.hoverevent.none'));
 	$('.language_area#hoverevent_show_text').html(getLanguageString('textsnippets.hoverevent.showtext'));
 	$('.language_area#hoverevent_show_item').html(getLanguageString('textsnippets.hoverevent.showitem'));
-	$('.language_area#hoverevent_show_entity').html(getLanguageString('textsnippets.hoverevent.showentity'));
+	$('.language_area#hoverevent_show_entity').html(getLanguageString('textsnippets.hoverevent.showentity')+' (1.8)');
 	$('.language_area#hoverevent_show_achievement').html(getLanguageString('textsnippets.hoverevent.showachievement'));
 	$('.language_area#hoverevent_entity_name').html(getLanguageString('textsnippets.hoverevent.name')+':');
 	$('.language_area#hoverevent_entity_id').html(getLanguageString('textsnippets.hoverevent.id'));
