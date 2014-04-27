@@ -921,9 +921,12 @@ function jsonParse() {
 		setTimeout(obfuscationPreviewHandler, 20);
 	}
 }
-function refreshLanguage(jQuery) {
+function refreshLanguage(dropdownSelection) {
 	if (Modernizr.localstorage) {
 		localStorage['langCode'] = langCode;
+	}
+	if (dropdownSelection) {
+		alert('There is currently a bug where some buttons do not work when the language is changed. The page will now reload to fix the buttons.\n\nIf your language settings do not stay, please contact me at mail@ezekielelin.com');
 	}
 	$('.language_area#language_button_text').html(getLanguageString('language.header'));
 	$('.language_area#language_select_translate').html(getLanguageString('language.translate'));
@@ -1000,10 +1003,14 @@ function refreshLanguage(jQuery) {
 	$('.language_area#parameter6').html(getLanguageString('textsnippets.parameter')+' 6');
 
 	makeModals();
+
+	if (dropdownSelection) {
+		location.reload();
+	}
 }
 $( document ).ready(function(){
 	for (var i = 0; i < Object.keys(lang).length; i++) {
-		$('#language_keys').append('<li><a onclick="langCode=\''+Object.keys(lang)[i]+'\'; refreshLanguage(); refreshOutput();"><span class="'+Object.keys(lang)[i]+' langSelect language_area" id="language_select_'+Object.keys(lang)[i]+'">'+lang[Object.keys(lang)[i]].language.name+'</span></a></li>');
+		$('#language_keys').append('<li><a onclick="langCode=\''+Object.keys(lang)[i]+'\'; refreshLanguage(true); refreshOutput();"><span class="'+Object.keys(lang)[i]+' langSelect language_area" id="language_select_'+Object.keys(lang)[i]+'">'+lang[Object.keys(lang)[i]].language.name+'</span></a></li>');
 	};
 	$('#language_keys').append('<li class="divider"></li>');
 	$('#language_keys').append('<li><a href="mailto:translate@ezekielelin.com"><span class="language_area" id="language_select_translate">Translate</span></a></li>');
