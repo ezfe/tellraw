@@ -925,7 +925,8 @@ function refreshLanguage(dropdownSelection) {
 	if (Modernizr.localstorage) {
 		localStorage['langCode'] = langCode;
 	}
-	if (dropdownSelection) {
+	if (dropdownSelection && localStorage['langDialog'] !== 'shown') {
+		localStorage['langDialog'] = 'shown';
 		alert('There is currently a bug where some buttons do not work when the language is changed. The page will now reload to fix the buttons.\n\nIf your language settings do not stay, please contact me at mail@ezekielelin.com');
 	}
 	$('.language_area#language_button_text').html(getLanguageString('language.header'));
