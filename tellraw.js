@@ -1044,8 +1044,8 @@ $( document ).ready(function(){
 	$('#player').change(function(){refreshOutput()}); 
 	$('#import').click(function() {
 		var inpt = prompt(getLanguageString('settings.importtext',false));
-		var inpt = inpt.substring(inpt.indexOf("{"));
-		jobject = JSON.parse(inpt);
+		$('#player').val(inpt.substring(inpt.indexOf("@"),inpt.indexOf("{")-1));
+		jobject = JSON.parse(inpt.substring(inpt.indexOf("{")));
 		refreshOutput();
 	});
 	var translationOptionList = "";
