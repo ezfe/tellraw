@@ -54,7 +54,24 @@
 					<span class="language_area" lang="player.header"></span><br>
 					<span class="language_area" lang="player.description"></span>
 				</div>
-				<div class="col-md-10 col-xs-12 row-margin-top row-margin-bottom">
+				<div class="col-md-2 col-xs-12 row-margin-top row-margin-bottom">
+					<select id="command_drop_down" class="form-control">
+						<option>tellraw</option>
+						<option>execute</option>
+					</select>
+				</div>
+				<div class="col-md-2 col-xs-12 row-margin-top row-margin-bottom execute_command_container" style="display:none;">
+					<input value="@a" id="execute_player" type="text" class="form-control">
+				</div>
+				<div class="col-md-2 col-xs-12 row-margin-top row-margin-bottom execute_command_container" style="display:none;">
+					<input value="~ ~ ~" id="execute_coordinates" type="text" class="form-control">
+				</div>
+				<div class="col-md-2 col-xs-12 row-margin-top row-margin-bottom execute_command_container" style="display:none;">
+					<select class="form-control">
+						<option>tellraw</option>
+					</select>
+				</div>
+				<div class="col-md-8 col-xs-12 row-margin-top row-margin-bottom player_container">
 					<input value="@a" id="player" type="text" class="form-control">
 				</div>
 			</div>
