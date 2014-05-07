@@ -929,79 +929,20 @@ function refreshLanguage(dropdownSelection) {
 		localStorage['langDialog'] = 'shown';
 		alert('There is currently a bug where some buttons do not work when the language is changed. The page will now reload to fix the buttons.\n\nIf your language settings do not stay, please contact me at mail@ezekielelin.com');
 	}
-	$('.language_area#language_button_text').html(getLanguageString('language.header'));
-	$('.language_area#language_select_translate').html(getLanguageString('language.translate'));
-	$('.language_area#receive_updates').html(getLanguageString('alert.receiveupdates'));
-	$('.language_area#page_header').html(getLanguageString('header'));
-	$('.language_area#recent_modify_alert').html(getLanguageString('alert.changed'));
-	$('.language_area#player_header').html(getLanguageString('player.header'));
-	$('.language_area#player_description').html(getLanguageString('player.description'));
-	$('.language_area#textsnippets_header').html(getLanguageString('textsnippets.header'));
-	$('.language_area#textsnippets_nosnippets').html(getLanguageString('textsnippets.nosnippets'));
-	$('.language_area#textsnippets_addsnippet').html(getLanguageString('textsnippets.addsnippet'));
-	$('.language_area#textsnippets_deleteall').html(getLanguageString('settings.deleteall.yes'));
-	$('.language_area#extraModalLabel').html(getLanguageString('textsnippets.addsnippet'));
-	$('.language_area#textsnippets_text').html(getLanguageString('textsnippets.text')+':');
-	$('#addExtra > .modal-dialog > .modal-content > .fmtExtraRaw').html(getLanguageString('textsnippets.raw'));
-	$('.language_area#fmtExtraTrn').html(getLanguageString('textsnippets.trn'));
-	$('.language_area#fmtExtraObj').html(getLanguageString('textsnippets.obj')+' (1.8)');
+
+	$('.language_area').each(function(){
+		var langStr = 'undefined';
+		if ($(this).attr('id') != undefined) {
+			langStr = $(this).attr('id');
+		}
+		if ($(this).attr('lang') != undefined) {
+			langStr = getLanguageString($(this).attr('lang'));
+		}
+		$(this).html(langStr);
+	});
 	$('#obj_player').attr('placeholder',getLanguageString('textsnippets.player'));
 	$('#obj_score').attr('placeholder',getLanguageString('textsnippets.obj2'));
 	$('#text_extra').attr('placeholder',getLanguageString('textsnippets.text'));
-	$('.language_area#textsnippets_bold').html(getLanguageString('textsnippets.format.bold'));
-	$('.language_area#textsnippets_italic').html(getLanguageString('textsnippets.format.italic'));
-	$('.language_area#textsnippets_underlined').html(getLanguageString('textsnippets.format.underlined'));
-	$('.language_area#textsnippets_strikethrough').html(getLanguageString('textsnippets.format.strikethrough'));
-	$('.language_area#textsnippets_obfuscated').html(getLanguageString('textsnippets.format.obfuscated'));
-	$('.language_area#textsnippets_clickevent_header').html(getLanguageString('textsnippets.clickevent.header'));
-	$('.language_area#textsnippets_hoverevent_header').html(getLanguageString('textsnippets.hoverevent.header'));
-	$('.language_area#textsnippets_insertion_header').html(getLanguageString('textsnippets.insertion.header')+':');
-	$('.language_area#textsnippets_insert').html(getLanguageString('textsnippets.insert'));
-	$('.language_area#textsnippets_close').html(getLanguageString('textsnippets.close'));
-	$('.language_area#textsnippets_add').html(getLanguageString('textsnippets.addsnippet'));
-	$('.language_area#command').html(getLanguageString('command'));
-	$('.language_area#commandblock').html(getLanguageString('commandblock'));
-	$('.language_area#settings').html(getLanguageString('settings.header'));
-	$('.language_area#output_header').html(getLanguageString('output.header'));
-	$('.language_area#jsonPreview').html(getLanguageString('output.nothing'));
-	$('.language_area#lang_credit').html(getLanguageString('language.credit').replace(/@([a-zA-Z0-9]+)/g,'<a href="http://twitter.com/$1">@$1</a>'));
-	$('.language_area#color_black').html(getLanguageString('color.color_black'));
-	$('.language_area#color_dark_blue').html(getLanguageString('color.color_dark_blue'));
-	$('.language_area#color_dark_green').html(getLanguageString('color.color_dark_green'));
-	$('.language_area#color_dark_aqua').html(getLanguageString('color.color_dark_aqua'));
-	$('.language_area#color_dark_red').html(getLanguageString('color.color_dark_red'));
-	$('.language_area#color_dark_purple').html(getLanguageString('color.color_dark_purple'));
-	$('.language_area#color_gold').html(getLanguageString('color.color_gold'));
-	$('.language_area#color_gray').html(getLanguageString('color.color_gray'));
-	$('.language_area#color_dark_gray').html(getLanguageString('color.color_dark_gray'));
-	$('.language_area#color_blue').html(getLanguageString('color.color_blue'));
-	$('.language_area#color_green').html(getLanguageString('color.color_green'));
-	$('.language_area#color_aqua').html(getLanguageString('color.color_aqua'));
-	$('.language_area#color_red').html(getLanguageString('color.color_red'));
-	$('.language_area#color_light_purple').html(getLanguageString('color.color_light_purple'));
-	$('.language_area#color_yellow').html(getLanguageString('color.color_yellow'));
-	$('.language_area#color_white').html(getLanguageString('color.color_white'));
-	$('.language_area#clickevent_none').html(getLanguageString('textsnippets.clickevent.none'));
-	$('.language_area#clickevent_runcommand').html(getLanguageString('textsnippets.clickevent.runcommand'));
-	$('.language_area#clickevent_suggestcommand').html(getLanguageString('textsnippets.clickevent.suggestcommand'));
-	$('.language_area#clickevent_openurl').html(getLanguageString('textsnippets.clickevent.openurl'));
-	$('.language_area#hoverevent_none').html(getLanguageString('textsnippets.hoverevent.none'));
-	$('.language_area#hoverevent_show_text').html(getLanguageString('textsnippets.hoverevent.showtext'));
-	$('.language_area#hoverevent_show_item').html(getLanguageString('textsnippets.hoverevent.showitem'));
-	$('.language_area#hoverevent_show_entity').html(getLanguageString('textsnippets.hoverevent.showentity')+' (1.8)');
-	$('.language_area#hoverevent_show_achievement').html(getLanguageString('textsnippets.hoverevent.showachievement'));
-	$('.language_area#hoverevent_entity_name').html(getLanguageString('textsnippets.hoverevent.name')+':');
-	$('.language_area#hoverevent_entity_id').html(getLanguageString('textsnippets.hoverevent.id'));
-	$('.language_area#hoverevent_entity_type').html(getLanguageString('textsnippets.hoverevent.type'));
-	$('.language_area#previewcolorlabel').html(getLanguageString('settings.previewcolor'));
-	$('.language_area#import').html(getLanguageString('settings.import'));
-	$('.language_area#parameter0').html(getLanguageString('textsnippets.parameter')+' 0');
-	$('.language_area#parameter1').html(getLanguageString('textsnippets.parameter')+' 1');
-	$('.language_area#parameter2').html(getLanguageString('textsnippets.parameter')+' 2');
-	$('.language_area#parameter3').html(getLanguageString('textsnippets.parameter')+' 3');
-	$('.language_area#parameter4').html(getLanguageString('textsnippets.parameter')+' 4');
-	$('.language_area#parameter5').html(getLanguageString('textsnippets.parameter')+' 5');
-	$('.language_area#parameter6').html(getLanguageString('textsnippets.parameter')+' 6');
 
 	makeModals();
 
@@ -1011,10 +952,10 @@ function refreshLanguage(dropdownSelection) {
 }
 $( document ).ready(function(){
 	for (var i = 0; i < Object.keys(lang).length; i++) {
-		$('#language_keys').append('<li><a onclick="langCode=\''+Object.keys(lang)[i]+'\'; refreshLanguage(true); refreshOutput();"><span class="'+Object.keys(lang)[i]+' langSelect language_area" id="language_select_'+Object.keys(lang)[i]+'">'+lang[Object.keys(lang)[i]].language.name+'</span></a></li>');
+		$('#language_keys').append('<li><a onclick="langCode=\''+Object.keys(lang)[i]+'\'; refreshLanguage(true); refreshOutput();"><span class="'+Object.keys(lang)[i]+' langSelect" id="language_select_'+Object.keys(lang)[i]+'">'+lang[Object.keys(lang)[i]].language.name+'</span></a></li>');
 	};
 	$('#language_keys').append('<li class="divider"></li>');
-	$('#language_keys').append('<li><a href="mailto:translate@ezekielelin.com"><span class="language_area" id="language_select_translate">Translate</span></a></li>');
+	$('#language_keys').append('<li><a href="mailto:translate@ezekielelin.com"><span class="language_area" lang="language.translate"></span></a></li>');
 
 	$('.extraTranslationParameterRow').hide();
 
