@@ -54,13 +54,10 @@ function html_encode(string,do_encode) {
 	return ret_val;
 }
 
-function makeModals() {
-	deleteModal('addExtraModal');
-	createModal('addExtraModal',getLanguageString('textsnippets.addsnippet'),getLanguageString('textsnippets.addsnippet'),'addExtra()', 'textsnippets-add-button', true,getLanguageString('textsnippets.close'),'hideModal(\'addExtraModal\'); clearExtra()','',true);
-	setModalBody('addExtraModal',$('#addExtraModalData').html());
-}
-
 function getLanguageString(string,enTest,do_encode) {
+	if (enTest) {
+		console.log(langCode+': '+string);
+	}
 	if (do_encode !== false) {
 		if (do_encode === undefined) {
 			var do_encode = true;
@@ -322,45 +319,8 @@ function editExtra(index) {
 		$('#obj_player_edit').val(jobject.extra[index].score.name);
 		$('#obj_score_edit').val(jobject.extra[index].score.objective);
 	}
-	$('.language_area#color_black_edit').html(getLanguageString('color.color_black'));
-	$('.language_area#color_dark_blue_edit').html(getLanguageString('color.color_dark_blue'));
-	$('.language_area#color_dark_green_edit').html(getLanguageString('color.color_dark_green'));
-	$('.language_area#color_dark_aqua_edit').html(getLanguageString('color.color_dark_aqua'));
-	$('.language_area#color_dark_red_edit').html(getLanguageString('color.color_dark_red'));
-	$('.language_area#color_dark_purple_edit').html(getLanguageString('color.color_dark_purple'));
-	$('.language_area#color_gold_edit').html(getLanguageString('color.color_gold'));
-	$('.language_area#color_gray_edit').html(getLanguageString('color.color_gray'));
-	$('.language_area#color_dark_gray_edit').html(getLanguageString('color.color_dark_gray'));
-	$('.language_area#color_blue_edit').html(getLanguageString('color.color_blue'));
-	$('.language_area#color_green_edit').html(getLanguageString('color.color_green'));
-	$('.language_area#color_aqua_edit').html(getLanguageString('color.color_aqua'));
-	$('.language_area#color_red_edit').html(getLanguageString('color.color_red'));
-	$('.language_area#color_light_purple_edit').html(getLanguageString('color.color_light_purple'));
-	$('.language_area#color_yellow_edit').html(getLanguageString('color.color_yellow'));
-	$('.language_area#color_white_edit').html(getLanguageString('color.color_white'));
-	$('.language_area#textsnippets_bold_edit').html(getLanguageString('textsnippets.format.bold'));
-	$('.language_area#textsnippets_italic_edit').html(getLanguageString('textsnippets.format.italic'));
-	$('.language_area#textsnippets_underlined_edit').html(getLanguageString('textsnippets.format.underlined'));
-	$('.language_area#textsnippets_strikethrough_edit').html(getLanguageString('textsnippets.format.strikethrough'));
-	$('.language_area#textsnippets_obfuscated_edit').html(getLanguageString('textsnippets.format.obfuscated'));
-	$('.language_area#textsnippets_clickevent_header_edit').html(getLanguageString('textsnippets.clickevent.header'));
-	$('.language_area#textsnippets_hoverevent_header_edit').html(getLanguageString('textsnippets.hoverevent.header'));
-	$('.language_area#textsnippets_insertion_header_edit').html(getLanguageString('textsnippets.insertion.header'));
-	$('.language_area#textsnippets_insert_edit').html(getLanguageString('textsnippets.insert'));
 
-	$('.language_area#clickevent_none_edit').html(getLanguageString('textsnippets.clickevent.none'));
-	$('.language_area#clickevent_runcommand_edit').html(getLanguageString('textsnippets.clickevent.runcommand'));
-	$('.language_area#clickevent_suggestcommand_edit').html(getLanguageString('textsnippets.clickevent.suggestcommand'));
-	$('.language_area#clickevent_openurl_edit').html(getLanguageString('textsnippets.clickevent.openurl'));
-	$('.language_area#hoverevent_none_edit').html(getLanguageString('textsnippets.hoverevent.none'));
-	$('.language_area#hoverevent_show_text_edit').html(getLanguageString('textsnippets.hoverevent.showtext'));
-	$('.language_area#hoverevent_show_item_edit').html(getLanguageString('textsnippets.hoverevent.showitem'));
-	$('.language_area#hoverevent_show_entity_edit').html(getLanguageString('textsnippets.hoverevent.showentity')+' (1.8)');
-	$('.language_area#hoverevent_show_achievement_edit').html(getLanguageString('textsnippets.hoverevent.showachievement'));
-	$('.language_area#hoverevent_entity_name_edit').html(getLanguageString('textsnippets.hoverevent.name')+':');
-	$('.language_area#hoverevent_entity_id_edit').html(getLanguageString('textsnippets.hoverevent.id'));
-	$('.language_area#hoverevent_entity_type_edit').html(getLanguageString('textsnippets.hoverevent.type'));
-
+	refreshLanguage();
 
 	$('#colorPreviewColor_edit').css('background-color',getCSSHEXFromWord(jobject.extra[index].color));
 	$("#color_extra_edit").val(jobject.extra[index].color);
@@ -509,6 +469,11 @@ function modifyExtraText(index,text) {
 	}
 	refreshOutput();
 }
+function cancelAddExtra() {
+	$('#snippetsWell').show();
+	$('#addExtraModalData').hide();
+	clearExtra();
+}
 function addExtra() {
 	if (extraTextFormat == 'raw' && $('#text_extra').val() == '') {
 		$('#text_extra_container').addClass('has-error');
@@ -518,7 +483,8 @@ function addExtra() {
 		$('#textsnippets-add-button').addClass('btn-danger');
 		return false;
 	} else {
-		$('#addExtra').modal('toggle');
+		$('#snippetsWell').show();
+		$('#addExtraModalData').hide();
 	}
 
 	if (get_type(jobject.extra) != "[object Array]") {
@@ -1003,14 +969,17 @@ $( document ).ready(function(){
 		}
 	});
 	refreshLanguage();
-	makeModals();
 	refreshOutput();
 	$('.fmtExtra').on('click', function(){
-		console.log($(this));
 		extraTextFormat = $(this).attr('tellrawType');
 		$('.fmtExtra').removeClass('active');
 		$(this).addClass('active');
 		refreshOutput();
+	});
+
+	$('#addExtraButton').on('click',function(){
+		$('#snippetsWell').hide();
+		$('#addExtraModalData').show();
 	});
 });
 
