@@ -812,10 +812,7 @@ function refreshOutput(input) {
 		document.getElementById("click_selector_edit").disabled = true;
 		document.getElementById("insertClick_edit").disabled = true;
 	}
-	var commandString = 'tellraw '+$("#player").val();
-	if ($('#command_drop_down').val() == 'execute') {
-		commandString = 'execute '+$('#execute_player').val()+' '+$('#execute_coordinates').val()+' tellraw '+$("#player").val();
-	}
+	var commandString = $('#command').val()+' '+$("#player").val();
 	$('#outputtextfield').val(commandString+' '+JSON.stringify(jobject));
 	$('#nicelookingoutput').html(commandString+'<br>'+JSON.stringify(jobject, null, 4));
 	jsonParse();
@@ -826,6 +823,8 @@ function refreshOutput(input) {
 		$('#commandblock').hide();
 	}
 	if (Modernizr.localstorage) localStorage['jobject'] = JSON.stringify(jobject);
+	if (Modernizr.localstorage) localStorage['jcommand'] = $('#command').val();
+	if (Modernizr.localstorage) localStorage['jplayer'] = $('#player').val();
 
 	if (input != 'noLoop' && input != 'previewLineChange') {
 		refreshOutput('noLoop');
@@ -929,10 +928,6 @@ function refreshLanguage(dropdownSelection) {
 	if (Modernizr.localstorage) {
 		localStorage['langCode'] = langCode;
 	}
-	if (dropdownSelection && localStorage['langDialog'] !== 'shown') {
-		localStorage['langDialog'] = 'shown';
-		alert('There is currently a bug where some buttons do not work when the language is changed. The page will now reload to fix the buttons.\n\nIf your language settings do not stay, please contact me at mail@ezekielelin.com');
-	}
 	$('.language_area').each(function(){
 		var langStr = 'undefined';
 		if ($(this).attr('id') != undefined) {
@@ -946,12 +941,6 @@ function refreshLanguage(dropdownSelection) {
 	$('#obj_player').attr('placeholder',getLanguageString('textsnippets.player'));
 	$('#obj_score').attr('placeholder',getLanguageString('textsnippets.obj2'));
 	$('#text_extra').attr('placeholder',getLanguageString('textsnippets.text'));
-
-	makeModals();
-
-	if (dropdownSelection) {
-		location.reload();
-	}
 }
 $( document ).ready(function(){
 	for (var i = 0; i < Object.keys(lang).length; i++) {
@@ -971,14 +960,18 @@ $( document ).ready(function(){
 		jobject = JSON.parse(localStorage["jobject"]);	
 	}
 
-	$('#player').change(function(){refreshOutput()}); 
+	$('#command').val(localStorage['jcommand']);
+	$('#player').val(localStorage['jplayer']);
+
+	$('#player').change(function(){refreshOutput()});
+	$('#command').change(function(){refreshOutput()});
+
 	$('#import').click(function() {
 		var inpt = prompt(getLanguageString('settings.importtext',false));
 		
-		if (inpt.indexOf('execute') !== -1) {
-			$('#execute_player').val(inpt.substring(inpt.indexOf('execute')+8,inpt.indexOf(" ~ ~ ~")-inpt.indexOf('execute')));
-		}
-		$('#player').val(inpt.substring(inpt.indexOf('tellraw')+8,inpt.indexOf(" {")-inpt.indexOf('tellraw')));
+		$('#command').val(inpt.substring(0,inpt.indexOf('tellraw')+7));
+
+		$('#player').val(inpt.substring(inpt.indexOf('tellraw')+8,inpt.indexOf('{')-1));
 		jobject = JSON.parse(inpt.substring(inpt.indexOf("{")));
 		refreshOutput();
 	});
@@ -1007,33 +1000,19 @@ $( document ).ready(function(){
 		}
 	});
 	refreshLanguage();
+	makeModals();
 	refreshOutput();
 	$('.fmtExtra').on('click', function(){
+		console.log($(this));
 		extraTextFormat = $(this).attr('tellrawType');
 		$('.fmtExtra').removeClass('active');
 		$(this).addClass('active');
 		refreshOutput();
 	});
-
-	$('#command_drop_down').on('change', function() {
-		if ($('#command_drop_down').val() == 'execute') {
-			$('.execute_command_container').show();
-			$('.tellraw_command_container').hide();
-			$('.player_container').removeClass('col-md-8').addClass('col-md-2');
-		} else {
-			$('.execute_command_container').hide();
-			$('.tellraw_command_container').show();
-			$('.player_container').removeClass('col-md-2').addClass('col-md-8');
+	$('#command').on('change',function(){
+		if ($('#command').val() == '') {
+			$('#command').val('/tellraw');
 		}
-		refreshOutput();
-	});
-
-	$('#execute_player').on('change',function(){
-		refreshOutput();
-	});
-	
-	$('#execute_coordinates').on('change',function(){
-		refreshOutput();
 	});
 });
 
