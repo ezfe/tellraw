@@ -15,6 +15,7 @@ var upButton;
 var extraTextFormat = 'raw';
 var colorExtraPreviewBox = '#617A80';
 var textExtraStorageVar; /*DO NOT USE*/
+var lang = {"status":"init"};
 
 /*
 (c) 2012 Steven Levithan <http://slevithan.com/>
@@ -911,7 +912,8 @@ function refreshLanguage(dropdownSelection) {
 	$('#obj_score').attr('placeholder',getLanguageString('textsnippets.obj2'));
 	$('#text_extra').attr('placeholder',getLanguageString('textsnippets.text'));
 }
-$( document ).ready(function(){
+
+function initialize() {
 	for (var i = 0; i < Object.keys(lang).length; i++) {
 		$('#language_keys').append('<li><a onclick="langCode=\''+Object.keys(lang)[i]+'\'; refreshLanguage(true); refreshOutput();"><span class="'+Object.keys(lang)[i]+' langSelect" id="language_select_'+Object.keys(lang)[i]+'">'+lang[Object.keys(lang)[i]].language.name+'</span></a></li>');
 	};
@@ -980,6 +982,14 @@ $( document ).ready(function(){
 	$('#addExtraButton').on('click',function(){
 		$('#snippetsWell').hide();
 		$('#addExtraModalData').show();
+	});
+	$('#loading-container').hide();
+	$('#tellraw-container').fadeIn();
+}
+$( document ).ready(function(){
+	$.get( "lang.json", function( data ) {
+		lang = data;
+		initialize();
 	});
 });
 
