@@ -689,6 +689,9 @@ function refreshOutput(input) {
 	$('#player').val(removeWhiteSpace($("#player").val()));
 	if ($("#player").val() === "" && input != "input_player") $("#player").val('@a');
 
+	/*COMMAND MANAGER*/
+	if ($("#command").val() === "" && input != "input_command") $("#command").val('/tellraw');
+
 	/*HOVEREVENT SUGGESTION MANAGER*/
 	if (getSelected("hoverEvent") == "show_achievement") {
 		if (selectedHover != "show_achievement") {
@@ -1008,11 +1011,6 @@ $( document ).ready(function(){
 		$('.fmtExtra').removeClass('active');
 		$(this).addClass('active');
 		refreshOutput();
-	});
-	$('#command').on('change',function(){
-		if ($('#command').val() == '') {
-			$('#command').val('/tellraw');
-		}
 	});
 });
 
