@@ -988,7 +988,7 @@ function initialize() {
 }
 $( document ).ready(function(){
 	$.get( "lang.json", function( data ) {
-		lang = data;
+		lang = JSON.parse(data);
 		initialize();
 	});
 });
