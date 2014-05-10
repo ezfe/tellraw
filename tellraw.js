@@ -16,6 +16,7 @@ var extraTextFormat = 'raw';
 var colorExtraPreviewBox = '#617A80';
 var textExtraStorageVar; /*DO NOT USE*/
 var lang = {"status":"init"};
+var translationStrings = {"status":"init"};
 
 /*
 (c) 2012 Steven Levithan <http://slevithan.com/>
@@ -994,7 +995,14 @@ $( document ).ready(function(){
 		} else {
 			lang = data;
 		}
-		initialize();
+		$.get( "en_US.json", function( data ) {
+			if (typeof data == 'string') {
+				translationStrings = JSON.parse(data);
+			} else {
+				translationStrings = data;
+			}
+			initialize();
+		});
 	});
 });
 
