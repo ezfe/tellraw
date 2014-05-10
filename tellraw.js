@@ -16,7 +16,7 @@ var extraTextFormat = 'raw';
 var colorExtraPreviewBox = '#617A80';
 var textExtraStorageVar; /*DO NOT USE*/
 var lang = {"status":"init"};
-var translationStrings = {"status":"init"};
+var translationStrings;
 
 /*
 (c) 2012 Steven Levithan <http://slevithan.com/>
