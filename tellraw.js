@@ -17,6 +17,7 @@ var colorExtraPreviewBox = '#617A80';
 var textExtraStorageVar; /*DO NOT USE*/
 var lang = {"status":"init"};
 var translationStrings;
+var currentEdit;
 
 /*
 (c) 2012 Steven Levithan <http://slevithan.com/>
@@ -217,6 +218,8 @@ function deleteAllNoConfirm() {
 	$('#deleteConfirm').slideUp();
 	$('#deleteConfirm');
 	jobject = {"text":""};
+	$('#command').val('/tellraw');
+	$('#player').val('@a');
 	refreshOutput();
 }
 function deleteAllCancel() {
@@ -301,9 +304,11 @@ function clearExtra() {
 	refreshOutput();
 }
 function editExtra(index) {
-	deleteModal('editExtra');
-	createModal('editExtra',getLanguageString('textsnippets.editsnippet'),getLanguageString('textsnippets.editsnippet'),'saveExtraEdit('+index+')','',true,getLanguageString('textsnippets.close'),'hideModal(\'editExtra\'); clearExtra()','',true);
-	setModalBody('editExtra',$('#editModalData').html());
+	$('#snippetsWell').hide();
+	$('#editModalData').show();
+
+	currentEdit = index;
+
 	if (jobject.extra[index].text != undefined) {
 		$('#obj_extra_container_edit').hide();
 		$('#text_extra_container_edit').show();
@@ -313,7 +318,6 @@ function editExtra(index) {
 		$('#obj_extra_container_edit').hide();
 		$('#text_extra_container_edit').hide();
 		$('#translate_selector_container_edit').show();
-		$('#translate_selector_edit').html($('#translate_selector').html());
 	} else if (jobject.extra[index].score != undefined) {
 		$('#obj_extra_container_edit').show();
 		$('#text_extra_container_edit').hide();
@@ -363,11 +367,14 @@ function editExtra(index) {
 		$('#insertion_text_edit').val(jobject.extra[index].insertion);
 	}
 
-	showModal('editExtra');
-
 	refreshOutput();
 }
-function saveExtraEdit(extraIndex) {
+function cancelExtraEdit() {
+	$('#editModalData').hide();
+	$('#snippetsWell').show();
+}
+function saveExtraEdit() {	
+	extraIndex = currentEdit;
 	jobject.extra[extraIndex].color = getSelected("color_extra_edit");
 
 	if ($('#obj_extra_container_edit').is(":visible")) {
@@ -377,7 +384,7 @@ function saveExtraEdit(extraIndex) {
 	} else if ($('#text_extra_container_edit').is(":visible")) {
 		jobject.extra[extraIndex].text = $('#text_extra_edit').val();
 	} else if ($('#translate_selector_container_edit').is(":visible")) {
-		jobject.extra[extraIndex].translate = escapeQuotes(Object.keys(translationStrings)[getSelected('translate_selector_edit')]);
+		jobject.extra[extraIndex].translate = $('#translate_input_edit').val();
 		if (matchLength != 0) {
 			if (get_type(jobject.extra.with) != "[object Array]") {
 				jobject.extra[extraIndex].with = new Array();
@@ -446,7 +453,8 @@ function saveExtraEdit(extraIndex) {
 		delete jobject.extra[extraIndex].insertion;
 	}
 
-	hideModal('editExtra');
+	$('#editModalData').hide();
+	$('#snippetsWell').show();
 
 	refreshOutput();
 }
@@ -498,7 +506,7 @@ function addExtra() {
 	jobject.extra.push(new Object());
 	var extraIndex = jobject.extra.length - 1;
 	if (extraTextFormat == 'trn') {
-		jobject.extra[extraIndex].translate = escapeQuotes(Object.keys(translationStrings)[getSelected('translate_selector')]);
+		jobject.extra[extraIndex].translate = $('#translate_input').val();
 		if (matchLength != 0) {
 			if (get_type(jobject.extra.with) != "[object Array]") {
 				jobject.extra[extraIndex].with = new Array();
@@ -557,8 +565,6 @@ function addExtra() {
 	}
 	if ($('#insertion_text').val() != '') jobject.extra[extraIndex].insertion = $('#insertion_text').val();
 
-	hideModal('addExtraModal');
-
 	clearExtra();
 	refreshOutput();
 
@@ -612,10 +618,10 @@ function refreshOutput(input) {
 					var tempJSON = '<input id="previewLine'+i+'" onkeyup="jobject.extra['+i+'].text = $(\'#previewLine'+i+'\').val(); refreshOutput(\'previewLineChange\')" type="text" class="form-control previewLine" value="'+jobject.extra[i].text+'">';
 					var saveButton = '';
 				} else if (get_type(jobject.extra[i].translate) != "[object Undefined]") {
-					var tempJSON = '<input type="text" class="form-control previewLine" disabled value="'+translationStrings[jobject.extra[i].translate]+'">';
+					var tempJSON = '<input type="text" class="form-control previewLine" disabled value="'+jobject.extra[i].translate+'">';
 					var saveButton = '';
 				} else if (get_type(jobject.extra[i].score) != "[object Undefined]") {
-					var tempJSON = '<input type="text" class="form-control previewLine" disabled value="'+jobject.extra[i].score.name+'-'+jobject.extra[i].score.objective+'">';
+					var tempJSON = '<input type="text" class="form-control previewLine" disabled value="'+jobject.extra[i].score.name+'\'s '+jobject.extra[i].score.objective+' score">';
 					var saveButton = '';
 				}
 				if (input == 'noEditIfMatches' && jobject.extra[i].text != $('#previewLine'+matchTo).val()) {
@@ -822,7 +828,7 @@ function jsonParse() {
 			if (get_type(jobject.extra[i].text) != "[object Undefined]") {
 				$('#jsonPreviewSpanElement'+i).html(jobject.extra[i].text);
 			} else {
-				$('#jsonPreviewSpanElement'+i).html(translationStrings[jobject.extra[i].translate]);
+				$('#jsonPreviewSpanElement'+i).html(jobject.extra[i].translate);
 			}
 			if (jobject.extra[i].bold == "true") {
 				$('#jsonPreviewSpanElement'+i).addClass('bold');
@@ -947,14 +953,8 @@ function initialize() {
 		jobject = JSON.parse(inpt.substring(inpt.indexOf("{")));
 		refreshOutput();
 	});
-	var translationOptionList = "";
-	for (var i = Object.keys(translationStrings).length - 1; i >= 0; i--) {
-		translationOptionList = translationOptionList + '<option value="'+i+'">'+translationStrings[Object.keys(translationStrings)[i]]+'</option>';
-	};
-	$('#translate_selector').html(translationOptionList);
-	$('#translate_selector').change(function(){
-		var index = getSelected('translate_selector');
-		var val = translationStrings[Object.keys(translationStrings)[index]];
+	$('#translate_input').change(function(){
+		var val = translationStrings[$('#translate_input').val()];
 		var match = val.match(/%./g);
 		matchLength = match.length
 		var c = getSelected('translate_selector');
@@ -987,6 +987,13 @@ function initialize() {
 	});
 	$('#loading-container').hide();
 	$('#tellraw-container').fadeIn();
+	$( "#translate_input" ).autocomplete({
+		source: Object.keys(translationStrings)
+	});
+	$( "#translate_input_edit" ).autocomplete({
+		source: Object.keys(translationStrings)
+	});
+
 }
 $( document ).ready(function(){
 	$.get( "lang.json", function( data ) {

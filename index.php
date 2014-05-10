@@ -12,7 +12,7 @@
 <body class="minecraft">
 	<?php include($_SERVER['DOCUMENT_ROOT'] . "/includes/navbar.php"); ?>
 	<div id="loading-container" style="text-align:center;">
-	<h4>Loading...</h4>
+		<h4>Loading...</h4>
 	</div>
 	<div id="tellraw-container" style="display:none;">
 		<div class="row">
@@ -87,8 +87,6 @@
 				</div>
 			</div>
 			<div style="display:none;" class="well" id="addExtraModalData">
-				<div class="row" class="modal_banners">
-				</div>
 				<div class="row row-margin-top row-margin-bottom">
 					<div class="btn-group col-md-10">
 						<button type="button" lang="textsnippets.raw" id="fmtExtraRaw" tellrawType="raw" class="fmtExtra language_area active btn btn-default">Raw</button>
@@ -109,7 +107,7 @@
 						<input id="text_extra" type="text" class="form-control">
 					</div>
 					<div class="col-md-7" id="translate_selector_container">
-						<select class="form-control" id="translate_selector"></select>
+						<input id="translate_input" class="form-control" placeholder="language.string">
 					</div>
 					<div class="col-md-4">
 						<div class="row">
@@ -281,9 +279,7 @@
 					</div>
 				</div>
 			</div>
-			<div style="display:none;" id="editModalData">
-				<div class="row" class="modal_banners">
-				</div>
+			<div style="display:none;" class="well" id="editModalData">
 				<div class="row row-margin-top row-margin-bottom">
 					<div class="col-md-7" id="obj_extra_container_edit">
 						<div>
@@ -297,7 +293,7 @@
 						<input placeholder="Text" id="text_extra_edit" type="text" class="form-control">
 					</div>
 					<div class="col-md-7" id="translate_selector_container_edit">
-						<select class="form-control" id="translate_selector_edit"></select>
+						<input id="translate_input_edit" class="form-control" placeholder="language.string" disabled>
 					</div>
 					<div class="col-md-4">
 						<div class="row">
@@ -473,6 +469,14 @@
 					</div>
 					<div class="col-md-8">
 						<input id="insertion_text_edit" type="text" class="form-control">
+					</div>
+				</div>
+				<div class="row row-margin-top row-margin-bottom">
+					<div class="col-md-offset-8 col-md-2">
+						<button class="btn btn-default btn-block language_area" id="textsnippets-close-button" lang="textsnippets.close" onclick="cancelExtraEdit()"></button>
+					</div>
+					<div class="col-md-2">
+						<button class="btn btn-primary btn-block language_area" id="textsnippets-add-button" lang="textsnippets.addsnippet" onclick="saveExtraEdit()"></button>
 					</div>
 				</div>
 			</div>
