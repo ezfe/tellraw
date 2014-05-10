@@ -982,13 +982,18 @@ function initialize() {
 	$('#addExtraButton').on('click',function(){
 		$('#snippetsWell').hide();
 		$('#addExtraModalData').show();
+		location.href = '#addExtraModalData';
 	});
 	$('#loading-container').hide();
 	$('#tellraw-container').fadeIn();
 }
 $( document ).ready(function(){
 	$.get( "lang.json", function( data ) {
-		lang = JSON.parse(data);
+		if (typeof data == 'string') {
+			lang = JSON.parse(data);
+		} else {
+			lang = data;
+		}
 		initialize();
 	});
 });
