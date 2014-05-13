@@ -313,15 +313,24 @@ function editExtra(index) {
 		$('#obj_extra_container_edit').hide();
 		$('#text_extra_container_edit').show();
 		$('#translate_selector_container_edit').hide();
+		$('#selector_extra_container_edit').hide();
 		$('#text_extra_edit').val(jobject.extra[index].text);
+	} else if (jobject.extra[index].selector != undefined) {
+		$('#obj_extra_container_edit').hide();
+		$('#selector_extra_container_edit').show();
+		$('#text_extra_container_edit').hide();
+		$('#translate_selector_container_edit').hide();
+		$('#selector_edit').val(jobject.extra[index].selector);
 	} else if (jobject.extra[index].translate != undefined) {
 		$('#obj_extra_container_edit').hide();
 		$('#text_extra_container_edit').hide();
+		$('#selector_extra_container_edit').hide();
 		$('#translate_selector_container_edit').show();
 	} else if (jobject.extra[index].score != undefined) {
 		$('#obj_extra_container_edit').show();
 		$('#text_extra_container_edit').hide();
 		$('#translate_selector_container_edit').hide();
+		$('#selector_extra_container_edit').hide();
 		$('#obj_player_edit').val(jobject.extra[index].score.name);
 		$('#obj_score_edit').val(jobject.extra[index].score.objective);
 	}
@@ -383,6 +392,8 @@ function saveExtraEdit() {
 		jobject.extra[extraIndex].score.objective = escapeQuotes($('#obj_score_edit').val());
 	} else if ($('#text_extra_container_edit').is(":visible")) {
 		jobject.extra[extraIndex].text = $('#text_extra_edit').val();
+	} else if ($('#selector_extra_container_edit').is(":visible")) {
+		jobject.extra[extraIndex].selector = $('#selector_edit').val();
 	} else if ($('#translate_selector_container_edit').is(":visible")) {
 		jobject.extra[extraIndex].translate = $('#translate_input_edit').val();
 		if (matchLength != 0) {
@@ -521,6 +532,8 @@ function addExtra() {
 		jobject.extra[extraIndex].score = new Object;
 		jobject.extra[extraIndex].score.name = escapeQuotes($('#obj_player').val());
 		jobject.extra[extraIndex].score.objective = escapeQuotes($('#obj_score').val());
+	} else if (extraTextFormat == 'sel') {
+		jobject.extra[extraIndex].selector = escapeQuotes($('#selector').val());
 	}
 
 
@@ -623,6 +636,9 @@ function refreshOutput(input) {
 				} else if (get_type(jobject.extra[i].score) != "[object Undefined]") {
 					var tempJSON = '<input type="text" class="form-control previewLine" disabled value="'+jobject.extra[i].score.name+'\'s '+jobject.extra[i].score.objective+' score">';
 					var saveButton = '';
+				} else if (get_type(jobject.extra[i].selector) != "[object Undefined]") {
+					var tempJSON = '<input type="text" class="form-control previewLine" disabled value="Selector: '+jobject.extra[i].selector+'">';
+					var saveButton = '';
 				}
 				if (input == 'noEditIfMatches' && jobject.extra[i].text != $('#previewLine'+matchTo).val()) {
 					var blah = 'blah';
@@ -647,15 +663,23 @@ function refreshOutput(input) {
 	if (extraTextFormat == "trn") {
 		$('#obj_extra_container').hide();
 		$('#text_extra_container').hide();
+		$('#selector_extra_container').hide();
 		$('#translate_selector_container').show();
 	} else if (extraTextFormat == "obj") {
 		$('#text_extra_container').hide();
 		$('#translate_selector_container').hide();
+		$('#selector_extra_container').hide();
 		$('#obj_extra_container').show();
-	} else {
-		$('#obj_extra_container').hide();
-		$('#text_extra_container').show();
+	} else if (extraTextFormat == "sel") {
+		$('#text_extra_container').hide();
 		$('#translate_selector_container').hide();
+		$('#selector_extra_container').show();
+		$('#obj_extra_container').hide();
+	} else if (extraTextFormat == "raw") {
+		$('#text_extra_container').show();
+		$('#obj_extra_container').hide();
+		$('#translate_selector_container').hide();
+		$('#selector_extra_container').hide();
 		$('.extraTranslationParameterRow').hide();
 	}
 

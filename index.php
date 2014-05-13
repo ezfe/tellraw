@@ -89,9 +89,10 @@
 			<div style="display:none;" class="well" id="addExtraModalData">
 				<div class="row row-margin-top row-margin-bottom">
 					<div class="btn-group col-md-10">
-						<button type="button" lang="textsnippets.raw" id="fmtExtraRaw" tellrawType="raw" class="fmtExtra language_area active btn btn-default">Raw</button>
-						<button type="button" lang="textsnippets.trn" id="fmtExtraTrn" tellrawType="trn" class="fmtExtra language_area btn btn-default">Translated</button>
-						<button type="button" lang="textsnippets.obj" id="fmtExtraObj" tellrawType="obj" class="fmtExtra language_area btn btn-default">Objective</button>
+						<button type="button" lang="textsnippets.raw" id="fmtExtraRaw" tellrawType="raw" class="fmtExtra language_area active btn btn-default"></button>
+						<button type="button" lang="textsnippets.trn" id="fmtExtraTrn" tellrawType="trn" class="fmtExtra language_area btn btn-default"></button>
+						<button type="button" lang="textsnippets.obj" id="fmtExtraObj" tellrawType="obj" class="fmtExtra language_area btn btn-default"></button>
+						<button type="button" lang="textsnippets.sel" id="fmtExtraSel" tellrawType="sel" class="fmtExtra language_area btn btn-default"></button>
 					</div>
 				</div>
 				<div class="row row-margin-top row-margin-bottom">
@@ -102,6 +103,9 @@
 						<div class="row-margin-top">
 							<input placeholder="Objective" id="obj_score" type="text" class="form-control">
 						</div>
+					</div>
+					<div class="col-md-7" id="selector_extra_container">
+						<input id="selector" type="text" class="form-control">
 					</div>
 					<div class="col-md-7" id="text_extra_container">
 						<input id="text_extra" type="text" class="form-control">
@@ -291,6 +295,9 @@
 					</div>
 					<div class="col-md-7" id="text_extra_container_edit">
 						<input placeholder="Text" id="text_extra_edit" type="text" class="form-control">
+					</div>
+					<div class="col-md-7" id="selector_extra_container_edit">
+						<input placeholder="Selector" id="selector_edit" type="text" class="form-control">
 					</div>
 					<div class="col-md-7" id="translate_selector_container_edit">
 						<input id="translate_input_edit" class="form-control" placeholder="language.string" disabled>
