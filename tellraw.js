@@ -955,7 +955,24 @@ function refreshLanguage(dropdownSelection) {
 		}
 	});
 }
-
+function translationChange() {
+	var val = translationStrings[$('#translate_input').val()];
+	var match = val.match(/%./g);
+	matchLength = match.length
+	var c = getSelected('translate_selector');
+	$('.extraTranslationParameterRow').hide();
+	$('.extraTranslationParameterRow').val('');
+	if (match != null) {
+		for (var i = matchLength - 1; i >= 0; i--) {
+			if (matchLength > 5) {
+				alert('An unexpected error has occured. REFID:matchLength.GreaterThan.5-990@44aca9656b8bb3368da86f9ed7393e5664b479f1');
+			}
+			for (var i = matchLength - 1; i >= 0; i--) {
+				$('#parameter'+i+'row').show();
+			};
+		};
+	}
+}
 function initialize() {
 	for (var i = 0; i < Object.keys(lang).length; i++) {
 		$('#language_keys').append('<li><a onclick="langCode=\''+Object.keys(lang)[i]+'\'; refreshLanguage(true); refreshOutput();"><span class="'+Object.keys(lang)[i]+' langSelect" id="language_select_'+Object.keys(lang)[i]+'">'+lang[Object.keys(lang)[i]].language.name+'</span></a></li>');
@@ -989,24 +1006,6 @@ function initialize() {
 		jobject = JSON.parse(inpt.substring(inpt.indexOf("{")));
 		refreshOutput();
 	});
-	$('#translate_input').change(function(){
-		var val = translationStrings[$('#translate_input').val()];
-		var match = val.match(/%./g);
-		matchLength = match.length
-		var c = getSelected('translate_selector');
-		$('.extraTranslationParameterRow').hide();
-		$('.extraTranslationParameterRow').val('');
-		if (match != null) {
-			for (var i = matchLength - 1; i >= 0; i--) {
-				if (matchLength > 5) {
-					alert('An unexpected error has occured. REFID:matchLength.GreaterThan.5-990@44aca9656b8bb3368da86f9ed7393e5664b479f1');
-				}
-				for (var i = matchLength - 1; i >= 0; i--) {
-					$('#parameter'+i+'row').show();
-				};
-			};
-		}
-	});
 	refreshLanguage();
 	refreshOutput();
 	$('.fmtExtra').on('click', function(){
@@ -1021,10 +1020,12 @@ function initialize() {
 		$('#addExtraModalData').show();
 		location.href = '#addExtraModalData';
 	});
-	$('#loading-container').hide();
-	$('#tellraw-container').fadeIn();
+	$('#tellraw-container').delay( 800 ).fadeIn( 400 );
+	$('#loadprog').width('100%').parent().delay( 1000 ).slideUp( 400 );;
+	$('#loadprog').html('Finished');
 	$( "#translate_input" ).autocomplete({
-		source: Object.keys(translationStrings)
+		source: Object.keys(translationStrings),
+		change: translationChange
 	});
 	$( "#translate_input_edit" ).autocomplete({
 		source: Object.keys(translationStrings)
@@ -1032,18 +1033,24 @@ function initialize() {
 
 }
 $( document ).ready(function(){
+	$('#loadprog').width('0%');
+	$('#loadprog').html('Loading language strings');
 	$.get( "lang.json", function( data ) {
 		if (typeof data == 'string') {
 			lang = JSON.parse(data);
 		} else {
 			lang = data;
 		}
+		$('#loadprog').width('25%');
+		$('#loadprog').html('Loading minecraft translation data');
 		$.get( "en_US.json", function( data ) {
 			if (typeof data == 'string') {
 				translationStrings = JSON.parse(data);
 			} else {
 				translationStrings = data;
 			}
+			$('#loadprog').width('50%');
+			$('#loadprog').html('Finishing up');
 			initialize();
 		});
 	});

@@ -12,7 +12,9 @@
 <body class="minecraft">
 	<?php include($_SERVER['DOCUMENT_ROOT'] . "/includes/navbar.php"); ?>
 	<div id="loading-container" style="text-align:center;">
-		<h4>Loading...</h4>
+		<div class="progress progress-striped active">
+			<div class="progress-bar" id="loadprog" style="width: 0%;"></div>
+		</div>
 	</div>
 	<div id="tellraw-container" style="display:none;">
 		<div class="row">
