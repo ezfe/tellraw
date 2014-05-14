@@ -409,8 +409,9 @@ function saveExtraEdit() {
 	
 	if (getSelected("color_extra_edit") !== "none") {
 		jobject[extraIndex].color = getSelected("color_extra_edit");
+	} else if (jobject[extraIndex].color !== undefined) {
+		delete jobject[extraIndex].color;
 	}
-
 
 	if ($('#obj_extra_container_edit').is(":visible")) {
 		jobject[extraIndex].score = new Object;

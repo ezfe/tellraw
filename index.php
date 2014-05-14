@@ -119,7 +119,7 @@
 						<div class="row">
 							<div class="col-md-10">
 								<select class="form-control" onchange="$('#colorPreviewColor').css('background-color',getCSSHEXFromWord($('#color_extra').val()));" id="color_extra">
-									<option lang="color.color_none" value="none">color_none</option>
+									<option lang="color.color_none" value="none" selected="true">color_none</option>
 									<option lang="color.color_black" value="black">color_black</option>
 									<option lang="color.color_dark_blue" value="dark_blue">color_dark_blue</option>
 									<option lang="color.color_dark_green" value="dark_green">color_dark_green</option>
@@ -135,7 +135,7 @@
 									<option lang="color.color_red" value="red">color_red</option>
 									<option lang="color.color_light_purple" value="light_purple">color_light_purple</option>
 									<option lang="color.color_yellow" value="yellow">color_yellow</option>
-									<option lang="color.color_white" value="white" selected="true">color_white</option>
+									<option lang="color.color_white" value="white">color_white</option>
 								</select>
 							</div>
 							<div class="col-md-2">
@@ -309,7 +309,7 @@
 						<div class="row">
 							<div class="col-md-10">
 								<select class="form-control" onchange="$('#colorPreviewColor_edit').css('background-color',getCSSHEXFromWord($('#color_extra_edit').val()));" id="color_extra_edit">
-									<option lang="color.color_none" value="none">color_none</option>
+									<option lang="color.color_none" value="none" selected="true">color_none</option>
 									<option lang="color.color_black" value="black">color_black</option>
 									<option lang="color.color_dark_blue" value="dark_blue">color_dark_blue</option>
 									<option lang="color.color_dark_green" value="dark_green">color_dark_green</option>
@@ -325,7 +325,7 @@
 									<option lang="color.color_red" value="red">color_red</option>
 									<option lang="color.color_light_purple" value="light_purple">color_light_purple</option>
 									<option lang="color.color_yellow" value="yellow">color_yellow</option>
-									<option lang="color.color_white" value="white" selected="true">color_white</option>
+									<option lang="color.color_white" value="white">color_white</option>
 								</select>
 							</div>
 							<div class="col-md-2">
