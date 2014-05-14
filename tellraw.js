@@ -5,7 +5,7 @@ var matchLength = 0;
 /*
 TRANSLATORS: PLEASE USE THE ENGLISH LANGUAGE FILE HERE: https://gist.github.com/ezfe/7693072, AND REFER TO THE REVISIONS SECTION FOR RECENT CHANGES. I RECOMMEND YOU MAINTAIN A SINGLE GIST OF YOUR LANGUAGES TRANSLATION AND EDIT THAT BASED ON THE REVISIONS TO THE EN_US FILE. PLEASE DO NOT COPY YOUR LANGUAGE FROM THIS PAGE.
 */
-var jobject = {"text":""};
+var jobject = [];
 var selectedHover;
 var selectedClick;
 var selectedHover_edit;
@@ -219,7 +219,7 @@ function deleteAll() {
 function deleteAllNoConfirm() {
 	$('#deleteConfirm').slideUp();
 	$('#deleteConfirm');
-	jobject = {"text":""};
+	jobject = [];
 	$('#command').val('/tellraw');
 	$('#player').val('@a');
 	refreshOutput();
@@ -274,11 +274,11 @@ function removeWhiteSpace(s) {
 	/*BROKEN return s.replace(/ /g, '');*/
 }
 function deleteIndex(index) {
-	jobject.extra.splice(index, 1);
+	jobject.splice(index, 1);
 	refreshOutput();
 }
 function moveUp(index) {
-	jobject.extra.splice(index+1, 0, jobject.extra.splice(index, 1)[0]);
+	jobject.splice(index+1, 0, jobject.splice(index, 1)[0]);
 	refreshOutput();
 }
 function getSelected (object) {
@@ -325,71 +325,71 @@ function editExtra(index) {
 
 	currentEdit = index;
 
-	if (jobject.extra[index].text != undefined) {
+	if (jobject[index].text != undefined) {
 		$('#obj_extra_container_edit').hide();
 		$('#text_extra_container_edit').show();
 		$('#translate_selector_container_edit').hide();
 		$('#selector_extra_container_edit').hide();
-		$('#text_extra_edit').val(jobject.extra[index].text);
-	} else if (jobject.extra[index].selector != undefined) {
+		$('#text_extra_edit').val(jobject[index].text);
+	} else if (jobject[index].selector != undefined) {
 		$('#obj_extra_container_edit').hide();
 		$('#selector_extra_container_edit').show();
 		$('#text_extra_container_edit').hide();
 		$('#translate_selector_container_edit').hide();
-		$('#selector_edit').val(jobject.extra[index].selector);
-	} else if (jobject.extra[index].translate != undefined) {
+		$('#selector_edit').val(jobject[index].selector);
+	} else if (jobject[index].translate != undefined) {
 		$('#obj_extra_container_edit').hide();
 		$('#text_extra_container_edit').hide();
 		$('#selector_extra_container_edit').hide();
 		$('#translate_selector_container_edit').show();
-	} else if (jobject.extra[index].score != undefined) {
+	} else if (jobject[index].score != undefined) {
 		$('#obj_extra_container_edit').show();
 		$('#text_extra_container_edit').hide();
 		$('#translate_selector_container_edit').hide();
 		$('#selector_extra_container_edit').hide();
-		$('#obj_player_edit').val(jobject.extra[index].score.name);
-		$('#obj_score_edit').val(jobject.extra[index].score.objective);
+		$('#obj_player_edit').val(jobject[index].score.name);
+		$('#obj_score_edit').val(jobject[index].score.objective);
 	}
 
 	refreshLanguage();
 
-	$('#colorPreviewColor_edit').css('background-color',getCSSHEXFromWord(jobject.extra[index].color));
-	$("#color_extra_edit").val(jobject.extra[index].color);
+	$('#colorPreviewColor_edit').css('background-color',getCSSHEXFromWord(jobject[index].color));
+	$("#color_extra_edit").val(jobject[index].color);
 
-	if (jobject.extra[index].bold != undefined) {
+	if (jobject[index].bold != undefined) {
 		$('#bold_text_extra_edit').prop('checked',true);
 	}
-	if (jobject.extra[index].italic != undefined) {
+	if (jobject[index].italic != undefined) {
 		$('#italic_text_extra_edit').prop('checked',true);
 	}
-	if (jobject.extra[index].underlined != undefined) {
+	if (jobject[index].underlined != undefined) {
 		$('#underlined_text_extra_edit').prop('checked',true);
 	}
-	if (jobject.extra[index].strikethrough != undefined) {
+	if (jobject[index].strikethrough != undefined) {
 		$('#strikethrough_text_extra_edit').prop('checked',true);
 	}
-	if (jobject.extra[index].obfuscated != undefined) {
+	if (jobject[index].obfuscated != undefined) {
 		$('#obfuscated_text_extra_edit').prop('checked',true);
 	}
 
-	if (jobject.extra[index].clickEvent != undefined) {
-		$('#clickEvent_edit').val(jobject.extra[index].clickEvent.action);
-		$('#clickEventText_edit').val(jobject.extra[index].clickEvent.value);
+	if (jobject[index].clickEvent != undefined) {
+		$('#clickEvent_edit').val(jobject[index].clickEvent.action);
+		$('#clickEventText_edit').val(jobject[index].clickEvent.value);
 	}
 
-	if (jobject.extra[index].hoverEvent != undefined) {
-		$('#hoverEvent_edit').val(jobject.extra[index].hoverEvent.action);
+	if (jobject[index].hoverEvent != undefined) {
+		$('#hoverEvent_edit').val(jobject[index].hoverEvent.action);
 		if ($('#hoverEvent_edit').val() != 'show_entity') {
-			$('#hoverEventText_edit').val(jobject.extra[index].hoverEvent.value);
+			$('#hoverEventText_edit').val(jobject[index].hoverEvent.value);
 		} else {
-			$('#hoverEventEntityID_edit').val(jobject.extra[index].hoverEvent.value.match(/id:([a-zA-Z0-9]+)/g )[0].replace('id:',''));
-			$('#hoverEventEntityName_edit').val(jobject.extra[index].hoverEvent.value.match(/name:([a-zA-Z0-9]+)/g )[0].replace('name:',''));
-			$('#hoverEventEntityType_edit').val(jobject.extra[index].hoverEvent.value.match(/type:([a-zA-Z0-9]+)/g )[0].replace('type:',''));
+			$('#hoverEventEntityID_edit').val(jobject[index].hoverEvent.value.match(/id:([a-zA-Z0-9]+)/g )[0].replace('id:',''));
+			$('#hoverEventEntityName_edit').val(jobject[index].hoverEvent.value.match(/name:([a-zA-Z0-9]+)/g )[0].replace('name:',''));
+			$('#hoverEventEntityType_edit').val(jobject[index].hoverEvent.value.match(/type:([a-zA-Z0-9]+)/g )[0].replace('type:',''));
 		}
 	}
 
-	if (jobject.extra[index].insertion != undefined) {
-		$('#insertion_text_edit').val(jobject.extra[index].insertion);
+	if (jobject[index].insertion != undefined) {
+		$('#insertion_text_edit').val(jobject[index].insertion);
 	}
 
 	refreshOutput();
@@ -400,67 +400,67 @@ function cancelExtraEdit() {
 }
 function saveExtraEdit() {	
 	extraIndex = currentEdit;
-	jobject.extra[extraIndex].color = getSelected("color_extra_edit");
+	jobject[extraIndex].color = getSelected("color_extra_edit");
 
 	if ($('#obj_extra_container_edit').is(":visible")) {
-		jobject.extra[extraIndex].score = new Object;
-		jobject.extra[extraIndex].score.name = escapeQuotes($('#obj_player_edit').val());
-		jobject.extra[extraIndex].score.objective = escapeQuotes($('#obj_score_edit').val());
+		jobject[extraIndex].score = new Object;
+		jobject[extraIndex].score.name = escapeQuotes($('#obj_player_edit').val());
+		jobject[extraIndex].score.objective = escapeQuotes($('#obj_score_edit').val());
 	} else if ($('#text_extra_container_edit').is(":visible")) {
-		jobject.extra[extraIndex].text = $('#text_extra_edit').val();
+		jobject[extraIndex].text = $('#text_extra_edit').val();
 	} else if ($('#selector_extra_container_edit').is(":visible")) {
-		jobject.extra[extraIndex].selector = $('#selector_edit').val();
+		jobject[extraIndex].selector = $('#selector_edit').val();
 	} else if ($('#translate_selector_container_edit').is(":visible")) {
-		jobject.extra[extraIndex].translate = $('#translate_input_edit').val();
+		jobject[extraIndex].translate = $('#translate_input_edit').val();
 		if (matchLength != 0) {
-			if (get_type(jobject.extra.with) != "[object Array]") {
-				jobject.extra[extraIndex].with = new Array();
+			if (get_type(jobject.with) != "[object Array]") {
+				jobject[extraIndex].with = new Array();
 			}
 			for (var i = 0; i < matchLength; i++) {
-				jobject.extra[extraIndex].with[i] = $('#extraTranslationParameter'+i+'_edit').val();
+				jobject[extraIndex].with[i] = $('#extraTranslationParameter'+i+'_edit').val();
 			};
 		}
 	} else {
 		alert('An unexpected error occured.');
 	}
 
-	delete jobject.extra[extraIndex].bold;
-	delete jobject.extra[extraIndex].italic;
-	delete jobject.extra[extraIndex].underlined;
-	delete jobject.extra[extraIndex].strikethrough;
-	delete jobject.extra[extraIndex].obfuscated;
+	delete jobject[extraIndex].bold;
+	delete jobject[extraIndex].italic;
+	delete jobject[extraIndex].underlined;
+	delete jobject[extraIndex].strikethrough;
+	delete jobject[extraIndex].obfuscated;
 
 	if (getChecked("bold_text_extra_edit")) {
-		jobject.extra[extraIndex].bold = "true";
+		jobject[extraIndex].bold = "true";
 	}
 	if (getChecked("italic_text_extra_edit")) {
-		jobject.extra[extraIndex].italic = "true";
+		jobject[extraIndex].italic = "true";
 	}
 	if (getChecked("underlined_text_extra_edit")) {
-		jobject.extra[extraIndex].underlined = "true";
+		jobject[extraIndex].underlined = "true";
 	}
 	if (getChecked("strikethrough_text_extra_edit")) {
-		jobject.extra[extraIndex].strikethrough = "true";
+		jobject[extraIndex].strikethrough = "true";
 	}
 	if (getChecked("obfuscated_text_extra_edit")) {
-		jobject.extra[extraIndex].obfuscated = "true";
+		jobject[extraIndex].obfuscated = "true";
 	}
 
-	delete jobject.extra[extraIndex].clickEvent;
-	delete jobject.extra[extraIndex].hoverEvent;
+	delete jobject[extraIndex].clickEvent;
+	delete jobject[extraIndex].hoverEvent;
 
 	var clickEventType_edit = $("#clickEvent_edit").val();
 	var hoverEventType_edit = $("#hoverEvent_edit").val();
 
 	if (clickEventType_edit != "none") {
-		jobject.extra[extraIndex].clickEvent = new Object();
-		jobject.extra[extraIndex].clickEvent.action = clickEventType_edit;
-		jobject.extra[extraIndex].clickEvent.value = escapeQuotes($('#clickEventText_edit').val());
+		jobject[extraIndex].clickEvent = new Object();
+		jobject[extraIndex].clickEvent.action = clickEventType_edit;
+		jobject[extraIndex].clickEvent.value = escapeQuotes($('#clickEventText_edit').val());
 	}
 	if (hoverEventType_edit != "none") {
-		jobject.extra[extraIndex].hoverEvent = new Object();
-		jobject.extra[extraIndex].hoverEvent.action = hoverEventType_edit;
-		jobject.extra[extraIndex].hoverEvent.value = escapeQuotes($('#hoverEventText_edit').val());
+		jobject[extraIndex].hoverEvent = new Object();
+		jobject[extraIndex].hoverEvent.action = hoverEventType_edit;
+		jobject[extraIndex].hoverEvent.value = escapeQuotes($('#hoverEventText_edit').val());
 	}
 	if (hoverEventType_edit == "show_entity") {
 		if ($('#hoverEventEntityID_edit').val() == '') {
@@ -472,12 +472,12 @@ function saveExtraEdit() {
 		if ($('#hoverEventEntityType_edit').val() == '') {
 			$('#hoverEventEntityType_edit').val('(Type)')
 		}
-		jobject.extra[extraIndex].hoverEvent.value = '{id:'+removeWhiteSpace($('#hoverEventEntityID_edit').val())+',name:'+removeWhiteSpace($('#hoverEventEntityName_edit').val())+',type:'+removeWhiteSpace($('#hoverEventEntityType_edit').val())+'}';
+		jobject[extraIndex].hoverEvent.value = '{id:'+removeWhiteSpace($('#hoverEventEntityID_edit').val())+',name:'+removeWhiteSpace($('#hoverEventEntityName_edit').val())+',type:'+removeWhiteSpace($('#hoverEventEntityType_edit').val())+'}';
 	}
 	if ($('#insertion_text_edit').val() != '') {
-		jobject.extra[extraIndex].insertion = $('#insertion_text_edit').val();
+		jobject[extraIndex].insertion = $('#insertion_text_edit').val();
 	} else {
-		delete jobject.extra[extraIndex].insertion;
+		delete jobject[extraIndex].insertion;
 	}
 
 	$('#editModalData').hide();
@@ -486,7 +486,7 @@ function saveExtraEdit() {
 	refreshOutput();
 }
 function clearExtraText() {
-	delete jobject.extra;
+	delete jobject;
 	refreshOutput();
 }
 function get_type(thing){
@@ -502,7 +502,7 @@ function escapeQuotes(string) {
 }
 function modifyExtraText(index,text) {
 	if (text != "" && text != null) {
-		jobject.extra[index].text = text;
+		jobject[index].text = text;
 	}
 	refreshOutput();
 }
@@ -524,61 +524,61 @@ function addExtra() {
 		$('#addExtraModalData').hide();
 	}
 
-	if (get_type(jobject.extra) != "[object Array]") {
-		jobject.extra = new Array();
+	if (get_type(jobject) != "[object Array]") {
+		jobject = new Array();
 	}
 	var clickEventType = $("#clickEvent").val();
 	var hoverEventType = $("#hoverEvent").val();
 
-	jobject.extra.push(new Object());
-	var extraIndex = jobject.extra.length - 1;
+	jobject.push(new Object());
+	var extraIndex = jobject.length - 1;
 	if (extraTextFormat == 'trn') {
-		jobject.extra[extraIndex].translate = $('#translate_input').val();
+		jobject[extraIndex].translate = $('#translate_input').val();
 		if (matchLength != 0) {
-			if (get_type(jobject.extra.with) != "[object Array]") {
-				jobject.extra[extraIndex].with = new Array();
+			if (get_type(jobject.with) != "[object Array]") {
+				jobject[extraIndex].with = new Array();
 			}
 			for (var i = 0; i < matchLength; i++) {
-				jobject.extra[extraIndex].with[i] = $('#extraTranslationParameter'+i).val();
+				jobject[extraIndex].with[i] = $('#extraTranslationParameter'+i).val();
 			};
 		}
 	} else if (extraTextFormat == 'raw') {
-		jobject.extra[extraIndex].text = escapeQuotes($('#text_extra').val());
+		jobject[extraIndex].text = escapeQuotes($('#text_extra').val());
 	} else if (extraTextFormat == 'obj') {
-		jobject.extra[extraIndex].score = new Object;
-		jobject.extra[extraIndex].score.name = escapeQuotes($('#obj_player').val());
-		jobject.extra[extraIndex].score.objective = escapeQuotes($('#obj_score').val());
+		jobject[extraIndex].score = new Object;
+		jobject[extraIndex].score.name = escapeQuotes($('#obj_player').val());
+		jobject[extraIndex].score.objective = escapeQuotes($('#obj_score').val());
 	} else if (extraTextFormat == 'sel') {
-		jobject.extra[extraIndex].selector = escapeQuotes($('#selector').val());
+		jobject[extraIndex].selector = escapeQuotes($('#selector').val());
 	}
 
 
-	jobject.extra[extraIndex].color = getSelected("color_extra");
+	jobject[extraIndex].color = getSelected("color_extra");
 	if (getChecked("bold_text_extra")) {
-		jobject.extra[extraIndex].bold = "true";
+		jobject[extraIndex].bold = "true";
 	}
 	if (getChecked("italic_text_extra")) {
-		jobject.extra[extraIndex].italic = "true";
+		jobject[extraIndex].italic = "true";
 	}
 	if (getChecked("underlined_text_extra")) {
-		jobject.extra[extraIndex].underlined = "true";
+		jobject[extraIndex].underlined = "true";
 	}
 	if (getChecked("strikethrough_text_extra")) {
-		jobject.extra[extraIndex].strikethrough = "true";
+		jobject[extraIndex].strikethrough = "true";
 	}
 	if (getChecked("obfuscated_text_extra")) {
-		jobject.extra[extraIndex].obfuscated = "true";
+		jobject[extraIndex].obfuscated = "true";
 	}
 
 	if (clickEventType != "none") {
-		jobject.extra[extraIndex].clickEvent = new Object();
-		jobject.extra[extraIndex].clickEvent.action = clickEventType;
-		jobject.extra[extraIndex].clickEvent.value = escapeQuotes($('#clickEventText').val());
+		jobject[extraIndex].clickEvent = new Object();
+		jobject[extraIndex].clickEvent.action = clickEventType;
+		jobject[extraIndex].clickEvent.value = escapeQuotes($('#clickEventText').val());
 	}
 	if (hoverEventType != "none") {
-		jobject.extra[extraIndex].hoverEvent = new Object();
-		jobject.extra[extraIndex].hoverEvent.action = hoverEventType;
-		jobject.extra[extraIndex].hoverEvent.value = escapeQuotes($('#hoverEventText').val());
+		jobject[extraIndex].hoverEvent = new Object();
+		jobject[extraIndex].hoverEvent.action = hoverEventType;
+		jobject[extraIndex].hoverEvent.value = escapeQuotes($('#hoverEventText').val());
 	}
 	if (hoverEventType == "show_entity") {
 		if ($('#hoverEventEntityID').val() == '') {
@@ -590,35 +590,28 @@ function addExtra() {
 		if ($('#hoverEventEntityType').val() == '') {
 			$('#hoverEventEntityType').val('(Type)')
 		}
-		jobject.extra[extraIndex].hoverEvent.value = '{id:'+removeWhiteSpace($('#hoverEventEntityID').val())+',name:'+removeWhiteSpace($('#hoverEventEntityName').val())+',type:'+removeWhiteSpace($('#hoverEventEntityType').val())+'}';
+		jobject[extraIndex].hoverEvent.value = '{id:'+removeWhiteSpace($('#hoverEventEntityID').val())+',name:'+removeWhiteSpace($('#hoverEventEntityName').val())+',type:'+removeWhiteSpace($('#hoverEventEntityType').val())+'}';
 	}
-	if ($('#insertion_text').val() != '') jobject.extra[extraIndex].insertion = $('#insertion_text').val();
+	if ($('#insertion_text').val() != '') jobject[extraIndex].insertion = $('#insertion_text').val();
 
 	clearExtra();
 	refreshOutput();
 
 }
 function refreshOutput(input) {
-	if (jobject.text != '') {
-		jobject.extra.unshift(new Object());
-		jobject.extra[0].text = jobject.text;
-		jobject.extra[0].color = jobject.color;
-		delete(jobject.color);
-		jobject.extra[0].bold = jobject.bold;
-		delete(jobject.bold);
-		jobject.extra[0].italic = jobject.italic;
-		delete(jobject.italic);
-		jobject.extra[0].underlined = jobject.underlined;
-		delete(jobject.underline);
-		jobject.extra[0].strikethrough = jobject.strikethrough;
-		delete(jobject.strikethrough);
-		jobject.extra[0].obfuscated = jobject.obfuscated;
-		delete(jobject.obfuscated);
-		jobject.text = '';
+	if (Object.prototype.toString.call( jobject ) === '[object Object]') {
+		if (Object.prototype.toString.call( jobject.extra ) === '[object Array]') {
+			var jobjectNew = [];
+			for (var i = jobject.extra.length - 1; i >= 0; i--) {
+				jobjectNew.push(jobject.extra[i]);
+			}
+			jobject = jobjectNew;
+		} else {
+			jobject = [];
+		}
 	}
 
 	/*LANGUAGE SELECTIONS*/
-
 	$('.langSelect').removeClass('label label-success');
 	$('.'+langCode).addClass('label label-success');
 
@@ -628,12 +621,12 @@ function refreshOutput(input) {
 	/*EXTRA VIEWER MANAGER*/
 	$('#textsnippets_header').html(getLanguageString('textsnippets.header'));
 	if (input != 'previewLineChange') {
-		if (get_type(jobject.extra) == "[object Array]") {
+		if (get_type(jobject) == "[object Array]") {
 			var extraOutputPreview = "";
 			$('.extraContainer div.extraRow').remove();
 			$('.extraContainer').html('');
-			for (var i = 0; i <= jobject.extra.length - 1; i++) {
-				if (jobject.extra.length-1 > i) {
+			for (var i = 0; i <= jobject.length - 1; i++) {
+				if (jobject.length-1 > i) {
 					downButton = "<span onclick=\"moveUp(" + i + ")\" class=\"glyphicon glyphicon-arrow-down\"></span>";
 				} else {
 					downButton = "";
@@ -643,29 +636,29 @@ function refreshOutput(input) {
 				} else {
 					upButton = "";
 				}
-				if (get_type(jobject.extra[i].text) != "[object Undefined]") {
-					var tempJSON = '<input id="previewLine'+i+'" onkeyup="jobject.extra['+i+'].text = $(\'#previewLine'+i+'\').val(); refreshOutput(\'previewLineChange\')" type="text" class="form-control previewLine" value="'+jobject.extra[i].text+'">';
+				if (get_type(jobject[i].text) != "[object Undefined]") {
+					var tempJSON = '<input id="previewLine'+i+'" onkeyup="jobject['+i+'].text = $(\'#previewLine'+i+'\').val(); refreshOutput(\'previewLineChange\')" type="text" class="form-control previewLine" value="'+jobject[i].text+'">';
 					var saveButton = '';
-				} else if (get_type(jobject.extra[i].translate) != "[object Undefined]") {
-					var tempJSON = '<input type="text" class="form-control previewLine" disabled value="'+jobject.extra[i].translate+'">';
+				} else if (get_type(jobject[i].translate) != "[object Undefined]") {
+					var tempJSON = '<input type="text" class="form-control previewLine" disabled value="'+jobject[i].translate+'">';
 					var saveButton = '';
-				} else if (get_type(jobject.extra[i].score) != "[object Undefined]") {
-					var tempJSON = '<input type="text" class="form-control previewLine" disabled value="'+jobject.extra[i].score.name+'\'s '+jobject.extra[i].score.objective+' score">';
+				} else if (get_type(jobject[i].score) != "[object Undefined]") {
+					var tempJSON = '<input type="text" class="form-control previewLine" disabled value="'+jobject[i].score.name+'\'s '+jobject[i].score.objective+' score">';
 					var saveButton = '';
-				} else if (get_type(jobject.extra[i].selector) != "[object Undefined]") {
-					var tempJSON = '<input type="text" class="form-control previewLine" disabled value="Selector: '+jobject.extra[i].selector+'">';
+				} else if (get_type(jobject[i].selector) != "[object Undefined]") {
+					var tempJSON = '<input type="text" class="form-control previewLine" disabled value="Selector: '+jobject[i].selector+'">';
 					var saveButton = '';
 				}
-				if (input == 'noEditIfMatches' && jobject.extra[i].text != $('#previewLine'+matchTo).val()) {
+				if (input == 'noEditIfMatches' && jobject[i].text != $('#previewLine'+matchTo).val()) {
 					var blah = 'blah';
 				} else {
-					tempJSON = '<div class="row"><div class="col-md-4">'+tempJSON+'</div><div class="col-md-7"><button class="btn btn-default" onclick="editExtra('+i+')" id="'+i+'RowEditButton">Edit</button></div><div class="col-md-1"><div class="colorPreview"><div class="colorPreviewColor" style="background-color:'+getCSSHEXFromWord(jobject.extra[i].color)+'"></div></div></div></div>';
+					tempJSON = '<div class="row"><div class="col-md-4">'+tempJSON+'</div><div class="col-md-7"><button class="btn btn-default" onclick="editExtra('+i+')" id="'+i+'RowEditButton">Edit</button></div><div class="col-md-1"><div class="colorPreview"><div class="colorPreviewColor" style="background-color:'+getCSSHEXFromWord(jobject[i].color)+'"></div></div></div></div>';
 				}
 				var deleteButton = '<span onclick="deleteIndex('+ i +');" class="glyphicon glyphicon-remove-circle"></span>';
 				$('.extraContainer').append('<div class="row extraRow row-margin-top row-margin-bottom RowIndex' + i + '"><div class="col-md-1">'+deleteButton+downButton+upButton+'</div><div class="col-md-11">'+tempJSON+'</div></div>');
 			}
-			if (jobject.extra.length === 0) {
-				delete jobject.extra;
+			if (jobject.length === 0) {
+				delete jobject;
 				$('.extraContainer').html('<div class="row"><div class="col-md-12"><h4>'+getLanguageString('textsnippets.nosnippets')+'</h4></div></div>');
 			}
 		} else {
@@ -853,8 +846,8 @@ function jsonParse() {
 	$('#jsonPreview').css('background-color','#'+$('#previewcolor').val());
 	localStorage["color"] = $('#previewcolor').val();
 	$('#jsonPreview').html('');
-	if (get_type(jobject.extra) == "[object Array]") {
-		for (var i = 0; i < jobject.extra.length; i++) {
+	if (get_type(jobject) == "[object Array]") {
+		for (var i = 0; i < jobject.length; i++) {
 			var doClickEvent = false;
 			var doHoverEvent = false;
 			var popoverTitle = "";
@@ -865,21 +858,21 @@ function jsonParse() {
 			var clickEventType = "";
 			var clickEventValue = "";
 			$('#jsonPreview').append('<span id="jsonPreviewSpanElement'+ i +'"></span>');
-			if (get_type(jobject.extra[i].text) != "[object Undefined]") {
-				$('#jsonPreviewSpanElement'+i).html(jobject.extra[i].text);
+			if (get_type(jobject[i].text) != "[object Undefined]") {
+				$('#jsonPreviewSpanElement'+i).html(jobject[i].text);
 			} else {
-				$('#jsonPreviewSpanElement'+i).html(jobject.extra[i].translate);
+				$('#jsonPreviewSpanElement'+i).html(jobject[i].translate);
 			}
-			if (jobject.extra[i].bold == "true") {
+			if (jobject[i].bold == "true") {
 				$('#jsonPreviewSpanElement'+i).addClass('bold');
 			}
-			if (jobject.extra[i].italic == "true") {
+			if (jobject[i].italic == "true") {
 				$('#jsonPreviewSpanElement'+i).addClass('italic');
 			}
-			if (jobject.extra[i].underlined == "true") {
+			if (jobject[i].underlined == "true") {
 				$('#jsonPreviewSpanElement'+i).addClass('underlined');
 			}
-			if (jobject.extra[i].strikethrough == "true") {
+			if (jobject[i].strikethrough == "true") {
 				if ($('#jsonPreviewSpanElement'+i).hasClass('underlined')) {
 					$('#jsonPreviewSpanElement'+i).removeClass('underlined');
 					$('#jsonPreviewSpanElement'+i).addClass('strikethroughunderlined');
@@ -887,34 +880,34 @@ function jsonParse() {
 					$('#jsonPreviewSpanElement'+i).addClass('strikethrough');
 				}
 			}
-			if (jobject.extra[i].obfuscated == "true") {
+			if (jobject[i].obfuscated == "true") {
 				$('#jsonPreviewSpanElement'+i).addClass('jsonPreviewObfuscated');
 			}
 
 			/*COLORS*/
-			$('#jsonPreviewSpanElement'+i).css('color',getCSSHEXFromWord(jobject.extra[i].color));
+			$('#jsonPreviewSpanElement'+i).css('color',getCSSHEXFromWord(jobject[i].color));
 
 			/*CLICK & HOVER EVENTS*/
 
-			if (get_type(jobject.extra[i].clickEvent) != "[object Undefined]" || get_type(jobject.extra[i].hoverEvent) != "[object Undefined]") {
-				if (get_type(jobject.extra[i].clickEvent) != "[object Undefined]") doClickEvent = true;
-				if (get_type(jobject.extra[i].hoverEvent) != "[object Undefined]") doHoverEvent = true;
+			if (get_type(jobject[i].clickEvent) != "[object Undefined]" || get_type(jobject[i].hoverEvent) != "[object Undefined]") {
+				if (get_type(jobject[i].clickEvent) != "[object Undefined]") doClickEvent = true;
+				if (get_type(jobject[i].hoverEvent) != "[object Undefined]") doHoverEvent = true;
 				if (doHoverEvent && doClickEvent) {
 					popoverTitle = getLanguageString('textsnippets.hoverevent.header') + ' and ' + getLanguageString('textsnippets.clickevent.header');
-					hoverEventType = jobject.extra[i].hoverEvent.action;
-					hoverEventValue = jobject.extra[i].hoverEvent.value;
-					clickEventType = jobject.extra[i].clickEvent.action;
-					clickEventValue = jobject.extra[i].clickEvent.value;
+					hoverEventType = jobject[i].hoverEvent.action;
+					hoverEventValue = jobject[i].hoverEvent.value;
+					clickEventType = jobject[i].clickEvent.action;
+					clickEventValue = jobject[i].clickEvent.value;
 				}
 				if (doHoverEvent && !doClickEvent) {
 					popoverTitle = getLanguageString('textsnippets.hoverevent.header');
-					hoverEventType = jobject.extra[i].hoverEvent.action;
-					hoverEventValue = jobject.extra[i].hoverEvent.value;
+					hoverEventType = jobject[i].hoverEvent.action;
+					hoverEventValue = jobject[i].hoverEvent.value;
 				}
 				if (!doHoverEvent && doClickEvent) {
 					popoverTitle = getLanguageString('textsnippets.clickevent.header');
-					clickEventType = jobject.extra[i].clickEvent.action;
-					clickEventValue = jobject.extra[i].clickEvent.value;
+					clickEventType = jobject[i].clickEvent.action;
+					clickEventValue = jobject[i].clickEvent.value;
 				}
 				if (doClickEvent) {
 					if (clickEventType == "open_url") {
@@ -1046,7 +1039,6 @@ function initialize() {
 	$( "#translate_input_edit" ).autocomplete({
 		source: Object.keys(translationStrings)
 	});
-
 }
 $(document).ready(function(){
 	$('#loadprog').width('0%');
