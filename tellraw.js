@@ -935,7 +935,6 @@ function refreshLanguage(dropdownSelection) {
 			if ($(this).prop('tagName') == 'INPUT') {
 				$(this).attr('placeholder',langStr);
 			} else {
-				console.log($(this).prop('tagName'));
 				$(this).html(langStr);
 			}
 		}
