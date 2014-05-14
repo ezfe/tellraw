@@ -119,22 +119,23 @@
 						<div class="row">
 							<div class="col-md-10">
 								<select class="form-control" onchange="$('#colorPreviewColor').css('background-color',getCSSHEXFromWord($('#color_extra').val()));" id="color_extra">
-									<option lang="color.color_black" id="color_black" value="black">color_black</option>
-									<option lang="color.color_dark_blue" id="color_dark_blue" value="dark_blue">color_dark_blue</option>
-									<option lang="color.color_dark_green" id="color_dark_green" value="dark_green">color_dark_green</option>
-									<option lang="color.color_dark_aqua" id="color_dark_aqua" value="dark_aqua">color_dark_aqua</option>
-									<option lang="color.color_dark_red" id="color_dark_red" value="dark_red">color_dark_red</option>
-									<option lang="color.color_dark_purple" id="color_dark_purple" value="dark_purple">color_dark_purple</option>
-									<option lang="color.color_gold" id="color_gold" value="gold">color_gold</option>
-									<option lang="color.color_gray" id="color_gray" value="gray">color_gray</option>
-									<option lang="color.color_dark_gray" id="color_dark_gray" value="dark_gray">color_dark_gray</option>
-									<option lang="color.color_blue" id="color_blue" value="blue">color_blue</option>
-									<option lang="color.color_green" id="color_green" value="green">color_green</option>
-									<option lang="color.color_aqua" id="color_aqua" value="aqua">color_aqua</option>
-									<option lang="color.color_red" id="color_red" value="red">color_red</option>
-									<option lang="color.color_light_purple" id="color_light_purple" value="light_purple">color_light_purple</option>
-									<option lang="color.color_yellow" id="color_yellow" value="yellow">color_yellow</option>
-									<option lang="color.color_white" id="color_white" value="white" selected="true">color_white</option>
+									<option lang="color.color_none" value="none">color_none</option>
+									<option lang="color.color_black" value="black">color_black</option>
+									<option lang="color.color_dark_blue" value="dark_blue">color_dark_blue</option>
+									<option lang="color.color_dark_green" value="dark_green">color_dark_green</option>
+									<option lang="color.color_dark_aqua" value="dark_aqua">color_dark_aqua</option>
+									<option lang="color.color_dark_red" value="dark_red">color_dark_red</option>
+									<option lang="color.color_dark_purple" value="dark_purple">color_dark_purple</option>
+									<option lang="color.color_gold" value="gold">color_gold</option>
+									<option lang="color.color_gray" value="gray">color_gray</option>
+									<option lang="color.color_dark_gray" value="dark_gray">color_dark_gray</option>
+									<option lang="color.color_blue" value="blue">color_blue</option>
+									<option lang="color.color_green" value="green">color_green</option>
+									<option lang="color.color_aqua" value="aqua">color_aqua</option>
+									<option lang="color.color_red" value="red">color_red</option>
+									<option lang="color.color_light_purple" value="light_purple">color_light_purple</option>
+									<option lang="color.color_yellow" value="yellow">color_yellow</option>
+									<option lang="color.color_white" value="white" selected="true">color_white</option>
 								</select>
 							</div>
 							<div class="col-md-2">
@@ -308,22 +309,23 @@
 						<div class="row">
 							<div class="col-md-10">
 								<select class="form-control" onchange="$('#colorPreviewColor_edit').css('background-color',getCSSHEXFromWord($('#color_extra_edit').val()));" id="color_extra_edit">
-									<option lang="color.color_black" id="color_black_edit" value="black">color_black</option>
-									<option lang="color.color_dark_blue" id="color_dark_blue_edit" value="dark_blue">color_dark_blue</option>
-									<option lang="color.color_dark_green" id="color_dark_green_edit" value="dark_green">color_dark_green</option>
-									<option lang="color.color_dark_aqua" id="color_dark_aqua_edit" value="dark_aqua">color_dark_aqua</option>
-									<option lang="color.color_dark_red" id="color_dark_red_edit" value="dark_red">color_dark_red</option>
-									<option lang="color.color_dark_purple" id="color_dark_purple_edit" value="dark_purple">color_dark_purple</option>
-									<option lang="color.color_gold" id="color_gold_edit" value="gold">color_gold</option>
-									<option lang="color.color_gray" id="color_gray_edit" value="gray">color_gray</option>
-									<option lang="color.color_dark_gray" id="color_dark_gray_edit" value="dark_gray">color_dark_gray</option>
-									<option lang="color.color_blue" id="color_blue_edit" value="blue">color_blue</option>
-									<option lang="color.color_green" id="color_green_edit" value="green">color_green</option>
-									<option lang="color.color_aqua" id="color_aqua_edit" value="aqua">color_aqua</option>
-									<option lang="color.color_red" id="color_red_edit" value="red">color_red</option>
-									<option lang="color.color_light_purple" id="color_light_purple_edit" value="light_purple">color_light_purple</option>
-									<option lang="color.color_yellow" id="color_yellow_edit" value="yellow">color_yellow</option>
-									<option lang="color.color_white" id="color_white_edit" value="white" selected="true">color_white</option>
+									<option lang="color.color_none" value="none">color_none</option>
+									<option lang="color.color_black" value="black">color_black</option>
+									<option lang="color.color_dark_blue" value="dark_blue">color_dark_blue</option>
+									<option lang="color.color_dark_green" value="dark_green">color_dark_green</option>
+									<option lang="color.color_dark_aqua" value="dark_aqua">color_dark_aqua</option>
+									<option lang="color.color_dark_red" value="dark_red">color_dark_red</option>
+									<option lang="color.color_dark_purple" value="dark_purple">color_dark_purple</option>
+									<option lang="color.color_gold" value="gold">color_gold</option>
+									<option lang="color.color_gray" value="gray">color_gray</option>
+									<option lang="color.color_dark_gray" value="dark_gray">color_dark_gray</option>
+									<option lang="color.color_blue" value="blue">color_blue</option>
+									<option lang="color.color_green" value="green">color_green</option>
+									<option lang="color.color_aqua" value="aqua">color_aqua</option>
+									<option lang="color.color_red" value="red">color_red</option>
+									<option lang="color.color_light_purple" value="light_purple">color_light_purple</option>
+									<option lang="color.color_yellow" value="yellow">color_yellow</option>
+									<option lang="color.color_white" value="white" selected="true">color_white</option>
 								</select>
 							</div>
 							<div class="col-md-2">

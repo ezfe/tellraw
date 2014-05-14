@@ -354,7 +354,13 @@ function editExtra(index) {
 	refreshLanguage();
 
 	$('#colorPreviewColor_edit').css('background-color',getCSSHEXFromWord(jobject[index].color));
-	$("#color_extra_edit").val(jobject[index].color);
+	
+	if (jobject[index].color == undefined) {
+		$("#color_extra_edit").val(none);
+	} else {
+		$("#color_extra_edit").val(jobject[index].color);
+	}
+	
 
 	if (jobject[index].bold != undefined) {
 		$('#bold_text_extra_edit').prop('checked',true);
@@ -400,7 +406,11 @@ function cancelExtraEdit() {
 }
 function saveExtraEdit() {	
 	extraIndex = currentEdit;
-	jobject[extraIndex].color = getSelected("color_extra_edit");
+	
+	if (getSelected("color_extra_edit") !== "none") {
+		jobject[extraIndex].color = getSelected("color_extra_edit");
+	}
+
 
 	if ($('#obj_extra_container_edit').is(":visible")) {
 		jobject[extraIndex].score = new Object;
@@ -552,8 +562,9 @@ function addExtra() {
 		jobject[extraIndex].selector = escapeQuotes($('#selector').val());
 	}
 
-
-	jobject[extraIndex].color = getSelected("color_extra");
+	if (getSelected("color_extra") !== "none") {
+		jobject[extraIndex].color = getSelected("color_extra");
+	}
 	if (getChecked("bold_text_extra")) {
 		jobject[extraIndex].bold = "true";
 	}
