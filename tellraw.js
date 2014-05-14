@@ -18,6 +18,7 @@ var textExtraStorageVar; /*DO NOT USE*/
 var lang = {"status":"init"};
 var translationStrings;
 var currentEdit;
+var hasRequestedTranslation = false;
 
 /*
 (c) 2012 Steven Levithan <http://slevithan.com/>
@@ -29,7 +30,7 @@ if (!String.prototype.codePointAt) {
 		var str = String(this),
 		code = str.charCodeAt(pos),
 		next = str.charCodeAt(pos + 1);
-        // If a surrogate pair
+        /* If a surrogate pair */
         if (0xD800 <= code && code <= 0xDBFF && 0xDC00 <= next && next <= 0xDFFF) {
         	return ((code - 0xD800) * 0x400) + (next - 0xDC00) + 0x10000;
         }
@@ -58,8 +59,9 @@ function html_encode(string,do_encode) {
 }
 
 function getLanguageString(string,enTest,do_encode) {
-	if (enTest) {
-		console.log(langCode+': '+string);
+	if (enTest && !hasRequestedTranslation && localStorage['languageRequestDone'] != "false") {
+		hasRequestedTranslation = true;
+		translateStringRequestInitiate(string);
 	}
 	if (do_encode !== false) {
 		if (do_encode === undefined) {
@@ -225,6 +227,20 @@ function deleteAllNoConfirm() {
 function deleteAllCancel() {
 	$('#deleteConfirm').slideUp();
 }
+function translateStringRequestInitiate(str) {
+	$('#translateStringRequest').remove();
+	$('.alerts').append('<div id="translateStringRequest" class="alert alert-danger"><h4 lang="translate.header"></h4><p lang="translate.body"></p><p><button type="button" onclick="translateStringRequestAccept(\''+str+'\')" class="btn btn-danger" lang="translate.yes"></button> <button type="button" onclick="translateStringRequestDeny()" class="btn btn-default"lang="translate.no"></button></p></div>');
+	refreshLanguage();
+}
+function translateStringRequestDeny() {
+	$('#translateStringRequest').slideUp();
+	localStorage['languageRequestDone'] = true;
+}
+function translateStringRequestAccept(str) {
+	$('#translateStringRequest').slideUp();
+	localStorage['languageRequestDone'] = true;
+	window.location = '/minecraft/tellraw/translate?lang='+langCode+'&string='+str;
+}
 function warnFutureVersion(ver,feature,c) {
 	$('.modal_banners').append('<div class="alert alert-warning futureWarning '+c+'"><strong>'+getLanguageString('textsnippets.warning.title')+'</strong> '+getLanguageString('textsnippets.warning.text').replace('%v',ver).replace('%f',feature)+'</div>');
 }
@@ -255,7 +271,7 @@ function getCSSHEXFromWord(w) {
 }
 function removeWhiteSpace(s) {
 	return s;
-	//BROKEN return s.replace(/ /g, '');
+	/*BROKEN return s.replace(/ /g, '');*/
 }
 function deleteIndex(index) {
 	jobject.extra.splice(index, 1);
@@ -1032,7 +1048,7 @@ function initialize() {
 	});
 
 }
-$( document ).ready(function(){
+$(document).ready(function(){
 	$('#loadprog').width('0%');
 	$('#loadprog').html('Loading language strings');
 	$.get( "lang.json", function( data ) {
