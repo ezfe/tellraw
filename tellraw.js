@@ -929,19 +929,32 @@ function refreshLanguage(dropdownSelection) {
 	if (Modernizr.localstorage) {
 		localStorage['langCode'] = langCode;
 	}
-	$('.language_area').each(function(){
-		var langStr = 'undefined';
-		if ($(this).attr('id') != undefined) {
-			langStr = $(this).attr('id');
-		}
+	$('*').each(function(){
 		if ($(this).attr('lang') != undefined) {
 			langStr = getLanguageString($(this).attr('lang'));
+			if ($(this).prop('tagName') == 'INPUT') {
+				$(this).attr('placeholder',langStr);
+			} else {
+				console.log($(this).prop('tagName'));
+				$(this).html(langStr);
+			}
 		}
-		$(this).html(langStr);
+
+		if ($(this).attr('version') != undefined) {
+			var labelLevel = 'success';
+			if ($(this).attr('version') == '1.7 & 1.8') {
+				labelLevel = 'warning';
+			}
+			if ($(this).attr('version') == '1.8') {
+				labelLevel = 'danger';
+			}
+			if ($(this).prop('tagName') == 'OPTION') {
+				$(this).prepend('('+$(this).attr('version')+') ');
+			} else {
+				$(this).append(' <span class="label label-'+labelLevel+'">'+$(this).attr('version')+'</span>');
+			}
+		}
 	});
-	$('#obj_player').attr('placeholder',getLanguageString('textsnippets.player'));
-	$('#obj_score').attr('placeholder',getLanguageString('textsnippets.obj2'));
-	$('#text_extra').attr('placeholder',getLanguageString('textsnippets.text'));
 }
 
 function initialize() {
@@ -987,7 +1000,7 @@ function initialize() {
 		if (match != null) {
 			for (var i = matchLength - 1; i >= 0; i--) {
 				if (matchLength > 5) {
-					alert('An unexpected error has occured. Please send an email to mail@ezekielelin.com detailing the events that triggered this.');
+					alert('An unexpected error has occured. REFID:matchLength.GreaterThan.5-990@44aca9656b8bb3368da86f9ed7393e5664b479f1');
 				}
 				for (var i = matchLength - 1; i >= 0; i--) {
 					$('#parameter'+i+'row').show();
