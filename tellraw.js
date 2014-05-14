@@ -59,7 +59,7 @@ function html_encode(string,do_encode) {
 }
 
 function getLanguageString(string,enTest,do_encode) {
-	if (enTest && !hasRequestedTranslation && localStorage['languageRequestDone'] != "false") {
+	if (enTest && !hasRequestedTranslation && localStorage['languageRequestDone'] != "true") {
 		hasRequestedTranslation = true;
 		translateStringRequestInitiate(string);
 	}
