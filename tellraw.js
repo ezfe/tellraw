@@ -300,7 +300,7 @@ function clearExtra() {
 	$("#clickEventText").val("");
 	$("#hoverEventText").val("");
 	$("#text_extra").val("");
-	$("#color_extra").val("white");
+	$("#color_extra").val("none");
 	$("#clickEvent").val('none');
 	$("#hoverEvent").val('none');
 	$("#insertion_text").val('');
