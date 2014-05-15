@@ -1025,8 +1025,8 @@ function initialize() {
 		
 		$('#command').val(inpt.substring(0,inpt.indexOf('tellraw')+7));
 
-		$('#player').val(inpt.substring(inpt.indexOf('tellraw')+8,inpt.indexOf('{')-1));
-		jobject = JSON.parse(inpt.substring(inpt.indexOf("{")));
+		$('#player').val(inpt.substring(inpt.indexOf('tellraw')+8,inpt.indexOf('[')-1));
+		jobject = JSON.parse(inpt.substring(inpt.indexOf("[")));
 		refreshOutput();
 	});
 	refreshLanguage();
