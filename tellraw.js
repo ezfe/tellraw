@@ -362,8 +362,10 @@ function editExtra(index) {
 	}
 	
 
-	if (jobject[index].bold != undefined) {
+	if (jobject[index].bold = undefined) {
 		$('#bold_text_extra_edit').prop('checked',true);
+	} else {
+
 	}
 	if (jobject[index].italic != undefined) {
 		$('#italic_text_extra_edit').prop('checked',true);
