@@ -1029,13 +1029,18 @@ function initialize() {
 	});
 	refreshLanguage();
 	refreshOutput();
+
+	if (localStorage['titleCmdShown'] !== "yes") {
+		$('.alerts').append('<div id="titleCommandAlert" class="alert alert-danger"><h4 lang="titleCommand.header" version="1.8"></h4><p lang="titleCommand.body"></p><p><button type="button" onclick="$(\'#titleCommandAlert\').slideUp().remove();localStorage[\'titleCmdShown\'] = \'yes\';" class="btn btn-default"lang="titleCommand.ok"></button></p></div>');
+		refreshLanguage();
+	}
+
 	$('.fmtExtra').on('click', function(){
 		extraTextFormat = $(this).attr('tellrawType');
 		$('.fmtExtra').removeClass('active');
 		$(this).addClass('active');
 		refreshOutput();
 	});
-
 	$('#addExtraButton').on('click',function(){
 		$('#snippetsWell').hide();
 		$('#addExtraModalData').show();
