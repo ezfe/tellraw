@@ -361,27 +361,27 @@ function editExtra(index) {
 	}
 	
 
-	if (jobject[index].bold = undefined) {
+	if (jobject[index].bold == "true") {
 		$('#bold_text_extra_edit').prop('checked',true);
 	} else {
 		$('#bold_text_extra_edit').prop('checked',false);
 	}
-	if (jobject[index].italic != undefined) {
+	if (jobject[index].italic == "true") {
 		$('#italic_text_extra_edit').prop('checked',true);
 	} else {
 		$('#italic_text_extra_edit').prop('checked',false);
 	}
-	if (jobject[index].underlined != undefined) {
+	if (jobject[index].underlined == "true") {
 		$('#underlined_text_extra_edit').prop('checked',true);
 	} else {
 		$('#underlined_text_extra_edit').prop('checked',false);
 	}
-	if (jobject[index].strikethrough != undefined) {
+	if (jobject[index].strikethrough == "true") {
 		$('#strikethrough_text_extra_edit').prop('checked',true);
 	} else {
 		$('#strikethrough_text_extra_edit').prop('checked',false);
 	}
-	if (jobject[index].obfuscated != undefined) {
+	if (jobject[index].obfuscated == "true") {
 		$('#obfuscated_text_extra_edit').prop('checked',true);
 	} else {
 		$('#obfuscated_text_extra_edit').prop('checked',false);
