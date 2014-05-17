@@ -442,28 +442,38 @@ function saveExtraEdit() {
 
 	if (getChecked("bold_text_extra_edit")) {
 		jobject[extraIndex].bold = "true";
-	} else {
+	} else if (extraIndex != 0) {
 		jobject[extraIndex].bold = "false";
+	} else {
+		delete jobject[extraIndex].bold;
 	}
 	if (getChecked("italic_text_extra_edit")) {
 		jobject[extraIndex].italic = "true";
-	} else {
+	} else if (extraIndex != 0) {
 		jobject[extraIndex].italic = "false";
+	} else {
+		delete jobject[extraIndex].italic;
 	}
 	if (getChecked("underlined_text_extra_edit")) {
 		jobject[extraIndex].underlined = "true";
-	} else {
+	} else if (extraIndex != 0) {
 		jobject[extraIndex].underlined = "false";
+	} else {
+		delete jobject[extraIndex].underlined;
 	}
 	if (getChecked("strikethrough_text_extra_edit")) {
 		jobject[extraIndex].strikethrough = "true";
-	} else {
+	} else if (extraIndex != 0) {
 		jobject[extraIndex].strikethrough = "false";
+	} else {
+		delete jobject[extraIndex].strikethrough;
 	}
 	if (getChecked("obfuscated_text_extra_edit")) {
 		jobject[extraIndex].obfuscated = "true";
-	} else {
+	} else if (extraIndex != 0) {
 		jobject[extraIndex].obfuscated = "false";
+	} else {
+		delete jobject[extraIndex].obfuscated;
 	}
 
 	delete jobject[extraIndex].clickEvent;
@@ -576,28 +586,38 @@ function addExtra() {
 
 	if (getChecked("bold_text_extra")) {
 		jobject[extraIndex].bold = "true";
-	} else {
+	} else if (extraIndex != 0) {
 		jobject[extraIndex].bold = "false";
+	} else {
+		delete jobject[extraIndex].bold;
 	}
 	if (getChecked("italic_text_extra")) {
 		jobject[extraIndex].italic = "true";
-	} else {
+	} else if (extraIndex != 0) {
 		jobject[extraIndex].italic = "false";
+	} else {
+		delete jobject[extraIndex].italic;
 	}
 	if (getChecked("underlined_text_extra")) {
 		jobject[extraIndex].underlined = "true";
-	} else {
+	} else if (extraIndex != 0) {
 		jobject[extraIndex].underlined = "false";
+	} else {
+		delete jobject[extraIndex].underlined;
 	}
 	if (getChecked("strikethrough_text_extra")) {
 		jobject[extraIndex].strikethrough = "true";
-	} else {
+	} else if (extraIndex != 0) {
 		jobject[extraIndex].strikethrough = "false";
+	} else {
+		delete jobject[extraIndex].strikethrough;
 	}
 	if (getChecked("obfuscated_text_extra")) {
 		jobject[extraIndex].obfuscated = "true";
-	} else {
+	} else if (extraIndex != 0) {
 		jobject[extraIndex].obfuscated = "false";
+	} else {
+		delete jobject[extraIndex].obfuscated;
 	}
 
 	if (clickEventType != "none") {
@@ -656,12 +676,12 @@ function refreshOutput(input) {
 			$('.extraContainer div.extraRow').remove();
 			$('.extraContainer').html('');
 			for (var i = 0; i <= jobject.length - 1; i++) {
-				if (jobject.length-1 > i) {
+				if (jobject.length-1 > i && i != 0) {
 					downButton = "<span onclick=\"moveUp(" + i + ")\" class=\"glyphicon glyphicon-arrow-down\"></span>";
 				} else {
 					downButton = "";
 				}
-				if (i > 0) {
+				if (i > 0 && i != 1) {
 					upButton = "<span onclick=\"moveUp(" + (i-1) + ")\" class=\"glyphicon glyphicon-arrow-up\"></span>";
 				} else {
 					upButton = "";
