@@ -894,7 +894,11 @@ function refreshOutput(input) {
 }
 function jsonParse() {
 	$('#jsonPreview').css('background-color','#'+$('#previewcolor').val());
-	localStorage["color"] = $('#previewcolor').val();
+	try {
+		localStorage["color"] = $('#previewcolor').val();
+	} catch (err) {
+		console.log(err.msg);
+	}
 	$('#jsonPreview').html('');
 	if (get_type(jobject) == "[object Array]") {
 		for (var i = 0; i < jobject.length; i++) {
