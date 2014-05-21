@@ -53,11 +53,8 @@
 					<span lang="player.header"></span><br>
 					<span lang="player.description"></span>
 				</div>
-				<div id="commandDiv" class="col-md-5 col-xs-12 row-margin-top row-margin-bottom player_container">
-					<input value="/tellraw" id="command" type="text" class="form-control">
-				</div>
-				<div id="playerDiv" class="col-md-5 col-xs-12 row-margin-top row-margin-bottom player_container">
-					<input value="@a" id="player" type="text" class="form-control">
+				<div id="playerDiv" class="col-md-10 col-xs-12 row-margin-top row-margin-bottom command_container">
+					<input value="tellraw @a" id="command" type="text" class="form-control">
 				</div>
 			</div>
 			<div class="well row-margin-top" id="snippetsWell">

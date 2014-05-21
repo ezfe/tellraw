@@ -218,8 +218,7 @@ function deleteAllNoConfirm() {
 	$('#deleteConfirm').slideUp();
 	$('#deleteConfirm');
 	jobject = {"text":""};
-	$('#command').val('/tellraw');
-	$('#player').val('@a');
+	$('#command').val('/tellraw @a');
 	refreshOutput();
 }
 function deleteAllCancel() {
@@ -683,12 +682,8 @@ function refreshOutput(input) {
 		$('.extraTranslationParameterRow').hide();
 	}
 
-	/*PLAYER MANAGER*/
-	$('#player').val(removeWhiteSpace($("#player").val()));
-	if ($("#player").val() === "" && input != "input_player") $("#player").val('@a');
-
 	/*COMMAND MANAGER*/
-	if ($("#command").val() === "" && input != "input_command") $("#command").val('/tellraw');
+	if ($("#command").val() === "" && input != "input_command") $("#command").val('/tellraw @a');
 
 	/*HOVEREVENT SUGGESTION MANAGER*/
 	if (getSelected("hoverEvent") == "show_achievement") {
@@ -813,7 +808,7 @@ function refreshOutput(input) {
 		document.getElementById("click_selector_edit").disabled = true;
 		document.getElementById("insertClick_edit").disabled = true;
 	}
-	var commandString = $('#command').val()+' '+$("#player").val();
+	var commandString = $('#command').val();
 	$('#outputtextfield').val(commandString+' '+JSON.stringify(jobject));
 	$('#nicelookingoutput').html(commandString+'<br>'+JSON.stringify(jobject, null, 4));
 	jsonParse();
@@ -825,7 +820,6 @@ function refreshOutput(input) {
 	}
 	if (Modernizr.localstorage) localStorage['jobject'] = JSON.stringify(jobject);
 	if (Modernizr.localstorage) localStorage['jcommand'] = $('#command').val();
-	if (Modernizr.localstorage) localStorage['jplayer'] = $('#player').val();
 
 	if (input != 'noLoop' && input != 'previewLineChange') {
 		refreshOutput('noLoop');
@@ -975,17 +969,13 @@ function initialize() {
 	}
 
 	$('#command').val(localStorage['jcommand']);
-	$('#player').val(localStorage['jplayer']);
 
-	$('#player').change(function(){refreshOutput()});
 	$('#command').change(function(){refreshOutput()});
 
 	$('#import').click(function() {
 		var inpt = prompt(getLanguageString('settings.importtext',false));
 		
-		$('#command').val(inpt.substring(0,inpt.indexOf('tellraw')+7));
-
-		$('#player').val(inpt.substring(inpt.indexOf('tellraw')+8,inpt.indexOf('{')-1));
+		$('#command').val(inpt.substring(0,inpt.indexOf("{")-1));
 		jobject = JSON.parse(inpt.substring(inpt.indexOf("{")));
 		refreshOutput();
 	});
