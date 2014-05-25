@@ -600,6 +600,10 @@ function refreshOutput(input) {
 		jobject.text = '';
 	}
 
+	if (get_type(jobject) == "[object Array]") {
+		deleteAllNoConfirm();
+	}
+
 	/*LANGUAGE SELECTIONS*/
 
 	$('.langSelect').removeClass('label label-success');
