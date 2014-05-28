@@ -959,7 +959,7 @@ function initialize() {
 		$('#language_keys').append('<li><a onclick="langCode=\''+Object.keys(lang)[i]+'\'; refreshLanguage(true); refreshOutput();"><span class="'+Object.keys(lang)[i]+' langSelect" id="language_select_'+Object.keys(lang)[i]+'">'+lang[Object.keys(lang)[i]].language.name+'</span></a></li>');
 	};
 	$('#language_keys').append('<li class="divider"></li>');
-	$('#language_keys').append('<li><a href="mailto:translate@ezekielelin.com"><span class="language_area" lang="language.translate"></span></a></li>');
+	$('#language_keys').append('<li><a href="/messenger?compose=true&to=ezfe&subject=Tellraw%20Translation"><span class="language_area" lang="language.translate"></span></a></li>');
 
 	$('.extraTranslationParameterRow').hide();
 
