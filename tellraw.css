@@ -42,3 +42,26 @@
 .modal {
 	color: black;
 }
+@font-face {
+    font-family: 'minecraftiaregular';
+    src: url('minecraftia-webfont.eot');
+    src: url('minecraftia-webfont.eot?#iefix') format('embedded-opentype'),
+         url('minecraftia-webfont.woff') format('woff'),
+         url('minecraftia-webfont.ttf') format('truetype'),
+         url('minecraftia-webfont.svg#minecraftiaregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+#jsonPreview {
+	font-family: "minecraftiaregular","Minecraft","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 16px;
+}
+div.popover {
+	font-family: "Menlo",monospace;
+	font-size: 12px;
+	color: black;
+}
+h3.popover-title {
+	font-size: 12px;
+}

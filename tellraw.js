@@ -1,10 +1,11 @@
-var achievements=[{"achievement":"stat.leaveGame"},{"achievement":"stat.playOneMinute"},{"achievement":"stat.walkOneCm"},{"achievement":"stat.swimOneCm"},{"achievement":"stat.fallOneCm"},{"achievement":"stat.climbOneCm"},{"achievement":"stat.flyOneCm"},{"achievement":"stat.diveOneCm"},{"achievement":"stat.minecartOneCm"},{"achievement":"stat.boatOneCm"},{"achievement":"stat.pigOneCm"},{"achievement":"stat.horseOneCm"},{"achievement":"stat.jump"},{"achievement":"stat.drop"},{"achievement":"stat.damageDealt"},{"achievement":"stat.damageTaken"},{"achievement":"stat.deaths"},{"achievement":"stat.mobKills"},{"achievement":"stat.animalsBred"},{"achievement":"stat.playerKills"},{"achievement":"stat.fishCaught"},{"achievement":"stat.junkFished"},{"achievement":"stat.treasureFished"},{"achievement":"stat.mineBlock.1"},{"achievement":"stat.mineBlock.3"},{"achievement":"stat.mineBlock.4"},{"achievement":"stat.mineBlock.5"},{"achievement":"stat.mineBlock.6"},{"achievement":"stat.mineBlock.12"},{"achievement":"stat.mineBlock.13"},{"achievement":"stat.mineBlock.14"},{"achievement":"stat.mineBlock.15"},{"achievement":"stat.mineBlock.16"},{"achievement":"stat.mineBlock.17"},{"achievement":"stat.mineBlock.18"},{"achievement":"stat.mineBlock.19"},{"achievement":"stat.mineBlock.20"},{"achievement":"stat.mineBlock.21"},{"achievement":"stat.mineBlock.22"},{"achievement":"stat.mineBlock.23"},{"achievement":"stat.mineBlock.24"},{"achievement":"stat.mineBlock.25"},{"achievement":"stat.mineBlock.27"},{"achievement":"stat.mineBlock.28"},{"achievement":"stat.mineBlock.29"},{"achievement":"stat.mineBlock.30"},{"achievement":"stat.mineBlock.31"},{"achievement":"stat.mineBlock.32"},{"achievement":"stat.mineBlock.33"},{"achievement":"stat.mineBlock.35"},{"achievement":"stat.mineBlock.37"},{"achievement":"stat.mineBlock.38"},{"achievement":"stat.mineBlock.39"},{"achievement":"stat.mineBlock.41"},{"achievement":"stat.mineBlock.42"},{"achievement":"stat.mineBlock.44"},{"achievement":"stat.mineBlock.45"},{"achievement":"stat.mineBlock.46"},{"achievement":"stat.mineBlock.47"},{"achievement":"stat.mineBlock.48"},{"achievement":"stat.mineBlock.49"},{"achievement":"stat.mineBlock.50"},{"achievement":"stat.mineBlock.53"},{"achievement":"stat.mineBlock.54"},{"achievement":"stat.mineBlock.56"},{"achievement":"stat.mineBlock.57"},{"achievement":"stat.mineBlock.58"},{"achievement":"stat.mineBlock.61"},{"achievement":"stat.mineBlock.65"},{"achievement":"stat.mineBlock.66"},{"achievement":"stat.mineBlock.67"},{"achievement":"stat.mineBlock.69"},{"achievement":"stat.mineBlock.70"},{"achievement":"stat.mineBlock.72"},{"achievement":"stat.mineBlock.73"},{"achievement":"stat.mineBlock.76"},{"achievement":"stat.mineBlock.77"},{"achievement":"stat.mineBlock.78"},{"achievement":"stat.mineBlock.79"},{"achievement":"stat.mineBlock.80"},{"achievement":"stat.mineBlock.81"},{"achievement":"stat.mineBlock.82"},{"achievement":"stat.mineBlock.84"},{"achievement":"stat.mineBlock.85"},{"achievement":"stat.mineBlock.86"},{"achievement":"stat.mineBlock.87"},{"achievement":"stat.mineBlock.88"},{"achievement":"stat.mineBlock.89"},{"achievement":"stat.mineBlock.90"},{"achievement":"stat.mineBlock.95"},{"achievement":"stat.mineBlock.97"},{"achievement":"stat.mineBlock.98"},{"achievement":"stat.mineBlock.99"},{"achievement":"stat.mineBlock.100"},{"achievement":"stat.mineBlock.101"},{"achievement":"stat.mineBlock.102"},{"achievement":"stat.mineBlock.103"},{"achievement":"stat.mineBlock.106"},{"achievement":"stat.mineBlock.107"},{"achievement":"stat.mineBlock.108"},{"achievement":"stat.mineBlock.109"},{"achievement":"stat.mineBlock.110"},{"achievement":"stat.mineBlock.111"},{"achievement":"stat.mineBlock.112"},{"achievement":"stat.mineBlock.113"},{"achievement":"stat.mineBlock.114"},{"achievement":"stat.mineBlock.116"},{"achievement":"stat.mineBlock.119"},{"achievement":"stat.mineBlock.120"},{"achievement":"stat.mineBlock.121"},{"achievement":"stat.mineBlock.122"},{"achievement":"stat.mineBlock.123"},{"achievement":"stat.mineBlock.126"},{"achievement":"stat.mineBlock.127"},{"achievement":"stat.mineBlock.128"},{"achievement":"stat.mineBlock.129"},{"achievement":"stat.mineBlock.130"},{"achievement":"stat.mineBlock.131"},{"achievement":"stat.mineBlock.133"},{"achievement":"stat.mineBlock.134"},{"achievement":"stat.mineBlock.135"},{"achievement":"stat.mineBlock.136"},{"achievement":"stat.mineBlock.137"},{"achievement":"stat.mineBlock.138"},{"achievement":"stat.mineBlock.139"},{"achievement":"stat.mineBlock.143"},{"achievement":"stat.mineBlock.145"},{"achievement":"stat.mineBlock.146"},{"achievement":"stat.mineBlock.147"},{"achievement":"stat.mineBlock.148"},{"achievement":"stat.mineBlock.151"},{"achievement":"stat.mineBlock.152"},{"achievement":"stat.mineBlock.153"},{"achievement":"stat.mineBlock.154"},{"achievement":"stat.mineBlock.155"},{"achievement":"stat.mineBlock.156"},{"achievement":"stat.mineBlock.157"},{"achievement":"stat.mineBlock.158"},{"achievement":"stat.mineBlock.159"},{"achievement":"stat.mineBlock.160"},{"achievement":"stat.mineBlock.161"},{"achievement":"stat.mineBlock.162"},{"achievement":"stat.mineBlock.163"},{"achievement":"stat.mineBlock.164"},{"achievement":"stat.mineBlock.170"},{"achievement":"stat.mineBlock.171"},{"achievement":"stat.mineBlock.172"},{"achievement":"stat.mineBlock.173"},{"achievement":"stat.mineBlock.174"},{"achievement":"stat.mineBlock.175"},{"achievement":"stat.useItem.1"},{"achievement":"stat.useItem.3"},{"achievement":"stat.useItem.4"},{"achievement":"stat.useItem.5"},{"achievement":"stat.useItem.6"},{"achievement":"stat.useItem.7"},{"achievement":"stat.useItem.8"},{"achievement":"stat.useItem.10"},{"achievement":"stat.useItem.12"},{"achievement":"stat.useItem.13"},{"achievement":"stat.useItem.14"},{"achievement":"stat.useItem.15"},{"achievement":"stat.useItem.16"},{"achievement":"stat.useItem.17"},{"achievement":"stat.useItem.18"},{"achievement":"stat.useItem.19"},{"achievement":"stat.useItem.20"},{"achievement":"stat.useItem.21"},{"achievement":"stat.useItem.22"},{"achievement":"stat.useItem.23"},{"achievement":"stat.useItem.24"},{"achievement":"stat.useItem.25"},{"achievement":"stat.useItem.27"},{"achievement":"stat.useItem.28"},{"achievement":"stat.useItem.29"},{"achievement":"stat.useItem.30"},{"achievement":"stat.useItem.31"},{"achievement":"stat.useItem.32"},{"achievement":"stat.useItem.33"},{"achievement":"stat.useItem.35"},{"achievement":"stat.useItem.37"},{"achievement":"stat.useItem.38"},{"achievement":"stat.useItem.39"},{"achievement":"stat.useItem.41"},{"achievement":"stat.useItem.42"},{"achievement":"stat.useItem.44"},{"achievement":"stat.useItem.45"},{"achievement":"stat.useItem.46"},{"achievement":"stat.useItem.47"},{"achievement":"stat.useItem.48"},{"achievement":"stat.useItem.49"},{"achievement":"stat.useItem.50"},{"achievement":"stat.useItem.51"},{"achievement":"stat.useItem.52"},{"achievement":"stat.useItem.53"},{"achievement":"stat.useItem.54"},{"achievement":"stat.useItem.56"},{"achievement":"stat.useItem.57"},{"achievement":"stat.useItem.58"},{"achievement":"stat.useItem.61"},{"achievement":"stat.useItem.65"},{"achievement":"stat.useItem.66"},{"achievement":"stat.useItem.67"},{"achievement":"stat.useItem.69"},{"achievement":"stat.useItem.70"},{"achievement":"stat.useItem.72"},{"achievement":"stat.useItem.73"},{"achievement":"stat.useItem.76"},{"achievement":"stat.useItem.77"},{"achievement":"stat.useItem.78"},{"achievement":"stat.useItem.79"},{"achievement":"stat.useItem.80"},{"achievement":"stat.useItem.81"},{"achievement":"stat.useItem.82"},{"achievement":"stat.useItem.84"},{"achievement":"stat.useItem.85"},{"achievement":"stat.useItem.86"},{"achievement":"stat.useItem.87"},{"achievement":"stat.useItem.88"},{"achievement":"stat.useItem.89"},{"achievement":"stat.useItem.90"},{"achievement":"stat.useItem.95"},{"achievement":"stat.useItem.96"},{"achievement":"stat.useItem.97"},{"achievement":"stat.useItem.98"},{"achievement":"stat.useItem.99"},{"achievement":"stat.useItem.100"},{"achievement":"stat.useItem.101"},{"achievement":"stat.useItem.102"},{"achievement":"stat.useItem.103"},{"achievement":"stat.useItem.106"},{"achievement":"stat.useItem.107"},{"achievement":"stat.useItem.108"},{"achievement":"stat.useItem.109"},{"achievement":"stat.useItem.110"},{"achievement":"stat.useItem.111"},{"achievement":"stat.useItem.112"},{"achievement":"stat.useItem.113"},{"achievement":"stat.useItem.114"},{"achievement":"stat.useItem.116"},{"achievement":"stat.useItem.119"},{"achievement":"stat.useItem.120"},{"achievement":"stat.useItem.121"},{"achievement":"stat.useItem.122"},{"achievement":"stat.useItem.123"},{"achievement":"stat.useItem.126"},{"achievement":"stat.useItem.127"},{"achievement":"stat.useItem.128"},{"achievement":"stat.useItem.129"},{"achievement":"stat.useItem.130"},{"achievement":"stat.useItem.131"},{"achievement":"stat.useItem.133"},{"achievement":"stat.useItem.134"},{"achievement":"stat.useItem.135"},{"achievement":"stat.useItem.136"},{"achievement":"stat.useItem.137"},{"achievement":"stat.useItem.138"},{"achievement":"stat.useItem.139"},{"achievement":"stat.useItem.141"},{"achievement":"stat.useItem.142"},{"achievement":"stat.useItem.143"},{"achievement":"stat.useItem.145"},{"achievement":"stat.useItem.146"},{"achievement":"stat.useItem.147"},{"achievement":"stat.useItem.148"},{"achievement":"stat.useItem.151"},{"achievement":"stat.useItem.152"},{"achievement":"stat.useItem.153"},{"achievement":"stat.useItem.154"},{"achievement":"stat.useItem.155"},{"achievement":"stat.useItem.156"},{"achievement":"stat.useItem.157"},{"achievement":"stat.useItem.158"},{"achievement":"stat.useItem.159"},{"achievement":"stat.useItem.160"},{"achievement":"stat.useItem.161"},{"achievement":"stat.useItem.162"},{"achievement":"stat.useItem.163"},{"achievement":"stat.useItem.164"},{"achievement":"stat.useItem.170"},{"achievement":"stat.useItem.171"},{"achievement":"stat.useItem.172"},{"achievement":"stat.useItem.173"},{"achievement":"stat.useItem.174"},{"achievement":"stat.useItem.175"},{"achievement":"stat.useItem.256"},{"achievement":"stat.useItem.257"},{"achievement":"stat.useItem.258"},{"achievement":"stat.useItem.259"},{"achievement":"stat.useItem.260"},{"achievement":"stat.useItem.261"},{"achievement":"stat.useItem.262"},{"achievement":"stat.useItem.263"},{"achievement":"stat.useItem.264"},{"achievement":"stat.useItem.265"},{"achievement":"stat.useItem.266"},{"achievement":"stat.useItem.267"},{"achievement":"stat.useItem.268"},{"achievement":"stat.useItem.269"},{"achievement":"stat.useItem.270"},{"achievement":"stat.useItem.271"},{"achievement":"stat.useItem.272"},{"achievement":"stat.useItem.273"},{"achievement":"stat.useItem.274"},{"achievement":"stat.useItem.275"},{"achievement":"stat.useItem.276"},{"achievement":"stat.useItem.277"},{"achievement":"stat.useItem.278"},{"achievement":"stat.useItem.279"},{"achievement":"stat.useItem.280"},{"achievement":"stat.useItem.281"},{"achievement":"stat.useItem.282"},{"achievement":"stat.useItem.283"},{"achievement":"stat.useItem.284"},{"achievement":"stat.useItem.285"},{"achievement":"stat.useItem.286"},{"achievement":"stat.useItem.287"},{"achievement":"stat.useItem.288"},{"achievement":"stat.useItem.289"},{"achievement":"stat.useItem.290"},{"achievement":"stat.useItem.291"},{"achievement":"stat.useItem.292"},{"achievement":"stat.useItem.293"},{"achievement":"stat.useItem.294"},{"achievement":"stat.useItem.295"},{"achievement":"stat.useItem.296"},{"achievement":"stat.useItem.297"},{"achievement":"stat.useItem.298"},{"achievement":"stat.useItem.299"},{"achievement":"stat.useItem.300"},{"achievement":"stat.useItem.301"},{"achievement":"stat.useItem.302"},{"achievement":"stat.useItem.303"},{"achievement":"stat.useItem.304"},{"achievement":"stat.useItem.305"},{"achievement":"stat.useItem.306"},{"achievement":"stat.useItem.307"},{"achievement":"stat.useItem.308"},{"achievement":"stat.useItem.309"},{"achievement":"stat.useItem.310"},{"achievement":"stat.useItem.311"},{"achievement":"stat.useItem.312"},{"achievement":"stat.useItem.313"},{"achievement":"stat.useItem.314"},{"achievement":"stat.useItem.315"},{"achievement":"stat.useItem.316"},{"achievement":"stat.useItem.317"},{"achievement":"stat.useItem.318"},{"achievement":"stat.useItem.319"},{"achievement":"stat.useItem.320"},{"achievement":"stat.useItem.321"},{"achievement":"stat.useItem.322"},{"achievement":"stat.useItem.323"},{"achievement":"stat.useItem.324"},{"achievement":"stat.useItem.325"},{"achievement":"stat.useItem.326"},{"achievement":"stat.useItem.327"},{"achievement":"stat.useItem.328"},{"achievement":"stat.useItem.329"},{"achievement":"stat.useItem.330"},{"achievement":"stat.useItem.331"},{"achievement":"stat.useItem.332"},{"achievement":"stat.useItem.333"},{"achievement":"stat.useItem.334"},{"achievement":"stat.useItem.335"},{"achievement":"stat.useItem.336"},{"achievement":"stat.useItem.337"},{"achievement":"stat.useItem.338"},{"achievement":"stat.useItem.339"},{"achievement":"stat.useItem.340"},{"achievement":"stat.useItem.341"},{"achievement":"stat.useItem.342"},{"achievement":"stat.useItem.343"},{"achievement":"stat.useItem.344"},{"achievement":"stat.useItem.345"},{"achievement":"stat.useItem.346"},{"achievement":"stat.useItem.347"},{"achievement":"stat.useItem.348"},{"achievement":"stat.useItem.349"},{"achievement":"stat.useItem.350"},{"achievement":"stat.useItem.351"},{"achievement":"stat.useItem.352"},{"achievement":"stat.useItem.353"},{"achievement":"stat.useItem.354"},{"achievement":"stat.useItem.355"},{"achievement":"stat.useItem.356"},{"achievement":"stat.useItem.357"},{"achievement":"stat.useItem.358"},{"achievement":"stat.useItem.359"},{"achievement":"stat.useItem.360"},{"achievement":"stat.useItem.361"},{"achievement":"stat.useItem.362"},{"achievement":"stat.useItem.363"},{"achievement":"stat.useItem.364"},{"achievement":"stat.useItem.365"},{"achievement":"stat.useItem.366"},{"achievement":"stat.useItem.367"},{"achievement":"stat.useItem.368"},{"achievement":"stat.useItem.369"},{"achievement":"stat.useItem.370"},{"achievement":"stat.useItem.371"},{"achievement":"stat.useItem.372"},{"achievement":"stat.useItem.373"},{"achievement":"stat.useItem.374"},{"achievement":"stat.useItem.375"},{"achievement":"stat.useItem.376"},{"achievement":"stat.useItem.377"},{"achievement":"stat.useItem.378"},{"achievement":"stat.useItem.379"},{"achievement":"stat.useItem.380"},{"achievement":"stat.useItem.381"},{"achievement":"stat.useItem.382"},{"achievement":"stat.killEntity.Creeper"},{"achievement":"stat.entityKilledBy.Creeper"},{"achievement":"stat.killEntity.Skeleton"},{"achievement":"stat.entityKilledBy.Skeleton"},{"achievement":"stat.killEntity.Spider"},{"achievement":"stat.entityKilledBy.Spider"},{"achievement":"stat.killEntity.Zombie"},{"achievement":"stat.entityKilledBy.Zombie"},{"achievement":"stat.killEntity.Slime"},{"achievement":"stat.entityKilledBy.Slime"},{"achievement":"stat.killEntity.Ghast"},{"achievement":"stat.entityKilledBy.Ghast"},{"achievement":"stat.killEntity.PigZombie"},{"achievement":"stat.entityKilledBy.PigZombie"},{"achievement":"stat.killEntity.Enderman"},{"achievement":"stat.entityKilledBy.Enderman"},{"achievement":"stat.killEntity.CaveSpider"},{"achievement":"stat.entityKilledBy.CaveSpider"},{"achievement":"stat.killEntity.Silverfish"},{"achievement":"stat.entityKilledBy.Silverfish"},{"achievement":"stat.killEntity.Blaze"},{"achievement":"stat.entityKilledBy.Blaze"},{"achievement":"stat.killEntity.LavaSlime"},{"achievement":"stat.entityKilledBy.LavaSlime"},{"achievement":"stat.killEntity.Bat"},{"achievement":"stat.entityKilledBy.Bat"},{"achievement":"stat.killEntity.Witch"},{"achievement":"stat.entityKilledBy.Witch"},{"achievement":"stat.killEntity.Pig"},{"achievement":"stat.entityKilledBy.Pig"},{"achievement":"stat.killEntity.Sheep"},{"achievement":"stat.entityKilledBy.Sheep"},{"achievement":"stat.killEntity.Cow"},{"achievement":"stat.entityKilledBy.Cow"},{"achievement":"stat.killEntity.Chicken"},{"achievement":"stat.entityKilledBy.Chicken"},{"achievement":"stat.killEntity.Squid"},{"achievement":"stat.entityKilledBy.Squid"},{"achievement":"stat.killEntity.Wolf"},{"achievement":"stat.entityKilledBy.Wolf"},{"achievement":"stat.killEntity.MushroomCow"},{"achievement":"stat.entityKilledBy.MushroomCow"},{"achievement":"stat.killEntity.Ozelot"},{"achievement":"stat.entityKilledBy.Ozelot"},{"achievement":"stat.killEntity.EntityHorse"},{"achievement":"stat.entityKilledBy.EntityHorse"},{"achievement":"stat.killEntity.Villager"},{"achievement":"stat.entityKilledBy.Villager"},{"achievement":"stat.useItem.383"},{"achievement":"stat.useItem.384"},{"achievement":"stat.useItem.385"},{"achievement":"stat.useItem.386"},{"achievement":"stat.useItem.387"},{"achievement":"stat.useItem.388"},{"achievement":"stat.useItem.389"},{"achievement":"stat.useItem.390"},{"achievement":"stat.useItem.391"},{"achievement":"stat.useItem.392"},{"achievement":"stat.useItem.393"},{"achievement":"stat.useItem.394"},{"achievement":"stat.useItem.395"},{"achievement":"stat.useItem.396"},{"achievement":"stat.useItem.397"},{"achievement":"stat.useItem.398"},{"achievement":"stat.useItem.399"},{"achievement":"stat.useItem.400"},{"achievement":"stat.useItem.401"},{"achievement":"stat.useItem.402"},{"achievement":"stat.useItem.403"},{"achievement":"stat.useItem.404"},{"achievement":"stat.useItem.405"},{"achievement":"stat.useItem.406"},{"achievement":"stat.useItem.407"},{"achievement":"stat.useItem.408"},{"achievement":"stat.useItem.417"},{"achievement":"stat.useItem.418"},{"achievement":"stat.useItem.419"},{"achievement":"stat.useItem.420"},{"achievement":"stat.useItem.421"},{"achievement":"stat.useItem.422"},{"achievement":"stat.useItem.2256"},{"achievement":"stat.useItem.2257"},{"achievement":"stat.useItem.2258"},{"achievement":"stat.useItem.2259"},{"achievement":"stat.useItem.2260"},{"achievement":"stat.useItem.2261"},{"achievement":"stat.useItem.2262"},{"achievement":"stat.useItem.2263"},{"achievement":"stat.useItem.2264"},{"achievement":"stat.useItem.2265"},{"achievement":"stat.useItem.2266"},{"achievement":"stat.useItem.2267"},{"achievement":"stat.breakItem.256"},{"achievement":"stat.breakItem.257"},{"achievement":"stat.breakItem.258"},{"achievement":"stat.breakItem.259"},{"achievement":"stat.breakItem.261"},{"achievement":"stat.breakItem.267"},{"achievement":"stat.breakItem.268"},{"achievement":"stat.breakItem.269"},{"achievement":"stat.breakItem.270"},{"achievement":"stat.breakItem.271"},{"achievement":"stat.breakItem.272"},{"achievement":"stat.breakItem.273"},{"achievement":"stat.breakItem.274"},{"achievement":"stat.breakItem.275"},{"achievement":"stat.breakItem.276"},{"achievement":"stat.breakItem.277"},{"achievement":"stat.breakItem.278"},{"achievement":"stat.breakItem.279"},{"achievement":"stat.breakItem.283"},{"achievement":"stat.breakItem.284"},{"achievement":"stat.breakItem.285"},{"achievement":"stat.breakItem.286"},{"achievement":"stat.breakItem.290"},{"achievement":"stat.breakItem.291"},{"achievement":"stat.breakItem.292"},{"achievement":"stat.breakItem.293"},{"achievement":"stat.breakItem.294"},{"achievement":"stat.breakItem.298"},{"achievement":"stat.breakItem.299"},{"achievement":"stat.breakItem.300"},{"achievement":"stat.breakItem.301"},{"achievement":"stat.breakItem.302"},{"achievement":"stat.breakItem.303"},{"achievement":"stat.breakItem.304"},{"achievement":"stat.breakItem.305"},{"achievement":"stat.breakItem.306"},{"achievement":"stat.breakItem.307"},{"achievement":"stat.breakItem.308"},{"achievement":"stat.breakItem.309"},{"achievement":"stat.breakItem.310"},{"achievement":"stat.breakItem.311"},{"achievement":"stat.breakItem.312"},{"achievement":"stat.breakItem.313"},{"achievement":"stat.breakItem.314"},{"achievement":"stat.breakItem.315"},{"achievement":"stat.breakItem.316"},{"achievement":"stat.breakItem.317"},{"achievement":"stat.breakItem.346"},{"achievement":"stat.breakItem.359"},{"achievement":"stat.breakItem.398"},{"achievement":"stat.craftItem.292"},{"achievement":"stat.craftItem.263"},{"achievement":"stat.craftItem.330"},{"achievement":"stat.craftItem.82"},{"achievement":"stat.craftItem.328"},{"achievement":"stat.craftItem.98"},{"achievement":"stat.craftItem.264"},{"achievement":"stat.craftItem.171"},{"achievement":"stat.craftItem.78"},{"achievement":"stat.craftItem.268"},{"achievement":"stat.craftItem.325"},{"achievement":"stat.craftItem.281"},{"achievement":"stat.craftItem.27"},{"achievement":"stat.craftItem.312"},{"achievement":"stat.craftItem.96"},{"achievement":"stat.craftItem.310"},{"achievement":"stat.craftItem.307"},{"achievement":"stat.craftItem.385"},{"achievement":"stat.craftItem.333"},{"achievement":"stat.craftItem.276"},{"achievement":"stat.craftItem.23"},{"achievement":"stat.craftItem.291"},{"achievement":"stat.craftItem.282"},{"achievement":"stat.craftItem.54"},{"achievement":"stat.craftItem.277"},{"achievement":"stat.craftItem.420"},{"achievement":"stat.craftItem.116"},{"achievement":"stat.craftItem.300"},{"achievement":"stat.craftItem.398"},{"achievement":"stat.craftItem.302"},{"achievement":"stat.craftItem.134"},{"achievement":"stat.craftItem.262"},{"achievement":"stat.craftItem.172"},{"achievement":"stat.craftItem.80"},{"achievement":"stat.craftItem.76"},{"achievement":"stat.craftItem.351"},{"achievement":"stat.craftItem.374"},{"achievement":"stat.craftItem.156"},{"achievement":"stat.craftItem.400"},{"achievement":"stat.craftItem.66"},{"achievement":"stat.craftItem.275"},{"achievement":"stat.craftItem.133"},{"achievement":"stat.craftItem.267"},{"achievement":"stat.craftItem.297"},{"achievement":"stat.craftItem.269"},{"achievement":"stat.craftItem.70"},{"achievement":"stat.craftItem.346"},{"achievement":"stat.craftItem.309"},{"achievement":"stat.craftItem.259"},{"achievement":"stat.craftItem.308"},{"achievement":"stat.craftItem.408"},{"achievement":"stat.craftItem.317"},{"achievement":"stat.craftItem.298"},{"achievement":"stat.craftItem.382"},{"achievement":"stat.craftItem.95"},{"achievement":"stat.craftItem.342"},{"achievement":"stat.craftItem.279"},{"achievement":"stat.craftItem.378"},{"achievement":"stat.craftItem.404"},{"achievement":"stat.craftItem.407"},{"achievement":"stat.craftItem.377"},{"achievement":"stat.craftItem.173"},{"achievement":"stat.craftItem.270"},{"achievement":"stat.craftItem.72"},{"achievement":"stat.craftItem.139"},{"achievement":"stat.craftItem.285"},{"achievement":"stat.craftItem.364"},{"achievement":"stat.craftItem.293"},{"achievement":"stat.craftItem.345"},{"achievement":"stat.craftItem.136"},{"achievement":"stat.craftItem.157"},{"achievement":"stat.craftItem.47"},{"achievement":"stat.craftItem.316"},{"achievement":"stat.craftItem.261"},{"achievement":"stat.craftItem.146"},{"achievement":"stat.craftItem.50"},{"achievement":"stat.craftItem.69"},{"achievement":"stat.craftItem.102"},{"achievement":"stat.craftItem.114"},{"achievement":"stat.craftItem.313"},{"achievement":"stat.craftItem.311"},{"achievement":"stat.craftItem.362"},{"achievement":"stat.craftItem.376"},{"achievement":"stat.craftItem.258"},{"achievement":"stat.craftItem.41"},{"achievement":"stat.craftItem.138"},{"achievement":"stat.craftItem.321"},{"achievement":"stat.craftItem.158"},{"achievement":"stat.craftItem.1"},{"achievement":"stat.craftItem.108"},{"achievement":"stat.craftItem.164"},{"achievement":"stat.craftItem.320"},{"achievement":"stat.craftItem.304"},{"achievement":"stat.craftItem.257"},{"achievement":"stat.craftItem.123"},{"achievement":"stat.craftItem.301"},{"achievement":"stat.craftItem.395"},{"achievement":"stat.craftItem.284"},{"achievement":"stat.craftItem.339"},{"achievement":"stat.craftItem.20"},{"achievement":"stat.craftItem.324"},{"achievement":"stat.craftItem.405"},{"achievement":"stat.craftItem.5"},{"achievement":"stat.craftItem.77"},{"achievement":"stat.craftItem.340"},{"achievement":"stat.craftItem.274"},{"achievement":"stat.craftItem.357"},{"achievement":"stat.craftItem.154"},{"achievement":"stat.craftItem.113"},{"achievement":"stat.craftItem.379"},{"achievement":"stat.craftItem.256"},{"achievement":"stat.craftItem.366"},{"achievement":"stat.craftItem.61"},{"achievement":"stat.craftItem.265"},{"achievement":"stat.craftItem.107"},{"achievement":"stat.craftItem.290"},{"achievement":"stat.craftItem.272"},{"achievement":"stat.craftItem.322"},{"achievement":"stat.craftItem.130"},{"achievement":"stat.craftItem.128"},{"achievement":"stat.craftItem.389"},{"achievement":"stat.craftItem.170"},{"achievement":"stat.craftItem.299"},{"achievement":"stat.craftItem.44"},{"achievement":"stat.craftItem.109"},{"achievement":"stat.craftItem.353"},{"achievement":"stat.craftItem.361"},{"achievement":"stat.craftItem.266"},{"achievement":"stat.craftItem.347"},{"achievement":"stat.craftItem.278"},{"achievement":"stat.craftItem.386"},{"achievement":"stat.craftItem.147"},{"achievement":"stat.craftItem.286"},{"achievement":"stat.craftItem.84"},{"achievement":"stat.craftItem.145"},{"achievement":"stat.craftItem.306"},{"achievement":"stat.craftItem.396"},{"achievement":"stat.craftItem.159"},{"achievement":"stat.craftItem.24"},{"achievement":"stat.craftItem.380"},{"achievement":"stat.craftItem.283"},{"achievement":"stat.craftItem.25"},{"achievement":"stat.craftItem.381"},{"achievement":"stat.craftItem.280"},{"achievement":"stat.craftItem.151"},{"achievement":"stat.craftItem.273"},{"achievement":"stat.craftItem.314"},{"achievement":"stat.craftItem.152"},{"achievement":"stat.craftItem.305"},{"achievement":"stat.craftItem.65"},{"achievement":"stat.craftItem.46"},{"achievement":"stat.craftItem.323"},{"achievement":"stat.craftItem.294"},{"achievement":"stat.craftItem.29"},{"achievement":"stat.craftItem.135"},{"achievement":"stat.craftItem.91"},{"achievement":"stat.craftItem.131"},{"achievement":"stat.craftItem.331"},{"achievement":"stat.craftItem.53"},{"achievement":"stat.craftItem.354"},{"achievement":"stat.craftItem.390"},{"achievement":"stat.craftItem.356"},{"achievement":"stat.craftItem.143"},{"achievement":"stat.craftItem.271"},{"achievement":"stat.craftItem.22"},{"achievement":"stat.craftItem.315"},{"achievement":"stat.craftItem.296"},{"achievement":"stat.craftItem.336"},{"achievement":"stat.craftItem.155"},{"achievement":"stat.craftItem.371"},{"achievement":"stat.craftItem.101"},{"achievement":"stat.craftItem.67"},{"achievement":"stat.craftItem.148"},{"achievement":"stat.craftItem.406"},{"achievement":"stat.craftItem.28"},{"achievement":"stat.craftItem.33"},{"achievement":"stat.craftItem.58"},{"achievement":"stat.craftItem.160"},{"achievement":"stat.craftItem.57"},{"achievement":"stat.craftItem.103"},{"achievement":"stat.craftItem.359"},{"achievement":"stat.craftItem.45"},{"achievement":"stat.craftItem.42"},{"achievement":"stat.craftItem.163"},{"achievement":"stat.craftItem.112"},{"achievement":"stat.craftItem.355"},{"achievement":"stat.craftItem.35"},{"achievement":"stat.craftItem.126"},{"achievement":"stat.craftItem.393"},{"achievement":"stat.craftItem.85"},{"achievement":"stat.craftItem.303"},{"achievement":"stat.craftItem.89"},{"achievement":"stat.craftItem.350"},{"achievement":"stat.craftItem.388"},{"achievement":"stat.craftItem.343"},{"achievement":"achievement.openInventory"},{"achievement":"achievement.mineWood"},{"achievement":"achievement.buildWorkBench"},{"achievement":"achievement.buildPickaxe"},{"achievement":"achievement.buildFurnace"},{"achievement":"achievement.acquireIron"},{"achievement":"achievement.buildHoe"},{"achievement":"achievement.makeBread"},{"achievement":"achievement.bakeCake"},{"achievement":"achievement.buildBetterPickaxe"},{"achievement":"achievement.cookFish"},{"achievement":"achievement.onARail"},{"achievement":"achievement.buildSword"},{"achievement":"achievement.killEnemy"},{"achievement":"achievement.killCow"},{"achievement":"achievement.flyPig"},{"achievement":"achievement.snipeSkeleton"},{"achievement":"achievement.diamonds"},{"achievement":"achievement.diamondsToYou"},{"achievement":"achievement.portal"},{"achievement":"achievement.ghast"},{"achievement":"achievement.blazeRod"},{"achievement":"achievement.potion"},{"achievement":"achievement.theEnd"},{"achievement":"achievement.theEnd2"},{"achievement":"achievement.enchantments"},{"achievement":"achievement.overkill"},{"achievement":"achievement.bookcase"},{"achievement":"achievement.breedCow"},{"achievement":"achievement.spawnWither"},{"achievement":"achievement.killWither"},{"achievement":"achievement.fullBeacon"},{"achievement":"achievement.exploreAllBiomes"}];
-var commands=[{"command":"/achievement give &lt;stat_name&gt; [player]"},{"command":"/blockdata &lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;dataTag&gt;"},{"command":"/clear &lt;player&gt; [item] [data] [maxCount] [dataTag]"},{"command":"/clone &lt;x1&gt; &lt;y1&gt; &lt;z1&gt; &lt;x2&gt; &lt;y2&gt; &lt;z2&gt; &lt;x&gt; &lt;y&gt; &lt;z&gt; [mode]"},{"command":"/debug &lt;start|stop&gt;"},{"command":"/defaultgamemode &lt;mode&gt;"},{"command":"/difficulty &lt;new difficulty&gt;"},{"command":"/effect &lt;player&gt; &lt;effect&gt; [seconds] [amplifier] [hideParticles]"},{"command":"/enchant &lt;player&gt; &lt;enchantment ID&gt; [level]"},{"command":"/execute &lt;entity&gt; &lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;command&gt;"},{"command":"/fill &lt;x1&gt; &lt;y1&gt; &lt;z1&gt; &lt;x2&gt; &lt;y2&gt; &lt;z2&gt; &lt;TileName&gt; [dataValue] [oldBlockHandling] [dataTag]"},{"command":"/gamemode &lt;mode&gt; [player]"},{"command":"/gamerule &lt;rule name&gt; &lt;value&gt;"},{"command":"/gamerule &lt;rule name&gt;"},{"command":"/give &lt;player&gt; &lt;item&gt; [amount] [data] [dataTag]"},{"command":"/help [page|command name]"},{"command":"/kill [player|entity]"},{"command":"/me &lt;action ...&gt;"},{"command":"/particle &lt;name&gt; &lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;xd&gt; &lt;yd&gt; &lt;zd&gt; &lt;speed&gt; [count] [player|entity]"},{"command":"/playsound &lt;sound&gt; &lt;player&gt; [x] [y] [z] [volume] [pitch] [minimumVolume]"},{"command":"/publish"},{"command":"/say &lt;message ...&gt;"},{"command":"/scoreboard &lt;objectives|players|teams&gt;"},{"command":"/seed"},{"command":"/setblock &lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;TileName&gt; [dataValue] [oldBlockHandling] [dataTag]"},{"command":"/setworldspawn"},{"command":"/setworldspawn &lt;x&gt; &lt;y&gt; &lt;z&gt;"},{"command":"/spawnpoint"},{"command":"/spawnpoint &lt;player&gt;"},{"command":"/spawnpoint &lt;player&gt; &lt;x&gt; &lt;y&gt; &lt;z&gt;"},{"command":"/spreadplayers &lt;x&gt; &lt;z&gt; &lt;spreadDistance&gt; &lt;maxRange&gt; &lt;respectTeams true|false&gt; &lt;player ...&gt;"},{"command":"/summon &lt;EntityName&gt; [x] [y] [z] [dataTag]"},{"command":"/tell &lt;player&gt; &lt;private message ...&gt;"},{"command":"/tellraw &lt;player&gt; &lt;raw json message&gt;"},{"command":"/testfor &lt;player&gt; [dataTag]"},{"command":"/testforblock &lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;TileName&gt; [dataValue] [dataTag]"},{"command":"/testforblocks &lt;x1&gt; &lt;y1&gt; &lt;z1&gt; &lt;x2&gt; &lt;y2&gt; &lt;z2&gt; &lt;x&gt; &lt;y&gt; &lt;z&gt; [mode]"},{"command":"/time &lt;set|add&gt; &lt;value&gt;"},{"command":"/toggledownfall"},{"command":"/tp [target player] &lt;destination player&gt;"},{"command":"/tp [target player] &lt;x&gt; &lt;y&gt; &lt;z&gt; [&lt;y-rot&gt; &lt;x-rot&gt;]"},{"command":"/trigger &lt;objective&gt; &lt;add|set&gt; &lt;value&gt;"},{"command":"/weather &lt;clear|rain|thunder&gt; [duration in seconds]"},{"command":"/xp &lt;amount&gt; [player]"},{"command":"/xp &lt;amount&gt;L [player]"}];
+var achievements = ["stat.leaveGame","stat.playOneMinute","stat.timeSinceDeath","stat.walkOneCm","stat.crouchOneCm","stat.sprintOneCm","stat.swimOneCm","stat.fallOneCm","stat.climbOneCm","stat.flyOneCm","stat.diveOneCm","stat.minecartOneCm","stat.boatOneCm","stat.pigOneCm","stat.horseOneCm","stat.jump","stat.drop","stat.damageDealt","stat.damageTaken","stat.deaths","stat.mobKills","stat.animalsBred","stat.playerKills","stat.fishCaught","stat.junkFished","stat.treasureFished","stat.mineBlock.minecraft.stone","stat.mineBlock.minecraft.dirt","stat.mineBlock.minecraft.cobblestone","stat.mineBlock.minecraft.planks","stat.mineBlock.minecraft.sapling","stat.mineBlock.minecraft.sand","stat.mineBlock.minecraft.gravel","stat.mineBlock.minecraft.gold_ore","stat.mineBlock.minecraft.iron_ore","stat.mineBlock.minecraft.coal_ore","stat.mineBlock.minecraft.log","stat.mineBlock.minecraft.leaves","stat.mineBlock.minecraft.sponge","stat.mineBlock.minecraft.glass","stat.mineBlock.minecraft.lapis_ore","stat.mineBlock.minecraft.lapis_block","stat.mineBlock.minecraft.dispenser","stat.mineBlock.minecraft.sandstone","stat.mineBlock.minecraft.noteblock","stat.mineBlock.minecraft.golden_rail","stat.mineBlock.minecraft.detector_rail","stat.mineBlock.minecraft.sticky_piston","stat.mineBlock.minecraft.web","stat.mineBlock.minecraft.tallgrass","stat.mineBlock.minecraft.deadbush","stat.mineBlock.minecraft.piston","stat.mineBlock.minecraft.wool","stat.mineBlock.minecraft.yellow_flower","stat.mineBlock.minecraft.red_flower","stat.mineBlock.minecraft.brown_mushroom","stat.mineBlock.minecraft.gold_block","stat.mineBlock.minecraft.iron_block","stat.mineBlock.minecraft.stone_slab","stat.mineBlock.minecraft.brick_block","stat.mineBlock.minecraft.tnt","stat.mineBlock.minecraft.bookshelf","stat.mineBlock.minecraft.mossy_cobblestone","stat.mineBlock.minecraft.obsidian","stat.mineBlock.minecraft.torch","stat.mineBlock.minecraft.oak_stairs","stat.mineBlock.minecraft.chest","stat.mineBlock.minecraft.diamond_ore","stat.mineBlock.minecraft.diamond_block","stat.mineBlock.minecraft.crafting_table","stat.mineBlock.minecraft.furnace","stat.mineBlock.minecraft.ladder","stat.mineBlock.minecraft.rail","stat.mineBlock.minecraft.stone_stairs","stat.mineBlock.minecraft.lever","stat.mineBlock.minecraft.stone_pressure_plate","stat.mineBlock.minecraft.wooden_pressure_plate","stat.mineBlock.minecraft.redstone_ore","stat.mineBlock.minecraft.redstone_torch","stat.mineBlock.minecraft.stone_button","stat.mineBlock.minecraft.snow_layer","stat.mineBlock.minecraft.ice","stat.mineBlock.minecraft.snow","stat.mineBlock.minecraft.cactus","stat.mineBlock.minecraft.clay","stat.mineBlock.minecraft.jukebox","stat.mineBlock.minecraft.fence","stat.mineBlock.minecraft.pumpkin","stat.mineBlock.minecraft.netherrack","stat.mineBlock.minecraft.soul_sand","stat.mineBlock.minecraft.glowstone","stat.mineBlock.minecraft.stained_glass","stat.mineBlock.minecraft.monster_egg","stat.mineBlock.minecraft.stonebrick","stat.mineBlock.minecraft.brown_mushroom_block","stat.mineBlock.minecraft.red_mushroom_block","stat.mineBlock.minecraft.iron_bars","stat.mineBlock.minecraft.glass_pane","stat.mineBlock.minecraft.melon_block","stat.mineBlock.minecraft.vine","stat.mineBlock.minecraft.fence_gate","stat.mineBlock.minecraft.brick_stairs","stat.mineBlock.minecraft.stone_brick_stairs","stat.mineBlock.minecraft.mycelium","stat.mineBlock.minecraft.waterlily","stat.mineBlock.minecraft.nether_brick","stat.mineBlock.minecraft.nether_brick_fence","stat.mineBlock.minecraft.nether_brick_stairs","stat.mineBlock.minecraft.enchanting_table","stat.mineBlock.minecraft.end_portal_frame","stat.mineBlock.minecraft.end_stone","stat.mineBlock.minecraft.dragon_egg","stat.mineBlock.minecraft.redstone_lamp","stat.mineBlock.minecraft.wooden_slab","stat.mineBlock.minecraft.sandstone_stairs","stat.mineBlock.minecraft.emerald_ore","stat.mineBlock.minecraft.ender_chest","stat.mineBlock.minecraft.tripwire_hook","stat.mineBlock.minecraft.emerald_block","stat.mineBlock.minecraft.spruce_stairs","stat.mineBlock.minecraft.birch_stairs","stat.mineBlock.minecraft.jungle_stairs","stat.mineBlock.minecraft.command_block","stat.mineBlock.minecraft.beacon","stat.mineBlock.minecraft.cobblestone_wall","stat.mineBlock.minecraft.wooden_button","stat.mineBlock.minecraft.anvil","stat.mineBlock.minecraft.trapped_chest","stat.mineBlock.minecraft.light_weighted_pressure_plate","stat.mineBlock.minecraft.heavy_weighted_pressure_plate","stat.mineBlock.minecraft.daylight_detector","stat.mineBlock.minecraft.redstone_block","stat.mineBlock.minecraft.quartz_ore","stat.mineBlock.minecraft.hopper","stat.mineBlock.minecraft.quartz_block","stat.mineBlock.minecraft.quartz_stairs","stat.mineBlock.minecraft.activator_rail","stat.mineBlock.minecraft.dropper","stat.mineBlock.minecraft.stained_hardened_clay","stat.mineBlock.minecraft.stained_glass_pane","stat.mineBlock.minecraft.leaves2","stat.mineBlock.minecraft.log2","stat.mineBlock.minecraft.acacia_stairs","stat.mineBlock.minecraft.dark_oak_stairs","stat.mineBlock.minecraft.slime","stat.mineBlock.minecraft.prismarine","stat.mineBlock.minecraft.sea_lantern","stat.mineBlock.minecraft.hay_block","stat.mineBlock.minecraft.carpet","stat.mineBlock.minecraft.hardened_clay","stat.mineBlock.minecraft.coal_block","stat.mineBlock.minecraft.packed_ice","stat.mineBlock.minecraft.double_plant","stat.useItem.minecraft.stone","stat.useItem.minecraft.dirt","stat.useItem.minecraft.cobblestone","stat.useItem.minecraft.planks","stat.useItem.minecraft.sapling","stat.useItem.minecraft.bedrock","stat.useItem.minecraft.sand","stat.useItem.minecraft.gravel","stat.useItem.minecraft.gold_ore","stat.useItem.minecraft.iron_ore","stat.useItem.minecraft.coal_ore","stat.useItem.minecraft.log","stat.useItem.minecraft.leaves","stat.useItem.minecraft.sponge","stat.useItem.minecraft.glass","stat.useItem.minecraft.lapis_ore","stat.useItem.minecraft.lapis_block","stat.useItem.minecraft.dispenser","stat.useItem.minecraft.sandstone","stat.useItem.minecraft.noteblock","stat.useItem.minecraft.golden_rail","stat.useItem.minecraft.detector_rail","stat.useItem.minecraft.sticky_piston","stat.useItem.minecraft.web","stat.useItem.minecraft.tallgrass","stat.useItem.minecraft.deadbush","stat.useItem.minecraft.piston","stat.useItem.minecraft.wool","stat.useItem.minecraft.yellow_flower","stat.useItem.minecraft.red_flower","stat.useItem.minecraft.brown_mushroom","stat.useItem.minecraft.gold_block","stat.useItem.minecraft.iron_block","stat.useItem.minecraft.stone_slab","stat.useItem.minecraft.brick_block","stat.useItem.minecraft.tnt","stat.useItem.minecraft.bookshelf","stat.useItem.minecraft.mossy_cobblestone","stat.useItem.minecraft.obsidian","stat.useItem.minecraft.torch","stat.useItem.minecraft.mob_spawner","stat.useItem.minecraft.oak_stairs","stat.useItem.minecraft.chest","stat.useItem.minecraft.diamond_ore","stat.useItem.minecraft.diamond_block","stat.useItem.minecraft.crafting_table","stat.useItem.minecraft.furnace","stat.useItem.minecraft.ladder","stat.useItem.minecraft.rail","stat.useItem.minecraft.stone_stairs","stat.useItem.minecraft.lever","stat.useItem.minecraft.stone_pressure_plate","stat.useItem.minecraft.wooden_pressure_plate","stat.useItem.minecraft.redstone_ore","stat.useItem.minecraft.redstone_torch","stat.useItem.minecraft.stone_button","stat.useItem.minecraft.snow_layer","stat.useItem.minecraft.ice","stat.useItem.minecraft.snow","stat.useItem.minecraft.cactus","stat.useItem.minecraft.clay","stat.useItem.minecraft.jukebox","stat.useItem.minecraft.fence","stat.useItem.minecraft.pumpkin","stat.useItem.minecraft.netherrack","stat.useItem.minecraft.soul_sand","stat.useItem.minecraft.glowstone","stat.useItem.minecraft.stained_glass","stat.useItem.minecraft.trapdoor","stat.useItem.minecraft.monster_egg","stat.useItem.minecraft.stonebrick","stat.useItem.minecraft.brown_mushroom_block","stat.useItem.minecraft.red_mushroom_block","stat.useItem.minecraft.iron_bars","stat.useItem.minecraft.glass_pane","stat.useItem.minecraft.melon_block","stat.useItem.minecraft.vine","stat.useItem.minecraft.fence_gate","stat.useItem.minecraft.brick_stairs","stat.useItem.minecraft.stone_brick_stairs","stat.useItem.minecraft.mycelium","stat.useItem.minecraft.waterlily","stat.useItem.minecraft.nether_brick","stat.useItem.minecraft.nether_brick_fence","stat.useItem.minecraft.nether_brick_stairs","stat.useItem.minecraft.enchanting_table","stat.useItem.minecraft.end_portal_frame","stat.useItem.minecraft.end_stone","stat.useItem.minecraft.dragon_egg","stat.useItem.minecraft.redstone_lamp","stat.useItem.minecraft.wooden_slab","stat.useItem.minecraft.sandstone_stairs","stat.useItem.minecraft.emerald_ore","stat.useItem.minecraft.ender_chest","stat.useItem.minecraft.tripwire_hook","stat.useItem.minecraft.emerald_block","stat.useItem.minecraft.spruce_stairs","stat.useItem.minecraft.birch_stairs","stat.useItem.minecraft.jungle_stairs","stat.useItem.minecraft.command_block","stat.useItem.minecraft.beacon","stat.useItem.minecraft.cobblestone_wall","stat.useItem.minecraft.wooden_button","stat.useItem.minecraft.anvil","stat.useItem.minecraft.trapped_chest","stat.useItem.minecraft.light_weighted_pressure_plate","stat.useItem.minecraft.heavy_weighted_pressure_plate","stat.useItem.minecraft.daylight_detector","stat.useItem.minecraft.redstone_block","stat.useItem.minecraft.quartz_ore","stat.useItem.minecraft.hopper","stat.useItem.minecraft.quartz_block","stat.useItem.minecraft.quartz_stairs","stat.useItem.minecraft.activator_rail","stat.useItem.minecraft.dropper","stat.useItem.minecraft.stained_hardened_clay","stat.useItem.minecraft.stained_glass_pane","stat.useItem.minecraft.leaves2","stat.useItem.minecraft.log2","stat.useItem.minecraft.acacia_stairs","stat.useItem.minecraft.dark_oak_stairs","stat.useItem.minecraft.slime","stat.useItem.minecraft.barrier","stat.useItem.minecraft.iron_trapdoor","stat.useItem.minecraft.prismarine","stat.useItem.minecraft.sea_lantern","stat.useItem.minecraft.hay_block","stat.useItem.minecraft.carpet","stat.useItem.minecraft.hardened_clay","stat.useItem.minecraft.coal_block","stat.useItem.minecraft.packed_ice","stat.useItem.minecraft.double_plant","stat.useItem.minecraft.iron_shovel","stat.useItem.minecraft.iron_pickaxe","stat.useItem.minecraft.iron_axe","stat.useItem.minecraft.flint_and_steel","stat.useItem.minecraft.apple","stat.useItem.minecraft.bow","stat.useItem.minecraft.arrow","stat.useItem.minecraft.coal","stat.useItem.minecraft.diamond","stat.useItem.minecraft.iron_ingot","stat.useItem.minecraft.gold_ingot","stat.useItem.minecraft.iron_sword","stat.useItem.minecraft.wooden_sword","stat.useItem.minecraft.wooden_shovel","stat.useItem.minecraft.wooden_pickaxe","stat.useItem.minecraft.wooden_axe","stat.useItem.minecraft.stone_sword","stat.useItem.minecraft.stone_shovel","stat.useItem.minecraft.stone_pickaxe","stat.useItem.minecraft.stone_axe","stat.useItem.minecraft.diamond_sword","stat.useItem.minecraft.diamond_shovel","stat.useItem.minecraft.diamond_pickaxe","stat.useItem.minecraft.diamond_axe","stat.useItem.minecraft.stick","stat.useItem.minecraft.bowl","stat.useItem.minecraft.mushroom_stew","stat.useItem.minecraft.golden_sword","stat.useItem.minecraft.golden_shovel","stat.useItem.minecraft.golden_pickaxe","stat.useItem.minecraft.golden_axe","stat.useItem.minecraft.string","stat.useItem.minecraft.feather","stat.useItem.minecraft.gunpowder","stat.useItem.minecraft.wooden_hoe","stat.useItem.minecraft.stone_hoe","stat.useItem.minecraft.iron_hoe","stat.useItem.minecraft.diamond_hoe","stat.useItem.minecraft.golden_hoe","stat.useItem.minecraft.wheat_seeds","stat.useItem.minecraft.wheat","stat.useItem.minecraft.bread","stat.useItem.minecraft.leather_helmet","stat.useItem.minecraft.leather_chestplate","stat.useItem.minecraft.leather_leggings","stat.useItem.minecraft.leather_boots","stat.useItem.minecraft.chainmail_helmet","stat.useItem.minecraft.chainmail_chestplate","stat.useItem.minecraft.chainmail_leggings","stat.useItem.minecraft.chainmail_boots","stat.useItem.minecraft.iron_helmet","stat.useItem.minecraft.iron_chestplate","stat.useItem.minecraft.iron_leggings","stat.useItem.minecraft.iron_boots","stat.useItem.minecraft.diamond_helmet","stat.useItem.minecraft.diamond_chestplate","stat.useItem.minecraft.diamond_leggings","stat.useItem.minecraft.diamond_boots","stat.useItem.minecraft.golden_helmet","stat.useItem.minecraft.golden_chestplate","stat.useItem.minecraft.golden_leggings","stat.useItem.minecraft.golden_boots","stat.useItem.minecraft.flint","stat.useItem.minecraft.porkchop","stat.useItem.minecraft.cooked_porkchop","stat.useItem.minecraft.painting","stat.useItem.minecraft.golden_apple","stat.useItem.minecraft.sign","stat.useItem.minecraft.wooden_door","stat.useItem.minecraft.bucket","stat.useItem.minecraft.water_bucket","stat.useItem.minecraft.lava_bucket","stat.useItem.minecraft.minecart","stat.useItem.minecraft.saddle","stat.useItem.minecraft.iron_door","stat.useItem.minecraft.redstone","stat.useItem.minecraft.snowball","stat.useItem.minecraft.boat","stat.useItem.minecraft.leather","stat.useItem.minecraft.milk_bucket","stat.useItem.minecraft.brick","stat.useItem.minecraft.clay_ball","stat.useItem.minecraft.reeds","stat.useItem.minecraft.paper","stat.useItem.minecraft.book","stat.useItem.minecraft.slime_ball","stat.useItem.minecraft.chest_minecart","stat.useItem.minecraft.furnace_minecart","stat.useItem.minecraft.egg","stat.useItem.minecraft.compass","stat.useItem.minecraft.fishing_rod","stat.useItem.minecraft.clock","stat.useItem.minecraft.glowstone_dust","stat.useItem.minecraft.fish","stat.useItem.minecraft.cooked_fish","stat.useItem.minecraft.dye","stat.useItem.minecraft.bone","stat.useItem.minecraft.sugar","stat.useItem.minecraft.cake","stat.useItem.minecraft.bed","stat.useItem.minecraft.repeater","stat.useItem.minecraft.cookie","stat.useItem.minecraft.filled_map","stat.useItem.minecraft.shears","stat.useItem.minecraft.melon","stat.useItem.minecraft.pumpkin_seeds","stat.useItem.minecraft.melon_seeds","stat.useItem.minecraft.beef","stat.useItem.minecraft.cooked_beef","stat.useItem.minecraft.chicken","stat.useItem.minecraft.cooked_chicken","stat.useItem.minecraft.rotten_flesh","stat.useItem.minecraft.ender_pearl","stat.useItem.minecraft.blaze_rod","stat.useItem.minecraft.ghast_tear","stat.useItem.minecraft.gold_nugget","stat.useItem.minecraft.nether_wart","stat.useItem.minecraft.potion","stat.useItem.minecraft.glass_bottle","stat.useItem.minecraft.spider_eye","stat.useItem.minecraft.fermented_spider_eye","stat.useItem.minecraft.blaze_powder","stat.useItem.minecraft.magma_cream","stat.useItem.minecraft.brewing_stand","stat.useItem.minecraft.cauldron","stat.useItem.minecraft.ender_eye","stat.useItem.minecraft.speckled_melon","stat.killEntity.Creeper","stat.entityKilledBy.Creeper","stat.killEntity.Skeleton","stat.entityKilledBy.Skeleton","stat.killEntity.Spider","stat.entityKilledBy.Spider","stat.killEntity.Zombie","stat.entityKilledBy.Zombie","stat.killEntity.Slime","stat.entityKilledBy.Slime","stat.killEntity.Ghast","stat.entityKilledBy.Ghast","stat.killEntity.PigZombie","stat.entityKilledBy.PigZombie","stat.killEntity.Enderman","stat.entityKilledBy.Enderman","stat.killEntity.CaveSpider","stat.entityKilledBy.CaveSpider","stat.killEntity.Silverfish","stat.entityKilledBy.Silverfish","stat.killEntity.Blaze","stat.entityKilledBy.Blaze","stat.killEntity.LavaSlime","stat.entityKilledBy.LavaSlime","stat.killEntity.Bat","stat.entityKilledBy.Bat","stat.killEntity.Witch","stat.entityKilledBy.Witch","stat.killEntity.Endermite","stat.entityKilledBy.Endermite","stat.killEntity.Guardian","stat.entityKilledBy.Guardian","stat.killEntity.Pig","stat.entityKilledBy.Pig","stat.killEntity.Sheep","stat.entityKilledBy.Sheep","stat.killEntity.Cow","stat.entityKilledBy.Cow","stat.killEntity.Chicken","stat.entityKilledBy.Chicken","stat.killEntity.Squid","stat.entityKilledBy.Squid","stat.killEntity.Wolf","stat.entityKilledBy.Wolf","stat.killEntity.MushroomCow","stat.entityKilledBy.MushroomCow","stat.killEntity.Ozelot","stat.entityKilledBy.Ozelot","stat.killEntity.EntityHorse","stat.entityKilledBy.EntityHorse","stat.killEntity.Villager","stat.entityKilledBy.Villager","stat.useItem.minecraft.spawn_egg","stat.useItem.minecraft.experience_bottle","stat.useItem.minecraft.fire_charge","stat.useItem.minecraft.writable_book","stat.useItem.minecraft.written_book","stat.useItem.minecraft.emerald","stat.useItem.minecraft.item_frame","stat.useItem.minecraft.flower_pot","stat.useItem.minecraft.carrot","stat.useItem.minecraft.potato","stat.useItem.minecraft.baked_potato","stat.useItem.minecraft.poisonous_potato","stat.useItem.minecraft.map","stat.useItem.minecraft.golden_carrot","stat.useItem.minecraft.skull","stat.useItem.minecraft.carrot_on_a_stick","stat.useItem.minecraft.nether_star","stat.useItem.minecraft.pumpkin_pie","stat.useItem.minecraft.fireworks","stat.useItem.minecraft.firework_charge","stat.useItem.minecraft.enchanted_book","stat.useItem.minecraft.comparator","stat.useItem.minecraft.netherbrick","stat.useItem.minecraft.quartz","stat.useItem.minecraft.tnt_minecart","stat.useItem.minecraft.hopper_minecart","stat.useItem.minecraft.prismarine_shard","stat.useItem.minecraft.prismarine_crystals","stat.useItem.minecraft.iron_horse_armor","stat.useItem.minecraft.golden_horse_armor","stat.useItem.minecraft.diamond_horse_armor","stat.useItem.minecraft.lead","stat.useItem.minecraft.name_tag","stat.useItem.minecraft.command_block_minecart","stat.useItem.minecraft.record_13","stat.useItem.minecraft.record_cat","stat.useItem.minecraft.record_blocks","stat.useItem.minecraft.record_chirp","stat.useItem.minecraft.record_far","stat.useItem.minecraft.record_mall","stat.useItem.minecraft.record_mellohi","stat.useItem.minecraft.record_stal","stat.useItem.minecraft.record_strad","stat.useItem.minecraft.record_ward","stat.useItem.minecraft.record_11","stat.useItem.minecraft.record_wait","stat.breakItem.minecraft.iron_shovel","stat.breakItem.minecraft.iron_pickaxe","stat.breakItem.minecraft.iron_axe","stat.breakItem.minecraft.flint_and_steel","stat.breakItem.minecraft.bow","stat.breakItem.minecraft.iron_sword","stat.breakItem.minecraft.wooden_sword","stat.breakItem.minecraft.wooden_shovel","stat.breakItem.minecraft.wooden_pickaxe","stat.breakItem.minecraft.wooden_axe","stat.breakItem.minecraft.stone_sword","stat.breakItem.minecraft.stone_shovel","stat.breakItem.minecraft.stone_pickaxe","stat.breakItem.minecraft.stone_axe","stat.breakItem.minecraft.diamond_sword","stat.breakItem.minecraft.diamond_shovel","stat.breakItem.minecraft.diamond_pickaxe","stat.breakItem.minecraft.diamond_axe","stat.breakItem.minecraft.golden_sword","stat.breakItem.minecraft.golden_shovel","stat.breakItem.minecraft.golden_pickaxe","stat.breakItem.minecraft.golden_axe","stat.breakItem.minecraft.wooden_hoe","stat.breakItem.minecraft.stone_hoe","stat.breakItem.minecraft.iron_hoe","stat.breakItem.minecraft.diamond_hoe","stat.breakItem.minecraft.golden_hoe","stat.breakItem.minecraft.leather_helmet","stat.breakItem.minecraft.leather_chestplate","stat.breakItem.minecraft.leather_leggings","stat.breakItem.minecraft.leather_boots","stat.breakItem.minecraft.chainmail_helmet","stat.breakItem.minecraft.chainmail_chestplate","stat.breakItem.minecraft.chainmail_leggings","stat.breakItem.minecraft.chainmail_boots","stat.breakItem.minecraft.iron_helmet","stat.breakItem.minecraft.iron_chestplate","stat.breakItem.minecraft.iron_leggings","stat.breakItem.minecraft.iron_boots","stat.breakItem.minecraft.diamond_helmet","stat.breakItem.minecraft.diamond_chestplate","stat.breakItem.minecraft.diamond_leggings","stat.breakItem.minecraft.diamond_boots","stat.breakItem.minecraft.golden_helmet","stat.breakItem.minecraft.golden_chestplate","stat.breakItem.minecraft.golden_leggings","stat.breakItem.minecraft.golden_boots","stat.breakItem.minecraft.fishing_rod","stat.breakItem.minecraft.shears","stat.breakItem.minecraft.carrot_on_a_stick","stat.craftItem.minecraft.golden_sword","stat.craftItem.minecraft.cooked_chicken","stat.craftItem.minecraft.stained_glass","stat.craftItem.minecraft.lead","stat.craftItem.minecraft.snow_layer","stat.craftItem.minecraft.stick","stat.craftItem.minecraft.heavy_weighted_pressure_plate","stat.craftItem.minecraft.sticky_piston","stat.craftItem.minecraft.wheat","stat.craftItem.minecraft.redstone","stat.craftItem.minecraft.hardened_clay","stat.craftItem.minecraft.golden_hoe","stat.craftItem.minecraft.furnace","stat.craftItem.minecraft.flint_and_steel","stat.craftItem.minecraft.chest_minecart","stat.craftItem.minecraft.stone_sword","stat.craftItem.minecraft.bread","stat.craftItem.minecraft.iron_pickaxe","stat.craftItem.minecraft.stained_glass_pane","stat.craftItem.minecraft.jukebox","stat.craftItem.minecraft.bed","stat.craftItem.minecraft.wool","stat.craftItem.minecraft.diamond_boots","stat.craftItem.minecraft.lever","stat.craftItem.minecraft.compass","stat.craftItem.minecraft.coal","stat.craftItem.minecraft.noteblock","stat.craftItem.minecraft.iron_shovel","stat.craftItem.minecraft.diamond_helmet","stat.craftItem.minecraft.furnace_minecart","stat.craftItem.minecraft.slime","stat.craftItem.minecraft.brick_stairs","stat.craftItem.minecraft.trapdoor","stat.craftItem.minecraft.glowstone","stat.craftItem.minecraft.cauldron","stat.craftItem.minecraft.quartz_block","stat.craftItem.minecraft.brick","stat.craftItem.minecraft.iron_helmet","stat.craftItem.minecraft.minecart","stat.craftItem.minecraft.redstone_block","stat.craftItem.minecraft.stone_axe","stat.craftItem.minecraft.emerald_block","stat.craftItem.minecraft.stone_hoe","stat.craftItem.minecraft.leather_boots","stat.craftItem.minecraft.wooden_shovel","stat.craftItem.minecraft.wooden_axe","stat.craftItem.minecraft.brewing_stand","stat.craftItem.minecraft.lapis_block","stat.craftItem.minecraft.tripwire_hook","stat.craftItem.minecraft.writable_book","stat.craftItem.minecraft.acacia_stairs","stat.craftItem.minecraft.glass_pane","stat.craftItem.minecraft.stone","stat.craftItem.minecraft.tnt_minecart","stat.craftItem.minecraft.cookie","stat.craftItem.minecraft.iron_boots","stat.craftItem.minecraft.sandstone","stat.craftItem.minecraft.jungle_stairs","stat.craftItem.minecraft.leather_chestplate","stat.craftItem.minecraft.bowl","stat.craftItem.minecraft.comparator","stat.craftItem.minecraft.anvil","stat.craftItem.minecraft.pumpkin_pie","stat.craftItem.minecraft.prismarine","stat.craftItem.minecraft.dispenser","stat.craftItem.minecraft.stone_button","stat.craftItem.minecraft.wooden_pressure_plate","stat.craftItem.minecraft.wooden_door","stat.craftItem.minecraft.cooked_beef","stat.craftItem.minecraft.quartz","stat.craftItem.minecraft.iron_door","stat.craftItem.minecraft.hopper","stat.craftItem.minecraft.iron_sword","stat.craftItem.minecraft.diamond_pickaxe","stat.craftItem.minecraft.rail","stat.craftItem.minecraft.carrot_on_a_stick","stat.craftItem.minecraft.bookshelf","stat.craftItem.minecraft.nether_brick_stairs","stat.craftItem.minecraft.fishing_rod","stat.craftItem.minecraft.spruce_stairs","stat.craftItem.minecraft.nether_brick_fence","stat.craftItem.minecraft.fence_gate","stat.craftItem.minecraft.wooden_sword","stat.craftItem.minecraft.stone_shovel","stat.craftItem.minecraft.gold_block","stat.craftItem.minecraft.snow","stat.craftItem.minecraft.iron_leggings","stat.craftItem.minecraft.ender_chest","stat.craftItem.minecraft.golden_chestplate","stat.craftItem.minecraft.diamond_sword","stat.craftItem.minecraft.diamond_chestplate","stat.craftItem.minecraft.ender_eye","stat.craftItem.minecraft.sandstone_stairs","stat.craftItem.minecraft.diamond_shovel","stat.craftItem.minecraft.diamond","stat.craftItem.minecraft.diamond_axe","stat.craftItem.minecraft.golden_shovel","stat.craftItem.minecraft.glass","stat.craftItem.minecraft.speckled_melon","stat.craftItem.minecraft.melon_seeds","stat.craftItem.minecraft.clay","stat.craftItem.minecraft.trapped_chest","stat.craftItem.minecraft.golden_boots","stat.craftItem.minecraft.golden_apple","stat.craftItem.minecraft.nether_brick","stat.craftItem.minecraft.clock","stat.craftItem.minecraft.leather_leggings","stat.craftItem.minecraft.gold_nugget","stat.craftItem.minecraft.sea_lantern","stat.craftItem.minecraft.fence","stat.craftItem.minecraft.quartz_stairs","stat.craftItem.minecraft.shears","stat.craftItem.minecraft.flower_pot","stat.craftItem.minecraft.blaze_powder","stat.craftItem.minecraft.gold_ingot","stat.craftItem.minecraft.crafting_table","stat.craftItem.minecraft.iron_hoe","stat.craftItem.minecraft.diamond_hoe","stat.craftItem.minecraft.golden_axe","stat.craftItem.minecraft.stained_hardened_clay","stat.craftItem.minecraft.golden_rail","stat.craftItem.minecraft.piston","stat.craftItem.minecraft.lit_pumpkin","stat.craftItem.minecraft.hopper_minecart","stat.craftItem.minecraft.iron_trapdoor","stat.craftItem.minecraft.torch","stat.craftItem.minecraft.redstone_lamp","stat.craftItem.minecraft.tnt","stat.craftItem.minecraft.magma_cream","stat.craftItem.minecraft.iron_chestplate","stat.craftItem.minecraft.detector_rail","stat.craftItem.minecraft.sugar","stat.craftItem.minecraft.baked_potato","stat.craftItem.minecraft.wooden_pickaxe","stat.craftItem.minecraft.iron_ingot","stat.craftItem.minecraft.iron_block","stat.craftItem.minecraft.chest","stat.craftItem.minecraft.map","stat.craftItem.minecraft.diamond_block","stat.craftItem.minecraft.painting","stat.craftItem.minecraft.melon_block","stat.craftItem.minecraft.golden_carrot","stat.craftItem.minecraft.boat","stat.craftItem.minecraft.bow","stat.craftItem.minecraft.book","stat.craftItem.minecraft.cobblestone_wall","stat.craftItem.minecraft.redstone_torch","stat.craftItem.minecraft.stone_pressure_plate","stat.craftItem.minecraft.stone_brick_stairs","stat.craftItem.minecraft.golden_helmet","stat.craftItem.minecraft.emerald","stat.craftItem.minecraft.enchanting_table","stat.craftItem.minecraft.dark_oak_stairs","stat.craftItem.minecraft.wooden_button","stat.craftItem.minecraft.hay_block","stat.craftItem.minecraft.coal_block","stat.craftItem.minecraft.sponge","stat.craftItem.minecraft.dirt","stat.craftItem.minecraft.dye","stat.craftItem.minecraft.activator_rail","stat.craftItem.minecraft.stonebrick","stat.craftItem.minecraft.mossy_cobblestone","stat.craftItem.minecraft.fermented_spider_eye","stat.craftItem.minecraft.birch_stairs","stat.craftItem.minecraft.leather_helmet","stat.craftItem.minecraft.wooden_slab","stat.craftItem.minecraft.planks","stat.craftItem.minecraft.iron_axe","stat.craftItem.minecraft.carpet","stat.craftItem.minecraft.light_weighted_pressure_plate","stat.craftItem.minecraft.mushroom_stew","stat.craftItem.minecraft.glass_bottle","stat.craftItem.minecraft.golden_pickaxe","stat.craftItem.minecraft.repeater","stat.craftItem.minecraft.slime_ball","stat.craftItem.minecraft.diamond_leggings","stat.craftItem.minecraft.item_frame","stat.craftItem.minecraft.golden_leggings","stat.craftItem.minecraft.sign","stat.craftItem.minecraft.fire_charge","stat.craftItem.minecraft.paper","stat.craftItem.minecraft.bucket","stat.craftItem.minecraft.stone_stairs","stat.craftItem.minecraft.beacon","stat.craftItem.minecraft.stone_slab","stat.craftItem.minecraft.cooked_porkchop","stat.craftItem.minecraft.cooked_fish","stat.craftItem.minecraft.pumpkin_seeds","stat.craftItem.minecraft.arrow","stat.craftItem.minecraft.oak_stairs","stat.craftItem.minecraft.ladder","stat.craftItem.minecraft.dropper","stat.craftItem.minecraft.daylight_detector","stat.craftItem.minecraft.netherbrick","stat.craftItem.minecraft.stone_pickaxe","stat.craftItem.minecraft.iron_bars","stat.craftItem.minecraft.cake","stat.craftItem.minecraft.brick_block","stat.craftItem.minecraft.wooden_hoe","achievement.openInventory","achievement.mineWood","achievement.buildWorkBench","achievement.buildPickaxe","achievement.buildFurnace","achievement.acquireIron","achievement.buildHoe","achievement.makeBread","achievement.bakeCake","achievement.buildBetterPickaxe","achievement.cookFish","achievement.onARail","achievement.buildSword","achievement.killEnemy","achievement.killCow","achievement.flyPig","achievement.snipeSkeleton","achievement.diamonds","achievement.diamondsToYou","achievement.portal","achievement.ghast","achievement.blazeRod","achievement.potion","achievement.theEnd","achievement.theEnd2","achievement.enchantments","achievement.overkill","achievement.bookcase","achievement.breedCow","achievement.spawnWither","achievement.killWither","achievement.fullBeacon","achievement.exploreAllBiomes","achievement.overpowered"];
+var commands = ["/achievement give <stat_name> [player]","/blockdata <x> <y> <z> <dataTag>","/clear <player> [item] [data] [maxCount] [dataTag]","/clone <x1> <y1> <z1> <x2> <y2> <z2> <x> <y> <z> [mode]","/debug <start|stop>","/defaultgamemode <mode>","/difficulty <new difficulty>","/effect <player> <effect> [seconds] [amplifier] [hideParticles]","/enchant <player> <enchantment ID> [level]","/execute <entity> <x> <y> <z> <command>","/fill <x1> <y1> <z1> <x2> <y2> <z2> <TileName> [dataValue] [oldBlockHandling] [dataTag]","/gamemode <mode> [player]","/gamerule <rule name> <value>","/gamerule <rule name>","/give <player> <item> [amount] [data] [dataTag]","/help [page|command name]","/kill [player|entity]","/me <action ...>","/particle <name> <x> <y> <z> <xd> <yd> <zd> <speed> [count] [player|entity]","/playsound <sound> <player> [x] [y] [z] [volume] [pitch] [minimumVolume]","/publish","/say <message ...>","/scoreboard <objectives|players|teams>","/seed","/setblock <x> <y> <z> <TileName> [dataValue] [oldBlockHandling] [dataTag]","/setworldspawn","/setworldspawn <x> <y> <z>","/spawnpoint","/spawnpoint <player>","/spawnpoint <player> <x> <y> <z>","/spreadplayers <x> <z> <spreadDistance> <maxRange> <respectTeams true|false> <player ...>","/summon <EntityName> [x] [y] [z] [dataTag]","/tell <player> <private message ...>","/tellraw <player> <raw json message>","/testfor <player> [dataTag]","/testforblock <x> <y> <z> <TileName> [dataValue] [dataTag]","/testforblocks <x1> <y1> <z1> <x2> <y2> <z2> <x> <y> <z> [mode]","/time <set|add> <value>","/title <player> title|subtitle <raw json title>","/title <player> clear|reset","/title <player> times <fadeIn> <stay> <fadeOut>","/toggledownfall","/tp [target player] <destination player>","/tp [target player] <x> <y> <z> [<y-rot> <x-rot>]","/trigger <objective> <add|set> <value>","/weather <clear|rain|thunder> [duration in seconds]","/worldborder <set|center|damage|warning>","/xp <amount> [player]","/xp <amount>L [player]"];
 var chars = new Array(1,2,3,4,5,6,7,8,9,0,'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
 var matchLength = 0;
 /*
 TRANSLATORS: PLEASE USE THE ENGLISH LANGUAGE FILE HERE: https://gist.github.com/ezfe/7693072, AND REFER TO THE REVISIONS SECTION FOR RECENT CHANGES. I RECOMMEND YOU MAINTAIN A SINGLE GIST OF YOUR LANGUAGES TRANSLATION AND EDIT THAT BASED ON THE REVISIONS TO THE EN_US FILE. PLEASE DO NOT COPY YOUR LANGUAGE FROM THIS PAGE.
 */
+var version = 1;
 var jobject = {"text":""};
 var selectedHover;
 var selectedClick;
@@ -18,7 +19,46 @@ var textExtraStorageVar; /*DO NOT USE*/
 var lang = {"status":"init"};
 var translationStrings;
 var currentEdit;
+var hasAlertedTranslationObjects = false;
+var webLangRelations;
 
+var newLine = /\\\\n/g;
+
+function goToByScroll(id){
+	$('html,body').animate({scrollTop: $("#"+id).offset().top},'slow');
+}
+
+var templates = 
+{
+	"tellraw": {
+		"command": "/tellraw @a %s",
+		"version": "1.7"
+	},
+	"execute_tellraw": {
+		"command": "/execute @a ~ ~ ~ tellraw @p %s",
+		"version": "1.8"
+	},
+	"title": {
+		"command": "/title @a title %s",
+		"version": "1.8"
+	},
+	"subtitle": {
+		"command": "/title @a subtitle %s",
+		"version": "1.8"
+	},
+	"sign_item": {
+		"command": "/give @a sign 1 0 {BlockEntityTag:{Text1:\"%e\",id:\"Sign\"}}",
+		"version": "1.8"
+	},
+	"sign_block": {
+		"command": "/blockdata [x] [y] [z] {Text1:\"%e\"}",
+		"version": "1.8"
+	},
+	"book": {
+		"command": "/give @a written_book 1 0 {pages:[\"%e\"],title:Book,author:TellrawGenerator}",
+		"version": "1.8"
+	}
+}
 /*
 (c) 2012 Steven Levithan <http://slevithan.com/>
 MIT license
@@ -37,171 +77,6 @@ if (!String.prototype.codePointAt) {
     };
 }
 
-/*
-Encodes special html characters
-@param string
-@return {*}
-*/
-function html_encode(string,do_encode) {
-	if (!do_encode) {
-		return string;
-	}
-	var ret_val = '';
-	for (var i = 0; i < string.length; i++) { 
-		if (string.codePointAt(i) > 127) {
-			ret_val += '&#' + string.codePointAt(i) + ';';
-		} else {
-			ret_val += string.charAt(i);
-		}
-	}
-	return ret_val;
-}
-
-function getLanguageString(string,enTest,do_encode) {
-	if (enTest) {
-		console.log(langCode+': '+string);
-	}
-	if (do_encode !== false) {
-		if (do_encode === undefined) {
-			var do_encode = true;
-		} else {
-			do_encode = true;
-		}
-	}
-	var lC = langCode;
-	if (enTest == undefined) {
-		var enTest = false;
-	}
-	if (enTest) {
-		lC = 'en_us';
-	}
-	var strArray = string.split(".");
-	switch(strArray.length)
-	{
-		case 1:
-		if (lang[lC][strArray[0]] == undefined) {
-			if (lC != 'en_us') {
-				if (getLanguageString(string,true) == string) {
-					return string;
-				} else {
-					return getLanguageString(string,true);
-				}
-			} else {
-				return string;
-			}
-		} else {
-			return html_encode(lang[lC][strArray[0]],false,do_encode);
-		}
-		break;
-		case 2:
-		if (lang[lC][strArray[0]] == undefined) {
-			if (lC != 'en_us') {
-				if (getLanguageString(string,true) == string) {
-					return string;
-				} else {
-					return getLanguageString(string,true);
-				}
-			} else {
-				return string;
-			}
-		} else if (lang[lC][strArray[0]][strArray[1]] == undefined) {
-			if (lC != 'en_us') {
-				if (getLanguageString(string,true) == string) {
-					return string;
-				} else {
-					return getLanguageString(string,true);
-				}
-			} else {
-				return string;
-			}
-		} else {
-			return html_encode(lang[lC][strArray[0]][strArray[1]],false,do_encode);
-		}
-		break;
-		case 3:
-		if (lang[lC][strArray[0]] == undefined) {
-			if (lC != 'en_us') {
-				if (getLanguageString(string,true) == string) {
-					return string;
-				} else {
-					return getLanguageString(string,true);
-				}
-			} else {
-				return string;
-			}
-		} else if (lang[lC][strArray[0]][strArray[1]] == undefined) {
-			if (lC != 'en_us') {
-				if (getLanguageString(string,true) == string) {
-					return string;
-				} else {
-					return getLanguageString(string,true);
-				}
-			} else {
-				return string;
-			}
-		} else if (lang[lC][strArray[0]][strArray[1]][strArray[2]] == undefined) {
-			if (lC != 'en_us') {
-				if (getLanguageString(string,true) == string) {
-					return string;
-				} else {
-					return getLanguageString(string,true);
-				}
-			} else {
-				return string;
-			}
-		} else {
-			return html_encode(lang[lC][strArray[0]][strArray[1]][strArray[2]],false,do_encode);
-		}
-		break;
-		case 4:
-		if (lang[lC][strArray[0]] == undefined) {
-			if (lC != 'en_us') {
-				if (getLanguageString(string,true) == string) {
-					return string;
-				} else {
-					return getLanguageString(string,true);
-				}
-			} else {
-				return string;
-			}
-		} else if (lang[lC][strArray[0]][strArray[1]] == undefined) {
-			if (lC != 'en_us') {
-				if (getLanguageString(string,true) == string) {
-					return string;
-				} else {
-					return getLanguageString(string,true);
-				}
-			} else {
-				return string;
-			}
-		} else if (lang[lC][strArray[0]][strArray[1]][strArray[2]] == undefined) {
-			if (lC != 'en_us') {
-				if (getLanguageString(string,true) == string) {
-					return string;
-				} else {
-					return getLanguageString(string,true);
-				}
-			} else {
-				return string;
-			}
-		} else if (lang[lC][strArray[0]][strArray[1]][strArray[2]][strArray[3]] == undefined) {
-			if (lC != 'en_us') {
-				if (getLanguageString(string,true) == string) {
-					return string;
-				} else {
-					return getLanguageString(string,true);
-				}
-			} else {
-				return string;
-			}
-		} else {
-			return html_encode(lang[lC][strArray[0]][strArray[1]][strArray[2]][strArray[3]],false,do_encode);
-		}
-		break;
-		default:
-		return false;
-	}
-}
 function setObfuscatedString(string) {
 	var output = "";
 	for (var i = string.length - 1; i >= 0; i--) {
@@ -210,11 +85,53 @@ function setObfuscatedString(string) {
 	};
 	return output;
 }
+function saveJObject() {
+	if (localStorage.getItem('currentSaveSlot') != null) {
+		var saveTo = prompt('Please enter a save name. If you choose an existing one, it will overwrite it.', localStorage.getItem('currentSaveSlot'));
+	} else {
+		var saveTo = prompt('Please enter a save name. If you choose an existing one, it will overwrite it.');
+	}
+	if (saveTo == '' || saveTo == undefined || new RegExp('[^a-zA-Z0-9]').test(saveTo)) {
+		alert('You didn\'t enter a valid save name! Please omit special characters');
+		return false;
+	}
+	var saveSlot = 'saveSlot_' + saveTo;
+	var overwrite = false;
+	if (localStorage.getItem(saveSlot) != undefined) {
+		overwrite = true;
+	}
+	localStorage.setItem('currentSaveSlot',saveTo);
+	localStorage.setItem(saveSlot, JSON.stringify({"command": $('#command').val(), "jobject": jobject}));
+	if (overwrite) {
+		alert('Saved your current revision to `' + saveTo + '`, overwriting your previous save to that slot');	
+	} else {
+		alert('Saved your current revision to `' + saveTo + '`, which created a new saveSlot');
+	}
+	refreshSavesList();
+	refreshOutput();
+}
+function loadJObject(saveName) {
+	var saveItem = getJObject(saveName);
+	jobject = saveItem.jobject;
+	$('#command').val(saveItem.command);
+	refreshOutput();
+	alert('Loaded save `' + saveName + '`');
+	refreshSavesList();
+}
+function doesJObjectExist(saveName) {
+	var saveSlot = 'saveSlot_' + saveName;
+	return localStorage.getItem(saveSlot) != undefined;
+
+}
+function getJObject(saveName) {
+	var saveSlot = 'saveSlot_' + saveName;
+	return JSON.parse(localStorage.getItem(saveSlot));
+}
 function deleteAll() {
 	$('#deleteConfirm').remove();
-	$('.alerts').append('<div id="deleteConfirm" class="alert alert-danger"><h4>'+getLanguageString('settings.deleteall.heading')+'</h4><p>'+getLanguageString('settings.deleteall.body')+'</p><p><button type="button" onclick="deleteAllNoConfirm()" class="btn btn-danger">'+getLanguageString('settings.deleteall.yes')+'</button> <button type="button" onclick="deleteAllCancel()" class="btn btn-default">'+getLanguageString('settings.deleteall.no')+'</button></p></div>');
+	$('.alerts').append('<div id="deleteConfirm" class="alert alert-danger"><h4>'+getLanguageString('settings.deleteall.heading')+'</h4><p>'+getLanguageString('settings.deleteall.body')+'</p><p><button type="button" onclick="deleteAllConfirmed()" class="btn btn-danger">'+getLanguageString('settings.deleteall.yes')+'</button> <button type="button" onclick="deleteAllCancel()" class="btn btn-default">'+getLanguageString('settings.deleteall.no')+'</button></p></div>');
 }
-function deleteAllNoConfirm() {
+function deleteAllConfirmed() {
 	$('#deleteConfirm').slideUp();
 	$('#deleteConfirm');
 	jobject = {"text":""};
@@ -223,6 +140,24 @@ function deleteAllNoConfirm() {
 }
 function deleteAllCancel() {
 	$('#deleteConfirm').slideUp();
+}
+function clearJObjectSaves() {
+	$('#deleteJObjectConfirm').remove();
+	$('.alerts').append('<div id="deleteJObjectConfirm" class="alert alert-danger"><h4 lang="saves.deleteall.heading"></h4><p lang="saves.deleteall.body"></p><p><button type="button" onclick="clearJObjectSavesConfirmed()" class="btn btn-danger" lang="saves.deleteall.yes"></button> <button type="button" onclick="clearJObjectSavesCancel()" class="btn btn-default" lang="saves.deleteall.no"></button></p></div>');
+	refreshLanguage();
+}
+function clearJObjectSavesConfirmed() {
+	for (var i = 0; i < Object.keys(localStorage).length; i++) {
+		var key = Object.keys(localStorage)[i];
+		if (key.indexOf('saveSlot_') != -1) {
+			localStorage.removeItem(key);
+		}
+	};
+	$('#deleteJObjectConfirm').slideUp();
+	refreshSavesList();
+}
+function clearJObjectSavesCancel() {
+	$('#deleteJObjectConfirm').slideUp();
 }
 function warnFutureVersion(ver,feature,c) {
 	$('.modal_banners').append('<div class="alert alert-warning futureWarning '+c+'"><strong>'+getLanguageString('textsnippets.warning.title')+'</strong> '+getLanguageString('textsnippets.warning.text').replace('%v',ver).replace('%f',feature)+'</div>');
@@ -250,6 +185,7 @@ function getCSSHEXFromWord(w) {
 	if (w == "light_purple") return("#FD4DFF");
 	if (w == "yellow") return("#FFFF00");
 	if (w == "white") return("#FFFFFF");
+	if (w == "none") return("#FFFFFF");
 	return("#FFFFFF");
 }
 function removeWhiteSpace(s) {
@@ -283,7 +219,7 @@ function clearExtra() {
 	$("#clickEventText").val("");
 	$("#hoverEventText").val("");
 	$("#text_extra").val("");
-	$("#color_extra").val("white");
+	$("#color_extra").val("none");
 	$("#clickEvent").val('none');
 	$("#hoverEvent").val('none');
 	$("#insertion_text").val('');
@@ -325,6 +261,10 @@ function editExtra(index) {
 		$('#text_extra_container_edit').hide();
 		$('#selector_extra_container_edit').hide();
 		$('#translate_selector_container_edit').show();
+		if (!hasAlertedTranslationObjects) {
+			alert('Translation objects are currently broken and may crash your game. Please test your translation before publishing it.');
+			hasAlertedTranslationObjects = true;
+		}
 	} else if (jobject.extra[index].score != undefined) {
 		$('#obj_extra_container_edit').show();
 		$('#text_extra_container_edit').hide();
@@ -337,7 +277,11 @@ function editExtra(index) {
 	refreshLanguage();
 
 	$('#colorPreviewColor_edit').css('background-color',getCSSHEXFromWord(jobject.extra[index].color));
-	$("#color_extra_edit").val(jobject.extra[index].color);
+	if (jobject.extra[index].color != undefined) {
+		$("#color_extra_edit").val(jobject.extra[index].color);
+	} else {
+		$("#color_extra_edit").val('none');
+	}
 
 	if (jobject.extra[index].bold != undefined) {
 		$('#bold_text_extra_edit').prop('checked',true);
@@ -385,10 +329,14 @@ function saveExtraEdit() {
 	extraIndex = currentEdit;
 	jobject.extra[extraIndex].color = getSelected("color_extra_edit");
 
+	if (jobject.extra[extraIndex].color == 'none') {
+		delete jobject.extra[extraIndex].color;
+	}
+
 	if ($('#obj_extra_container_edit').is(":visible")) {
 		jobject.extra[extraIndex].score = new Object;
-		jobject.extra[extraIndex].score.name = escapeQuotes($('#obj_player_edit').val());
-		jobject.extra[extraIndex].score.objective = escapeQuotes($('#obj_score_edit').val());
+		jobject.extra[extraIndex].score.name = $('#obj_player_edit').val();
+		jobject.extra[extraIndex].score.objective = $('#obj_score_edit').val();
 	} else if ($('#text_extra_container_edit').is(":visible")) {
 		jobject.extra[extraIndex].text = $('#text_extra_edit').val();
 	} else if ($('#selector_extra_container_edit').is(":visible")) {
@@ -438,12 +386,12 @@ function saveExtraEdit() {
 	if (clickEventType_edit != "none") {
 		jobject.extra[extraIndex].clickEvent = new Object();
 		jobject.extra[extraIndex].clickEvent.action = clickEventType_edit;
-		jobject.extra[extraIndex].clickEvent.value = escapeQuotes($('#clickEventText_edit').val());
+		jobject.extra[extraIndex].clickEvent.value = $('#clickEventText_edit').val();
 	}
 	if (hoverEventType_edit != "none") {
 		jobject.extra[extraIndex].hoverEvent = new Object();
 		jobject.extra[extraIndex].hoverEvent.action = hoverEventType_edit;
-		jobject.extra[extraIndex].hoverEvent.value = escapeQuotes($('#hoverEventText_edit').val());
+		jobject.extra[extraIndex].hoverEvent.value = $('#hoverEventText_edit').val();
 	}
 	if (hoverEventType_edit == "show_entity") {
 		if ($('#hoverEventEntityID_edit').val() == '') {
@@ -479,9 +427,7 @@ function get_type(thing){
 	return Object.prototype.toString.call(thing);
 }
 function escapeQuotes(string) {
-	/*DEPRECIATED*/
-	return string;
-	/*return string.replace(/"/g, '\\"');*/
+	return string.replace(/\\"/g, '\\\\\\"').replace(/([^\\])"/g, '$1\\"').replace(/\\""/g,'\\"\\"');
 }
 function modifyExtraText(index,text) {
 	if (text != "" && text != null) {
@@ -526,17 +472,21 @@ function addExtra() {
 			};
 		}
 	} else if (extraTextFormat == 'raw') {
-		jobject.extra[extraIndex].text = escapeQuotes($('#text_extra').val());
+		jobject.extra[extraIndex].text = $('#text_extra').val();
 	} else if (extraTextFormat == 'obj') {
 		jobject.extra[extraIndex].score = new Object;
-		jobject.extra[extraIndex].score.name = escapeQuotes($('#obj_player').val());
-		jobject.extra[extraIndex].score.objective = escapeQuotes($('#obj_score').val());
+		jobject.extra[extraIndex].score.name = $('#obj_player').val();
+		jobject.extra[extraIndex].score.objective = $('#obj_score').val();
 	} else if (extraTextFormat == 'sel') {
-		jobject.extra[extraIndex].selector = escapeQuotes($('#selector').val());
+		jobject.extra[extraIndex].selector = $('#selector').val();
 	}
 
 
 	jobject.extra[extraIndex].color = getSelected("color_extra");
+	if (jobject.extra[extraIndex].color == 'none') {
+		delete jobject.extra[extraIndex].color;
+	}
+
 	if (getChecked("bold_text_extra")) {
 		jobject.extra[extraIndex].bold = "true";
 	}
@@ -556,12 +506,12 @@ function addExtra() {
 	if (clickEventType != "none") {
 		jobject.extra[extraIndex].clickEvent = new Object();
 		jobject.extra[extraIndex].clickEvent.action = clickEventType;
-		jobject.extra[extraIndex].clickEvent.value = escapeQuotes($('#clickEventText').val());
+		jobject.extra[extraIndex].clickEvent.value = $('#clickEventText').val();
 	}
 	if (hoverEventType != "none") {
 		jobject.extra[extraIndex].hoverEvent = new Object();
 		jobject.extra[extraIndex].hoverEvent.action = hoverEventType;
-		jobject.extra[extraIndex].hoverEvent.value = escapeQuotes($('#hoverEventText').val());
+		jobject.extra[extraIndex].hoverEvent.value = $('#hoverEventText').val();
 	}
 	if (hoverEventType == "show_entity") {
 		if ($('#hoverEventEntityID').val() == '') {
@@ -581,7 +531,27 @@ function addExtra() {
 	refreshOutput();
 
 }
+function refreshSavesList() {
+	$('.savesContainer').html('');
+	for (var i = 0; i < Object.keys(localStorage).length; i++) {
+		var key = Object.keys(localStorage)[i];
+		if (key.indexOf('saveSlot_') != -1) {
+			$('.savesContainer').append('<div class="row" saveKey="' + key.substring('9') + '"><div class="col-md-3"><a href="#" onclick="loadJObject(\'' + key.substring('9') + '\')">Load ' + key.substring('9') + '</a></div><div class="col-md-9">' + localStorage.getItem(key).substring(0,90) + ' ...</div></div>')
+		}
+	};
+	if ($('.savesContainer').html() == '') {
+		$('.savesContainer').html('<div class="row"><div class="col-md-12"><h4 lang="saves.nosaves"></h4></div></div>');
+	}
+	refreshLanguage();
+}
 function refreshOutput(input) {
+	if ($('#command').val().indexOf('%e') == -1 && $('#command').val().indexOf('%s') == -1) {
+		$('#command').val('tellraw @a %s');
+		localStorage.setItem('jtemplate','tellraw');
+	}
+
+	refreshSavesList();
+
 	if (jobject.text != '' && get_type(jobject) != "[object Array]") {
 		jobject.extra.unshift(new Object());
 		jobject.extra[0].text = jobject.text;
@@ -601,13 +571,13 @@ function refreshOutput(input) {
 	}
 
 	if (get_type(jobject) == "[object Array]") {
-		deleteAllNoConfirm();
+		deleteAllConfirmed();
 	}
 
 	/*LANGUAGE SELECTIONS*/
 
 	$('.langSelect').removeClass('label label-success');
-	$('.'+langCode).addClass('label label-success');
+	$('.' + localStorage.getItem('langCode')).addClass('label label-success');
 
 	/*EXTRA MODAL COLOR PREVIEW MANAGER*/
 	$('#colorPreviewColor').css({ 'background-color': getCSSHEXFromWord(getSelected('color_extra')) });
@@ -621,12 +591,12 @@ function refreshOutput(input) {
 			$('.extraContainer').html('');
 			for (var i = 0; i <= jobject.extra.length - 1; i++) {
 				if (jobject.extra.length-1 > i) {
-					downButton = "<span onclick=\"moveUp(" + i + ")\" class=\"glyphicon glyphicon-arrow-down\"></span>";
+					downButton = '<span onclick="moveUp(' + i + ')" class="fa fa-arrow-circle-down"></span>';
 				} else {
 					downButton = "";
 				}
 				if (i > 0) {
-					upButton = "<span onclick=\"moveUp(" + (i-1) + ")\" class=\"glyphicon glyphicon-arrow-up\"></span>";
+					upButton = '<span onclick="moveUp(' + (i-1) + ')" class="fa fa-arrow-circle-up"></span>';
 				} else {
 					upButton = "";
 				}
@@ -646,9 +616,9 @@ function refreshOutput(input) {
 				if (input == 'noEditIfMatches' && jobject.extra[i].text != $('#previewLine'+matchTo).val()) {
 					var blah = 'blah';
 				} else {
-					tempJSON = '<div class="row"><div class="col-md-4">'+tempJSON+'</div><div class="col-md-7"><button class="btn btn-default" onclick="editExtra('+i+')" id="'+i+'RowEditButton">Edit</button></div><div class="col-md-1"><div class="colorPreview"><div class="colorPreviewColor" style="background-color:'+getCSSHEXFromWord(jobject.extra[i].color)+'"></div></div></div></div>';
+					tempJSON = '<div class="row"><div class="col-md-4">'+tempJSON+'</div><div class="col-md-7"><button class="btn btn-default" onclick="editExtra('+i+')" id="'+i+'RowEditButton"><i class="fa fa-pencil"></i> Edit</button></div><div class="col-md-1"><div class="colorPreview"><div class="colorPreviewColor" style="background-color:'+getCSSHEXFromWord(jobject.extra[i].color)+'"></div></div></div></div>';
 				}
-				var deleteButton = '<span onclick="deleteIndex('+ i +');" class="glyphicon glyphicon-remove-circle"></span>';
+				var deleteButton = '<span onclick="deleteIndex('+ i +');" class="fa fa-times-circle"></span> ';
 				$('.extraContainer').append('<div class="row extraRow row-margin-top row-margin-bottom RowIndex' + i + '"><div class="col-md-1">'+deleteButton+downButton+upButton+'</div><div class="col-md-11">'+tempJSON+'</div></div>');
 			}
 			if (jobject.extra.length === 0) {
@@ -668,6 +638,10 @@ function refreshOutput(input) {
 		$('#text_extra_container').hide();
 		$('#selector_extra_container').hide();
 		$('#translate_selector_container').show();
+		if (!hasAlertedTranslationObjects) {
+			alert('Translation objects are currently broken and may crash your game. Please test your translation before publishing it.');
+			hasAlertedTranslationObjects = true;
+		}
 	} else if (extraTextFormat == "obj") {
 		$('#text_extra_container').hide();
 		$('#translate_selector_container').hide();
@@ -687,134 +661,122 @@ function refreshOutput(input) {
 	}
 
 	/*COMMAND MANAGER*/
-	if ($("#command").val() === "" && input != "input_command") $("#command").val('/tellraw @a');
+	if ($("#command").val() == "") $("#command").val(templates[localStorage.getItem('jtemplate')]['command']);
 
 	/*HOVEREVENT SUGGESTION MANAGER*/
-	if (getSelected("hoverEvent") == "show_achievement") {
-		if (selectedHover != "show_achievement") {
-			document.getElementById("insertHover").disabled = false;
-			document.getElementById("hover_selector").disabled = false;
-			$('#hover_selector').html('');
-			for (var i = 0; i < achievements.length; i++) {
-				$('#hover_selector').append('<option>'+achievements[i].achievement+'</option>');
-			};
-			selectedHover = "show_achievement";
-		}
-	} else if (getSelected("hoverEvent") == "show_item") {
-		if (selectedHover != "show_item") {
-			document.getElementById("insertHover").disabled = false;
-			document.getElementById("hover_selector").disabled = false;
-			document.getElementById("hover_selector").innerHTML = '<option>{id:322}</option>';
-			selectedHover = "show_item";
-		}
-	} else if (getSelected("hoverEvent") == "show_entity") {
+	$('#hoverEventText').removeAttr('disabled');
+	selectedHover = getSelected("hoverEvent");
+	if (selectedHover == "show_achievement") {
+		$('#hoverEventText').autocomplete({
+			source: achievements
+		});
+	} else if (selectedHover == "show_item") {
+		$('#hoverEventText').autocomplete({
+			source: []
+		});
+	} else if (selectedHover == "show_entity") {
 		$('.hovertext_default').hide();
 		$('.hovertext_entity').show();
-		selectedHover = "show_entity";
-	} else {
-		selectedHover = "";
-		document.getElementById("hover_selector").innerHTML = '';
-		document.getElementById("hover_selector").disabled = true;
-		document.getElementById("insertHover").disabled = true;
+	} else if (selectedHover == "none") {
+		$('#hoverEventText').attr('disabled','true');
+		$('#hoverEventText').autocomplete({
+			source: []
+		});
 	}
-
 	if (selectedHover != "show_entity") {
 		$('.hovertext_default').show();
 		$('.hovertext_entity').hide();
 	}
 
 	/*HOVEREVENT EDIT SUGGESTION MANAGER*/
-	if (getSelected("hoverEvent_edit") == "show_achievement") {
-		if (selectedHover_edit != "show_achievement") {
-			document.getElementById("insertHover_edit").disabled = false;
-			document.getElementById("hover_selector_edit").disabled = false;
-			$('#hover_selector_edit').html('');
-			for (var i = 0; i < achievements.length; i++) {
-				$('#hover_selector_edit').append('<option>'+achievements[i].achievement+'</option>');
-			};
-			selectedHover_edit = "show_achievement";
-		}
-	} else if (getSelected("hoverEvent_edit") == "show_item") {
-		if (selectedHover_edit != "show_item") {
-			document.getElementById("insertHover_edit").disabled = false;
-			document.getElementById("hover_selector_edit").disabled = false;
-			document.getElementById("hover_selector_edit").innerHTML = '<option>{id:322}</option>';
-			selectedHover_edit = "show_item";
-		}
-	} else if (getSelected("hoverEvent_edit") == "show_entity") {
+	$('#hoverEventText_edit').removeAttr('disabled');
+	selectedHover_edit = getSelected('hoverEvent_edit');
+	if (selectedHover_edit == "show_achievement") {
+		$('#hoverEventText_edit').autocomplete({
+			source: achievements
+		});
+	} else if (selectedHover_edit == "show_item") {
+		$('#hoverEventText_edit').autocomplete({
+			source: []
+		});
+	} else if (selectedHover_edit == "show_entity") {
 		$('.hovertext_default_edit').hide();
 		$('.hovertext_entity_edit').show();
-		selectedHover_edit = "show_entity";
-	} else {
-		selectedHover_edit = "";
-		document.getElementById("hover_selector_edit").innerHTML = '';
-		document.getElementById("hover_selector_edit").disabled = true;
-		document.getElementById("insertHover_edit").disabled = true;
+	} else if (selectedHover_edit == "none") {
+		$('#hoverEventText_edit').attr('disabled','true');
+		$('#hoverEventText_edit').autocomplete({
+			source: []
+		});
 	}
-
 	if (selectedHover_edit != "show_entity") {
 		$('.hovertext_default_edit').show();
 		$('.hovertext_entity_edit').hide();
 	}
 
 	/*CLICKEVENT SUGGESTION MANAGER*/
-	if (getSelected("clickEvent") == "run_command" || getSelected("clickEvent") == "suggest_command") {
-		if (selectedClick != "command") {
-			document.getElementById("insertClick").disabled = false;
-			document.getElementById("click_selector").disabled = false;
-			$('#click_selector').html('');
-			for (var i = 0; i < commands.length; i++) {
-				$('#click_selector').append('<option>'+commands[i].command+'</option>');
-			};
-			selectedClick = "command";
-		}
-		if (commands[getSelectedIndex('click_selector')].version == '1.8') {
-			$('.cm').remove();
-			warnFutureVersion('1.8',getLanguageString(getSelected('click_selector')),'cm');
-		} else {
-			$('.cm').remove();			
-		}
-	} else if (getSelected("clickEvent") == "open_url") {
-		if (selectedClick != "open_url") {
-			document.getElementById("insertClick").disabled = false;
-			document.getElementById("click_selector").disabled = false;
-			$("#click_selector").html('<option>http://example.com</option>');
-			selectedClick = "open_url";
-		}
-	} else {
-		selectedClick = "";
-		$("#click_selector").html('');
-		document.getElementById("click_selector").disabled = true;
-		document.getElementById("insertClick").disabled = true;
+	$('#clickEventText').removeAttr('disabled');
+	selectedClick = getSelected("clickEvent");
+	if (selectedClick == "run_command" || selectedClick == "suggest_command") {
+		$('#clickEventText').autocomplete({
+			source: commands
+		});
+	} else if (selectedClick == "open_url") {
+		$('#clickEventText').autocomplete({
+			source: ["http://apple.com", "https://minecraft.net", "https://mojang.com"]
+		});
+	} else if (selectedClick == "none") {
+		$('#clickEventText').attr('disabled','true');
+		$('#clickEventText').autocomplete({
+			source: []
+		});
 	}
 
 	/*CLICKEVENT EDIT SUGGESTION MANAGER*/
-	if (getSelected("clickEvent_edit") == "run_command" || getSelected("clickEvent_edit") == "suggest_command") {
-		if (selectedClick_edit != "command") {
-			document.getElementById("insertClick_edit").disabled = false;
-			document.getElementById("click_selector_edit").disabled = false;
-			$('#click_selector_edit').html('');
-			for (var i = 0; i < commands.length; i++) {
-				$('#click_selector_edit').append('<option>'+commands[i].command+'</option>');
-			};
-			selectedClick_edit = "command";
-		}
-	} else if (getSelected("clickEvent_edit") == "open_url") {
-		if (selectedClick_edit != "open_url") {
-			document.getElementById("insertClick_edit").disabled = false;
-			document.getElementById("click_selector_edit").disabled = false;
-			$("#click_selector_edit").html('<option>http://example.com</option>');
-			selectedClick_edit = "open_url";
-		}
-	} else {
-		selectedClick_edit = "";
-		$("#click_selector_edit").html('');
-		document.getElementById("click_selector_edit").disabled = true;
-		document.getElementById("insertClick_edit").disabled = true;
+	$('#clickEventText_edit').removeAttr('disabled');
+	selectedClick_edit = getSelected('clickEvent_edit');
+	if (selectedClick_edit == "run_command" || selectedClick_edit == "suggest_command") {
+		$('#clickEventText_edit').autocomplete({
+			source: commands
+		});
+	} else if (selectedClick_edit == "open_url") {
+		$('#clickEventText_edit').autocomplete({
+			source: ["http://apple.com", "https://minecraft.net", "https://mojang.com"]
+		});
+	} else if (selectedClick_edit == "none") {
+		$('#clickEventText_edit').attr('disabled','true');
+		$('#clickEventText_edit').autocomplete({
+			source: []
+		});
 	}
 	var commandString = $('#command').val();
-	$('#outputtextfield').val(commandString+' '+JSON.stringify(jobject));
-	$('#nicelookingoutput').html(commandString+'<br>'+JSON.stringify(jobject, null, 4));
+	var jsonString = JSON.stringify(jobject);
+
+	var NoSavesS = new RegExp("%s(?!\\[)");
+	var NoSavesE = new RegExp("%e(?!\\[)");
+	var Saves = new RegExp("(%[s|e])\\[([a-zA-Z0-9]+)\\]","g");
+
+	var handleFoundSaves = function(a,b,c) {
+		if (doesJObjectExist(c)) {
+			if (b == '%e') {
+				return escapeQuotes(JSON.stringify(getJObject(c).jobject).replace(newLine,'\\n'));
+			} else {
+				return JSON.stringify(getJObject(c).jobject).replace(newLine,'\\n');
+			}
+		} else {
+			return '----ERROR ' + c + ' DOES NOT EXIST----';
+		}
+	}
+
+	jsonString = jsonString.replace(newLine,'\\n');
+	var outputString = commandString;
+
+	outputString = outputString.replace(NoSavesS,jsonString);
+	outputString = outputString.replace(NoSavesE,escapeQuotes(jsonString));
+	console.log(outputString);
+	outputString = outputString.replace(Saves,handleFoundSaves);
+
+	$('#outputtextfield').val(outputString);
+	$('#nicelookingoutput').html(JSON.stringify(jobject, null, 4).replace(newLine,'\\n'));
 	jsonParse();
 
 	if ($('#outputtextfield').val().length > 90) {
@@ -822,8 +784,8 @@ function refreshOutput(input) {
 	} else {
 		$('#commandblock').hide();
 	}
-	if (Modernizr.localstorage) localStorage['jobject'] = JSON.stringify(jobject);
-	if (Modernizr.localstorage) localStorage['jcommand'] = $('#command').val();
+	localStorage['jobject'] = JSON.stringify(jobject);
+	localStorage['jcommand'] = $('#command').val();
 
 	if (input != 'noLoop' && input != 'previewLineChange') {
 		refreshOutput('noLoop');
@@ -848,7 +810,7 @@ function jsonParse() {
 			var clickEventValue = "";
 			$('#jsonPreview').append('<span id="jsonPreviewSpanElement'+ i +'"></span>');
 			if (get_type(jobject.extra[i].text) != "[object Undefined]") {
-				$('#jsonPreviewSpanElement'+i).html(jobject.extra[i].text);
+				$('#jsonPreviewSpanElement'+i).html(jobject.extra[i].text.replace('\n','<br>').replace('\\n','<br>'));
 			} else {
 				$('#jsonPreviewSpanElement'+i).html(jobject.extra[i].translate);
 			}
@@ -912,32 +874,21 @@ function jsonParse() {
 					popoverContentClick = popoverContentClick + '<br>';
 				}
 				$('#jsonPreviewSpanElement'+i).attr('rel','popover');
-				$('#jsonPreviewSpanElement'+i).addClass('label label-default');
 			}
 			$('#jsonPreviewSpanElement'+ i).popover({ title: popoverTitle, content: popoverContentClick+popoverContentHover, html:true});
 		}
 	} else {
 		$('#jsonPreview').html(getLanguageString('output.nothing'));
+		$('#jsonPreview').css('color','white');
 	}
 	if ($('.jsonPreviewObfuscated').length > 0) {
 		setTimeout(obfuscationPreviewHandler, 20);
 	}
 }
 function refreshLanguage(dropdownSelection) {
-	if (Modernizr.localstorage) {
-		localStorage['langCode'] = langCode;
-	}
 	$('*').each(function(){
-		if ($(this).attr('lang') != undefined) {
-			langStr = getLanguageString($(this).attr('lang'));
-			if ($(this).prop('tagName') == 'INPUT') {
-				$(this).attr('placeholder',langStr);
-			} else {
-				$(this).html(langStr);
-			}
-		}
-
-		if ($(this).attr('version') != undefined) {
+		$(this).refreshLanguage();
+		if ($(this).attr('version') != undefined && (localStorage['versionIndicators'] == true || localStorage['versionIndicators'] == undefined)) {
 			var labelLevel = 'success';
 			if ($(this).attr('version') == '1.7 & 1.8') {
 				labelLevel = 'warning';
@@ -955,11 +906,44 @@ function refreshLanguage(dropdownSelection) {
 }
 
 function initialize() {
+	
+	if (localStorage.getItem('langCode') == undefined) {
+		if (lang[navigator.language.toLowerCase()] != undefined) {
+			localStorage.setItem('langCode',navigator.language.toLowerCase());
+		} else {
+			if (webLangRelations[navigator.language.toLowerCase()] != undefined) {
+				localStorage.setItem('langCode',webLangRelations[navigator.language.toLowerCase()]);
+			}
+		}
+	}
+
+	if (localStorage.getItem('langCode') == undefined) {
+		localStorage.setItem('langCode','en_us');
+	}
+
+	if (localStorage.getItem('jformat') != version && localStorage.getItem('jformat') != undefined) {
+		if (confirm('Your cookie format is old and may cause issues. Would you like to reset them? You won\'t be asked again until the format changes again')) {
+			localStorage.clear();
+			location.reload();
+		} else {
+			alert('You won\'t be asked again until the cookie format changes. If you experience an issue, please clear your coookies for this website');
+		}
+	}
+	localStorage.setItem('jformat',version);
+
+	for (var i = 0; i < Object.keys(templates).length; i++) {
+		var key = Object.keys(templates)[i]
+		$('#templateButtons').append('<button class="btn btn-xs btn-default templateButton" lang="template.' + key + '" version="' + templates[key]['version'] + '" template="'+ key +'"></button> ');
+	}
+	if (localStorage.getItem('jtemplate') == undefined) {
+		localStorage.setItem('jtemplate', 'tellraw');
+	}
+
 	for (var i = 0; i < Object.keys(lang).length; i++) {
-		$('#language_keys').append('<li><a onclick="langCode=\''+Object.keys(lang)[i]+'\'; refreshLanguage(true); refreshOutput();"><span class="'+Object.keys(lang)[i]+' langSelect" id="language_select_'+Object.keys(lang)[i]+'">'+lang[Object.keys(lang)[i]].language.name+'</span></a></li>');
+		$('#language_keys').append('<li><a onclick="localStorage.setItem(\'langCode\',\''+Object.keys(lang)[i]+'\'); refreshLanguage(true); refreshOutput();"><span class="'+Object.keys(lang)[i]+' langSelect" id="language_select_'+Object.keys(lang)[i]+'">'+lang[Object.keys(lang)[i]].language.name+'</span></a></li>');
 	};
 	$('#language_keys').append('<li class="divider"></li>');
-	$('#language_keys').append('<li><a href="/messenger?compose=true&to=ezfe&subject=Tellraw%20Translation"><span class="language_area" lang="language.translate"></span></a></li>');
+	$('#language_keys').append('<li><a href="http://www.minecraftforum.net/topic/1980545-"><span class="language_area" lang="language.translate"></span></a></li>');
 
 	$('.extraTranslationParameterRow').hide();
 
@@ -972,16 +956,34 @@ function initialize() {
 		jobject = JSON.parse(localStorage["jobject"]);	
 	}
 
-	$('#command').val(localStorage['jcommand']);
+	$('.templateButton').click(function(){
+		var template = $(this).attr('template');
+
+		localStorage.setItem('jtemplate',template);
+		$('#command').val(templates[localStorage.getItem('jtemplate')]['command']);
+
+		refreshOutput();
+	});
+
+	$('#command').val(localStorage.getItem('jcommand'));
 
 	$('#command').change(function(){refreshOutput()});
 
 	$('#import').click(function() {
-		var inpt = prompt(getLanguageString('settings.importtext',false));
-		
-		$('#command').val(inpt.substring(0,inpt.indexOf("{")-1));
-		jobject = JSON.parse(inpt.substring(inpt.indexOf("{")));
-		refreshOutput();
+		if (confirm("Would you like to import an \"exported\" command? Press Ok if you made the string by using the export option")) {
+			var inpt = prompt(getLanguageString('settings.importtext.exported',false));
+			jobject = JSON.parse(inpt)['jobject'];
+			$('#command').val(JSON.parse(inpt)['command']);
+			refreshOutput();
+		} else {
+			var inpt = prompt(getLanguageString('settings.importtext.default',false));
+			$('#command').val(inpt.substring(0,inpt.indexOf("{")-1));
+			jobject = JSON.parse(inpt.substring(inpt.indexOf("{")));
+			refreshOutput();
+		}
+	});
+	$('#export').click(function(){
+		alert(JSON.stringify({"command":$('#command').val(),"jobject":jobject}))
 	});
 	$('#translate_input').change(function(){
 		var val = translationStrings[$('#translate_input').val()];
@@ -1013,7 +1015,7 @@ function initialize() {
 	$('#addExtraButton').on('click',function(){
 		$('#snippetsWell').hide();
 		$('#addExtraModalData').show();
-		location.href = '#addExtraModalData';
+		goToByScroll('addExtraModalData');
 	});
 	$('#loading-container').hide();
 	$('#tellraw-container').fadeIn();
@@ -1023,32 +1025,36 @@ function initialize() {
 	$( "#translate_input_edit" ).autocomplete({
 		source: Object.keys(translationStrings)
 	});
-
+	$('#savesToggleButton').on('click',function(){
+		if ($('#savesManagerWell').is(':hidden')) {
+			$('#savesToggleButton').attr('lang','saves.hide');
+			$('#savesManagerWell').slideDown();
+		} else {
+			$('#savesToggleButton').attr('lang','saves.show');
+			$('#savesManagerWell').slideUp();
+		}
+		refreshLanguage();
+	});
 }
 $( document ).ready(function(){
-	$.get( "lang.json", function( data ) {
-		if (typeof data == 'string') {
-			lang = JSON.parse(data);
-		} else {
-			lang = data;
-		}
-		$.get( "en_US.json", function( data ) {
-			if (typeof data == 'string') {
-				translationStrings = JSON.parse(data);
-			} else {
-				translationStrings = data;
+	$.ajax({
+		url: 'resources.json',
+		xhrFields: {
+			onprogress: function (e) {
+				if (e.lengthComputable) {
+					$('#loaderProgressBar').width(e.loaded / e.total * 100 + '%');
+				}
 			}
-			initialize();
-		});
+		},
+		success: function (data) {
+			if (typeof data == 'string') {
+				data = JSON.parse(data);
+			}
+			lang = data['web_language_strings'];
+			translationStrings = data['minecraft_language_strings']['en_us'];
+			webLangRelations = data['web_language_relations'];
+			$('#loaderProgressBar').width('100%');
+			setTimeout(initialize,500)
+		}
 	});
 });
-
-if (localStorage['langCode'] != undefined) {
-	langCode = localStorage['langCode'];
-} else {
-	langCode = 'en_us';
-}
-if (langCode == undefined) {
-	langCode = 'en_us';
-	localStorage['langCode'] = langCode;
-}

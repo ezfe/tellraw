@@ -1,0 +1,214 @@
+<html>
+<head>
+	<title>Tellraw Changelog</title>
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-25756826-2', 'auto');
+		ga('send', 'pageview');
+	</script>
+	<link rel="icon" type="image/png" href="/favicon.png">
+
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<style>
+		.reverted {
+			text-decoration: line-through;
+		}
+		a.broken_link:link {
+			text-decoration: line-through;
+		}
+		a.broken_link:visited {
+			text-decoration: line-through;
+		}
+	</style>
+	<script>
+	$(document).ready(function(){
+		$('.broken_link').click(function(){
+			if (confirm("This link may not work, are you sure you want to continue?")) {
+				console.log("override_broken_link");
+			} else {
+				return false;
+			}
+		})
+	})
+
+	</script>
+
+	<link rel="stylesheet" href="/css/custom.css">
+</head>
+<body>
+	<div class="container">
+
+		<a href="/tellraw">Go Back</a>
+		<h2>Changelog</h2>
+		<dl>
+			<dt>July 14, 2014</dt>
+			<dd>The language now automatically changes on first load. This won't affect users who have already loaded the page. Also, this will not work for everyone because language code lists are complicated. Please go to the forum (via the main tellraw page), and tell me if your language isn't automatially set on first load. If you want to test it, use localStorage.clear();location.reload();</dd>
+			
+			<dt>July 12, 2014</dt>
+			<dd>Fixed some broken formatting on the changelog. Now properly handles broken links and reverted changes :D</dd>
+
+			<dt>July 4, 2014</dt>
+			<dd>Added Minecraftia font, should be all set. Can someone please verify this for me? Should show up in minecraft style on the output.</dd>
+
+			<dt>June 19, 2014</dt>
+			<dd>Use %e and %s to embed the generated string in the command (%e escapes quotes, %s doesn't)</dd>
+			<dd>Build in ability to generate a /give written_book and /give sign with the embedded text</dd>
+			<dd>You can now save multiple strings and switch between them easily.</dd>
+			<dd>I've made the click and hover event text fields easier to use, automatic suggestions</dd>
+
+			<dt>June 18, 2014</dt>
+			<dd>Use %e and %s to embed the generated string in the command (%e escapes quotes, %s doesn't)</dd>
+
+			<dt>June 14, 2014</dt>
+			<dd>tellraw, title, subtitle templates</dd>
+
+			<dt>June 1, 2014</dt>
+			<dd>None color (c652a28)</dd>
+
+			<dt>May 16, 2014</dt>
+			<dd class="reverted">Due to changes in format, I've been forced to make the attributes stricter. This means you will see both true and false values. If you have a real reason to have this rolled back, please reply to this topic making your argument.</dd>
+
+			<dt>May 14</dt>
+			<dd class="reverted">New format, less bytes</dd>
+			<dd>None color option by default, (will appear white in game, however) (may not be immediately available on site)</dd>
+
+			<dt>May 13</dt>
+			<dd>Badge items with their version / specific feature.</dd>
+
+			<dt>May 10</dt>
+			<dd>Translation is redone</dd>
+			<dd>Modals begone</dd>
+
+			<dt>May 9</dt>
+			<dd>Added the command field, which allows for custom commands such as execute. Also supports importing these commands.</dd>
+			<dd>Now stores player in localStorageNow stores command in localStorage</dd>
+
+			<dt>May 7</dt>
+			<dd>I've reworked the language system for translations.</dd>
+
+			<dt>April 27, 2014</dt>
+			<dd>Importing observes the player, mostly</dd>
+
+			<dt>February 23, 2014</dt>
+			<dd>I've fixed bugs with editing</dd>
+
+			<dt>February 21, 2014</dt>
+			<dd>Full featured editor. May be a bit buggy, please report that here: <a class="broken_link" href="https://github.com/ezfe/tellraw/issues">https://github.com/ezfe/tellraw/issues</a></dd>
+
+			<dt>February 19, 2014</dt>
+			<dd>1.8 Scoreboard objectives inlineTranslated strings have been redone behind the scenes, and the preview now almost 100% accurately reflects the english output.</dd>
+
+			<dt>January 19, 2014</dt>
+			<dd>Fixed some text fields clearing when they shouldn't</dd><dd>Fixed the translations doing a lot of stuff every cycle</dd>
+
+			<dt>January 15, 2014</dt>
+			<dd>Cool, awesome, totally revolutionary new background image.</dd>
+
+			<dt>January 10, 2014</dt>
+			<dd>Now supports insertionNow supports show_entity</dd>
+
+			<dt>December 31, 2013</dt>
+			<dd>Fixed an issue where the GUI could be confusing.</dd>
+			
+			<dt>December 30, 2013</dt>
+			<dd>French has been updated.Hebrew has been added.</dd>
+
+			<dt>December 27, 2013</dt>
+			<dd>Changed the import function, works easier now, no more dev console needed. If it fails it will fail silently and won't indicate a failure. Sorry.</dd>
+			<dd>Added a newline after the tellraw player section of the output to make it easier to copy paste just the tellraw part.</dd>
+			<dd>Fixed a russian string</dd>
+
+			<dt>December 26, 2013</dt>
+			<dd>Removed old language strings</dd>
+			<dd>Edit Mode is now always on and works better</dd>
+			<dd>Delete all button</dd>
+			<dd>The command persists across reloads, so if your web browser crashes you may not loose it.</dd>
+			<dd>Moved some things aroundFixed some bugs.</dd>
+			
+			<dt>December 24, 2013</dt>
+			<dd>Fixed a bug where the language wouldn't properly set up</dd>
+			<dd>Changed how falses are done. If you experience problems with this, please tell me ASAP.</dd>
+
+			<dt>December 16, 2013</dt>
+			<dd>Fixed some missing language strings, still looking for translations.Language settings persist across page loads now</dd>
+
+			<dt>December 15, 2013</dt>
+			<dd>Background color chooser. Language strings will be available for translation tomorrow.</dd>
+
+			<dt>December 9, 2013</dt>
+			<dd>Changed more backend systems for applying styles to the previewsRemoved the drop shadow that may or may not have been published live at one point.</dd>
+			<dd>Added highlight for click and hover events to the preview.</dd>
+
+			<dt>December 8, 2013</dt>
+			<dd>Added Russian</dd>
+
+			<dt>November 30, 2013</dt>
+			<dd>Language switching is even better</dd>
+			<dd>Cleaned up a bunch of un-needed things</dd>
+			<dd>Added Dutch</dd>
+			<dd>The command list is more complete nowThe achievement list is more complete now</dd>
+			<dd>Upgraded the inline editing, please tell me if something isn't working!</dd>
+
+			<dt>November 26, 2013</dt>
+			<dd>You can now choose between English, French(kinda) and German</dd>
+
+			<dt>November 25, 2013</dt>
+			<dd>You can now edit the json text. Click Edit mode, and then start editing.</dd>
+
+			<dt>November 24, 2013</dt>
+			<dd>You can now click text in the preview to see the hover and click events.The page now fills all the text boxes when the page loads, so pressing refresh without making changes won't do anything.</dd>
+
+			<dt>November 23, 2013</dt>
+			<dd>Work in progress: I'm making it so all snippets behave the same way, they're all extras. If you have a strong argument against this, please post a comment.</dd>
+			<dd>Fixed some bugs with IE</dd>
+			<dd>Added a color preview in the "Add Text" manager</dd>
+			<dd>Added a preview of what your tellraw will output (more to come)</dd>
+			<dd class="reverted">Removed the ability to see wether it will work in a command block, all of these commands will require a command block. If you want a more basic generator, send me a private message I can work something outAdded a dictionary function for getting the CSS Color Code from a minecraft color name.</dd>
+
+			<dt>November 16, 2013</dt>
+			<dd>Added a feature to edit "Extras" text.</dd>
+			<dd>Fixed some bugs with extras resetting their text.</dd>
+
+			<dt>November 13, 2013</dt>
+			<dd>Changed how to add extras, making way for language strings.</dd>
+			<dd>Fixed some bugs with when it detected changesFixed some bugs with how extras are removed</dd>
+			<dd>Improved mobile support. More coming.</dd>
+
+			<dt>November 10, 2013</dt>
+			<dd> Deletion of extras asks for a confirmation I'm using table rows for each one now to improve formatting</dd>
+			<dd>Moved the manipulation buttons over to the left in their own table data elementImproved the handling of falses, for now. You can choose to show or hide them in the extras. Whatever goes wrong if you hide them is your problem atm, its a matter of how the game handles it. It will show them by default.</dd>
+			<dd>Minor optimizations and changes.</dd>
+
+			<dt>October 16, 2013</dt>
+			<dd>Fixed the @a issues with the player field</dd>
+			<dd>Updated the statistics, achievements, and commands for 13w41b</dd>
+
+			<dt>September 23, 2013</dt>
+			<dd>I'm trying to optimize where it adds the various tags. Currently the first one will do it smartly, I'm working on the extras</dd>
+
+			<dt>September 22, 2013</dt>
+			<dd>I've updated it so it no longer loops. Side affect is the player field acts oddly. Workaround is to type what you want, then delete the @a.</dd>
+			<dd>Added more things to the suggestion boxes.</dd>
+
+			<dt>September 20, 2013</dt>
+			<dd>All behind the scenes is done in pure JSON</dd>
+			<dd>Removed Falses option, falses are always shown. Due to the fact command blocks have almost unlimited length, this isn't a problem.Its now easier to remove extra snippets.Better support for achievements and commands.</dd>
+
+			<dt>September 19, 2013</dt>
+			<dd>Supports 13w28a "show_achievements" parameter</dd>
+			<dd>Autofills text-boxes to show suggestions.</dd>
+
+			<dt>September 18, 2013</dt>
+			<dd>Automatic quotation escaping</dd>
+			<dd>Preview of the command (not 100% accurate yet, more to come)</dd>
+		</dl>
+	</div>
+</body>
+</html>
