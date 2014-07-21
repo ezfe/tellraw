@@ -11,10 +11,10 @@
 	</script>
 	<link rel="icon" type="image/png" href="/favicon.png">
 
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-	<link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
 	<style>
 		.reverted {
@@ -26,21 +26,26 @@
 		a.broken_link:visited {
 			text-decoration: line-through;
 		}
-		#hash {
+		.hash {
 			color: #66D9EF;
 			text-decoration: underline;
 		}
 	</style>
 	<script>
-	$(document).ready(function(){
-		$('.broken_link').click(function(){
-			if (confirm("This link may not work, are you sure you want to continue?")) {
-				console.log("override_broken_link");
-			} else {
-				return false;
-			}
+		$(document).ready(function(){
+			$('.broken_link').click(function(){
+				if (confirm("This link may not work, are you sure you want to continue?")) {
+					console.log("override_broken_link");
+				} else {
+					return false;
+				}
+			})
+			$('*').each(function(){
+				if ($(this).attr('hash') != undefined) {
+					$(this).append('<div style="text-align:right; float:right;"><a href="https://github.com/ezfe/tellraw/commit/' + $(this).attr('hash') + '" class="hash">@' + $(this).attr('hash').substr(0,10) + '</a></div>');
+				}
+			});
 		})
-	})
 
 	</script>
 
@@ -54,7 +59,7 @@
 		<dl>
 			
 			<dt>July 21</dt>
-			<dd>Fixed a bug where the command block message wouldn't show up. <span id="hash">@1f59ed6547</span></dd>
+			<dd hash="1f59ed6547cb69f40edd582da0d924a77d7e6823">Fixed a bug where the command block message wouldn't show up.</dd>
 
 			<dt>July 14, 2014</dt>
 			<dd>The language now automatically changes on first load. This won't affect users who have already loaded the page. Also, this will not work for everyone because language code lists are complicated. Please go to the forum (via the main tellraw page), and tell me if your language isn't automatially set on first load. If you want to test it, use localStorage.clear();location.reload();</dd>
@@ -78,7 +83,7 @@
 			<dd>tellraw, title, subtitle templates</dd>
 
 			<dt>June 1, 2014</dt>
-			<dd>None color (c652a28)</dd>
+			<dd hash="b36d2299e904472d9c0bbbf763d17171f9a8d767">None color</dd>
 
 			<dt>May 16, 2014</dt>
 			<dd class="reverted">Due to changes in format, I've been forced to make the attributes stricter. This means you will see both true and false values. If you have a real reason to have this rolled back, please reply to this topic making your argument.</dd>
@@ -99,16 +104,16 @@
 			<dd>Now stores player in localStorageNow stores command in localStorage</dd>
 
 			<dt>May 7</dt>
-			<dd>I've reworked the language system for translations.</dd>
+			<dd hash="1e9cd0e4dfbbaf722949a20423b8c381998b1cdf">I've reworked the language system for translations.</dd>
 
 			<dt>April 27, 2014</dt>
-			<dd>Importing observes the player, mostly</dd>
+			<dd hash="bd6c45cd854a7b0905882e1991c9cc787273496f">Importing observes the player, mostly</dd>
 
 			<dt>February 23, 2014</dt>
 			<dd>I've fixed bugs with editing</dd>
 
 			<dt>February 21, 2014</dt>
-			<dd>Full featured editor. May be a bit buggy, please report that here: <a class="broken_link" href="https://github.com/ezfe/tellraw/issues">https://github.com/ezfe/tellraw/issues</a></dd>
+			<dd>Full featured editor. May be a bit buggy, please report that here: <a href="https://github.com/ezfe/tellraw/issues">https://github.com/ezfe/tellraw/issues</a></dd>
 
 			<dt>February 19, 2014</dt>
 			<dd>1.8 Scoreboard objectives inlineTranslated strings have been redone behind the scenes, and the preview now almost 100% accurately reflects the english output.</dd>
