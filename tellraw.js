@@ -129,7 +129,7 @@ function getJObject(saveName) {
 }
 function deleteAll() {
 	$('#deleteConfirm').remove();
-	$('.alerts').append('<div id="deleteConfirm" class="alert alert-danger"><h4>'+getLanguageString('settings.deleteall.heading')+'</h4><p>'+getLanguageString('settings.deleteall.body')+'</p><p><button type="button" onclick="deleteAllConfirmed()" class="btn btn-danger">'+getLanguageString('settings.deleteall.yes')+'</button> <button type="button" onclick="deleteAllCancel()" class="btn btn-default">'+getLanguageString('settings.deleteall.no')+'</button></p></div>');
+	$('.alerts').append('<div id="deleteConfirm" class="alert alert-danger"><h4>'+getLanguageString('settings.deleteall.heading',localStorage.getItem('langCode'))+'</h4><p>'+getLanguageString('settings.deleteall.body')+'</p><p><button type="button" onclick="deleteAllConfirmed()" class="btn btn-danger">'+getLanguageString('settings.deleteall.yes')+'</button> <button type="button" onclick="deleteAllCancel()" class="btn btn-default">'+getLanguageString('settings.deleteall.no')+'</button></p></div>');
 }
 function deleteAllConfirmed() {
 	$('#deleteConfirm').slideUp();
@@ -160,7 +160,7 @@ function clearJObjectSavesCancel() {
 	$('#deleteJObjectConfirm').slideUp();
 }
 function warnFutureVersion(ver,feature,c) {
-	$('.modal_banners').append('<div class="alert alert-warning futureWarning '+c+'"><strong>'+getLanguageString('textsnippets.warning.title')+'</strong> '+getLanguageString('textsnippets.warning.text').replace('%v',ver).replace('%f',feature)+'</div>');
+	$('.modal_banners').append('<div class="alert alert-warning futureWarning '+c+'"><strong>'+getLanguageString('textsnippets.warning.title',localStorage.getItem('langCode'))+'</strong> '+getLanguageString('textsnippets.warning.text',localStorage.getItem('langCode')).replace('%v',ver).replace('%f',feature)+'</div>');
 }
 function obfuscationPreviewHandler() {
 	$('.jsonPreviewObfuscated').html(setObfuscatedString($('.jsonPreviewObfuscated').html()));
@@ -231,7 +231,7 @@ function clearExtra() {
 	$('#hoverEventEntityName').val('');
 	$('#hoverEventEntityID').val('');
 	$('#hoverEventEntityType').val('');
-	$('#textsnippets_add').html(getLanguageString('textsnippets.addsnippet'));
+	$('#textsnippets_add').html(getLanguageString('textsnippets.addsnippet'),localStorage.getItem('langCode'));
 	$('#textsnippets-add-button').addClass('btn-default');
 	$('#textsnippets-add-button').removeClass('btn-danger');
 	$('#obj_player').val('');
@@ -444,7 +444,6 @@ function addExtra() {
 	if (extraTextFormat == 'raw' && $('#text_extra').val() == '') {
 		$('#text_extra_container').addClass('has-error');
 		$('#text_extra').focus();
-		$('#textsnippets_add').html(getLanguageString('textsnippets.notext'));
 		$('#textsnippets-add-button').removeClass('btn-default');
 		$('#textsnippets-add-button').addClass('btn-danger');
 		return false;
@@ -583,7 +582,7 @@ function refreshOutput(input) {
 	$('#colorPreviewColor').css({ 'background-color': getCSSHEXFromWord(getSelected('color_extra')) });
 
 	/*EXTRA VIEWER MANAGER*/
-	$('#textsnippets_header').html(getLanguageString('textsnippets.header'));
+	$('#textsnippets_header').html(getLanguageString('textsnippets.header',localStorage.getItem('langCode')));
 	if (input != 'previewLineChange') {
 		if (get_type(jobject.extra) == "[object Array]") {
 			var extraOutputPreview = "";
@@ -623,11 +622,12 @@ function refreshOutput(input) {
 			}
 			if (jobject.extra.length === 0) {
 				delete jobject.extra;
-				$('.extraContainer').html('<div class="row"><div class="col-md-12"><h4>'+getLanguageString('textsnippets.nosnippets')+'</h4></div></div>');
+				$('.extraContainer').html('<div class="row"><div class="col-md-12"><h4 lang="textsnippets.nosnippets"></h4></div></div>');
+				refreshLanguage();
 			}
 		} else {
 			$('.extraContainer div.extraRow').remove();
-			$('.extraContainer').html('<div class="row"><div class="col-md-12"><h4>'+getLanguageString('textsnippets.nosnippets')+'</h4></div></div>');
+			$('.extraContainer').html('<div class="row"><div class="col-md-12"><h4>'+getLanguageString('textsnippets.nosnippets',localStorage.getItem('langCode'))+'</h4></div></div>');
 		}
 	}
 
@@ -844,19 +844,19 @@ function jsonParse() {
 				if (get_type(jobject.extra[i].clickEvent) != "[object Undefined]") doClickEvent = true;
 				if (get_type(jobject.extra[i].hoverEvent) != "[object Undefined]") doHoverEvent = true;
 				if (doHoverEvent && doClickEvent) {
-					popoverTitle = getLanguageString('textsnippets.hoverevent.header') + ' and ' + getLanguageString('textsnippets.clickevent.header');
+					popoverTitle = getLanguageString('textsnippets.hoverevent.header',localStorage.getItem('langCode')) + ' and ' + getLanguageString('textsnippets.clickevent.header');
 					hoverEventType = jobject.extra[i].hoverEvent.action;
 					hoverEventValue = jobject.extra[i].hoverEvent.value;
 					clickEventType = jobject.extra[i].clickEvent.action;
 					clickEventValue = jobject.extra[i].clickEvent.value;
 				}
 				if (doHoverEvent && !doClickEvent) {
-					popoverTitle = getLanguageString('textsnippets.hoverevent.header');
+					popoverTitle = getLanguageString('textsnippets.hoverevent.header',localStorage.getItem('langCode'));
 					hoverEventType = jobject.extra[i].hoverEvent.action;
 					hoverEventValue = jobject.extra[i].hoverEvent.value;
 				}
 				if (!doHoverEvent && doClickEvent) {
-					popoverTitle = getLanguageString('textsnippets.clickevent.header');
+					popoverTitle = getLanguageString('textsnippets.clickevent.header',localStorage.getItem('langCode'));
 					clickEventType = jobject.extra[i].clickEvent.action;
 					clickEventValue = jobject.extra[i].clickEvent.value;
 				}
@@ -878,7 +878,7 @@ function jsonParse() {
 			$('#jsonPreviewSpanElement'+ i).popover({ title: popoverTitle, content: popoverContentClick+popoverContentHover, html:true});
 		}
 	} else {
-		$('#jsonPreview').html(getLanguageString('output.nothing'));
+		$('#jsonPreview').html(getLanguageString('output.nothing',localStorage.getItem('langCode')));
 		$('#jsonPreview').css('color','white');
 	}
 	if ($('.jsonPreviewObfuscated').length > 0) {
@@ -886,8 +886,13 @@ function jsonParse() {
 	}
 }
 function refreshLanguage(dropdownSelection) {
+	if (lang[localStorage.getItem('langCode')] != undefined) {
+		console.log(localStorage.getItem('langCode'));
+		$('*').refreshLanguage(localStorage.getItem('langCode'));
+	} else {
+		alert('error');
+	}
 	$('*').each(function(){
-		$(this).refreshLanguage();
 		if ($(this).attr('version') != undefined && (localStorage['versionIndicators'] == true || localStorage['versionIndicators'] == undefined)) {
 			var labelLevel = 'success';
 			if ($(this).attr('version') == '1.7 & 1.8') {
@@ -971,12 +976,12 @@ function initialize() {
 
 	$('#import').click(function() {
 		if (confirm("Would you like to import an \"exported\" command? Press Ok if you made the string by using the export option")) {
-			var inpt = prompt(getLanguageString('settings.importtext.exported',false));
+			var inpt = prompt(getLanguageString('settings.importtext.exported',localStorage.getItem('langCode'),false,false));
 			jobject = JSON.parse(inpt)['jobject'];
 			$('#command').val(JSON.parse(inpt)['command']);
 			refreshOutput();
 		} else {
-			var inpt = prompt(getLanguageString('settings.importtext.default',false));
+			var inpt = prompt(getLanguageString('settings.importtext.default',localStorage.getItem('langCode'),false,false));
 			$('#command').val(inpt.substring(0,inpt.indexOf("{")-1));
 			jobject = JSON.parse(inpt.substring(inpt.indexOf("{")));
 			refreshOutput();
