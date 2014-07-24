@@ -772,7 +772,6 @@ function refreshOutput(input) {
 
 	outputString = outputString.replace(NoSavesS,jsonString);
 	outputString = outputString.replace(NoSavesE,escapeQuotes(jsonString));
-	console.log(outputString);
 	outputString = outputString.replace(Saves,handleFoundSaves);
 
 	$('#outputtextfield').val(outputString);
@@ -887,7 +886,6 @@ function jsonParse() {
 }
 function refreshLanguage(dropdownSelection) {
 	if (lang[localStorage.getItem('langCode')] != undefined) {
-		console.log(localStorage.getItem('langCode'));
 		$('*').refreshLanguage(localStorage.getItem('langCode'));
 	} else {
 		alert('error');
