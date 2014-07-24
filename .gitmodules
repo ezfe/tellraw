@@ -1,3 +1,3 @@
-[submodule "EzLanguage"]
-	path = EzLanguage
+[submodule "js/EzLanguage"]
+	path = js/EzLanguage
 	url = https://github.com/ezfe/EzLanguage.git
