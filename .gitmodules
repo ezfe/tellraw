@@ -1,0 +1,3 @@
+[submodule "EzLanguage"]
+	path = EzLanguage
+	url = https://github.com/ezfe/EzLanguage.git
