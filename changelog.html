@@ -9,12 +9,27 @@
 		ga('create', 'UA-25756826-2', 'auto');
 		ga('send', 'pageview');
 	</script>
+
+	<!-- FAVICON -->
 	<link rel="icon" type="image/png" href="/favicon.png">
 
+	<!-- CDNS -->
 	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- CustomJS -->
+	<link rel="stylesheet" href="http://ezekielelin.com/css/custom.css">
+	<script src="js/EzLanguage/EzLanguage.jquery.js"></script>
+	
+	<!-- JSColor & Retina.js -->
+	<script src="js/jscolor.js"></script>
+	<script src="js/retina.min.js"></script>
+
+	<!-- jQuery UI -->
+	<script src="js/jquery-ui-1.10.4.custom.min.js"></script>
+	<link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.10.4.custom.min.css">
 
 	<style>
 		.reverted {
@@ -30,6 +45,26 @@
 			color: #66D9EF;
 			text-decoration: underline;
 		}
+
+		dd:hover {
+			background-color: #D3D3D3;
+		}
+
+		.textbox {
+			width: 70%;
+			float: left;
+		}
+
+		dt {
+			width: 100%;
+			float:left;
+		}
+
+		.hashbox {
+			text-align: right;
+			float: right;
+			width: 20%;
+		}
 	</style>
 	<script>
 		$(document).ready(function(){
@@ -40,9 +75,10 @@
 					return false;
 				}
 			})
-			$('*').each(function(){
+			$('dd').each(function(){
+				$(this).html('<div class="textbox">' + $(this).html() + '</div>');
 				if ($(this).attr('hash') != undefined) {
-					$(this).append('<div style="text-align:right; float:right;"><a href="https://github.com/ezfe/tellraw/commit/' + $(this).attr('hash') + '" class="hash">@' + $(this).attr('hash').substr(0,10) + '</a></div>');
+					$(this).append('<div class="hashbox"><a href="https://github.com/ezfe/tellraw/commit/' + $(this).attr('hash') + '" class="hash">@' + $(this).attr('hash').substr(0,10) + '</a></div>');
 				}
 			});
 		})
