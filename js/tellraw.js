@@ -1042,13 +1042,6 @@ function initialize() {
 $( document ).ready(function(){
 	$.ajax({
 		url: 'resources.json',
-		xhrFields: {
-			onprogress: function (e) {
-				if (e.lengthComputable) {
-					$('#loaderProgressBar').width(e.loaded / e.total * 100 + '%');
-				}
-			}
-		},
 		success: function (data) {
 			if (typeof data == 'string') {
 				data = JSON.parse(data);
@@ -1056,7 +1049,6 @@ $( document ).ready(function(){
 			lang = data['web_language_strings'];
 			translationStrings = data['minecraft_language_strings']['en_us'];
 			webLangRelations = data['web_language_relations'];
-			$('#loaderProgressBar').width('100%');
 			setTimeout(initialize,500)
 		}
 	});
