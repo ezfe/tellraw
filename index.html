@@ -15,14 +15,13 @@
 	<!-- FAVICON -->
 	<link rel="icon" type="image/png" href="/favicon.png">
 
-	<!-- CDNS -->
-	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+	<!-- BOOTSTRAP AND JQUERY -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<link href="css/font-awesome.min.css" rel="stylesheet">
 
 	<!-- CustomJS -->
-	<link rel="stylesheet" href="http://ezekielelin.com/css/custom.css">
 	<script src="js/EzLanguage/EzLanguage.jquery.js"></script>
 	
 	<!-- JSColor & Retina.js -->
@@ -523,7 +522,7 @@
 				</div>
 				<div class="row row-margin-top row-margin-bottom">
 					<div class="col-sm-2" id="output_label">
-						<span lang="command"></span> <span onclick="refreshOutput()" class="glyphicon glyphicon-refresh"></span><br>
+						<span lang="command"></span> <i onclick="refreshOutput(); $('#refreshButton').addClass('fa-spin');setTimeout(function(){$('#refreshButton').removeClass('fa-spin')},2000);" id="refreshButton" class="fa fa-refresh"></i><br>
 						<span lang="commandblock" id="commandblock"></span>
 					</div>
 					<div class="col-sm-10">

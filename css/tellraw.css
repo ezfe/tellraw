@@ -64,3 +64,14 @@ div.popover {
 h3.popover-title {
 	font-size: 12px;
 }
+.row-margin-top {
+	margin-top: 5px;
+}
+.row-margin-bottom {
+	margin-bottom: 5px;
+}
+.container {
+	min-height:100%;
+	position:relative;
+	margin-top:20px;
+}
