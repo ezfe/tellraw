@@ -75,3 +75,11 @@ h3.popover-title {
 	position:relative;
 	margin-top:20px;
 }
+.minecraft {
+	background-color: #222222;
+	background-image: url('http://ezekielelin.com/img/mcbg.png');
+	color: #e0d0d0;
+}
+.minecraft .well {
+	color: black;
+}
