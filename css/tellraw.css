@@ -9,6 +9,7 @@
 	padding: 2px;
 	width: 32px;
 	height: 32px;
+	margin-left:auto;
 }
 .colorPreviewColor {
 	border-radius: 4px;
@@ -64,11 +65,21 @@ div.popover {
 h3.popover-title {
 	font-size: 12px;
 }
-.row-margin-top {
+div[class*='col-lg-'] {
+	margin-bottom: 5px;
 	margin-top: 5px;
 }
-.row-margin-bottom {
+div[class*='col-md-'] {
 	margin-bottom: 5px;
+	margin-top: 5px;
+}
+div[class*='col-sm-'] {
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+div[class*='col-xs-'] {
+	margin-bottom: 5px;
+	margin-top: 5px;
 }
 .container {
 	min-height:100%;

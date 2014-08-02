@@ -535,11 +535,11 @@ function refreshSavesList() {
 	for (var i = 0; i < Object.keys(localStorage).length; i++) {
 		var key = Object.keys(localStorage)[i];
 		if (key.indexOf('saveSlot_') != -1) {
-			$('.savesContainer').append('<div class="row" saveKey="' + key.substring('9') + '"><div class="col-md-3"><a href="#" onclick="loadJObject(\'' + key.substring('9') + '\')">Load ' + key.substring('9') + '</a></div><div class="col-md-9">' + localStorage.getItem(key).substring(0,90) + ' ...</div></div>')
+			$('.savesContainer').append('<div class="row" saveKey="' + key.substring('9') + '"><div class="col-xs-3"><a href="#" onclick="loadJObject(\'' + key.substring('9') + '\')">Load ' + key.substring('9') + '</a></div><div class="col-xs-9">' + localStorage.getItem(key).substring(0,90) + ' ...</div></div>')
 		}
 	};
 	if ($('.savesContainer').html() == '') {
-		$('.savesContainer').html('<div class="row"><div class="col-md-12"><h4 lang="saves.nosaves"></h4></div></div>');
+		$('.savesContainer').html('<div class="row"><div class="col-xs-12"><h4 lang="saves.nosaves"></h4></div></div>');
 	}
 	refreshLanguage();
 }
@@ -590,12 +590,12 @@ function refreshOutput(input) {
 			$('.extraContainer').html('');
 			for (var i = 0; i <= jobject.extra.length - 1; i++) {
 				if (jobject.extra.length-1 > i) {
-					downButton = '<span onclick="moveUp(' + i + ')" class="fa fa-arrow-circle-down"></span>';
+					downButton = '<i onclick="moveUp(' + i + ')" class="fa fa-arrow-circle-down"></i> ';
 				} else {
 					downButton = "";
 				}
 				if (i > 0) {
-					upButton = '<span onclick="moveUp(' + (i-1) + ')" class="fa fa-arrow-circle-up"></span>';
+					upButton = '<i onclick="moveUp(' + (i-1) + ')" class="fa fa-arrow-circle-up"></i> ';
 				} else {
 					upButton = "";
 				}
@@ -613,21 +613,21 @@ function refreshOutput(input) {
 					var saveButton = '';
 				}
 				if (input == 'noEditIfMatches' && jobject.extra[i].text != $('#previewLine'+matchTo).val()) {
-					var blah = 'blah';
+					var blah = 'blah'; /* wtf */
 				} else {
-					tempJSON = '<div class="row"><div class="col-md-4">'+tempJSON+'</div><div class="col-md-7"><button class="btn btn-default" onclick="editExtra('+i+')" id="'+i+'RowEditButton"><i class="fa fa-pencil"></i> Edit</button></div><div class="col-md-1"><div class="colorPreview"><div class="colorPreviewColor" style="background-color:'+getCSSHEXFromWord(jobject.extra[i].color)+'"></div></div></div></div>';
+					tempJSON = '<div class="row"><div class="col-xs-10 col-md-11">'+tempJSON+'</div><div class="col-xs-2 col-md-1"><div class="colorPreview"><div class="colorPreviewColor" style="background-color:'+getCSSHEXFromWord(jobject.extra[i].color)+'"></div></div></div></div>';
 				}
-				var deleteButton = '<span onclick="deleteIndex('+ i +');" class="fa fa-times-circle"></span> ';
-				$('.extraContainer').append('<div class="row extraRow row-margin-top row-margin-bottom RowIndex' + i + '"><div class="col-md-1">'+deleteButton+downButton+upButton+'</div><div class="col-md-11">'+tempJSON+'</div></div>');
+				var deleteButton = '<i id="'+i+'RowEditButton" onclick="editExtra('+i+');" class="fa fa-pencil"></i> <i onclick="deleteIndex('+ i +');" class="fa fa-times-circle"></i> ';
+				$('.extraContainer').append('<div class="row extraRow row-margin-top row-margin-bottom RowIndex' + i + '"><div class="col-xs-4 col-sm-2 col-lg-1">'+deleteButton+downButton+upButton+'</div><div class="col-xs-8 col-sm-10 col-lg-11" style="padding:none;">'+tempJSON+'</div></div>');
 			}
 			if (jobject.extra.length === 0) {
 				delete jobject.extra;
-				$('.extraContainer').html('<div class="row"><div class="col-md-12"><h4 lang="textsnippets.nosnippets"></h4></div></div>');
+				$('.extraContainer').html('<div class="row"><div class="col-xs-12"><h4 lang="textsnippets.nosnippets"></h4></div></div>');
 				refreshLanguage();
 			}
 		} else {
 			$('.extraContainer div.extraRow').remove();
-			$('.extraContainer').html('<div class="row"><div class="col-md-12"><h4>'+getLanguageString('textsnippets.nosnippets',localStorage.getItem('langCode'))+'</h4></div></div>');
+			$('.extraContainer').html('<div class="row"><div class="col-xs-12"><h4>'+getLanguageString('textsnippets.nosnippets',localStorage.getItem('langCode'))+'</h4></div></div>');
 		}
 	}
 
