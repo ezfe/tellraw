@@ -129,7 +129,8 @@ function getJObject(saveName) {
 }
 function deleteAll() {
 	$('#deleteConfirm').remove();
-	$('.alerts').append('<div id="deleteConfirm" class="alert alert-danger"><h4>'+getLanguageString('settings.deleteall.heading',localStorage.getItem('langCode'))+'</h4><p>'+getLanguageString('settings.deleteall.body')+'</p><p><button type="button" onclick="deleteAllConfirmed()" class="btn btn-danger">'+getLanguageString('settings.deleteall.yes')+'</button> <button type="button" onclick="deleteAllCancel()" class="btn btn-default">'+getLanguageString('settings.deleteall.no')+'</button></p></div>');
+	$('.alerts').append('<div id="deleteConfirm" class="alert alert-danger"><h4 lang="settings.deleteall.heading"></h4><p lang="settings.deleteall.body"></p><p><button type="button" onclick="deleteAllConfirmed()" class="btn btn-danger" lang="settings.deleteall.yes"></button> <button type="button" onclick="deleteAllCancel()" class="btn btn-default" lang="settings.deleteall.no"></button></p></div>');
+	refreshLanguage();
 }
 function deleteAllConfirmed() {
 	$('#deleteConfirm').slideUp();
@@ -160,7 +161,8 @@ function clearJObjectSavesCancel() {
 	$('#deleteJObjectConfirm').slideUp();
 }
 function warnFutureVersion(ver,feature,c) {
-	$('.modal_banners').append('<div class="alert alert-warning futureWarning '+c+'"><strong>'+getLanguageString('textsnippets.warning.title',localStorage.getItem('langCode'))+'</strong> '+getLanguageString('textsnippets.warning.text',localStorage.getItem('langCode')).replace('%v',ver).replace('%f',feature)+'</div>');
+	$('.modal_banners').append('<div class="alert alert-warning futureWarning '+c+'"><strong lang="textsnippets.warning.title"></strong> '+getLanguageString('textsnippets.warning.text',localStorage.getItem('langCode')).replace('%v',ver).replace('%f',feature)+'</div>');
+	refreshLanguage();
 }
 function obfuscationPreviewHandler() {
 	$('.jsonPreviewObfuscated').html(setObfuscatedString($('.jsonPreviewObfuscated').html()));
