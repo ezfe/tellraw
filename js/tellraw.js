@@ -1041,6 +1041,7 @@ function initialize() {
 		refreshLanguage();
 	});
 	$('#lang_request').on('click',function(){
+		alert('This isn\'t finished, and will give you just the terms for your language');
 		$('html').html('<a href="#" onclick="location.reload()">Go Back</a><br><br><br><pre>');
 		$('html').append(JSON.stringify(requestLanguageFile(localStorage.getItem('langCode'))));
 		$('html').append('</pre>');
