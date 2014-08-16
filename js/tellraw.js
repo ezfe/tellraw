@@ -1040,6 +1040,49 @@ function initialize() {
 		}
 		refreshLanguage();
 	});
+	$('#lang_request').on('click',function(){
+		$('html').html('<a href="#" onclick="location.reload()">Go Back</a><br><br><br><pre>');
+		$('html').append(JSON.stringify(requestLanguageFile(localStorage.getItem('langCode'))));
+		$('html').append('</pre>');
+	});
+}
+function requestLanguageFile(languageCode) {
+	return lang[languageCode];
+
+/*	if (languageCode == undefined) {
+		return {"error":"language_not_set"};
+	}
+	var curobj = lang[languageCode];
+	for (var i = 0; i < strArray.length; i++) {
+		if (curobj[strArray[i]] != undefined) {
+			curobj = curobj[strArray[i]];
+			if (curobj === undefined) {
+				if (languageCode != 'en_us') {
+					return getLanguageString(string,languageCode,true);
+				}
+				else {
+					return string;
+				}
+			}
+			if (typeof curobj == 'string') {
+				if (!do_encode) {
+					return curobj;
+				} else {
+					var ret_val = '';
+					for (var i = 0; i < string.length; i++) { 
+						if (string.codePointAt(i) > 127) {
+							ret_val += '&#' + string.codePointAt(i) + ';';
+						} else {
+							ret_val += string.charAt(i);
+						}
+					}
+					return ret_val;	
+				}
+			}
+		}
+	}
+	return getLanguageString(string,languageCode,true);
+*/
 }
 $( document ).ready(function(){
 	$.ajax({
