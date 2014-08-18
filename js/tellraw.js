@@ -25,6 +25,9 @@ var webLangRelations;
 var newLine = /\\\\n/g;
 
 function getJObjectListFromData(data) {
+	if (data.length == 0) {
+		return [];
+	}
 	var ret_val = [];
 	var currentDataToPlug = {"text":"","extra":[]};
 	for (var i = 0; i < data.length; i++) {
@@ -772,7 +775,15 @@ function refreshOutput(input) {
 		});
 	}
 	var commandString = $('#command').val();
-	var jsonString = JSON.stringify({"error":"unable to fetch json object"});
+
+	var JSONString = '';
+	var formattedJObject = getJObjectListFromData(jobject);
+	for (var i = 0; i < formattedJObject.length; i++) {
+		JSONString += JSON.stringify(formattedJObject[i]);
+		if (i < formattedJObject.length - 1) {
+			JSONString += '","'
+		}
+	}
 
 	var NoSavesS = new RegExp("%s(?!\\[)");
 	var NoSavesE = new RegExp("%e(?!\\[)");
@@ -790,11 +801,11 @@ function refreshOutput(input) {
 		}
 	}
 
-	jsonString = jsonString.replace(newLine,'\\n');
+	JSONString = JSONString.replace(newLine,'\\n');
 	var outputString = commandString;
 
-	outputString = outputString.replace(NoSavesS,jsonString);
-	outputString = outputString.replace(NoSavesE,escapeQuotes(jsonString));
+	outputString = outputString.replace(NoSavesS,JSONString);
+	outputString = outputString.replace(NoSavesE,escapeQuotes(JSONString));
 	outputString = outputString.replace(Saves,handleFoundSaves);
 
 	$('#outputtextfield').val(outputString);
