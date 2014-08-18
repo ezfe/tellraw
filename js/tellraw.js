@@ -24,6 +24,10 @@ var webLangRelations;
 
 var newLine = /\\\\n/g;
 
+function closeExport() {
+	$('#exporter').remove();
+}
+
 function goToByScroll(id){
 	$('html,body').animate({scrollTop: $("#"+id).offset().top},'slow');
 }
@@ -987,7 +991,7 @@ function initialize() {
 		}
 	});
 	$('#export').click(function(){
-		$('.alerts').append('<div id="deleteConfirm" class="alert alert-info"><h4 lang="export.heading"></h4><p>' + JSON.stringify({"command":$('#command').val(),"jobject":jobject}) + '</p><p><button type="button" onclick="closeExport()" class="btn btn-default" lang="export.close"></button></p></div>');
+		$('.alerts').append('<div id="exporter" class="alert alert-info"><h4 lang="export.heading"></h4><p>' + JSON.stringify({"command":$('#command').val(),"jobject":jobject}) + '</p><p><button type="button" onclick="closeExport()" class="btn btn-default" lang="export.close"></button></p></div>');
 		refreshLanguage();
 	});
 	$('#translate_input').change(function(){
