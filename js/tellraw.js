@@ -1006,7 +1006,9 @@ function initialize() {
 		}
 	});
 	$('#export').click(function(){
+		$('#exporter').remove();
 		$('.alerts').append('<div id="exporter" class="alert alert-info"><h4 lang="export.heading"></h4><p>' + JSON.stringify({"command":$('#command').val(),"jobject":jobject}) + '</p><p><button type="button" onclick="closeExport()" class="btn btn-default" lang="export.close"></button></p></div>');
+		goToByScroll('exporter');
 		refreshLanguage();
 	});
 	$('#translate_input').change(function(){
