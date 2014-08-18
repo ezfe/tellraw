@@ -24,6 +24,9 @@ var webLangRelations;
 
 var newLine = /\\\\n/g;
 
+function closeExport() {
+	$('#exporter').remove();
+}
 function getProperJObject() {
 	return {"text":"","extra":jobject};
 }
@@ -893,8 +896,6 @@ function jsonParse() {
 function refreshLanguage(dropdownSelection) {
 	if (lang[localStorage.getItem('langCode')] != undefined) {
 		$('*').refreshLanguage(localStorage.getItem('langCode'));
-	} else {
-		//alert('error');
 	}
 	$('*').each(function(){
 		if ($(this).attr('version') != undefined && (localStorage['versionIndicators'] == true || localStorage['versionIndicators'] == undefined)) {
@@ -915,7 +916,6 @@ function refreshLanguage(dropdownSelection) {
 }
 
 function initialize() {
-	
 	if (localStorage.getItem('langCode') == undefined) {
 		if (lang[navigator.language.toLowerCase()] != undefined) {
 			localStorage.setItem('langCode',navigator.language.toLowerCase());
@@ -992,7 +992,8 @@ function initialize() {
 		}
 	});
 	$('#export').click(function(){
-		alert(JSON.stringify({"command":$('#command').val(),"jobject":jobject}))
+		$('.alerts').append('<div id="exporter" class="alert alert-info"><h4 lang="export.heading"></h4><p>' + JSON.stringify({"command":$('#command').val(),"jobject":jobject}) + '</p><p><button type="button" onclick="closeExport()" class="btn btn-default" lang="export.close"></button></p></div>');
+		refreshLanguage();
 	});
 	$('#translate_input').change(function(){
 		var val = translationStrings[$('#translate_input').val()];
