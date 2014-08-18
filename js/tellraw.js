@@ -24,8 +24,19 @@ var webLangRelations;
 
 var newLine = /\\\\n/g;
 
-function getProperJObject() {
-	return {"text":"","extra":jobject};
+function getJObjectListFromData(data) {
+	var ret_val = [];
+	var defaultDataToPlug = {"text":"","extra":[]}
+	var currentDataToPlug = defaultDataToPlug;
+	for (var i = 0; i < data.length; i++) {
+		if (data[i].NEW_ITERATE_FLAG) {
+			ret_val.push(currentDataToPlug);
+			currentDataToPlug = defaultDataToPlug;
+		} else {
+			currentDataToPlug.extra.push(data[i]);
+		}
+	}
+	return ret_val;
 }
 
 function goToByScroll(id){
