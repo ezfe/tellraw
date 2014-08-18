@@ -26,15 +26,17 @@ var newLine = /\\\\n/g;
 
 function getJObjectListFromData(data) {
 	var ret_val = [];
-	var defaultDataToPlug = {"text":"","extra":[]}
-	var currentDataToPlug = defaultDataToPlug;
+	var currentDataToPlug = {"text":"","extra":[]};
 	for (var i = 0; i < data.length; i++) {
 		if (data[i].NEW_ITERATE_FLAG) {
 			ret_val.push(currentDataToPlug);
-			currentDataToPlug = defaultDataToPlug;
+			currentDataToPlug = {"text":"","extra":[]};
 		} else {
 			currentDataToPlug.extra.push(data[i]);
 		}
+	}
+	if (!data[data.length - 1].NEW_ITERATE_FLAG) {
+		ret_val.push(currentDataToPlug);
 	}
 	return ret_val;
 }
@@ -770,7 +772,7 @@ function refreshOutput(input) {
 		});
 	}
 	var commandString = $('#command').val();
-	var jsonString = JSON.stringify(getProperJObject());
+	var jsonString = JSON.stringify({"error":"unable to fetch json object"});
 
 	var NoSavesS = new RegExp("%s(?!\\[)");
 	var NoSavesE = new RegExp("%e(?!\\[)");
