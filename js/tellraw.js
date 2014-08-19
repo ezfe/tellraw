@@ -56,31 +56,38 @@ var templates =
 {
 	"tellraw": {
 		"command": "/tellraw @a %s",
-		"version": "1.7"
+		"version": "1.7",
+		"breakers": false
 	},
 	"execute_tellraw": {
 		"command": "/execute @a ~ ~ ~ tellraw @p %s",
-		"version": "1.8"
+		"version": "1.8",
+		"breakers": false
 	},
 	"title": {
 		"command": "/title @a title %s",
-		"version": "1.8"
+		"version": "1.8",
+		"breakers": false
 	},
 	"subtitle": {
 		"command": "/title @a subtitle %s",
-		"version": "1.8"
+		"version": "1.8",
+		"breakers": false
 	},
 	"sign_item": {
 		"command": "/give @a sign 1 0 {BlockEntityTag:{Text1:\"%e\",id:\"Sign\"}}",
-		"version": "1.8"
+		"version": "1.8",
+		"breakers": false
 	},
 	"sign_block": {
 		"command": "/blockdata [x] [y] [z] {Text1:\"%e\"}",
-		"version": "1.8"
+		"version": "1.8",
+		"breakers": false
 	},
 	"book": {
 		"command": "/give @a written_book 1 0 {pages:[\"%e\"],title:Book,author:TellrawGenerator}",
-		"version": "1.8"
+		"version": "1.8",
+		"breakers": "\",\""
 	}
 }
 /*
@@ -625,23 +632,28 @@ function refreshOutput(input) {
 				} else {
 					upButton = "";
 				}
-				if (get_type(jobject[i].text) != "[object Undefined]") {
-					var tempJSON = '<input id="previewLine'+i+'" onkeyup="jobject['+i+'].text = $(\'#previewLine'+i+'\').val(); refreshOutput(\'previewLineChange\')" type="text" class="form-control previewLine" value="'+jobject[i].text+'">';
+				if (jobject[i].NEW_ITERATE_FLAG) {
+					var tempJSON = 'NEW_ITERATE_FLAG';
 					var saveButton = '';
-				} else if (get_type(jobject[i].translate) != "[object Undefined]") {
-					var tempJSON = '<input type="text" class="form-control previewLine" disabled value="'+jobject[i].translate+'">';
-					var saveButton = '';
-				} else if (get_type(jobject[i].score) != "[object Undefined]") {
-					var tempJSON = '<input type="text" class="form-control previewLine" disabled value="'+jobject[i].score.name+'\'s '+jobject[i].score.objective+' score">';
-					var saveButton = '';
-				} else if (get_type(jobject[i].selector) != "[object Undefined]") {
-					var tempJSON = '<input type="text" class="form-control previewLine" disabled value="Selector: '+jobject[i].selector+'">';
-					var saveButton = '';
-				}
-				if (input == 'noEditIfMatches' && jobject[i].text != $('#previewLine'+matchTo).val()) {
-					var blah = 'blah'; /* wtf */
 				} else {
-					tempJSON = '<div class="row"><div class="col-xs-10 col-md-11">'+tempJSON+'</div><div class="col-xs-2 col-md-1"><div class="colorPreview"><div class="colorPreviewColor" style="background-color:'+getCSSHEXFromWord(jobject[i].color)+'"></div></div></div></div>';
+					if (get_type(jobject[i].text) != "[object Undefined]") {
+						var tempJSON = '<input id="previewLine'+i+'" onkeyup="jobject['+i+'].text = $(\'#previewLine'+i+'\').val(); refreshOutput(\'previewLineChange\')" type="text" class="form-control previewLine" value="'+jobject[i].text+'">';
+						var saveButton = '';
+					} else if (get_type(jobject[i].translate) != "[object Undefined]") {
+						var tempJSON = '<input type="text" class="form-control previewLine" disabled value="'+jobject[i].translate+'">';
+						var saveButton = '';
+					} else if (get_type(jobject[i].score) != "[object Undefined]") {
+						var tempJSON = '<input type="text" class="form-control previewLine" disabled value="'+jobject[i].score.name+'\'s '+jobject[i].score.objective+' score">';
+						var saveButton = '';
+					} else if (get_type(jobject[i].selector) != "[object Undefined]") {
+						var tempJSON = '<input type="text" class="form-control previewLine" disabled value="Selector: '+jobject[i].selector+'">';
+						var saveButton = '';
+					}
+					if (input == 'noEditIfMatches' && jobject[i].text != $('#previewLine'+matchTo).val()) {
+						var blah = 'blah'; /* wtf */
+					} else {
+						tempJSON = '<div class="row"><div class="col-xs-10 col-md-11">'+tempJSON+'</div><div class="col-xs-2 col-md-1"><div class="colorPreview"><div class="colorPreviewColor" style="background-color:'+getCSSHEXFromWord(jobject[i].color)+'"></div></div></div></div>';
+					}
 				}
 				var deleteButton = '<i id="'+i+'RowEditButton" onclick="editExtra('+i+');" class="fa fa-pencil"></i> <i onclick="deleteIndex('+ i +');" class="fa fa-times-circle"></i> ';
 				$('.extraContainer').append('<div class="row extraRow row-margin-top row-margin-bottom RowIndex' + i + '"><div class="col-xs-4 col-sm-2 col-lg-1">'+deleteButton+downButton+upButton+'</div><div class="col-xs-8 col-sm-10 col-lg-11" style="padding:none;">'+tempJSON+'</div></div>');
@@ -779,9 +791,12 @@ function refreshOutput(input) {
 	var JSONString = '';
 	var formattedJObject = getJObjectListFromData(jobject);
 	for (var i = 0; i < formattedJObject.length; i++) {
-		JSONString += JSON.stringify(formattedJObject[i]);
+		JSONString += JSON.stringify(formattedJObject[i]).replace(newLine,'\\n');
 		if (i < formattedJObject.length - 1) {
-			JSONString += '","'
+			var breaker = templates[localStorage.getItem('jtemplate')]['breakers'];
+			if (breaker) {
+				JSONString += breaker;
+			}
 		}
 	}
 
@@ -792,16 +807,16 @@ function refreshOutput(input) {
 	var handleFoundSaves = function(a,b,c) {
 		if (doesJObjectExist(c)) {
 			if (b == '%e') {
-				return escapeQuotes(JSON.stringify(getJObject(c).jobject).replace(newLine,'\\n'));
+				return escapeQuotes(JSON.stringify(getJObject(c).jobject));
 			} else {
-				return JSON.stringify(getJObject(c).jobject).replace(newLine,'\\n');
+				return JSON.stringify(getJObject(c).jobject);
 			}
 		} else {
 			return '----ERROR ' + c + ' DOES NOT EXIST----';
 		}
 	}
 
-	JSONString = JSONString.replace(newLine,'\\n');
+	//JSONString = JSONString.replace(newLine,'\\n');
 	var outputString = commandString;
 
 	outputString = outputString.replace(NoSavesS,JSONString);
@@ -1115,7 +1130,7 @@ function requestLanguageFile(languageCode) {
 		}
 	}
 	return getLanguageString(string,languageCode,true);
-*/
+	*/
 }
 $( document ).ready(function(){
 	$.ajax({
