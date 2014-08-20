@@ -854,7 +854,7 @@
 					"tweet": "Tweet",
 					"changelog": "Changelog",
 					"forum_thread": "Forum Thread",
-					"request_lang_file": "Request Language File"
+					"request_needed_translations": "Needed Translations List"
 				}
 			},
 			"template": {
