@@ -1006,9 +1006,9 @@ function initialize() {
 	if (localStorage.getItem('jtemplate') == undefined) {
 		localStorage.setItem('jtemplate', 'tellraw');
 	}
-
+	errorString = lang[localStorage.getItem('langCode')].language.name+'<br><br>'; 
 	for (var i = 0; i < Object.keys(lang).length; i++) {
-		$('#language_keys').append('<li><a onclick="localStorage.setItem(\'langCode\',\''+Object.keys(lang)[i]+'\'); refreshLanguage(true); refreshOutput();"><span class="'+Object.keys(lang)[i]+' langSelect" id="language_select_'+Object.keys(lang)[i]+'">'+lang[Object.keys(lang)[i]].language.name+'</span></a></li>');
+		$('#language_keys').append('<li><a onclick="errorString = \''+lang[Object.keys(lang)[i]].language.name+'<br><br>\'; localStorage.setItem(\'langCode\',\''+Object.keys(lang)[i]+'\'); refreshLanguage(true); refreshOutput();"><span class="'+Object.keys(lang)[i]+' langSelect" id="language_select_'+Object.keys(lang)[i]+'">'+lang[Object.keys(lang)[i]].language.name+'</span></a></li>');
 	};
 	$('#language_keys').append('<li class="divider"></li>');
 	$('#language_keys').append('<li><a href="http://www.minecraftforum.net/topic/1980545-"><span class="language_area" lang="language.translate"></span></a></li>');
