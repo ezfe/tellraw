@@ -15,7 +15,7 @@ var downButton;
 var upButton;
 var extraTextFormat = 'raw';
 var colorExtraPreviewBox = '#617A80';
-var textExtraStorageVar; /*DO NOT USE*/
+var textExtraStorageVar; /*DO NOT USE - ALSO AT THIS POINT IDK WHAT IT DOES LOL*/
 var lang = {"status":"init"};
 var translationStrings;
 var currentEdit;
@@ -249,6 +249,7 @@ function getChecked(id) {
 	return document.getElementById(id).checked;
 }
 function clearExtra() {
+	$('#fmtExtraRaw').click();
 	$("#clickEventText").val("");
 	$("#hoverEventText").val("");
 	$("#text_extra").val("");
@@ -484,81 +485,83 @@ function addExtra() {
 		$('#snippetsWell').show();
 		$('#addExtraModalData').hide();
 	}
-
 	if (get_type(jobject) != "[object Array]") {
 		jobject = [];
 	}
-	var clickEventType = $("#clickEvent").val();
-	var hoverEventType = $("#hoverEvent").val();
+	if (extraTextFormat == 'NEW_ITERATE_FLAG') {
+		jobject.push({"NEW_ITERATE_FLAG":true});
+	} else {
+		var clickEventType = $("#clickEvent").val();
+		var hoverEventType = $("#hoverEvent").val();
 
-	jobject.push(new Object());
-	var extraIndex = jobject.length - 1;
-	if (extraTextFormat == 'trn') {
-		jobject[extraIndex].translate = $('#translate_input').val();
-		if (matchLength != 0) {
-			if (get_type(jobject.with) != "[object Array]") {
-				jobject[extraIndex].with = new Array();
+		jobject.push(new Object());
+		var extraIndex = jobject.length - 1;
+		if (extraTextFormat == 'trn') {
+			jobject[extraIndex].translate = $('#translate_input').val();
+			if (matchLength != 0) {
+				if (get_type(jobject.with) != "[object Array]") {
+					jobject[extraIndex].with = new Array();
+				}
+				for (var i = 0; i < matchLength; i++) {
+					jobject[extraIndex].with[i] = $('#extraTranslationParameter'+i).val();
+				};
 			}
-			for (var i = 0; i < matchLength; i++) {
-				jobject[extraIndex].with[i] = $('#extraTranslationParameter'+i).val();
-			};
+		} else if (extraTextFormat == 'raw') {
+			jobject[extraIndex].text = $('#text_extra').val();
+		} else if (extraTextFormat == 'obj') {
+			jobject[extraIndex].score = new Object;
+			jobject[extraIndex].score.name = $('#obj_player').val();
+			jobject[extraIndex].score.objective = $('#obj_score').val();
+		} else if (extraTextFormat == 'sel') {
+			jobject[extraIndex].selector = $('#selector').val();
 		}
-	} else if (extraTextFormat == 'raw') {
-		jobject[extraIndex].text = $('#text_extra').val();
-	} else if (extraTextFormat == 'obj') {
-		jobject[extraIndex].score = new Object;
-		jobject[extraIndex].score.name = $('#obj_player').val();
-		jobject[extraIndex].score.objective = $('#obj_score').val();
-	} else if (extraTextFormat == 'sel') {
-		jobject[extraIndex].selector = $('#selector').val();
-	}
 
 
-	jobject[extraIndex].color = getSelected("color_extra");
-	if (jobject[extraIndex].color == 'none') {
-		delete jobject[extraIndex].color;
-	}
-
-	if (getChecked("bold_text_extra")) {
-		jobject[extraIndex].bold = "true";
-	}
-	if (getChecked("italic_text_extra")) {
-		jobject[extraIndex].italic = "true";
-	}
-	if (getChecked("underlined_text_extra")) {
-		jobject[extraIndex].underlined = "true";
-	}
-	if (getChecked("strikethrough_text_extra")) {
-		jobject[extraIndex].strikethrough = "true";
-	}
-	if (getChecked("obfuscated_text_extra")) {
-		jobject[extraIndex].obfuscated = "true";
-	}
-
-	if (clickEventType != "none") {
-		jobject[extraIndex].clickEvent = new Object();
-		jobject[extraIndex].clickEvent.action = clickEventType;
-		jobject[extraIndex].clickEvent.value = $('#clickEventText').val();
-	}
-	if (hoverEventType != "none") {
-		jobject[extraIndex].hoverEvent = new Object();
-		jobject[extraIndex].hoverEvent.action = hoverEventType;
-		jobject[extraIndex].hoverEvent.value = $('#hoverEventText').val();
-	}
-	if (hoverEventType == "show_entity") {
-		if ($('#hoverEventEntityID').val() == '') {
-			$('#hoverEventEntityID').val('(ID)')
+		jobject[extraIndex].color = getSelected("color_extra");
+		if (jobject[extraIndex].color == 'none') {
+			delete jobject[extraIndex].color;
 		}
-		if ($('#hoverEventEntityName').val() == '') {
-			$('#hoverEventEntityName').val('(Name)')
-		}
-		if ($('#hoverEventEntityType').val() == '') {
-			$('#hoverEventEntityType').val('(Type)')
-		}
-		jobject[extraIndex].hoverEvent.value = '{id:'+removeWhiteSpace($('#hoverEventEntityID').val())+',name:'+removeWhiteSpace($('#hoverEventEntityName').val())+',type:'+removeWhiteSpace($('#hoverEventEntityType').val())+'}';
-	}
-	if ($('#insertion_text').val() != '') jobject[extraIndex].insertion = $('#insertion_text').val();
 
+		if (getChecked("bold_text_extra")) {
+			jobject[extraIndex].bold = "true";
+		}
+		if (getChecked("italic_text_extra")) {
+			jobject[extraIndex].italic = "true";
+		}
+		if (getChecked("underlined_text_extra")) {
+			jobject[extraIndex].underlined = "true";
+		}
+		if (getChecked("strikethrough_text_extra")) {
+			jobject[extraIndex].strikethrough = "true";
+		}
+		if (getChecked("obfuscated_text_extra")) {
+			jobject[extraIndex].obfuscated = "true";
+		}
+
+		if (clickEventType != "none") {
+			jobject[extraIndex].clickEvent = new Object();
+			jobject[extraIndex].clickEvent.action = clickEventType;
+			jobject[extraIndex].clickEvent.value = $('#clickEventText').val();
+		}
+		if (hoverEventType != "none") {
+			jobject[extraIndex].hoverEvent = new Object();
+			jobject[extraIndex].hoverEvent.action = hoverEventType;
+			jobject[extraIndex].hoverEvent.value = $('#hoverEventText').val();
+		}
+		if (hoverEventType == "show_entity") {
+			if ($('#hoverEventEntityID').val() == '') {
+				$('#hoverEventEntityID').val('(ID)')
+			}
+			if ($('#hoverEventEntityName').val() == '') {
+				$('#hoverEventEntityName').val('(Name)')
+			}
+			if ($('#hoverEventEntityType').val() == '') {
+				$('#hoverEventEntityType').val('(Type)')
+			}
+			jobject[extraIndex].hoverEvent.value = '{id:'+removeWhiteSpace($('#hoverEventEntityID').val())+',name:'+removeWhiteSpace($('#hoverEventEntityName').val())+',type:'+removeWhiteSpace($('#hoverEventEntityType').val())+'}';
+		}
+		if ($('#insertion_text').val() != '') jobject[extraIndex].insertion = $('#insertion_text').val();
+	}
 	clearExtra();
 	refreshOutput();
 
@@ -633,7 +636,7 @@ function refreshOutput(input) {
 					upButton = "";
 				}
 				if (jobject[i].NEW_ITERATE_FLAG) {
-					var tempJSON = 'NEW_ITERATE_FLAG';
+					var tempJSON = '<span lang="textsnippets.NEW_ITERATE_FLAG"></span>';
 					var saveButton = '';
 				} else {
 					if (get_type(jobject[i].text) != "[object Undefined]") {
@@ -656,6 +659,9 @@ function refreshOutput(input) {
 					}
 				}
 				var deleteButton = '<i id="'+i+'RowEditButton" onclick="editExtra('+i+');" class="fa fa-pencil"></i> <i onclick="deleteIndex('+ i +');" class="fa fa-times-circle"></i> ';
+				if (jobject[i].NEW_ITERATE_FLAG) {
+					deleteButton = '<i onclick="deleteIndex('+ i +');" class="fa fa-times-circle"></i> ';
+				}
 				$('.extraContainer').append('<div class="row extraRow row-margin-top row-margin-bottom RowIndex' + i + '"><div class="col-xs-4 col-sm-2 col-lg-1">'+deleteButton+downButton+upButton+'</div><div class="col-xs-8 col-sm-10 col-lg-11" style="padding:none;">'+tempJSON+'</div></div>');
 			}
 			if (jobject.length === 0) {
@@ -667,6 +673,7 @@ function refreshOutput(input) {
 			$('.extraContainer div.extraRow').remove();
 			$('.extraContainer').html('<div class="row"><div class="col-xs-12"><h4>'+getLanguageString('textsnippets.nosnippets',localStorage.getItem('langCode'))+'</h4></div></div>');
 		}
+		refreshLanguage();
 	}
 
 	/*EXTRA TRANSLATE STRING MANAGER*/
@@ -696,6 +703,15 @@ function refreshOutput(input) {
 		$('#translate_selector_container').hide();
 		$('#selector_extra_container').hide();
 		$('.extraTranslationParameterRow').hide();
+	}
+	if (extraTextFormat == 'NEW_ITERATE_FLAG') {
+		if (localStorage.getItem('jtemplate') != 'book') {
+			alert('You must be using the book template')
+			$('#fmtExtraRaw').click();
+		}
+		$('.NEW_ITERATE_FLAG_not_container').hide();
+	} else {
+		$('.NEW_ITERATE_FLAG_not_container').show();
 	}
 
 	/*COMMAND MANAGER*/
@@ -789,13 +805,16 @@ function refreshOutput(input) {
 	var commandString = $('#command').val();
 
 	var JSONString = '';
+	var ESCJSONString = '';
 	var formattedJObject = getJObjectListFromData(jobject);
 	for (var i = 0; i < formattedJObject.length; i++) {
 		JSONString += JSON.stringify(formattedJObject[i]).replace(newLine,'\\n');
+		ESCJSONString += escapeQuotes(JSON.stringify(formattedJObject[i]).replace(newLine,'\\n'));
 		if (i < formattedJObject.length - 1) {
 			var breaker = templates[localStorage.getItem('jtemplate')]['breakers'];
 			if (breaker) {
 				JSONString += breaker;
+				ESCJSONString += breaker;
 			}
 		}
 	}
@@ -820,7 +839,7 @@ function refreshOutput(input) {
 	var outputString = commandString;
 
 	outputString = outputString.replace(NoSavesS,JSONString);
-	outputString = outputString.replace(NoSavesE,escapeQuotes(JSONString));
+	outputString = outputString.replace(NoSavesE,ESCJSONString);
 	outputString = outputString.replace(Saves,handleFoundSaves);
 
 	$('#outputtextfield').val(outputString);
