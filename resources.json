@@ -848,6 +848,15 @@
 			}
 		},
 		"en_us": {
+			"headerbar": {
+				"report_an_issue": "Report an Issue",
+				"dropdown": {
+					"tweet": "Tweet",
+					"changelog": "Changelog",
+					"forum_thread": "Forum Thread",
+					"request_lang_file": "Request Language File"
+				}
+			},
 			"template": {
 				"sign_block": "Sign (/blockdata)",
 				"sign_item": "Sign (/give)",
