@@ -24,6 +24,34 @@ var webLangRelations;
 
 var newLine = /\\\\n/g;
 
+function verify_jobject_format(jdata) {
+	if (get_type(jdata) != "[object Array]") {
+		alert('Your stored variable is malformed and needs to be cleared.');
+		localStorage.clear();
+		location.reload();
+	}
+	if (jdata.text != '' && get_type(jdata) != "[object Array]") {
+		jdata.unshift(new Object());
+		jdata[0].text = jdata.text;
+		jdata[0].color = jdata.color;
+		delete(jdata.color);
+		jdata[0].bold = jdata.bold;
+		delete(jdata.bold);
+		jdata[0].italic = jdata.italic;
+		delete(jdata.italic);
+		jdata[0].underlined = jdata.underlined;
+		delete(jdata.underline);
+		jdata[0].strikethrough = jdata.strikethrough;
+		delete(jdata.strikethrough);
+		jdata[0].obfuscated = jdata.obfuscated;
+		delete(jdata.obfuscated);
+		jdata.text = '';
+	}
+
+
+	return jdata;
+}
+
 function getJObjectListFromData(data) {
 	if (data.length == 0) {
 		return [];
@@ -425,7 +453,11 @@ function saveExtraEdit() {
 	if (hoverEventType_edit != "none") {
 		jobject[extraIndex].hoverEvent = new Object();
 		jobject[extraIndex].hoverEvent.action = hoverEventType_edit;
-		jobject[extraIndex].hoverEvent.value = $('#hoverEventText_edit').val();
+		if (hoverEventType_edit == 'show_text') {
+			jobject[extraIndex].hoverEvent = {"text": $('#hoverEventText_edit').val()};
+		} else {
+			jobject[extraIndex].hoverEvent.value = $('#hoverEventText_edit').val();
+		}
 	}
 	if (hoverEventType_edit == "show_entity") {
 		if ($('#hoverEventEntityID_edit').val() == '') {
@@ -546,7 +578,11 @@ function addExtra() {
 		if (hoverEventType != "none") {
 			jobject[extraIndex].hoverEvent = new Object();
 			jobject[extraIndex].hoverEvent.action = hoverEventType;
-			jobject[extraIndex].hoverEvent.value = $('#hoverEventText').val();
+			if (hoverEventType == 'show_text') {
+				jobject[extraIndex].hoverEvent.value = {"text": $('#hoverEventText').val()};
+			} else {
+				jobject[extraIndex].hoverEvent.value = $('#hoverEventText').val();
+			}
 		}
 		if (hoverEventType == "show_entity") {
 			if ($('#hoverEventEntityID').val() == '') {
@@ -580,34 +616,15 @@ function refreshSavesList() {
 	refreshLanguage();
 }
 function refreshOutput(input) {
+	/*VERIFY CONTENTS*/
+	jobject = verify_jobject_format(jobject);
+
 	if ($('#command').val().indexOf('%e') == -1 && $('#command').val().indexOf('%s') == -1) {
 		$('#command').val('tellraw @a %s');
 		localStorage.setItem('jtemplate','tellraw');
 	}
 
 	refreshSavesList();
-
-	if (jobject.text != '' && get_type(jobject) != "[object Array]") {
-		jobject.unshift(new Object());
-		jobject[0].text = jobject.text;
-		jobject[0].color = jobject.color;
-		delete(jobject.color);
-		jobject[0].bold = jobject.bold;
-		delete(jobject.bold);
-		jobject[0].italic = jobject.italic;
-		delete(jobject.italic);
-		jobject[0].underlined = jobject.underlined;
-		delete(jobject.underline);
-		jobject[0].strikethrough = jobject.strikethrough;
-		delete(jobject.strikethrough);
-		jobject[0].obfuscated = jobject.obfuscated;
-		delete(jobject.obfuscated);
-		jobject.text = '';
-	}
-
-	if (get_type(jobject) == "[object Object]") {
-		deleteAllConfirmed();
-	}
 
 	/*LANGUAGE SELECTIONS*/
 
@@ -1021,7 +1038,7 @@ function initialize() {
 		$('#previewcolor').val('617A80');	
 	}
 	if (localStorage['jobject'] != undefined) {
-		jobject = JSON.parse(localStorage["jobject"]);	
+		jobject = verify_jobject_format(JSON.parse(localStorage["jobject"]));
 	}
 
 	$('.templateButton').click(function(){
