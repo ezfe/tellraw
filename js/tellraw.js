@@ -649,7 +649,11 @@ function refreshOutput(input) {
 					upButton = "";
 				}
 				if (jobject[i].NEW_ITERATE_FLAG) {
-					var tempJSON = '<span lang="textsnippets.NEW_ITERATE_FLAG"></span>';
+					if (localStorage.getItem('jtemplate') != 'book') {
+						var tempJSON = '<span style="color:gray;text-decoration:line-through;" lang="textsnippets.NEW_ITERATE_FLAG"></span>';
+					} else {
+						var tempJSON = '<span lang="textsnippets.NEW_ITERATE_FLAG"></span>';
+					}
 					var saveButton = '';
 				} else {
 					if (get_type(jobject[i].text) != "[object Undefined]") {
