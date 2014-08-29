@@ -450,7 +450,7 @@ function saveExtraEdit() {
 		jobject[extraIndex].hoverEvent = new Object();
 		jobject[extraIndex].hoverEvent.action = hoverEventType_edit;
 		if (hoverEventType_edit == 'show_text') {
-			jobject[extraIndex].hoverEvent = {"text": $('#hoverEventText_edit').val()};
+			jobject[extraIndex].hoverEvent.value = {"text": $('#hoverEventText_edit').val()};
 		} else {
 			jobject[extraIndex].hoverEvent.value = $('#hoverEventText_edit').val();
 		}
