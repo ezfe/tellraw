@@ -365,7 +365,11 @@ function editExtra(index) {
 	if (jobject[index].hoverEvent != undefined) {
 		$('#hoverEvent_edit').val(jobject[index].hoverEvent.action);
 		if ($('#hoverEvent_edit').val() != 'show_entity') {
-			$('#hoverEventText_edit').val(jobject[index].hoverEvent.value);
+			if (jobject[index].hoverEvent.action == 'show_text') {
+				$('#hoverEventText_edit').val(jobject[index].hoverEvent.value.text);
+			} else {
+				$('#hoverEventText_edit').val(jobject[index].hoverEvent.value);
+			}
 		} else {
 			$('#hoverEventEntityID_edit').val(jobject[index].hoverEvent.value.match(/id:([a-zA-Z0-9]+)/g )[0].replace('id:',''));
 			$('#hoverEventEntityName_edit').val(jobject[index].hoverEvent.value.match(/name:([a-zA-Z0-9]+)/g )[0].replace('name:',''));
