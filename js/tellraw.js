@@ -45,7 +45,6 @@ function verify_jobject_format(jdata) {
 		jdata.text = '';
 	}
 
-
 	return jdata;
 }
 
