@@ -1,5 +1,151 @@
 {
 	"web_language_strings": {
+		"it": {
+			"template": {
+				"sign_block": "Cartello (/blockdata)",
+				"sign_item": "Cartello (/give)",
+				"subtitle": "Sottotitolo",
+				"title": "Titolo",
+				"tellraw": "Tellraw",
+				"book": "Libro",
+				"execute_tellraw": "Execute"
+			},
+			"output": {
+				"nothing": "Non c'è niente da vedere qui",
+				"header": "Previsione dell'output"
+			},
+			"saves": {
+				"header": "Salvataggi",
+				"hide": "Nascondi Salvataggi",
+				"persistencenotice": "I salvataggi possono essere resettati in quelunque momento, e dipendono dai cookies del tuo browser. Non farci affidamento per lunghi periodi di tempo.",
+				"show": "Mostra salvataggi",
+				"deleteall": {
+					"body": "Premendo cancella rimuoverai tutti i tuoi salvataggi, ma non cancellerà il testo corrente",
+					"yes": "Delete All Saves",
+					"heading": "Sei sicuro!?!",
+					"no": "Annulla"
+				},
+				"nosaves": "Non hai salvato nulla",
+				"new": "Salvare la stringa corrente?"
+			},
+			"settings": {
+				"previewcolor": "Colore di background per la previsione:",
+				"export": "Esporta",
+				"deleteall": {
+					"body": "Premendo cancella rimuoverai tutto il tuo testo e verrà resettata in una stringa vuota.",
+					"heading": "Sei sicuro!?!",
+					"yes": "Cancella tutto",
+					"no": "Annulla"
+				},
+				"importtext": {
+					"default": "Per favore inserisci il comando tellraw. Usa il pulsante cancella tutto se viene importato incorrettamente. Importare funziona solo con i comandi /tellraw",
+					"exported": "Per favore inserisci la stringa che c'era quando hai esportato il comando"
+				},
+				"import": "Importa",
+				"header": "Impostazioni:"
+			},
+			"color": {
+				"color_green": "Verde",
+				"color_red": "Rosso",
+				"color_none": "Nessuno",
+				"color_dark_aqua": "Verde Acqua",
+				"color_dark_purple": "Porpora Scura",
+				"color_dark_blue": "Blu Scuro",
+				"color_aqua": "Ciano",
+				"color_white": "Bianco",
+				"color_dark_gray": "Grigio Scuro",
+				"color_dark_red": "Rosso Scuro",
+				"color_dark_green": "Verde Scuro",
+				"color_gold": "Oro",
+				"color_blue": "Blu",
+				"color_black": "Nero",
+				"color_gray": "Grigio",
+				"color_light_purple": "Porpora Chiara",
+				"color_yellow": "Giallo"
+			},
+			"header": "Generatore Tellraw per Minecraft 1.7+",
+			"textsnippets": {
+				"trn": "Tradotto",
+				"clickevent": {
+					"runcommand": "Esegui comando",
+					"openurl": "Apri URL",
+					"suggestcommand": "Suggerisci comando",
+					"header": "Caso pressione:",
+					"none": "Nessuno"
+				},
+				"parameter": "Parametro",
+				"editsnippet": "Modifica testo",
+				"close": "Chiudi",
+				"hoverevent": {
+					"header": "Caso mouse sopra:",
+					"showachievement": "Mostra conquiste",
+					"id": "ID:",
+					"showentity": "Mostra entità",
+					"showitem": "Mostra oggetto",
+					"type": "Tipo:",
+					"none": "Nessuno",
+					"showtext": "Mostra testo",
+					"name": "Nome"
+				},
+				"notext": "Nessun testo",
+				"NEW_ITERATE_FLAG": "Nuova pagina del libro",
+				"insert": "Inserisci",
+				"addsnippet": "Aggiungi testo",
+				"insertion": {
+					"header": "Inserimento"
+				},
+				"sel": "Selettore",
+				"format": {
+					"bold": "Grassetto",
+					"underlined": "Sottolineato",
+					"obfuscated": "Confuso",
+					"italic": "Italico",
+					"strikethrough": "Barrato"
+				},
+				"player": "Giocatore",
+				"obj2": "Obbiettivo",
+				"obj": "Obbiettivo della Scoreboard",
+				"nosnippets": "Non c'è ancora testo",
+				"header": "Frammenti di testo",
+				"text": "Testo",
+				"raw": "Crudo",
+				"warning": {
+					"title": "Attenzione!",
+					"text": "Ti serve %v per utilizzare %f"
+				}
+			},
+			"headerbar": {
+				"report_an_issue": "Riporta Un problema",
+				"dropdown": {
+					"tweet": "Tweet",
+					"request_needed_translations": "Lista delle traduzioni richieste",
+					"forum_thread": "Discussione nel forum",
+					"changelog": "Changelog"
+				}
+			},
+			"language": {
+				"translate": "Traduci",
+				"name": "Italiano",
+				"header": "Lingua",
+				"credit": "Tradotto da xX_eio_Xx eio.adea@gmail.com"
+			},
+			"player": {
+				"header": "Giocatore e comando",
+				"description": "Usato per scegliere ed eseguire giocatori diversi"
+			},
+			"commandblock": "Tu devi eseguire questo nella console del server o in un blocco comandi.",
+			"alert": {
+				"report": "Riporta un problema",
+				"changed": "Questa pagina è stata recentemente modificata, quindi ci potrebbero essere problemi. Ricarica la pagina se qualcosa sembra non funzionare.",
+				"receiveupdates": "Ricevi aggiornamenti qui (\"Segui\" la discussione)"
+			},
+			"command": "Comando:",
+			"export": {
+				"heading": "Il tuo comando esportato",
+				"close": "Chiudi"
+			},
+			"attribution": "Mentre nulla è necessario per utilizzare questo, sarebbe sempre apprezzato se colleghi a questa pagina web la discussione MCF."
+		},
 		"cro-hr": {
 			"header": "Tellraw Generator za Minecraft 1.7+",
 			"color": {
@@ -1207,6 +1353,8 @@
 		}
 	},
 	"web_language_relations": {
+		"ita": "it",
+		"it_it": "it",
 		"ru-mo": "ru_ru",
 		"en-bz": "en_us",
 		"en-ca": "en_us",
