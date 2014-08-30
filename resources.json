@@ -1,151 +1,5 @@
 {
 	"web_language_strings": {
-		"it": {
-			"template": {
-				"sign_block": "Cartello (/blockdata)",
-				"sign_item": "Cartello (/give)",
-				"subtitle": "Sottotitolo",
-				"title": "Titolo",
-				"tellraw": "Tellraw",
-				"book": "Libro",
-				"execute_tellraw": "Execute"
-			},
-			"output": {
-				"nothing": "Non c'è niente da vedere qui",
-				"header": "Previsione dell'output"
-			},
-			"saves": {
-				"header": "Salvataggi",
-				"hide": "Nascondi Salvataggi",
-				"persistencenotice": "I salvataggi possono essere resettati in quelunque momento, e dipendono dai cookies del tuo browser. Non farci affidamento per lunghi periodi di tempo.",
-				"show": "Mostra salvataggi",
-				"deleteall": {
-					"body": "Premendo cancella rimuoverai tutti i tuoi salvataggi, ma non cancellerà il testo corrente",
-					"yes": "Delete All Saves",
-					"heading": "Sei sicuro!?!",
-					"no": "Annulla"
-				},
-				"nosaves": "Non hai salvato nulla",
-				"new": "Salvare la stringa corrente?"
-			},
-			"settings": {
-				"previewcolor": "Colore di background per la previsione:",
-				"export": "Esporta",
-				"deleteall": {
-					"body": "Premendo cancella rimuoverai tutto il tuo testo e verrà resettata in una stringa vuota.",
-					"heading": "Sei sicuro!?!",
-					"yes": "Cancella tutto",
-					"no": "Annulla"
-				},
-				"importtext": {
-					"default": "Per favore inserisci il comando tellraw. Usa il pulsante cancella tutto se viene importato incorrettamente. Importare funziona solo con i comandi /tellraw",
-					"exported": "Per favore inserisci la stringa che c'era quando hai esportato il comando"
-				},
-				"import": "Importa",
-				"header": "Impostazioni:"
-			},
-			"color": {
-				"color_green": "Verde",
-				"color_red": "Rosso",
-				"color_none": "Nessuno",
-				"color_dark_aqua": "Verde Acqua",
-				"color_dark_purple": "Porpora Scura",
-				"color_dark_blue": "Blu Scuro",
-				"color_aqua": "Ciano",
-				"color_white": "Bianco",
-				"color_dark_gray": "Grigio Scuro",
-				"color_dark_red": "Rosso Scuro",
-				"color_dark_green": "Verde Scuro",
-				"color_gold": "Oro",
-				"color_blue": "Blu",
-				"color_black": "Nero",
-				"color_gray": "Grigio",
-				"color_light_purple": "Porpora Chiara",
-				"color_yellow": "Giallo"
-			},
-			"header": "Generatore Tellraw per Minecraft 1.7+",
-			"textsnippets": {
-				"trn": "Tradotto",
-				"clickevent": {
-					"runcommand": "Esegui comando",
-					"openurl": "Apri URL",
-					"suggestcommand": "Suggerisci comando",
-					"header": "Caso pressione:",
-					"none": "Nessuno"
-				},
-				"parameter": "Parametro",
-				"editsnippet": "Modifica testo",
-				"close": "Chiudi",
-				"hoverevent": {
-					"header": "Caso mouse sopra:",
-					"showachievement": "Mostra conquiste",
-					"id": "ID:",
-					"showentity": "Mostra entità",
-					"showitem": "Mostra oggetto",
-					"type": "Tipo:",
-					"none": "Nessuno",
-					"showtext": "Mostra testo",
-					"name": "Nome"
-				},
-				"notext": "Nessun testo",
-				"NEW_ITERATE_FLAG": "Nuova pagina del libro",
-				"insert": "Inserisci",
-				"addsnippet": "Aggiungi testo",
-				"insertion": {
-					"header": "Inserimento"
-				},
-				"sel": "Selettore",
-				"format": {
-					"bold": "Grassetto",
-					"underlined": "Sottolineato",
-					"obfuscated": "Confuso",
-					"italic": "Italico",
-					"strikethrough": "Barrato"
-				},
-				"player": "Giocatore",
-				"obj2": "Obbiettivo",
-				"obj": "Obbiettivo della Scoreboard",
-				"nosnippets": "Non c'è ancora testo",
-				"header": "Frammenti di testo",
-				"text": "Testo",
-				"raw": "Crudo",
-				"warning": {
-					"title": "Attenzione!",
-					"text": "Ti serve %v per utilizzare %f"
-				}
-			},
-			"headerbar": {
-				"report_an_issue": "Riporta Un problema",
-				"dropdown": {
-					"tweet": "Tweet",
-					"request_needed_translations": "Lista delle traduzioni richieste",
-					"forum_thread": "Discussione nel forum",
-					"changelog": "Changelog"
-				}
-			},
-			"language": {
-				"translate": "Traduci",
-				"name": "Italiano",
-				"header": "Lingua",
-				"credit": "Tradotto da xX_eio_Xx eio.adea@gmail.com"
-			},
-			"player": {
-				"header": "Giocatore e comando",
-				"description": "Usato per scegliere ed eseguire giocatori diversi"
-			},
-			"commandblock": "Tu devi eseguire questo nella console del server o in un blocco comandi.",
-			"alert": {
-				"report": "Riporta un problema",
-				"changed": "Questa pagina è stata recentemente modificata, quindi ci potrebbero essere problemi. Ricarica la pagina se qualcosa sembra non funzionare.",
-				"receiveupdates": "Ricevi aggiornamenti qui (\"Segui\" la discussione)"
-			},
-			"command": "Comando:",
-			"export": {
-				"heading": "Il tuo comando esportato",
-				"close": "Chiudi"
-			},
-			"attribution": "Mentre nulla è necessario per utilizzare questo, sarebbe sempre apprezzato se colleghi a questa pagina web la discussione MCF."
-		},
 		"cro-hr": {
 			"header": "Tellraw Generator za Minecraft 1.7+",
 			"color": {
@@ -246,190 +100,95 @@
 				"header": "Postavke:"
 			}
 		},
-		"he_il": {
-			"player": {
-				"description": "(@a, @p, @r, או שחקן ספציפי)",
-				"header": "שחקן:"
-			},
-			"header": "יוצר Tellraw ל-Minecraft 1.7+",
-			"output": {
-				"nothing": "אין פה שום דבר",
-				"header": "תצוגה מקדימה:"
-			},
+		"cs_cz": {
+			"header": "Generátor TellRaw pro Minecraft 1.7 a vyšší",
 			"color": {
-				"color_green": "ירוק",
-				"color_red": "אדום",
-				"color_dark_aqua": "טורקיז כהה",
-				"color_dark_purple": "סגול כהה",
-				"color_dark_blue": "כחול כהה",
-				"color_aqua": "טורקיז",
-				"color_white": "לבן",
-				"color_dark_gray": "אפור כהה",
-				"color_dark_red": "אדום כהה",
-				"color_dark_green": "ירוק כהה",
-				"color_gold": "זהב",
-				"color_blue": "כחול",
-				"color_black": "שחור",
-				"color_gray": "אפור",
-				"color_light_purple": "ורוד",
-				"color_yellow": "צהוב"
+				"color_green": "Zelená",
+				"color_red": "Červená",
+				"color_dark_aqua": "Tmavě modrozelená",
+				"color_dark_purple": "Fialová",
+				"color_dark_blue": "Tmavě modrá",
+				"color_aqua": "Modrozelená",
+				"color_white": "Bílá",
+				"color_dark_gray": "Tmavě šedá",
+				"color_dark_red": "Tmavě červená",
+				"color_dark_green": "Tmavě zelená",
+				"color_gold": "Zlatá",
+				"color_blue": "Modrá",
+				"color_black": "Černá",
+				"color_gray": "Šedá",
+				"color_light_purple": "Růžová",
+				"color_yellow": "Žlutá"
+			},
+			"output": {
+				"nothing": "Nic k vidění",
+				"header": "Náhled výstupu:"
+			},
+			"player": {
+				"description": "(@a, @p, @r, nebo jméno hráče)",
+				"header": "Hráč:"
 			},
 			"textsnippets": {
 				"clickevent": {
-					"runcommand": "הפעל פקודה:",
-					"openurl": "פתח אתר אינטרנט",
-					"suggestcommand": "הציע פקודה",
-					"header": "אירוע לחיצה:",
-					"none": "ללא"
+					"runcommand": "Spustit příkaz:",
+					"openurl": "Otevřít webovou adresu",
+					"suggestcommand": "Navrhnout příkaz",
+					"header": "Událost při kliknutí:",
+					"none": "Nic"
 				},
-				"close": "סגור",
-				"insert": "הכנס",
-				"raw": "נע",
+				"close": "Zavřít",
+				"insert": "Vložit",
+				"raw": "Nezpracované",
 				"hoverevent": {
-					"header": "אירוע ריחוף:",
-					"showachievement": "הצג הישג",
-					"id": "מספר זיהוי:",
-					"showentity": "הצג חיהמוב",
-					"showitem": "הצג פריט",
-					"type": "סוג:",
-					"none": "ללא",
-					"showtext": "הצג טקסט",
-					"name": "שם"
+					"header": "Událost při přejetí myší:",
+					"showachievement": "Ukázat ocenění (achievement)",
+					"id": "ID:",
+					"showentity": "Ukázat subjekt (žijící věc, entity)",
+					"showitem": "Ukázat předmět (item)",
+					"type": "Typ:",
+					"none": "Nic",
+					"showtext": "Ukázat text",
+					"name": "Jméno"
 				},
-				"addsnippet": "הוסף טקסט",
+				"addsnippet": "Přidat text ",
 				"insertion": {
-					"header": "תוספת"
+					"header": "Vložení:"
 				},
-				"header": "Text Snippets",
-				"nosnippets": "אין טקסט בינתיים",
-				"parameter": "פרמטר",
-				"text": "טקסט",
+				"header": "Úryvky textu",
+				"nosnippets": "Zatím žádný text",
+				"parameter": "Vlastnost",
+				"text": "Text",
 				"format": {
-					"bold": "מודגש",
-					"underlined": "קו תחתון",
-					"obfuscated": "מטושטש",
-					"italic": "נטוי",
-					"strikethrough": "קו אמצעי"
+					"bold": "Tučné",
+					"underlined": "Podtrhnuté",
+					"obfuscated": "Zmatené (§k)",
+					"italic": "Kurzíva",
+					"strikethrough": "Přeškrtnuté"
 				},
-				"warning": {
-					"title": "אזהרה!",
-					"text": "אתה צריך %v כדי להשתמש ב %f"
-				},
-				"trn": "מתורגם",
-				"notext": "אין טקסט"
+				"trn": "Přeložené"
 			},
-			"commandblock": "אתה חייב להריץ את הפקודה בקונסולת השרת או בלוק פקודה.",
+			"commandblock": "Tento příkaz musíš spustit přes konzoli serveru nebo přes příkazový blok.",
 			"language": {
-				"translate": "תרגם",
-				"name": "עברית",
-				"header": "שפה",
-				"credit": "תורגם על ידי SilverTuxedo"
+				"translate": "Přeložit",
+				"name": "Čeština",
+				"header": "Jazyk",
+				"credit": "Do češtiny přeložil Matojeje (Matuli Yoshi)"
 			},
 			"alert": {
-				"changed": "בוצעו שינויים לאחרונה בדף זה, לכן אולי תתקל בבעיות. טען מחדש את הדף אם משהו לא עובד.",
-				"receiveupdates": "קבל עדכונים כאן (\"עקוב\" אחרי הנושא)"
+				"changed": "Tato stránka byla nedávno změněna, takže tu mohou být problémy. Pokud něco nefunguje, obnov stránku.",
+				"receiveupdates": "Aktualizace této stránky (\"Sleduj\" téma)"
 			},
-			"command": "פקודה:",
+			"command": "Příkaz:",
 			"settings": {
-				"previewcolor": "צבע הרקע בתצוגה מקדימה:",
+				"previewcolor": "Barva pozadí náhledu:",
 				"deleteall": {
-					"body": "לחיצה על מחק תסיר את כל הטקסט ותגדיר אותו מחדש לטקסט ריק.",
-					"heading": "אתה בטוח?!?",
-					"yes": "מחק הכל",
-					"no": "בטל"
+					"body": "Vymaže všechen tvůj text a resetuje ho na prázdnou hodnotu.",
+					"heading": "Doopravdy!?!",
+					"yes": "Vymazat vše",
+					"no": "Zrušit"
 				},
-				"import": "יבא",
-				"header": "הגדרות:"
-			}
-		},
-		"zh_TW": {
-			"player": {
-				"description": "(@a、@p、@r或特定的玩家)",
-				"header": "玩家："
-			},
-			"header": "Tellraw 指令產生器",
-			"output": {
-				"nothing": "還沒有指令",
-				"header": "預覽輸出："
-			},
-			"color": {
-				"color_green": "綠色",
-				"color_red": "紅色",
-				"color_dark_aqua": "深青色",
-				"color_dark_purple": "深紫色",
-				"color_dark_blue": "深藍色",
-				"color_aqua": "青色",
-				"color_white": "白色",
-				"color_dark_gray": "暗灰色",
-				"color_dark_red": "深紅色",
-				"color_dark_green": "深綠色",
-				"color_gold": "金色",
-				"color_blue": "藍色",
-				"color_black": "黑色",
-				"color_gray": "灰色",
-				"color_light_purple": "亮紫色",
-				"color_yellow": "黃色"
-			},
-			"textsnippets": {
-				"clickevent": {
-					"runcommand": "執行指令",
-					"openurl": "開啟網址(URL=網址)",
-					"suggestcommand": "建議指令",
-					"header": "點擊事件：",
-					"none": "無"
-				},
-				"close": "關閉",
-				"insert": "插入",
-				"raw": "自訂",
-				"hoverevent": {
-					"header": "懸浮事件：",
-					"showachievement": "顯示成就",
-					"showentity": "顯示實體",
-					"showitem": "顯示物品",
-					"type": "類型：",
-					"none": "無",
-					"showtext": "顯示文字",
-					"name": "名稱"
-				},
-				"addsnippet": "加入文字",
-				"insertion": {
-					"header": "插入"
-				},
-				"header": "文字",
-				"nosnippets": "還沒有文字",
-				"parameter": "參數",
-				"text": "文字",
-				"format": {
-					"bold": "粗體",
-					"underlined": "底線",
-					"obfuscated": "亂碼",
-					"italic": "斜體",
-					"strikethrough": "刪除線"
-				},
-				"trn": "翻譯"
-			},
-			"commandblock": "你一定要在伺服器控制台或指令方塊中使用。",
-			"language": {
-				"translate": "翻譯",
-				"name": "繁體中文",
-				"header": "語言",
-				"credit": "翻譯 by 海豹(seadog007) 和 柯柯(TaiwaneseFTW)"
-			},
-			"alert": {
-				"changed": "本頁最近修改過，因此可能會有問題。如果沒有正常動作，請重新整理。",
-				"receiveupdates": "跟隨此文章來接收更新與支持作者"
-			},
-			"command": "指令：",
-			"settings": {
-				"previewcolor": "預覽輸出背景顏色",
-				"deleteall": {
-					"body": "刪除所有的文字嗎？",
-					"heading": "確定要這麼做嗎？",
-					"yes": "刪除全部",
-					"no": "取消"
-				},
-				"import": "匯入",
-				"header": "設定："
+				"import": "Importovat",
+				"header": "Nastavení:"
 			}
 		},
 		"de_de": {
@@ -559,439 +318,6 @@
 			},
 			"command": "Befehl:",
 			"attribution": "Obwohl nichts erforderlich ist um das hier zu benutzen, ist es trotzdem immer willkommen wenn du zu dieser Webseite oder zu dem Minercaft Forum Thread verlinkst."
-		},
-		"es_es": {
-			"player": {
-				"description": "(@a, @p, @r, o un jugador específico)",
-				"header": "Jugador:"
-			},
-			"header": "Generador del comando Tellraw para Minecraft 1.7+",
-			"output": {
-				"nothing": "Nada todavía",
-				"header": "Vista Previa"
-			},
-			"color": {
-				"color_green": "Verde",
-				"color_red": "Rojo",
-				"color_dark_aqua": "Aguamarina Oscuro",
-				"color_dark_purple": "Morado Oscuro",
-				"color_dark_blue": "Azul Oscuro",
-				"color_aqua": "Aguamerina",
-				"color_white": "Blanco",
-				"color_dark_gray": "Gris Oscuro",
-				"color_dark_red": "Rojo Oscuro",
-				"color_dark_green": "Verde Oscuro",
-				"color_gold": "Oro",
-				"color_blue": "Azul",
-				"color_black": "Negro",
-				"color_gray": "Gris",
-				"color_light_purple": "Violeta",
-				"color_yellow": "Amarillo"
-			},
-			"textsnippets": {
-				"obj": "Logro",
-				"clickevent": {
-					"runcommand": "Ejecutar comando",
-					"openurl": "Abrir URL",
-					"suggestcommand": "Introducir comando",
-					"header": "Ejecutar al hacer clic:",
-					"none": "Nada"
-				},
-				"close": "Cerrar",
-				"insert": "Insertar",
-				"raw": "Texto Simple",
-				"hoverevent": {
-					"header": "Acción al pasar el Puntero:",
-					"showachievement": "Mostrar Logro",
-					"id": "ID:",
-					"showentity": "Mostrar entidad",
-					"showitem": "Mostrar item",
-					"type": "Tipo:",
-					"none": "Nada",
-					"showtext": "Mostrar texo",
-					"name": "Nombre"
-				},
-				"addsnippet": "Añadir Texto ",
-				"editsnippet": "Editar",
-				"insertion": {
-					"header": "Insertar en Chat"
-				},
-				"header": "Fragmento/s de Texto",
-				"nosnippets": "Aún no hay texto",
-				"obj2": "Objetivo",
-				"text": "Texto",
-				"format": {
-					"bold": "Negrita",
-					"underlined": "Subrayado",
-					"obfuscated": "Confuso",
-					"italic": "Cursiva",
-					"strikethrough": "Tachado"
-				},
-				"warning": {
-					"title": "¡Cuidado!",
-					"text": "Necesitas %v para usar %f"
-				},
-				"player": "Jugador",
-				"parameter": "Parámetro",
-				"trn": "Prediseñado",
-				"notext": "No hay texto todavía"
-			},
-			"commandblock": "Tienes que ejecutar esto en la consola del servidor o en un bloque de comandos.",
-			"language": {
-				"translate": "Traducir",
-				"name": "Español",
-				"header": "Idioma",
-				"credit": "Traducido por KaliNuska"
-			},
-			"alert": {
-				"changed": "Esta página ha sido recientemente modificada, así que podría haber algunos problemas. Recarga la página si algo parece no funcionar bien.",
-				"receiveupdates": "Mira las últimas actualizaciones aquí (Foro Oficial)"
-			},
-			"command": "Commando:",
-			"settings": {
-				"previewcolor": "Color de Vista Previa del Fondo:",
-				"deleteall": {
-					"body": "\"Eliminar\" quitará todo el texto y lo sustituirá por una línea en blanco.",
-					"heading": "¿¿Estás seguro??",
-					"yes": "Eliminar Todo",
-					"no": "Cancelar"
-				},
-				"import": "Importar",
-				"header": "Configuración:",
-				"importtext": "Introduzca el comando tellraw. Utiliza el botón de \"Eliminar Todo\" si no lo importa correctamente."
-			}
-		},
-		"pt_br": {
-			"translate": {
-				"body": "Este site precisa de tradução, deseja ajudar?",
-				"yes": "Sim",
-				"header": "Traduções!",
-				"no": "Não"
-			},
-			"output": {
-				"nothing": "Nada aqui.",
-				"header": "Previsão:"
-			},
-			"settings": {
-				"previewcolor": "Preview Background Color:",
-				"deleteall": {
-					"body": "Tudo será apagado para sempre (muito tempo!)",
-					"heading": "Tem certeza?",
-					"yes": "Apagar tudo",
-					"no": "Não"
-				},
-				"import": "Importar",
-				"header": "Opções:"
-			},
-			"color": {
-				"color_none": "Nenhum",
-				"color_green": "Verde",
-				"color_red": "Vermelho",
-				"color_dark_aqua": "Ciâno",
-				"color_dark_purple": "Roxo",
-				"color_dark_blue": "Azul escuro",
-				"color_aqua": "Azul claro",
-				"color_white": "Branco",
-				"color_dark_gray": "Cinza escuro",
-				"color_dark_red": "Vermelho escuro",
-				"color_dark_green": "Verde escuro",
-				"color_gold": "Laranja",
-				"color_blue": "Azul",
-				"color_black": "Preto",
-				"color_gray": "Cinza",
-				"color_light_purple": "Rosa",
-				"color_yellow": "Amarelo"
-			},
-			"header": "Gerador de Tellraw para Minecraft (1.7+)",
-			"textsnippets": {
-				"trn": "Traduzido",
-				"clickevent": {
-					"runcommand": "Executar comando",
-					"openurl": "Abrir link",
-					"suggestcommand": "Sugerir comando",
-					"header": "Evento ao clicar:",
-					"none": "Nenhum"
-				},
-				"parameter": "Parâmetro",
-				"editsnippet": "Editar texto",
-				"close": "Fechar",
-				"hoverevent": {
-					"header": "Evento ao passar cursor:",
-					"showachievement": "Mostrar conquista",
-					"id": "ID:",
-					"showentity": "Mostrar Entity",
-					"showitem": "Mostrar item",
-					"type": "Tipo:",
-					"none": "Nenhum",
-					"showtext": "Mostrar texto",
-					"name": "Nome"
-				},
-				"notext": "Nenhum texto",
-				"insert": "Inserir",
-				"addsnippet": "Adicionar texto",
-				"insertion": {
-					"header": "Inserção"
-				},
-				"sel": "Seletor",
-				"format": {
-					"bold": "Negrito",
-					"underlined": "Sublinhado",
-					"obfuscated": "Obfuscado",
-					"italic": "Itálico",
-					"strikethrough": "Riscado"
-				},
-				"player": "Jogador",
-				"obj2": "Objetivo",
-				"obj": "Objetivo do Scoreboard",
-				"nosnippets": "Nenhum texto ainda",
-				"header": "Linhas de texto",
-				"text": "Texto",
-				"raw": "Raw",
-				"warning": {
-					"title": "Aviso",
-					"text": "Você precisa de %v para usar %f"
-				}
-			},
-			"language": {
-				"translate": "Traduzir",
-				"name": "Português Brasileiro",
-				"header": "Linguagem",
-				"credit": "Traduzido por Gerottinho"
-			},
-			"player": {
-				"header": "Comando e jogador",
-				"description": "Usado para selecionar o comando e o jogador no qual será usado"
-			},
-			"commandblock": "Este comando é grande demais para ser executado no chat.",
-			"alert": {
-				"changed": "Esta página foi modificada recentemente. No caso de problemas, recarregue-a.",
-				"receiveupdates": "Receba atualizações (Tópico em inglês)"
-			},
-			"command": "Command:",
-			"titleCommand": {
-				"ok": "Ok",
-				"body": "Você pode usar o comando /title com a maior parte desse site.",
-				"header": "/title comando"
-			}
-		},
-		"nl": {
-			"tellraw": "Ruw vertellen",
-			"template": {
-				
-			},
-			"subtitle": "Ondertitel",
-			"sign_item": "Bord (/give)",
-			"book": "Boek",
-			"output": {
-				"nothing": "Hier is niks te zien",
-				"header": "Output voorbeeld:"
-			},
-			"saves": {
-				"header": "Saves",
-				"hide": "Verberg Saves",
-				"persistencenotice": "Saves kunnen altijd resetten, en zijn afhankelijk van de cookies in je browsers. Vertrouw er niet op voor een langdurige tijd.",
-				"show": "Saves laten zien",
-				"deleteall": {
-					"body": "Als je op 'Delete' klikt, verwijdert het al je saves, maar het laat je huidige instellingen staan",
-					"yes": "Verwijder alle saves",
-					"heading": "Weet je het zeker!?!",
-					"no": "Nee"
-				},
-				"nosaves": "Je hebt niks opgeslagen",
-				"new": "Sla op"
-			},
-			"settings": {
-				"previewcolor": "Voorbeeld achtergrondkleur:",
-				"deleteall": {
-					"body": "Als je op 'Delete' klikt, verwijdert het al je huidige instellingen.",
-					"heading": "Weet je het zeker!?!",
-					"yes": "Verwijder alles",
-					"no": "Nee"
-				},
-				"import": "Import",
-				"header": "Instellingen:",
-				"importtext": "Voer het 'tellraw' commando hier in. Gebruik de verwijder alles knop als het verkeerd importeert. Import werkt alleen met 'tellraw' commando's"
-			},
-			"title": "Titel",
-			"color": {
-				"color_green": "Groen",
-				"color_red": "Rood",
-				"color_none": "Geen",
-				"color_dark_aqua": "Donker water",
-				"color_dark_purple": "Donker paars",
-				"color_dark_blue": "Donker blauw",
-				"color_aqua": "Water",
-				"color_white": "Wit",
-				"color_dark_gray": "Donker grijs",
-				"color_dark_red": "Donker rood",
-				"color_dark_green": "Donker groen",
-				"color_gold": "Goud",
-				"color_blue": "Blauw",
-				"color_black": "Zwart",
-				"color_gray": "Grijs",
-				"color_light_purple": "Licht paars",
-				"color_yellow": "Geel"
-			},
-			"header": "Tellraw Generator voor Minecraft 1.7+",
-			"textsnippets": {
-				"trn": "Vertaald",
-				"clickevent": {
-					"runcommand": "Voer commando uit",
-					"openurl": "Open Link",
-					"suggestcommand": "Beveel commando aan",
-					"header": "Klik gebeurtenis:",
-					"none": "Geen"
-				},
-				"parameter": "Parameter",
-				"editsnippet": "Bewerk tekst",
-				"close": "Sluit",
-				"hoverevent": {
-					"header": "Hover gebeurtenis:",
-					"showachievement": "Laat archievement zien",
-					"id": "ID:",
-					"showentity": "Laat entity zien",
-					"showitem": "Laat item zien",
-					"type": "Type:",
-					"none": "Geen",
-					"showtext": "Laat tekst zien",
-					"name": "Naam"
-				},
-				"notext": "Geen tekst",
-				"insert": "Invoegen",
-				"addsnippet": "Voeg tekst toe",
-				"insertion": {
-					"header": "Invoegen"
-				},
-				"sel": "Selector",
-				"format": {
-					"bold": "Bold",
-					"underlined": "Onderstreept",
-					"obfuscated": "Obfuscated",
-					"italic": "Schuin",
-					"strikethrough": "Doorgestreept"
-				},
-				"player": "Speler",
-				"obj2": "Doel",
-				"obj": "Scorebord Doel",
-				"nosnippets": "Nog geen tekst",
-				"header": "Text Snippets",
-				"text": "Tekst",
-				"raw": "Ruw",
-				"warning": {
-					"title": "Waarschuwing!",
-					"text": "Je moet %v om %f te gebruiken"
-				}
-			},
-			"language": {
-				"translate": "Vertalen",
-				"name": "Nederlands",
-				"header": "Taal",
-				"credit": "Vertaald door rhbvkleef"
-			},
-			"sign_block": "Bord (/blockdata)",
-			"player": {
-				"header": "Speler en commando",
-				"description": "Used to select and execute different players"
-			},
-			"commandblock": "Dit commando moet je uitvoeren in de server console of in een command block.",
-			"alert": {
-				"report": "Reporteer probleem",
-				"changed": "Deze pagina was recent veranderd, dus er kunnen problemen zijn. Herlaad de pagina als er iets niet werkt",
-				"receiveupdates": "Ontvang updates hier! (\"Volg\" het onderwerp)"
-			},
-			"command": "Commando:",
-			"execute_tellraw": "Voer out"
-		},
-		"cs_cz": {
-			"header": "Generátor TellRaw pro Minecraft 1.7 a vyšší",
-			"color": {
-				"color_green": "Zelená",
-				"color_red": "Červená",
-				"color_dark_aqua": "Tmavě modrozelená",
-				"color_dark_purple": "Fialová",
-				"color_dark_blue": "Tmavě modrá",
-				"color_aqua": "Modrozelená",
-				"color_white": "Bílá",
-				"color_dark_gray": "Tmavě šedá",
-				"color_dark_red": "Tmavě červená",
-				"color_dark_green": "Tmavě zelená",
-				"color_gold": "Zlatá",
-				"color_blue": "Modrá",
-				"color_black": "Černá",
-				"color_gray": "Šedá",
-				"color_light_purple": "Růžová",
-				"color_yellow": "Žlutá"
-			},
-			"output": {
-				"nothing": "Nic k vidění",
-				"header": "Náhled výstupu:"
-			},
-			"player": {
-				"description": "(@a, @p, @r, nebo jméno hráče)",
-				"header": "Hráč:"
-			},
-			"textsnippets": {
-				"clickevent": {
-					"runcommand": "Spustit příkaz:",
-					"openurl": "Otevřít webovou adresu",
-					"suggestcommand": "Navrhnout příkaz",
-					"header": "Událost při kliknutí:",
-					"none": "Nic"
-				},
-				"close": "Zavřít",
-				"insert": "Vložit",
-				"raw": "Nezpracované",
-				"hoverevent": {
-					"header": "Událost při přejetí myší:",
-					"showachievement": "Ukázat ocenění (achievement)",
-					"id": "ID:",
-					"showentity": "Ukázat subjekt (žijící věc, entity)",
-					"showitem": "Ukázat předmět (item)",
-					"type": "Typ:",
-					"none": "Nic",
-					"showtext": "Ukázat text",
-					"name": "Jméno"
-				},
-				"addsnippet": "Přidat text ",
-				"insertion": {
-					"header": "Vložení:"
-				},
-				"header": "Úryvky textu",
-				"nosnippets": "Zatím žádný text",
-				"parameter": "Vlastnost",
-				"text": "Text",
-				"format": {
-					"bold": "Tučné",
-					"underlined": "Podtrhnuté",
-					"obfuscated": "Zmatené (§k)",
-					"italic": "Kurzíva",
-					"strikethrough": "Přeškrtnuté"
-				},
-				"trn": "Přeložené"
-			},
-			"commandblock": "Tento příkaz musíš spustit přes konzoli serveru nebo přes příkazový blok.",
-			"language": {
-				"translate": "Přeložit",
-				"name": "Čeština",
-				"header": "Jazyk",
-				"credit": "Do češtiny přeložil Matojeje (Matuli Yoshi)"
-			},
-			"alert": {
-				"changed": "Tato stránka byla nedávno změněna, takže tu mohou být problémy. Pokud něco nefunguje, obnov stránku.",
-				"receiveupdates": "Aktualizace této stránky (\"Sleduj\" téma)"
-			},
-			"command": "Příkaz:",
-			"settings": {
-				"previewcolor": "Barva pozadí náhledu:",
-				"deleteall": {
-					"body": "Vymaže všechen tvůj text a resetuje ho na prázdnou hodnotu.",
-					"heading": "Doopravdy!?!",
-					"yes": "Vymazat vše",
-					"no": "Zrušit"
-				},
-				"import": "Importovat",
-				"header": "Nastavení:"
-			}
 		},
 		"en_us": {
 			"headerbar": {
@@ -1139,6 +465,107 @@
 			},
 			"attribution": "While nothing is required to use this, it would always be appreciated if you linked to this webpage or the MCF thread."
 		},
+		"es_es": {
+			"player": {
+				"description": "(@a, @p, @r, o un jugador específico)",
+				"header": "Jugador:"
+			},
+			"header": "Generador del comando Tellraw para Minecraft 1.7+",
+			"output": {
+				"nothing": "Nada todavía",
+				"header": "Vista Previa"
+			},
+			"color": {
+				"color_green": "Verde",
+				"color_red": "Rojo",
+				"color_dark_aqua": "Aguamarina Oscuro",
+				"color_dark_purple": "Morado Oscuro",
+				"color_dark_blue": "Azul Oscuro",
+				"color_aqua": "Aguamerina",
+				"color_white": "Blanco",
+				"color_dark_gray": "Gris Oscuro",
+				"color_dark_red": "Rojo Oscuro",
+				"color_dark_green": "Verde Oscuro",
+				"color_gold": "Oro",
+				"color_blue": "Azul",
+				"color_black": "Negro",
+				"color_gray": "Gris",
+				"color_light_purple": "Violeta",
+				"color_yellow": "Amarillo"
+			},
+			"textsnippets": {
+				"obj": "Logro",
+				"clickevent": {
+					"runcommand": "Ejecutar comando",
+					"openurl": "Abrir URL",
+					"suggestcommand": "Introducir comando",
+					"header": "Ejecutar al hacer clic:",
+					"none": "Nada"
+				},
+				"close": "Cerrar",
+				"insert": "Insertar",
+				"raw": "Texto Simple",
+				"hoverevent": {
+					"header": "Acción al pasar el Puntero:",
+					"showachievement": "Mostrar Logro",
+					"id": "ID:",
+					"showentity": "Mostrar entidad",
+					"showitem": "Mostrar item",
+					"type": "Tipo:",
+					"none": "Nada",
+					"showtext": "Mostrar texo",
+					"name": "Nombre"
+				},
+				"addsnippet": "Añadir Texto ",
+				"editsnippet": "Editar",
+				"insertion": {
+					"header": "Insertar en Chat"
+				},
+				"header": "Fragmento/s de Texto",
+				"nosnippets": "Aún no hay texto",
+				"obj2": "Objetivo",
+				"text": "Texto",
+				"format": {
+					"bold": "Negrita",
+					"underlined": "Subrayado",
+					"obfuscated": "Confuso",
+					"italic": "Cursiva",
+					"strikethrough": "Tachado"
+				},
+				"warning": {
+					"title": "¡Cuidado!",
+					"text": "Necesitas %v para usar %f"
+				},
+				"player": "Jugador",
+				"parameter": "Parámetro",
+				"trn": "Prediseñado",
+				"notext": "No hay texto todavía"
+			},
+			"commandblock": "Tienes que ejecutar esto en la consola del servidor o en un bloque de comandos.",
+			"language": {
+				"translate": "Traducir",
+				"name": "Español",
+				"header": "Idioma",
+				"credit": "Traducido por KaliNuska"
+			},
+			"alert": {
+				"changed": "Esta página ha sido recientemente modificada, así que podría haber algunos problemas. Recarga la página si algo parece no funcionar bien.",
+				"receiveupdates": "Mira las últimas actualizaciones aquí (Foro Oficial)"
+			},
+			"command": "Commando:",
+			"settings": {
+				"previewcolor": "Color de Vista Previa del Fondo:",
+				"deleteall": {
+					"body": "\"Eliminar\" quitará todo el texto y lo sustituirá por una línea en blanco.",
+					"heading": "¿¿Estás seguro??",
+					"yes": "Eliminar Todo",
+					"no": "Cancelar"
+				},
+				"import": "Importar",
+				"header": "Configuración:",
+				"importtext": "Introduzca el comando tellraw. Utiliza el botón de \"Eliminar Todo\" si no lo importa correctamente."
+			}
+		},
 		"fr_fr": {
 			"saves": {
 				"deleteall": {
@@ -1243,6 +670,522 @@
 				"import": "Importer",
 				"header": "Paramètres :"
 			}
+		},
+		"he_il": {
+			"player": {
+				"description": "(@a, @p, @r, או שחקן ספציפי)",
+				"header": "שחקן:"
+			},
+			"header": "יוצר Tellraw ל-Minecraft 1.7+",
+			"output": {
+				"nothing": "אין פה שום דבר",
+				"header": "תצוגה מקדימה:"
+			},
+			"color": {
+				"color_green": "ירוק",
+				"color_red": "אדום",
+				"color_dark_aqua": "טורקיז כהה",
+				"color_dark_purple": "סגול כהה",
+				"color_dark_blue": "כחול כהה",
+				"color_aqua": "טורקיז",
+				"color_white": "לבן",
+				"color_dark_gray": "אפור כהה",
+				"color_dark_red": "אדום כהה",
+				"color_dark_green": "ירוק כהה",
+				"color_gold": "זהב",
+				"color_blue": "כחול",
+				"color_black": "שחור",
+				"color_gray": "אפור",
+				"color_light_purple": "ורוד",
+				"color_yellow": "צהוב"
+			},
+			"textsnippets": {
+				"clickevent": {
+					"runcommand": "הפעל פקודה:",
+					"openurl": "פתח אתר אינטרנט",
+					"suggestcommand": "הציע פקודה",
+					"header": "אירוע לחיצה:",
+					"none": "ללא"
+				},
+				"close": "סגור",
+				"insert": "הכנס",
+				"raw": "נע",
+				"hoverevent": {
+					"header": "אירוע ריחוף:",
+					"showachievement": "הצג הישג",
+					"id": "מספר זיהוי:",
+					"showentity": "הצג חיהמוב",
+					"showitem": "הצג פריט",
+					"type": "סוג:",
+					"none": "ללא",
+					"showtext": "הצג טקסט",
+					"name": "שם"
+				},
+				"addsnippet": "הוסף טקסט",
+				"insertion": {
+					"header": "תוספת"
+				},
+				"header": "Text Snippets",
+				"nosnippets": "אין טקסט בינתיים",
+				"parameter": "פרמטר",
+				"text": "טקסט",
+				"format": {
+					"bold": "מודגש",
+					"underlined": "קו תחתון",
+					"obfuscated": "מטושטש",
+					"italic": "נטוי",
+					"strikethrough": "קו אמצעי"
+				},
+				"warning": {
+					"title": "אזהרה!",
+					"text": "אתה צריך %v כדי להשתמש ב %f"
+				},
+				"trn": "מתורגם",
+				"notext": "אין טקסט"
+			},
+			"commandblock": "אתה חייב להריץ את הפקודה בקונסולת השרת או בלוק פקודה.",
+			"language": {
+				"translate": "תרגם",
+				"name": "עברית",
+				"header": "שפה",
+				"credit": "תורגם על ידי SilverTuxedo"
+			},
+			"alert": {
+				"changed": "בוצעו שינויים לאחרונה בדף זה, לכן אולי תתקל בבעיות. טען מחדש את הדף אם משהו לא עובד.",
+				"receiveupdates": "קבל עדכונים כאן (\"עקוב\" אחרי הנושא)"
+			},
+			"command": "פקודה:",
+			"settings": {
+				"previewcolor": "צבע הרקע בתצוגה מקדימה:",
+				"deleteall": {
+					"body": "לחיצה על מחק תסיר את כל הטקסט ותגדיר אותו מחדש לטקסט ריק.",
+					"heading": "אתה בטוח?!?",
+					"yes": "מחק הכל",
+					"no": "בטל"
+				},
+				"import": "יבא",
+				"header": "הגדרות:"
+			}
+		},
+		"it": {
+			"template": {
+				"sign_block": "Cartello (/blockdata)",
+				"sign_item": "Cartello (/give)",
+				"subtitle": "Sottotitolo",
+				"title": "Titolo",
+				"tellraw": "Tellraw",
+				"book": "Libro",
+				"execute_tellraw": "Execute"
+			},
+			"output": {
+				"nothing": "Non c'è niente da vedere qui",
+				"header": "Previsione dell'output"
+			},
+			"saves": {
+				"header": "Salvataggi",
+				"hide": "Nascondi Salvataggi",
+				"persistencenotice": "I salvataggi possono essere resettati in quelunque momento, e dipendono dai cookies del tuo browser. Non farci affidamento per lunghi periodi di tempo.",
+				"show": "Mostra salvataggi",
+				"deleteall": {
+					"body": "Premendo cancella rimuoverai tutti i tuoi salvataggi, ma non cancellerà il testo corrente",
+					"yes": "Delete All Saves",
+					"heading": "Sei sicuro!?!",
+					"no": "Annulla"
+				},
+				"nosaves": "Non hai salvato nulla",
+				"new": "Salvare la stringa corrente?"
+			},
+			"settings": {
+				"previewcolor": "Colore di background per la previsione:",
+				"export": "Esporta",
+				"deleteall": {
+					"body": "Premendo cancella rimuoverai tutto il tuo testo e verrà resettata in una stringa vuota.",
+					"heading": "Sei sicuro!?!",
+					"yes": "Cancella tutto",
+					"no": "Annulla"
+				},
+				"importtext": {
+					"default": "Per favore inserisci il comando tellraw. Usa il pulsante cancella tutto se viene importato incorrettamente. Importare funziona solo con i comandi /tellraw",
+					"exported": "Per favore inserisci la stringa che c'era quando hai esportato il comando"
+				},
+				"import": "Importa",
+				"header": "Impostazioni:"
+			},
+			"color": {
+				"color_green": "Verde",
+				"color_red": "Rosso",
+				"color_none": "Nessuno",
+				"color_dark_aqua": "Verde Acqua",
+				"color_dark_purple": "Porpora Scura",
+				"color_dark_blue": "Blu Scuro",
+				"color_aqua": "Ciano",
+				"color_white": "Bianco",
+				"color_dark_gray": "Grigio Scuro",
+				"color_dark_red": "Rosso Scuro",
+				"color_dark_green": "Verde Scuro",
+				"color_gold": "Oro",
+				"color_blue": "Blu",
+				"color_black": "Nero",
+				"color_gray": "Grigio",
+				"color_light_purple": "Porpora Chiara",
+				"color_yellow": "Giallo"
+			},
+			"header": "Generatore Tellraw per Minecraft 1.7+",
+			"textsnippets": {
+				"trn": "Tradotto",
+				"clickevent": {
+					"runcommand": "Esegui comando",
+					"openurl": "Apri URL",
+					"suggestcommand": "Suggerisci comando",
+					"header": "Caso pressione:",
+					"none": "Nessuno"
+				},
+				"parameter": "Parametro",
+				"editsnippet": "Modifica testo",
+				"close": "Chiudi",
+				"hoverevent": {
+					"header": "Caso mouse sopra:",
+					"showachievement": "Mostra conquiste",
+					"id": "ID:",
+					"showentity": "Mostra entità",
+					"showitem": "Mostra oggetto",
+					"type": "Tipo:",
+					"none": "Nessuno",
+					"showtext": "Mostra testo",
+					"name": "Nome"
+				},
+				"notext": "Nessun testo",
+				"NEW_ITERATE_FLAG": "Nuova pagina del libro",
+				"insert": "Inserisci",
+				"addsnippet": "Aggiungi testo",
+				"insertion": {
+					"header": "Inserimento"
+				},
+				"sel": "Selettore",
+				"format": {
+					"bold": "Grassetto",
+					"underlined": "Sottolineato",
+					"obfuscated": "Confuso",
+					"italic": "Italico",
+					"strikethrough": "Barrato"
+				},
+				"player": "Giocatore",
+				"obj2": "Obbiettivo",
+				"obj": "Obbiettivo della Scoreboard",
+				"nosnippets": "Non c'è ancora testo",
+				"header": "Frammenti di testo",
+				"text": "Testo",
+				"raw": "Crudo",
+				"warning": {
+					"title": "Attenzione!",
+					"text": "Ti serve %v per utilizzare %f"
+				}
+			},
+			"headerbar": {
+				"report_an_issue": "Riporta Un problema",
+				"dropdown": {
+					"tweet": "Tweet",
+					"request_needed_translations": "Lista delle traduzioni richieste",
+					"forum_thread": "Discussione nel forum",
+					"changelog": "Changelog"
+				}
+			},
+			"language": {
+				"translate": "Traduci",
+				"name": "Italiano",
+				"header": "Lingua",
+				"credit": "Tradotto da xX_eio_Xx eio.adea@gmail.com"
+			},
+			"player": {
+				"header": "Giocatore e comando",
+				"description": "Usato per scegliere ed eseguire giocatori diversi"
+			},
+			"commandblock": "Tu devi eseguire questo nella console del server o in un blocco comandi.",
+			"alert": {
+				"report": "Riporta un problema",
+				"changed": "Questa pagina è stata recentemente modificata, quindi ci potrebbero essere problemi. Ricarica la pagina se qualcosa sembra non funzionare.",
+				"receiveupdates": "Ricevi aggiornamenti qui (\"Segui\" la discussione)"
+			},
+			"command": "Comando:",
+			"export": {
+				"heading": "Il tuo comando esportato",
+				"close": "Chiudi"
+			},
+			"attribution": "Mentre nulla è necessario per utilizzare questo, sarebbe sempre apprezzato se colleghi a questa pagina web la discussione MCF."
+		},
+		"nl": {
+			"tellraw": "Ruw vertellen",
+			"template": {
+				
+			},
+			"subtitle": "Ondertitel",
+			"sign_item": "Bord (/give)",
+			"book": "Boek",
+			"output": {
+				"nothing": "Hier is niks te zien",
+				"header": "Output voorbeeld:"
+			},
+			"saves": {
+				"header": "Saves",
+				"hide": "Verberg Saves",
+				"persistencenotice": "Saves kunnen altijd resetten, en zijn afhankelijk van de cookies in je browsers. Vertrouw er niet op voor een langdurige tijd.",
+				"show": "Saves laten zien",
+				"deleteall": {
+					"body": "Als je op 'Delete' klikt, verwijdert het al je saves, maar het laat je huidige instellingen staan",
+					"yes": "Verwijder alle saves",
+					"heading": "Weet je het zeker!?!",
+					"no": "Nee"
+				},
+				"nosaves": "Je hebt niks opgeslagen",
+				"new": "Sla op"
+			},
+			"settings": {
+				"previewcolor": "Voorbeeld achtergrondkleur:",
+				"deleteall": {
+					"body": "Als je op 'Delete' klikt, verwijdert het al je huidige instellingen.",
+					"heading": "Weet je het zeker!?!",
+					"yes": "Verwijder alles",
+					"no": "Nee"
+				},
+				"import": "Import",
+				"header": "Instellingen:",
+				"importtext": "Voer het 'tellraw' commando hier in. Gebruik de verwijder alles knop als het verkeerd importeert. Import werkt alleen met 'tellraw' commando's"
+			},
+			"title": "Titel",
+			"color": {
+				"color_green": "Groen",
+				"color_red": "Rood",
+				"color_none": "Geen",
+				"color_dark_aqua": "Donker water",
+				"color_dark_purple": "Donker paars",
+				"color_dark_blue": "Donker blauw",
+				"color_aqua": "Water",
+				"color_white": "Wit",
+				"color_dark_gray": "Donker grijs",
+				"color_dark_red": "Donker rood",
+				"color_dark_green": "Donker groen",
+				"color_gold": "Goud",
+				"color_blue": "Blauw",
+				"color_black": "Zwart",
+				"color_gray": "Grijs",
+				"color_light_purple": "Licht paars",
+				"color_yellow": "Geel"
+			},
+			"header": "Tellraw Generator voor Minecraft 1.7+",
+			"textsnippets": {
+				"trn": "Vertaald",
+				"clickevent": {
+					"runcommand": "Voer commando uit",
+					"openurl": "Open Link",
+					"suggestcommand": "Beveel commando aan",
+					"header": "Klik gebeurtenis:",
+					"none": "Geen"
+				},
+				"parameter": "Parameter",
+				"editsnippet": "Bewerk tekst",
+				"close": "Sluit",
+				"hoverevent": {
+					"header": "Hover gebeurtenis:",
+					"showachievement": "Laat archievement zien",
+					"id": "ID:",
+					"showentity": "Laat entity zien",
+					"showitem": "Laat item zien",
+					"type": "Type:",
+					"none": "Geen",
+					"showtext": "Laat tekst zien",
+					"name": "Naam"
+				},
+				"notext": "Geen tekst",
+				"insert": "Invoegen",
+				"addsnippet": "Voeg tekst toe",
+				"insertion": {
+					"header": "Invoegen"
+				},
+				"sel": "Selector",
+				"format": {
+					"bold": "Bold",
+					"underlined": "Onderstreept",
+					"obfuscated": "Obfuscated",
+					"italic": "Schuin",
+					"strikethrough": "Doorgestreept"
+				},
+				"player": "Speler",
+				"obj2": "Doel",
+				"obj": "Scorebord Doel",
+				"nosnippets": "Nog geen tekst",
+				"header": "Text Snippets",
+				"text": "Tekst",
+				"raw": "Ruw",
+				"warning": {
+					"title": "Waarschuwing!",
+					"text": "Je moet %v om %f te gebruiken"
+				}
+			},
+			"language": {
+				"translate": "Vertalen",
+				"name": "Nederlands",
+				"header": "Taal",
+				"credit": "Vertaald door rhbvkleef"
+			},
+			"sign_block": "Bord (/blockdata)",
+			"player": {
+				"header": "Speler en commando",
+				"description": "Used to select and execute different players"
+			},
+			"commandblock": "Dit commando moet je uitvoeren in de server console of in een command block.",
+			"alert": {
+				"report": "Reporteer probleem",
+				"changed": "Deze pagina was recent veranderd, dus er kunnen problemen zijn. Herlaad de pagina als er iets niet werkt",
+				"receiveupdates": "Ontvang updates hier! (\"Volg\" het onderwerp)"
+			},
+			"command": "Commando:",
+			"execute_tellraw": "Voer out"
+		},
+		"pt_br": {
+			"template": {
+				"sign_block": "Placa (/blockdata)",
+				"sign_item": "Placa (/give)",
+				"subtitle": "Subtítulo (/title)",
+				"title": "Título (/title)",
+				"tellraw": "Tellraw (/tellraw)",
+				"book": "Livro (/give)",
+				"execute_tellraw": "Executar (/execute)"
+			},
+			"output": {
+				"nothing": "Nada aqui.",
+				"header": "Previsão:"
+			},
+			"saves": {
+				"header": "Comandos salvos",
+				"hide": "Ocultar comandos salvos",
+				"persistencenotice": "Comandos salvos podem ser reiniciados em qualquer hora, e dependem dos cookies de seu navegador.",
+				"show": "Mostrar comandos salvos",
+				"deleteall": {
+					"body": "Isso deleta apenas seus comandos salvos, não afeta o atual.",
+					"yes": "Confirmar",
+					"heading": "Tem certeza?",
+					"no": "Cancelar"
+				},
+				"nosaves": "Você não tem nenhum comando salvo, ainda.",
+				"new": "Salvar comando atual"
+			},
+			"settings": {
+				"previewcolor": "Cor do plano de fundo da previsão:",
+				"export": "Exportar",
+				"deleteall": {
+					"body": "Isso irá deletar todo o comando atual.",
+					"heading": "Tem certeza?",
+					"yes": "Deletar tudo",
+					"no": "Cancelar"
+				},
+				"importtext": {
+					"default": "Insira o comando. Em caso de erros, use o botão \"Deletar tudo\". Apenas /tellraw funciona.",
+					"exported": "Insira aqui. Comandos não criados diretamente deste site podem não funcionar."
+				},
+				"import": "Importar",
+				"header": "Opções:"
+			},
+			"color": {
+				"color_none": "Nenhum",
+				"color_green": "Verde",
+				"color_red": "Vermelho",
+				"color_dark_aqua": "Ciâno",
+				"color_dark_purple": "Roxo",
+				"color_dark_blue": "Azul escuro",
+				"color_aqua": "Azul claro",
+				"color_white": "Branco",
+				"color_dark_gray": "Cinza escuro",
+				"color_dark_red": "Vermelho escuro",
+				"color_dark_green": "Verde escuro",
+				"color_gold": "Laranja",
+				"color_blue": "Azul",
+				"color_black": "Preto",
+				"color_gray": "Cinza",
+				"color_light_purple": "Rosa",
+				"color_yellow": "Amarelo"
+			},
+			"header": "Gerador de Tellraw para minecraft 1.7+",
+			"textsnippets": {
+				"trn": "Traduzido",
+				"clickevent": {
+					"runcommand": "Executar comando",
+					"openurl": "Abrir link",
+					"suggestcommand": "Sugerir comando",
+					"header": "Evento ao clicar:",
+					"none": "Nenhum"
+				},
+				"parameter": "Parâmetro",
+				"editsnippet": "Editar texto",
+				"close": "Fechar",
+				"hoverevent": {
+					"header": "Evento ao passar mouse:",
+					"showachievement": "Mostrar conquista",
+					"id": "ID:",
+					"showentity": "Mostrar entity",
+					"showitem": "Mostrar item",
+					"type": "Tipo:",
+					"none": "Nenhum",
+					"showtext": "Mostrar texto",
+					"name": "Nome"
+				},
+				"notext": "Sem texto",
+				"NEW_ITERATE_FLAG": "Nova página do livro",
+				"insert": "Inserir",
+				"addsnippet": "Adicionar texto",
+				"insertion": {
+					"header": "Inserção"
+				},
+				"sel": "Seletor",
+				"format": {
+					"bold": "Negrito",
+					"underlined": "Sublinhado",
+					"obfuscated": "Obfuscado",
+					"italic": "Itálico",
+					"strikethrough": "Riscado"
+				},
+				"player": "Jogador",
+				"obj2": "Objetivo",
+				"obj": "Objetivo do scoreboard",
+				"nosnippets": "Sem texto",
+				"header": "Textos",
+				"text": "Texto",
+				"raw": "Raw",
+				"warning": {
+					"title": "Aviso",
+					"text": "Você precisa de %v para usar %f"
+				}
+			},
+			"headerbar": {
+				"report_an_issue": "Report an Issue",
+				"dropdown": {
+					"tweet": "Tweet",
+					"request_needed_translations": "Needed Translations List",
+					"forum_thread": "Forum Thread",
+					"changelog": "Changelog"
+				}
+			},
+			"language": {
+				"translate": "Traduzir",
+				"name": "Português Brasileiro",
+				"header": "Linguagem",
+				"credit": "Traduzido por Gerottinho"
+			},
+			"player": {
+				"header": "Comando e jogador",
+				"description": "Usado para selecionar o comando e o jogador no qual será usado"
+			},
+			"commandblock": "Este comando é grande demais e pode ser executado apenas em blocos de comando ou console.",
+			"alert": {
+				"report": "Reportar um erro",
+				"changed": "Esta página foi modificada recentemente. No caso de problemas, recarregue-a.",
+				"receiveupdates": "Receba atualizações (\"Siga\" o tópico)"
+			},
+			"command": "Comando:",
+			"export": {
+				"heading": "Seu comando exportado",
+				"close": "Fechar"
+			},
+			"attribution": "Enquanto nada é preciso para usar isso, agradecemos divulgações do site ou do tópico em Minecraft Forum."
 		},
 		"ru_ru": {
 			"template": {
@@ -1371,6 +1314,96 @@
 				"receiveupdates": "Обновления здесь (\"Подпишись\" на топик)"
 			},
 			"command": "Команда:"
+		},
+		"zh_TW": {
+			"player": {
+				"description": "(@a、@p、@r或特定的玩家)",
+				"header": "玩家："
+			},
+			"header": "Tellraw 指令產生器",
+			"output": {
+				"nothing": "還沒有指令",
+				"header": "預覽輸出："
+			},
+			"color": {
+				"color_green": "綠色",
+				"color_red": "紅色",
+				"color_dark_aqua": "深青色",
+				"color_dark_purple": "深紫色",
+				"color_dark_blue": "深藍色",
+				"color_aqua": "青色",
+				"color_white": "白色",
+				"color_dark_gray": "暗灰色",
+				"color_dark_red": "深紅色",
+				"color_dark_green": "深綠色",
+				"color_gold": "金色",
+				"color_blue": "藍色",
+				"color_black": "黑色",
+				"color_gray": "灰色",
+				"color_light_purple": "亮紫色",
+				"color_yellow": "黃色"
+			},
+			"textsnippets": {
+				"clickevent": {
+					"runcommand": "執行指令",
+					"openurl": "開啟網址(URL=網址)",
+					"suggestcommand": "建議指令",
+					"header": "點擊事件：",
+					"none": "無"
+				},
+				"close": "關閉",
+				"insert": "插入",
+				"raw": "自訂",
+				"hoverevent": {
+					"header": "懸浮事件：",
+					"showachievement": "顯示成就",
+					"showentity": "顯示實體",
+					"showitem": "顯示物品",
+					"type": "類型：",
+					"none": "無",
+					"showtext": "顯示文字",
+					"name": "名稱"
+				},
+				"addsnippet": "加入文字",
+				"insertion": {
+					"header": "插入"
+				},
+				"header": "文字",
+				"nosnippets": "還沒有文字",
+				"parameter": "參數",
+				"text": "文字",
+				"format": {
+					"bold": "粗體",
+					"underlined": "底線",
+					"obfuscated": "亂碼",
+					"italic": "斜體",
+					"strikethrough": "刪除線"
+				},
+				"trn": "翻譯"
+			},
+			"commandblock": "你一定要在伺服器控制台或指令方塊中使用。",
+			"language": {
+				"translate": "翻譯",
+				"name": "繁體中文",
+				"header": "語言",
+				"credit": "翻譯 by 海豹(seadog007) 和 柯柯(TaiwaneseFTW)"
+			},
+			"alert": {
+				"changed": "本頁最近修改過，因此可能會有問題。如果沒有正常動作，請重新整理。",
+				"receiveupdates": "跟隨此文章來接收更新與支持作者"
+			},
+			"command": "指令：",
+			"settings": {
+				"previewcolor": "預覽輸出背景顏色",
+				"deleteall": {
+					"body": "刪除所有的文字嗎？",
+					"heading": "確定要這麼做嗎？",
+					"yes": "刪除全部",
+					"no": "取消"
+				},
+				"import": "匯入",
+				"header": "設定："
+			}
 		}
 	},
 	"web_language_relations": {
