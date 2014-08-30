@@ -1140,6 +1140,27 @@
 			"attribution": "While nothing is required to use this, it would always be appreciated if you linked to this webpage or the MCF thread."
 		},
 		"fr_fr": {
+			"saves": {
+				"deleteall": {
+					"yes": "Supprimer tout Saves"
+				},
+				"new": "Enregistrer chaîne actuelle",
+				"nosaves": "Vous n'avez rien enregistré",
+				"persistencenotice": "Enregistre peuvent réinitialiser à tout moment, et dépendra de vos navigateurs cookies. Ne pas compter sur eux pour des périodes de temps prolongées."
+			},
+			"template": {
+				"title": "Titre",
+				"subtitle": "Sous-Titre",
+				"book": "Livre"
+			},
+			"headerbar": {
+				"dropdown": {
+					"request_needed_translations": "Liste des traductions nécessaires",
+					"forum_thread": "Forum Sujet",
+					"changelog": "des modifications"
+				},
+				"report_an_issue": "Signaler un problème"
+			},
 			"player": {
 				"description": "(@a, @p, @r, ou un joueur spécifique)",
 				"header": "Joueur :"
