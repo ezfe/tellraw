@@ -11,8 +11,6 @@ var selectedClick_edit;
 var downButton;
 var upButton;
 var extraTextFormat = 'raw';
-var colorExtraPreviewBox = '#617A80';
-var textExtraStorageVar; /*DO NOT USE - ALSO AT THIS POINT IDK WHAT IT DOES LOL*/
 var lang = {"status":"init"};
 var translationStrings;
 var currentEdit;
@@ -1087,7 +1085,7 @@ function initialize() {
 		if (match != null) {
 			for (var i = matchLength - 1; i >= 0; i--) {
 				if (matchLength > 5) {
-					alert('An unexpected error has occured. REFID:matchLength.GreaterThan.5-990@44aca9656b8bb3368da86f9ed7393e5664b479f1');
+					alert('An unexpected error has occured. EID-more than 5 matches');
 				}
 				for (var i = matchLength - 1; i >= 0; i--) {
 					$('#parameter'+i+'row').show();
@@ -1128,49 +1126,9 @@ function initialize() {
 		refreshLanguage();
 	});
 	$('#lang_request').on('click',function(){
-		//alert('This isn\'t finished, and will give you just the terms for your language');
 		$('html').html('<a href="#" onclick="location.reload()">Go Back</a><br><br><br>');
 		$('html').append(errorString);
-		//$('html').append(JSON.stringify(requestLanguageFile(localStorage.getItem('langCode'))));
 	});
-}
-function requestLanguageFile(languageCode) {
-	return lang[languageCode];
-
-/*	if (languageCode == undefined) {
-		return {"error":"language_not_set"};
-	}
-	var curobj = lang[languageCode];
-	for (var i = 0; i < strArray.length; i++) {
-		if (curobj[strArray[i]] != undefined) {
-			curobj = curobj[strArray[i]];
-			if (curobj === undefined) {
-				if (languageCode != 'en_us') {
-					return getLanguageString(string,languageCode,true);
-				}
-				else {
-					return string;
-				}
-			}
-			if (typeof curobj == 'string') {
-				if (!do_encode) {
-					return curobj;
-				} else {
-					var ret_val = '';
-					for (var i = 0; i < string.length; i++) { 
-						if (string.codePointAt(i) > 127) {
-							ret_val += '&#' + string.codePointAt(i) + ';';
-						} else {
-							ret_val += string.charAt(i);
-						}
-					}
-					return ret_val;	
-				}
-			}
-		}
-	}
-	return getLanguageString(string,languageCode,true);
-	*/
 }
 $( document ).ready(function(){
 	$.ajax({
