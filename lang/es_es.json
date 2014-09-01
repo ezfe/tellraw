@@ -1,0 +1,101 @@
+{
+	"player": {
+		"header": "Jugador:",
+		"description": "(@a, @p, @r, o un jugador específico)"
+	},
+	"header": "Generador del comando Tellraw para Minecraft 1.7+",
+	"output": {
+		"nothing": "Nada todavía",
+		"header": "Vista Previa"
+	},
+	"color": {
+		"color_green": "Verde",
+		"color_red": "Rojo",
+		"color_dark_aqua": "Aguamarina Oscuro",
+		"color_dark_purple": "Morado Oscuro",
+		"color_dark_blue": "Azul Oscuro",
+		"color_aqua": "Aguamerina",
+		"color_white": "Blanco",
+		"color_dark_gray": "Gris Oscuro",
+		"color_dark_red": "Rojo Oscuro",
+		"color_dark_green": "Verde Oscuro",
+		"color_gold": "Oro",
+		"color_blue": "Azul",
+		"color_black": "Negro",
+		"color_gray": "Gris",
+		"color_light_purple": "Violeta",
+		"color_yellow": "Amarillo"
+	},
+	"textsnippets": {
+		"notext": "No hay texto todavía",
+		"clickevent": {
+			"runcommand": "Ejecutar comando",
+			"openurl": "Abrir URL",
+			"suggestcommand": "Introducir comando",
+			"header": "Ejecutar al hacer clic:",
+			"none": "Nada"
+		},
+		"close": "Cerrar",
+		"insert": "Insertar",
+		"raw": "Texto Simple",
+		"hoverevent": {
+			"header": "Acción al pasar el Puntero:",
+			"showachievement": "Mostrar Logro",
+			"id": "ID:",
+			"showentity": "Mostrar entidad",
+			"showitem": "Mostrar item",
+			"type": "Tipo:",
+			"none": "Nada",
+			"showtext": "Mostrar texo",
+			"name": "Nombre"
+		},
+		"addsnippet": "Añadir Texto ",
+		"editsnippet": "Editar",
+		"insertion": {
+			"header": "Insertar en Chat"
+		},
+		"header": "Fragmento/s de Texto",
+		"nosnippets": "Aún no hay texto",
+		"obj2": "Objetivo",
+		"text": "Texto",
+		"format": {
+			"bold": "Negrita",
+			"underlined": "Subrayado",
+			"obfuscated": "Confuso",
+			"italic": "Cursiva",
+			"strikethrough": "Tachado"
+		},
+		"warning": {
+			"title": "¡Cuidado!",
+			"text": "Necesitas %v para usar %f"
+		},
+		"player": "Jugador",
+		"parameter": "Parámetro",
+		"trn": "Prediseñado",
+		"obj": "Logro"
+	},
+	"commandblock": "Tienes que ejecutar esto en la consola del servidor o en un bloque de comandos.",
+	"language": {
+		"translate": "Traducir",
+		"name": "Español",
+		"header": "Idioma",
+		"credit": "Traducido por KaliNuska"
+	},
+	"alert": {
+		"changed": "Esta página ha sido recientemente modificada, así que podría haber algunos problemas. Recarga la página si algo parece no funcionar bien.",
+		"receiveupdates": "Mira las últimas actualizaciones aquí (Foro Oficial)"
+	},
+	"command": "Commando:",
+	"settings": {
+		"previewcolor": "Color de Vista Previa del Fondo:",
+		"deleteall": {
+			"body": "\"Eliminar\" quitará todo el texto y lo sustituirá por una línea en blanco.",
+			"heading": "¿¿Estás seguro??",
+			"yes": "Eliminar Todo",
+			"no": "Cancelar"
+		},
+		"import": "Importar",
+		"header": "Configuración:",
+		"importtext": "Introduzca el comando tellraw. Utiliza el botón de \"Eliminar Todo\" si no lo importa correctamente."
+	}
+}

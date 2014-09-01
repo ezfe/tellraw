@@ -1,0 +1,146 @@
+{
+	"template": {
+		"sign_block": "Sign (/blockdata)",
+		"sign_item": "Sign (/give)",
+		"subtitle": "Subtitle",
+		"title": "Title",
+		"tellraw": "Tellraw",
+		"book": "Book",
+		"execute_tellraw": "Execute"
+	},
+	"output": {
+		"nothing": "Nothing to see here",
+		"header": "Output Preview:"
+	},
+	"saves": {
+		"header": "Saves",
+		"hide": "Hide Saves",
+		"persistencenotice": "Saves may reset at any time, and depend on your browsers cookies. Do not rely on them for extended periods of time.",
+		"show": "Show Saves",
+		"deleteall": {
+			"body": "Clicking Delete will remove all your saves, but won't affect your current text",
+			"yes": "Delete All Saves",
+			"heading": "Are you sure!?!",
+			"no": "Cancle"
+		},
+		"nosaves": "You don't have anything saved",
+		"new": "Save Current String"
+	},
+	"settings": {
+		"previewcolor": "Preview Background Color:",
+		"export": "Export",
+		"deleteall": {
+			"body": "Clicking Delete will remove all your text and reset it to an empty string.",
+			"heading": "Are you sure!?!",
+			"yes": "Delete All",
+			"no": "Cancel"
+		},
+		"importtext": {
+			"default": "Please enter the tellraw command. Use the Delete All button if it incorrectly imports. Import only works with /tellraw commands",
+			"exported": "Please enter the string you were given when you exported your command"
+		},
+		"import": "Import",
+		"header": "Settings:"
+	},
+	"color": {
+		"color_green": "Green",
+		"color_red": "Red",
+		"color_none": "None",
+		"color_dark_aqua": "Dark Aqua",
+		"color_dark_purple": "Dark Purple",
+		"color_dark_blue": "Dark Blue",
+		"color_aqua": "Aqua",
+		"color_white": "White",
+		"color_dark_gray": "Dark Gray",
+		"color_dark_red": "Dark Red",
+		"color_dark_green": "Dark Green",
+		"color_gold": "Gold",
+		"color_blue": "Blue",
+		"color_black": "Black",
+		"color_gray": "Gray",
+		"color_light_purple": "Light Purple",
+		"color_yellow": "Yellow"
+	},
+	"header": "Tellraw Generator for Minecraft 1.7+",
+	"textsnippets": {
+		"trn": "Translated",
+		"clickevent": {
+			"runcommand": "Run Command",
+			"openurl": "Open URL",
+			"suggestcommand": "Suggest Command",
+			"header": "Click Event:",
+			"none": "None"
+		},
+		"parameter": "Parameter",
+		"editsnippet": "Edit Text",
+		"close": "Close",
+		"hoverevent": {
+			"header": "Hover Event:",
+			"showachievement": "Show Achievement",
+			"id": "ID:",
+			"showentity": "Show Entity",
+			"showitem": "Show Item",
+			"type": "Type:",
+			"none": "None",
+			"showtext": "Show Text",
+			"name": "Name"
+		},
+		"notext": "No Text",
+		"NEW_ITERATE_FLAG": "New Book Page",
+		"insert": "Insert",
+		"addsnippet": "Add Text",
+		"insertion": {
+			"header": "Insertion"
+		},
+		"sel": "Selector",
+		"format": {
+			"bold": "Bold",
+			"underlined": "Underlined",
+			"obfuscated": "Obfuscated",
+			"italic": "Italic",
+			"strikethrough": "Strikethrough"
+		},
+		"player": "Player",
+		"obj2": "Objective",
+		"obj": "Scoreboard Objective",
+		"nosnippets": "No text yet",
+		"header": "Text Snippets",
+		"text": "Text",
+		"raw": "Raw",
+		"warning": {
+			"title": "Warning!",
+			"text": "You need %v to use %f"
+		}
+	},
+	"headerbar": {
+		"report_an_issue": "Report an Issue",
+		"dropdown": {
+			"tweet": "Tweet",
+			"request_needed_translations": "Needed Translations List",
+			"forum_thread": "Forum Thread",
+			"changelog": "Changelog"
+		}
+	},
+	"language": {
+		"translate": "Translate",
+		"name": "English",
+		"header": "Language",
+		"credit": "Translated by Ezekiel"
+	},
+	"player": {
+		"header": "Player and Command",
+		"description": "Used to select and execute different players"
+	},
+	"commandblock": "You must run this in the server console or in a command block.",
+	"alert": {
+		"report": "Report Problem",
+		"changed": "This page was recently modified, so there might be problems. Reload the page if something doesn't seem to work.",
+		"receiveupdates": "Receive updates here (\"Follow\" the topic)"
+	},
+	"command": "Command:",
+	"export": {
+		"heading": "Your Exported Command",
+		"close": "Close"
+	},
+	"attribution": "While nothing is required to use this, it would always be appreciated if you linked to this webpage or the MCF thread."
+}

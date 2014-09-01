@@ -1,0 +1,105 @@
+{
+	"template": {
+		"title": "Titre",
+		"subtitle": "Sous-Titre",
+		"book": "Livre"
+	},
+	"output": {
+		"nothing": "Rien à voir par ici",
+		"header": "Aperçu du résultat :"
+	},
+	"saves": {
+		"new": "Enregistrer chaîne actuelle",
+		"deleteall": {
+			"yes": "Supprimer tout Saves"
+		},
+		"persistencenotice": "Enregistre peuvent réinitialiser à tout moment, et dépendra de vos navigateurs cookies. Ne pas compter sur eux pour des périodes de temps prolongées.",
+		"nosaves": "Vous n'avez rien enregistré"
+	},
+	"settings": {
+		"previewcolor": "Couleur du fond de l'aperçu :",
+		"deleteall": {
+			"body": "Cliquer sur Tout supprimer va enlever votre texte et tout remettre à zéro.",
+			"heading": "En êtes-vous sûr !?",
+			"yes": "Tout supprimer",
+			"no": "Annuler"
+		},
+		"import": "Importer",
+		"header": "Paramètres :"
+	},
+	"color": {
+		"color_green": "Vert",
+		"color_red": "Rouge",
+		"color_dark_aqua": "Bleu océan",
+		"color_dark_purple": "Violet",
+		"color_dark_blue": "Bleu foncé",
+		"color_aqua": "Cyan",
+		"color_white": "Blanc",
+		"color_dark_gray": "Gris foncé",
+		"color_dark_red": "Rouge foncé",
+		"color_dark_green": "Vert foncé",
+		"color_gold": "Or",
+		"color_blue": "Bleu",
+		"color_black": "Noir",
+		"color_gray": "Gris",
+		"color_light_purple": "Rose",
+		"color_yellow": "Jaune"
+	},
+	"header": "Générateur de Tellraw pour Minecraft 1.7+",
+	"textsnippets": {
+		"clickevent": {
+			"runcommand": "Envoyer une commande :",
+			"openurl": "Ouvrir une URL",
+			"suggestcommand": "Suggérer une commande",
+			"header": "Évènement \"Clic\"",
+			"none": "Aucun"
+		},
+		"close": "Fermer",
+		"insert": "Insérer",
+		"raw": "Brut",
+		"hoverevent": {
+			"showachievement": "Montrer un succès",
+			"showitem": "Montrer un objet",
+			"header": "Évènement \"Survol\"",
+			"none": "Aucun",
+			"showtext": "Montrer du texte"
+		},
+		"addsnippet": "Ajouter du texte",
+		"header": "Morceaux de texte",
+		"nosnippets": "Aucun texte",
+		"parameter": "Paramètre",
+		"text": "Texte",
+		"format": {
+			"bold": "Gras",
+			"underlined": "Souligné",
+			"obfuscated": "Caché",
+			"italic": "Italique",
+			"strikethrough": "Barré"
+		},
+		"trn": "Traduit"
+	},
+	"headerbar": {
+		"report_an_issue": "Signaler un problème",
+		"dropdown": {
+			"changelog": "des modifications",
+			"request_needed_translations": "Liste des traductions nécessaires",
+			"forum_thread": "Forum Sujet"
+		}
+	},
+	"language": {
+		"translate": "Traduire",
+		"name": "Français",
+		"header": "Langue",
+		"credit": "Traduit par Plumeex"
+	},
+	"player": {
+		"header": "Joueur :",
+		"description": "(@a, @p, @r, ou un joueur spécifique)"
+	},
+	"commandblock": "Vous devez lancer ceci dans une console ou dans un bloc de commande.",
+	"alert": {
+		"changed": "Cette page a été modifiée récemment, il peut y avoir des problèmes. Rechargez la page si quelque chose semble dysfonctionner.",
+		"receiveupdates": "Retrouvez les mises à jour ici (\"Suivez\" le sujet)"
+	},
+	"command": "Commande :"
+}

@@ -1,0 +1,91 @@
+{
+	"header": "Generátor TellRaw pro Minecraft 1.7 a vyšší",
+	"color": {
+		"color_green": "Zelená",
+		"color_red": "Červená",
+		"color_dark_aqua": "Tmavě modrozelená",
+		"color_dark_purple": "Fialová",
+		"color_dark_blue": "Tmavě modrá",
+		"color_aqua": "Modrozelená",
+		"color_white": "Bílá",
+		"color_dark_gray": "Tmavě šedá",
+		"color_dark_red": "Tmavě červená",
+		"color_dark_green": "Tmavě zelená",
+		"color_gold": "Zlatá",
+		"color_blue": "Modrá",
+		"color_black": "Černá",
+		"color_gray": "Šedá",
+		"color_light_purple": "Růžová",
+		"color_yellow": "Žlutá"
+	},
+	"output": {
+		"nothing": "Nic k vidění",
+		"header": "Náhled výstupu:"
+	},
+	"player": {
+		"header": "Hráč:",
+		"description": "(@a, @p, @r, nebo jméno hráče)"
+	},
+	"textsnippets": {
+		"clickevent": {
+			"runcommand": "Spustit příkaz:",
+			"openurl": "Otevřít webovou adresu",
+			"suggestcommand": "Navrhnout příkaz",
+			"header": "Událost při kliknutí:",
+			"none": "Nic"
+		},
+		"close": "Zavřít",
+		"insert": "Vložit",
+		"raw": "Nezpracované",
+		"hoverevent": {
+			"header": "Událost při přejetí myší:",
+			"showachievement": "Ukázat ocenění (achievement)",
+			"id": "ID:",
+			"showentity": "Ukázat subjekt (žijící věc, entity)",
+			"showitem": "Ukázat předmět (item)",
+			"type": "Typ:",
+			"none": "Nic",
+			"showtext": "Ukázat text",
+			"name": "Jméno"
+		},
+		"addsnippet": "Přidat text ",
+		"insertion": {
+			"header": "Vložení:"
+		},
+		"header": "Úryvky textu",
+		"nosnippets": "Zatím žádný text",
+		"parameter": "Vlastnost",
+		"text": "Text",
+		"format": {
+			"bold": "Tučné",
+			"underlined": "Podtrhnuté",
+			"obfuscated": "Zmatené (§k)",
+			"italic": "Kurzíva",
+			"strikethrough": "Přeškrtnuté"
+		},
+		"trn": "Přeložené"
+	},
+	"commandblock": "Tento příkaz musíš spustit přes konzoli serveru nebo přes příkazový blok.",
+	"language": {
+		"translate": "Přeložit",
+		"name": "Čeština",
+		"header": "Jazyk",
+		"credit": "Do češtiny přeložil Matojeje (Matuli Yoshi)"
+	},
+	"alert": {
+		"changed": "Tato stránka byla nedávno změněna, takže tu mohou být problémy. Pokud něco nefunguje, obnov stránku.",
+		"receiveupdates": "Aktualizace této stránky (\"Sleduj\" téma)"
+	},
+	"command": "Příkaz:",
+	"settings": {
+		"previewcolor": "Barva pozadí náhledu:",
+		"deleteall": {
+			"body": "Vymaže všechen tvůj text a resetuje ho na prázdnou hodnotu.",
+			"heading": "Doopravdy!?!",
+			"yes": "Vymazat vše",
+			"no": "Zrušit"
+		},
+		"import": "Importovat",
+		"header": "Nastavení:"
+	}
+}

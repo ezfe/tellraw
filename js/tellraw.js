@@ -19,6 +19,15 @@ var webLangRelations;
 
 var newLine = /\\\\n/g;
 
+function getURL(url){
+	return $.ajax({
+		type: "GET",
+		url: url,
+		cache: false,
+		async: false
+	}).responseText;
+}
+
 function verify_jobject_format(jdata) {
 	if (get_type(jdata) != "[object Array]") {
 		alert('Your stored variable is malformed and needs to be cleared.');
@@ -972,8 +981,10 @@ function jsonParse() {
 	}
 }
 function refreshLanguage(dropdownSelection) {
-	if (lang[localStorage.getItem('langCode')] != undefined) {
+	if (lang[localStorage.getItem('langCode')]) {
 		$('*').refreshLanguage(localStorage.getItem('langCode'));
+	} else {
+		localStorage.setItem('langCode','en_us')
 	}
 	$('*').each(function(){
 		if ($(this).attr('version') != undefined && (localStorage['versionIndicators'] == true || localStorage['versionIndicators'] == undefined)) {
@@ -1025,7 +1036,11 @@ function initialize() {
 	if (localStorage.getItem('jtemplate') == undefined) {
 		localStorage.setItem('jtemplate', 'tellraw');
 	}
-	errorString = lang[localStorage.getItem('langCode')].language.name+'<br><br>'; 
+	if (lang[localStorage.getItem('langCode')]) {
+		errorString = lang[localStorage.getItem('langCode')].language.name+'<br><br>';
+	} else {
+		errorString = '&lt;language unknown&gt;<br><br>';
+	}
 	for (var i = 0; i < Object.keys(lang).length; i++) {
 		$('#language_keys').append('<li><a onclick="errorString = \''+lang[Object.keys(lang)[i]].language.name+'<br><br>\'; localStorage.setItem(\'langCode\',\''+Object.keys(lang)[i]+'\'); refreshLanguage(true); refreshOutput();"><span class="'+Object.keys(lang)[i]+' langSelect" id="language_select_'+Object.keys(lang)[i]+'">'+lang[Object.keys(lang)[i]].language.name+'</span></a></li>');
 	};
@@ -1131,16 +1146,19 @@ function initialize() {
 	});
 }
 $( document ).ready(function(){
-	$.ajax({
-		url: 'resources.json',
-		success: function (data) {
-			if (typeof data == 'string') {
-				data = JSON.parse(data);
-			}
-			lang = data['web_language_strings'];
-			translationStrings = data['minecraft_language_strings']['en_us'];
-			webLangRelations = data['web_language_relations'];
-			setTimeout(initialize,500)
+	data = getURL('resources.json');
+	if (typeof data == 'string') {
+		data = JSON.parse(data);
+	}
+	translationStrings = data['minecraft_language_strings']['en_us'];
+	webLangRelations = data['web_language_relations'];
+	//lang = data['web_language_strings'];
+	for (var i = 0; i < data['web_language_urls'].length; i++) {
+		lang[data['web_language_urls'][i]] = getURL('lang/' + data['web_language_urls'][i] + '.json');
+		if (typeof lang[data['web_language_urls'][i]] == 'string') {
+			lang[data['web_language_urls'][i]] = JSON.parse(lang[data['web_language_urls'][i]]);
 		}
-	});
+	}
+	delete lang.status;
+	setTimeout(initialize,500);
 });

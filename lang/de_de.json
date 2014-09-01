@@ -1,0 +1,128 @@
+{
+	"template": {
+		"sign_block": "Schild (/blockdata)",
+		"sign_item": "Schild (/give)",
+		"subtitle": "Untertitel",
+		"title": "Titel",
+		"tellraw": "Tellraw",
+		"book": "Buch",
+		"execute_tellraw": "Execute"
+	},
+	"output": {
+		"nothing": "Noch nichts zu sehen",
+		"header": "Vorschau:"
+	},
+	"saves": {
+		"header": "Gespeicherte Daten",
+		"hide": "Verberge gespeicherte Daten",
+		"persistencenotice": "Die gespeicherten Daten könnten sich jederzeit zurücksetzen, und hängen von deinen Browser Cookies ab. Vertraue deshalb nicht auf sie über einen längeren Zeitraum.",
+		"show": "Zeige gespeicherte Daten",
+		"deleteall": {
+			"body": "Das klicken von Löschen wird alle gespeicherten Daten löschen, aber nicht deinen aktuellen text",
+			"yes": "Alle gespeicherten Daten löschen",
+			"heading": "Bist du dir sicher!?!",
+			"no": "Abbrechen"
+		},
+		"nosaves": "Du hast noch nichts gespeichert",
+		"new": "Aktuellen String speichern"
+	},
+	"settings": {
+		"previewcolor": "Hintergrundfarbe der Vorschau:",
+		"deleteall": {
+			"body": "Das klicken von löschen wird all deinen text löschen und ihn zu einem leeren String zurücksetzen.",
+			"heading": "Bist du dir sicher!?!",
+			"yes": "Alles Löschen",
+			"no": "Abbrechen"
+		},
+		"import": "Importieren",
+		"header": "Einstellungen:",
+		"importtext": "Please enter the tellraw command. Use the Delete All button if it incorrectly imports. Import only works with /tellraw commands"
+	},
+	"color": {
+		"color_green": "Grün",
+		"color_red": "Rot",
+		"color_none": "Keine",
+		"color_dark_aqua": "Dunkel Aquamarin",
+		"color_dark_purple": "Dunkel Violett",
+		"color_dark_blue": "Dunkel Blau",
+		"color_aqua": "Aquamarin",
+		"color_white": "Weiß",
+		"color_dark_gray": "Dunkel Grau",
+		"color_dark_red": "Dunkel Rot",
+		"color_dark_green": "Dunkel Grün",
+		"color_gold": "Gold",
+		"color_blue": "Blau",
+		"color_black": "Schwarz",
+		"color_gray": "Grau",
+		"color_light_purple": "Helles Violett",
+		"color_yellow": "Gelb"
+	},
+	"header": "Tellraw Befehlsgenerator für Minecraft 1.7+",
+	"textsnippets": {
+		"trn": "Übersetzt",
+		"clickevent": {
+			"runcommand": "Befehl ausführen",
+			"openurl": "URL öffnen",
+			"suggestcommand": "Befehl vorschlagen",
+			"header": "Klick Ereigniss:",
+			"none": "Keins"
+		},
+		"parameter": "Parameter",
+		"editsnippet": "Text bearbeiten",
+		"close": "Schließen",
+		"hoverevent": {
+			"header": "Mouseover Ereigniss:",
+			"showachievement": "Zeige Errungenschaft",
+			"id": "ID:",
+			"showentity": "Zeige Entity",
+			"showitem": "Zeige Item",
+			"type": "Typ:",
+			"none": "Keins",
+			"showtext": "Zeige Text",
+			"name": "Name"
+		},
+		"notext": "Kein Text",
+		"insert": "Einfügen",
+		"addsnippet": "Add Text",
+		"insertion": {
+			"header": "Einzufügender Text"
+		},
+		"sel": "Selector",
+		"format": {
+			"bold": "Fett",
+			"underlined": "Unterstrichen",
+			"obfuscated": "Verschleiert",
+			"italic": "Kursiv",
+			"strikethrough": "Durchgestrichen"
+		},
+		"player": "Spieler",
+		"obj2": "Objective",
+		"obj": "Scoreboard Objective",
+		"nosnippets": "Noch kein Text",
+		"header": "Textabschitte",
+		"text": "Text",
+		"raw": "Roh",
+		"warning": {
+			"title": "Warnung!",
+			"text": "Du brauchst %v um %f zu benutzen"
+		}
+	},
+	"language": {
+		"translate": "Übersetzen",
+		"name": "Deutsch",
+		"header": "Sprache",
+		"credit": "Übersetzt von @MrTom0075, @shoutlike, RoiEx, Jar und TheRealMinec"
+	},
+	"player": {
+		"header": "Spieler und Befehl:",
+		"description": "(@a, @p, @r, oder ein bestimmter Spieler)"
+	},
+	"commandblock": "Du musst den Befehl in der Server Konsole oder in einem Befehlsblock ausführen.",
+	"alert": {
+		"report": "Problem melden",
+		"changed": "Diese Seite wurde kürzlich geändert, also könnten Probleme auftreten. Lade die Seite neu wenn es so aus sieht als ob etwas nicht funktionieren würde.",
+		"receiveupdates": "Bekomme updates hier (\"Folge\" dem Thema)"
+	},
+	"command": "Befehl:",
+	"attribution": "Obwohl nichts erforderlich ist um das hier zu benutzen, ist es trotzdem immer willkommen wenn du zu dieser Webseite oder zu dem Minercaft Forum Thread verlinkst."
+}

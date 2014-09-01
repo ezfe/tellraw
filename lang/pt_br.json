@@ -1,0 +1,146 @@
+{
+	"template": {
+		"sign_block": "Placa (/blockdata)",
+		"sign_item": "Placa (/give)",
+		"subtitle": "Subtítulo (/title)",
+		"title": "Título (/title)",
+		"tellraw": "Tellraw (/tellraw)",
+		"book": "Livro (/give)",
+		"execute_tellraw": "Executar (/execute)"
+	},
+	"output": {
+		"nothing": "Nada aqui.",
+		"header": "Previsão:"
+	},
+	"saves": {
+		"header": "Comandos salvos",
+		"hide": "Ocultar comandos salvos",
+		"persistencenotice": "Comandos salvos podem ser reiniciados em qualquer hora, e dependem dos cookies de seu navegador.",
+		"show": "Mostrar comandos salvos",
+		"deleteall": {
+			"body": "Isso deleta apenas seus comandos salvos, não afeta o atual.",
+			"yes": "Confirmar",
+			"heading": "Tem certeza?",
+			"no": "Cancelar"
+		},
+		"nosaves": "Você não tem nenhum comando salvo, ainda.",
+		"new": "Salvar comando atual"
+	},
+	"settings": {
+		"previewcolor": "Cor do plano de fundo da previsão:",
+		"export": "Exportar",
+		"deleteall": {
+			"body": "Isso irá deletar todo o comando atual.",
+			"heading": "Tem certeza?",
+			"yes": "Deletar tudo",
+			"no": "Cancelar"
+		},
+		"importtext": {
+			"default": "Insira o comando. Em caso de erros, use o botão \"Deletar tudo\". Apenas /tellraw funciona.",
+			"exported": "Insira aqui. Comandos não criados diretamente deste site podem não funcionar."
+		},
+		"import": "Importar",
+		"header": "Opções:"
+	},
+	"color": {
+		"color_none": "Nenhum",
+		"color_green": "Verde",
+		"color_red": "Vermelho",
+		"color_dark_aqua": "Ciâno",
+		"color_dark_purple": "Roxo",
+		"color_dark_blue": "Azul escuro",
+		"color_aqua": "Azul claro",
+		"color_white": "Branco",
+		"color_dark_gray": "Cinza escuro",
+		"color_dark_red": "Vermelho escuro",
+		"color_dark_green": "Verde escuro",
+		"color_gold": "Laranja",
+		"color_blue": "Azul",
+		"color_black": "Preto",
+		"color_gray": "Cinza",
+		"color_light_purple": "Rosa",
+		"color_yellow": "Amarelo"
+	},
+	"header": "Gerador de Tellraw para minecraft 1.7+",
+	"textsnippets": {
+		"trn": "Traduzido",
+		"clickevent": {
+			"runcommand": "Executar comando",
+			"openurl": "Abrir link",
+			"suggestcommand": "Sugerir comando",
+			"header": "Evento ao clicar:",
+			"none": "Nenhum"
+		},
+		"parameter": "Parâmetro",
+		"editsnippet": "Editar texto",
+		"close": "Fechar",
+		"hoverevent": {
+			"header": "Evento ao passar mouse:",
+			"showachievement": "Mostrar conquista",
+			"id": "ID:",
+			"showentity": "Mostrar entity",
+			"showitem": "Mostrar item",
+			"type": "Tipo:",
+			"none": "Nenhum",
+			"showtext": "Mostrar texto",
+			"name": "Nome"
+		},
+		"notext": "Sem texto",
+		"NEW_ITERATE_FLAG": "Nova página do livro",
+		"insert": "Inserir",
+		"addsnippet": "Adicionar texto",
+		"insertion": {
+			"header": "Inserção"
+		},
+		"sel": "Seletor",
+		"format": {
+			"bold": "Negrito",
+			"underlined": "Sublinhado",
+			"obfuscated": "Obfuscado",
+			"italic": "Itálico",
+			"strikethrough": "Riscado"
+		},
+		"player": "Jogador",
+		"obj2": "Objetivo",
+		"obj": "Objetivo do scoreboard",
+		"nosnippets": "Sem texto",
+		"header": "Textos",
+		"text": "Texto",
+		"raw": "Raw",
+		"warning": {
+			"title": "Aviso",
+			"text": "Você precisa de %v para usar %f"
+		}
+	},
+	"headerbar": {
+		"report_an_issue": "Report an Issue",
+		"dropdown": {
+			"tweet": "Tweet",
+			"request_needed_translations": "Needed Translations List",
+			"forum_thread": "Forum Thread",
+			"changelog": "Changelog"
+		}
+	},
+	"language": {
+		"translate": "Traduzir",
+		"name": "Português Brasileiro",
+		"header": "Linguagem",
+		"credit": "Traduzido por Gerottinho"
+	},
+	"player": {
+		"description": "Usado para selecionar o comando e o jogador no qual será usado",
+		"header": "Comando e jogador"
+	},
+	"commandblock": "Este comando é grande demais e pode ser executado apenas em blocos de comando ou console.",
+	"alert": {
+		"report": "Reportar um erro",
+		"changed": "Esta página foi modificada recentemente. No caso de problemas, recarregue-a.",
+		"receiveupdates": "Receba atualizações (\"Siga\" o tópico)"
+	},
+	"command": "Comando:",
+	"export": {
+		"heading": "Seu comando exportado",
+		"close": "Fechar"
+	},
+	"attribution": "Enquanto nada é preciso para usar isso, agradecemos divulgações do site ou do tópico em Minecraft Forum."
+}
