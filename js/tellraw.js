@@ -989,10 +989,7 @@ function refreshLanguage(dropdownSelection) {
 	$('*').each(function(){
 		if ($(this).attr('version') != undefined && (localStorage['versionIndicators'] == true || localStorage['versionIndicators'] == undefined)) {
 			var labelLevel = 'success';
-			if ($(this).attr('version') == '1.7 & 1.8') {
-				labelLevel = 'warning';
-			}
-			if ($(this).attr('version') == '1.8') {
+			if ($(this).attr('version') == '1.9') {
 				labelLevel = 'danger';
 			}
 			if ($(this).prop('tagName') == 'OPTION') {
