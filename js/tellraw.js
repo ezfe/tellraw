@@ -456,6 +456,11 @@ function saveExtraEdit() {
 		jobject[extraIndex].clickEvent = new Object();
 		jobject[extraIndex].clickEvent.action = clickEventType_edit;
 		jobject[extraIndex].clickEvent.value = $('#clickEventText_edit').val();
+		if (clickEventType_edit == "run_command" || clickEventType_edit == "suggest_command") {
+			if ($('#clickEventText_edit').val().length > 90) {
+				alert('Commands cannot be longer than 90 characters! You should edit the length of your command before using this in game.')
+			}
+		}
 	}
 	if (hoverEventType_edit != "none") {
 		jobject[extraIndex].hoverEvent = new Object();
@@ -581,6 +586,12 @@ function addExtra() {
 			jobject[extraIndex].clickEvent = new Object();
 			jobject[extraIndex].clickEvent.action = clickEventType;
 			jobject[extraIndex].clickEvent.value = $('#clickEventText').val();
+			if (clickEventType == "run_command" || clickEventType == "suggest_command") {
+				if ($('#clickEventText').val().length > 90) {
+					alert('Commands cannot be longer than 90 characters! You should edit the length of your command before using this in game.')
+				}
+			}
+
 		}
 		if (hoverEventType != "none") {
 			jobject[extraIndex].hoverEvent = new Object();
