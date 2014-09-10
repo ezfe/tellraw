@@ -15,37 +15,37 @@
 	"saves": {
 		"header": "存档",
 		"hide": "隐藏存档",
-		"persistencenotice": "存档随时会被清除，主要取决于浏览器的Cookies。Do not rely on them for extended periods of time.",
+		"persistencenotice": "存档随时会被清除，主要取决于浏览器的Cookies。请不要依赖于此。",
 		"show": "显示存档",
 		"deleteall": {
-			"body": "Clicking Delete will remove all your saves, but won't affect your current text",
+			"body": "点击删除将会删除你所有的存档，但并不会影响到你现在正在编辑的文本",
 			"yes": "删除所有存档",
 			"heading": "请你确定！？！",
 			"no": "取消"
 		},
 		"nosaves": "你没有储存任何存档",
-		"new": "储存此内容"
+		"new": "储存此文本"
 	},
 	"settings": {
 		"previewcolor": "预览背景颜色:",
 		"export": "导出",
 		"deleteall": {
-			"body": "点击删除后将会清除所有设定并恢复到原先状态",
+			"body": "点击删除后将会清除所有文本并恢复到原先状态",
 			"heading": "请你确定！？！",
-			"yes": "删除所有设定",
+			"yes": "删除所有文本",
 			"no": "取消"
 		},
 		"importtext": {
 			"default": "请输入tellraw命令内容。如果导入出现错误，请清除所有设定并重试。目前导入功能仅支持/tellraw指令",
-			"exported": "Please enter the string you were given when you exported your command"
+			"exported": "请输入通过导出功能导出的命令内容"
 		},
 		"import": "导入",
 		"header": "设置:"
 	},
 	"color": {
-		"color_green": "Green",
-		"color_red": "Red",
-		"color_none": "None",
+		"color_green": "绿色",
+		"color_red": "红色",
+		"color_none": "无",
 		"color_dark_aqua": "Dark Aqua",
 		"color_dark_purple": "Dark Purple",
 		"color_dark_blue": "Dark Blue",
@@ -63,44 +63,44 @@
 	},
 	"header": "用于Minecraft 1.7+的Tellraw生成器",
 	"textsnippets": {
-		"trn": "Translated",
+		"trn": "已翻译文本",
 		"clickevent": {
-			"runcommand": "Run Command",
-			"openurl": "Open URL",
-			"suggestcommand": "Suggest Command",
-			"header": "Click Event:",
-			"none": "None"
+			"runcommand": "运行指令",
+			"openurl": "访问URL",
+			"suggestcommand": "自动输入指令",
+			"header": "点击动作:",
+			"none": "无"
 		},
 		"parameter": "Parameter",
-		"editsnippet": "Edit Text",
-		"close": "Close",
+		"editsnippet": "编辑文本",
+		"close": "关闭",
 		"hoverevent": {
 			"header": "Hover Event:",
-			"showachievement": "Show Achievement",
+			"showachievement": "显示成就",
 			"id": "ID:",
-			"showentity": "Show Entity",
-			"showitem": "Show Item",
-			"type": "Type:",
-			"none": "None",
-			"showtext": "Show Text",
-			"name": "Name"
+			"showentity": "显示实体",
+			"showitem": "显示物品",
+			"type": "类型:",
+			"none": "无",
+			"showtext": "显示文字",
+			"name": "名称"
 		},
-		"notext": "No Text",
+		"notext": "无内容",
 		"NEW_ITERATE_FLAG": "New Book Page",
 		"insert": "Insert",
-		"addsnippet": "Add Text",
+		"addsnippet": "新增文本",
 		"insertion": {
 			"header": "Insertion"
 		},
 		"sel": "Selector",
 		"format": {
-			"bold": "Bold",
-			"underlined": "Underlined",
-			"obfuscated": "Obfuscated",
-			"italic": "Italic",
-			"strikethrough": "Strikethrough"
+			"bold": "粗体",
+			"underlined": "下划线",
+			"obfuscated": "随机字符",
+			"italic": "斜体",
+			"strikethrough": "删除线"
 		},
-		"player": "Player",
+		"player": "玩家",
 		"obj2": "Objective",
 		"obj": "Scoreboard Objective",
 		"nosnippets": "No text yet",
