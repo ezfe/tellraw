@@ -1,0 +1,146 @@
+{
+	"template": {
+		"sign_block": "告示牌 (/blockdata)",
+		"sign_item": "告示牌 (/give)",
+		"subtitle": "子标题",
+		"title": "标题",
+		"tellraw": "Tellraw",
+		"book": "成书",
+		"execute_tellraw": "Execute"
+	},
+	"output": {
+		"nothing": "无任何输出",
+		"header": "输出预览:"
+	},
+	"saves": {
+		"header": "存档",
+		"hide": "隐藏存档",
+		"persistencenotice": "存档随时会被清除，主要取决于浏览器的Cookies。Do not rely on them for extended periods of time.",
+		"show": "显示存档",
+		"deleteall": {
+			"body": "Clicking Delete will remove all your saves, but won't affect your current text",
+			"yes": "删除所有存档",
+			"heading": "请你确定！？！",
+			"no": "取消"
+		},
+		"nosaves": "你没有储存任何存档",
+		"new": "储存此内容"
+	},
+	"settings": {
+		"previewcolor": "预览背景颜色:",
+		"export": "导出",
+		"deleteall": {
+			"body": "点击删除后将会清除所有设定并恢复到原先状态",
+			"heading": "请你确定！？！",
+			"yes": "删除所有设定",
+			"no": "取消"
+		},
+		"importtext": {
+			"default": "请输入tellraw命令内容。如果导入出现错误，请清除所有设定并重试。目前导入功能仅支持/tellraw指令",
+			"exported": "Please enter the string you were given when you exported your command"
+		},
+		"import": "导入",
+		"header": "设置:"
+	},
+	"color": {
+		"color_green": "Green",
+		"color_red": "Red",
+		"color_none": "None",
+		"color_dark_aqua": "Dark Aqua",
+		"color_dark_purple": "Dark Purple",
+		"color_dark_blue": "Dark Blue",
+		"color_aqua": "Aqua",
+		"color_white": "White",
+		"color_dark_gray": "Dark Gray",
+		"color_dark_red": "Dark Red",
+		"color_dark_green": "Dark Green",
+		"color_gold": "Gold",
+		"color_blue": "Blue",
+		"color_black": "Black",
+		"color_gray": "Gray",
+		"color_light_purple": "Light Purple",
+		"color_yellow": "Yellow"
+	},
+	"header": "用于Minecraft 1.7+的Tellraw生成器",
+	"textsnippets": {
+		"trn": "Translated",
+		"clickevent": {
+			"runcommand": "Run Command",
+			"openurl": "Open URL",
+			"suggestcommand": "Suggest Command",
+			"header": "Click Event:",
+			"none": "None"
+		},
+		"parameter": "Parameter",
+		"editsnippet": "Edit Text",
+		"close": "Close",
+		"hoverevent": {
+			"header": "Hover Event:",
+			"showachievement": "Show Achievement",
+			"id": "ID:",
+			"showentity": "Show Entity",
+			"showitem": "Show Item",
+			"type": "Type:",
+			"none": "None",
+			"showtext": "Show Text",
+			"name": "Name"
+		},
+		"notext": "No Text",
+		"NEW_ITERATE_FLAG": "New Book Page",
+		"insert": "Insert",
+		"addsnippet": "Add Text",
+		"insertion": {
+			"header": "Insertion"
+		},
+		"sel": "Selector",
+		"format": {
+			"bold": "Bold",
+			"underlined": "Underlined",
+			"obfuscated": "Obfuscated",
+			"italic": "Italic",
+			"strikethrough": "Strikethrough"
+		},
+		"player": "Player",
+		"obj2": "Objective",
+		"obj": "Scoreboard Objective",
+		"nosnippets": "No text yet",
+		"header": "Text Snippets",
+		"text": "Text",
+		"raw": "Raw",
+		"warning": {
+			"title": "Warning!",
+			"text": "You need %v to use %f"
+		}
+	},
+	"headerbar": {
+		"report_an_issue": "Report an Issue",
+		"dropdown": {
+			"tweet": "Tweet",
+			"request_needed_translations": "Needed Translations List",
+			"forum_thread": "Forum Thread",
+			"changelog": "Changelog"
+		}
+	},
+	"language": {
+		"translate": "翻译",
+		"name": "简体中文",
+		"header": "语言",
+		"credit": "由DoraJDJ提供简体中文翻译"
+	},
+	"player": {
+		"header": "Player and Command",
+		"description": "Used to select and execute different players"
+	},
+	"commandblock": "You must run this in the server console or in a command block.",
+	"alert": {
+		"report": "Report Problem",
+		"changed": "This page was recently modified, so there might be problems. Reload the page if something doesn't seem to work.",
+		"receiveupdates": "Receive updates here (\"Follow\" the topic)"
+	},
+	"command": "Command:",
+	"export": {
+		"heading": "Your Exported Command",
+		"close": "Close"
+	},
+	"attribution": "While nothing is required to use this, it would always be appreciated if you linked to this webpage or the MCF thread."
+}
