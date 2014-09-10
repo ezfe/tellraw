@@ -467,6 +467,9 @@ function saveExtraEdit() {
 		jobject[extraIndex].hoverEvent.action = hoverEventType_edit;
 		if (hoverEventType_edit == 'show_text') {
 			jobject[extraIndex].hoverEvent.value = {"text": $('#hoverEventText_edit').val()};
+			if ($('#color_hover_edit').val() != 'none') {
+				jobject[extraIndex].hoverEvent.value.color = $('#color_hover_edit').val();
+			}
 		} else {
 			jobject[extraIndex].hoverEvent.value = $('#hoverEventText_edit').val();
 		}
@@ -598,6 +601,9 @@ function addExtra() {
 			jobject[extraIndex].hoverEvent.action = hoverEventType;
 			if (hoverEventType == 'show_text') {
 				jobject[extraIndex].hoverEvent.value = {"text": $('#hoverEventText').val()};
+				if ($('#color_hover').val() != 'none') {
+					jobject[extraIndex].hoverEvent.value.color = $('#color_hover').val();
+				}
 			} else {
 				jobject[extraIndex].hoverEvent.value = $('#hoverEventText').val();
 			}
@@ -780,6 +786,11 @@ function refreshOutput(input) {
 		$('.hovertext_default').show();
 		$('.hovertext_entity').hide();
 	}
+	if (selectedHover != "show_text") {
+		$('.hovertext_text').hide();
+	} else {
+		$('.hovertext_text').show();
+	}
 
 	/*HOVEREVENT EDIT SUGGESTION MANAGER*/
 	$('#hoverEventText_edit').removeAttr('disabled');
@@ -804,6 +815,11 @@ function refreshOutput(input) {
 	if (selectedHover_edit != "show_entity") {
 		$('.hovertext_default_edit').show();
 		$('.hovertext_entity_edit').hide();
+	}
+	if (selectedHover_edit != "show_text") {
+		$('.hovertext_text_edit').hide();
+	} else {
+		$('.hovertext_text_edit').show();
 	}
 
 	/*CLICKEVENT SUGGESTION MANAGER*/
