@@ -105,8 +105,8 @@
 		"obj": "Scoreboard Objective",
 		"nosnippets": "暂无文本",
 		"header": "文本列表",
-		"text": "文字",
-		"raw": "Raw",
+		"text": "内容",
+		"raw": "自订内容",
 		"warning": {
 			"title": "警告！",
 			"text": "You need %v to use %f"
@@ -116,7 +116,7 @@
 		"report_an_issue": "报告问题",
 		"dropdown": {
 			"tweet": "分享到推特（中国地区不可用）",
-			"request_needed_translations": "Needed Translations List",
+			"request_needed_translations": "请求翻译列表",
 			"forum_thread": "论坛原帖",
 			"changelog": "更新日志"
 		}
