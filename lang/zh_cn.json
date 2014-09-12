@@ -61,7 +61,7 @@
 		"color_light_purple": "Light Purple",
 		"color_yellow": "Yellow"
 	},
-	"header": "用于Minecraft 1.7+的Tellraw生成器",
+	"header": "用于Minecraft 1.7+的Tellraw指令生成器",
 	"textsnippets": {
 		"trn": "已翻译文本",
 		"clickevent": {
@@ -71,11 +71,11 @@
 			"header": "点击动作:",
 			"none": "无"
 		},
-		"parameter": "Parameter",
+		"parameter": "参数",
 		"editsnippet": "编辑文本",
 		"close": "关闭",
 		"hoverevent": {
-			"header": "Hover Event:",
+			"header": "悬浮动作:",
 			"showachievement": "显示成就",
 			"id": "ID:",
 			"showentity": "显示实体",
@@ -86,7 +86,7 @@
 			"name": "名称"
 		},
 		"notext": "无内容",
-		"NEW_ITERATE_FLAG": "New Book Page",
+		"NEW_ITERATE_FLAG": "新书页",
 		"insert": "Insert",
 		"addsnippet": "新增文本",
 		"insertion": {
@@ -103,22 +103,22 @@
 		"player": "玩家",
 		"obj2": "Objective",
 		"obj": "Scoreboard Objective",
-		"nosnippets": "No text yet",
-		"header": "Text Snippets",
-		"text": "Text",
+		"nosnippets": "暂无文本",
+		"header": "文本列表",
+		"text": "文字",
 		"raw": "Raw",
 		"warning": {
-			"title": "Warning!",
+			"title": "警告！",
 			"text": "You need %v to use %f"
 		}
 	},
 	"headerbar": {
-		"report_an_issue": "Report an Issue",
+		"report_an_issue": "报告问题",
 		"dropdown": {
-			"tweet": "Tweet",
+			"tweet": "分享到推特（中国地区不可用）",
 			"request_needed_translations": "Needed Translations List",
-			"forum_thread": "Forum Thread",
-			"changelog": "Changelog"
+			"forum_thread": "论坛原帖",
+			"changelog": "更新日志"
 		}
 	},
 	"language": {
@@ -128,19 +128,19 @@
 		"credit": "由DoraJDJ提供简体中文翻译"
 	},
 	"player": {
-		"header": "Player and Command",
-		"description": "Used to select and execute different players"
+		"header": "玩家和指令",
+		"description": "用于选择或针对某个玩家运行该指令"
 	},
-	"commandblock": "You must run this in the server console or in a command block.",
+	"commandblock": "你必须将此命令运行在服务器后台终端或命令方块上。",
 	"alert": {
-		"report": "Report Problem",
-		"changed": "This page was recently modified, so there might be problems. Reload the page if something doesn't seem to work.",
-		"receiveupdates": "Receive updates here (\"Follow\" the topic)"
+		"report": "报告问题",
+		"changed": "此页于最近作了更改，可能会出现一些问题。如果部分功能不工作，请刷新页面重试。",
+		"receiveupdates": "关注官方原帖以获得最新更新和支持作者的信息"
 	},
-	"command": "Command:",
+	"command": "指令:",
 	"export": {
-		"heading": "Your Exported Command",
-		"close": "Close"
+		"heading": "你已导出的指令",
+		"close": "关闭"
 	},
 	"attribution": "While nothing is required to use this, it would always be appreciated if you linked to this webpage or the MCF thread."
 }
