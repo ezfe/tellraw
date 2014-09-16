@@ -1076,8 +1076,10 @@ function initialize() {
 	if (localStorage['color'] != undefined) {
 		$('#previewcolor').val(localStorage["color"]);	
 	} else {
-		$('#previewcolor').val('617A80');	
+		$('#previewcolor').val('617A80');
 	}
+	$('#previewcolor').css('background-color','#'+$('#previewcolor').val());
+	jsonParse();
 	if (localStorage['jobject'] != undefined) {
 		jobject = verify_jobject_format(JSON.parse(localStorage["jobject"]));
 	}
