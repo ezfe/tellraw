@@ -1101,8 +1101,12 @@ function initialize() {
 	$('#import').click(function() {
 		if (confirm("Would you like to import an \"exported\" command? Press Ok if you made the string by using the export option")) {
 			var inpt = prompt(getLanguageString('settings.importtext.exported',localStorage.getItem('langCode'),false,false));
-			jobject = JSON.parse(inpt)['jobject'];
-			$('#command').val(JSON.parse(inpt)['command']);
+			inpt = JSON.parse(inpt)
+			jobject = inpt['jobject'];
+			if (inpt['jtemplate']) {
+				localStorage.setItem('jtemplate',inpt['jtemplate'])
+			}
+			$('#command').val(inpt['command']);
 			refreshOutput();
 		} else {
 			var inpt = prompt(getLanguageString('settings.importtext.default',localStorage.getItem('langCode'),false,false));
@@ -1113,7 +1117,7 @@ function initialize() {
 	});
 	$('#export').click(function(){
 		$('#exporter').remove();
-		$('.alerts').append('<div id="exporter" class="alert alert-info"><h4 lang="export.heading"></h4><p>' + JSON.stringify({"command":$('#command').val(),"jobject":jobject}) + '</p><p><button type="button" onclick="closeExport()" class="btn btn-default" lang="export.close"></button></p></div>');
+		$('.alerts').append('<div id="exporter" class="alert alert-info"><h4 lang="export.heading"></h4><p>' + JSON.stringify({"command":$('#command').val(),"jobject":jobject,"jtemplate":localStorage.getItem('jtemplate')}) + '</p><p><button type="button" onclick="closeExport()" class="btn btn-default" lang="export.close"></button></p></div>');
 		goToByScroll('exporter');
 		refreshLanguage();
 	});
