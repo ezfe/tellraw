@@ -1,0 +1,146 @@
+{
+	"template": {
+		"sign_block": "告示牌 (/blockdata)",
+		"sign_item": "告示牌 (/give)",
+		"subtitle": "子标题",
+		"title": "标题",
+		"tellraw": "Tellraw",
+		"book": "成书",
+		"execute_tellraw": "Execute"
+	},
+	"output": {
+		"nothing": "无任何输出",
+		"header": "输出预览:"
+	},
+	"saves": {
+		"header": "存档",
+		"hide": "隐藏存档",
+		"persistencenotice": "存档随时会被清除，主要取决于浏览器的Cookies。请不要依赖于此。",
+		"show": "显示存档",
+		"deleteall": {
+			"body": "点击删除将会删除你所有的存档，但并不会影响到你现在正在编辑的文本",
+			"yes": "删除所有存档",
+			"heading": "请你确定！？！",
+			"no": "取消"
+		},
+		"nosaves": "你没有储存任何存档",
+		"new": "储存此文本"
+	},
+	"settings": {
+		"previewcolor": "预览背景颜色:",
+		"export": "导出",
+		"deleteall": {
+			"body": "点击删除后将会清除所有文本并恢复到原先状态",
+			"heading": "请你确定！？！",
+			"yes": "删除所有文本",
+			"no": "取消"
+		},
+		"importtext": {
+			"default": "请输入tellraw命令内容。如果导入出现错误，请清除所有设定并重试。目前导入功能仅支持/tellraw指令",
+			"exported": "请输入通过导出功能导出的命令内容"
+		},
+		"import": "导入",
+		"header": "设置:"
+	},
+	"color": {
+		"color_green": "绿色",
+		"color_red": "红色",
+		"color_none": "无",
+		"color_dark_aqua": "Dark Aqua",
+		"color_dark_purple": "暗紫色",
+		"color_dark_blue": "深蓝色",
+		"color_aqua": "Aqua",
+		"color_white": "白色",
+		"color_dark_gray": "灰色",
+		"color_dark_red": "深红色",
+		"color_dark_green": "暗绿色",
+		"color_gold": "金色",
+		"color_blue": "蓝色",
+		"color_black": "黑色",
+		"color_gray": "亮灰色",
+		"color_light_purple": "亮紫色",
+		"color_yellow": "黄色"
+	},
+	"header": "用于Minecraft 1.7+的Tellraw指令生成器",
+	"textsnippets": {
+		"trn": "已翻译文本",
+		"clickevent": {
+			"runcommand": "运行指令",
+			"openurl": "访问URL",
+			"suggestcommand": "自动输入指令",
+			"header": "点击动作:",
+			"none": "无"
+		},
+		"parameter": "参数",
+		"editsnippet": "编辑文本",
+		"close": "关闭",
+		"hoverevent": {
+			"header": "悬浮动作:",
+			"showachievement": "显示成就",
+			"id": "ID:",
+			"showentity": "显示实体",
+			"showitem": "显示物品",
+			"type": "类型:",
+			"none": "无",
+			"showtext": "显示文字",
+			"name": "名称"
+		},
+		"notext": "无内容",
+		"NEW_ITERATE_FLAG": "新书页",
+		"insert": "Insert",
+		"addsnippet": "新增文本",
+		"insertion": {
+			"header": "Insertion"
+		},
+		"sel": "选择器",
+		"format": {
+			"bold": "粗体",
+			"underlined": "下划线",
+			"obfuscated": "随机字符",
+			"italic": "斜体",
+			"strikethrough": "删除线"
+		},
+		"player": "玩家",
+		"obj2": "Objective",
+		"obj": "Scoreboard Objective",
+		"nosnippets": "暂无文本",
+		"header": "文本列表",
+		"text": "内容",
+		"raw": "自订内容",
+		"warning": {
+			"title": "警告！",
+			"text": "你需要 %v 以使用 %f"
+		}
+	},
+	"headerbar": {
+		"report_an_issue": "报告问题",
+		"dropdown": {
+			"tweet": "分享到推特（中国地区不可用）",
+			"request_needed_translations": "请求翻译列表",
+			"forum_thread": "论坛原帖",
+			"changelog": "更新日志"
+		}
+	},
+	"language": {
+		"translate": "翻译",
+		"name": "简体中文",
+		"header": "语言",
+		"credit": "由DoraJDJ提供简体中文翻译"
+	},
+	"player": {
+		"header": "玩家和指令",
+		"description": "用于选择或针对某个玩家运行该指令"
+	},
+	"commandblock": "你必须将此命令运行在服务器后台终端或命令方块上。",
+	"alert": {
+		"report": "报告问题",
+		"changed": "此页于最近作了更改，可能会出现一些问题。如果部分功能不工作，请刷新页面重试。",
+		"receiveupdates": "关注官方原帖以获得最新更新和支持作者的信息"
+	},
+	"command": "指令:",
+	"export": {
+		"heading": "你已导出的指令",
+		"close": "关闭"
+	},
+	"attribution": "While nothing is required to use this, it would always be appreciated if you linked to this webpage or the MCF thread."
+}
