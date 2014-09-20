@@ -609,6 +609,21 @@
 					</pre>
 				</div>
 			</div>
+			<div class="well row-margin-top" id="settingsWell" style=";">
+				<div class="row">
+					<div class="col-md-12">
+						<h4 lang="settings.header"></h4>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2">
+						<label for="previewFontSize" lang="settings.fontSize"></label>
+					</div>
+					<div class="col-md-10">
+						<input id="previewFontSize" type="number" onkeyup="refreshOutput()" value="13" class="form-control">
+					</div>
+				</div>
+			</div>
 			<div class="row row-margin-top row-margin-bottom">
 				<div class="col-sm-2">
 					<span lang="settings.header"></span>
@@ -627,7 +642,6 @@
 						<input onchange="refreshOutput()" id="previewcolor" class="color form-control" value="F5774A">
 					</div>
 				</div>
-				<input id="previewFontSize" type="hidden" onkeyup="refreshOutput()" value="13" class="form-control">
 			</div>
 		</div>
 		<div class="row">
