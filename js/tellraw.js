@@ -78,9 +78,20 @@ function getJObjectListFromData(data) {
 function closeExport() {
 	$('#exporter').remove();
 }
+function isScrolledIntoView(elem) {
+	elem = '#' + elem;
+    var docViewTop = $(window).scrollTop();
+    var docViewBottom = docViewTop + $(window).height();
 
+    var elemTop = $(elem).offset().top;
+    var elemBottom = elemTop + $(elem).height();
+
+    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+}
 function goToByScroll(id){
-	$('html,body').animate({scrollTop: $("#"+id).offset().top},'slow');
+	if (!isScrolledIntoView(id)) {
+		$('html,body').animate({scrollTop: $("#"+id).offset().top},'slow');
+	}
 }
 
 var templates = 
