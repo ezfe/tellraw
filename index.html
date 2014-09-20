@@ -609,38 +609,38 @@
 					</pre>
 				</div>
 			</div>
-			<div class="well row-margin-top" id="settingsWell" style=";">
+			<div class="well row-margin-top" id="settingsWell" style="display:none;">
 				<div class="row">
 					<div class="col-md-12">
 						<h4 lang="settings.header"></h4>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-2">
+					<div class="col-sm-3 col-xs-12">
 						<label for="previewFontSize" lang="settings.fontSize"></label>
 					</div>
-					<div class="col-md-10">
-						<input id="previewFontSize" type="number" onkeyup="refreshOutput()" value="13" class="form-control">
+					<div class="col-sm-4 col-xs-12">
+						<input id="previewFontSize" type="number" onchange="refreshOutput()" value="13" class="form-control">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-3 col-xs-12">
+						<label for="previewcolor"><span lang="settings.previewcolor"></span></label>
+					</div>
+					<div class="col-sm-4 col-xs-12">
+						<input onchange="refreshOutput()" id="previewcolor" class="color form-control" value="F5774A">
 					</div>
 				</div>
 			</div>
 			<div class="row row-margin-top row-margin-bottom">
-				<div class="col-sm-2">
-					<span lang="settings.header"></span>
-				</div>
-				<div class="col-sm-2 col-xs-12">
+				<div class="col-sm-offset-2 col-sm-2 col-xs-12">
 					<button class="btn btn-block btn-default" id="import"><span lang="settings.import"></span> <i class="fa fa-cloud-upload"></i></button>
 				</div>
 				<div class="col-sm-2 col-xs-12">
 					<button class="btn btn-block btn-default" id="export"><span lang="settings.export"></span> <i class="fa fa-cloud-download"></i></button>
 				</div>
-				<div class="col-sm-4 col-xs-12" style="padding:0px;">
-					<div class="col-sm-8 col-xs-12">
-						<span lang="settings.previewcolor"></span>
-					</div>
-					<div class="col-sm-4 col-xs-12">
-						<input onchange="refreshOutput()" id="previewcolor" class="color form-control" value="F5774A">
-					</div>
+				<div class="col-sm-2 col-xs-12">
+					<button class="btn btn-block btn-default" id="toggleSettings"><span lang="settings.toggle"></span> <i class="fa fa-gear"></i></button>
 				</div>
 			</div>
 		</div>

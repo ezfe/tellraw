@@ -929,6 +929,7 @@ function refreshOutput(input) {
 }
 function jsonParse() {
 	$('#jsonPreview').css('background-color','#'+$('#previewcolor').val());
+	$('#jsonPreview').css('font-size',$('#previewFontSize').val() + 'px');
 	localStorage["color"] = $('#previewcolor').val();
 	$('#jsonPreview').html('');
 	if (get_type(jobject) == "[object Array]") {
@@ -1186,6 +1187,12 @@ function initialize() {
 		$('html').html('<a href="#" onclick="location.reload()">Go Back</a><br><br><br>');
 		$('html').append(errorString);
 	});
+	$('#toggleSettings').click(function(){
+		$('#settingsWell').toggle();
+		//if (!$('#settingsWell').is(":hidden")) {
+		//	goToByScroll("settingsWell");
+		//}
+	})
 }
 $( document ).ready(function(){
 	data = getURL('resources.json');
