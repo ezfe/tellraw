@@ -97,6 +97,8 @@ div[class*='col-xs-'] {
 
 .help-box {
 	min-width: 150px;
+	position: absolute;
+	z-index: 999;
 	color: black;
 	display: none;
 	font-weight: bold;
@@ -106,4 +108,10 @@ div[class*='col-xs-'] {
 	background-color:#feed6f;
 	border-radius:4px;
 	box-shadow: 0px 0px 10px #888888;
+}
+.offset-down-button {
+	top: 34px;
+}
+.offset-up-button {
+	bottom: 39px;
 }
