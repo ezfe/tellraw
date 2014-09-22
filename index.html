@@ -54,7 +54,7 @@
 		</div>
 		<h4></i> Loading Assets</h4>
 		<h5>
-		If this page does not go away, try clicking <a onclick="localStorage.clear();location.reload();" href="#">here</a>. If that doesn't work, please <a href="https://github.com/ezfe/tellraw/issues/new" class="btn btn-xs btn-danger"><i class="fa fa-exclamation-triangle"></i> <span>Report an Issue</span></a>
+			If this page does not go away, try clicking <a onclick="localStorage.clear();location.reload();" href="#">here</a>. If that doesn't work, please <a href="https://github.com/ezfe/tellraw/issues/new" class="btn btn-xs btn-danger"><i class="fa fa-exclamation-triangle"></i> <span>Report an Issue</span></a>
 		</h5>
 	</div>
 	<div id="tellraw-container" style="display:none;">
@@ -62,10 +62,16 @@
 			<div class="col-sm-5 col-xs-12">
 				<h4 lang="header"></h4>
 			</div>
-			<div class="col-sm-2 col-sm-offset-2">
+			<div class="col-sm-1 col-sm-offset-1">
+				<button class="btn btn-block btn-xs btn-info" id="helptoggle">
+					<i class="fa fa-question-circle"></i> <span lang="headerbar.help"></span>
+				</button>
+			</div>
+			<div class="col-sm-2">
 				<a href="https://github.com/ezfe/tellraw/issues/new" class="btn btn-block btn-xs btn-danger">
 					<i class="fa fa-exclamation-triangle"></i> <span lang="headerbar.report_an_issue"></span>
 				</a>
+				<div class="help-box" lang="help.report-an-issue"></div>
 			</div>
 			<div class="col-sm-1 col-xs-12 row-margin-top row-margin-bottom">
 				<div class="btn-group btn-block">
@@ -79,6 +85,7 @@
 						<li><a id="lang_request" href="#" lang="headerbar.dropdown.request_needed_translations"></a></li>
 					</ul>
 				</div>
+				<div class="help-box" lang="help.dropdown-list"></div>
 			</div>
 			<div class="col-sm-2 col-xs-12 row-margin-top row-margin-bottom">
 				<div class="btn-group btn-block">
@@ -126,11 +133,13 @@
 						<button class="btn btn-success btn-block" onclick="saveJObject()">
 							<span lang="saves.new"></span> <i class="fa fa-plus-circle"></i></span>
 						</button>
+						<div class="help-box" lang="help.create-new-save"></div>
 					</div>
 					<div class="col-sm-4">
 						<button class="btn btn-danger btn-block" onclick="clearJObjectSaves()">
 							<span lang="saves.deleteall.yes"></span> <i class="fa fa-times-circle"></i></span>
 						</button>
+						<div class="help-box" lang="help.delete-all-saves"></div>
 					</div>
 				</div>
 			</div>
@@ -152,16 +161,19 @@
 						<button id="addExtraButton" class="btn btn-primary btn-block">
 							<span lang="textsnippets.addsnippet"></span> <i class="fa fa-plus-circle"></i></span>
 						</button>
+						<div class="help-box" lang="help.addsnippet"></div>
 					</div>
 					<div class="col-sm-3">
 						<button class="btn btn-danger btn-block" id="deleteAllBtn" onclick="deleteAll()">
 							<span lang="settings.deleteall.yes"></span> <i class="fa fa-times-circle"></i></span>
 						</button>
+						<div class="help-box" lang="help.delete-all-snippets"></div>
 					</div>
 					<div class="col-sm-3">
 						<button class="btn btn-info btn-block" id="savesToggleButton">
 							<span lang="saves.show"></span> <i class="fa fa-eye"></i></span>
 						</button>
+						<div class="help-box" lang="help.show-saves"></div>
 					</div>
 				</div>
 			</div>

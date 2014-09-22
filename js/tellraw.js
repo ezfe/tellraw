@@ -1192,7 +1192,10 @@ function initialize() {
 		//if (!$('#settingsWell').is(":hidden")) {
 		//	goToByScroll("settingsWell");
 		//}
-	})
+	});
+	$('#helptoggle').click(function(){
+		$('.help-box').toggle();
+	});
 }
 $( document ).ready(function(){
 	data = getURL('resources.json');

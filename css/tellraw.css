@@ -44,14 +44,14 @@
 	color: black;
 }
 @font-face {
-    font-family: 'minecraftiaregular';
-    src: url('../minecraftia/minecraftia-webfont.eot');
-    src: url('../minecraftia/minecraftia-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../minecraftia/minecraftia-webfont.woff') format('woff'),
-         url('../minecraftia/minecraftia-webfont.ttf') format('truetype'),
-         url('../minecraftia/minecraftia-webfont.svg#minecraftiaregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'minecraftiaregular';
+	src: url('../minecraftia/minecraftia-webfont.eot');
+	src: url('../minecraftia/minecraftia-webfont.eot?#iefix') format('embedded-opentype'),
+	url('../minecraftia/minecraftia-webfont.woff') format('woff'),
+	url('../minecraftia/minecraftia-webfont.ttf') format('truetype'),
+	url('../minecraftia/minecraftia-webfont.svg#minecraftiaregular') format('svg');
+	font-weight: normal;
+	font-style: normal;
 }
 #jsonPreview {
 	font-family: "minecraftiaregular","Minecraftia","Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -93,4 +93,17 @@ div[class*='col-xs-'] {
 }
 .minecraft .well {
 	color: black;
+}
+
+.help-box {
+	min-width: 150px;
+	color: black;
+	display: none;
+	font-weight: bold;
+	text-align: center;
+	padding:5px;
+	margin-top: 5px;
+	background-color:#feed6f;
+	border-radius:4px;
+	box-shadow: 0px 0px 10px #888888;
 }

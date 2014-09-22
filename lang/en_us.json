@@ -1,4 +1,13 @@
 {
+	"help": {
+		"report-an-issue": "Click here to report an issue. If you experience any sort of bug, you should report it here.",
+		"dropdown-list": "Tweet, view the changelog, view the minecraft forums thread, or get resources for translation.",
+		"addsnippet": "Add text to your tellraw command.",
+		"delete-all-saves": "Clear your saves, but leave your current command in the main editor intact.",
+		"create-new-save": "Make a new save. This will overwrite an existing save by the same name, if you so choose.",
+		"delete-all-snippets": "Clear your command completely, but leave your saves intact.",
+		"show-saves": "Show your saves editor, allows saving, loading, and deletion of saves."
+	},
 	"template": {
 		"sign_block": "Sign (/blockdata)",
 		"sign_item": "Sign (/give)",
@@ -115,6 +124,7 @@
 		}
 	},
 	"headerbar": {
+		"help": "Help",
 		"report_an_issue": "Report an Issue",
 		"dropdown": {
 			"tweet": "Tweet",
