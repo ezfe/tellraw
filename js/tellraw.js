@@ -187,9 +187,9 @@ function loadJObject(saveName) {
 	var saveItem = getJObject(saveName);
 	jobject = saveItem.jobject;
 	$('#command').val(saveItem.command);
-	refreshOutput();
 	alert('Loaded save `' + saveName + '`');
 	refreshSavesList();
+	refreshOutput();
 }
 function doesJObjectExist(saveName) {
 	var saveSlot = 'saveSlot_' + saveName;
