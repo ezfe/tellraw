@@ -1,5 +1,6 @@
 {
 	"help": {
+		"textfield": "Use \\n to make a newline",
 		"raw-text-tab": "Choose your text choice. Raw is normal text. Scoreboard pulls a value from the scoreboard. Selector pulls the name of an entity.",
 		"report-an-issue": "Click here to report an issue. If you experience any sort of bug, you should report it here.",
 		"dropdown-list": "Tweet, view the changelog, view the minecraft forums thread, or get resources for translation.",
