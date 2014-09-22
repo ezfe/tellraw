@@ -276,7 +276,7 @@ function moveUp(index) {
 	jobject.splice(index+1, 0, jobject.splice(index, 1)[0]);
 	refreshOutput();
 }
-function getSelected (object) {
+function getSelected(object) {
 	if ($('#'+object).length != 0) {
 		var e = document.getElementById(object);
 		return e.options[e.selectedIndex].value;
@@ -643,13 +643,20 @@ function refreshSavesList() {
 	for (var i = 0; i < Object.keys(localStorage).length; i++) {
 		var key = Object.keys(localStorage)[i];
 		if (key.indexOf('saveSlot_') != -1) {
-			$('.savesContainer').append('<div class="row" saveKey="' + key.substring('9') + '"><div class="col-xs-3"><a href="#" onclick="loadJObject(\'' + key.substring('9') + '\')">Load ' + key.substring('9') + '</a></div><div class="col-xs-9">' + localStorage.getItem(key).substring(0,90) + ' ...</div></div>')
+			$('.savesContainer').append('<div class="row" saveKey="' + key.substring('9') + '"><div class="col-xs-3"><a href="#" onclick="loadJObject(\'' + key.substring('9') + '\')">Load ' + key.substring('9') + '</a> or <a href="#" onclick="deleteJObjectSave(\'' + key.substring('9') + '\')">Delete ' + key.substring('9') + '</a></div><div class="col-xs-9">' + localStorage.getItem(key).substring(0,90) + ' ...</div></div>')
 		}
 	};
 	if ($('.savesContainer').html() == '') {
 		$('.savesContainer').html('<div class="row"><div class="col-xs-12"><h4 lang="saves.nosaves"></h4></div></div>');
 	}
 	refreshLanguage();
+}
+function deleteJObjectSave(saveName) {
+	var saveSlot = 'saveSlot_' + saveName;
+	if (confirm('Are you sure you want to delete ' + saveName + '?')) {
+		localStorage.removeItem(saveSlot);
+	}
+	refreshSavesList();
 }
 function refreshOutput(input) {
 	/*VERIFY CONTENTS*/
