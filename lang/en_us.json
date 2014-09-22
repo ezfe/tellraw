@@ -30,7 +30,7 @@
 			"body": "Clicking Delete will remove all your saves, but won't affect your current text",
 			"yes": "Delete All Saves",
 			"heading": "Are you sure!?!",
-			"no": "Cancle"
+			"no": "Cancel"
 		},
 		"nosaves": "You don't have anything saved",
 		"new": "Save Current String"
