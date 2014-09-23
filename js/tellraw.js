@@ -17,8 +17,6 @@ var currentEdit;
 var hasAlertedTranslationObjects = false;
 var webLangRelations;
 
-var newLine = /\\\\n/g;
-
 function getURL(url){
 	return $.ajax({
 		type: "GET",
@@ -55,7 +53,7 @@ function verify_jobject_format(jdata) {
 	return jdata;
 }
 
-function getJObjectListFromData(data) {
+function formatJObjectList(data) {
 	if (data.length == 0) {
 		return [];
 	}
@@ -129,7 +127,7 @@ var templates =
 	"book": {
 		"command": "/give @a written_book 1 0 {pages:[\"%e\"],title:Book,author:TellrawGenerator}",
 		"version": "1.8",
-		"breakers": "\",\""
+		"breakers": "bookarray"
 	}
 }
 /*
@@ -876,63 +874,54 @@ function refreshOutput(input) {
 			source: []
 		});
 	}
+
+	/*PREPARING OUTPUT*/
+	var newLine = /\\\\n/g;
+
 	var commandString = $('#command').val();
 
-	var JSONString = '';
-	var ESCJSONString = '';
-	var formattedJObject = getJObjectListFromData(jobject);
+	var JSONOutputString = '';
+	var EscapedJSONOutputString = '';
+	var formattedJObject = formatJObjectList(jobject);
+
 	for (var i = 0; i < formattedJObject.length; i++) {
-		JSONString += JSON.stringify(formattedJObject[i]).replace(newLine,'\\n');
-		ESCJSONString += escapeQuotes(JSON.stringify(formattedJObject[i]).replace(newLine,'\\n'));
+		JSONOutputString += JSON.stringify(formattedJObject[i]);
+		EscapedJSONOutputString += escapeQuotes(JSON.stringify(formattedJObject[i]));
 		if (i < formattedJObject.length - 1) {
 			var breaker = templates[localStorage.getItem('jtemplate')]['breakers'];
 			if (breaker) {
-				JSONString += breaker;
-				ESCJSONString += breaker;
+				JSONOutputString += breaker;
+				EscapedJSONOutputString += breaker;
 			}
 		}
 	}
 
-	var NoSavesS = new RegExp("%s(?!\\[)");
-	var NoSavesE = new RegExp("%e(?!\\[)");
-	var Saves = new RegExp("(%[s|e])\\[([a-zA-Z0-9]+)\\]","g");
+	commandString.replace(newLine,'\\n');
 
-	var handleFoundSaves = function(a,b,c) {
-		if (doesJObjectExist(c)) {
-			if (b == '%e') {
-				return escapeQuotes(JSON.stringify(getJObject(c).jobject));
-			} else {
-				return JSON.stringify(getJObject(c).jobject);
-			}
-		} else {
-			return '----ERROR ' + c + ' DOES NOT EXIST----';
-		}
-	}
+	commandString = commandString.replace('%s',JSONOutputString);
+	commandString = commandString.replace('%e',EscapedJSONOutputString);
 
-	//JSONString = JSONString.replace(newLine,'\\n');
-	var outputString = commandString;
-
-	outputString = outputString.replace(NoSavesS,JSONString);
-	outputString = outputString.replace(NoSavesE,ESCJSONString);
-	outputString = outputString.replace(Saves,handleFoundSaves);
+	outputString = commandString;
 
 	$('#outputtextfield').val(outputString);
 	$('#nicelookingoutput').html(JSON.stringify(jobject, null, 4).replace(newLine,'\\n'));
 	jsonParse();
 
+	/*COMMAND BLOCK WARNING*/
 	if ($('#outputtextfield').val().length > 90) {
 		$('#commandblock').show();
 	} else {
 		$('#commandblock').hide();
 	}
+
+	/*SAVE VARIABLES*/
 	localStorage['jobject'] = JSON.stringify(jobject);
 	localStorage['jcommand'] = $('#command').val();
 
+	/*RERUN*/
 	if (input != 'noLoop' && input != 'previewLineChange') {
 		refreshOutput('noLoop');
 	}
-
-
 }
 function jsonParse() {
 	$('#jsonPreview').css('background-color','#'+$('#previewcolor').val());
