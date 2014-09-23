@@ -53,7 +53,7 @@ function verify_jobject_format(jdata) {
 	return jdata;
 }
 
-function formatJObjectList(data) {
+function formatJObjectList(data,escape) {
 	if (data.length == 0) {
 		return [];
 	}
@@ -68,7 +68,11 @@ function formatJObjectList(data) {
 		}
 	}
 	if (!data[data.length - 1].NEW_ITERATE_FLAG) {
-		ret_val.push(currentDataToPlug);
+		if (escape) {
+			ret_val.push(escapeQuotes(currentDataToPlug));
+		} else {
+			ret_val.push(currentDataToPlug);
+		}
 	}
 	return ret_val;
 }
@@ -78,13 +82,13 @@ function closeExport() {
 }
 function isScrolledIntoView(elem) {
 	elem = '#' + elem;
-    var docViewTop = $(window).scrollTop();
-    var docViewBottom = docViewTop + $(window).height();
+	var docViewTop = $(window).scrollTop();
+	var docViewBottom = docViewTop + $(window).height();
 
-    var elemTop = $(elem).offset().top;
-    var elemBottom = elemTop + $(elem).height();
+	var elemTop = $(elem).offset().top;
+	var elemBottom = elemTop + $(elem).height();
 
-    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+	return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
 }
 function goToByScroll(id){
 	if (!isScrolledIntoView(id)) {
@@ -848,7 +852,7 @@ function refreshOutput(input) {
 		});
 	} else if (selectedClick == "open_url") {
 		$('#clickEventText').autocomplete({
-			source: ["http://apple.com", "https://minecraft.net", "https://mojang.com"]
+			source: ["https://", "http://", "http://apple.com", "https://minecraft.net", "https://mojang.com", "http://ezekielelin.com", "https://reddit.com"]
 		});
 	} else if (selectedClick == "none") {
 		$('#clickEventText').attr('disabled','true');
@@ -866,7 +870,7 @@ function refreshOutput(input) {
 		});
 	} else if (selectedClick_edit == "open_url") {
 		$('#clickEventText_edit').autocomplete({
-			source: ["http://apple.com", "https://minecraft.net", "https://mojang.com"]
+			source: ["http://apple.com", "https://minecraft.net", "https://mojang.com", "http://ezekielelin.com", "https://", "https://reddit.com", "http://"]
 		});
 	} else if (selectedClick_edit == "none") {
 		$('#clickEventText_edit').attr('disabled','true');
@@ -882,18 +886,15 @@ function refreshOutput(input) {
 
 	var JSONOutputString = '';
 	var EscapedJSONOutputString = '';
-	var formattedJObject = formatJObjectList(jobject);
+	var formattedJObject = formatJObjectList(jobject,false);
+	var formattedJObjectEscaped = formatJObjectList(jobject,true);
 
-	for (var i = 0; i < formattedJObject.length; i++) {
-		JSONOutputString += JSON.stringify(formattedJObject[i]);
-		EscapedJSONOutputString += escapeQuotes(JSON.stringify(formattedJObject[i]));
-		if (i < formattedJObject.length - 1) {
-			var breaker = templates[localStorage.getItem('jtemplate')]['breakers'];
-			if (breaker) {
-				JSONOutputString += breaker;
-				EscapedJSONOutputString += breaker;
-			}
-		}
+	if (templates[localStorage.getItem('jtemplate')].breakers == 'bookarray') {
+		JSONOutputString = JSON.stringify(formattedJObject);
+		EscapedJSONOutputString = JSON.stringify(formattedJObjectEscaped);
+	} else {
+		JSONOutputString = JSON.stringify(formattedJObject[0]);
+		EscapedJSONOutputString = escapeQuotes(JSON.stringify(formattedJObjectEscaped[0]));
 	}
 
 	commandString.replace(newLine,'\\n');
