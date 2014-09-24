@@ -890,7 +890,7 @@ function refreshOutput(input) {
 	} else if (templates[localStorage.getItem('jtemplate')].formatType == 'standardjson') {
 		JSONOutputString = formattedJObject[0];
 	} else if (templates[localStorage.getItem('jtemplate')].formatType == 'signset') {
-		JSONOutputString = 'Line1:' + JSON.stringify(formattedJObject[0]);
+		JSONOutputString = 'Text1:' + JSON.stringify(formattedJObject[0]);
 	}
 
 	commandString.replace(newLine,'\\n');
@@ -1054,6 +1054,12 @@ function initialize() {
 		localStorage.setItem('langCode','en_us');
 	}
 
+	/*check if alert isn't correctly set. Do not show the alert is jformat isn't set – that means the user hasn't been here before*/
+	if (localStorage.getItem('jalert') != notice.id && localStorage.getItem('jformat') != undefined) {
+		alert(notice.message)
+	}
+	localStorage.setItem('jalert',notice.id);
+
 	if (localStorage.getItem('jformat') != version && localStorage.getItem('jformat') != undefined) {
 		if (confirm('Your cookie format is old and may cause issues. Would you like to reset them? You won\'t be asked again until the format changes again')) {
 			localStorage.clear();
@@ -1063,12 +1069,6 @@ function initialize() {
 		}
 	}
 	localStorage.setItem('jformat',version);
-
-	/*check if alert isn't correctly set. Do not show the alert is jformat isn't set – that means the user hasn't been here before*/
-	if (localStorage.getItem('jalert') != notice.id && localStorage.getItem('jformat') != undefined) {
-		alert(notice.message)
-	}
-	localStorage.setItem('jalert',notice.id);
 
 	for (var i = 0; i < Object.keys(templates).length; i++) {
 		var key = Object.keys(templates)[i]
