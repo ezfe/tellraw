@@ -63,8 +63,10 @@ function formatJObjectList(data) {
 	var currentDataToPlug = {"text":"","extra":[]};
 	for (var i = 0; i < data.length; i++) {
 		if (data[i].NEW_ITERATE_FLAG) {
-			ret_val.push(JSON.stringify(currentDataToPlug));
-			currentDataToPlug = {"text":"","extra":[]};
+			if (localStorage.getItem('jtemplate') == 'book') {
+				ret_val.push(JSON.stringify(currentDataToPlug));
+				currentDataToPlug = {"text":"","extra":[]};
+			}
 		} else {
 			currentDataToPlug.extra.push(data[i]);
 		}
