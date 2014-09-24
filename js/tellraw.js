@@ -53,7 +53,7 @@ function verify_jobject_format(jdata) {
 	return jdata;
 }
 
-function formatJObjectList(data,escape) {
+function formatJObjectList(data) {
 	if (data.length == 0) {
 		return [];
 	}
@@ -61,22 +61,14 @@ function formatJObjectList(data,escape) {
 	var currentDataToPlug = {"text":"","extra":[]};
 	for (var i = 0; i < data.length; i++) {
 		if (data[i].NEW_ITERATE_FLAG) {
-			if (escape) {
-				ret_val.push(escapeQuotes(JSON.stringify(currentDataToPlug)));
-			} else {
-				ret_val.push(JSON.stringify(currentDataToPlug));
-			}
+			ret_val.push(JSON.stringify(currentDataToPlug));
 			currentDataToPlug = {"text":"","extra":[]};
 		} else {
 			currentDataToPlug.extra.push(data[i]);
 		}
 	}
 	if (!data[data.length - 1].NEW_ITERATE_FLAG) {
-		if (escape) {
-			ret_val.push(escapeQuotes(JSON.stringify(currentDataToPlug)));
-		} else {
-			ret_val.push(JSON.stringify(currentDataToPlug));
-		}
+		ret_val.push(JSON.stringify(currentDataToPlug));
 	}
 	return ret_val;
 }
@@ -133,7 +125,7 @@ var templates =
 		"breakers": false
 	},
 	"book": {
-		"command": "/give @a written_book 1 0 {pages:[\"%e\"],title:Book,author:TellrawGenerator}",
+		"command": "/give @a written_book 1 0 {pages:%e,title:Book,author:TellrawGenerator}",
 		"version": "1.8",
 		"breakers": "bookarray"
 	}
@@ -525,9 +517,6 @@ function get_type(thing){
 	}
 	return Object.prototype.toString.call(thing);
 }
-function escapeQuotes(string) {
-	return string.replace(/\\"/g, '\\\\\\"').replace(/([^\\])"/g, '$1\\"').replace(/\\""/g,'\\"\\"');
-}
 function modifyExtraText(index,text) {
 	if (text != "" && text != null) {
 		jobject[index].text = text;
@@ -890,12 +879,11 @@ function refreshOutput(input) {
 
 	var JSONOutputString = '';
 	var EscapedJSONOutputString = '';
-	var formattedJObject = formatJObjectList(jobject,false);
-	var formattedJObjectEscaped = formatJObjectList(jobject,true);
+	var formattedJObject = formatJObjectList(jobject);
 
 	if (templates[localStorage.getItem('jtemplate')].breakers == 'bookarray') {
-		JSONOutputString = formattedJObject;
-		EscapedJSONOutputString = formattedJObjectEscaped;
+		JSONOutputString = JSON.stringify(formattedJObject);
+		EscapedJSONOutputString = JSON.stringify(formattedJObjectEscaped);
 	} else {
 		JSONOutputString = formattedJObject[0];
 		EscapedJSONOutputString = formattedJObjectEscaped[0];
