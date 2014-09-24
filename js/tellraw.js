@@ -937,83 +937,87 @@ function jsonParse() {
 	$('#jsonPreview').html('');
 	if (get_type(jobject) == "[object Array]") {
 		for (var i = 0; i < jobject.length; i++) {
-			var doClickEvent = false;
-			var doHoverEvent = false;
-			var popoverTitle = "";
-			var popoverContentClick = "";
-			var popoverContentHover = "";
-			var hoverEventType = "";
-			var hoverEventValue = "";
-			var clickEventType = "";
-			var clickEventValue = "";
-			$('#jsonPreview').append('<span id="jsonPreviewSpanElement'+ i +'"></span>');
-			if (get_type(jobject[i].text) != "[object Undefined]") {
-				$('#jsonPreviewSpanElement'+i).html(jobject[i].text.replace('\n','<br>').replace('\\n','<br>'));
+			if (jobject[i].NEW_ITERATE_FLAG) {
+				$('#jsonPreview').append('<span id="jsonPreviewSpanElement'+ i +'"><hr></span>');
 			} else {
-				$('#jsonPreviewSpanElement'+i).html(jobject[i].translate);
-			}
-			if (jobject[i].bold == "true") {
-				$('#jsonPreviewSpanElement'+i).addClass('bold');
-			}
-			if (jobject[i].italic == "true") {
-				$('#jsonPreviewSpanElement'+i).addClass('italic');
-			}
-			if (jobject[i].underlined == "true") {
-				$('#jsonPreviewSpanElement'+i).addClass('underlined');
-			}
-			if (jobject[i].strikethrough == "true") {
-				if ($('#jsonPreviewSpanElement'+i).hasClass('underlined')) {
-					$('#jsonPreviewSpanElement'+i).removeClass('underlined');
-					$('#jsonPreviewSpanElement'+i).addClass('strikethroughunderlined');
+				var doClickEvent = false;
+				var doHoverEvent = false;
+				var popoverTitle = "";
+				var popoverContentClick = "";
+				var popoverContentHover = "";
+				var hoverEventType = "";
+				var hoverEventValue = "";
+				var clickEventType = "";
+				var clickEventValue = "";
+				$('#jsonPreview').append('<span id="jsonPreviewSpanElement'+ i +'"></span>');
+				if (get_type(jobject[i].text) != "[object Undefined]") {
+					$('#jsonPreviewSpanElement'+i).html(jobject[i].text.replace('\n','<br>').replace('\\n','<br>'));
 				} else {
-					$('#jsonPreviewSpanElement'+i).addClass('strikethrough');
+					$('#jsonPreviewSpanElement'+i).html(jobject[i].translate);
 				}
-			}
-			if (jobject[i].obfuscated == "true") {
-				$('#jsonPreviewSpanElement'+i).addClass('jsonPreviewObfuscated');
-			}
-
-			/*COLORS*/
-			$('#jsonPreviewSpanElement'+i).css('color',getCSSHEXFromWord(jobject[i].color));
-
-			/*CLICK & HOVER EVENTS*/
-
-			if (get_type(jobject[i].clickEvent) != "[object Undefined]" || get_type(jobject[i].hoverEvent) != "[object Undefined]") {
-				if (get_type(jobject[i].clickEvent) != "[object Undefined]") doClickEvent = true;
-				if (get_type(jobject[i].hoverEvent) != "[object Undefined]") doHoverEvent = true;
-				if (doHoverEvent && doClickEvent) {
-					popoverTitle = getLanguageString('textsnippets.hoverevent.header',localStorage.getItem('langCode')) + ' and ' + getLanguageString('textsnippets.clickevent.header');
-					hoverEventType = jobject[i].hoverEvent.action;
-					hoverEventValue = jobject[i].hoverEvent.value;
-					clickEventType = jobject[i].clickEvent.action;
-					clickEventValue = jobject[i].clickEvent.value;
+				if (jobject[i].bold == "true") {
+					$('#jsonPreviewSpanElement'+i).addClass('bold');
 				}
-				if (doHoverEvent && !doClickEvent) {
-					popoverTitle = getLanguageString('textsnippets.hoverevent.header',localStorage.getItem('langCode'));
-					hoverEventType = jobject[i].hoverEvent.action;
-					hoverEventValue = jobject[i].hoverEvent.value;
+				if (jobject[i].italic == "true") {
+					$('#jsonPreviewSpanElement'+i).addClass('italic');
 				}
-				if (!doHoverEvent && doClickEvent) {
-					popoverTitle = getLanguageString('textsnippets.clickevent.header',localStorage.getItem('langCode'));
-					clickEventType = jobject[i].clickEvent.action;
-					clickEventValue = jobject[i].clickEvent.value;
+				if (jobject[i].underlined == "true") {
+					$('#jsonPreviewSpanElement'+i).addClass('underlined');
 				}
-				if (doClickEvent) {
-					if (clickEventType == "open_url") {
-						popoverContentClick = clickEventType+':<a href="'+clickEventValue+'">'+clickEventValue+'</a>';
+				if (jobject[i].strikethrough == "true") {
+					if ($('#jsonPreviewSpanElement'+i).hasClass('underlined')) {
+						$('#jsonPreviewSpanElement'+i).removeClass('underlined');
+						$('#jsonPreviewSpanElement'+i).addClass('strikethroughunderlined');
 					} else {
-						popoverContentClick = clickEventType+':'+clickEventValue;
+						$('#jsonPreviewSpanElement'+i).addClass('strikethrough');
 					}
 				}
-				if (doHoverEvent) {
-					popoverContentHover = hoverEventType+':'+hoverEventValue;
+				if (jobject[i].obfuscated == "true") {
+					$('#jsonPreviewSpanElement'+i).addClass('jsonPreviewObfuscated');
 				}
-				if (doHoverEvent && doClickEvent) {
-					popoverContentClick = popoverContentClick + '<br>';
+
+				/*COLORS*/
+				$('#jsonPreviewSpanElement'+i).css('color',getCSSHEXFromWord(jobject[i].color));
+
+				/*CLICK & HOVER EVENTS*/
+
+				if (get_type(jobject[i].clickEvent) != "[object Undefined]" || get_type(jobject[i].hoverEvent) != "[object Undefined]") {
+					if (get_type(jobject[i].clickEvent) != "[object Undefined]") doClickEvent = true;
+					if (get_type(jobject[i].hoverEvent) != "[object Undefined]") doHoverEvent = true;
+					if (doHoverEvent && doClickEvent) {
+						popoverTitle = getLanguageString('textsnippets.hoverevent.header',localStorage.getItem('langCode')) + ' and ' + getLanguageString('textsnippets.clickevent.header');
+						hoverEventType = jobject[i].hoverEvent.action;
+						hoverEventValue = jobject[i].hoverEvent.value;
+						clickEventType = jobject[i].clickEvent.action;
+						clickEventValue = jobject[i].clickEvent.value;
+					}
+					if (doHoverEvent && !doClickEvent) {
+						popoverTitle = getLanguageString('textsnippets.hoverevent.header',localStorage.getItem('langCode'));
+						hoverEventType = jobject[i].hoverEvent.action;
+						hoverEventValue = jobject[i].hoverEvent.value;
+					}
+					if (!doHoverEvent && doClickEvent) {
+						popoverTitle = getLanguageString('textsnippets.clickevent.header',localStorage.getItem('langCode'));
+						clickEventType = jobject[i].clickEvent.action;
+						clickEventValue = jobject[i].clickEvent.value;
+					}
+					if (doClickEvent) {
+						if (clickEventType == "open_url") {
+							popoverContentClick = clickEventType+':<a href="'+clickEventValue+'">'+clickEventValue+'</a>';
+						} else {
+							popoverContentClick = clickEventType+':'+clickEventValue;
+						}
+					}
+					if (doHoverEvent) {
+						popoverContentHover = hoverEventType+':'+hoverEventValue;
+					}
+					if (doHoverEvent && doClickEvent) {
+						popoverContentClick = popoverContentClick + '<br>';
+					}
+					$('#jsonPreviewSpanElement'+i).attr('rel','popover');
 				}
-				$('#jsonPreviewSpanElement'+i).attr('rel','popover');
+				$('#jsonPreviewSpanElement'+ i).popover({ title: popoverTitle, content: popoverContentClick+popoverContentHover, html:true});
 			}
-			$('#jsonPreviewSpanElement'+ i).popover({ title: popoverTitle, content: popoverContentClick+popoverContentHover, html:true});
 		}
 	} else {
 		$('#jsonPreview').html(getLanguageString('output.nothing',localStorage.getItem('langCode')));
