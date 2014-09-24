@@ -1,6 +1,10 @@
 var chars = new Array(1,2,3,4,5,6,7,8,9,0,'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
 var matchLength = 0;
 var version = 2;
+var notice = {
+	"id": 3,
+	"message": "Some formats have changed. %e is no longer a valid marker, use %s now.\n\nIt is recommended you reset to the templates."
+};
 var jobject = [];
 var selectedHover;
 var selectedClick;
@@ -881,8 +885,10 @@ function refreshOutput(input) {
 
 	if (templates[localStorage.getItem('jtemplate')].formatType == 'bookarray') {
 		JSONOutputString = JSON.stringify(formattedJObject);
-	} else {
+	} else if (templates[localStorage.getItem('jtemplate')].formatType == 'standardjson') {
 		JSONOutputString = formattedJObject[0];
+	} else if (templates[localStorage.getItem('jtemplate')].formatType == 'signset') {
+		JSONOutputString = 'Line1:' + JSON.stringify(formattedJObject[0]);
 	}
 
 	commandString.replace(newLine,'\\n');
@@ -1055,6 +1061,12 @@ function initialize() {
 		}
 	}
 	localStorage.setItem('jformat',version);
+
+	/*check if alert isn't correctly set. Do not show the alert is jformat isn't set – that means the user hasn't been here before*/
+	if (localStorage.getItem('jalert') != notice.id && localStorage.getItem('jformat') != undefined) {
+		alert(notice.message)
+	}
+	localStorage.setItem('jalert',notice.id);
 
 	for (var i = 0; i < Object.keys(templates).length; i++) {
 		var key = Object.keys(templates)[i]
