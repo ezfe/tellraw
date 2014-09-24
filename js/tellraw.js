@@ -63,10 +63,8 @@ function formatJObjectList(data) {
 	var currentDataToPlug = {"text":"","extra":[]};
 	for (var i = 0; i < data.length; i++) {
 		if (data[i].NEW_ITERATE_FLAG) {
-			if (localStorage.getItem('jtemplate') == 'book') {
-				ret_val.push(JSON.stringify(currentDataToPlug));
-				currentDataToPlug = {"text":"","extra":[]};
-			}
+			ret_val.push(JSON.stringify(currentDataToPlug));
+			currentDataToPlug = {"text":"","extra":[]};
 		} else {
 			currentDataToPlug.extra.push(data[i]);
 		}
@@ -695,7 +693,7 @@ function refreshOutput(input) {
 					upButton = "";
 				}
 				if (jobject[i].NEW_ITERATE_FLAG) {
-					if (localStorage.getItem('jtemplate') != 'book') {
+					if (templates[localStorage.getItem('jtemplate')].formatType != 'bookarray' && templates[localStorage.getItem('jtemplate')].formatType != 'signset') {
 						var tempJSON = '<span style="color:gray;text-decoration:line-through;" lang="textsnippets.NEW_ITERATE_FLAG"></span>';
 					} else {
 						var tempJSON = '<span lang="textsnippets.NEW_ITERATE_FLAG"></span>';
@@ -723,7 +721,7 @@ function refreshOutput(input) {
 				}
 				var deleteButton = '<i id="'+i+'RowEditButton" onclick="editExtra('+i+');" class="fa fa-pencil"></i> <i onclick="deleteIndex('+ i +');" class="fa fa-times-circle"></i> ';
 				if (jobject[i].NEW_ITERATE_FLAG) {
-					deleteButton = '<i onclick="deleteIndex('+ i +');" class="fa fa-times-circle"></i> ';
+					deleteButton = '<i style="color:gray;" class="fa fa-pencil"></i> <i onclick="deleteIndex('+ i +');" class="fa fa-times-circle"></i> ';
 				}
 				$('.extraContainer').append('<div class="row extraRow row-margin-top row-margin-bottom RowIndex' + i + '"><div class="col-xs-4 col-sm-2 col-lg-1">'+deleteButton+downButton+upButton+'</div><div class="col-xs-8 col-sm-10 col-lg-11" style="padding:none;">'+tempJSON+'</div></div>');
 			}
@@ -768,7 +766,7 @@ function refreshOutput(input) {
 		$('.extraTranslationParameterRow').hide();
 	}
 	if (extraTextFormat == 'NEW_ITERATE_FLAG') {
-		if (localStorage.getItem('jtemplate') != 'book') {
+		if (templates[localStorage.getItem('jtemplate')].formatType != 'bookarray' && templates[localStorage.getItem('jtemplate')].formatType != 'signset') {
 			alert('You must be using the book template')
 			$('#fmtExtraRaw').click();
 		}
@@ -891,6 +889,13 @@ function refreshOutput(input) {
 		JSONOutputString = formattedJObject[0];
 	} else if (templates[localStorage.getItem('jtemplate')].formatType == 'signset') {
 		JSONOutputString = 'Text1:' + JSON.stringify(formattedJObject[0]);
+		if (formattedJObject.length > 1) {
+			JSONOutputString += ',Text2:' + JSON.stringify(formattedJObject[1])
+		} else if (formattedJObject.length > 2) {
+			JSONOutputString += ',Text3:' + JSON.stringify(formattedJObject[2])
+		} else if (formattedJObject.length > 3) {
+			JSONOutputString += ',Text4:' + JSON.stringify(formattedJObject[3])
+		}
 	}
 
 	commandString.replace(newLine,'\\n');
