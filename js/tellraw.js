@@ -61,7 +61,11 @@ function formatJObjectList(data,escape) {
 	var currentDataToPlug = {"text":"","extra":[]};
 	for (var i = 0; i < data.length; i++) {
 		if (data[i].NEW_ITERATE_FLAG) {
-			ret_val.push(currentDataToPlug);
+			if (escape) {
+				ret_val.push(escapeQuotes(JSON.stringify(currentDataToPlug)));
+			} else {
+				ret_val.push(JSON.stringify(currentDataToPlug));
+			}
 			currentDataToPlug = {"text":"","extra":[]};
 		} else {
 			currentDataToPlug.extra.push(data[i]);
@@ -69,9 +73,9 @@ function formatJObjectList(data,escape) {
 	}
 	if (!data[data.length - 1].NEW_ITERATE_FLAG) {
 		if (escape) {
-			ret_val.push(escapeQuotes(currentDataToPlug));
+			ret_val.push(escapeQuotes(JSON.stringify(currentDataToPlug)));
 		} else {
-			ret_val.push(currentDataToPlug);
+			ret_val.push(JSON.stringify(currentDataToPlug));
 		}
 	}
 	return ret_val;
@@ -890,11 +894,11 @@ function refreshOutput(input) {
 	var formattedJObjectEscaped = formatJObjectList(jobject,true);
 
 	if (templates[localStorage.getItem('jtemplate')].breakers == 'bookarray') {
-		JSONOutputString = JSON.stringify(formattedJObject);
-		EscapedJSONOutputString = JSON.stringify(formattedJObjectEscaped);
+		JSONOutputString = formattedJObject;
+		EscapedJSONOutputString = formattedJObjectEscaped;
 	} else {
-		JSONOutputString = JSON.stringify(formattedJObject[0]);
-		EscapedJSONOutputString = escapeQuotes(JSON.stringify(formattedJObjectEscaped[0]));
+		JSONOutputString = formattedJObject[0];
+		EscapedJSONOutputString = formattedJObjectEscaped[0];
 	}
 
 	commandString.replace(newLine,'\\n');
