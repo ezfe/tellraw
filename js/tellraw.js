@@ -211,6 +211,7 @@ function deleteAllConfirmed() {
 	$('#deleteConfirm');
 	jobject = [];
 	$('#command').val('/tellraw @a %s');
+	localStorage.setItem('jtemplate','book');
 	refreshOutput();
 }
 function deleteAllCancel() {
