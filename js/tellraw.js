@@ -1204,10 +1204,16 @@ function initialize() {
 		$('html').append(errorString);
 	});
 	$('#toggleSettings').click(function(){
+		if ($('#toggleSettings').children().filter('span').attr('lang') == 'settings.hide') {
+			$('#toggleSettings').children().filter('span').attr('lang','settings.show');
+		} else {
+			$('#toggleSettings').children().filter('span').attr('lang','settings.hide');
+		}
+		refreshLanguage();
+		
 		$('#settingsWell').toggle();
-		//if (!$('#settingsWell').is(":hidden")) {
-		//	goToByScroll("settingsWell");
-		//}
+
+		goToByScroll("toggleSettings");
 	});
 	$('#helptoggle').click(function(){
 		$('.help-box').toggle();

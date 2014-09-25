@@ -38,7 +38,9 @@
 		"new": "Save Current String"
 	},
 	"settings": {
-		"toggle": "Show/Hide Settings",
+		"nlOutput": "Show Structured Output",
+		"show": "Show Settings",
+		"hide": "Hide Settings",
 		"fontSize": "Preview Font Size",
 		"previewcolor": "Preview Background Color:",
 		"export": "Export",
