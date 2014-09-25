@@ -885,8 +885,10 @@ function refreshOutput(input) {
 
 	if (templates[localStorage.getItem('jtemplate')].formatType == 'bookarray') {
 		JSONOutputString = JSON.stringify(formattedJObject);
+		JSONOutputString = JSONOutputString.replace('\\\\\\\\n','\\n');
 	} else if (templates[localStorage.getItem('jtemplate')].formatType == 'standardjson') {
 		JSONOutputString = formattedJObject[0];
+		JSONOutputString = JSONOutputString.replace('\\\\n','\\n');
 	} else if (templates[localStorage.getItem('jtemplate')].formatType == 'signset') {
 		JSONOutputString = 'Text1:' + JSON.stringify(formattedJObject[0]);
 		if (formattedJObject.length > 1) {
@@ -896,10 +898,10 @@ function refreshOutput(input) {
 		} else if (formattedJObject.length > 3) {
 			JSONOutputString += ',Text4:' + JSON.stringify(formattedJObject[3])
 		}
+		JSONOutputString = JSONOutputString.replace('\\\\\\\\n','\\n');
 	}
 
-
-	commandString = commandString.replace('%s',JSONOutputString.replace('\\\\n','\\n'));
+	commandString = commandString.replace('%s',JSONOutputString);
 
 	outputString = commandString;
 
