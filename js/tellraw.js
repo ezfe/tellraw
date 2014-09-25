@@ -875,7 +875,6 @@ function refreshOutput(input) {
 	}
 
 	/*PREPARING OUTPUT*/
-	var newLine = /\\\\n/g;
 
 	var commandString = $('#command').val();
 
@@ -898,16 +897,15 @@ function refreshOutput(input) {
 		}
 	}
 
-	commandString.replace(newLine,'\\n');
 
-	commandString = commandString.replace('%s',JSONOutputString);
+	commandString = commandString.replace('%s',JSONOutputString.replace('\\\\n','\\n'));
 
 	outputString = commandString;
 
 	$('#outputtextfield').val(outputString);
 	if ($('#showNiceLookingOutput').is(':checked')) {
 		localStorage.setItem('nlOutput','yes');
-		$('#nicelookingoutput').show().html(JSON.stringify(jobject, null, 4).replace(newLine,'\\n'));
+		$('#nicelookingoutput').show().html(JSON.stringify(jobject, null, 4).replace('\\\\n','\\n'));
 	} else {
 		localStorage.setItem('nlOutput','no');
 		$('#nicelookingoutput').hide();
