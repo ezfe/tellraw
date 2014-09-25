@@ -883,12 +883,18 @@ function refreshOutput(input) {
 	var EscapedJSONOutputString = '';
 	var formattedJObject = formatJObjectList(jobject);
 
+	var newLineExpressions = {
+		"bookarray": /\\\\\\\\n/g,
+		"standardjson": /\\\\n/g,
+		"signset": /\\\\\\\\n/g
+	}
 	if (templates[localStorage.getItem('jtemplate')].formatType == 'bookarray') {
 		JSONOutputString = JSON.stringify(formattedJObject);
-		JSONOutputString = JSONOutputString.replace('\\\\\\\\n','\\n');
+		JSONOutputString = JSONOutputString.replace(newLineExpressions.bookarray,'\\n');
 	} else if (templates[localStorage.getItem('jtemplate')].formatType == 'standardjson') {
 		JSONOutputString = formattedJObject[0];
-		JSONOutputString = JSONOutputString.replace('\\\\n','\\n');
+		console.log(JSONOutputString);
+		JSONOutputString = JSONOutputString.replace(newLineExpressions.standardjson,'\\n');
 	} else if (templates[localStorage.getItem('jtemplate')].formatType == 'signset') {
 		JSONOutputString = 'Text1:' + JSON.stringify(formattedJObject[0]);
 		if (formattedJObject.length > 1) {
@@ -898,7 +904,7 @@ function refreshOutput(input) {
 		} else if (formattedJObject.length > 3) {
 			JSONOutputString += ',Text4:' + JSON.stringify(formattedJObject[3])
 		}
-		JSONOutputString = JSONOutputString.replace('\\\\\\\\n','\\n');
+		JSONOutputString = JSONOutputString.replace(newLineExpressions.signset,'\\n');
 	}
 
 	commandString = commandString.replace('%s',JSONOutputString);
@@ -908,7 +914,7 @@ function refreshOutput(input) {
 	$('#outputtextfield').val(outputString);
 	if ($('#showNiceLookingOutput').is(':checked')) {
 		localStorage.setItem('nlOutput','yes');
-		$('#nicelookingoutput').show().html(JSON.stringify(jobject, null, 4).replace('\\\\n','\\n'));
+		$('#nicelookingoutput').show().html(JSON.stringify(jobject, null, 4).replace(newLineExpressions.standardjson,'\\n'));
 	} else {
 		localStorage.setItem('nlOutput','no');
 		$('#nicelookingoutput').hide();
