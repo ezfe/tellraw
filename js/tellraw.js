@@ -1218,6 +1218,7 @@ function initialize() {
 			$('#toggleSettings').children().filter('span').attr('lang','settings.hide');
 		}
 		refreshLanguage();
+		refreshOutput();
 		
 		$('#settingsWell').toggle();
 
