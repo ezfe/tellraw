@@ -726,7 +726,7 @@ function refreshOutput(input) {
 				}
 				$('.extraContainer').append('<div class="row extraRow row-margin-top row-margin-bottom RowIndex' + i + '"><div class="col-xs-4 col-sm-2 col-lg-1">'+deleteButton+downButton+upButton+'</div><div class="col-xs-8 col-sm-10 col-lg-11" style="padding:none;">'+tempJSON+'</div></div>');
 			}
-			if (jobject.length === 0) {
+			if (jobject.length == 0) {
 				delete jobject;
 				$('.extraContainer').html('<div class="row"><div class="col-xs-12"><h4 lang="textsnippets.nosnippets"></h4></div></div>');
 				refreshLanguage();
@@ -958,7 +958,7 @@ function jsonParse() {
 				var clickEventValue = "";
 				$('#jsonPreview').append('<span id="jsonPreviewSpanElement'+ i +'"></span>');
 				if (get_type(jobject[i].text) != "[object Undefined]") {
-					$('#jsonPreviewSpanElement'+i).html(jobject[i].text.replace(/\n/g,'<br>').replace(/\\n/g,'<br>'));
+					$('#jsonPreviewSpanElement'+i).html(jobject[i].text.replace(/\\\\n/g,'<br>').replace(/\\n/g,'<br>'));
 				} else {
 					$('#jsonPreviewSpanElement'+i).html(jobject[i].translate);
 				}
