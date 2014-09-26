@@ -1229,9 +1229,17 @@ function initialize() {
 	});
 }
 $( document ).ready(function(){
-	data = getURL('resources.json');
+	try {
+		data = getURL('resources.json');
+	} catch(err) {
+		alert('An error occured loading page assets. Please try again later.');
+	}
 	if (typeof data == 'string') {
-		data = JSON.parse(data);
+		try {
+			data = JSON.parse(data);
+		} catch(err) {
+			alert('An error occured loading page assets. Please try again later.');
+		}
 	}
 	translationStrings = data['minecraft_language_strings']['en_us'];
 	webLangRelations = data['web_language_relations'];
@@ -1241,13 +1249,21 @@ $( document ).ready(function(){
 		try {
 			var urlFetch = getURL('lang/' + data['web_language_urls'][i] + '.json');
 		} catch(err) {
-			continue;
+			if (data['web_language_urls'][i] == 'en_us') {
+				var urlFetch = {"language":{"name":"English"}};
+			} else {
+				continue;
+			}
 		}
 		if (typeof urlFetch == 'string') {
 			try {
 				urlFetch = JSON.parse(urlFetch);
 			} catch(err) {
+			if (data['web_language_urls'][i] == 'en_us') {
+				var urlFetch = {"language":{"name":"English"}};
+			} else {
 				continue;
+			}
 			}
 		}
 		lang[data['web_language_urls'][i]] = urlFetch;
