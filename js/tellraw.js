@@ -958,7 +958,7 @@ function jsonParse() {
 				var clickEventValue = "";
 				$('#jsonPreview').append('<span id="jsonPreviewSpanElement'+ i +'"></span>');
 				if (get_type(jobject[i].text) != "[object Undefined]") {
-					$('#jsonPreviewSpanElement'+i).html(jobject[i].text.replace('\n','<br>').replace('\\n','<br>'));
+					$('#jsonPreviewSpanElement'+i).html(jobject[i].text.replace(/\n/g,'<br>').replace(/\\n/g,'<br>'));
 				} else {
 					$('#jsonPreviewSpanElement'+i).html(jobject[i].translate);
 				}
