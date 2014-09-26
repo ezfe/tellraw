@@ -1237,10 +1237,19 @@ $( document ).ready(function(){
 	achievements = data['achievements'];
 	commands = data['commands'];
 	for (var i = 0; i < data['web_language_urls'].length; i++) {
-		lang[data['web_language_urls'][i]] = getURL('lang/' + data['web_language_urls'][i] + '.json');
-		if (typeof lang[data['web_language_urls'][i]] == 'string') {
-			lang[data['web_language_urls'][i]] = JSON.parse(lang[data['web_language_urls'][i]]);
+		try {
+			var urlFetch = getURL('lang/' + data['web_language_urls'][i] + '.json');
+		} catch(err) {
+			continue;
 		}
+		if (typeof urlFetch == 'string') {
+			try {
+				urlFetch = JSON.parse(urlFetch);
+			} catch(err) {
+				continue;
+			}
+		}
+		lang[data['web_language_urls'][i]] = urlFetch;
 	}
 	delete lang.status;
 	setTimeout(initialize,500);
