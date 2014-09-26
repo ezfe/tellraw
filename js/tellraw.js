@@ -1,4 +1,4 @@
-var chars = new Array(1,2,3,4,5,6,7,8,9,0,'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
+var chars = [1,2,3,4,5,6,7,8,9,0,'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 var matchLength = 0;
 var version = 2;
 var notice = {
@@ -147,7 +147,7 @@ if (!String.prototype.codePointAt) {
         	return ((code - 0xD800) * 0x400) + (next - 0xDC00) + 0x10000;
         }
         return code;
-    };
+};
 }
 
 function setObfuscatedString(string) {
@@ -1229,6 +1229,7 @@ function initialize() {
 	});
 }
 $( document ).ready(function(){
+	$('#loadingtxt').html('Loading Assets');
 	try {
 		data = getURL('resources.json');
 	} catch(err) {
@@ -1259,11 +1260,11 @@ $( document ).ready(function(){
 			try {
 				urlFetch = JSON.parse(urlFetch);
 			} catch(err) {
-			if (data['web_language_urls'][i] == 'en_us') {
-				var urlFetch = {"language":{"name":"English"}};
-			} else {
-				continue;
-			}
+				if (data['web_language_urls'][i] == 'en_us') {
+					var urlFetch = {"language":{"name":"English"}};
+				} else {
+					continue;
+				}
 			}
 		}
 		lang[data['web_language_urls'][i]] = urlFetch;
