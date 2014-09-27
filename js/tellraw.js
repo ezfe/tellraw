@@ -1152,7 +1152,7 @@ function initialize() {
 		} else {
 			var inpt = prompt(getLanguageString('settings.importtext.default',localStorage.getItem('langCode'),false,false));
 			$('#command').val(inpt.substring(0,inpt.indexOf("{")-1));
-			jobject = JSON.parse(inpt.substring(inpt.indexOf("{")));
+			jobject = [JSON.parse(inpt.substring(inpt.indexOf("{")))];
 			refreshOutput();
 		}
 	});
