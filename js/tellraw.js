@@ -1103,13 +1103,13 @@ function initialize() {
 	} else {
 		errorString = '&lt;language unknown&gt;<br><br>';
 	}
-	var enCount = JSON.stringify(lang['en_us']).length;
+	/*var enCount = JSON.stringify(lang['en_us']).length;*/
 	for (var i = 0; i < Object.keys(lang).length; i++) {
-		var langKey = Object.keys(lang)[i];
+		/*var langKey = Object.keys(lang)[i];
 		var currentCount = JSON.stringify(lang[langKey]).length;
 		var currentPercentage = Math.round(currentCount/enCount*100);
-		console.log(currentPercentage);
-		$('#language_keys').append('<li><a onclick="errorString = \''+lang[Object.keys(lang)[i]].language.name+'<br><br>\'; localStorage.setItem(\'langCode\',\''+Object.keys(lang)[i]+'\'); refreshLanguage(true); refreshOutput();"><span class="'+Object.keys(lang)[i]+' langSelect" id="language_select_'+Object.keys(lang)[i]+'">'+lang[Object.keys(lang)[i]].language.name+'</span> <span class="pull-right badge">' + currentPercentage + '%</span></a></li>');
+		console.log(currentPercentage);*/
+		$('#language_keys').append('<li><a onclick="errorString = \''+lang[Object.keys(lang)[i]].language.name+'<br><br>\'; localStorage.setItem(\'langCode\',\''+Object.keys(lang)[i]+'\'); refreshLanguage(true); refreshOutput();"><span class="'+Object.keys(lang)[i]+' langSelect" id="language_select_'+Object.keys(lang)[i]+'">'+lang[Object.keys(lang)[i]].language.name+'</span>' + /*<span class="pull-right badge">' + currentPercentage + '%</span> */ + '</a></li>');
 	};
 	$('#language_keys').append('<li class="divider"></li>');
 	$('#language_keys').append('<li><a href="http://www.minecraftforum.net/topic/1980545-"><span class="language_area" lang="language.translate"></span></a></li>');
