@@ -892,8 +892,7 @@ function refreshOutput(input) {
 		JSONOutputString = JSON.stringify(formattedJObject);
 		JSONOutputString = JSONOutputString.replace(newLineExpressions.bookarray,'\\n');
 	} else if (templates[localStorage.getItem('jtemplate')].formatType == 'standardjson') {
-		JSONOutputString = formattedJObject[0];
-		console.log(JSONOutputString);
+		JSONOutputString = '' + formattedJObject[0];
 		JSONOutputString = JSONOutputString.replace(newLineExpressions.standardjson,'\\n');
 	} else if (templates[localStorage.getItem('jtemplate')].formatType == 'signset') {
 		JSONOutputString = 'Text1:' + JSON.stringify(formattedJObject[0]);
