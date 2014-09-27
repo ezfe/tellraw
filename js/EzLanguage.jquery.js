@@ -1,7 +1,5 @@
 var errorsPrinted = {};
 var errorString = '';
-var termsCounted = {};
-var totalTerms = {};
 
 (function($) {
 	$.fn.refreshLanguage = function(currentLanguageCode) {
@@ -70,16 +68,6 @@ function getLanguageString(string,currentLanguageCode,enTest,do_encode) {
 						}
 						errorsPrinted[oldLanguageCode][string] = true;
 					}
-				}
-				if (totalTerms[currentLanguageCode] == undefined) {
-					totalTerms[currentLanguageCode] = 0;
-				}
-				if (termsCounted[currentLanguageCode] == undefined) {
-					termsCounted[currentLanguageCode] = {}
-				}
-				if (termsCounted[currentLanguageCode][string] == undefined) {
-					termsCounted[currentLanguageCode][string] = "counted";
-					totalTerms[currentLanguageCode]++;
 				}
 				/*END LOG NEEDED TRANSLATIONS*/
 				return ret_val;
