@@ -27,7 +27,17 @@ function getURL(url){
 		async: false
 	}).responseText;
 }
-
+function donateAlert(state,hasDonated) {
+	if (state) {
+		$('#donate-container').show();
+		$('#loading-container').hide();
+		$('#tellraw-container').hide();
+	} else {
+		$('#donate-container').hide();
+		$('#loading-container').hide();
+		$('#tellraw-container').show();
+	}
+}
 function verify_jobject_format(jdata) {
 	if (get_type(jdata) != "[object Array]") {
 		alert('Your stored variable is malformed and needs to be cleared.');
@@ -1118,7 +1128,9 @@ function initialize() {
 		$('#previewcolor').val('617A80');
 	}
 	$('#previewcolor').css('background-color','#'+$('#previewcolor').val());
+	
 	jsonParse();
+	
 	if (localStorage['jobject'] != undefined) {
 		jobject = verify_jobject_format(JSON.parse(localStorage["jobject"]));
 	}
@@ -1238,6 +1250,8 @@ function initialize() {
 	$('#helptoggle').click(function(){
 		$('.help-box').toggle();
 	});
+
+	donateAlert(true);
 }
 $( document ).ready(function(){
 	$('#loadingtxt').html('Loading Assets');
