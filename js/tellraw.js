@@ -147,7 +147,7 @@ if (!String.prototype.codePointAt) {
         	return ((code - 0xD800) * 0x400) + (next - 0xDC00) + 0x10000;
         }
         return code;
-};
+    };
 }
 
 function setObfuscatedString(string) {
@@ -888,22 +888,28 @@ function refreshOutput(input) {
 		"standardjson": /\\\\n/g,
 		"signset": /\\\\\\\\n/g
 	}
-	if (templates[localStorage.getItem('jtemplate')].formatType == 'bookarray') {
-		JSONOutputString = JSON.stringify(formattedJObject);
-		JSONOutputString = JSONOutputString.replace(newLineExpressions.bookarray,'\\n');
-	} else if (templates[localStorage.getItem('jtemplate')].formatType == 'standardjson') {
-		JSONOutputString = '' + formattedJObject[0];
-		JSONOutputString = JSONOutputString.replace(newLineExpressions.standardjson,'\\n');
-	} else if (templates[localStorage.getItem('jtemplate')].formatType == 'signset') {
-		JSONOutputString = 'Text1:' + JSON.stringify(formattedJObject[0]);
-		if (formattedJObject.length > 1) {
-			JSONOutputString += ',Text2:' + JSON.stringify(formattedJObject[1])
-		} else if (formattedJObject.length > 2) {
-			JSONOutputString += ',Text3:' + JSON.stringify(formattedJObject[2])
-		} else if (formattedJObject.length > 3) {
-			JSONOutputString += ',Text4:' + JSON.stringify(formattedJObject[3])
+	if (!formattedJObject.length > 0) {
+		JSONOutputString = '{}';
+	} else {
+		if (templates[localStorage.getItem('jtemplate')].formatType == 'bookarray') {
+			JSONOutputString = JSON.stringify(formattedJObject);
+			JSONOutputString = JSONOutputString.replace(newLineExpressions.bookarray,'\\n');
+		} else if (templates[localStorage.getItem('jtemplate')].formatType == 'standardjson') {
+			JSONOutputString = formattedJObject[0];
+			JSONOutputString = JSONOutputString.replace(newLineExpressions.standardjson,'\\n');
+		} else if (templates[localStorage.getItem('jtemplate')].formatType == 'signset') {
+			JSONOutputString = 'Text1:' + JSON.stringify(formattedJObject[0]);
+			if (formattedJObject.length > 1) {
+				JSONOutputString += ',Text2:' + JSON.stringify(formattedJObject[1])
+			} 
+			if (formattedJObject.length > 2) {
+				JSONOutputString += ',Text3:' + JSON.stringify(formattedJObject[2])
+			}
+			if (formattedJObject.length > 3) {
+				JSONOutputString += ',Text4:' + JSON.stringify(formattedJObject[3])
+			}
+			JSONOutputString = JSONOutputString.replace(newLineExpressions.signset,'\\n');
 		}
-		JSONOutputString = JSONOutputString.replace(newLineExpressions.signset,'\\n');
 	}
 
 	commandString = commandString.replace('%s',JSONOutputString);
