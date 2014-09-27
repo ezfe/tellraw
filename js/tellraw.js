@@ -235,10 +235,6 @@ function clearJObjectSavesConfirmed() {
 function clearJObjectSavesCancel() {
 	$('#deleteJObjectConfirm').slideUp();
 }
-function warnFutureVersion(ver,feature,c) {
-	$('.modal_banners').append('<div class="alert alert-warning futureWarning '+c+'"><strong lang="textsnippets.warning.title"></strong> '+getLanguageString('textsnippets.warning.text',localStorage.getItem('langCode')).replace('%v',ver).replace('%f',feature)+'</div>');
-	refreshLanguage();
-}
 function obfuscationPreviewHandler() {
 	$('.jsonPreviewObfuscated').html(setObfuscatedString($('.jsonPreviewObfuscated').html()));
 	if ($('.jsonPreviewObfuscated').length > 0) {
