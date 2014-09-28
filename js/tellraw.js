@@ -38,6 +38,17 @@ function donateAlert(state,hasDonated) {
 		$('#tellraw-container').show();
 	}
 }
+function donateTimer() {
+	console.log('loop');
+	var newTime = localStorage.getItem('donateTimer') + 1;
+	localStorage.setItem('donateTimer',newTime);
+	if (newTime >= 10) {
+		donateAlert(true);
+		localStorage.setItem('donateTimer',0);
+	} else {
+		setTimeout(donateTimer,1000);
+	}
+}
 function verify_jobject_format(jdata) {
 	if (get_type(jdata) != "[object Array]") {
 		alert('Your stored variable is malformed and needs to be cleared.');
@@ -1067,6 +1078,11 @@ function refreshLanguage(dropdownSelection) {
 }
 
 function initialize() {
+	if (localStorage.getItem('donateTimer') == undefined) {
+		localStorage.setItem('donateTimer',0);
+	}
+	setTimeout(donateTimer,1000);
+
 	if (localStorage.getItem('langCode') == undefined) {
 		if (lang[navigator.language.toLowerCase()] != undefined) {
 			localStorage.setItem('langCode',navigator.language.toLowerCase());
@@ -1250,8 +1266,6 @@ function initialize() {
 	$('#helptoggle').click(function(){
 		$('.help-box').toggle();
 	});
-
-	donateAlert(true);
 }
 $( document ).ready(function(){
 	$('#loadingtxt').html('Loading Assets');
