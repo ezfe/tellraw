@@ -1089,7 +1089,12 @@ function initialize() {
 
 	for (var i = 0; i < Object.keys(templates).length; i++) {
 		var key = Object.keys(templates)[i]
-		$('#templateButtons').append('<button class="btn btn-xs btn-default templateButton" lang="template.' + key + '" version="' + templates[key]['version'] + '" template="'+ key +'"></button> ');
+		if (key == localStorage.getItem('jtemplate')) {
+			var classString = 'btn-success';
+		} else {
+			var classString = 'btn-default';
+		}
+		$('#templateButtons').append('<button class="btn btn-xs ' + classString + ' templateButton" lang="template.' + key + '" version="' + templates[key]['version'] + '" template="'+ key +'"></button> ');
 	}
 	if (localStorage.getItem('jtemplate') == undefined) {
 		localStorage.setItem('jtemplate', 'tellraw');
@@ -1128,6 +1133,9 @@ function initialize() {
 	}
 
 	$('.templateButton').click(function(){
+		$('.templateButton').removeClass('btn-success').removeClass('btn-default').addClass('btn-default');
+		$(this).addClass('btn-success').removeClass('btn-default');
+
 		var template = $(this).attr('template');
 
 		localStorage.setItem('jtemplate',template);
