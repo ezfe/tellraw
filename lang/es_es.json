@@ -1,63 +1,113 @@
 {
-	"player": {
-		"header": "Jugador:",
-		"description": "(@a, @p, @r, o un jugador específico)"
+	"help": {
+		"textfield": "Emplea \\n para hacer un salto de línea",
+		"raw-text-tab": "Escribe el texto. Si es simple, no tendrá ningún añadido. Scoreboard modifica un valor de un scoreboard. Selector escoge una entidad para ejecutar el comando.",
+		"report-an-issue": "Haz click para reportar un error. Si ves algún tipo de fallo, comunícalo aquí.",
+		"dropdown-list": "Twitea, historial de cambios, ve al tema en el foro de minecraft, o mira los idiomas por traducir.",
+		"addsnippet": "Añade texto al comando /tellraw.",
+		"delete-all-saves": "Elimina los comandos guardados, dejando el que estás creando, intacto.",
+		"create-new-save": "Guarda una copia. Esto sobreescribirá otra copia con el mismo nombre, si así lo quieres.",
+		"delete-all-snippets": "Elimina el comando por completo. Las copias gurardadas permanecerán.",
+		"show-saves": "Muestra el editor de las copias guradadas, permite guardar, cargar, y eliminar los comandos guardados."
 	},
-	"header": "Generador del comando Tellraw para Minecraft 1.7+",
+	"template": {
+		"sign_block": "Cartel (/blockdata)",
+		"sign_item": "Cartel (/give)",
+		"subtitle": "Subtítulo",
+		"title": "Título",
+		"tellraw": "Tellraw",
+		"book": "Libro",
+		"execute_tellraw": "Execute"
+	},
 	"output": {
 		"nothing": "Nada todavía",
-		"header": "Vista Previa"
+		"header": "Vista previa del comando:"
+	},
+	"saves": {
+		"header": "Comandos guardados",
+		"hide": "Ocultar copias",
+		"persistencenotice": "Las copias pueden ser eliminadas en cualquier momento ya que dependen de las Cookies del navegador. No las almacenes durante mucho tiempo.",
+		"show": "Mostrar copias",
+		"deleteall": {
+			"body": "Eliminar todas las copias guardadas no modificará el texto actual",
+			"yes": "ELIMINA TODAS las copias guardadas",
+			"heading": "¡¿¡SEGURO!?!",
+			"no": "Cancelar"
+		},
+		"nosaves": "No tienes nada guardado",
+		"new": "Guarda el texto actual"
+	},
+	"settings": {
+		"nlOutput": "Muestra el comando estructurado",
+		"show": "Mostrar configuración",
+		"hide": "Ocultar configuración",
+		"fontSize": "Tamaño de fuente de la previsualización",
+		"previewcolor": "Color de fondo de la previsualización:",
+		"export": "Exportar",
+		"deleteall": {
+			"body": "Eliminar todo borrará el texto actual y creará uno nuevo en blanco.",
+			"heading": "¡¿¡SEGURO!?!",
+			"yes": "Eliminar todo",
+			"no": "Cancelar"
+		},
+		"importtext": {
+			"default": "Introduce aquí tu comando tellraw. Emplea el botón Eliminar todo si se importa de manera incorrecta. Sólo funciona con /tellraw.",
+			"exported": "Introduce aquí el texto obtenido al exportar un comando"
+		},
+		"import": "Importar",
+		"header": "Configuración:"
 	},
 	"color": {
 		"color_green": "Verde",
 		"color_red": "Rojo",
+		"color_none": "Nada",
 		"color_dark_aqua": "Aguamarina Oscuro",
 		"color_dark_purple": "Morado Oscuro",
 		"color_dark_blue": "Azul Oscuro",
-		"color_aqua": "Aguamerina",
+		"color_aqua": "Aguamarina",
 		"color_white": "Blanco",
 		"color_dark_gray": "Gris Oscuro",
 		"color_dark_red": "Rojo Oscuro",
 		"color_dark_green": "Verde Oscuro",
-		"color_gold": "Oro",
+		"color_gold": "Dorado",
 		"color_blue": "Azul",
 		"color_black": "Negro",
 		"color_gray": "Gris",
-		"color_light_purple": "Violeta",
+		"color_light_purple": "Púrpura",
 		"color_yellow": "Amarillo"
 	},
+	"header": "Generador de Tellraw para Minecraft 1.7+",
 	"textsnippets": {
-		"notext": "No hay texto todavía",
+		"trn": "Traducido al idioma del Jugador",
 		"clickevent": {
 			"runcommand": "Ejecutar comando",
-			"openurl": "Abrir URL",
+			"openurl": "Abrir una URL",
 			"suggestcommand": "Introducir comando",
-			"header": "Ejecutar al hacer clic:",
-			"none": "Nada"
+			"header": "Al hacer clic:",
+			"none": "None"
 		},
+		"parameter": "Parámetro",
+		"editsnippet": "Editar Texto",
 		"close": "Cerrar",
-		"insert": "Insertar",
-		"raw": "Texto Simple",
 		"hoverevent": {
-			"header": "Acción al pasar el Puntero:",
+			"header": "Al pasar el cursor:",
 			"showachievement": "Mostrar Logro",
 			"id": "ID:",
-			"showentity": "Mostrar entidad",
-			"showitem": "Mostrar item",
+			"showentity": "Mostrar Entidad",
+			"showitem": "Mostrar Ítem",
 			"type": "Tipo:",
 			"none": "Nada",
-			"showtext": "Mostrar texo",
+			"showtext": "Mostrar Texto",
 			"name": "Nombre"
 		},
-		"addsnippet": "Añadir Texto ",
-		"editsnippet": "Editar",
+		"notext": "Sin Texto",
+		"NEW_ITERATE_FLAG": "Créditos (Libro)",
+		"insert": "Insertar",
+		"addsnippet": "Añadir Texto",
 		"insertion": {
 			"header": "Insertar en Chat"
 		},
-		"header": "Fragmento/s de Texto",
-		"nosnippets": "Aún no hay texto",
-		"obj2": "Objetivo",
-		"text": "Texto",
+		"sel": "Selector",
 		"format": {
 			"bold": "Negrita",
 			"underlined": "Subrayado",
@@ -65,37 +115,48 @@
 			"italic": "Cursiva",
 			"strikethrough": "Tachado"
 		},
-		"warning": {
-			"title": "¡Cuidado!",
-			"text": "Necesitas %v para usar %f"
-		},
 		"player": "Jugador",
-		"parameter": "Parámetro",
-		"trn": "Prediseñado",
-		"obj": "Logro"
+		"obj2": "Objetivo",
+		"obj": "Objetivo del scoreboard",
+		"nosnippets": "Sin texto todavía",
+		"header": "Fragmentos de texto",
+		"text": "Texto",
+		"raw": "Texto Simple",
+		"warning": {
+			"title": "¡Precaución!",
+			"text": "Necesitas un valor en %v para emplear %f"
+		}
 	},
-	"commandblock": "Tienes que ejecutar esto en la consola del servidor o en un bloque de comandos.",
+	"headerbar": {
+		"help": "Ayuda",
+		"report_an_issue": "Reportar un fallo/error",
+		"dropdown": {
+			"tweet": "Twitea",
+			"request_needed_translations": "Lista de traducciones pendientes",
+			"forum_thread": "Tema en el Foro",
+			"changelog": "Historial de cambios"
+		}
+	},
 	"language": {
-		"translate": "Traducir",
+		"translate": "Traduce",
 		"name": "Español",
 		"header": "Idioma",
 		"credit": "Traducido por KaliNuska"
 	},
-	"alert": {
-		"changed": "Esta página ha sido recientemente modificada, así que podría haber algunos problemas. Recarga la página si algo parece no funcionar bien.",
-		"receiveupdates": "Mira las últimas actualizaciones aquí (Foro Oficial)"
+	"player": {
+		"header": "Jugador Objetivo",
+		"description": "Empleado para ejecutar el comando en uno o varios jugadores"
 	},
-	"command": "Commando:",
-	"settings": {
-		"previewcolor": "Color de Vista Previa del Fondo:",
-		"deleteall": {
-			"body": "\"Eliminar\" quitará todo el texto y lo sustituirá por una línea en blanco.",
-			"heading": "¿¿Estás seguro??",
-			"yes": "Eliminar Todo",
-			"no": "Cancelar"
-		},
-		"import": "Importar",
-		"header": "Configuración:",
-		"importtext": "Introduzca el comando tellraw. Utiliza el botón de \"Eliminar Todo\" si no lo importa correctamente."
-	}
+	"commandblock": "Debes ejecutar este comando mediante un Bloque de Comandos o en la consola del servidor.",
+	"alert": {
+		"report": "Enviar fallos",
+		"changed": "Esta página está aún en su versión beta, por lo que puede haber errores. Recarga la página si algo va mal.",
+		"receiveupdates": "Recibe notificaciones (\"Suscríbete\" al post)"
+	},
+	"command": "Comando:",
+	"export": {
+		"heading": "Tu comando exportado",
+		"close": "Cerrar"
+	},
+	"attribution": "Mientras que puedes usar esta página sin más, siempre será apreciado si publicas el enlace a esta página web o al Tema en el Foro de Minecraft."
 }
