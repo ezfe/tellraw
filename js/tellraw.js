@@ -724,7 +724,7 @@ function refreshOutput(input) {
 			}
 			if (jobject.length == 0) {
 				delete jobject;
-				$('.extraContainer').html('<div class="row"><div class="col-xs-12"><h4 lang="textsnippets.nosnippets"></h4></div></div>');
+				$('.extraContainer').html('<br><br>');
 				refreshLanguage();
 			}
 		} else {
