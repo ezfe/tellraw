@@ -90,6 +90,8 @@
 		"editsnippet": "Edit Text",
 		"close": "Close",
 		"hoverevent": {
+			"addtext": "Add Text",
+			"removetext": "Remove Last Text",
 			"header": "Hover Event:",
 			"showachievement": "Show Achievement",
 			"id": "ID:",

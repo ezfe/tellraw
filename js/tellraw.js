@@ -69,6 +69,20 @@ function verify_jobject_format(jdata) {
 		jdata.text = '';
 	}
 
+	for (var i = 0; i < jdata.length; i++) {
+		if (jdata[i].hoverEvent != undefined) {
+			if (jdata[i].hoverEvent.action == "show_text") {
+				if (typeof jdata[i].hoverEvent.value == "object") {
+					if (jdata[i].hoverEvent.value.text != "") {
+						jdata[i].hoverEvent.value = {"text":"", "extra":[jdata[i].hoverEvent.value]};
+					}
+				} else if (typeof jdata[i].hoverEvent.value == "string") {
+					jdata[i].hoverEvent.value = {"text":"", "extra":[{"text":jdata[i].hoverEvent.value}]};
+				}
+			}
+		}
+	}
+
 	return jdata;
 }
 
@@ -309,6 +323,9 @@ function clearExtra() {
 	$('#fmtExtraRaw').click();
 	$("#clickEventText").val("");
 	$("#hoverEventText").val("");
+	$("#hoverEventValue").val("");
+	$("#hoverEventTextSnippet").val("");
+	$("#snippetcolor").val("none");
 	$("#text_extra").val("");
 	$("#color_extra").val("none");
 	$("#clickEvent").val('none');
@@ -399,7 +416,7 @@ function editExtra(index) {
 		$('#hoverEvent_edit').val(jobject[index].hoverEvent.action);
 		if ($('#hoverEvent_edit').val() != 'show_entity') {
 			if (jobject[index].hoverEvent.action == 'show_text') {
-				$('#hoverEventText_edit').val(jobject[index].hoverEvent.value.text);
+				$('#hoverEventText_edit').val(JSON.stringify(jobject[index].hoverEvent.value));
 			} else {
 				$('#hoverEventText_edit').val(jobject[index].hoverEvent.value);
 			}
@@ -492,10 +509,7 @@ function saveExtraEdit() {
 		jobject[extraIndex].hoverEvent = new Object();
 		jobject[extraIndex].hoverEvent.action = hoverEventType_edit;
 		if (hoverEventType_edit == 'show_text') {
-			jobject[extraIndex].hoverEvent.value = {"text": $('#hoverEventText_edit').val()};
-			if ($('#color_hover_edit').val() != 'none') {
-				jobject[extraIndex].hoverEvent.value.color = $('#color_hover_edit').val();
-			}
+			jobject[extraIndex].hoverEvent.value = JSON.parse($('#hoverEventText_edit').val());
 		} else {
 			jobject[extraIndex].hoverEvent.value = $('#hoverEventText_edit').val();
 		}
@@ -548,6 +562,12 @@ function addExtra() {
 	if (extraTextFormat == 'raw' && $('#text_extra').val() == '') {
 		$('#text_extra_container').addClass('has-error');
 		$('#text_extra').focus();
+		$('#textsnippets-add-button').removeClass('btn-default');
+		$('#textsnippets-add-button').addClass('btn-danger');
+		return false;
+	} else if ($("#hoverEvent").val() == 'show_text' && $('#hoverEventTextSnippet').val() != '') {
+		alert('You entered text, but never added it!');
+		$('#hoverEventTextSnippet').focus();
 		$('#textsnippets-add-button').removeClass('btn-default');
 		$('#textsnippets-add-button').addClass('btn-danger');
 		return false;
@@ -623,12 +643,12 @@ function addExtra() {
 			jobject[extraIndex].hoverEvent = new Object();
 			jobject[extraIndex].hoverEvent.action = hoverEventType;
 			if (hoverEventType == 'show_text') {
-				jobject[extraIndex].hoverEvent.value = {"text": $('#hoverEventText').val()};
+				jobject[extraIndex].hoverEvent.value = JSON.parse($('#hoverEventText').val());
 				if ($('#color_hover').val() != 'none') {
 					jobject[extraIndex].hoverEvent.value.color = $('#color_hover').val();
 				}
 			} else {
-				jobject[extraIndex].hoverEvent.value = $('#hoverEventText').val();
+				jobject[extraIndex].hoverEvent.value = $('#hoverEventValue').val();
 			}
 		}
 		if (hoverEventType == "show_entity") {
@@ -793,22 +813,22 @@ function refreshOutput(input) {
 	if ($("#command").val() == "") $("#command").val(templates[localStorage.getItem('jtemplate')]['command']);
 
 	/*HOVEREVENT SUGGESTION MANAGER*/
-	$('#hoverEventText').removeAttr('disabled');
+	$('#hoverEventValue').removeAttr('disabled');
 	selectedHover = getSelected("hoverEvent");
 	if (selectedHover == "show_achievement") {
-		$('#hoverEventText').autocomplete({
+		$('#hoverEventValue').autocomplete({
 			source: achievements
 		});
 	} else if (selectedHover == "show_item") {
-		$('#hoverEventText').autocomplete({
+		$('#hoverEventValue').autocomplete({
 			source: []
 		});
 	} else if (selectedHover == "show_entity") {
 		$('.hovertext_default').hide();
 		$('.hovertext_entity').show();
 	} else if (selectedHover == "none") {
-		$('#hoverEventText').attr('disabled','true');
-		$('#hoverEventText').autocomplete({
+		$('#hoverEventValue').attr('disabled','true');
+		$('#hoverEventValue').autocomplete({
 			source: []
 		});
 	}
@@ -819,6 +839,7 @@ function refreshOutput(input) {
 	if (selectedHover == "show_text") {
 		$('.hovertext_default').hide();
 		$('.hovertext_text').show();
+		$('#hoverEventText').val(JSON.stringify({"text":"","extra":[]}));
 	} else {
 		$('.hovertext_text').hide();
 	}
@@ -1236,7 +1257,21 @@ function initialize() {
 		$(this).addClass('active');
 		refreshOutput();
 	});
-
+	$('#addHoverTextText').on('click',function(){
+		textobj = JSON.parse($('#hoverEventText').val());
+		snipobj = {"text":$('#hoverEventTextSnippet').val()};
+		if ($('#snippetcolor').val() != 'none') {
+			snipobj.color = $('#snippetcolor').val();
+		}
+		$('#hoverEventTextSnippet').val('');
+		textobj.extra.push(snipobj)
+		$('#hoverEventText').val(JSON.stringify(textobj));
+	});
+	$('#removeHoverTextText').on('click',function(){
+		textobj = JSON.parse($('#hoverEventText').val());
+		textobj.extra.splice(-1,1)
+		$('#hoverEventText').val(JSON.stringify(textobj));
+	});
 	$('#addExtraButton').on('click',function(){
 		$('#snippetsWell').hide();
 		$('#addExtraModalData').show();

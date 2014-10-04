@@ -370,12 +370,18 @@
 							<div class="col-sm-8" style="margin-top:0px; margin-bottom:0px;">
 								<div class="row">
 									<div class="col-sm-12">
-										<input id="hoverEventText" type="text" class="form-control">
+										<input id="hoverEventText" disabled="true" type="text" class="form-control">
+									</div>
+								</div>
+								<hr>
+								<div class="row">
+									<div class="col-sm-12">
+										<input id="hoverEventTextSnippet" type="text" class="form-control">
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-sm-10">
-										<select class="form-control" onchange="$('#colorExtraPreview').css('background-color',getCSSHEXFromWord($('#color_hover').val()));" id="color_hover">
+										<select class="form-control" onchange="$('#colorSnippetColorPreview').css('background-color',getCSSHEXFromWord($('#snippetcolor').val()));" id="snippetcolor">
 											<option lang="color.color_black" value="black">color_black</option>
 											<option lang="color.color_dark_blue" value="dark_blue">color_dark_blue</option>
 											<option lang="color.color_dark_green" value="dark_green">color_dark_green</option>
@@ -396,10 +402,16 @@
 										</select>
 									</div>
 									<div class="col-sm-1">
-										<div id="colorPreview" class="colorPreview">
-											<div id="colorExtraPreview" class="colorPreviewColor">
+										<div id="colorSnippetColor" class="colorPreview">
+											<div id="colorSnippetColorPreview" class="colorPreviewColor">
 											</div>
 										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-12">
+										<button id="addHoverTextText" class="btn btn-success"><i class="fa fa-plus"></i> <span lang="textsnippets.hoverevent.addtext"></span></button>
+										<button id="removeHoverTextText" class="btn btn-danger"><i class="fa fa-minus"></i> <span lang="textsnippets.hoverevent.removetext"></span></button>
 									</div>
 								</div>
 							</div>
@@ -610,35 +622,6 @@
 					<div class="col-sm-2 col-sm-offset-4" lang="textsnippets.hoverevent.type"></div>
 					<div class="col-sm-6">
 						<input id="hoverEventEntityType_edit" type="text" class="form-control">
-					</div>
-				</div>
-				<div class="row hovertext_text_edit">
-					<div class="col-sm-7 col-sm-offset-4">
-						<select class="form-control" onchange="$('#colorExtraPreview_edit').css('background-color',getCSSHEXFromWord($('#color_hover_edit').val()));" id="color_hover_edit">
-							<option lang="color.color_black" value="black">color_black</option>
-							<option lang="color.color_dark_blue" value="dark_blue">color_dark_blue</option>
-							<option lang="color.color_dark_green" value="dark_green">color_dark_green</option>
-							<option lang="color.color_dark_aqua" value="dark_aqua">color_dark_aqua</option>
-							<option lang="color.color_dark_red" value="dark_red">color_dark_red</option>
-							<option lang="color.color_dark_purple" value="dark_purple">color_dark_purple</option>
-							<option lang="color.color_gold" value="gold">color_gold</option>
-							<option lang="color.color_gray" value="gray">color_gray</option>
-							<option lang="color.color_dark_gray" value="dark_gray">color_dark_gray</option>
-							<option lang="color.color_blue" value="blue">color_blue</option>
-							<option lang="color.color_green" value="green">color_green</option>
-							<option lang="color.color_aqua" value="aqua">color_aqua</option>
-							<option lang="color.color_red" value="red">color_red</option>
-							<option lang="color.color_light_purple" value="light_purple">color_light_purple</option>
-							<option lang="color.color_yellow" value="yellow">color_yellow</option>
-							<option lang="color.color_white" value="white">color_white</option>
-							<option lang="color.color_none" value="none" selected="true">color_none</option>
-						</select>
-					</div>
-					<div class="col-sm-1">
-						<div id="colorPreview_edit" class="colorPreview">
-							<div id="colorExtraPreview_edit" class="colorPreviewColor">
-							</div>
-						</div>
 					</div>
 				</div>
 				<div class="row" style="height:39px">
