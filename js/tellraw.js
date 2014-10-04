@@ -816,10 +816,11 @@ function refreshOutput(input) {
 		$('.hovertext_default').show();
 		$('.hovertext_entity').hide();
 	}
-	if (selectedHover != "show_text") {
-		$('.hovertext_text').hide();
-	} else {
+	if (selectedHover == "show_text") {
+		$('.hovertext_default').hide();
 		$('.hovertext_text').show();
+	} else {
+		$('.hovertext_text').hide();
 	}
 
 	/*HOVEREVENT EDIT SUGGESTION MANAGER*/
