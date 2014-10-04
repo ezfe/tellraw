@@ -1128,8 +1128,14 @@ function initialize() {
 		jobject = verify_jobject_format(JSON.parse(localStorage["jobject"]));
 	}
 
+	if (localStorage.getItem('nlOutput') == undefined) {
+		localStorage.setItem('nlOutput','no');
+	}
+
 	if (localStorage.getItem('nlOutput') == 'no') {
 		$('#showNiceLookingOutput').prop('checked', false);
+	} else {
+		$('#showNiceLookingOutput').prop('checked', true);
 	}
 
 	$('.templateButton').click(function(){
