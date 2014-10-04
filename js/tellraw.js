@@ -27,7 +27,24 @@ function getURL(url){
 		async: false
 	}).responseText;
 }
-
+function donateAlert(state,hasDonated) {
+	if (state) {
+		localStorage.setItem('donateAlertShown',true)
+		$('#donate-container').show();
+		$('#loading-container').hide();
+		$('#tellraw-container').hide();
+	} else {
+		$('#donate-container').hide();
+		$('#loading-container').hide();
+		$('#tellraw-container').show();
+	}
+}
+function donateTimer() {
+	if ((new Date().getTime() - localStorage.getItem('initialTimestamp')) > 300000 && localStorage.getItem('donateAlertShown') == "false") {
+		donateAlert(true);
+	}
+	setTimeout(donateTimer,1000);
+}
 function verify_jobject_format(jdata) {
 	if (get_type(jdata) != "[object Array]") {
 		alert('Your stored variable is malformed and needs to be cleared.');
@@ -1057,6 +1074,14 @@ function refreshLanguage(dropdownSelection) {
 }
 
 function initialize() {
+	if (localStorage.getItem('initialTimestamp') == undefined) {
+		localStorage.setItem('initialTimestamp',new Date().getTime())
+	}
+	if (localStorage.getItem('donateAlertShown') == undefined) {
+		localStorage.setItem('donateAlertShown',false)
+	}
+	setTimeout(donateTimer,1000);
+
 	if (localStorage.getItem('langCode') == undefined) {
 		if (lang[navigator.language.toLowerCase()] != undefined) {
 			localStorage.setItem('langCode',navigator.language.toLowerCase());
@@ -1123,7 +1148,9 @@ function initialize() {
 		$('#previewcolor').val('617A80');
 	}
 	$('#previewcolor').css('background-color','#'+$('#previewcolor').val());
+	
 	jsonParse();
+	
 	if (localStorage['jobject'] != undefined) {
 		jobject = verify_jobject_format(JSON.parse(localStorage["jobject"]));
 	}
