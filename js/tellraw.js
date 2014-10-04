@@ -29,6 +29,7 @@ function getURL(url){
 }
 function donateAlert(state,hasDonated) {
 	if (state) {
+		localStorage.setItem('donateAlertShown',true)
 		$('#donate-container').show();
 		$('#loading-container').hide();
 		$('#tellraw-container').hide();
@@ -39,15 +40,10 @@ function donateAlert(state,hasDonated) {
 	}
 }
 function donateTimer() {
-	console.log('loop');
-	var newTime = localStorage.getItem('donateTimer') + 1;
-	localStorage.setItem('donateTimer',newTime);
-	if (newTime >= 10) {
+	if ((new Date().getTime() - localStorage.getItem('initialTimestamp')) > 300000 && localStorage.getItem('donateAlertShown') == "false") {
 		donateAlert(true);
-		localStorage.setItem('donateTimer',0);
-	} else {
-		setTimeout(donateTimer,1000);
 	}
+	setTimeout(donateTimer,1000);
 }
 function verify_jobject_format(jdata) {
 	if (get_type(jdata) != "[object Array]") {
@@ -1078,8 +1074,11 @@ function refreshLanguage(dropdownSelection) {
 }
 
 function initialize() {
-	if (localStorage.getItem('donateTimer') == undefined) {
-		localStorage.setItem('donateTimer',0);
+	if (localStorage.getItem('initialTimestamp') == undefined) {
+		localStorage.setItem('initialTimestamp',new Date().getTime())
+	}
+	if (localStorage.getItem('donateAlertShown') == undefined) {
+		localStorage.setItem('donateAlertShown',false)
 	}
 	setTimeout(donateTimer,1000);
 
