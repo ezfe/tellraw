@@ -41,7 +41,7 @@ function donateAlert(state,hasDonated) {
 }
 function donateTimer() {
 	if ((new Date().getTime() - localStorage.getItem('initialTimestamp')) > 300000 && localStorage.getItem('donateAlertShown') == "false") {
-		donateAlert(true);
+		//donateAlert(true);
 	}
 	setTimeout(donateTimer,1000);
 }
