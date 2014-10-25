@@ -18,6 +18,7 @@ var translationStrings;
 var currentEdit;
 var hasAlertedTranslationObjects = false;
 var webLangRelations;
+var editing = false;
 
 function getURL(url){
 	return $.ajax({
@@ -347,6 +348,7 @@ function clearExtra() {
 	refreshOutput();
 }
 function editExtra(index) {
+	editing = true;
 	$('#snippetsWell').hide();
 	$('#editModalData').show();
 
@@ -437,7 +439,8 @@ function cancelExtraEdit() {
 	$('#editModalData').hide();
 	$('#snippetsWell').show();
 }
-function saveExtraEdit() {	
+function saveExtraEdit() {
+	editing = false;	
 	extraIndex = currentEdit;
 	jobject[extraIndex].color = getSelected("color_extra_edit");
 
@@ -559,6 +562,7 @@ function cancelAddExtra() {
 	clearExtra();
 }
 function addExtra() {
+	editing = false;
 	if (extraTextFormat == 'raw' && $('#text_extra').val() == '') {
 		$('#text_extra_container').addClass('has-error');
 		$('#text_extra').focus();
@@ -843,6 +847,13 @@ function refreshOutput(input) {
 	} else {
 		$('.hovertext_text').hide();
 	}
+	if (selectedHover != "none") {
+		if (localStorage.getItem('jtemplate') == 'sign_item' || 'sign_block' && editing) {
+			alert('Hover Events do not work with signs!')
+			$('#hoverEvent').val('none');
+			return false;
+		}
+	}
 
 	/*HOVEREVENT EDIT SUGGESTION MANAGER*/
 	$('#hoverEventText_edit').removeAttr('disabled');
@@ -873,6 +884,13 @@ function refreshOutput(input) {
 	} else {
 		$('.hovertext_text_edit').show();
 	}
+	if (selectedHover_edit != "none") {
+		if (localStorage.getItem('jtemplate') == 'sign_item' || 'sign_block' && editing) {
+			alert('Hover Events do not work with signs!')
+			$('#hoverEvent_edit').val('none');
+			return false;
+		}
+	}
 
 	/*CLICKEVENT SUGGESTION MANAGER*/
 	$('#clickEventText').removeAttr('disabled');
@@ -891,6 +909,13 @@ function refreshOutput(input) {
 			source: []
 		});
 	}
+	if (clickEvent != "none") {
+		if (localStorage.getItem('jtemplate') == 'sign_item' || 'sign_block' && editing) {
+			alert('Click Events do not work with signs using this generator. This is due to a bug with Minecraft that prevents me from using the correct format. (MC-55373).')
+			$('#clickEvent').val('none');
+			return false;
+		}
+	}
 
 	/*CLICKEVENT EDIT SUGGESTION MANAGER*/
 	$('#clickEventText_edit').removeAttr('disabled');
@@ -908,6 +933,13 @@ function refreshOutput(input) {
 		$('#clickEventText_edit').autocomplete({
 			source: []
 		});
+	}
+	if (clickEvent_edit != "none") {
+		if (localStorage.getItem('jtemplate') == 'sign_item' || 'sign_block' && editing) {
+			alert('Click Events do not work with signs using this generator. This is due to a bug with Minecraft that prevents me from using the correct format. (MC-55373).')
+			$('#clickEvent_edit').val('none');
+			return false;
+		}
 	}
 
 	/*PREPARING OUTPUT*/
@@ -1276,6 +1308,7 @@ function initialize() {
 		$('#snippetsWell').hide();
 		$('#addExtraModalData').show();
 		goToByScroll('addExtraModalData');
+		editing = true;
 	});
 	$('#loading-container').hide();
 	$('#tellraw-container').fadeIn();
