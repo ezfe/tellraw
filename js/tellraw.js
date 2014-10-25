@@ -775,6 +775,20 @@ function refreshOutput(input) {
 		refreshLanguage();
 	}
 
+	/*HIDE HOVER/CLICK EVENTS FOR SIGNS*/
+	if (templates[localStorage.getItem('jtemplate')].formatType == 'signset') {
+		$('.hoverEventContainer_edit').hide();
+		$('.clickEventContainer_edit').hide();
+		$('.hoverEventContainer').hide();
+		$('.clickEventContainer').hide();
+	} else {
+		$('.hoverEventContainer_edit').show();
+		$('.clickEventContainer_edit').show();
+		$('.hoverEventContainer').show();
+		$('.clickEventContainer').show();
+	}
+
+
 	/*EXTRA TRANSLATE STRING MANAGER*/
 
 	if (extraTextFormat == "trn") {
@@ -847,13 +861,6 @@ function refreshOutput(input) {
 	} else {
 		$('.hovertext_text').hide();
 	}
-	if (selectedHover != "none") {
-		if (localStorage.getItem('jtemplate') == 'sign_item' || 'sign_block' && editing) {
-			//alert('Hover Events do not work with signs!')
-			$('#hoverEvent').val('none');
-			return false;
-		}
-	}
 
 	/*HOVEREVENT EDIT SUGGESTION MANAGER*/
 	$('#hoverEventText_edit').removeAttr('disabled');
@@ -884,13 +891,6 @@ function refreshOutput(input) {
 	} else {
 		$('.hovertext_text_edit').show();
 	}
-	if (selectedHover_edit != "none") {
-		if (localStorage.getItem('jtemplate') == 'sign_item' || 'sign_block' && editing) {
-			//alert('Hover Events do not work with signs!')
-			$('#hoverEvent_edit').val('none');
-			return false;
-		}
-	}
 
 	/*CLICKEVENT SUGGESTION MANAGER*/
 	$('#clickEventText').removeAttr('disabled');
@@ -909,13 +909,6 @@ function refreshOutput(input) {
 			source: []
 		});
 	}
-	if (clickEvent != "none") {
-		if (localStorage.getItem('jtemplate') == 'sign_item' || 'sign_block' && editing) {
-			//alert('Click Events do not work with signs using this generator. This is due to a bug with Minecraft that prevents me from using the correct format. (MC-55373).')
-			$('#clickEvent').val('none');
-			return false;
-		}
-	}
 
 	/*CLICKEVENT EDIT SUGGESTION MANAGER*/
 	$('#clickEventText_edit').removeAttr('disabled');
@@ -933,13 +926,6 @@ function refreshOutput(input) {
 		$('#clickEventText_edit').autocomplete({
 			source: []
 		});
-	}
-	if (clickEvent_edit != "none") {
-		if (localStorage.getItem('jtemplate') == 'sign_item' || 'sign_block' && editing) {
-			//alert('Click Events do not work with signs using this generator. This is due to a bug with Minecraft that prevents me from using the correct format. (MC-55373).')
-			$('#clickEvent_edit').val('none');
-			return false;
-		}
 	}
 
 	/*PREPARING OUTPUT*/
