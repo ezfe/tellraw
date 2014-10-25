@@ -1338,8 +1338,26 @@ function initialize() {
 	$('#helptoggle').click(function(){
 		$('.help-box').toggle();
 	});
+	$('#enable_dark_mode').on('click',function(){
+		localStorage.setItem('darkMode','true');
+		$('body').addClass('black-theme');
+		$(this).hide();
+		$('#disable_dark_mode').show();
+	});
+	$('#disable_dark_mode').on('click',function(){
+		localStorage.setItem('darkMode','false');
+		$('body').removeClass('black-theme');
+		$(this).hide();
+		$('#enable_dark_mode').show();
+	});
+	if (localStorage.getItem('darkMode') && localStorage.getItem('darkMode') == 'true') {
+		$('#enable_dark_mode').click(); //Finish setting up dark mode after handlers exist
+	}
 }
 $( document ).ready(function(){
+	if (localStorage.getItem('darkMode') && localStorage.getItem('darkMode') == 'true') {
+		$('body').addClass('black-theme'); //Rest of "dark mode" is handled later, color scheme handled early for appearance
+ 	}
 	$('#loadingtxt').html('Loading Assets');
 	try {
 		data = getURL('resources.json');

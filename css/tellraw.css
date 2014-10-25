@@ -86,10 +86,9 @@ div[class*='col-xs-'] {
 	position:relative;
 	margin-top:20px;
 }
-.minecraft {
-	background-color: #222222;
-	background-image: url('http://ezekielelin.com/img/mcbg.png');
-	color: #e0d0d0;
+.black-theme {
+	background-color: black;
+	color: white;
 }
 .minecraft .well {
 	color: black;
