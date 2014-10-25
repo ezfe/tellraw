@@ -849,7 +849,7 @@ function refreshOutput(input) {
 	}
 	if (selectedHover != "none") {
 		if (localStorage.getItem('jtemplate') == 'sign_item' || 'sign_block' && editing) {
-			alert('Hover Events do not work with signs!')
+			//alert('Hover Events do not work with signs!')
 			$('#hoverEvent').val('none');
 			return false;
 		}
@@ -886,7 +886,7 @@ function refreshOutput(input) {
 	}
 	if (selectedHover_edit != "none") {
 		if (localStorage.getItem('jtemplate') == 'sign_item' || 'sign_block' && editing) {
-			alert('Hover Events do not work with signs!')
+			//alert('Hover Events do not work with signs!')
 			$('#hoverEvent_edit').val('none');
 			return false;
 		}
@@ -911,7 +911,7 @@ function refreshOutput(input) {
 	}
 	if (clickEvent != "none") {
 		if (localStorage.getItem('jtemplate') == 'sign_item' || 'sign_block' && editing) {
-			alert('Click Events do not work with signs using this generator. This is due to a bug with Minecraft that prevents me from using the correct format. (MC-55373).')
+			//alert('Click Events do not work with signs using this generator. This is due to a bug with Minecraft that prevents me from using the correct format. (MC-55373).')
 			$('#clickEvent').val('none');
 			return false;
 		}
@@ -936,7 +936,7 @@ function refreshOutput(input) {
 	}
 	if (clickEvent_edit != "none") {
 		if (localStorage.getItem('jtemplate') == 'sign_item' || 'sign_block' && editing) {
-			alert('Click Events do not work with signs using this generator. This is due to a bug with Minecraft that prevents me from using the correct format. (MC-55373).')
+			//alert('Click Events do not work with signs using this generator. This is due to a bug with Minecraft that prevents me from using the correct format. (MC-55373).')
 			$('#clickEvent_edit').val('none');
 			return false;
 		}
