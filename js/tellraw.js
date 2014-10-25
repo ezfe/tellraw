@@ -779,13 +779,17 @@ function refreshOutput(input) {
 	if (templates[localStorage.getItem('jtemplate')].formatType == 'signset') {
 		$('.hoverEventContainer_edit').hide();
 		$('.clickEventContainer_edit').hide();
+		$('.insertionContainer_edit').hide();
 		$('.hoverEventContainer').hide();
 		$('.clickEventContainer').hide();
+		$('.insertionContainer').hide();
 	} else {
 		$('.hoverEventContainer_edit').show();
 		$('.clickEventContainer_edit').show();
+		$('.insertionContainer_edit').show();
 		$('.hoverEventContainer').show();
 		$('.clickEventContainer').show();
+		$('.insertionContainer').show();
 	}
 
 
