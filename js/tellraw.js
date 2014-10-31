@@ -1007,7 +1007,9 @@ function jsonParse() {
 	if (get_type(jobject) == "[object Array]") {
 		for (var i = 0; i < jobject.length; i++) {
 			if (jobject[i].NEW_ITERATE_FLAG) {
-				$('#jsonPreview').append('<span id="jsonPreviewSpanElement'+ i +'"><hr></span>');
+				if (templates[localStorage.getItem('jtemplate')].formatType == 'bookarray' || templates[localStorage.getItem('jtemplate')].formatType == 'signset') {
+					$('#jsonPreview').append('<span id="jsonPreviewSpanElement'+ i +'"><hr></span>');
+				}
 			} else {
 				var doClickEvent = false;
 				var doHoverEvent = false;
@@ -1021,8 +1023,12 @@ function jsonParse() {
 				$('#jsonPreview').append('<span id="jsonPreviewSpanElement'+ i +'"></span>');
 				if (get_type(jobject[i].text) != "[object Undefined]") {
 					$('#jsonPreviewSpanElement'+i).html(jobject[i].text.replace(/\\\\n/g,'<br>').replace(/\\n/g,'<br>'));
-				} else {
+				} else if (get_type(jobject[i].score != "[object Undefined]")) {
+
+				} else if (get_type(jobject[i].translate != "[object Undefined]")) {
 					$('#jsonPreviewSpanElement'+i).html(jobject[i].translate);
+				} else {
+					$('#jsonPreviewSpanElement'+i).html('!UNKNOWN ELEMENT!');
 				}
 				if (jobject[i].bold == "true") {
 					$('#jsonPreviewSpanElement'+i).addClass('bold');
@@ -1054,7 +1060,7 @@ function jsonParse() {
 					if (get_type(jobject[i].clickEvent) != "[object Undefined]") doClickEvent = true;
 					if (get_type(jobject[i].hoverEvent) != "[object Undefined]") doHoverEvent = true;
 					if (doHoverEvent && doClickEvent) {
-						popoverTitle = getLanguageString('textsnippets.hoverevent.header',localStorage.getItem('langCode')) + ' and ' + getLanguageString('textsnippets.clickevent.header');
+						popoverTitle = getLanguageString('textsnippets.hoverevent.header',localStorage.getItem('langCode')) + ' and ' + getLanguageString('textsnippets.clickevent.header',localStorage.getItem('langCode'));
 						hoverEventType = jobject[i].hoverEvent.action;
 						hoverEventValue = jobject[i].hoverEvent.value;
 						clickEventType = jobject[i].clickEvent.action;
