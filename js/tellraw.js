@@ -1021,15 +1021,20 @@ function jsonParse() {
 				var clickEventType = "";
 				var clickEventValue = "";
 				$('#jsonPreview').append('<span id="jsonPreviewSpanElement'+ i +'"></span>');
-				if (get_type(jobject[i].text) != "[object Undefined]") {
+				
+				if (jobject[i].text) {
 					$('#jsonPreviewSpanElement'+i).html(jobject[i].text.replace(/\\\\n/g,'<br>').replace(/\\n/g,'<br>'));
-				} else if (get_type(jobject[i].score != "[object Undefined]")) {
-
-				} else if (get_type(jobject[i].translate != "[object Undefined]")) {
-					$('#jsonPreviewSpanElement'+i).html(jobject[i].translate);
+				} else if (jobject[i].score) {
+					$('#jsonPreviewSpanElement'+i).html('<span class="label label-info">' + jobject[i].score.name + ':' + jobject[i].score.objective + '</span>');
+				} else if (jobject[i].translate) {
+					$('#jsonPreviewSpanElement'+i).html('<span class="label label-warning">Translation</span>');
+				} else if (jobject[i].selector) {
+					$('#jsonPreviewSpanElement'+i).html('<span class="label label-primary">' + jobject[i].selector + '</span>');
 				} else {
-					$('#jsonPreviewSpanElement'+i).html('!UNKNOWN ELEMENT!');
+					$('#jsonPreviewSpanElement'+i).html('<span class="label label-danger">Unknown Element</span>');
 				}
+				console.log(jobject[i]);
+
 				if (jobject[i].bold == "true") {
 					$('#jsonPreviewSpanElement'+i).addClass('bold');
 				}
