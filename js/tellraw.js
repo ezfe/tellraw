@@ -24,9 +24,6 @@ function showView(viewname) {
 	$('.view-container').hide();
 	$('.view-container[view="' + viewname + '"]').show();
 }
-function homeView() {
-	showView('home')
-}
 function getURL(url){
 	return $.ajax({
 		type: "GET",
@@ -38,13 +35,9 @@ function getURL(url){
 function donateAlert(state,hasDonated) {
 	if (state) {
 		localStorage.setItem('donateAlertShown',true)
-		$('#donate-container').show();
-		$('#loading-container').hide();
-		$('#tellraw-container').hide();
+		showView('donate')
 	} else {
-		$('#donate-container').hide();
-		$('#loading-container').hide();
-		$('#tellraw-container').show();
+		showView('tellraw')
 	}
 }
 function verify_jobject_format(jdata) {
@@ -1308,8 +1301,7 @@ function initialize() {
 		goToByScroll('addExtraModalData');
 		editing = true;
 	});
-	$('#loading-container').hide();
-	$('#tellraw-container').fadeIn();
+	showView('tellraw');
 	$( "#translate_input" ).autocomplete({
 		source: Object.keys(translationStrings)
 	});
@@ -1329,19 +1321,6 @@ function initialize() {
 	$('#lang_request').on('click',function(){
 		$('html').html('<a href="#" onclick="location.reload()">Go Back</a><br><br><br>');
 		$('html').append(errorString);
-	});
-	$('#toggleSettings').click(function(){
-		if ($('#toggleSettings').children().filter('span').attr('lang') == 'settings.hide') {
-			$('#toggleSettings').children().filter('span').attr('lang','settings.show');
-		} else {
-			$('#toggleSettings').children().filter('span').attr('lang','settings.hide');
-		}
-		refreshLanguage();
-		refreshOutput();
-		
-		$('#settingsWell').toggle();
-
-		goToByScroll("toggleSettings");
 	});
 	$('#helptoggle').click(function(){
 		$('.help-box').toggle();
@@ -1367,6 +1346,7 @@ $( document ).ready(function(){
 		$('body').addClass('black-theme'); //Rest of "dark mode" is handled later, color scheme handled early for appearance
  	}
  	$('.view-container').hide();
+ 	showView('loading');
 	$('#loadingtxt').html('Loading Assets');
 	try {
 		data = getURL('resources.json');

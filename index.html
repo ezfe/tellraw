@@ -74,8 +74,13 @@
 				<input onchange="refreshOutput()" id="previewcolor" class="color form-control" value="F5774A">
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-sm-2 col-xs-12">
+				<button onclick="showView('tellraw')" class="btn btn-block btn-default" id="closeSettings"><span lang="settings.hide"></span> <i class="fa fa-gear"></i></button>
+			</div>
+		</div>
 	</div>
-	<div id="donate-container" style="display:none;">
+	<div class="view-container" view="donate">
 		<div class="row">
 			<div class="col-md-12">
 				<h2>Support This Website<br><small>I don't want to put ads on this website, please donate to support the costs of maintaining this website.</small></h2>
@@ -122,7 +127,7 @@
 			</div>
 		</div>
 	</div>
-	<div id="loading-container" style="text-align:center;">
+	<div class="view-container" view="loading" style="text-align:center;">
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="progress">
@@ -135,7 +140,7 @@
 			If this page does not go away, try clicking <a onclick="localStorage.clear();location.reload();" href="#">here</a>. If that doesn't work, please <a href="https://github.com/ezfe/tellraw/issues/new" class="btn btn-xs btn-danger"><i class="fa fa-exclamation-triangle"></i> <span>Report an Issue</span></a>
 		</h5>
 	</div>
-	<div id="tellraw-container" style="display:none;">
+	<div view="tellraw" class="view-container">
 		<div class="row">
 			<div class="col-sm-5 col-xs-12">
 				<h4 lang="header"></h4>
@@ -709,7 +714,7 @@
 					<button class="btn btn-block btn-default" id="export"><span lang="settings.export"></span> <i class="fa fa-cloud-download"></i></button>
 				</div>
 				<div class="col-sm-2 col-xs-12">
-					<button class="btn btn-block btn-default" id="toggleSettings"><span lang="settings.show"></span> <i class="fa fa-gear"></i></button>
+					<button onclick="showView('settings')" class="btn btn-block btn-default" id="openSettings"><span lang="settings.show"></span> <i class="fa fa-gear"></i></button>
 				</div>
 			</div>
 		</div>
