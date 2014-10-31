@@ -20,6 +20,13 @@ var hasAlertedTranslationObjects = false;
 var webLangRelations;
 var editing = false;
 
+function showView(viewname) {
+	$('.view-container').hide();
+	$('.view-container[view="' + viewname + '"]').show();
+}
+function homeView() {
+	showView('home')
+}
 function getURL(url){
 	return $.ajax({
 		type: "GET",
@@ -39,12 +46,6 @@ function donateAlert(state,hasDonated) {
 		$('#loading-container').hide();
 		$('#tellraw-container').show();
 	}
-}
-function donateTimer() {
-	if ((new Date().getTime() - localStorage.getItem('initialTimestamp')) > 300000 && localStorage.getItem('donateAlertShown') == "false") {
-		//donateAlert(true);
-	}
-	setTimeout(donateTimer,1000);
 }
 function verify_jobject_format(jdata) {
 	if (get_type(jdata) != "[object Array]") {
@@ -1132,10 +1133,6 @@ function initialize() {
 	if (localStorage.getItem('initialTimestamp') == undefined) {
 		localStorage.setItem('initialTimestamp',new Date().getTime())
 	}
-	if (localStorage.getItem('donateAlertShown') == undefined) {
-		localStorage.setItem('donateAlertShown',false)
-	}
-	setTimeout(donateTimer,1000);
 
 	if (localStorage.getItem('langCode') == undefined) {
 		if (lang[navigator.language.toLowerCase()] != undefined) {
@@ -1369,6 +1366,7 @@ $( document ).ready(function(){
 	if (localStorage.getItem('darkMode') && localStorage.getItem('darkMode') == 'true') {
 		$('body').addClass('black-theme'); //Rest of "dark mode" is handled later, color scheme handled early for appearance
  	}
+ 	$('.view-container').hide();
 	$('#loadingtxt').html('Loading Assets');
 	try {
 		data = getURL('resources.json');

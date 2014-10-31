@@ -44,6 +44,37 @@
 	<!--[if lt IE 8]>
 	<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
+	<div class="view-container" view="settings">
+		<div class="row">
+			<div class="col-md-12">
+				<h4 lang="settings.header"></h4>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-3 col-xs-12">
+				<label for="previewFontSize" lang="settings.fontSize"></label>
+			</div>
+			<div class="col-sm-4 col-xs-12">
+				<input id="previewFontSize" type="number" onchange="refreshOutput()" value="13" class="form-control">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-3 col-xs-12">
+				<label for="showNiceLookingOutput" lang="settings.nlOutput"></label>
+			</div>
+			<div class="col-sm-4 col-xs-12">
+				<input id="showNiceLookingOutput" type="checkbox" onchange="refreshOutput()" checked class="form-control">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-3 col-xs-12">
+				<label for="previewcolor"><span lang="settings.previewcolor"></span></label>
+			</div>
+			<div class="col-sm-4 col-xs-12">
+				<input onchange="refreshOutput()" id="previewcolor" class="color form-control" value="F5774A">
+			</div>
+		</div>
+	</div>
 	<div id="donate-container" style="display:none;">
 		<div class="row">
 			<div class="col-md-12">
@@ -668,37 +699,6 @@
 					<pre id="nicelookingoutput" style="display:none;">
 
 					</pre>
-				</div>
-			</div>
-			<div class="well row-margin-top" id="settingsWell" style="display:none;">
-				<div class="row">
-					<div class="col-md-12">
-						<h4 lang="settings.header"></h4>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-sm-3 col-xs-12">
-						<label for="previewFontSize" lang="settings.fontSize"></label>
-					</div>
-					<div class="col-sm-4 col-xs-12">
-						<input id="previewFontSize" type="number" onchange="refreshOutput()" value="13" class="form-control">
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-sm-3 col-xs-12">
-						<label for="showNiceLookingOutput" lang="settings.nlOutput"></label>
-					</div>
-					<div class="col-sm-4 col-xs-12">
-						<input id="showNiceLookingOutput" type="checkbox" onchange="refreshOutput()" checked class="form-control">
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-sm-3 col-xs-12">
-						<label for="previewcolor"><span lang="settings.previewcolor"></span></label>
-					</div>
-					<div class="col-sm-4 col-xs-12">
-						<input onchange="refreshOutput()" id="previewcolor" class="color form-control" value="F5774A">
-					</div>
 				</div>
 			</div>
 			<div class="row row-margin-top row-margin-bottom">
