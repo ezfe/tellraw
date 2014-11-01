@@ -1,4 +1,7 @@
 {
+	"issues": {
+		"go-home": "Ignore Issue"
+	},
 	"help": {
 		"textfield": "Use \\n to make a newline",
 		"raw-text-tab": "Choose your text choice. Raw is normal text. Scoreboard pulls a value from the scoreboard. Selector pulls the name of an entity.",

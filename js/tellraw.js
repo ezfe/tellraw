@@ -19,10 +19,32 @@ var currentEdit;
 var hasAlertedTranslationObjects = false;
 var webLangRelations;
 var editing = false;
+var issueLog = [];
 
+function reportAnIssue() {
+	var title = "";
+	var body = "";
+	if (issueLog.length > 0) {
+		title = "Issue Report - " + issueLog[issueLog.length - 1].name;
+		body = 'Please enter steps to reproduce the issue below, as well as any other information you want to include%0A%0A%0A%0A%0A%0A Provided Data - Do not modify below this line%0A%0A```%0A' + JSON.stringify(issueLog) + '%0A```';
+	}
+	var win = window.open('http://github.com/ezfe/tellraw/issues/new?body=' + body + '&title=' + title, '_blank');
+	win.focus();
+}
+function logIssue(name,data,solution) {
+	issueLog.push({"name":name,"data":data});
+	$('#issue-info-span').html('<small><br>' + name + ' - <a href="#" onclick="alert(JSON.stringify(issueLog[issueLog.length - 1].data))">Issue Data</a></small>');
+}
 function showView(viewname) {
 	$('.view-container').hide();
 	$('.view-container[view="' + viewname + '"]').show();
+	if (viewname != "loading") {
+		localStorage.setItem('jview',viewname);
+	}
+	if ($('.view-container[view="' + viewname + '"]').length == 0) {
+		logIssue('Missing View',viewname);
+		showView('issue');
+	}
 }
 function getURL(url){
 	return $.ajax({
@@ -42,9 +64,8 @@ function donateAlert(state,hasDonated) {
 }
 function verify_jobject_format(jdata) {
 	if (get_type(jdata) != "[object Array]") {
-		alert('Your stored variable is malformed and needs to be cleared.');
-		localStorage.clear();
-		location.reload();
+		logIssue('Stored Variable Corrupted',jdata);
+		showView('issue');
 	}
 	if (jdata.text != '' && get_type(jdata) != "[object Array]") {
 		jdata.unshift(new Object());
@@ -688,309 +709,313 @@ function deleteJObjectSave(saveName) {
 	refreshSavesList();
 }
 function refreshOutput(input) {
-	/*VERIFY CONTENTS*/
-	jobject = verify_jobject_format(jobject);
+	try {
+		/*VERIFY CONTENTS*/
+		jobject = verify_jobject_format(jobject);
 
-	if ($('#command').val().indexOf('%s') == -1) {
-		$('#command').val('/tellraw @a %s');
-		localStorage.setItem('jtemplate','tellraw');
-	}
+		if ($('#command').val().indexOf('%s') == -1) {
+			$('#command').val('/tellraw @a %s');
+			localStorage.setItem('jtemplate','tellraw');
+		}
 
-	refreshSavesList();
+		refreshSavesList();
 
-	/*LANGUAGE SELECTIONS*/
+		/*LANGUAGE SELECTIONS*/
 
-	$('.langSelect').removeClass('label label-success');
-	$('.' + localStorage.getItem('langCode')).addClass('label label-success');
+		$('.langSelect').removeClass('label label-success');
+		$('.' + localStorage.getItem('langCode')).addClass('label label-success');
 
-	/*EXTRA MODAL COLOR PREVIEW MANAGER*/
-	$('#colorPreviewColor').css({ 'background-color': getCSSHEXFromWord(getSelected('color_extra')) });
+		/*EXTRA MODAL COLOR PREVIEW MANAGER*/
+		$('#colorPreviewColor').css({ 'background-color': getCSSHEXFromWord(getSelected('color_extra')) });
 
-	/*EXTRA VIEWER MANAGER*/
-	$('#textsnippets_header').html(getLanguageString('textsnippets.header',localStorage.getItem('langCode')));
-	if (input != 'previewLineChange') {
-		if (get_type(jobject) == "[object Array]") {
-			var extraOutputPreview = "";
-			$('.extraContainer div.extraRow').remove();
-			$('.extraContainer').html('');
-			for (var i = 0; i <= jobject.length - 1; i++) {
-				if (jobject.length-1 > i) {
-					downButton = '<i onclick="moveUp(' + i + ')" class="fa fa-arrow-circle-down"></i> ';
-				} else {
-					downButton = "";
-				}
-				if (i > 0) {
-					upButton = '<i onclick="moveUp(' + (i-1) + ')" class="fa fa-arrow-circle-up"></i> ';
-				} else {
-					upButton = "";
-				}
-				if (jobject[i].NEW_ITERATE_FLAG) {
-					if (templates[localStorage.getItem('jtemplate')].formatType != 'bookarray' && templates[localStorage.getItem('jtemplate')].formatType != 'signset') {
-						var tempJSON = '<span style="color:gray;text-decoration:line-through;" lang="textsnippets.NEW_ITERATE_FLAG"></span>';
+		/*EXTRA VIEWER MANAGER*/
+		$('#textsnippets_header').html(getLanguageString('textsnippets.header',localStorage.getItem('langCode')));
+		if (input != 'previewLineChange') {
+			if (get_type(jobject) == "[object Array]") {
+				var extraOutputPreview = "";
+				$('.extraContainer div.extraRow').remove();
+				$('.extraContainer').html('');
+				for (var i = 0; i <= jobject.length - 1; i++) {
+					if (jobject.length-1 > i) {
+						downButton = '<i onclick="moveUp(' + i + ')" class="fa fa-arrow-circle-down"></i> ';
 					} else {
-						var tempJSON = '<span lang="textsnippets.NEW_ITERATE_FLAG"></span>';
+						downButton = "";
 					}
-					var saveButton = '';
-				} else {
-					if (get_type(jobject[i].text) != "[object Undefined]") {
-						var tempJSON = '<input id="previewLine'+i+'" onkeyup="jobject['+i+'].text = $(\'#previewLine'+i+'\').val(); refreshOutput(\'previewLineChange\')" type="text" class="form-control previewLine" value="'+jobject[i].text+'">';
-						var saveButton = '';
-					} else if (get_type(jobject[i].translate) != "[object Undefined]") {
-						var tempJSON = '<input type="text" class="form-control previewLine" disabled value="'+jobject[i].translate+'">';
-						var saveButton = '';
-					} else if (get_type(jobject[i].score) != "[object Undefined]") {
-						var tempJSON = '<input type="text" class="form-control previewLine" disabled value="'+jobject[i].score.name+'\'s '+jobject[i].score.objective+' score">';
-						var saveButton = '';
-					} else if (get_type(jobject[i].selector) != "[object Undefined]") {
-						var tempJSON = '<input type="text" class="form-control previewLine" disabled value="Selector: '+jobject[i].selector+'">';
-						var saveButton = '';
-					}
-					if (input == 'noEditIfMatches' && jobject[i].text != $('#previewLine'+matchTo).val()) {
-						var blah = 'blah'; /* wtf */
+					if (i > 0) {
+						upButton = '<i onclick="moveUp(' + (i-1) + ')" class="fa fa-arrow-circle-up"></i> ';
 					} else {
-						tempJSON = '<div class="row"><div class="col-xs-10 col-md-11">'+tempJSON+'</div><div class="col-xs-2 col-md-1"><div class="colorPreview"><div class="colorPreviewColor" style="background-color:'+getCSSHEXFromWord(jobject[i].color)+'"></div></div></div></div>';
+						upButton = "";
 					}
+					if (jobject[i].NEW_ITERATE_FLAG) {
+						if (templates[localStorage.getItem('jtemplate')].formatType != 'bookarray' && templates[localStorage.getItem('jtemplate')].formatType != 'signset') {
+							var tempJSON = '<span style="color:gray;text-decoration:line-through;" lang="textsnippets.NEW_ITERATE_FLAG"></span>';
+						} else {
+							var tempJSON = '<span lang="textsnippets.NEW_ITERATE_FLAG"></span>';
+						}
+						var saveButton = '';
+					} else {
+						if (get_type(jobject[i].text) != "[object Undefined]") {
+							var tempJSON = '<input id="previewLine'+i+'" onkeyup="jobject['+i+'].text = $(\'#previewLine'+i+'\').val(); refreshOutput(\'previewLineChange\')" type="text" class="form-control previewLine" value="'+jobject[i].text+'">';
+							var saveButton = '';
+						} else if (get_type(jobject[i].translate) != "[object Undefined]") {
+							var tempJSON = '<input type="text" class="form-control previewLine" disabled value="'+jobject[i].translate+'">';
+							var saveButton = '';
+						} else if (get_type(jobject[i].score) != "[object Undefined]") {
+							var tempJSON = '<input type="text" class="form-control previewLine" disabled value="'+jobject[i].score.name+'\'s '+jobject[i].score.objective+' score">';
+							var saveButton = '';
+						} else if (get_type(jobject[i].selector) != "[object Undefined]") {
+							var tempJSON = '<input type="text" class="form-control previewLine" disabled value="Selector: '+jobject[i].selector+'">';
+							var saveButton = '';
+						}
+						if (input == 'noEditIfMatches' && jobject[i].text != $('#previewLine'+matchTo).val()) {
+							var blah = 'blah'; /* wtf */
+						} else {
+							tempJSON = '<div class="row"><div class="col-xs-10 col-md-11">'+tempJSON+'</div><div class="col-xs-2 col-md-1"><div class="colorPreview"><div class="colorPreviewColor" style="background-color:'+getCSSHEXFromWord(jobject[i].color)+'"></div></div></div></div>';
+						}
+					}
+					var deleteButton = '<i id="'+i+'RowEditButton" onclick="editExtra('+i+');" class="fa fa-pencil"></i> <i onclick="deleteIndex('+ i +');" class="fa fa-times-circle"></i> ';
+					if (jobject[i].NEW_ITERATE_FLAG) {
+						deleteButton = '<i style="color:gray;" class="fa fa-pencil"></i> <i onclick="deleteIndex('+ i +');" class="fa fa-times-circle"></i> ';
+					}
+					$('.extraContainer').append('<div class="row extraRow row-margin-top row-margin-bottom RowIndex' + i + '"><div class="col-xs-4 col-sm-2 col-lg-1">'+deleteButton+downButton+upButton+'</div><div class="col-xs-8 col-sm-10 col-lg-11" style="padding:none;">'+tempJSON+'</div></div>');
 				}
-				var deleteButton = '<i id="'+i+'RowEditButton" onclick="editExtra('+i+');" class="fa fa-pencil"></i> <i onclick="deleteIndex('+ i +');" class="fa fa-times-circle"></i> ';
-				if (jobject[i].NEW_ITERATE_FLAG) {
-					deleteButton = '<i style="color:gray;" class="fa fa-pencil"></i> <i onclick="deleteIndex('+ i +');" class="fa fa-times-circle"></i> ';
+				if (jobject.length == 0) {
+					delete jobject;
+					$('.extraContainer').html('<br><br>');
+					refreshLanguage();
 				}
-				$('.extraContainer').append('<div class="row extraRow row-margin-top row-margin-bottom RowIndex' + i + '"><div class="col-xs-4 col-sm-2 col-lg-1">'+deleteButton+downButton+upButton+'</div><div class="col-xs-8 col-sm-10 col-lg-11" style="padding:none;">'+tempJSON+'</div></div>');
+			} else {
+				$('.extraContainer div.extraRow').remove();
+				$('.extraContainer').html('<div class="row"><div class="col-xs-12"><h4>'+getLanguageString('textsnippets.nosnippets',localStorage.getItem('langCode'))+'</h4></div></div>');
 			}
-			if (jobject.length == 0) {
-				delete jobject;
-				$('.extraContainer').html('<br><br>');
-				refreshLanguage();
-			}
+			refreshLanguage();
+		}
+
+		/*HIDE HOVER/CLICK EVENTS FOR SIGNS*/
+		if (templates[localStorage.getItem('jtemplate')].formatType == 'signset') {
+			$('.hoverEventContainer_edit').hide();
+			$('.clickEventContainer_edit').hide();
+			$('.insertionContainer_edit').hide();
+			$('.hoverEventContainer').hide();
+			$('.clickEventContainer').hide();
+			$('.insertionContainer').hide();
 		} else {
-			$('.extraContainer div.extraRow').remove();
-			$('.extraContainer').html('<div class="row"><div class="col-xs-12"><h4>'+getLanguageString('textsnippets.nosnippets',localStorage.getItem('langCode'))+'</h4></div></div>');
+			$('.hoverEventContainer_edit').show();
+			$('.clickEventContainer_edit').show();
+			$('.insertionContainer_edit').show();
+			$('.hoverEventContainer').show();
+			$('.clickEventContainer').show();
+			$('.insertionContainer').show();
 		}
-		refreshLanguage();
-	}
-
-	/*HIDE HOVER/CLICK EVENTS FOR SIGNS*/
-	if (templates[localStorage.getItem('jtemplate')].formatType == 'signset') {
-		$('.hoverEventContainer_edit').hide();
-		$('.clickEventContainer_edit').hide();
-		$('.insertionContainer_edit').hide();
-		$('.hoverEventContainer').hide();
-		$('.clickEventContainer').hide();
-		$('.insertionContainer').hide();
-	} else {
-		$('.hoverEventContainer_edit').show();
-		$('.clickEventContainer_edit').show();
-		$('.insertionContainer_edit').show();
-		$('.hoverEventContainer').show();
-		$('.clickEventContainer').show();
-		$('.insertionContainer').show();
-	}
 
 
-	/*EXTRA TRANSLATE STRING MANAGER*/
+		/*EXTRA TRANSLATE STRING MANAGER*/
 
-	if (extraTextFormat == "trn") {
-		$('#obj_extra_container').hide();
-		$('#text_extra_container').hide();
-		$('#selector_extra_container').hide();
-		$('#translate_selector_container').show();
-		if (!hasAlertedTranslationObjects) {
-			alert('Translation objects are currently broken and may crash your game. Please test your translation before publishing it.');
-			hasAlertedTranslationObjects = true;
-		}
-	} else if (extraTextFormat == "obj") {
-		$('#text_extra_container').hide();
-		$('#translate_selector_container').hide();
-		$('#selector_extra_container').hide();
-		$('#obj_extra_container').show();
-	} else if (extraTextFormat == "sel") {
-		$('#text_extra_container').hide();
-		$('#translate_selector_container').hide();
-		$('#selector_extra_container').show();
-		$('#obj_extra_container').hide();
-	} else if (extraTextFormat == "raw") {
-		$('#text_extra_container').show();
-		$('#obj_extra_container').hide();
-		$('#translate_selector_container').hide();
-		$('#selector_extra_container').hide();
-		$('.extraTranslationParameterRow').hide();
-	}
-	if (extraTextFormat == 'NEW_ITERATE_FLAG') {
-		if (templates[localStorage.getItem('jtemplate')].formatType != 'bookarray' && templates[localStorage.getItem('jtemplate')].formatType != 'signset') {
-			alert('You must be using the book or sign template(s)')
-			$('#fmtExtraRaw').click();
-		}
-		$('.NEW_ITERATE_FLAG_not_container').hide();
-	} else {
-		$('.NEW_ITERATE_FLAG_not_container').show();
-	}
-
-	/*COMMAND MANAGER*/
-	if ($("#command").val() == "") $("#command").val(templates[localStorage.getItem('jtemplate')]['command']);
-
-	/*HOVEREVENT SUGGESTION MANAGER*/
-	$('#hoverEventValue').removeAttr('disabled');
-	selectedHover = getSelected("hoverEvent");
-	if (selectedHover == "show_achievement") {
-		$('#hoverEventValue').autocomplete({
-			source: achievements
-		});
-	} else if (selectedHover == "show_item") {
-		$('#hoverEventValue').autocomplete({
-			source: []
-		});
-	} else if (selectedHover == "show_entity") {
-		$('.hovertext_default').hide();
-		$('.hovertext_entity').show();
-	} else if (selectedHover == "none") {
-		$('#hoverEventValue').attr('disabled','true');
-		$('#hoverEventValue').autocomplete({
-			source: []
-		});
-	}
-	if (selectedHover != "show_entity") {
-		$('.hovertext_default').show();
-		$('.hovertext_entity').hide();
-	}
-	if (selectedHover == "show_text") {
-		$('.hovertext_default').hide();
-		$('.hovertext_text').show();
-		$('#hoverEventText').val(JSON.stringify({"text":"","extra":[]}));
-	} else {
-		$('.hovertext_text').hide();
-	}
-
-	/*HOVEREVENT EDIT SUGGESTION MANAGER*/
-	$('#hoverEventText_edit').removeAttr('disabled');
-	selectedHover_edit = getSelected('hoverEvent_edit');
-	if (selectedHover_edit == "show_achievement") {
-		$('#hoverEventText_edit').autocomplete({
-			source: achievements
-		});
-	} else if (selectedHover_edit == "show_item") {
-		$('#hoverEventText_edit').autocomplete({
-			source: []
-		});
-	} else if (selectedHover_edit == "show_entity") {
-		$('.hovertext_default_edit').hide();
-		$('.hovertext_entity_edit').show();
-	} else if (selectedHover_edit == "none") {
-		$('#hoverEventText_edit').attr('disabled','true');
-		$('#hoverEventText_edit').autocomplete({
-			source: []
-		});
-	}
-	if (selectedHover_edit != "show_entity") {
-		$('.hovertext_default_edit').show();
-		$('.hovertext_entity_edit').hide();
-	}
-	if (selectedHover_edit != "show_text") {
-		$('.hovertext_text_edit').hide();
-	} else {
-		$('.hovertext_text_edit').show();
-	}
-
-	/*CLICKEVENT SUGGESTION MANAGER*/
-	$('#clickEventText').removeAttr('disabled');
-	selectedClick = getSelected("clickEvent");
-	if (selectedClick == "run_command" || selectedClick == "suggest_command") {
-		$('#clickEventText').autocomplete({
-			source: commands
-		});
-	} else if (selectedClick == "open_url") {
-		$('#clickEventText').autocomplete({
-			source: ["https://", "http://", "http://apple.com", "https://minecraft.net", "https://mojang.com", "http://ezekielelin.com", "https://reddit.com"]
-		});
-	} else if (selectedClick == "none") {
-		$('#clickEventText').attr('disabled','true');
-		$('#clickEventText').autocomplete({
-			source: []
-		});
-	}
-
-	/*CLICKEVENT EDIT SUGGESTION MANAGER*/
-	$('#clickEventText_edit').removeAttr('disabled');
-	selectedClick_edit = getSelected('clickEvent_edit');
-	if (selectedClick_edit == "run_command" || selectedClick_edit == "suggest_command") {
-		$('#clickEventText_edit').autocomplete({
-			source: commands
-		});
-	} else if (selectedClick_edit == "open_url") {
-		$('#clickEventText_edit').autocomplete({
-			source: ["http://apple.com", "https://minecraft.net", "https://mojang.com", "http://ezekielelin.com", "https://", "https://reddit.com", "http://"]
-		});
-	} else if (selectedClick_edit == "none") {
-		$('#clickEventText_edit').attr('disabled','true');
-		$('#clickEventText_edit').autocomplete({
-			source: []
-		});
-	}
-
-	/*PREPARING OUTPUT*/
-
-	var commandString = $('#command').val();
-
-	var JSONOutputString = '';
-	var EscapedJSONOutputString = '';
-	var formattedJObject = formatJObjectList(jobject);
-
-	var newLineExpressions = {
-		"bookarray": /\\\\\\\\n/g,
-		"standardjson": /\\\\n/g,
-		"signset": /\\\\\\\\n/g
-	}
-	if (!formattedJObject.length > 0) {
-		JSONOutputString = '{}';
-	} else {
-		if (templates[localStorage.getItem('jtemplate')].formatType == 'bookarray') {
-			JSONOutputString = JSON.stringify(formattedJObject);
-			JSONOutputString = JSONOutputString.replace(newLineExpressions.bookarray,'\\n');
-		} else if (templates[localStorage.getItem('jtemplate')].formatType == 'standardjson') {
-			JSONOutputString = formattedJObject[0];
-			JSONOutputString = JSONOutputString.replace(newLineExpressions.standardjson,'\\n');
-		} else if (templates[localStorage.getItem('jtemplate')].formatType == 'signset') {
-			JSONOutputString = 'Text1:' + JSON.stringify(formattedJObject[0]);
-			if (formattedJObject.length > 1) {
-				JSONOutputString += ',Text2:' + JSON.stringify(formattedJObject[1])
-			} 
-			if (formattedJObject.length > 2) {
-				JSONOutputString += ',Text3:' + JSON.stringify(formattedJObject[2])
+		if (extraTextFormat == "trn") {
+			$('#obj_extra_container').hide();
+			$('#text_extra_container').hide();
+			$('#selector_extra_container').hide();
+			$('#translate_selector_container').show();
+			if (!hasAlertedTranslationObjects) {
+				alert('Translation objects are currently broken and may crash your game. Please test your translation before publishing it.');
+				hasAlertedTranslationObjects = true;
 			}
-			if (formattedJObject.length > 3) {
-				JSONOutputString += ',Text4:' + JSON.stringify(formattedJObject[3])
-			}
-			JSONOutputString = JSONOutputString.replace(newLineExpressions.signset,'\\n');
+		} else if (extraTextFormat == "obj") {
+			$('#text_extra_container').hide();
+			$('#translate_selector_container').hide();
+			$('#selector_extra_container').hide();
+			$('#obj_extra_container').show();
+		} else if (extraTextFormat == "sel") {
+			$('#text_extra_container').hide();
+			$('#translate_selector_container').hide();
+			$('#selector_extra_container').show();
+			$('#obj_extra_container').hide();
+		} else if (extraTextFormat == "raw") {
+			$('#text_extra_container').show();
+			$('#obj_extra_container').hide();
+			$('#translate_selector_container').hide();
+			$('#selector_extra_container').hide();
+			$('.extraTranslationParameterRow').hide();
 		}
-	}
+		if (extraTextFormat == 'NEW_ITERATE_FLAG') {
+			if (templates[localStorage.getItem('jtemplate')].formatType != 'bookarray' && templates[localStorage.getItem('jtemplate')].formatType != 'signset') {
+				alert('You must be using the book or sign template(s)')
+				$('#fmtExtraRaw').click();
+			}
+			$('.NEW_ITERATE_FLAG_not_container').hide();
+		} else {
+			$('.NEW_ITERATE_FLAG_not_container').show();
+		}
 
-	commandString = commandString.replace('%s',JSONOutputString);
+		/*COMMAND MANAGER*/
+		if ($("#command").val() == "") $("#command").val(templates[localStorage.getItem('jtemplate')]['command']);
 
-	outputString = commandString;
+		/*HOVEREVENT SUGGESTION MANAGER*/
+		$('#hoverEventValue').removeAttr('disabled');
+		selectedHover = getSelected("hoverEvent");
+		if (selectedHover == "show_achievement") {
+			$('#hoverEventValue').autocomplete({
+				source: achievements
+			});
+		} else if (selectedHover == "show_item") {
+			$('#hoverEventValue').autocomplete({
+				source: []
+			});
+		} else if (selectedHover == "show_entity") {
+			$('.hovertext_default').hide();
+			$('.hovertext_entity').show();
+		} else if (selectedHover == "none") {
+			$('#hoverEventValue').attr('disabled','true');
+			$('#hoverEventValue').autocomplete({
+				source: []
+			});
+		}
+		if (selectedHover != "show_entity") {
+			$('.hovertext_default').show();
+			$('.hovertext_entity').hide();
+		}
+		if (selectedHover == "show_text") {
+			$('.hovertext_default').hide();
+			$('.hovertext_text').show();
+			$('#hoverEventText').val(JSON.stringify({"text":"","extra":[]}));
+		} else {
+			$('.hovertext_text').hide();
+		}
 
-	$('#outputtextfield').val(outputString);
-	if ($('#showNiceLookingOutput').is(':checked')) {
-		localStorage.setItem('nlOutput','yes');
-		$('#nicelookingoutput').show().html(JSON.stringify(jobject, null, 4).replace(newLineExpressions.standardjson,'\\n'));
-	} else {
-		localStorage.setItem('nlOutput','no');
-		$('#nicelookingoutput').hide();
-	}
-	jsonParse();
+		/*HOVEREVENT EDIT SUGGESTION MANAGER*/
+		$('#hoverEventText_edit').removeAttr('disabled');
+		selectedHover_edit = getSelected('hoverEvent_edit');
+		if (selectedHover_edit == "show_achievement") {
+			$('#hoverEventText_edit').autocomplete({
+				source: achievements
+			});
+		} else if (selectedHover_edit == "show_item") {
+			$('#hoverEventText_edit').autocomplete({
+				source: []
+			});
+		} else if (selectedHover_edit == "show_entity") {
+			$('.hovertext_default_edit').hide();
+			$('.hovertext_entity_edit').show();
+		} else if (selectedHover_edit == "none") {
+			$('#hoverEventText_edit').attr('disabled','true');
+			$('#hoverEventText_edit').autocomplete({
+				source: []
+			});
+		}
+		if (selectedHover_edit != "show_entity") {
+			$('.hovertext_default_edit').show();
+			$('.hovertext_entity_edit').hide();
+		}
+		if (selectedHover_edit != "show_text") {
+			$('.hovertext_text_edit').hide();
+		} else {
+			$('.hovertext_text_edit').show();
+		}
 
-	/*COMMAND BLOCK WARNING*/
-	if ($('#outputtextfield').val().length > 90) {
-		$('#commandblock').show();
-	} else {
-		$('#commandblock').hide();
-	}
+		/*CLICKEVENT SUGGESTION MANAGER*/
+		$('#clickEventText').removeAttr('disabled');
+		selectedClick = getSelected("clickEvent");
+		if (selectedClick == "run_command" || selectedClick == "suggest_command") {
+			$('#clickEventText').autocomplete({
+				source: commands
+			});
+		} else if (selectedClick == "open_url") {
+			$('#clickEventText').autocomplete({
+				source: ["https://", "http://", "http://apple.com", "https://minecraft.net", "https://mojang.com", "http://ezekielelin.com", "https://reddit.com"]
+			});
+		} else if (selectedClick == "none") {
+			$('#clickEventText').attr('disabled','true');
+			$('#clickEventText').autocomplete({
+				source: []
+			});
+		}
 
-	/*SAVE VARIABLES*/
-	localStorage['jobject'] = JSON.stringify(jobject);
-	localStorage['jcommand'] = $('#command').val();
+		/*CLICKEVENT EDIT SUGGESTION MANAGER*/
+		$('#clickEventText_edit').removeAttr('disabled');
+		selectedClick_edit = getSelected('clickEvent_edit');
+		if (selectedClick_edit == "run_command" || selectedClick_edit == "suggest_command") {
+			$('#clickEventText_edit').autocomplete({
+				source: commands
+			});
+		} else if (selectedClick_edit == "open_url") {
+			$('#clickEventText_edit').autocomplete({
+				source: ["http://apple.com", "https://minecraft.net", "https://mojang.com", "http://ezekielelin.com", "https://", "https://reddit.com", "http://"]
+			});
+		} else if (selectedClick_edit == "none") {
+			$('#clickEventText_edit').attr('disabled','true');
+			$('#clickEventText_edit').autocomplete({
+				source: []
+			});
+		}
 
-	/*RERUN*/
-	if (input != 'noLoop' && input != 'previewLineChange') {
-		refreshOutput('noLoop');
+		/*PREPARING OUTPUT*/
+
+		var commandString = $('#command').val();
+
+		var JSONOutputString = '';
+		var EscapedJSONOutputString = '';
+		var formattedJObject = formatJObjectList(jobject);
+
+		var newLineExpressions = {
+			"bookarray": /\\\\\\\\n/g,
+			"standardjson": /\\\\n/g,
+			"signset": /\\\\\\\\n/g
+		}
+		if (!formattedJObject.length > 0) {
+			JSONOutputString = '{}';
+		} else {
+			if (templates[localStorage.getItem('jtemplate')].formatType == 'bookarray') {
+				JSONOutputString = JSON.stringify(formattedJObject);
+				JSONOutputString = JSONOutputString.replace(newLineExpressions.bookarray,'\\n');
+			} else if (templates[localStorage.getItem('jtemplate')].formatType == 'standardjson') {
+				JSONOutputString = formattedJObject[0];
+				JSONOutputString = JSONOutputString.replace(newLineExpressions.standardjson,'\\n');
+			} else if (templates[localStorage.getItem('jtemplate')].formatType == 'signset') {
+				JSONOutputString = 'Text1:' + JSON.stringify(formattedJObject[0]);
+				if (formattedJObject.length > 1) {
+					JSONOutputString += ',Text2:' + JSON.stringify(formattedJObject[1])
+				} 
+				if (formattedJObject.length > 2) {
+					JSONOutputString += ',Text3:' + JSON.stringify(formattedJObject[2])
+				}
+				if (formattedJObject.length > 3) {
+					JSONOutputString += ',Text4:' + JSON.stringify(formattedJObject[3])
+				}
+				JSONOutputString = JSONOutputString.replace(newLineExpressions.signset,'\\n');
+			}
+		}
+
+		commandString = commandString.replace('%s',JSONOutputString);
+
+		outputString = commandString;
+
+		$('#outputtextfield').val(outputString);
+		if ($('#showNiceLookingOutput').is(':checked')) {
+			localStorage.setItem('nlOutput','yes');
+			$('#nicelookingoutput').show().html(JSON.stringify(jobject, null, 4).replace(newLineExpressions.standardjson,'\\n'));
+		} else {
+			localStorage.setItem('nlOutput','no');
+			$('#nicelookingoutput').hide();
+		}
+		jsonParse();
+
+		/*COMMAND BLOCK WARNING*/
+		if ($('#outputtextfield').val().length > 90) {
+			$('#commandblock').show();
+		} else {
+			$('#commandblock').hide();
+		}
+
+		/*SAVE VARIABLES*/
+		localStorage['jobject'] = JSON.stringify(jobject);
+		localStorage['jcommand'] = $('#command').val();
+
+		/*RERUN*/
+		if (input != 'noLoop' && input != 'previewLineChange') {
+			refreshOutput('noLoop');
+		}
+	} catch(err) {
+		logIssue('Unknown Error',err);
 	}
 }
 function jsonParse() {
@@ -1027,7 +1052,6 @@ function jsonParse() {
 				} else {
 					$('#jsonPreviewSpanElement'+i).html('<span class="label label-danger">Unknown Element</span>');
 				}
-				console.log(jobject[i]);
 
 				if (jobject[i].bold == "true") {
 					$('#jsonPreviewSpanElement'+i).addClass('bold');
@@ -1143,7 +1167,7 @@ function initialize() {
 
 	/*check if alert isn't correctly set. Do not show the alert is jformat isn't set – that means the user hasn't been here before*/
 	if (localStorage.getItem('jalert') != notice.id && localStorage.getItem('jformat') != undefined) {
-		alert(notice.message)
+		alert(notice.message);
 	}
 	localStorage.setItem('jalert',notice.id);
 
@@ -1208,6 +1232,15 @@ function initialize() {
 		$('#showNiceLookingOutput').prop('checked', false);
 	} else {
 		$('#showNiceLookingOutput').prop('checked', true);
+	}
+
+	if (localStorage.getItem('jview') == undefined) {
+		localStorage.setItem('jview','tellraw');
+	}
+	try {
+		showView(localStorage.getItem('jview'));
+	} catch(err) {
+		showView('tellraw');
 	}
 
 	$('.templateButton').click(function(){
@@ -1301,7 +1334,6 @@ function initialize() {
 		goToByScroll('addExtraModalData');
 		editing = true;
 	});
-	showView('tellraw');
 	$( "#translate_input" ).autocomplete({
 		source: Object.keys(translationStrings)
 	});
@@ -1337,6 +1369,9 @@ function initialize() {
 		$(this).hide();
 		$('#enable_dark_mode').show();
 	});
+	$('.report-issue').on('click',function(){
+		reportAnIssue();
+	});
 	if (localStorage.getItem('darkMode') && localStorage.getItem('darkMode') == 'true') {
 		$('#enable_dark_mode').click(); //Finish setting up dark mode after handlers exist
 	}
@@ -1344,9 +1379,9 @@ function initialize() {
 $( document ).ready(function(){
 	if (localStorage.getItem('darkMode') && localStorage.getItem('darkMode') == 'true') {
 		$('body').addClass('black-theme'); //Rest of "dark mode" is handled later, color scheme handled early for appearance
- 	}
- 	$('.view-container').hide();
- 	showView('loading');
+	}
+	$('.view-container').hide();
+	showView('loading');
 	$('#loadingtxt').html('Loading Assets');
 	try {
 		data = getURL('resources.json');

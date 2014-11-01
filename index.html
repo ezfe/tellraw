@@ -44,6 +44,43 @@
 	<!--[if lt IE 8]>
 	<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
+	<div class="view-container" view="issue-1">
+		<div class="row">
+			<div class="col-md-12" style="text-align:center;">
+				<h2>Please describe your issue</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-2 col-md-offset-5">
+				<button class="btn btn-block btn-default" id="">Translation Issue</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-2 col-md-offset-5">
+				<button class="btn btn-block btn-default" id="">Output Issue</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-2 col-md-offset-5">
+				<button class="btn btn-block btn-default" id="">Other Issue</button>
+			</div>
+		</div>
+	</div>
+	<div class="view-container" view="issue">
+		<div class="row">
+			<div class="col-md-12" style="text-align:center;">
+				<h2>An Error Occured<span id="issue-info-span"></span></h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3 col-md-offset-3">
+				<button onclick="showView('tellraw');" class="btn btn-block btn-default"><i class="fa fa-chevron-left"></i> <span lang="issues.go-home"></span></button>
+			</div>
+			<div class="col-md-3">
+				<button class="report-issue btn btn-block btn-danger"><i class="fa fa-exclamation-triangle"></i> <span lang="headerbar.report_an_issue"></span></button>
+			</div>
+		</div>
+	</div>
 	<div class="view-container" view="settings">
 		<div class="row">
 			<div class="col-md-12">
@@ -137,7 +174,7 @@
 		</div>
 		<h4 id="loadingtxt">Loading Javascript</h4>
 		<h5>
-			If this page does not go away, try clicking <a onclick="localStorage.clear();location.reload();" href="#">here</a>. If that doesn't work, please <a href="https://github.com/ezfe/tellraw/issues/new" class="btn btn-xs btn-danger"><i class="fa fa-exclamation-triangle"></i> <span>Report an Issue</span></a>
+			If this page does not go away, try clicking <a onclick="localStorage.clear();location.reload();" href="#">here</a>. If that doesn't work, please <button class="report-issue btn btn-xs btn-danger"><i class="fa fa-exclamation-triangle"></i> <span>Report an Issue</span></button>
 		</h5>
 	</div>
 	<div view="tellraw" class="view-container">
@@ -151,9 +188,9 @@
 				</button>
 			</div>
 			<div class="col-sm-2">
-				<a href="https://github.com/ezfe/tellraw/issues/new" class="btn btn-block btn-xs btn-danger">
+				<button class="report-issue btn btn-block btn-xs btn-danger">
 					<i class="fa fa-exclamation-triangle"></i> <span lang="headerbar.report_an_issue"></span>
-				</a>
+				</button>
 				<div class="help-box" lang="help.report-an-issue"></div>
 			</div>
 			<div class="col-sm-1 col-xs-12 row-margin-top row-margin-bottom">
