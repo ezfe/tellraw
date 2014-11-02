@@ -1355,8 +1355,8 @@ function initialize() {
 		refreshLanguage();
 	});
 	$('#lang_request').on('click',function(){
-		$('html').html('<a href="#" onclick="location.reload()">Go Back</a><br><br><br>');
-		$('html').append(errorString);
+		showView('lang-request');
+		$('#lang-request-errorstring').html(errorString);
 	});
 	$('#helptoggle').click(function(){
 		$('.help-box').toggle();
