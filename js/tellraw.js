@@ -36,8 +36,8 @@ function logIssue(name,data,solution) {
 	$('#issue-info-span').html('<small><br>' + name + ' - <a href="#" onclick="alert(JSON.stringify(issueLog[issueLog.length - 1].data))">Issue Data</a></small>');
 }
 function showView(viewname) {
-	$('.view-container').hide();
-	$('.view-container[view="' + viewname + '"]').show();
+	$('.view-container').slideUp();
+	$('.view-container[view="' + viewname + '"]').slideDown();
 	if (viewname != "loading") {
 		localStorage.setItem('jview',viewname);
 	}
@@ -1237,12 +1237,9 @@ function initialize() {
 	if (localStorage.getItem('jview') == undefined) {
 		localStorage.setItem('jview','tellraw');
 	}
-	try {
+	if (localStorage.getItem('jview') != 'issue') {
 		showView(localStorage.getItem('jview'));
-	} catch(err) {
-		showView('tellraw');
 	}
-
 	$('.templateButton').click(function(){
 		$('.templateButton').removeClass('btn-success').removeClass('btn-default').addClass('btn-default');
 		$(this).addClass('btn-success').removeClass('btn-default');

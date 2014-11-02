@@ -44,6 +44,9 @@
 	<!--[if lt IE 8]>
 	<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
+	<div class="view-container" style="margin-bottom:200%;">
+		<h1>Please enable JavaScript</h1>
+	</div>
 	<div class="view-container" view="issue-1">
 		<div class="row">
 			<div class="col-md-12" style="text-align:center;">
@@ -120,21 +123,19 @@
 	<div class="view-container" view="donate">
 		<div class="row">
 			<div class="col-md-12">
-				<h2>Support This Website<br><small>I don't want to put ads on this website, please donate to support the costs of maintaining this website.</small></h2>
+				<h2><span lang="donate.support-header"></span><br><small lang="donate.support-subheader"></small></h2>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-2 col-md-offset-3" style="padding:0px;">
 				<div class="row">
 					<div class="col-md-12" style="text-align:center;">
-						<a class="btn btn-default" href="http://pixelhost.ezekielelin.com/payments/?payment_item_id=tellraw"><i class="fa fa-usd"></i> Donate</a>
+						<a class="btn btn-default" href="http://pixelhost.ezekielelin.com/payments/?payment_item_id=tellraw"><i class="fa fa-usd"></i> <span lang="donate.donate-button"></span></a>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-12" style="">
-						<p>
-							Make a donation of the value you choose (Stripe).
-						</p>
+						<p lang="donate.donate-text"></p>
 					</div>
 				</div>
 			</div>
@@ -146,21 +147,17 @@
 				</div>
 				<div class="row">
 					<div class="col-md-12">
-						<p>
-							Want to buy me a rank on the Overcast Network? Click the picture above, and enter ezekielelin as my username.
-						</p>
+						<p lang="donate.overcast-text"></p>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="row" style="margin-top:20px;">
 			<div class="col-md-2 col-md-offset-3" style="text-align:right;">
-				<button onclick="donateAlert(false);" class="btn btn-info btn-block">Exit</button>
+				<button onclick="donateAlert(false);" class="btn btn-info btn-block" lang="donate.exit"></button>
 			</div>
 			<div class="col-md-3" style="text-align:left;">
-				<p>
-					You won't see this again so long as you keep your cookies intact. Unfortunately I have no way of detecting you if you reset your cookies.
-				</p>
+				<p lang="donate.exit-text"></p>
 			</div>
 		</div>
 	</div>

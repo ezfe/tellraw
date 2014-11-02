@@ -1,4 +1,13 @@
 {
+	"donate": {
+		"support-header": "Support This Website",
+		"support-subheader": "I don't want to put ads on this website, please donate to support the costs of maintaining this website.",
+		"donate-button": "Donate",
+		"donate-text": "Make a donation of the value you choose (Stripe).",
+		"overcast-text": "Want to buy me a rank on the Overcast Network? Click the picture above, and enter ezekielelin as my username.",
+		"exit": "Exit",
+		"exit-text": "You won't see this again so long as you keep your cookies intact. Unfortunately I have no way of detecting you if you reset your cookies."
+	},
 	"issues": {
 		"go-home": "Ignore Issue"
 	},
