@@ -35,11 +35,21 @@ function logIssue(name,data,solution) {
 	issueLog.push({"name":name,"data":data});
 	$('#issue-info-span').html('<small><br>' + name + ' - <a href="#" onclick="alert(JSON.stringify(issueLog[issueLog.length - 1].data))">Issue Data</a></small>');
 }
-function showView(viewname) {
-	$('.view-container').slideUp();
-	$('.view-container[view="' + viewname + '"]').slideDown();
-	if (viewname != "loading") {
-		localStorage.setItem('jview',viewname);
+function showView(viewname,suppressAnimation) {
+	if (viewname != "loading" && !suppressAnimation) {
+		localStorage.setItem('jview',viewname); /* Store new view */
+		$('.view-container').not('.view-container[view="' + viewname + '"]').not('.view-container[view="pageheader"]').slideUp(); /* Hide all other views except selected and pageheader */
+		$('.view-container[view="' + viewname + '"]').slideDown(); /* show selected view */
+		$('.view-container[view="pageheader"]').show(); /* make sure header is showing */
+	} else if (viewname == "loading" && !suppressAnimation) {
+		/* loading is done differently to prevent interference*/
+		$('.view-container').slideUp();
+		$('.view-container[view="loading"]').show();
+	} else {
+		localStorage.setItem('jview',viewname); /* Store new view */
+		$('.view-container').not('.view-container[view="' + viewname + '"]').not('.view-container[view="pageheader"]').hide(); /* Hide all other views except selected and pageheader */
+		$('.view-container[view="' + viewname + '"]').show(); /* show selected view */
+		$('.view-container[view="pageheader"]').show(); /* make sure header is showing */
 	}
 	if ($('.view-container[view="' + viewname + '"]').length == 0) {
 		logIssue('Missing View',viewname);
@@ -360,6 +370,7 @@ function clearExtra() {
 	$('#textsnippets-add-button').removeClass('btn-danger');
 	$('#obj_player').val('');
 	$('#obj_score').val('');
+	$('#text_extra_container').removeClass('has-error');
 	refreshOutput();
 }
 function editExtra(index) {
@@ -572,8 +583,7 @@ function modifyExtraText(index,text) {
 	refreshOutput();
 }
 function cancelAddExtra() {
-	$('#snippetsWell').show();
-	$('#addExtraModalData').hide();
+	showView('tellraw');
 	clearExtra();
 }
 function addExtra() {
@@ -591,8 +601,7 @@ function addExtra() {
 		$('#textsnippets-add-button').addClass('btn-danger');
 		return false;
 	} else {
-		$('#snippetsWell').show();
-		$('#addExtraModalData').hide();
+		showView('tellraw');
 	}
 	if (get_type(jobject) != "[object Array]") {
 		jobject = [];
@@ -1238,7 +1247,7 @@ function initialize() {
 		localStorage.setItem('jview','tellraw');
 	}
 	if (localStorage.getItem('jview') != 'issue') {
-		showView(localStorage.getItem('jview'));
+		showView(localStorage.getItem('jview'),true);
 	}
 	$('.templateButton').click(function(){
 		$('.templateButton').removeClass('btn-success').removeClass('btn-default').addClass('btn-default');
@@ -1326,9 +1335,7 @@ function initialize() {
 		$('#hoverEventText').val(JSON.stringify(textobj));
 	});
 	$('#addExtraButton').on('click',function(){
-		$('#snippetsWell').hide();
-		$('#addExtraModalData').show();
-		goToByScroll('addExtraModalData');
+		showView('add-extra')
 		editing = true;
 	});
 	$( "#translate_input" ).autocomplete({

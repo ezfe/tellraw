@@ -55,8 +55,8 @@
 			"turn_on": "Dark Theme",
 			"turn_off": "Light Theme"
 		},
-		"show": "Show Settings",
-		"hide": "Hide Settings",
+		"show": "Open Settings",
+		"hide": "Close Settings",
 		"fontSize": "Preview Font Size",
 		"previewcolor": "Preview Background Color:",
 		"export": "Export",

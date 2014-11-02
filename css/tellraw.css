@@ -87,10 +87,10 @@ div[class*='col-xs-'] {
 	margin-top:20px;
 }
 .black-theme {
-	background-color: black;
+	background-color: #222;
 	color: white;
 }
-.minecraft .well {
+.black-theme .well {
 	color: black;
 }
 
