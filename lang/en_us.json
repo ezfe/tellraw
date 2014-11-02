@@ -1,4 +1,11 @@
 {
+	"tos": {
+		"warn": {
+			"header": "By Using This Site, You Accept The Terms of Use",
+			"read": "Read",
+			"accept": "Accept"
+		}
+	},
 	"donate": {
 		"support-header": "Support This Website",
 		"support-subheader": "I don't want to put ads on this website, please donate to support the costs of maintaining this website.",

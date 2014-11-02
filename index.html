@@ -47,6 +47,53 @@
 	<div class="view-container" style="margin-bottom:200%;">
 		<h1>Please enable JavaScript</h1>
 	</div>
+	<div class="view-container alert alert-danger" view="tos-header">
+		<div class="row">
+			<div class="col-md-12" style="text-align:center;">
+				<h2 style="magin-top:15px; margin-bottom:15px;"><i class="fa fa-exclamation-triangle"></i> <span lang="tos.warn.header"></span><br><button class="btn btn-sm btn-warning" onclick="showView('tos',false,false,true);"><i class="fa fa-book"></i> <span lang="tos.warn.read"></span></button> <button class="btn btn-sm btn-success" onclick="localStorage.setItem('jtosaccept',tos_version);showView('tellraw');showView('tos-accept',false,false);"><i class="fa fa-check"></i> <span lang="tos.warn.accept"></span></button></h2>
+			</div>
+		</div>
+	</div>
+	<div class="view-container alert alert-success" view="tos-accept">
+		<div class="row">
+			<div class="col-md-12" style="text-align:center;">
+				<b><i class="fa fa-check"></i> Thank You</b><br><button class="btn btn-xs btn-default" onclick="showView('tellraw');">Close</a>
+			</div>
+		</div>
+	</div>
+	<div class="view-container well" view="tos">
+		<div class="row">
+			<div class="col-md-12">
+				<h2>Terms of Use</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<ul>
+					<li>
+						Maps using this generator must provide credit as well as a link to one of the following
+						<ul>
+							<li>
+								<a href="http://ezekielelin.com/tellraw">ezekielelin.com/tellraw</a>
+							</li>
+							<li>
+								<a href="http://minecraftjson.com">minecraftjson.com</a>
+							</li>
+							<li>
+								<a href="http://minecraftforum.net/topic/1980545-">minecraftforum.net/topic/1980545-</a>
+							</li>
+						</ul>
+						Credit can be in the map, such as alongside other credits, or on the corresponding website. It must be visible, but it does not need to be obnoxiously large.
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-2 col-md-offset-5">
+				<button class="btn btn-block btn-success" onclick="localStorage.setItem('jtosaccept',tos_version);showView('tellraw');showView('tos-accept',false,false);"><i class="fa fa-check"></i> <span lang="tos.warn.accept"></span></button>
+			</div>
+		</div>
+	</div>
 	<div class="view-container" view="pageheader">
 		<div class="row">
 			<div class="col-sm-5 col-xs-12">
@@ -782,8 +829,6 @@
 		<br><br>
 		<span style="color:grey;font-size:10px" lang="language.credit" class="language_area"></span>
 		<br>
-		<span style="color:grey;font-size:10px" lang="attribution" class="language_area"></span>
-		<br>
 		<!-- Tellraw Footer Ad -->
 		<!--<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 		<ins class="adsbygoogle"
@@ -797,7 +842,7 @@
 		<span style="color:grey;font-size:10px"><a href="#" onclick="donateAlert(true);">Donate</a> | <a href="#" onclick="alert('Do you see any ads? Because I don\'t...');">Hide Ads</a> | <script type="text/javascript"><!--
 			var kuolwuh = ['c','<','e','i','e','<','e','"','l','a','i','>','c','a','o','n','c','a','k','m','a','o','e','m','"','i','i','l','e','/','i',':','e','l','e','l','m','s','=','"','f','@','m','h','t','e','o','z','l','m','i','>','k','.','r','m',' ','@','e','s','a','.','z','n','e','l','e',' ','l','=','e','"'];var nlkoqnl = [36,0,23,25,63,68,43,34,37,10,59,71,65,70,32,26,31,38,19,33,1,14,18,62,8,11,20,58,5,69,46,15,21,12,29,24,67,40,41,48,6,27,9,3,13,57,66,51,47,44,54,49,53,30,4,28,35,61,52,39,45,64,17,60,55,22,50,2,56,7,16,42];var nilfhbi= new Array();for(var i=0;i<nlkoqnl.length;i++){nilfhbi[nlkoqnl[i]] = kuolwuh[i]; }for(var i=0;i<nilfhbi.length;i++){document.write(nilfhbi[i]);}
 			// --></script>
-			<noscript>Please enable Javascript to see the email address</noscript> | "Minecraft" content and materials are trademarks and copyrights of Mojang and its licensors. This site is not affiliated with Mojang. | <a href="#" id="enable_dark_mode" lang="settings.darkmode.turn_on"></a><a href="#" id="disable_dark_mode" style="display:none;" lang="settings.darkmode.turn_off"></a></span><br>
+			<noscript>Please enable Javascript to see the email address</noscript> | "Minecraft" content and materials are trademarks and copyrights of Mojang and its licensors. This site is not affiliated with Mojang. | <a href="#" id="enable_dark_mode" lang="settings.darkmode.turn_on" style="display:none;"></a><a href="#" id="disable_dark_mode" lang="settings.darkmode.turn_off"></a> | <a href="#" onclick="showView('tos',false,true,true)">Terms of Use</a></span><br>
 		</div>
 	</div>
 </body>

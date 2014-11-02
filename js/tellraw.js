@@ -1,6 +1,7 @@
 var chars = [1,2,3,4,5,6,7,8,9,0,'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 var matchLength = 0;
 var version = 2;
+var tos_version = 1;
 var notice = {
 	"id": 3,
 	"message": "Some formats have changed. %e is no longer a valid marker, use %s now.\n\nIt is recommended you reset to the templates."
@@ -35,23 +36,32 @@ function logIssue(name,data,solution) {
 	issueLog.push({"name":name,"data":data});
 	$('#issue-info-span').html('<small><br>' + name + ' - <a href="#" onclick="alert(JSON.stringify(issueLog[issueLog.length - 1].data))">Issue Data</a></small>');
 }
-function showView(viewname,suppressAnimation) {
-	if (viewname != "loading" && !suppressAnimation) {
-		localStorage.setItem('jview',viewname); /* Store new view */
-		$('.view-container').not('.view-container[view="' + viewname + '"]').not('.view-container[view="pageheader"]').slideUp(); /* Hide all other views except selected and pageheader */
-		$('.view-container[view="' + viewname + '"]').slideDown(); /* show selected view */
-		$('.view-container[view="pageheader"]').show(); /* make sure header is showing */
-	} else if (viewname == "loading" && !suppressAnimation) {
-		/* loading is done differently to prevent interference*/
-		$('.view-container').slideUp();
-		$('.view-container[view="loading"]').show();
-	} else {
-		localStorage.setItem('jview',viewname); /* Store new view */
-		$('.view-container').not('.view-container[view="' + viewname + '"]').not('.view-container[view="pageheader"]').hide(); /* Hide all other views except selected and pageheader */
-		$('.view-container[view="' + viewname + '"]').show(); /* show selected view */
-		$('.view-container[view="pageheader"]').show(); /* make sure header is showing */
+function showView(viewname,suppressAnimation,hideOthers,hideMenubar) {
+	var toHide = $('.view-container').not('.view-container[view="' + viewname + '"]');
+	if (!hideMenubar) {
+		toHide = toHide.not('.view-container[view="pageheader"]');
 	}
-	if ($('.view-container[view="' + viewname + '"]').length == 0) {
+	var toShow = $('.view-container[view="' + viewname + '"]');
+	if (!hideMenubar) {
+		$($('.view-container[view="pageheader"]')).show();
+	}
+	if (localStorage.getItem('jtosaccept') == undefined || localStorage.getItem('jtosaccept') != tos_version && viewname != 'tos' && viewname != 'tos-header') {
+		toHide = toHide.not('.view-container[view="tos-header"]');
+	}
+	if (hideOthers === false) {
+		toHide = $('');
+	}
+	if (suppressAnimation) {
+		toHide.hide();
+		toShow.show();
+	} else {
+		toHide.slideUp();
+		toShow.slideDown();
+	}
+	if (viewname != "loading" && viewname != "pageheader" && viewname != "tos-header" && viewname != "issue") {
+		localStorage.setItem('jview',JSON.stringify({"viewname":viewname,"suppressAnimation":suppressAnimation,"hideOthers":hideOthers,"hideMenubar":hideMenubar}));
+	}
+	if (toShow.length == 0) {
 		logIssue('Missing View',viewname);
 		showView('issue');
 	}
@@ -1245,12 +1255,17 @@ function initialize() {
 	} else {
 		$('#showNiceLookingOutput').prop('checked', true);
 	}
-
-	if (localStorage.getItem('jview') == undefined) {
-		localStorage.setItem('jview','tellraw');
+	
+	showView('pageheader',true,false);
+	//JSON.stringify({"viewname":viewname,"suppressAnimation":suppressAnimation,"hideOthers":hideOthers,"hideMenubar":hideMenubar})
+	if (localStorage.getItem('jview') != undefined && typeof JSON.stringify(localStorage.getItem('jview')) != "string") {
+		var viewObject = JSON.parse(localStorage.getItem('jview'));
+		showView(viewObject.viewname,viewObject.suppressAnimation,viewObject.hideOthers,viewObject.hideMenubar);
+	} else {
+		showView('tellraw')
 	}
-	if (localStorage.getItem('jview') != 'issue') {
-		showView(localStorage.getItem('jview'),true);
+	if (localStorage.getItem('jtosaccept') == undefined || localStorage.getItem('jtosaccept') != tos_version) {
+		showView('tos-header',true,false,true);
 	}
 	$('.templateButton').click(function(){
 		$('.templateButton').removeClass('btn-success').removeClass('btn-default').addClass('btn-default');
@@ -1383,12 +1398,15 @@ function initialize() {
 		$('#enable_dark_mode').click(); //Finish setting up dark mode after handlers exist
 	}
 }
-$( document ).ready(function(){
+$(document).ready(function(){
 	if (localStorage.getItem('darkMode') && localStorage.getItem('darkMode') == 'true') {
 		$('body').addClass('black-theme'); //Rest of "dark mode" is handled later, color scheme handled early for appearance
+	} else if (localStorage.getItem('darkMode') == undefined) {
+		$('body').addClass('black-theme');
+		localStorage.setItem('darkMode','true');
 	}
 	$('.view-container').hide();
-	showView('loading');
+	showView('loading',true,true,true);
 	$('#loadingtxt').html('Loading Assets');
 	try {
 		data = getURL('resources.json');
