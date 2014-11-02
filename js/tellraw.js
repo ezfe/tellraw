@@ -848,7 +848,10 @@ function refreshOutput(input) {
 		}
 		if (extraTextFormat == 'NEW_ITERATE_FLAG') {
 			if (templates[localStorage.getItem('jtemplate')].formatType != 'bookarray' && templates[localStorage.getItem('jtemplate')].formatType != 'signset') {
-				alert('You must be using the book or sign template(s)')
+				alert('You must be using the book or sign template(s)');
+				if (confirm('Do you want to go to the home page and change your template?\n\nYou will loose any text entered in the current window.')) {
+					cancelAddExtra();
+				}
 				$('#fmtExtraRaw').click();
 			}
 			$('.NEW_ITERATE_FLAG_not_container').hide();
