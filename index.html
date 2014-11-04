@@ -525,6 +525,43 @@
 			</div>
 		</div>
 	</div>
+	<div view="saves" class="view-container well">
+		<div class="row">
+			<div class="col-sm-4">
+				<h4 lang="saves.header"></h4>
+			</div>
+			<div class="col-sm-4 col-sm-offset-4">
+				<h5 lang="saves.persistencenotice"></h5>
+			</div>
+		</div>
+		<div class="savesContainer">
+			<div class="row">
+				<div class="col-sm-12">
+					<h4 lang="saves.nosaves"></h4>
+				</div>
+			</div>
+		</div>
+		<div class="row row-margin-top row-margin-bottom">
+			<div class="col-sm-2 col-sm-offset-3">
+				<button class="btn btn-success btn-block" onclick="saveJObject()">
+					<span lang="saves.new"></span> <i class="fa fa-plus-circle"></i></span>
+				</button>
+				<div class="help-box" lang="help.create-new-save"></div>
+			</div>
+			<div class="col-sm-2">
+				<button class="btn btn-danger btn-block" onclick="clearJObjectSaves()">
+					<span lang="saves.deleteall.yes"></span> <i class="fa fa-times-circle"></i></span>
+				</button>
+				<div class="help-box" lang="help.delete-all-saves"></div>
+			</div>
+			<div class="col-sm-2">
+				<button class="btn btn-info btn-block" id="hide-saves">
+				<span lang="saves.hide"></span> <i class="fa fa-eye"></i></span>
+				</button>
+				<div class="help-box" lang="help.show-saves"></div>
+			</div>
+		</div>
+	</div>
 	<div view="tellraw" class="view-container">
 		<div class="alerts">
 		</div>
@@ -539,37 +576,6 @@
 					<input value="tellraw @a" id="command" type="text" class="form-control">
 					<br>
 					<div id="templateButtons"></div>
-				</div>
-			</div>
-			<div class="well row-margin-top" id="savesManagerWell" style="display:none;">
-				<div class="row">
-					<div class="col-sm-4">
-						<h4 lang="saves.header"></h4>
-					</div>
-					<div class="col-sm-4 col-sm-offset-4">
-						<h5 lang="saves.persistencenotice"></h5>
-					</div>
-				</div>
-				<div class="savesContainer">
-					<div class="row">
-						<div class="col-sm-12">
-							<h4 lang="saves.nosaves"></h4>
-						</div>
-					</div>
-				</div>
-				<div class="row row-margin-top row-margin-bottom">
-					<div class="col-sm-4 col-sm-offset-2">
-						<button class="btn btn-success btn-block" onclick="saveJObject()">
-							<span lang="saves.new"></span> <i class="fa fa-plus-circle"></i></span>
-						</button>
-						<div class="help-box" lang="help.create-new-save"></div>
-					</div>
-					<div class="col-sm-4">
-						<button class="btn btn-danger btn-block" onclick="clearJObjectSaves()">
-							<span lang="saves.deleteall.yes"></span> <i class="fa fa-times-circle"></i></span>
-						</button>
-						<div class="help-box" lang="help.delete-all-saves"></div>
-					</div>
 				</div>
 			</div>
 			<div class="well row-margin-top" id="snippetsWell">
@@ -590,7 +596,7 @@
 						<div class="help-box" lang="help.delete-all-snippets"></div>
 					</div>
 					<div class="col-sm-3">
-						<button class="btn btn-info btn-block" id="savesToggleButton">
+						<button class="btn btn-info btn-block" id="show-saves">
 							<span lang="saves.show"></span> <i class="fa fa-eye"></i></span>
 						</button>
 						<div class="help-box" lang="help.show-saves"></div>

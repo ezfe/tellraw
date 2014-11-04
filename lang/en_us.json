@@ -44,9 +44,9 @@
 	},
 	"saves": {
 		"header": "Saves",
-		"hide": "Hide Saves",
+		"hide": "Close Saves",
 		"persistencenotice": "Saves may reset at any time, and depend on your browsers cookies. Do not rely on them for extended periods of time.",
-		"show": "Show Saves",
+		"show": "Open Saves",
 		"deleteall": {
 			"body": "Clicking Delete will remove all your saves, but won't affect your current text",
 			"yes": "Delete All Saves",

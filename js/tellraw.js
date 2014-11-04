@@ -448,7 +448,11 @@ function editExtra(index) {
 	if (jobject[index].clickEvent != undefined) {
 		$('#clickEvent_edit').val(jobject[index].clickEvent.action);
 		$('#clickEventText_edit').val(jobject[index].clickEvent.value);
+	} else {
+		$('#clickEvent_edit').val('none');
+		$('#clickEventText_edit').val('');
 	}
+
 
 	if (jobject[index].hoverEvent != undefined) {
 		$('#hoverEvent_edit').val(jobject[index].hoverEvent.action);
@@ -463,6 +467,9 @@ function editExtra(index) {
 			$('#hoverEventEntityName_edit').val(jobject[index].hoverEvent.value.match(/name:([a-zA-Z0-9]+)/g )[0].replace('name:',''));
 			$('#hoverEventEntityType_edit').val(jobject[index].hoverEvent.value.match(/type:([a-zA-Z0-9]+)/g )[0].replace('type:',''));
 		}
+	} else {
+		$('#hoverEvent_edit').val('none');
+		$('#hoverEventText_edit').val('');
 	}
 
 	if (jobject[index].insertion != undefined) {
@@ -1362,15 +1369,11 @@ function initialize() {
 	$( "#translate_input_edit" ).autocomplete({
 		source: Object.keys(translationStrings)
 	});
-	$('#savesToggleButton').on('click',function(){
-		if ($('#savesManagerWell').is(':hidden')) {
-			$('#savesToggleButton').attr('lang','saves.hide');
-			$('#savesManagerWell').slideDown();
-		} else {
-			$('#savesToggleButton').attr('lang','saves.show');
-			$('#savesManagerWell').slideUp();
-		}
-		refreshLanguage();
+	$('#show-saves').on('click',function(){
+		showView('saves');
+	});
+	$('#hide-saves').on('click',function(){
+		showView('tellraw');
 	});
 	$('#lang_request').on('click',function(){
 		showView('lang-request');
