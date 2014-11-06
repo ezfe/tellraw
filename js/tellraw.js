@@ -1272,7 +1272,7 @@ function initialize() {
 		showView('tellraw')
 	}
 	if (localStorage.getItem('jtosaccept') == undefined || localStorage.getItem('jtosaccept') != tos_version) {
-		showView('tos-header',true,false,true);
+		//showView('tos-header',true,false,true);
 	}
 	$('.templateButton').click(function(){
 		$('.templateButton').removeClass('btn-success').removeClass('btn-default').addClass('btn-default');
