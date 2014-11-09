@@ -555,7 +555,11 @@ function saveExtraEdit() {
 		jobject[extraIndex].hoverEvent = new Object();
 		jobject[extraIndex].hoverEvent.action = hoverEventType_edit;
 		if (hoverEventType_edit == 'show_text') {
-			jobject[extraIndex].hoverEvent.value = JSON.parse($('#hoverEventText_edit').val());
+			try {
+				jobject[extraIndex].hoverEvent.value = JSON.parse($('#hoverEventText_edit').val());
+			} catch(err) {
+				jobject[extraIndex].hoverEvent.value = {"text":"","extra":[{"text":$('#hoverEventText_edit').val()}]};
+			}
 		} else {
 			jobject[extraIndex].hoverEvent.value = $('#hoverEventText_edit').val();
 		}
