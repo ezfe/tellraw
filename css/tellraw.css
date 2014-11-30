@@ -120,3 +120,15 @@ div[class*='col-xs-'] {
      -moz-border-radius: 0 !important;
           border-radius: 0 !important;
 }
+.btn {
+	border-width: 1px;
+	border-color: black;
+}
+.btn:active {
+	box-shadow: none;
+}
+.btn.active {
+	box-shadow: none;
+	border-width: 1px;
+	border-color: black;
+}

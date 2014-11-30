@@ -1171,7 +1171,8 @@ function refreshLanguage(dropdownSelection) {
 		localStorage.setItem('langCode','en_us')
 	}
 	$('*').each(function(){
-		if ($(this).attr('version') != undefined && (localStorage['versionIndicators'] == true || localStorage['versionIndicators'] == undefined)) {
+		//if ($(this).attr('version') != undefined && (localStorage['versionIndicators'] == "true" || localStorage['versionIndicators'] == undefined)) {
+		if (false) {
 			var labelLevel = 'success';
 			if ($(this).attr('version') == '1.9') {
 				labelLevel = 'danger';
