@@ -23,12 +23,6 @@ var editing = false;
 var issueLog = [];
 
 function reportAnIssue() {
-	if (confirm("Is your output being incorrectly formed, such as having too many \\ characters?\n\nNote: Cancel means no, OK means yes, etc, depending on your browser.")) {
-		localStorage.setItem('jtemplate','tellraw');
-		refreshOutput();
-		alert('Please check if you are still experiencing the issue. If you are, you may file an issue report as you were attempting to do.');
-		return;
-	}
 	var title = "";
 	var body = "";
 	if (issueLog.length > 0) {
