@@ -1,4 +1,40 @@
 {
+	"donate": {
+		"support-header": "Unterstütze diese Seite",
+		"support-subheader": "Ich möchte auf dieser Internetseite keine Werbung schalten, bitte spende, um die Kosten für die Erhaltung der Internetseite zu unterstützen.",
+		"donate-button": "Spenden",
+		"donate-text": "Mache eine Spende in der Höhe, die du willst (Streifen).",
+		"overcast-text": "Möchtest du mir einen Rang in dem Overcast Netzwerk kaufen? Klicke auf das Bild oben, und betrete ezekielelin mit meinem Benutzernamen.",
+		"exit": "Schließen",
+		"exit-text": "Du wirst dies hier nicht mehr sehen, es sei denn, du setzt deine Cookies zurück. Leider kann ich nicht überprüfen, ob du sie zurückgesetzt hast."
+	},
+	"issues": {
+		"go-home": "Fehler ignorieren"
+	},
+	"help": {
+		"textfield": "Benutze /n um eine neue Zeile zu markieren.",
+		"create-new-save": "Mache eine neue Sicherung. Dies wird eine Sicherung mit dem gleichen Namen überschreiben, wenn du es so auswählst.",
+		"delete-all-saves": "Lösche deine Sicherungen, aber lasse deinen ausgewählten Befehl in dem Haupteditor unversehrt.",
+		"show-saves": "Zeige deinen Sicherungseditor, erlaube speichern, laden, und löschen der Sicherung.",
+		"addsnippet": "Füge dem Tellraw-Befehl Text hinzu.",
+		"delete-all-snippets": "Lösche deinen Befehl komplett, aber lasse deine Sicherungen unversehrt.",
+		"dropdown-list": "Tweet, Changelog ansehen, Minecraft Forum Beitrag ansehen, oder bekomme die Resourcen zum übersetzen.",
+		"report-an-issue": "Kilck hier um einen Fehler zu melden. Wenn dir irgendwelche Bugs auffallen, solltest du sie hier melden."
+	},
+	"headerbar": {
+		"dropdown": {
+			"forum_thread": "Forum Beitrag",
+			"request_needed_translations": "Noch zu übersetzender Text"
+		},
+		"report_an_issue": "Melde einen Fehler",
+		"help": "Hilfe"
+	},
+	"tos": {
+		"warn": {
+			"read": "Lesen",
+			"accept": "Bestätigen"
+		}
+	},
 	"template": {
 		"sign_block": "Schild (/blockdata)",
 		"sign_item": "Schild (/give)",
@@ -27,6 +63,13 @@
 		"new": "Aktuellen String speichern"
 	},
 	"settings": {
+		"export": "Exportieren",
+		"show": "Einstellungen öffnen",
+		"darkmode.turn_on": "Dunkles Design",
+		"darkmode.turn_off": "Helles Design",
+		"fontSize": "Vorschau-Schriftgröße",
+		"nlOutput": "Zeige struktuierte Ausgabe",
+		"hide": "Einstellungen schließen",
 		"previewcolor": "Hintergrundfarbe der Vorschau:",
 		"deleteall": {
 			"body": "Das klicken von löschen wird all deinen text löschen und ihn zu einem leeren String zurücksetzen.",
@@ -59,6 +102,7 @@
 	},
 	"header": "Tellraw Befehlsgenerator für Minecraft 1.7+",
 	"textsnippets": {
+		"NEW_ITERATE_FLAG": "Buch-Seite / Schild-Zeile",
 		"trn": "Übersetzt",
 		"clickevent": {
 			"runcommand": "Befehl ausführen",
@@ -71,6 +115,8 @@
 		"editsnippet": "Text bearbeiten",
 		"close": "Schließen",
 		"hoverevent": {
+			"addtext": "Text hinzufügen.",
+			"removetext": "Letzten Text löschen.",
 			"header": "Mouseover Ereigniss:",
 			"showachievement": "Zeige Errungenschaft",
 			"id": "ID:",
@@ -111,7 +157,7 @@
 		"translate": "Übersetzen",
 		"name": "Deutsch",
 		"header": "Sprache",
-		"credit": "Übersetzt von @MrTom0075, @shoutlike, RoiEx, Jar und TheRealMinec"
+		"credit": "Übersetzt von @MrTom0075, @shoutlike, RoiEx, Jar, TheRealMinec, und TimoZp"
 	},
 	"player": {
 		"header": "Spieler und Befehl:",
