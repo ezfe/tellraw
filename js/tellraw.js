@@ -83,6 +83,12 @@ function donateAlert(state,hasDonated) {
 	}
 }
 function verify_jobject_format(jdata) {
+	if (get_type(jdata) == "[object Object]") {
+		if (get_type(jdata.extra) == "[object Array]") {
+			jdata = jdata.extra;
+		}
+	}
+
 	if (get_type(jdata) != "[object Array]") {
 		logIssue('Stored Variable Corrupted',jdata);
 		showView('issue');
