@@ -23,6 +23,8 @@
 	},
 	"headerbar": {
 		"dropdown": {
+			"changelog": "Änderungsprotokoll",
+			"tweet": "tweet",
 			"forum_thread": "Forum Beitrag",
 			"request_needed_translations": "Noch zu übersetzender Text"
 		},
@@ -31,6 +33,7 @@
 	},
 	"tos": {
 		"warn": {
+			"header": "Indem du diese Seite nutzt, akzeptierst du die Nutzungsbedingungen",
 			"read": "Lesen",
 			"accept": "Bestätigen"
 		}
@@ -63,10 +66,12 @@
 		"new": "Aktuellen String speichern"
 	},
 	"settings": {
+		"darkmode": {
+			"turn_on": "Dunkles Theme",
+			"turn_off": "Helles Theme"
+		},
 		"export": "Exportieren",
 		"show": "Einstellungen öffnen",
-		"darkmode.turn_on": "Dunkles Design",
-		"darkmode.turn_off": "Helles Design",
 		"fontSize": "Vorschau-Schriftgröße",
 		"nlOutput": "Zeige struktuierte Ausgabe",
 		"hide": "Einstellungen schließen",
@@ -129,7 +134,7 @@
 		},
 		"notext": "Kein Text",
 		"insert": "Einfügen",
-		"addsnippet": "Add Text",
+		"addsnippet": "Text hinzufügen",
 		"insertion": {
 			"header": "Einzufügender Text"
 		},
@@ -157,7 +162,7 @@
 		"translate": "Übersetzen",
 		"name": "Deutsch",
 		"header": "Sprache",
-		"credit": "Übersetzt von @MrTom0075, @shoutlike, RoiEx, Jar, TheRealMinec, und TimoZp"
+		"credit": "Übersetzt von @MrTom0075, @shoutlike, RoiEx, Jar, TheRealMinec, TimoZp, thebigsmileXD"
 	},
 	"player": {
 		"header": "Spieler und Befehl:",
