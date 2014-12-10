@@ -57,7 +57,16 @@
 	<div class="view-container alert alert-success" view="tos-accept">
 		<div class="row">
 			<div class="col-md-12" style="text-align:center;">
-				<b><i class="fa fa-check"></i> Thank You</b><br><button class="btn btn-xs btn-default" onclick="showView('tellraw');">Close</a>
+				<b><i class="fa fa-check"></i> Thank You</b><br><button class="btn btn-xs btn-default" onclick="showView('tellraw');">Close</button>
+			</div>
+		</div>
+	</div>
+	<div class="view-container alert alert-danger" view="escaping-issue">
+		<div class="row">
+			<div class="col-md-12" style="text-align:center;">
+				<b><i class="fa fa-alert"></i> Experiencing issues with quotations/escaping?</b><br>
+				<button class="btn btn-xs btn-default" onclick="$('.templateButton[template=tellraw]').click();showView('tellraw');">Fix It</button>
+				<button class="btn btn-xs btn-default" onclick="localStorage.setItem('dontShowQuoteFixer','true');showView('tellraw');">Ignore</button>
 			</div>
 		</div>
 	</div>

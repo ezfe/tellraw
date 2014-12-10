@@ -738,6 +738,9 @@ function deleteJObjectSave(saveName) {
 	}
 	refreshSavesList();
 }
+function showFixerView() {
+	showView('escaping-issue',true,false,true);
+}
 function refreshOutput(input) {
 	try {
 		/*VERIFY CONTENTS*/
@@ -746,6 +749,10 @@ function refreshOutput(input) {
 		if ($('#command').val().indexOf('%s') == -1) {
 			$('#command').val('/tellraw @a %s');
 			localStorage.setItem('jtemplate','tellraw');
+		}
+
+		if ($('#command').val().indexOf('/tellraw') != -1 && templates[localStorage.getItem('jtemplate')].formatType != 'standardjson' && localStorage.getItem('dontShowQuoteFixer') != "true" && jobject.length > 0) {
+			setTimeout(showFixerView,4000);
 		}
 
 		refreshSavesList();
@@ -1166,18 +1173,18 @@ function refreshLanguage(dropdownSelection) {
 	}
 	$('*').each(function(){
 		//if ($(this).attr('version') != undefined && (localStorage['versionIndicators'] == "true" || localStorage['versionIndicators'] == undefined)) {
-		if (false) {
-			var labelLevel = 'success';
-			if ($(this).attr('version') == '1.9') {
-				labelLevel = 'danger';
+			if (false) {
+				var labelLevel = 'success';
+				if ($(this).attr('version') == '1.9') {
+					labelLevel = 'danger';
+				}
+				if ($(this).prop('tagName') == 'OPTION') {
+					$(this).prepend('('+$(this).attr('version')+') ');
+				} else {
+					$(this).append(' <span class="label label-'+labelLevel+'">'+$(this).attr('version')+'</span>');
+				}
 			}
-			if ($(this).prop('tagName') == 'OPTION') {
-				$(this).prepend('('+$(this).attr('version')+') ');
-			} else {
-				$(this).append(' <span class="label label-'+labelLevel+'">'+$(this).attr('version')+'</span>');
-			}
-		}
-	});
+		});
 }
 
 function initialize() {
