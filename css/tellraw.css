@@ -115,6 +115,10 @@ div[class*='col-xs-'] {
 	bottom: 39px;
 }
 
+.mover-row {
+	line-height: 34px;
+}
+
 /** {*/
 /*  -webkit-border-radius: 0 !important;*/
 /*     -moz-border-radius: 0 !important;*/
