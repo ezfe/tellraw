@@ -928,7 +928,8 @@
 		"he_il",
 		"de_de",
 		"cs_cz",
-		"cro_hr"
+		"cro_hr",
+		"sv_sv"
 	],
 	"web_language_relations": {
 		"ita": "it",
@@ -951,7 +952,8 @@
 		"en": "en_us",
 		"en-us": "en_us",
 		"en-ie": "en_us",
-		"en-au": "en_us"
+		"en-au": "en_us",
+		"sv-sv": "sv_sv"
 	},
 	"minecraft_language_strings": {
 		"en_us": {

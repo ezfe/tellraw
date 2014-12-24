@@ -1,0 +1,185 @@
+{
+	"tos": {
+		"warn": {
+			"header": "Genom att använda den här sidan, godkänner du användarvillkoren.",
+			"read": "Läs",
+			"accept": "Acceptera"
+		}
+	},
+	"donate": {
+		"patreon-button": "Patreon",
+		"support-header": "(Snälla) Stöd den här webbsidan",
+		"paypal-note": "Jag erbjuder inte paypal ett val i listan på grund av avgifter (Stripe drar inte ut avgifter för studenter). Men, om du vill kan du skicka pengar till mig med PayPal via funds@ezekielelin.com",
+		"patreon-text": "Om du donerar månadsvis, kan jag förlita mig på det för att uppgradera servrarna.",
+		"support-subheader": "Jag vill inte lägga annonser på den här webbsidan, snälla donera för att stödja kostnaderna att ha igång den.",
+		"donate-button": "Donera",
+		"donate-text": "Donera ett värde du väljer (Stripe).",
+		"overcast-text": "Vill du köpa en rank åt mig på Overcast Network? Klicka på bilden ovan, skriv sen in mitt användernamn ezekielelin.",
+		"exit": "Stäng",
+		"exit-text": "Du kommer inte se det här igen så länge du har dina cookies intakta. Tyvärr har jag inget sätt att kolla om du återställer dem."
+	},
+	"issues": {
+		"go-home": "Ignorera problem"
+	},
+	"help": {
+		"textfield": "Använd \\n för att göra en ny rad.",
+		"raw-text-tab": "Välj text. Rå är normal text. Poängtavla tar ett värde från poängtavlan. Väljare tar ett namn från ett objekt.",
+		"report-an-issue": "Klicka här för att rapportera ett problem. Om du hittar någon sorts bugg, rapportera den här.",
+		"dropdown-list": "Tweeta, visa ändringslogg, visa minecraftforumstråden, eller få resurser för översättning.",
+		"addsnippet": "Lägg till text till ditt tellrawkommando.",
+		"delete-all-saves": "Rensa dina sparade kommandon, men lämna det nuvarande kommandot i huvudredigeraren intakt.",
+		"create-new-save": "Spara ett nytt kommando. Om du vill kan du skriva över ett annat sparat kommando genom att använda samma namn.",
+		"delete-all-snippets": "Rensa ditt nuvarande kommando helt, men bevara dina sparade kommandon.",
+		"show-saves": "Sparade kommandon-hanterare, tillåter dig att spara, ladda in och ta bort kommandon."
+	},
+	"template": {
+		"sign_block": "Skylt (/blockdata)",
+		"sign_item": "Skylt (/give)",
+		"subtitle": "Underrubrik",
+		"title": "Rubrik",
+		"book": "Bok",
+	},
+	"output": {
+		"nothing": "Inget att se här",
+		"header": "Resultatsförhandsgranskning:"
+	},
+	"saves": {
+		"header": "Sparade kommandon",
+		"hide": "Stäng sparade kommandon",
+		"persistencenotice": "Sparade kommandon kan återställas när som helst, och är beroende av din webbläsares cookies. Förlita dig inte på dem under långa tidsperioder.",
+		"show": "Öppna sparade kommandon",
+		"deleteall": {
+			"body": "Att klicka på Radera kommer att ta bort alla dina sparade kommandon, men kommer inte att beröra din nuvarande text",
+			"yes": "Radera alla sparade kommandon",
+			"heading": "Är du säker!?!",
+			"no": "Avbryt"
+		},
+		"nosaves": "Du har inga sparade kommandon.",
+		"new": "Spara nuvarande text."
+	},
+	"settings": {
+		"nlOutput": "Visa strukturerat resultat:",
+		"darkmode": {
+			"turn_on": "Mörkt tema",
+			"turn_off": "Ljust tema"
+		},
+		"show": "Öppna inställningar",
+		"hide": "Stäng inställningar",
+		"fontSize": "Förhansvisa typsnittsstorlek",
+		"previewcolor": "Förhandsvisa bakgrundsfärg:",
+		"export": "Exportera",
+		"deleteall": {
+			"body": "Att klicka Radera kommer att ta bort all din text och återställa det till en tom.",
+			"heading": "Är du säker!?!",
+			"yes": "Radera allt",
+			"no": "Avbryt"
+		},
+		"importtext": {
+			"default": "Var vänlig ange ditt tellrawkommando. Använd Radera Allt-knappen om den inte importeras som den ska. Importeringen fungerar bara med /tellraw kommandon",
+			"exported": "Var vänlig ange texten du fick när du exporterat ditt kommando"
+		},
+		"import": "Importera",
+		"header": "Inställningar:"
+	},
+	"color": {
+		"color_green": "Grön",
+		"color_red": "Röd",
+		"color_none": "Ingen",
+		"color_dark_aqua": "Mörkturkos",
+		"color_dark_purple": "Mörklila",
+		"color_dark_blue": "Mörkblå",
+		"color_aqua": "Turkos",
+		"color_white": "Vit",
+		"color_dark_gray": "Mörkgrå",
+		"color_dark_red": "Mörkröd",
+		"color_dark_green": "Mörkgrön",
+		"color_gold": "Guld",
+		"color_blue": "Blå",
+		"color_black": "Svart",
+		"color_gray": "Grå",
+		"color_light_purple": "Ljuslila",
+		"color_yellow": "Gul"
+	},
+	"header": "Tellraw Generator för Minecraft 1.7+",
+	"textsnippets": {
+		"trn": "Översatt",
+		"clickevent": {
+			"runcommand": "Kör kommando",
+			"openurl": "Öppna URL",
+			"suggestcommand": "Föreslå kommando",
+			"header": "Klickåtgärd:",
+			"none": "Ingen"
+		},
+		"editsnippet": "Redigera text",
+		"close": "Stäng",
+		"hoverevent": {
+			"addtext": "Lägg till text",
+			"removetext": "Ta bort senaste texten",
+			"header": "Åtgärd när mus förs över:",
+			"showachievement": "Visa prestation",
+			"showentity": "Visa objekt",
+			"showitem": "Visa sak",
+			"type": "Typ:",
+			"none": "Ingen",
+			"showtext": "Visa text",
+			"name": "Namn"
+		},
+		"notext": "Ingen text",
+		"NEW_ITERATE_FLAG": "Boksida / Skyltlinje",
+		"insert": "Infoga",
+		"addsnippet": "Lägg till text",
+		"insertion": {
+			"header": "Infogning"
+		},
+		"sel": "Väjare",
+		"format": {
+			"bold": "Fet",
+			"underlined": "Understruken",
+			"obfuscated": "Förvrängd",
+			"italic": "Kursiv",
+			"strikethrough": "Genomstruken"
+		},
+		"player": "Spelare",
+		"obj2": "Mål:",
+		"obj": "Poängtavelsmål:",
+		"nosnippets": "Ingen text än",
+		"header": "Textsnuttar",
+		"raw": "Rå",
+		"warning": {
+			"title": "Varning!",
+			"text": "Du behöver %v för att använda %f"
+		}
+	},
+	"headerbar": {
+		"help": "Hjälp",
+		"report_an_issue": "Rapportera ett problem",
+		"dropdown": {
+			"tweet": "Tweeta",
+			"request_needed_translations": "Lista över översättningar som behövs",
+			"forum_thread": "Forumtråd",
+			"changelog": "Ändringslogg"
+		}
+	},
+	"language": {
+		"translate": "Översätt",
+		"name": "Svenska",
+		"header": "Språk",
+		"credit": "Översatt av metarmask"
+	},
+	"player": {
+		"header": "Spelare och kommando",
+		"description": "Används för att välja och köra kommandot från olika spelare"
+	},
+	"commandblock": "Du måste köra det här i serverkonsollen eller i ett kommandoblock.",
+	"alert": {
+		"report": "Rapportera problem",
+		"changed": "Den här sidan var nyligen ändrad, det kan därför finnas problem. Ladda om sidan om något inte verkar fungera.",
+		"receiveupdates": "Få uppdateringar här (\"Följ\" ämnet)"
+	},
+	"command": "Kommando:",
+	"export": {
+		"heading": "Ditt exporterade kommando",
+		"close": "Stäng"
+	},
+	"attribution": "Ingeting krävs för att använda den här webbsidan, men det skulle alltid uppskattas om du länkade hit eller till MCF-tråden."
+}
