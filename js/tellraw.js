@@ -1413,8 +1413,40 @@ function initialize() {
 		$('#enable_dark_mode').show();
 	});
 	$('.report-issue').on('click',function(){
-		reportAnIssue();
+		$('.view-container[view="report-issue"]').children().hide();
+		$('#issue-workflow-r1').show();
+		showView('report-issue');
 	});
+
+
+	$('.issue-button').click(function(){
+		var parentRow = $(this).parent().parent();
+		parentRow.hide();
+		var id = $(this).attr('id');
+		if (id == "translation-issue-button") {
+			$('#issue-workflow-r2-translation').fadeIn();
+		} else if (id == "output-issue-button") {
+			$('#issue-workflow-r2-output').fadeIn();
+		//} else if (id == "other-issue-button") {
+		//	reportAnIssue();
+		//} else if (id == "translation-english-issue-button") {
+		//	reportAnIssue();
+		//} else if (id == "translation-other-issue-button") {
+		//	reportAnIssue();
+		} else if (id == "output-quotes-issue-button") {
+			$('.templateButton[template=tellraw]').click();
+			alert('The issue should be fixed.\n\nIf it is not, please report as Output > Other, and note this event in your report..');
+			showView('tellraw');
+		//} else if (id == "output-other-issue-button") {
+		//	reportAnIssue();
+		} else {
+			showView('tellraw');
+			reportAnIssue();
+		}
+	});
+
+	//Dark Mode
+
 	if (localStorage.getItem('darkMode') && localStorage.getItem('darkMode') == 'true') {
 		$('#enable_dark_mode').click(); //Finish setting up dark mode after handlers exist
 	}

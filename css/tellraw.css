@@ -136,3 +136,40 @@ div[class*='col-xs-'] {
 /*	border-width: 1px;*/
 /*	border-color: black;*/
 /*}/**/
+
+
+/*Issue Buttons*/
+.issue-button {
+	background-color: transparent;
+	border-color: white;
+	border-style: solid;
+	border-radius: 5px;
+	height: 100px;
+	width: 150px;
+}
+.issue-button:hover {
+	border-color: #3AB0D3;
+}
+.issue-button:hover::after {
+	position: absolute;
+	bottom: -100px;
+	left: -10px;
+	width: 200px;
+}
+.issue-button#translation-issue-button:hover::after {
+	content: "Not an issue with the generator output, instead an issue with the webpage translation.";
+}
+.issue-button#translation-english-issue-button:hover::after {
+	content: "An issue with the English text. Not a foreign language. Example being a typo.";
+}
+.issue-button#translation-other-issue-button:hover::after {
+	bottom: -121px;
+	content: "An issue with non-English text. Example being a typo, incorrect word, or other language based mistake.";
+}
+.issue-button#output-issue-button:hover::after {
+	content: "The output isn't working, but the preview shows the correct text.";
+}
+.issue-button#other-issue-button:hover::after {
+	bottom: -79px;
+	content: "Doesn't fit into the other two categories.";
+}
