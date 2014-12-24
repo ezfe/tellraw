@@ -22,12 +22,12 @@ var webLangRelations;
 var editing = false;
 var issueLog = [];
 
-function reportAnIssue() {
+function reportAnIssue(ptitle) {
 	var title = "";
 	var body = "";
-	if (issueLog.length > 0) {
-		title = "Issue Report - " + issueLog[issueLog.length - 1].name;
-		body = 'Please enter steps to reproduce the issue below, as well as any other information you want to include%0A%0A%0A%0A%0A%0A Provided Data - Do not modify below this line%0A%0A```%0A' + JSON.stringify(issueLog) + '%0A```';
+	if (ptitle != undefined) {
+		title = "Issue Report - " + ptitle;
+		body = 'Please enter steps to reproduce the issue below, as well as any other information you want to include%0A%0A%0A%0A%0A%0A Provided Data - Do not modify below this line%0A%0A```%0A' + JSON.stringify(jobject) + '%0A```';
 	}
 	var win = window.open('http://github.com/ezfe/tellraw/issues/new?body=' + body + '&title=' + title, '_blank');
 	win.focus();
@@ -1413,7 +1413,7 @@ function initialize() {
 		$('#enable_dark_mode').show();
 	});
 	$('.report-issue').on('click',function(){
-		$('.view-container[view="report-issue"]').children().hide();
+		$('.view-container[view="report-issue"]').children().not('.cancel-issue-row').hide();
 		$('#issue-workflow-r1').show();
 		showView('report-issue');
 	});
@@ -1429,16 +1429,22 @@ function initialize() {
 			$('#issue-workflow-r2-output').fadeIn();
 		//} else if (id == "other-issue-button") {
 		//	reportAnIssue();
-		//} else if (id == "translation-english-issue-button") {
-		//	reportAnIssue();
-		//} else if (id == "translation-other-issue-button") {
-		//	reportAnIssue();
+		} else if (id == "translation-current-issue-button") {
+			reportAnIssue('Translation Issue (' + localStorage.getItem('langCode') + ')');
+			showView('tellraw');
+		} else if (id == "translation-other-issue-button") {
+			reportAnIssue('Translation Issue (Other)');
+			showView('tellraw');
 		} else if (id == "output-quotes-issue-button") {
 			$('.templateButton[template=tellraw]').click();
 			alert('The issue should be fixed.\n\nIf it is not, please report as Output > Other, and note this event in your report..');
 			showView('tellraw');
-		//} else if (id == "output-other-issue-button") {
-		//	reportAnIssue();
+		} else if (id == "output-other-issue-button") {
+			reportAnIssue('Output Issue (Other)');
+			showView('tellraw');
+		} else if (id == "cancel-issue-button") {
+			showView('tellraw');
+			parentRow.show();
 		} else {
 			showView('tellraw');
 			reportAnIssue();
