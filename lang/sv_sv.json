@@ -164,7 +164,7 @@
 		"translate": "Översätt",
 		"name": "Svenska",
 		"header": "Språk",
-		"credit": "Översatt av metarmask"
+		"credit": "Översatt av metarmask, NeonMaster"
 	},
 	"player": {
 		"header": "Spelare och kommando",
@@ -181,5 +181,5 @@
 		"heading": "Ditt exporterade kommando",
 		"close": "Stäng"
 	},
-	"attribution": "Ingeting krävs för att använda den här webbsidan, men det skulle alltid uppskattas om du länkade hit eller till MCF-tråden."
+	"attribution": "Ingenting krävs för att använda den här webbsidan, men det skulle alltid uppskattas om du länkade hit eller till MCF-tråden."
 }
