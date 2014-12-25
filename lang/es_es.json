@@ -1,4 +1,20 @@
 {
+	"donate": {
+		"support-header": "Por favor apoya a esta página",
+		"support-subheader": "No quiero poner anuncios en esta página, por favor dona para apoyar los costes de mantenimiento en esta página.",
+		"donate-button": "Donar",
+		"overcast-text": "¿Quieres comprarme un rango en el Overcast Network? Dale a la imagen de abajo, y pon ezekielelin como mi nombre de usuario.",
+		"exit": "Salir"
+	},
+	"issues": {
+		"go-home": "Ignorar error"
+	},
+	"tos": {
+		"warn": {
+			"read": "Leer",
+			"accept": "Aceptar"
+		}
+	},
 	"help": {
 		"textfield": "Emplea \\n para hacer un salto de línea",
 		"raw-text-tab": "Escribe el texto. Si es simple, no tendrá ningún añadido. Scoreboard modifica un valor de un scoreboard. Selector escoge una entidad para ejecutar el comando.",
@@ -39,6 +55,10 @@
 	},
 	"settings": {
 		"nlOutput": "Muestra el comando estructurado",
+		"darkmode": {
+			"turn_on": "Tema oscuro",
+			"turn_off": "Tema claro"
+		},
 		"show": "Mostrar configuración",
 		"hide": "Ocultar configuración",
 		"fontSize": "Tamaño de fuente de la previsualización",
@@ -90,6 +110,8 @@
 		"editsnippet": "Editar Texto",
 		"close": "Cerrar",
 		"hoverevent": {
+			"addtext": "Añadir texto",
+			"removetext": "Quitar el último texto",
 			"header": "Al pasar el cursor:",
 			"showachievement": "Mostrar Logro",
 			"id": "ID:",
