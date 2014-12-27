@@ -1334,7 +1334,7 @@ function initialize() {
 		$('#exporter').remove();
 		$('.alerts').append('<div id="exporter" class="alert alert-info"><h4 lang="export.heading"></h4><p><textarea readonly id="exportText">' + JSON.stringify({"command":$('#command').val(),"jobject":jobject,"jtemplate":localStorage.getItem('jtemplate')}) + '</textarea></p><p><button type="button" onclick="closeExport()" class="btn btn-default" lang="export.close"></button></p></div>');
 		$('#exportText').select();
-		$("#exportText").focus(function(){
+		$("#exportText").click(function(){
     			this.select();
 		});
 		goToByScroll('exporter');
