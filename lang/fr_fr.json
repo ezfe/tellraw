@@ -1,28 +1,84 @@
 {
+	"tos": {
+		"warn": {
+			"header": "En utilisant ce site, vous en acceptez les Conditions d'Utilisation",
+			"read": "Lire",
+			"accept": "Accepter"
+		}
+	},
+	"donate": {
+		"patreon-button": "Patreon",
+		"support-header": "Soutenez ce site (s'il-vous-plaît)",
+		"paypal-note": "Je ne propose pas PayPal dans la liste à cause des frais(Stripe n'impose pas de frais aux étudiants). Toutefois, si vous le souhaitez vous pouvez m'envoyer de l'argent sur PayPal via funds@ezekielelin.com",
+		"patreon-text": "Si vous vous engagez à donner un certain montant chaque mois, je peux compter dessus pour améliorer les serveurs.",
+		"support-subheader": "Je ne veux pas mettre de pubs sur ce site, faites un don pour financer l'entretien de ce site.",
+		"donate-button": "Faire un don",
+		"donate-text": "Faire un don du montant de votre choix (Stripe).",
+		"overcast-text": "Vous souhaitez m'acheter un rang sur l'Overcast Network? Cliquez sur l'image ci-dessus, et entrez ezekielelin comme nom d'utilisateur.",
+		"exit": "Sortir",
+		"exit-text": "Vous ne verrez plus ceci tant que vous gardez vos cookies. Malheureusement, je ne peux pas vous identifier si vous effacez vos cookies."
+	},
+	"issues": {
+		"go-home": "Ignorer le problème"
+	},
+	"help": {
+		"textfield": "Utilisez \\n pour sauter une ligne",
+		"raw-text-tab": "Choisissez un type de texte. \"Brut\" correspond à du texte normal. \"Tableau des scores\" prend une valeur du tableau. \"Sélecteur\" prend le nom d'une entité.",
+		"report-an-issue": "Cliquez ici pour signaler un problème. Si vous trouvez un bug, vous devriez le signaler ici.",
+		"dropdown-list": "Tweeter, voir les changements, voir le sujet sur MinecraftForums, ou obtenir les ressources pour la traduction.",
+		"addsnippet": "Ajouter du texte à votre commande tellraw.",
+		"delete-all-saves": "Effacer vos sauvegardes, mais laisser la commande actuelle dans l'éditeur.",
+		"create-new-save": "Faire une nouvelle sauvegarde. Si vous choisissez le même nom qu'une sauvegarde existance, elle sera remplacée.",
+		"delete-all-snippets": "Effacer la commande actuelle, mais laisser les sauvegardes intactes.",
+		"show-saves": "Afficher vos sauvegardes, permet de sauver, charger et supprimer des sauvegardes."
+	},	
 	"template": {
+		"sign_block": "Pancarte (/blockdata)",
+		"sign_item": "Pancarte (/give)",
+		"subtitle": "Sous-titre",
 		"title": "Titre",
-		"subtitle": "Sous-Titre",
-		"book": "Livre"
+		"tellraw": "Tellraw",
+		"book": "Livre",
+		"execute_tellraw": "Exécuter"
 	},
 	"output": {
 		"nothing": "Rien à voir par ici",
 		"header": "Aperçu du résultat :"
 	},
 	"saves": {
-		"new": "Enregistrer chaîne actuelle",
+		"header": "Sauvegardes",
+		"hide": "Masquer les sauvegardes",
+		"persistencenotice": "Les sauvegardes peuvent être réinitialisées à tout moment, et dépendent des cookies de votre navigateur. Ne vous reposez pas sur elles pour une utilisation prolongée.",
+		"show": "Afficher les sauvegardes",
 		"deleteall": {
-			"yes": "Supprimer tout Saves"
+			"body": "Cliquer sur Supprimer effacera toutes vos sauvegardes, mais laissera votre texte actuel",
+			"yes": "Supprimer toutes les sauvegardes",
+			"heading": "En êtes-vous sûr !?!",
+			"no": "Annuler"
 		},
-		"persistencenotice": "Enregistre peuvent réinitialiser à tout moment, et dépendra de vos navigateurs cookies. Ne pas compter sur eux pour des périodes de temps prolongées.",
-		"nosaves": "Vous n'avez rien enregistré"
+		"nosaves": "Vous n'avez rien de sauvegardé",
+		"new": "Sauvegarder le texte actuel"
 	},
 	"settings": {
-		"previewcolor": "Couleur du fond de l'aperçu :",
+		"nlOutput": "Afficher la sortie structurée",
+		"darkmode": {
+			"turn_on": "Thème sombre",
+			"turn_off": "Thème clair"
+		},
+		"show": "Afficher les paramètres",
+		"hide": "masquer les paramètres",
+		"fontSize": "Taille du texte de la prévisualisation",
+		"previewcolor": "Couleur du fond de la prévisualisation:",
+		"export": "Exporter",
 		"deleteall": {
 			"body": "Cliquer sur Tout supprimer va enlever votre texte et tout remettre à zéro.",
-			"heading": "En êtes-vous sûr !?",
+			"heading": "En êtes-vous sûr !?!",
 			"yes": "Tout supprimer",
 			"no": "Annuler"
+		},
+		"importtext": {
+			"default": "Veuillez entrer la commande tellraw. Cliquez sur Tout supprimer si l'importation ne se fait pas correctement. Cela ne fonctionne qu'avec les commandes /tellraw",
+			"exported": "Veuillez entrer le texte reçu lorsque vous avez exporté la commande"
 		},
 		"import": "Importer",
 		"header": "Paramètres :"
@@ -30,6 +86,7 @@
 	"color": {
 		"color_green": "Vert",
 		"color_red": "Rouge",
+		"color_none": "Aucune",
 		"color_dark_aqua": "Bleu océan",
 		"color_dark_purple": "Violet",
 		"color_dark_blue": "Bleu foncé",
@@ -47,28 +104,38 @@
 	},
 	"header": "Générateur de Tellraw pour Minecraft 1.7+",
 	"textsnippets": {
+		"trn": "Traduit",
 		"clickevent": {
-			"runcommand": "Envoyer une commande :",
+			"runcommand": "Exécuter une commande :",
 			"openurl": "Ouvrir une URL",
 			"suggestcommand": "Suggérer une commande",
 			"header": "Évènement \"Clic\"",
 			"none": "Aucun"
 		},
-		"close": "Fermer",
-		"insert": "Insérer",
-		"raw": "Brut",
-		"hoverevent": {
-			"showachievement": "Montrer un succès",
-			"showitem": "Montrer un objet",
-			"header": "Évènement \"Survol\"",
-			"none": "Aucun",
-			"showtext": "Montrer du texte"
-		},
-		"addsnippet": "Ajouter du texte",
-		"header": "Morceaux de texte",
-		"nosnippets": "Aucun texte",
 		"parameter": "Paramètre",
-		"text": "Texte",
+		"editsnippet": "Éditer le texte",
+		"close": "Fermer",
+		"hoverevent": {
+			"addtext": "Ajouter du texte",
+			"removetext": "Effacer le dernier texte",
+			"header": "Évènement \"Survol\"",
+			"showachievement": "Montrer un succès",
+			"id": "ID:",
+			"showentity": "Montrer une entité",
+			"showitem": "Montrer un objet",
+			"type": "Type :",
+			"none": "Aucun",
+			"showtext": "Montrer du texte",
+			"name": "Nom"
+		},
+		"notext": "Pas de texte",
+		"NEW_ITERATE_FLAG": "Page (livre) / Ligne (pancarte)",
+		"insert": "Insérer",
+		"addsnippet": "Ajouter du texte",
+		"insertion": {
+			"header": "Insertion"
+		},
+		"sel": "Selecteur",
 		"format": {
 			"bold": "Gras",
 			"underlined": "Souligné",
@@ -76,14 +143,26 @@
 			"italic": "Italique",
 			"strikethrough": "Barré"
 		},
-		"trn": "Traduit"
+		"player": "Joueur",
+		"obj2": "Objectif",
+		"obj": "Obectif du tableau des scores",
+		"nosnippets": "Aucun texte",
+		"header": "Morceaux de texte",
+		"text": "Texte",
+		"raw": "Brut",
+		"warning": {
+			"title": "Attention !",
+			"text": "Il vous faut %v pour utiliser %f"
+		}
 	},
 	"headerbar": {
+		"help": "Aide",
 		"report_an_issue": "Signaler un problème",
 		"dropdown": {
-			"changelog": "des modifications",
+			"tweet": "Tweeter",
 			"request_needed_translations": "Liste des traductions nécessaires",
-			"forum_thread": "Forum Sujet"
+			"forum_thread": "Sujet de forum"
+			"changelog": "Changements",
 		}
 	},
 	"language": {
@@ -93,13 +172,19 @@
 		"credit": "Traduit par Plumeex"
 	},
 	"player": {
-		"header": "Joueur :",
-		"description": "(@a, @p, @r, ou un joueur spécifique)"
+		"header": "Joueur et commande",
+		"description": "Pour sélectionner et faire agir des joueurs différents"
 	},
 	"commandblock": "Vous devez lancer ceci dans une console ou dans un bloc de commande.",
 	"alert": {
+		"report": "Signaler un problème",
 		"changed": "Cette page a été modifiée récemment, il peut y avoir des problèmes. Rechargez la page si quelque chose semble dysfonctionner.",
 		"receiveupdates": "Retrouvez les mises à jour ici (\"Suivez\" le sujet)"
 	},
-	"command": "Commande :"
+	"command": "Commande :",
+	"export": {
+		"heading": "Votre commande exportée",
+		"close": "Fermer"
+	},
+	"attribution": "Bien que rien ne soit nécessaire pour utiliser cet outil, je vous serais reconnaissant de bien vouloir mettre un lien vers cette page ou vers le sujet sur MinecraftForums."
 }
