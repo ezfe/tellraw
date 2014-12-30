@@ -161,8 +161,8 @@
 		"dropdown": {
 			"tweet": "Tweeter",
 			"request_needed_translations": "Liste des traductions nécessaires",
-			"forum_thread": "Sujet de forum"
-			"changelog": "Changements",
+			"forum_thread": "Sujet de forum",
+			"changelog": "Changements"
 		}
 	},
 	"language": {
