@@ -9,7 +9,7 @@
 	"donate": {
 		"patreon-button": "Patreon",
 		"support-header": "Soutenez ce site (s'il-vous-plaît)",
-		"paypal-note": "Je ne propose pas PayPal dans la liste à cause des frais(Stripe n'impose pas de frais aux étudiants). Toutefois, si vous le souhaitez vous pouvez m'envoyer de l'argent sur PayPal via funds@ezekielelin.com",
+		"paypal-note": "Je ne propose pas PayPal dans la liste à cause des frais (Stripe n'impose pas de frais aux étudiants). Toutefois, si vous le souhaitez vous pouvez m'envoyer de l'argent sur PayPal via funds@ezekielelin.com",
 		"patreon-text": "Si vous vous engagez à donner un certain montant chaque mois, je peux compter dessus pour améliorer les serveurs.",
 		"support-subheader": "Je ne veux pas mettre de pubs sur ce site, faites un don pour financer l'entretien de ce site.",
 		"donate-button": "Faire un don",
@@ -28,9 +28,9 @@
 		"dropdown-list": "Tweeter, voir les changements, voir le sujet sur MinecraftForums, ou obtenir les ressources pour la traduction.",
 		"addsnippet": "Ajouter du texte à votre commande tellraw.",
 		"delete-all-saves": "Effacer vos sauvegardes, mais laisser la commande actuelle dans l'éditeur.",
-		"create-new-save": "Faire une nouvelle sauvegarde. Si vous choisissez le même nom qu'une sauvegarde existance, elle sera remplacée.",
+		"create-new-save": "Faire une nouvelle sauvegarde. Si vous choisissez le même nom qu'une sauvegarde existante, elle sera remplacée.",
 		"delete-all-snippets": "Effacer la commande actuelle, mais laisser les sauvegardes intactes.",
-		"show-saves": "Afficher vos sauvegardes, permet de sauver, charger et supprimer des sauvegardes."
+		"show-saves": "Afficher vos sauvegardes, permet d'enregistrer, charger et supprimer des sauvegardes."
 	},	
 	"template": {
 		"sign_block": "Pancarte (/blockdata)",
@@ -42,13 +42,13 @@
 		"execute_tellraw": "Exécuter"
 	},
 	"output": {
-		"nothing": "Rien à voir par ici",
+		"nothing": "Il n'y a rien par ici",
 		"header": "Aperçu du résultat :"
 	},
 	"saves": {
 		"header": "Sauvegardes",
 		"hide": "Masquer les sauvegardes",
-		"persistencenotice": "Les sauvegardes peuvent être réinitialisées à tout moment, et dépendent des cookies de votre navigateur. Ne vous reposez pas sur elles pour une utilisation prolongée.",
+		"persistencenotice": "Les sauvegardes peuvent être réinitialisées à tout moment, et dépendent des cookies de votre navigateur. Ne comptez pas sur elles pour une utilisation prolongée.",
 		"show": "Afficher les sauvegardes",
 		"deleteall": {
 			"body": "Cliquer sur Supprimer effacera toutes vos sauvegardes, mais laissera votre texte actuel",
@@ -66,9 +66,9 @@
 			"turn_off": "Thème clair"
 		},
 		"show": "Afficher les paramètres",
-		"hide": "masquer les paramètres",
+		"hide": "Masquer les paramètres",
 		"fontSize": "Taille du texte de la prévisualisation",
-		"previewcolor": "Couleur du fond de la prévisualisation:",
+		"previewcolor": "Couleur du fond de la prévisualisation :",
 		"export": "Exporter",
 		"deleteall": {
 			"body": "Cliquer sur Tout supprimer va enlever votre texte et tout remettre à zéro.",
@@ -139,7 +139,7 @@
 		"format": {
 			"bold": "Gras",
 			"underlined": "Souligné",
-			"obfuscated": "Caché",
+			"obfuscated": "Masqué",
 			"italic": "Italique",
 			"strikethrough": "Barré"
 		},
@@ -147,7 +147,7 @@
 		"obj2": "Objectif",
 		"obj": "Obectif du tableau des scores",
 		"nosnippets": "Aucun texte",
-		"header": "Morceaux de texte",
+		"header": "Fragments de texte",
 		"text": "Texte",
 		"raw": "Brut",
 		"warning": {
@@ -160,7 +160,7 @@
 		"report_an_issue": "Signaler un problème",
 		"dropdown": {
 			"tweet": "Tweeter",
-			"request_needed_translations": "Liste des traductions nécessaires",
+			"request_needed_translations": "Liste des traductions à faire",
 			"forum_thread": "Sujet sur le forum",
 			"changelog": "Changements"
 		}
