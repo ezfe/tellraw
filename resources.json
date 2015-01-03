@@ -916,20 +916,20 @@
 		"achievement.overpowered"
 	],
 	"web_language_urls": [
+		"cs_cz",
+		"de_de",
 		"en_us",
+		"es_es",
 		"fr_fr",
+		"he_il",
+		"cro_hr",
+		"it",
+		"nl",
 		"pt_br",
 		"ru_ru",
-		"es_es",
-		"zh_tw",
+		"sv_sv",
 		"zh_cn",
-		"nl",
-		"it",
-		"he_il",
-		"de_de",
-		"cs_cz",
-		"cro_hr",
-		"sv_sv"
+		"zh_tw"
 	],
 	"web_language_relations": {
 		"ita": "it",
