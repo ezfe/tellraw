@@ -172,37 +172,44 @@ var templates =
 	"tellraw": {
 		"command": "/tellraw @a %s",
 		"version": "1.7",
-		"formatType": "standardjson"
+		"formatType": "standardjson",
+		"mouseActionOptions": true
 	},
 	"execute_tellraw": {
 		"command": "/execute @a ~ ~ ~ tellraw @p %s",
 		"version": "1.8",
-		"formatType": "standardjson"
+		"formatType": "standardjson",
+		"mouseActionOptions": true
 	},
 	"title": {
 		"command": "/title @a title %s",
 		"version": "1.8",
-		"formatType": "standardjson"
+		"formatType": "standardjson",
+		"mouseActionOptions": false
 	},
 	"subtitle": {
 		"command": "/title @a subtitle %s",
 		"version": "1.8",
-		"formatType": "standardjson"
+		"formatType": "standardjson",
+		"mouseActionOptions": false
 	},
 	"sign_item": {
 		"command": "/give @a sign 1 0 {BlockEntityTag:{%s,id:\"Sign\"}}",
 		"version": "1.8",
-		"formatType": "signset"
+		"formatType": "signset",
+		"mouseActionOptions": false
 	},
 	"sign_block": {
 		"command": "/blockdata [x] [y] [z] {%s}",
 		"version": "1.8",
-		"formatType": "signset"
+		"formatType": "signset",
+		"mouseActionOptions": false
 	},
 	"book": {
 		"command": "/give @a written_book 1 0 {pages:%s,title:Book,author:TellrawGenerator}",
 		"version": "1.8",
-		"formatType": "bookarray"
+		"formatType": "bookarray",
+		"mouseActionOptions": true
 	}
 }
 /*
@@ -834,21 +841,21 @@ function refreshOutput(input) {
 			refreshLanguage();
 		}
 
-		/*HIDE HOVER/CLICK EVENTS FOR SIGNS*/
-		if (templates[localStorage.getItem('jtemplate')].formatType == 'signset') {
-			$('.hoverEventContainer_edit').hide();
-			$('.clickEventContainer_edit').hide();
-			$('.insertionContainer_edit').hide();
-			$('.hoverEventContainer').hide();
-			$('.clickEventContainer').hide();
-			$('.insertionContainer').hide();
-		} else {
+		/* SHOW MOUSE ACTION OPTIONS FOR JSON TEMPLATES WITH THAT FLAG */
+		if (templates[localStorage.getItem('jtemplate')].mouseActionOptions) {
 			$('.hoverEventContainer_edit').show();
 			$('.clickEventContainer_edit').show();
 			$('.insertionContainer_edit').show();
 			$('.hoverEventContainer').show();
 			$('.clickEventContainer').show();
 			$('.insertionContainer').show();
+		} else {
+			$('.hoverEventContainer_edit').hide();
+			$('.clickEventContainer_edit').hide();
+			$('.insertionContainer_edit').hide();
+			$('.hoverEventContainer').hide();
+			$('.clickEventContainer').hide();
+			$('.insertionContainer').hide();
 		}
 
 
