@@ -1175,7 +1175,7 @@ function refreshLanguage(dropdownSelection) {
 	if (lang[localStorage.getItem('langCode')]) {
 		$('*').refreshLanguage(localStorage.getItem('langCode'));
 	} else {
-		localStorage.setItem('langCode','en_us')
+		localStorage.setItem('langCode','en_US')
 	}
 	$('*').each(function(){
 		//if ($(this).attr('version') != undefined && (localStorage['versionIndicators'] == "true" || localStorage['versionIndicators'] == undefined)) {
@@ -1209,7 +1209,7 @@ function initialize() {
 	}
 
 	if (localStorage.getItem('langCode') == undefined) {
-		localStorage.setItem('langCode','en_us');
+		localStorage.setItem('langCode','en_US');
 	}
 
 	/*check if alert isn't correctly set. Do not show the alert is jformat isn't set – that means the user hasn't been here before*/
@@ -1245,7 +1245,7 @@ function initialize() {
 	} else {
 		errorString = '&lt;language unknown&gt;<br><br>';
 	}
-	/*var enCount = JSON.stringify(lang['en_us']).length;*/
+	/*var enCount = JSON.stringify(lang['en_US']).length;*/
 	for (var i = 0; i < Object.keys(lang).length; i++) {
 		/*var langKey = Object.keys(lang)[i];
 		var currentCount = JSON.stringify(lang[langKey]).length;
@@ -1479,7 +1479,7 @@ $(document).ready(function(){
 			alert('An error occured loading page assets. Please try again later.');
 		}
 	}
-	translationStrings = data['minecraft_language_strings']['en_us'];
+	translationStrings = data['minecraft_language_strings']['en_US'];
 	webLangRelations = data['web_language_relations'];
 	achievements = data['achievements'];
 	commands = data['commands'];
@@ -1487,7 +1487,7 @@ $(document).ready(function(){
 		try {
 			var urlFetch = getURL('lang/' + data['web_language_urls'][i] + '.json');
 		} catch(err) {
-			if (data['web_language_urls'][i] == 'en_us') {
+			if (data['web_language_urls'][i] == 'en_US') {
 				var urlFetch = {"language":{"name":"English"}};
 			} else {
 				continue;
@@ -1497,7 +1497,7 @@ $(document).ready(function(){
 			try {
 				urlFetch = JSON.parse(urlFetch);
 			} catch(err) {
-				if (data['web_language_urls'][i] == 'en_us') {
+				if (data['web_language_urls'][i] == 'en_US') {
 					var urlFetch = {"language":{"name":"English"}};
 				} else {
 					continue;
