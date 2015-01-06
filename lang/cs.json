@@ -1,0 +1,182 @@
+{
+    "donate": {
+        "patreon-button": "Patreon",
+        "support-header": "(Please) Support This Website",
+        "paypal-note": "I do not offer paypal as a listed option due to fees (Stripe doesn't charge fees to Students). However, if you wish you can send me money over PayPal via funds@ezekielelin.com",
+        "patreon-text": "If you Pledge to donate a certain amount each month, I can rely on that to upgrade the servers.",
+        "support-subheader": "I don't want to put ads on this website, please donate to support the costs of maintaining this website.",
+        "donate-button": "Donate",
+        "donate-text": "Make a donation of the value you choose (Stripe).",
+        "overcast-text": "Want to buy me a rank on the Overcast Network? Click the picture above, and enter ezekielelin as my username.",
+        "exit": "Exit",
+        "exit-text": "You won't see this again so long as you keep your cookies intact. Unfortunately I have no way of detecting you if you reset your cookies."
+    },
+    "issues": {
+        "go-home": "Ignore Issue"
+    },
+    "help": {
+        "textfield": "Use \\n to make a newline",
+        "raw-text-tab": "Choose your text choice. Raw is normal text. Scoreboard pulls a value from the scoreboard. Selector pulls the name of an entity.",
+        "report-an-issue": "Click here to report an issue. If you experience any sort of bug, you should report it here.",
+        "dropdown-list": "Tweet, view the changelog, view the minecraft forums thread, or get resources for translation.",
+        "addsnippet": "Add text to your tellraw command.",
+        "delete-all-saves": "Clear your saves, but leave your current command in the main editor intact.",
+        "create-new-save": "Make a new save. This will overwrite an existing save by the same name, if you so choose.",
+        "delete-all-snippets": "Clear your command completely, but leave your saves intact.",
+        "show-saves": "Show your saves editor, allows saving, loading, and deletion of saves."
+    },
+    "template": {
+        "sign_block": "Sign (\/blockdata)",
+        "sign_item": "Sign (\/give)",
+        "subtitle": "Subtitle",
+        "title": "Title",
+        "tellraw": "Tellraw",
+        "book": "Book",
+        "execute_tellraw": "Execute"
+    },
+    "output": {
+        "nothing": "Nic k vid\u011bn\u00ed",
+        "header": "N\u00e1hled v\u00fdstupu:"
+    },
+    "saves": {
+        "header": "Saves",
+        "hide": "Close Saves",
+        "persistencenotice": "Saves may reset at any time, and depend on your browsers cookies. Do not rely on them for extended periods of time.",
+        "show": "Open Saves",
+        "deleteall": {
+            "body": "Clicking Delete will remove all your saves, but won't affect your current text",
+            "yes": "Delete All Saves",
+            "heading": "Are you sure!?!",
+            "no": "Cancel"
+        },
+        "nosaves": "You don't have anything saved",
+        "new": "Save Current String"
+    },
+    "settings": {
+        "nlOutput": "Show Structured Output",
+        "darkmode": {
+            "turn_on": "Dark Theme",
+            "turn_off": "Light Theme"
+        },
+        "show": "Open Settings",
+        "hide": "Close Settings",
+        "fontSize": "Preview Font Size",
+        "previewcolor": "Barva pozad\u00ed n\u00e1hledu:",
+        "export": "Export",
+        "deleteall": {
+            "body": "Vyma\u017ee v\u0161echen tv\u016fj text a resetuje ho na pr\u00e1zdnou hodnotu.",
+            "heading": "Doopravdy!?!",
+            "yes": "Vymazat v\u0161e",
+            "no": "Zru\u0161it"
+        },
+        "importtext": {
+            "default": "Please enter the tellraw command. Use the Delete All button if it incorrectly imports. Import only works with \/tellraw commands",
+            "exported": "Please enter the string you were given when you exported your command"
+        },
+        "import": "Importovat",
+        "header": "Nastaven\u00ed:"
+    },
+    "color": {
+        "color_green": "Zelen\u00e1",
+        "color_red": "\u010cerven\u00e1",
+        "color_none": "None",
+        "color_dark_aqua": "Tmav\u011b modrozelen\u00e1",
+        "color_dark_purple": "Fialov\u00e1",
+        "color_dark_blue": "Tmav\u011b modr\u00e1",
+        "color_aqua": "Modrozelen\u00e1",
+        "color_white": "B\u00edl\u00e1",
+        "color_dark_gray": "Tmav\u011b \u0161ed\u00e1",
+        "color_dark_red": "Tmav\u011b \u010derven\u00e1",
+        "color_dark_green": "Tmav\u011b zelen\u00e1",
+        "color_gold": "Zlat\u00e1",
+        "color_blue": "Modr\u00e1",
+        "color_black": "\u010cern\u00e1",
+        "color_gray": "\u0160ed\u00e1",
+        "color_light_purple": "R\u016f\u017eov\u00e1",
+        "color_yellow": "\u017dlut\u00e1"
+    },
+    "header": "Gener\u00e1tor TellRaw pro Minecraft 1.7 a vy\u0161\u0161\u00ed",
+    "textsnippets": {
+        "trn": "P\u0159elo\u017een\u00e9",
+        "clickevent": {
+            "runcommand": "Spustit p\u0159\u00edkaz:",
+            "openurl": "Otev\u0159\u00edt webovou adresu",
+            "suggestcommand": "Navrhnout p\u0159\u00edkaz",
+            "header": "Ud\u00e1lost p\u0159i kliknut\u00ed:",
+            "none": "Nic"
+        },
+        "parameter": "Vlastnost",
+        "editsnippet": "Edit Text",
+        "close": "Zav\u0159\u00edt",
+        "hoverevent": {
+            "addtext": "Add Text",
+            "removetext": "Remove Last Text",
+            "header": "Ud\u00e1lost p\u0159i p\u0159ejet\u00ed my\u0161\u00ed:",
+            "showachievement": "Uk\u00e1zat ocen\u011bn\u00ed (achievement)",
+            "id": "ID:",
+            "showentity": "Uk\u00e1zat subjekt (\u017eij\u00edc\u00ed v\u011bc, entity)",
+            "showitem": "Uk\u00e1zat p\u0159edm\u011bt (item)",
+            "type": "Typ:",
+            "none": "Nic",
+            "showtext": "Uk\u00e1zat text",
+            "name": "Jm\u00e9no"
+        },
+        "notext": "No Text",
+        "NEW_ITERATE_FLAG": "Book Page \/ Sign Line",
+        "insert": "Vlo\u017eit",
+        "addsnippet": "P\u0159idat text ",
+        "insertion": {
+            "header": "Vlo\u017een\u00ed:"
+        },
+        "sel": "Selector",
+        "format": {
+            "bold": "Tu\u010dn\u00e9",
+            "underlined": "Podtrhnut\u00e9",
+            "obfuscated": "Zmaten\u00e9 (\u00a7k)",
+            "italic": "Kurz\u00edva",
+            "strikethrough": "P\u0159e\u0161krtnut\u00e9"
+        },
+        "player": "Player",
+        "obj2": "Objective",
+        "obj": "Scoreboard Objective",
+        "nosnippets": "Zat\u00edm \u017e\u00e1dn\u00fd text",
+        "header": "\u00daryvky textu",
+        "text": "Text",
+        "raw": "Nezpracovan\u00e9",
+        "warning": {
+            "title": "Warning!"
+        }
+    },
+    "headerbar": {
+        "help": "Help",
+        "report_an_issue": "Report an Issue",
+        "dropdown": {
+            "tweet": "Tweet",
+            "request_needed_translations": "Needed Translations List",
+            "forum_thread": "Forum Thread",
+            "changelog": "Changelog"
+        }
+    },
+    "language": {
+        "translate": "P\u0159elo\u017eit",
+        "name": "\u010ce\u0161tina",
+        "header": "Jazyk",
+        "credit": "Do \u010de\u0161tiny p\u0159elo\u017eil Matojeje (Matuli Yoshi)"
+    },
+    "player": {
+        "header": "Hr\u00e1\u010d:",
+        "description": "(@a, @p, @r, nebo jm\u00e9no hr\u00e1\u010de)"
+    },
+    "commandblock": "Tento p\u0159\u00edkaz mus\u00ed\u0161 spustit p\u0159es konzoli serveru nebo p\u0159es p\u0159\u00edkazov\u00fd blok.",
+    "alert": {
+        "report": "Report Problem",
+        "changed": "Tato str\u00e1nka byla ned\u00e1vno zm\u011bn\u011bna, tak\u017ee tu mohou b\u00fdt probl\u00e9my. Pokud n\u011bco nefunguje, obnov str\u00e1nku.",
+        "receiveupdates": "Aktualizace t\u00e9to str\u00e1nky (\"Sleduj\" t\u00e9ma)"
+    },
+    "command": "P\u0159\u00edkaz:",
+    "export": {
+        "heading": "Your Exported Command",
+        "close": "Close"
+    },
+    "attribution": "While nothing is required to use this, it would always be appreciated if you linked to this webpage or the MCF thread."
+}
