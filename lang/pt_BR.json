@@ -1,29 +1,29 @@
 {
     "donate": {
         "patreon-button": "Patreon",
-        "support-header": "(Please) Support This Website",
-        "paypal-note": "I do not offer paypal as a listed option due to fees (Stripe doesn't charge fees to Students). However, if you wish you can send me money over PayPal via funds@ezekielelin.com",
-        "patreon-text": "If you Pledge to donate a certain amount each month, I can rely on that to upgrade the servers.",
-        "support-subheader": "I don't want to put ads on this website, please donate to support the costs of maintaining this website.",
-        "donate-button": "Donate",
-        "donate-text": "Make a donation of the value you choose (Stripe).",
-        "overcast-text": "Want to buy me a rank on the Overcast Network? Click the picture above, and enter ezekielelin as my username.",
-        "exit": "Exit",
-        "exit-text": "You won't see this again so long as you keep your cookies intact. Unfortunately I have no way of detecting you if you reset your cookies."
+        "support-header": "(Por favor) Suporte este site",
+        "paypal-note": "Eu n\u00e3o ofere\u00e7o paypal como uma op\u00e7\u00e3o devido a taxas (Stripe n\u00e3o cobra taxas para estudantes). Mas, se voc\u00ea desejar \u00e9 poss\u00edvel enviar dinheiro usando Paypal para funds@ezekielelin.com",
+        "patreon-text": "Se voc\u00ea doar uma certa quantidade por m\u00eas, eu posso melhorar os servidores.",
+        "support-subheader": "N\u00e3o quero colocar propagandas neste site, por favor doe para ajudar nos custos de manter este site no ar.",
+        "donate-button": "Doar",
+        "donate-text": "Fa\u00e7a uma doa\u00e7\u00e3o do valor preferido. (Stripe)",
+        "overcast-text": "Deseja comprar um rank para mim em Overcast Network? Clique a imagem acima, e coloque ezekielelin como seu nickname.",
+        "exit": "Fechar",
+        "exit-text": "Voc\u00ea n\u00e3o ver\u00e1 esta pagina novamente se manter os \"cookies\" de seu navegador intactos. Infelizmente n\u00e3o tenho como detectar se voc\u00ea limpa seus \"cookies\"."
     },
     "issues": {
-        "go-home": "Ignore Issue"
+        "go-home": "Ignorar problema"
     },
     "help": {
-        "textfield": "Use \\n to make a newline",
+        "textfield": "Use\\npara fazer uma nova linha",
         "raw-text-tab": "Choose your text choice. Raw is normal text. Scoreboard pulls a value from the scoreboard. Selector pulls the name of an entity.",
-        "report-an-issue": "Click here to report an issue. If you experience any sort of bug, you should report it here.",
-        "dropdown-list": "Tweet, view the changelog, view the minecraft forums thread, or get resources for translation.",
-        "addsnippet": "Add text to your tellraw command.",
-        "delete-all-saves": "Clear your saves, but leave your current command in the main editor intact.",
-        "create-new-save": "Make a new save. This will overwrite an existing save by the same name, if you so choose.",
-        "delete-all-snippets": "Clear your command completely, but leave your saves intact.",
-        "show-saves": "Show your saves editor, allows saving, loading, and deletion of saves."
+        "report-an-issue": "Clique aqui para reportar um problema. Se voc\u00ea achar qualquer tipo de bug, voc\u00ea deve reporta-lo aqui.",
+        "dropdown-list": "Tweete, veja o log de altera\u00e7\u00f5es do site, veja o nosso t\u00f3pico em minecraft forum, ou receba recursos para traduzir o site.",
+        "addsnippet": "Adiciona texto ao seu comando.",
+        "delete-all-saves": "Limpa seus comandos salvos, mas deixa o comando atualmente sendo editado intacto.",
+        "create-new-save": "salva um comando. Isso ir\u00e1 sobrepor qualquer comando salvo com o mesmo nome.",
+        "delete-all-snippets": "Limpa seu comando totalmente, mas deixa seus comandos salvos intactos.",
+        "show-saves": "Mostra seus comandos salvos, permite salvar, carregar e deletar comandos."
     },
     "template": {
         "sign_block": "Placa (\/blockdata)",
@@ -45,7 +45,7 @@
         "show": "Mostrar comandos salvos",
         "deleteall": {
             "body": "Isso deleta apenas seus comandos salvos, n\u00e3o afeta o atual.",
-            "yes": "Confirmar",
+            "yes": "Deletar tudo",
             "heading": "Tem certeza?",
             "no": "Cancelar"
         },
@@ -53,14 +53,14 @@
         "new": "Salvar comando atual"
     },
     "settings": {
-        "nlOutput": "Show Structured Output",
+        "nlOutput": "Mostrar vizualiza\u00e7\u00e3o estruturada",
         "darkmode": {
-            "turn_on": "Dark Theme",
-            "turn_off": "Light Theme"
+            "turn_on": "Tema escuro",
+            "turn_off": "Tema claro"
         },
-        "show": "Open Settings",
-        "hide": "Close Settings",
-        "fontSize": "Preview Font Size",
+        "show": "Abrir configura\u00e7\u00f5es",
+        "hide": "Fechar configura\u00e7\u00f5es",
+        "fontSize": "Tamanho da letra de previs\u00e3o",
         "previewcolor": "Cor do plano de fundo da previs\u00e3o:",
         "export": "Exportar",
         "deleteall": {
@@ -109,8 +109,8 @@
         "editsnippet": "Editar texto",
         "close": "Fechar",
         "hoverevent": {
-            "addtext": "Add Text",
-            "removetext": "Remove Last Text",
+            "addtext": "Adicionar texto",
+            "removetext": "Remover ultimo texto",
             "header": "Evento ao passar mouse:",
             "showachievement": "Mostrar conquista",
             "id": "ID:",
@@ -122,7 +122,7 @@
             "name": "Nome"
         },
         "notext": "Sem texto",
-        "NEW_ITERATE_FLAG": "Book Page \/ Sign Line",
+        "NEW_ITERATE_FLAG": "Pagina do livro \/ Linha da placa",
         "insert": "Inserir",
         "addsnippet": "Adicionar texto",
         "insertion": {
@@ -148,7 +148,7 @@
         }
     },
     "headerbar": {
-        "help": "Help",
+        "help": "Ajuda",
         "report_an_issue": "Report an Issue",
         "dropdown": {
             "tweet": "Tweet",
