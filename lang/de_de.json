@@ -1,182 +1,182 @@
 {
-	"donate": {
-		"patreon-button": "Patreon",
-		"patreon-text": "Wenn Sie sich verpflichten, eine bestimmte Menge jeden Monat zu spenden, können sie sich darauf verlassen, dass ich die Server aufrüste.",
-		"paypal-note": "Ich biete aufgrund von Gebühren nicht PayPal als börsennotierte Option an (Stripe lässt keine Gebühren an Studenten anfallen). Allerdings, wenn Sie möchten, können Sie mir Geld über PayPal an funds@ezekielelin.com senden",
-		"support-header": "Unterstütze diese Seite",
-		"support-subheader": "Ich möchte auf dieser Internetseite keine Werbung schalten, bitte spende, um die Kosten für die Erhaltung der Internetseite zu unterstützen.",
-		"donate-button": "Spenden",
-		"donate-text": "Mache eine Spende in der Höhe, die du willst (Streifen).",
-		"overcast-text": "Möchtest du mir einen Rang in dem Overcast Netzwerk kaufen? Klicke auf das Bild oben, und betrete ezekielelin mit meinem Benutzernamen.",
-		"exit": "Schließen",
-		"exit-text": "Du wirst dies hier nicht mehr sehen, es sei denn, du setzt deine Cookies zurück. Leider kann ich nicht überprüfen, ob du sie zurückgesetzt hast."
-	},
-	"issues": {
-		"go-home": "Fehler ignorieren"
-	},
-	"help": {
-		"textfield": "Benutze /n um eine neue Zeile zu markieren.",
-		"create-new-save": "Mache eine neue Sicherung. Dies wird eine Sicherung mit dem gleichen Namen überschreiben, wenn du es so auswählst.",
-		"delete-all-saves": "Lösche deine Sicherungen, aber lasse deinen ausgewählten Befehl in dem Haupteditor unversehrt.",
-		"show-saves": "Zeige deinen Sicherungseditor, erlaube speichern, laden, und löschen der Sicherung.",
-		"addsnippet": "Füge dem Tellraw-Befehl Text hinzu.",
-		"delete-all-snippets": "Lösche deinen Befehl komplett, aber lasse deine Sicherungen unversehrt.",
-		"dropdown-list": "Tweet, Changelog ansehen, Minecraft Forum Beitrag ansehen, oder bekomme die Resourcen zum übersetzen.",
-		"report-an-issue": "Kilck hier um einen Fehler zu melden. Wenn dir irgendwelche Bugs auffallen, solltest du sie hier melden."
-	},
-	"headerbar": {
-		"dropdown": {
-			"changelog": "Änderungsprotokoll",
-			"tweet": "Link twittern",
-			"forum_thread": "Forum Beitrag",
-			"request_needed_translations": "Noch zu übersetzender Text"
-		},
-		"report_an_issue": "Melde einen Fehler",
-		"help": "Hilfe"
-	},
-	"tos": {
-		"warn": {
-			"header": "Indem du diese Seite nutzt, akzeptierst du die Nutzungsbedingungen",
-			"read": "Lesen",
-			"accept": "Bestätigen"
-		}
-	},
-	"template": {
-		"sign_block": "Schild (/blockdata)",
-		"sign_item": "Schild (/give)",
-		"subtitle": "Untertitel",
-		"title": "Titel",
-		"tellraw": "Tellraw",
-		"book": "Buch",
-		"execute_tellraw": "Execute"
-	},
-	"output": {
-		"nothing": "Noch nichts zu sehen",
-		"header": "Vorschau:"
-	},
-	"saves": {
-		"header": "Gespeicherte Daten",
-		"hide": "Verberge gespeicherte Daten",
-		"persistencenotice": "Die gespeicherten Daten könnten sich jederzeit zurücksetzen, und hängen von deinen Browser Cookies ab. Vertraue deshalb nicht auf sie über einen längeren Zeitraum.",
-		"show": "Zeige gespeicherte Daten",
-		"deleteall": {
-			"body": "Das klicken von Löschen wird alle gespeicherten Daten löschen, aber nicht deinen aktuellen text",
-			"yes": "Alle gespeicherten Daten löschen",
-			"heading": "Bist du dir sicher!?!",
-			"no": "Abbrechen"
-		},
-		"nosaves": "Du hast noch nichts gespeichert",
-		"new": "Aktuellen String speichern"
-	},
-	"settings": {
-		"darkmode": {
-			"turn_on": "Dunkles Theme",
-			"turn_off": "Helles Theme"
-		},
-		"export": "Exportieren",
-		"show": "Einstellungen öffnen",
-		"fontSize": "Vorschau-Schriftgröße",
-		"nlOutput": "Zeige struktuierte Ausgabe",
-		"hide": "Einstellungen schließen",
-		"previewcolor": "Hintergrundfarbe der Vorschau:",
-		"deleteall": {
-			"body": "Das klicken von löschen wird all deinen text löschen und ihn zu einem leeren String zurücksetzen.",
-			"heading": "Bist du dir sicher!?!",
-			"yes": "Alles Löschen",
-			"no": "Abbrechen"
-		},
-		"import": "Importieren",
-		"header": "Einstellungen:",
-		"importtext": "Please enter the tellraw command. Use the Delete All button if it incorrectly imports. Import only works with /tellraw commands"
-	},
-	"color": {
-		"color_green": "Grün",
-		"color_red": "Rot",
-		"color_none": "Keine",
-		"color_dark_aqua": "Dunkel Aquamarin",
-		"color_dark_purple": "Dunkel Violett",
-		"color_dark_blue": "Dunkel Blau",
-		"color_aqua": "Aquamarin",
-		"color_white": "Weiß",
-		"color_dark_gray": "Dunkel Grau",
-		"color_dark_red": "Dunkel Rot",
-		"color_dark_green": "Dunkel Grün",
-		"color_gold": "Gold",
-		"color_blue": "Blau",
-		"color_black": "Schwarz",
-		"color_gray": "Grau",
-		"color_light_purple": "Helles Violett",
-		"color_yellow": "Gelb"
-	},
-	"header": "Tellraw Befehlsgenerator für Minecraft 1.7+",
-	"textsnippets": {
-		"NEW_ITERATE_FLAG": "Buch-Seite / Schild-Zeile",
-		"trn": "Übersetzt",
-		"clickevent": {
-			"runcommand": "Befehl ausführen",
-			"openurl": "URL öffnen",
-			"suggestcommand": "Befehl vorschlagen",
-			"header": "Klick Ereigniss:",
-			"none": "Keins"
-		},
-		"parameter": "Parameter",
-		"editsnippet": "Text bearbeiten",
-		"close": "Schließen",
-		"hoverevent": {
-			"addtext": "Text hinzufügen.",
-			"removetext": "Letzten Text löschen.",
-			"header": "Mouseover Ereigniss:",
-			"showachievement": "Zeige Errungenschaft",
-			"id": "ID:",
-			"showentity": "Zeige Entity",
-			"showitem": "Zeige Item",
-			"type": "Typ:",
-			"none": "Keins",
-			"showtext": "Zeige Text",
-			"name": "Name"
-		},
-		"notext": "Kein Text",
-		"insert": "Einfügen",
-		"addsnippet": "Text hinzufügen",
-		"insertion": {
-			"header": "Einzufügender Text"
-		},
-		"sel": "Selector",
-		"format": {
-			"bold": "Fett",
-			"underlined": "Unterstrichen",
-			"obfuscated": "Verschleiert",
-			"italic": "Kursiv",
-			"strikethrough": "Durchgestrichen"
-		},
-		"player": "Spieler",
-		"obj2": "Objective",
-		"obj": "Scoreboard Objective",
-		"nosnippets": "Noch kein Text",
-		"header": "Textabschitte",
-		"text": "Text",
-		"raw": "Roh",
-		"warning": {
-			"title": "Warnung!",
-			"text": "Du brauchst %v um %f zu benutzen"
-		}
-	},
-	"language": {
-		"translate": "Übersetzen",
-		"name": "Deutsch",
-		"header": "Sprache",
-		"credit": "Übersetzt von @MrTom0075, @shoutlike, RoiEx, Jar, TheRealMinec, TimoZp, thebigsmileXD"
-	},
-	"player": {
-		"header": "Spieler und Befehl:",
-		"description": "(@a, @p, @r, oder ein bestimmter Spieler)"
-	},
-	"commandblock": "Du musst den Befehl in der Server Konsole oder in einem Befehlsblock ausführen.",
-	"alert": {
-		"report": "Problem melden",
-		"changed": "Diese Seite wurde kürzlich geändert, also könnten Probleme auftreten. Lade die Seite neu wenn es so aus sieht als ob etwas nicht funktionieren würde.",
-		"receiveupdates": "Bekomme updates hier (\"Folge\" dem Thema)"
-	},
-	"command": "Befehl:",
-	"attribution": "Obwohl nichts erforderlich ist um das hier zu benutzen, ist es trotzdem immer willkommen wenn du zu dieser Webseite oder zu dem Minercaft Forum Thread verlinkst."
+    "donate": {
+        "patreon-button": "Patreon",
+        "support-header": "Unterst\u00fctze diese Seite",
+        "paypal-note": "Ich biete aufgrund von Geb\u00fchren nicht PayPal als b\u00f6rsennotierte Option an (Stripe l\u00e4sst keine Geb\u00fchren an Studenten anfallen). Allerdings, wenn Sie m\u00f6chten, k\u00f6nnen Sie mir Geld \u00fcber PayPal an funds@ezekielelin.com senden",
+        "patreon-text": "Wenn Sie sich verpflichten, eine bestimmte Menge jeden Monat zu spenden, k\u00f6nnen sie sich darauf verlassen, dass ich die Server aufr\u00fcste.",
+        "support-subheader": "Ich m\u00f6chte auf dieser Internetseite keine Werbung schalten, bitte spende, um die Kosten f\u00fcr die Erhaltung der Internetseite zu unterst\u00fctzen.",
+        "donate-button": "Spenden",
+        "donate-text": "Mache eine Spende in der H\u00f6he, die du willst (Streifen).",
+        "overcast-text": "M\u00f6chtest du mir einen Rang in dem Overcast Netzwerk kaufen? Klicke auf das Bild oben, und betrete ezekielelin mit meinem Benutzernamen.",
+        "exit": "Schlie\u00dfen",
+        "exit-text": "Du wirst dies hier nicht mehr sehen, es sei denn, du setzt deine Cookies zur\u00fcck. Leider kann ich nicht \u00fcberpr\u00fcfen, ob du sie zur\u00fcckgesetzt hast."
+    },
+    "issues": {
+        "go-home": "Fehler ignorieren"
+    },
+    "help": {
+        "textfield": "Benutze \/n um eine neue Zeile zu markieren.",
+        "raw-text-tab": "Choose your text choice. Raw is normal text. Scoreboard pulls a value from the scoreboard. Selector pulls the name of an entity.",
+        "report-an-issue": "Kilck hier um einen Fehler zu melden. Wenn dir irgendwelche Bugs auffallen, solltest du sie hier melden.",
+        "dropdown-list": "Tweet, Changelog ansehen, Minecraft Forum Beitrag ansehen, oder bekomme die Resourcen zum \u00fcbersetzen.",
+        "addsnippet": "F\u00fcge dem Tellraw-Befehl Text hinzu.",
+        "delete-all-saves": "L\u00f6sche deine Sicherungen, aber lasse deinen ausgew\u00e4hlten Befehl in dem Haupteditor unversehrt.",
+        "create-new-save": "Mache eine neue Sicherung. Dies wird eine Sicherung mit dem gleichen Namen \u00fcberschreiben, wenn du es so ausw\u00e4hlst.",
+        "delete-all-snippets": "L\u00f6sche deinen Befehl komplett, aber lasse deine Sicherungen unversehrt.",
+        "show-saves": "Zeige deinen Sicherungseditor, erlaube speichern, laden, und l\u00f6schen der Sicherung."
+    },
+    "template": {
+        "sign_block": "Schild (\/blockdata)",
+        "sign_item": "Schild (\/give)",
+        "subtitle": "Untertitel",
+        "title": "Titel",
+        "tellraw": "Tellraw",
+        "book": "Buch",
+        "execute_tellraw": "Execute"
+    },
+    "output": {
+        "nothing": "Noch nichts zu sehen",
+        "header": "Vorschau:"
+    },
+    "saves": {
+        "header": "Gespeicherte Daten",
+        "hide": "Verberge gespeicherte Daten",
+        "persistencenotice": "Die gespeicherten Daten k\u00f6nnten sich jederzeit zur\u00fccksetzen, und h\u00e4ngen von deinen Browser Cookies ab. Vertraue deshalb nicht auf sie \u00fcber einen l\u00e4ngeren Zeitraum.",
+        "show": "Zeige gespeicherte Daten",
+        "deleteall": {
+            "body": "Das klicken von L\u00f6schen wird alle gespeicherten Daten l\u00f6schen, aber nicht deinen aktuellen text",
+            "yes": "Alle gespeicherten Daten l\u00f6schen",
+            "heading": "Bist du dir sicher!?!",
+            "no": "Abbrechen"
+        },
+        "nosaves": "Du hast noch nichts gespeichert",
+        "new": "Aktuellen String speichern"
+    },
+    "settings": {
+        "nlOutput": "Zeige struktuierte Ausgabe",
+        "darkmode": {
+            "turn_on": "Dunkles Theme",
+            "turn_off": "Helles Theme"
+        },
+        "show": "Einstellungen \u00f6ffnen",
+        "hide": "Einstellungen schlie\u00dfen",
+        "fontSize": "Vorschau-Schriftgr\u00f6\u00dfe",
+        "previewcolor": "Hintergrundfarbe der Vorschau:",
+        "export": "Exportieren",
+        "deleteall": {
+            "body": "Das klicken von l\u00f6schen wird all deinen text l\u00f6schen und ihn zu einem leeren String zur\u00fccksetzen.",
+            "heading": "Bist du dir sicher!?!",
+            "yes": "Alles L\u00f6schen",
+            "no": "Abbrechen"
+        },
+        "importtext": {
+            "default": "Please enter the tellraw command. Use the Delete All button if it incorrectly imports. Import only works with \/tellraw commands",
+            "exported": "Please enter the string you were given when you exported your command"
+        },
+        "import": "Importieren",
+        "header": "Einstellungen:"
+    },
+    "color": {
+        "color_green": "Gr\u00fcn",
+        "color_red": "Rot",
+        "color_none": "Keine",
+        "color_dark_aqua": "Dunkel Aquamarin",
+        "color_dark_purple": "Dunkel Violett",
+        "color_dark_blue": "Dunkel Blau",
+        "color_aqua": "Aquamarin",
+        "color_white": "Wei\u00df",
+        "color_dark_gray": "Dunkel Grau",
+        "color_dark_red": "Dunkel Rot",
+        "color_dark_green": "Dunkel Gr\u00fcn",
+        "color_gold": "Gold",
+        "color_blue": "Blau",
+        "color_black": "Schwarz",
+        "color_gray": "Grau",
+        "color_light_purple": "Helles Violett",
+        "color_yellow": "Gelb"
+    },
+    "header": "Tellraw Befehlsgenerator f\u00fcr Minecraft 1.7+",
+    "textsnippets": {
+        "trn": "\u00dcbersetzt",
+        "clickevent": {
+            "runcommand": "Befehl ausf\u00fchren",
+            "openurl": "URL \u00f6ffnen",
+            "suggestcommand": "Befehl vorschlagen",
+            "header": "Klick Ereigniss:",
+            "none": "Keins"
+        },
+        "parameter": "Parameter",
+        "editsnippet": "Text bearbeiten",
+        "close": "Schlie\u00dfen",
+        "hoverevent": {
+            "addtext": "Text hinzuf\u00fcgen.",
+            "removetext": "Letzten Text l\u00f6schen.",
+            "header": "Mouseover Ereigniss:",
+            "showachievement": "Zeige Errungenschaft",
+            "id": "ID:",
+            "showentity": "Zeige Entity",
+            "showitem": "Zeige Item",
+            "type": "Typ:",
+            "none": "Keins",
+            "showtext": "Zeige Text",
+            "name": "Name"
+        },
+        "notext": "Kein Text",
+        "NEW_ITERATE_FLAG": "Buch-Seite \/ Schild-Zeile",
+        "insert": "Einf\u00fcgen",
+        "addsnippet": "Text hinzuf\u00fcgen",
+        "insertion": {
+            "header": "Einzuf\u00fcgender Text"
+        },
+        "sel": "Selector",
+        "format": {
+            "bold": "Fett",
+            "underlined": "Unterstrichen",
+            "obfuscated": "Verschleiert",
+            "italic": "Kursiv",
+            "strikethrough": "Durchgestrichen"
+        },
+        "player": "Spieler",
+        "obj2": "Objective",
+        "obj": "Scoreboard Objective",
+        "nosnippets": "Noch kein Text",
+        "header": "Textabschitte",
+        "text": "Text",
+        "raw": "Roh",
+        "warning": {
+            "title": "Warnung!"
+        }
+    },
+    "headerbar": {
+        "help": "Hilfe",
+        "report_an_issue": "Melde einen Fehler",
+        "dropdown": {
+            "tweet": "Link twittern",
+            "request_needed_translations": "Noch zu \u00fcbersetzender Text",
+            "forum_thread": "Forum Beitrag",
+            "changelog": "\u00c4nderungsprotokoll"
+        }
+    },
+    "language": {
+        "translate": "\u00dcbersetzen",
+        "name": "Deutsch",
+        "header": "Sprache",
+        "credit": "\u00dcbersetzt von @MrTom0075, @shoutlike, RoiEx, Jar, TheRealMinec, TimoZp, thebigsmileXD"
+    },
+    "player": {
+        "header": "Spieler und Befehl:",
+        "description": "(@a, @p, @r, oder ein bestimmter Spieler)"
+    },
+    "commandblock": "Du musst den Befehl in der Server Konsole oder in einem Befehlsblock ausf\u00fchren.",
+    "alert": {
+        "report": "Problem melden",
+        "changed": "Diese Seite wurde k\u00fcrzlich ge\u00e4ndert, also k\u00f6nnten Probleme auftreten. Lade die Seite neu wenn es so aus sieht als ob etwas nicht funktionieren w\u00fcrde.",
+        "receiveupdates": "Bekomme updates hier (\"Folge\" dem Thema)"
+    },
+    "command": "Befehl:",
+    "export": {
+        "heading": "Your Exported Command",
+        "close": "Close"
+    },
+    "attribution": "Obwohl nichts erforderlich ist um das hier zu benutzen, ist es trotzdem immer willkommen wenn du zu dieser Webseite oder zu dem Minercaft Forum Thread verlinkst."
 }

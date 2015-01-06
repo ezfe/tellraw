@@ -1,145 +1,182 @@
 {
-	"template": {
-		"sign_block": "Cartello (/blockdata)",
-		"sign_item": "Cartello (/give)",
-		"subtitle": "Sottotitolo",
-		"title": "Titolo",
-		"tellraw": "Tellraw",
-		"book": "Libro",
-		"execute_tellraw": "Execute"
-	},
-	"output": {
-		"nothing": "Non c'è niente da vedere qui",
-		"header": "Previsione dell'output"
-	},
-	"saves": {
-		"header": "Salvataggi",
-		"hide": "Nascondi Salvataggi",
-		"persistencenotice": "I salvataggi possono essere resettati in quelunque momento, e dipendono dai cookies del tuo browser. Non farci affidamento per lunghi periodi di tempo.",
-		"show": "Mostra salvataggi",
-		"deleteall": {
-			"body": "Premendo cancella rimuoverai tutti i tuoi salvataggi, ma non cancellerà il testo corrente",
-			"yes": "Delete All Saves",
-			"heading": "Sei sicuro!?!",
-			"no": "Annulla"
-		},
-		"nosaves": "Non hai salvato nulla",
-		"new": "Salvare la stringa corrente?"
-	},
-	"settings": {
-		"previewcolor": "Colore di background per la previsione:",
-		"export": "Esporta",
-		"deleteall": {
-			"body": "Premendo cancella rimuoverai tutto il tuo testo e verrà resettata in una stringa vuota.",
-			"heading": "Sei sicuro!?!",
-			"yes": "Cancella tutto",
-			"no": "Annulla"
-		},
-		"importtext": {
-			"default": "Per favore inserisci il comando tellraw. Usa il pulsante cancella tutto se viene importato incorrettamente. Importare funziona solo con i comandi /tellraw",
-			"exported": "Per favore inserisci la stringa che c'era quando hai esportato il comando"
-		},
-		"import": "Importa",
-		"header": "Impostazioni:"
-	},
-	"color": {
-		"color_green": "Verde",
-		"color_red": "Rosso",
-		"color_none": "Nessuno",
-		"color_dark_aqua": "Verde Acqua",
-		"color_dark_purple": "Porpora Scura",
-		"color_dark_blue": "Blu Scuro",
-		"color_aqua": "Ciano",
-		"color_white": "Bianco",
-		"color_dark_gray": "Grigio Scuro",
-		"color_dark_red": "Rosso Scuro",
-		"color_dark_green": "Verde Scuro",
-		"color_gold": "Oro",
-		"color_blue": "Blu",
-		"color_black": "Nero",
-		"color_gray": "Grigio",
-		"color_light_purple": "Porpora Chiara",
-		"color_yellow": "Giallo"
-	},
-	"header": "Generatore Tellraw per Minecraft 1.7+",
-	"textsnippets": {
-		"trn": "Tradotto",
-		"clickevent": {
-			"runcommand": "Esegui comando",
-			"openurl": "Apri URL",
-			"suggestcommand": "Suggerisci comando",
-			"header": "Caso pressione:",
-			"none": "Nessuno"
-		},
-		"parameter": "Parametro",
-		"editsnippet": "Modifica testo",
-		"close": "Chiudi",
-		"hoverevent": {
-			"header": "Caso mouse sopra:",
-			"showachievement": "Mostra conquiste",
-			"id": "ID:",
-			"showentity": "Mostra entità",
-			"showitem": "Mostra oggetto",
-			"type": "Tipo:",
-			"none": "Nessuno",
-			"showtext": "Mostra testo",
-			"name": "Nome"
-		},
-		"notext": "Nessun testo",
-		"insert": "Inserisci",
-		"addsnippet": "Aggiungi testo",
-		"insertion": {
-			"header": "Inserimento"
-		},
-		"sel": "Selettore",
-		"format": {
-			"bold": "Grassetto",
-			"underlined": "Sottolineato",
-			"obfuscated": "Confuso",
-			"italic": "Italico",
-			"strikethrough": "Barrato"
-		},
-		"player": "Giocatore",
-		"obj2": "Obbiettivo",
-		"obj": "Obbiettivo della Scoreboard",
-		"nosnippets": "Non c'è ancora testo",
-		"header": "Frammenti di testo",
-		"text": "Testo",
-		"raw": "Crudo",
-		"warning": {
-			"title": "Attenzione!",
-			"text": "Ti serve %v per utilizzare %f"
-		}
-	},
-	"headerbar": {
-		"report_an_issue": "Riporta Un problema",
-		"dropdown": {
-			"tweet": "Tweet",
-			"request_needed_translations": "Lista delle traduzioni richieste",
-			"forum_thread": "Discussione nel forum",
-			"changelog": "Changelog"
-		}
-	},
-	"language": {
-		"translate": "Traduci",
-		"name": "Italiano",
-		"header": "Lingua",
-		"credit": "Tradotto da xX_eio_Xx eio.adea@gmail.com"
-	},
-	"player": {
-		"description": "Usato per scegliere ed eseguire giocatori diversi",
-		"header": "Giocatore e comando"
-	},
-	"commandblock": "Tu devi eseguire questo nella console del server o in un blocco comandi.",
-	"alert": {
-		"report": "Riporta un problema",
-		"changed": "Questa pagina è stata recentemente modificata, quindi ci potrebbero essere problemi. Ricarica la pagina se qualcosa sembra non funzionare.",
-		"receiveupdates": "Ricevi aggiornamenti qui (\"Segui\" la discussione)"
-	},
-	"command": "Comando:",
-	"export": {
-		"heading": "Il tuo comando esportato",
-		"close": "Chiudi"
-	},
-	"attribution": "Mentre nulla è necessario per utilizzare questo, sarebbe sempre apprezzato se colleghi a questa pagina web la discussione MCF."
+    "donate": {
+        "patreon-button": "Patreon",
+        "support-header": "(Please) Support This Website",
+        "paypal-note": "I do not offer paypal as a listed option due to fees (Stripe doesn't charge fees to Students). However, if you wish you can send me money over PayPal via funds@ezekielelin.com",
+        "patreon-text": "If you Pledge to donate a certain amount each month, I can rely on that to upgrade the servers.",
+        "support-subheader": "I don't want to put ads on this website, please donate to support the costs of maintaining this website.",
+        "donate-button": "Donate",
+        "donate-text": "Make a donation of the value you choose (Stripe).",
+        "overcast-text": "Want to buy me a rank on the Overcast Network? Click the picture above, and enter ezekielelin as my username.",
+        "exit": "Exit",
+        "exit-text": "You won't see this again so long as you keep your cookies intact. Unfortunately I have no way of detecting you if you reset your cookies."
+    },
+    "issues": {
+        "go-home": "Ignore Issue"
+    },
+    "help": {
+        "textfield": "Use \\n to make a newline",
+        "raw-text-tab": "Choose your text choice. Raw is normal text. Scoreboard pulls a value from the scoreboard. Selector pulls the name of an entity.",
+        "report-an-issue": "Click here to report an issue. If you experience any sort of bug, you should report it here.",
+        "dropdown-list": "Tweet, view the changelog, view the minecraft forums thread, or get resources for translation.",
+        "addsnippet": "Add text to your tellraw command.",
+        "delete-all-saves": "Clear your saves, but leave your current command in the main editor intact.",
+        "create-new-save": "Make a new save. This will overwrite an existing save by the same name, if you so choose.",
+        "delete-all-snippets": "Clear your command completely, but leave your saves intact.",
+        "show-saves": "Show your saves editor, allows saving, loading, and deletion of saves."
+    },
+    "template": {
+        "sign_block": "Cartello (\/blockdata)",
+        "sign_item": "Cartello (\/give)",
+        "subtitle": "Sottotitolo",
+        "title": "Titolo",
+        "tellraw": "Tellraw",
+        "book": "Libro",
+        "execute_tellraw": "Execute"
+    },
+    "output": {
+        "nothing": "Non c'\u00e8 niente da vedere qui",
+        "header": "Previsione dell'output"
+    },
+    "saves": {
+        "header": "Salvataggi",
+        "hide": "Nascondi Salvataggi",
+        "persistencenotice": "I salvataggi possono essere resettati in quelunque momento, e dipendono dai cookies del tuo browser. Non farci affidamento per lunghi periodi di tempo.",
+        "show": "Mostra salvataggi",
+        "deleteall": {
+            "body": "Premendo cancella rimuoverai tutti i tuoi salvataggi, ma non canceller\u00e0 il testo corrente",
+            "yes": "Delete All Saves",
+            "heading": "Sei sicuro!?!",
+            "no": "Annulla"
+        },
+        "nosaves": "Non hai salvato nulla",
+        "new": "Salvare la stringa corrente?"
+    },
+    "settings": {
+        "nlOutput": "Show Structured Output",
+        "darkmode": {
+            "turn_on": "Dark Theme",
+            "turn_off": "Light Theme"
+        },
+        "show": "Open Settings",
+        "hide": "Close Settings",
+        "fontSize": "Preview Font Size",
+        "previewcolor": "Colore di background per la previsione:",
+        "export": "Esporta",
+        "deleteall": {
+            "body": "Premendo cancella rimuoverai tutto il tuo testo e verr\u00e0 resettata in una stringa vuota.",
+            "heading": "Sei sicuro!?!",
+            "yes": "Cancella tutto",
+            "no": "Annulla"
+        },
+        "importtext": {
+            "default": "Per favore inserisci il comando tellraw. Usa il pulsante cancella tutto se viene importato incorrettamente. Importare funziona solo con i comandi \/tellraw",
+            "exported": "Per favore inserisci la stringa che c'era quando hai esportato il comando"
+        },
+        "import": "Importa",
+        "header": "Impostazioni:"
+    },
+    "color": {
+        "color_green": "Verde",
+        "color_red": "Rosso",
+        "color_none": "Nessuno",
+        "color_dark_aqua": "Verde Acqua",
+        "color_dark_purple": "Porpora Scura",
+        "color_dark_blue": "Blu Scuro",
+        "color_aqua": "Ciano",
+        "color_white": "Bianco",
+        "color_dark_gray": "Grigio Scuro",
+        "color_dark_red": "Rosso Scuro",
+        "color_dark_green": "Verde Scuro",
+        "color_gold": "Oro",
+        "color_blue": "Blu",
+        "color_black": "Nero",
+        "color_gray": "Grigio",
+        "color_light_purple": "Porpora Chiara",
+        "color_yellow": "Giallo"
+    },
+    "header": "Generatore Tellraw per Minecraft 1.7+",
+    "textsnippets": {
+        "trn": "Tradotto",
+        "clickevent": {
+            "runcommand": "Esegui comando",
+            "openurl": "Apri URL",
+            "suggestcommand": "Suggerisci comando",
+            "header": "Caso pressione:",
+            "none": "Nessuno"
+        },
+        "parameter": "Parametro",
+        "editsnippet": "Modifica testo",
+        "close": "Chiudi",
+        "hoverevent": {
+            "addtext": "Add Text",
+            "removetext": "Remove Last Text",
+            "header": "Caso mouse sopra:",
+            "showachievement": "Mostra conquiste",
+            "id": "ID:",
+            "showentity": "Mostra entit\u00e0",
+            "showitem": "Mostra oggetto",
+            "type": "Tipo:",
+            "none": "Nessuno",
+            "showtext": "Mostra testo",
+            "name": "Nome"
+        },
+        "notext": "Nessun testo",
+        "NEW_ITERATE_FLAG": "Book Page \/ Sign Line",
+        "insert": "Inserisci",
+        "addsnippet": "Aggiungi testo",
+        "insertion": {
+            "header": "Inserimento"
+        },
+        "sel": "Selettore",
+        "format": {
+            "bold": "Grassetto",
+            "underlined": "Sottolineato",
+            "obfuscated": "Confuso",
+            "italic": "Italico",
+            "strikethrough": "Barrato"
+        },
+        "player": "Giocatore",
+        "obj2": "Obbiettivo",
+        "obj": "Obbiettivo della Scoreboard",
+        "nosnippets": "Non c'\u00e8 ancora testo",
+        "header": "Frammenti di testo",
+        "text": "Testo",
+        "raw": "Crudo",
+        "warning": {
+            "title": "Attenzione!"
+        }
+    },
+    "headerbar": {
+        "help": "Help",
+        "report_an_issue": "Riporta Un problema",
+        "dropdown": {
+            "tweet": "Tweet",
+            "request_needed_translations": "Lista delle traduzioni richieste",
+            "forum_thread": "Discussione nel forum",
+            "changelog": "Changelog"
+        }
+    },
+    "language": {
+        "translate": "Traduci",
+        "name": "Italiano",
+        "header": "Lingua",
+        "credit": "Tradotto da xX_eio_Xx eio.adea@gmail.com"
+    },
+    "player": {
+        "header": "Giocatore e comando",
+        "description": "Usato per scegliere ed eseguire giocatori diversi"
+    },
+    "commandblock": "Tu devi eseguire questo nella console del server o in un blocco comandi.",
+    "alert": {
+        "report": "Riporta un problema",
+        "changed": "Questa pagina \u00e8 stata recentemente modificata, quindi ci potrebbero essere problemi. Ricarica la pagina se qualcosa sembra non funzionare.",
+        "receiveupdates": "Ricevi aggiornamenti qui (\"Segui\" la discussione)"
+    },
+    "command": "Comando:",
+    "export": {
+        "heading": "Il tuo comando esportato",
+        "close": "Chiudi"
+    },
+    "attribution": "Mentre nulla \u00e8 necessario per utilizzare questo, sarebbe sempre apprezzato se colleghi a questa pagina web la discussione MCF."
 }

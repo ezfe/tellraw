@@ -1,0 +1,182 @@
+{
+    "donate": {
+        "patreon-button": "Patreon",
+        "support-header": "(Sn\u00e4lla) St\u00f6d den h\u00e4r webbsidan",
+        "paypal-note": "Jag erbjuder inte paypal ett val i listan p\u00e5 grund av avgifter (Stripe drar inte ut avgifter f\u00f6r studenter). Men, om du vill kan du skicka pengar till mig med PayPal via funds@ezekielelin.com",
+        "patreon-text": "Om du donerar m\u00e5nadsvis, kan jag f\u00f6rlita mig p\u00e5 det f\u00f6r att uppgradera servrarna.",
+        "support-subheader": "Jag vill inte l\u00e4gga annonser p\u00e5 den h\u00e4r webbsidan, sn\u00e4lla donera f\u00f6r att st\u00f6dja kostnaderna att ha ig\u00e5ng den.",
+        "donate-button": "Donera",
+        "donate-text": "Donera ett v\u00e4rde du v\u00e4ljer (Stripe).",
+        "overcast-text": "Vill du k\u00f6pa en rank \u00e5t mig p\u00e5 Overcast Network? Klicka p\u00e5 bilden ovan, skriv sen in mitt anv\u00e4ndernamn ezekielelin.",
+        "exit": "St\u00e4ng",
+        "exit-text": "Du kommer inte se det h\u00e4r igen s\u00e5 l\u00e4nge du har dina cookies intakta. Tyv\u00e4rr har jag inget s\u00e4tt att kolla om du \u00e5terst\u00e4ller dem."
+    },
+    "issues": {
+        "go-home": "Ignorera problem"
+    },
+    "help": {
+        "textfield": "Anv\u00e4nd \\n f\u00f6r att g\u00f6ra en ny rad.",
+        "raw-text-tab": "V\u00e4lj text. R\u00e5 \u00e4r normal text. Po\u00e4ngtavla tar ett v\u00e4rde fr\u00e5n po\u00e4ngtavlan. V\u00e4ljare tar ett namn fr\u00e5n ett objekt.",
+        "report-an-issue": "Klicka h\u00e4r f\u00f6r att rapportera ett problem. Om du hittar n\u00e5gon sorts bugg, rapportera den h\u00e4r.",
+        "dropdown-list": "Tweeta, visa \u00e4ndringslogg, visa minecraftforumstr\u00e5den, eller f\u00e5 resurser f\u00f6r \u00f6vers\u00e4ttning.",
+        "addsnippet": "L\u00e4gg till text till ditt tellrawkommando.",
+        "delete-all-saves": "Rensa dina sparade kommandon, men l\u00e4mna det nuvarande kommandot i huvudredigeraren intakt.",
+        "create-new-save": "Spara ett nytt kommando. Om du vill kan du skriva \u00f6ver ett annat sparat kommando genom att anv\u00e4nda samma namn.",
+        "delete-all-snippets": "Rensa ditt nuvarande kommando helt, men bevara dina sparade kommandon.",
+        "show-saves": "Sparade kommandon-hanterare, till\u00e5ter dig att spara, ladda in och ta bort kommandon."
+    },
+    "template": {
+        "sign_block": "Skylt (\/blockdata)",
+        "sign_item": "Skylt (\/give)",
+        "subtitle": "Underrubrik",
+        "title": "Rubrik",
+        "tellraw": "Tellraw",
+        "book": "Bok",
+        "execute_tellraw": "Execute"
+    },
+    "output": {
+        "nothing": "Inget att se h\u00e4r",
+        "header": "Resultatsf\u00f6rhandsgranskning:"
+    },
+    "saves": {
+        "header": "Sparade kommandon",
+        "hide": "St\u00e4ng sparade kommandon",
+        "persistencenotice": "Sparade kommandon kan \u00e5terst\u00e4llas n\u00e4r som helst, och \u00e4r beroende av din webbl\u00e4sares cookies. F\u00f6rlita dig inte p\u00e5 dem under l\u00e5nga tidsperioder.",
+        "show": "\u00d6ppna sparade kommandon",
+        "deleteall": {
+            "body": "Att klicka p\u00e5 Radera kommer att ta bort alla dina sparade kommandon, men kommer inte att ber\u00f6ra din nuvarande text",
+            "yes": "Radera alla sparade kommandon",
+            "heading": "\u00c4r du s\u00e4ker!?!",
+            "no": "Avbryt"
+        },
+        "nosaves": "Du har inga sparade kommandon.",
+        "new": "Spara nuvarande text."
+    },
+    "settings": {
+        "nlOutput": "Visa strukturerat resultat:",
+        "darkmode": {
+            "turn_on": "M\u00f6rkt tema",
+            "turn_off": "Ljust tema"
+        },
+        "show": "\u00d6ppna inst\u00e4llningar",
+        "hide": "St\u00e4ng inst\u00e4llningar",
+        "fontSize": "F\u00f6rhansvisa typsnittsstorlek",
+        "previewcolor": "F\u00f6rhandsvisa bakgrundsf\u00e4rg:",
+        "export": "Exportera",
+        "deleteall": {
+            "body": "Att klicka Radera kommer att ta bort all din text och \u00e5terst\u00e4lla det till en tom.",
+            "heading": "\u00c4r du s\u00e4ker!?!",
+            "yes": "Radera allt",
+            "no": "Avbryt"
+        },
+        "importtext": {
+            "default": "Var v\u00e4nlig ange ditt tellrawkommando. Anv\u00e4nd Radera Allt-knappen om den inte importeras som den ska. Importeringen fungerar bara med \/tellraw kommandon",
+            "exported": "Var v\u00e4nlig ange texten du fick n\u00e4r du exporterat ditt kommando"
+        },
+        "import": "Importera",
+        "header": "Inst\u00e4llningar:"
+    },
+    "color": {
+        "color_green": "Gr\u00f6n",
+        "color_red": "R\u00f6d",
+        "color_none": "Ingen",
+        "color_dark_aqua": "M\u00f6rkturkos",
+        "color_dark_purple": "M\u00f6rklila",
+        "color_dark_blue": "M\u00f6rkbl\u00e5",
+        "color_aqua": "Turkos",
+        "color_white": "Vit",
+        "color_dark_gray": "M\u00f6rkgr\u00e5",
+        "color_dark_red": "M\u00f6rkr\u00f6d",
+        "color_dark_green": "M\u00f6rkgr\u00f6n",
+        "color_gold": "Guld",
+        "color_blue": "Bl\u00e5",
+        "color_black": "Svart",
+        "color_gray": "Gr\u00e5",
+        "color_light_purple": "Ljuslila",
+        "color_yellow": "Gul"
+    },
+    "header": "Tellraw Generator f\u00f6r Minecraft 1.7+",
+    "textsnippets": {
+        "trn": "\u00d6versatt",
+        "clickevent": {
+            "runcommand": "K\u00f6r kommando",
+            "openurl": "\u00d6ppna URL",
+            "suggestcommand": "F\u00f6resl\u00e5 kommando",
+            "header": "Klick\u00e5tg\u00e4rd:",
+            "none": "Ingen"
+        },
+        "parameter": "Parameter",
+        "editsnippet": "Redigera text",
+        "close": "St\u00e4ng",
+        "hoverevent": {
+            "addtext": "L\u00e4gg till text",
+            "removetext": "Ta bort senaste texten",
+            "header": "\u00c5tg\u00e4rd n\u00e4r mus f\u00f6rs \u00f6ver:",
+            "showachievement": "Visa prestation",
+            "id": "ID:",
+            "showentity": "Visa objekt",
+            "showitem": "Visa sak",
+            "type": "Typ:",
+            "none": "Ingen",
+            "showtext": "Visa text",
+            "name": "Namn"
+        },
+        "notext": "Ingen text",
+        "NEW_ITERATE_FLAG": "Boksida \/ Skyltlinje",
+        "insert": "Infoga",
+        "addsnippet": "L\u00e4gg till text",
+        "insertion": {
+            "header": "Infogning"
+        },
+        "sel": "V\u00e4jare",
+        "format": {
+            "bold": "Fet",
+            "underlined": "Understruken",
+            "obfuscated": "F\u00f6rvr\u00e4ngd",
+            "italic": "Kursiv",
+            "strikethrough": "Genomstruken"
+        },
+        "player": "Spelare",
+        "obj2": "M\u00e5l:",
+        "obj": "Po\u00e4ngtavelsm\u00e5l:",
+        "nosnippets": "Ingen text \u00e4n",
+        "header": "Textsnuttar",
+        "text": "Text",
+        "raw": "R\u00e5",
+        "warning": {
+            "title": "Varning!"
+        }
+    },
+    "headerbar": {
+        "help": "Hj\u00e4lp",
+        "report_an_issue": "Rapportera ett problem",
+        "dropdown": {
+            "tweet": "Tweeta",
+            "request_needed_translations": "Lista \u00f6ver \u00f6vers\u00e4ttningar som beh\u00f6vs",
+            "forum_thread": "Forumtr\u00e5d",
+            "changelog": "\u00c4ndringslogg"
+        }
+    },
+    "language": {
+        "translate": "\u00d6vers\u00e4tt",
+        "name": "Svenska",
+        "header": "Spr\u00e5k",
+        "credit": "\u00d6versatt av metarmask, NeonMaster"
+    },
+    "player": {
+        "header": "Spelare och kommando",
+        "description": "Anv\u00e4nds f\u00f6r att v\u00e4lja och k\u00f6ra kommandot fr\u00e5n olika spelare"
+    },
+    "commandblock": "Du m\u00e5ste k\u00f6ra det h\u00e4r i serverkonsollen eller i ett kommandoblock.",
+    "alert": {
+        "report": "Rapportera problem",
+        "changed": "Den h\u00e4r sidan var nyligen \u00e4ndrad, det kan d\u00e4rf\u00f6r finnas problem. Ladda om sidan om n\u00e5got inte verkar fungera.",
+        "receiveupdates": "F\u00e5 uppdateringar h\u00e4r (\"F\u00f6lj\" \u00e4mnet)"
+    },
+    "command": "Kommando:",
+    "export": {
+        "heading": "Ditt exporterade kommando",
+        "close": "St\u00e4ng"
+    },
+    "attribution": "Ingenting kr\u00e4vs f\u00f6r att anv\u00e4nda den h\u00e4r webbsidan, men det skulle alltid uppskattas om du l\u00e4nkade hit eller till MCF-tr\u00e5den."
+}

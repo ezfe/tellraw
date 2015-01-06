@@ -35,8 +35,8 @@
         "execute_tellraw": "Execute"
     },
     "output": {
-        "nothing": "\u9084\u6c92\u6709\u6307\u4ee4",
-        "header": "\u9810\u89bd\u8f38\u51fa\uff1a"
+        "nothing": "Nic k vid\u011bn\u00ed",
+        "header": "N\u00e1hled v\u00fdstupu:"
     },
     "saves": {
         "header": "Saves",
@@ -61,88 +61,88 @@
         "show": "Open Settings",
         "hide": "Close Settings",
         "fontSize": "Preview Font Size",
-        "previewcolor": "\u9810\u89bd\u8f38\u51fa\u80cc\u666f\u984f\u8272",
+        "previewcolor": "Barva pozad\u00ed n\u00e1hledu:",
         "export": "Export",
         "deleteall": {
-            "body": "\u522a\u9664\u6240\u6709\u7684\u6587\u5b57\u55ce\uff1f",
-            "heading": "\u78ba\u5b9a\u8981\u9019\u9ebc\u505a\u55ce\uff1f",
-            "yes": "\u522a\u9664\u5168\u90e8",
-            "no": "\u53d6\u6d88"
+            "body": "Vyma\u017ee v\u0161echen tv\u016fj text a resetuje ho na pr\u00e1zdnou hodnotu.",
+            "heading": "Doopravdy!?!",
+            "yes": "Vymazat v\u0161e",
+            "no": "Zru\u0161it"
         },
         "importtext": {
             "default": "Please enter the tellraw command. Use the Delete All button if it incorrectly imports. Import only works with \/tellraw commands",
             "exported": "Please enter the string you were given when you exported your command"
         },
-        "import": "\u532f\u5165",
-        "header": "\u8a2d\u5b9a\uff1a"
+        "import": "Importovat",
+        "header": "Nastaven\u00ed:"
     },
     "color": {
-        "color_green": "\u7da0\u8272",
-        "color_red": "\u7d05\u8272",
+        "color_green": "Zelen\u00e1",
+        "color_red": "\u010cerven\u00e1",
         "color_none": "None",
-        "color_dark_aqua": "\u6df1\u9752\u8272",
-        "color_dark_purple": "\u6df1\u7d2b\u8272",
-        "color_dark_blue": "\u6df1\u85cd\u8272",
-        "color_aqua": "\u9752\u8272",
-        "color_white": "\u767d\u8272",
-        "color_dark_gray": "\u6697\u7070\u8272",
-        "color_dark_red": "\u6df1\u7d05\u8272",
-        "color_dark_green": "\u6df1\u7da0\u8272",
-        "color_gold": "\u91d1\u8272",
-        "color_blue": "\u85cd\u8272",
-        "color_black": "\u9ed1\u8272",
-        "color_gray": "\u7070\u8272",
-        "color_light_purple": "\u4eae\u7d2b\u8272",
-        "color_yellow": "\u9ec3\u8272"
+        "color_dark_aqua": "Tmav\u011b modrozelen\u00e1",
+        "color_dark_purple": "Fialov\u00e1",
+        "color_dark_blue": "Tmav\u011b modr\u00e1",
+        "color_aqua": "Modrozelen\u00e1",
+        "color_white": "B\u00edl\u00e1",
+        "color_dark_gray": "Tmav\u011b \u0161ed\u00e1",
+        "color_dark_red": "Tmav\u011b \u010derven\u00e1",
+        "color_dark_green": "Tmav\u011b zelen\u00e1",
+        "color_gold": "Zlat\u00e1",
+        "color_blue": "Modr\u00e1",
+        "color_black": "\u010cern\u00e1",
+        "color_gray": "\u0160ed\u00e1",
+        "color_light_purple": "R\u016f\u017eov\u00e1",
+        "color_yellow": "\u017dlut\u00e1"
     },
-    "header": "Tellraw \u6307\u4ee4\u7522\u751f\u5668",
+    "header": "Gener\u00e1tor TellRaw pro Minecraft 1.7 a vy\u0161\u0161\u00ed",
     "textsnippets": {
-        "trn": "\u7ffb\u8b6f",
+        "trn": "P\u0159elo\u017een\u00e9",
         "clickevent": {
-            "runcommand": "\u57f7\u884c\u6307\u4ee4",
-            "openurl": "\u958b\u555f\u7db2\u5740(URL=\u7db2\u5740)",
-            "suggestcommand": "\u5efa\u8b70\u6307\u4ee4",
-            "header": "\u9ede\u64ca\u4e8b\u4ef6\uff1a",
-            "none": "\u7121"
+            "runcommand": "Spustit p\u0159\u00edkaz:",
+            "openurl": "Otev\u0159\u00edt webovou adresu",
+            "suggestcommand": "Navrhnout p\u0159\u00edkaz",
+            "header": "Ud\u00e1lost p\u0159i kliknut\u00ed:",
+            "none": "Nic"
         },
-        "parameter": "\u53c3\u6578",
+        "parameter": "Vlastnost",
         "editsnippet": "Edit Text",
-        "close": "\u95dc\u9589",
+        "close": "Zav\u0159\u00edt",
         "hoverevent": {
             "addtext": "Add Text",
             "removetext": "Remove Last Text",
-            "header": "\u61f8\u6d6e\u4e8b\u4ef6\uff1a",
-            "showachievement": "\u986f\u793a\u6210\u5c31",
+            "header": "Ud\u00e1lost p\u0159i p\u0159ejet\u00ed my\u0161\u00ed:",
+            "showachievement": "Uk\u00e1zat ocen\u011bn\u00ed (achievement)",
             "id": "ID:",
-            "showentity": "\u986f\u793a\u5be6\u9ad4",
-            "showitem": "\u986f\u793a\u7269\u54c1",
-            "type": "\u985e\u578b\uff1a",
-            "none": "\u7121",
-            "showtext": "\u986f\u793a\u6587\u5b57",
-            "name": "\u540d\u7a31"
+            "showentity": "Uk\u00e1zat subjekt (\u017eij\u00edc\u00ed v\u011bc, entity)",
+            "showitem": "Uk\u00e1zat p\u0159edm\u011bt (item)",
+            "type": "Typ:",
+            "none": "Nic",
+            "showtext": "Uk\u00e1zat text",
+            "name": "Jm\u00e9no"
         },
         "notext": "No Text",
         "NEW_ITERATE_FLAG": "Book Page \/ Sign Line",
-        "insert": "\u63d2\u5165",
-        "addsnippet": "\u52a0\u5165\u6587\u5b57",
+        "insert": "Vlo\u017eit",
+        "addsnippet": "P\u0159idat text ",
         "insertion": {
-            "header": "\u63d2\u5165"
+            "header": "Vlo\u017een\u00ed:"
         },
         "sel": "Selector",
         "format": {
-            "bold": "\u7c97\u9ad4",
-            "underlined": "\u5e95\u7dda",
-            "obfuscated": "\u4e82\u78bc",
-            "italic": "\u659c\u9ad4",
-            "strikethrough": "\u522a\u9664\u7dda"
+            "bold": "Tu\u010dn\u00e9",
+            "underlined": "Podtrhnut\u00e9",
+            "obfuscated": "Zmaten\u00e9 (\u00a7k)",
+            "italic": "Kurz\u00edva",
+            "strikethrough": "P\u0159e\u0161krtnut\u00e9"
         },
         "player": "Player",
         "obj2": "Objective",
         "obj": "Scoreboard Objective",
-        "nosnippets": "\u9084\u6c92\u6709\u6587\u5b57",
-        "header": "\u6587\u5b57",
-        "text": "\u6587\u5b57",
-        "raw": "\u81ea\u8a02",
+        "nosnippets": "Zat\u00edm \u017e\u00e1dn\u00fd text",
+        "header": "\u00daryvky textu",
+        "text": "Text",
+        "raw": "Nezpracovan\u00e9",
         "warning": {
             "title": "Warning!"
         }
@@ -158,22 +158,22 @@
         }
     },
     "language": {
-        "translate": "\u7ffb\u8b6f",
-        "name": "\u7e41\u9ad4\u4e2d\u6587",
-        "header": "\u8a9e\u8a00",
-        "credit": "\u7ffb\u8b6f by \u6d77\u8c79(seadog007) \u548c \u67ef\u67ef(TaiwaneseFTW)"
+        "translate": "P\u0159elo\u017eit",
+        "name": "\u010ce\u0161tina",
+        "header": "Jazyk",
+        "credit": "Do \u010de\u0161tiny p\u0159elo\u017eil Matojeje (Matuli Yoshi)"
     },
     "player": {
-        "header": "\u73a9\u5bb6\uff1a",
-        "description": "(@a\u3001@p\u3001@r\u6216\u7279\u5b9a\u7684\u73a9\u5bb6)"
+        "header": "Hr\u00e1\u010d:",
+        "description": "(@a, @p, @r, nebo jm\u00e9no hr\u00e1\u010de)"
     },
-    "commandblock": "\u4f60\u4e00\u5b9a\u8981\u5728\u4f3a\u670d\u5668\u63a7\u5236\u53f0\u6216\u6307\u4ee4\u65b9\u584a\u4e2d\u4f7f\u7528\u3002",
+    "commandblock": "Tento p\u0159\u00edkaz mus\u00ed\u0161 spustit p\u0159es konzoli serveru nebo p\u0159es p\u0159\u00edkazov\u00fd blok.",
     "alert": {
         "report": "Report Problem",
-        "changed": "\u672c\u9801\u6700\u8fd1\u4fee\u6539\u904e\uff0c\u56e0\u6b64\u53ef\u80fd\u6703\u6709\u554f\u984c\u3002\u5982\u679c\u6c92\u6709\u6b63\u5e38\u52d5\u4f5c\uff0c\u8acb\u91cd\u65b0\u6574\u7406\u3002",
-        "receiveupdates": "\u8ddf\u96a8\u6b64\u6587\u7ae0\u4f86\u63a5\u6536\u66f4\u65b0\u8207\u652f\u6301\u4f5c\u8005"
+        "changed": "Tato str\u00e1nka byla ned\u00e1vno zm\u011bn\u011bna, tak\u017ee tu mohou b\u00fdt probl\u00e9my. Pokud n\u011bco nefunguje, obnov str\u00e1nku.",
+        "receiveupdates": "Aktualizace t\u00e9to str\u00e1nky (\"Sleduj\" t\u00e9ma)"
     },
-    "command": "\u6307\u4ee4\uff1a",
+    "command": "P\u0159\u00edkaz:",
     "export": {
         "heading": "Your Exported Command",
         "close": "Close"

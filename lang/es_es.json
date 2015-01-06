@@ -1,184 +1,182 @@
 {
-	"donate": {
-		"support-header": "Por favor apoya a esta página",
-		"support-subheader": "No quiero poner anuncios en esta página, por favor dona para apoyar los costes de mantenimiento en esta página.",
-		"donate-button": "Donar",
-		"overcast-text": "¿Quieres comprarme un rango en el Overcast Network? Dale a la imagen de abajo, y pon ezekielelin como mi nombre de usuario.",
-		"exit": "Salir"
-	},
-	"issues": {
-		"go-home": "Ignorar error"
-	},
-	"tos": {
-		"warn": {
-			"read": "Leer",
-			"accept": "Aceptar"
-		}
-	},
-	"help": {
-		"textfield": "Emplea \\n para hacer un salto de línea",
-		"raw-text-tab": "Escribe el texto. Si es simple, no tendrá ningún añadido. Scoreboard modifica un valor de un scoreboard. Selector escoge una entidad para ejecutar el comando.",
-		"report-an-issue": "Haz click para reportar un error. Si ves algún tipo de fallo, comunícalo aquí.",
-		"dropdown-list": "Twitea, historial de cambios, ve al tema en el foro de minecraft, o mira los idiomas por traducir.",
-		"addsnippet": "Añade texto al comando /tellraw.",
-		"delete-all-saves": "Elimina los comandos guardados, dejando el que estás creando, intacto.",
-		"create-new-save": "Guarda una copia. Esto sobreescribirá otra copia con el mismo nombre, si así lo quieres.",
-		"delete-all-snippets": "Elimina el comando por completo. Las copias gurardadas permanecerán.",
-		"show-saves": "Muestra el editor de las copias guradadas, permite guardar, cargar, y eliminar los comandos guardados."
-	},
-	"template": {
-		"sign_block": "Cartel (/blockdata)",
-		"sign_item": "Cartel (/give)",
-		"subtitle": "Subtítulo",
-		"title": "Título",
-		"tellraw": "Tellraw",
-		"book": "Libro",
-		"execute_tellraw": "Execute"
-	},
-	"output": {
-		"nothing": "Nada todavía",
-		"header": "Vista previa del comando:"
-	},
-	"saves": {
-		"header": "Comandos guardados",
-		"hide": "Ocultar copias",
-		"persistencenotice": "Las copias pueden ser eliminadas en cualquier momento ya que dependen de las Cookies del navegador. No las almacenes durante mucho tiempo.",
-		"show": "Mostrar copias",
-		"deleteall": {
-			"body": "Eliminar todas las copias guardadas no modificará el texto actual",
-			"yes": "ELIMINA TODAS las copias guardadas",
-			"heading": "¡¿¡SEGURO!?!",
-			"no": "Cancelar"
-		},
-		"nosaves": "No tienes nada guardado",
-		"new": "Guarda el texto actual"
-	},
-	"settings": {
-		"nlOutput": "Muestra el comando estructurado",
-		"darkmode": {
-			"turn_on": "Tema oscuro",
-			"turn_off": "Tema claro"
-		},
-		"show": "Mostrar configuración",
-		"hide": "Ocultar configuración",
-		"fontSize": "Tamaño de fuente de la previsualización",
-		"previewcolor": "Color de fondo de la previsualización:",
-		"export": "Exportar",
-		"deleteall": {
-			"body": "Eliminar todo borrará el texto actual y creará uno nuevo en blanco.",
-			"heading": "¡¿¡SEGURO!?!",
-			"yes": "Eliminar todo",
-			"no": "Cancelar"
-		},
-		"importtext": {
-			"default": "Introduce aquí tu comando tellraw. Emplea el botón Eliminar todo si se importa de manera incorrecta. Sólo funciona con /tellraw.",
-			"exported": "Introduce aquí el texto obtenido al exportar un comando"
-		},
-		"import": "Importar",
-		"header": "Configuración:"
-	},
-	"color": {
-		"color_green": "Verde",
-		"color_red": "Rojo",
-		"color_none": "Nada",
-		"color_dark_aqua": "Aguamarina Oscuro",
-		"color_dark_purple": "Morado Oscuro",
-		"color_dark_blue": "Azul Oscuro",
-		"color_aqua": "Aguamarina",
-		"color_white": "Blanco",
-		"color_dark_gray": "Gris Oscuro",
-		"color_dark_red": "Rojo Oscuro",
-		"color_dark_green": "Verde Oscuro",
-		"color_gold": "Dorado",
-		"color_blue": "Azul",
-		"color_black": "Negro",
-		"color_gray": "Gris",
-		"color_light_purple": "Púrpura",
-		"color_yellow": "Amarillo"
-	},
-	"header": "Generador de Tellraw para Minecraft 1.7+",
-	"textsnippets": {
-		"trn": "Traducido al idioma del Jugador",
-		"clickevent": {
-			"runcommand": "Ejecutar comando",
-			"openurl": "Abrir una URL",
-			"suggestcommand": "Introducir comando",
-			"header": "Al hacer clic:",
-			"none": "None"
-		},
-		"parameter": "Parámetro",
-		"editsnippet": "Editar Texto",
-		"close": "Cerrar",
-		"hoverevent": {
-			"addtext": "Añadir texto",
-			"removetext": "Quitar el último texto",
-			"header": "Al pasar el cursor:",
-			"showachievement": "Mostrar Logro",
-			"id": "ID:",
-			"showentity": "Mostrar Entidad",
-			"showitem": "Mostrar Ítem",
-			"type": "Tipo:",
-			"none": "Nada",
-			"showtext": "Mostrar Texto",
-			"name": "Nombre"
-		},
-		"notext": "Sin Texto",
-		"NEW_ITERATE_FLAG": "Créditos (Libro)",
-		"insert": "Insertar",
-		"addsnippet": "Añadir Texto",
-		"insertion": {
-			"header": "Insertar en Chat"
-		},
-		"sel": "Selector",
-		"format": {
-			"bold": "Negrita",
-			"underlined": "Subrayado",
-			"obfuscated": "Confuso",
-			"italic": "Cursiva",
-			"strikethrough": "Tachado"
-		},
-		"player": "Jugador",
-		"obj2": "Objetivo",
-		"obj": "Objetivo del scoreboard",
-		"nosnippets": "Sin texto todavía",
-		"header": "Fragmentos de texto",
-		"text": "Texto",
-		"raw": "Texto Simple",
-		"warning": {
-			"title": "¡Precaución!",
-			"text": "Necesitas un valor en %v para emplear %f"
-		}
-	},
-	"headerbar": {
-		"help": "Ayuda",
-		"report_an_issue": "Reportar un fallo/error",
-		"dropdown": {
-			"tweet": "Twitea",
-			"request_needed_translations": "Lista de traducciones pendientes",
-			"forum_thread": "Tema en el Foro",
-			"changelog": "Historial de cambios"
-		}
-	},
-	"language": {
-		"translate": "Traduce",
-		"name": "Español",
-		"header": "Idioma",
-		"credit": "Traducido por KaliNuska, IvanCR72"
-	},
-	"player": {
-		"header": "Jugador Objetivo",
-		"description": "Empleado para ejecutar el comando en uno o varios jugadores"
-	},
-	"commandblock": "Debes ejecutar este comando mediante un Bloque de Comandos o en la consola del servidor.",
-	"alert": {
-		"report": "Enviar fallos",
-		"changed": "Esta página está aún en su versión beta, por lo que puede haber errores. Recarga la página si algo va mal.",
-		"receiveupdates": "Recibe notificaciones (\"Suscríbete\" al post)"
-	},
-	"command": "Comando:",
-	"export": {
-		"heading": "Tu comando exportado",
-		"close": "Cerrar"
-	},
-	"attribution": "Mientras que puedes usar esta página sin más, siempre será apreciado si publicas el enlace a esta página web o al Tema en el Foro de Minecraft."
+    "donate": {
+        "patreon-button": "Patreon",
+        "support-header": "Por favor apoya a esta p\u00e1gina",
+        "paypal-note": "I do not offer paypal as a listed option due to fees (Stripe doesn't charge fees to Students). However, if you wish you can send me money over PayPal via funds@ezekielelin.com",
+        "patreon-text": "If you Pledge to donate a certain amount each month, I can rely on that to upgrade the servers.",
+        "support-subheader": "No quiero poner anuncios en esta p\u00e1gina, por favor dona para apoyar los costes de mantenimiento en esta p\u00e1gina.",
+        "donate-button": "Donar",
+        "donate-text": "Make a donation of the value you choose (Stripe).",
+        "overcast-text": "\u00bfQuieres comprarme un rango en el Overcast Network? Dale a la imagen de abajo, y pon ezekielelin como mi nombre de usuario.",
+        "exit": "Salir",
+        "exit-text": "You won't see this again so long as you keep your cookies intact. Unfortunately I have no way of detecting you if you reset your cookies."
+    },
+    "issues": {
+        "go-home": "Ignorar error"
+    },
+    "help": {
+        "textfield": "Emplea \\n para hacer un salto de l\u00ednea",
+        "raw-text-tab": "Escribe el texto. Si es simple, no tendr\u00e1 ning\u00fan a\u00f1adido. Scoreboard modifica un valor de un scoreboard. Selector escoge una entidad para ejecutar el comando.",
+        "report-an-issue": "Haz click para reportar un error. Si ves alg\u00fan tipo de fallo, comun\u00edcalo aqu\u00ed.",
+        "dropdown-list": "Twitea, historial de cambios, ve al tema en el foro de minecraft, o mira los idiomas por traducir.",
+        "addsnippet": "A\u00f1ade texto al comando \/tellraw.",
+        "delete-all-saves": "Elimina los comandos guardados, dejando el que est\u00e1s creando, intacto.",
+        "create-new-save": "Guarda una copia. Esto sobreescribir\u00e1 otra copia con el mismo nombre, si as\u00ed lo quieres.",
+        "delete-all-snippets": "Elimina el comando por completo. Las copias gurardadas permanecer\u00e1n.",
+        "show-saves": "Muestra el editor de las copias guradadas, permite guardar, cargar, y eliminar los comandos guardados."
+    },
+    "template": {
+        "sign_block": "Cartel (\/blockdata)",
+        "sign_item": "Cartel (\/give)",
+        "subtitle": "Subt\u00edtulo",
+        "title": "T\u00edtulo",
+        "tellraw": "Tellraw",
+        "book": "Libro",
+        "execute_tellraw": "Execute"
+    },
+    "output": {
+        "nothing": "Nada todav\u00eda",
+        "header": "Vista previa del comando:"
+    },
+    "saves": {
+        "header": "Comandos guardados",
+        "hide": "Ocultar copias",
+        "persistencenotice": "Las copias pueden ser eliminadas en cualquier momento ya que dependen de las Cookies del navegador. No las almacenes durante mucho tiempo.",
+        "show": "Mostrar copias",
+        "deleteall": {
+            "body": "Eliminar todas las copias guardadas no modificar\u00e1 el texto actual",
+            "yes": "ELIMINA TODAS las copias guardadas",
+            "heading": "\u00a1\u00bf\u00a1SEGURO!?!",
+            "no": "Cancelar"
+        },
+        "nosaves": "No tienes nada guardado",
+        "new": "Guarda el texto actual"
+    },
+    "settings": {
+        "nlOutput": "Muestra el comando estructurado",
+        "darkmode": {
+            "turn_on": "Tema oscuro",
+            "turn_off": "Tema claro"
+        },
+        "show": "Mostrar configuraci\u00f3n",
+        "hide": "Ocultar configuraci\u00f3n",
+        "fontSize": "Tama\u00f1o de fuente de la previsualizaci\u00f3n",
+        "previewcolor": "Color de fondo de la previsualizaci\u00f3n:",
+        "export": "Exportar",
+        "deleteall": {
+            "body": "Eliminar todo borrar\u00e1 el texto actual y crear\u00e1 uno nuevo en blanco.",
+            "heading": "\u00a1\u00bf\u00a1SEGURO!?!",
+            "yes": "Eliminar todo",
+            "no": "Cancelar"
+        },
+        "importtext": {
+            "default": "Introduce aqu\u00ed tu comando tellraw. Emplea el bot\u00f3n Eliminar todo si se importa de manera incorrecta. S\u00f3lo funciona con \/tellraw.",
+            "exported": "Introduce aqu\u00ed el texto obtenido al exportar un comando"
+        },
+        "import": "Importar",
+        "header": "Configuraci\u00f3n:"
+    },
+    "color": {
+        "color_green": "Verde",
+        "color_red": "Rojo",
+        "color_none": "Nada",
+        "color_dark_aqua": "Aguamarina Oscuro",
+        "color_dark_purple": "Morado Oscuro",
+        "color_dark_blue": "Azul Oscuro",
+        "color_aqua": "Aguamarina",
+        "color_white": "Blanco",
+        "color_dark_gray": "Gris Oscuro",
+        "color_dark_red": "Rojo Oscuro",
+        "color_dark_green": "Verde Oscuro",
+        "color_gold": "Dorado",
+        "color_blue": "Azul",
+        "color_black": "Negro",
+        "color_gray": "Gris",
+        "color_light_purple": "P\u00farpura",
+        "color_yellow": "Amarillo"
+    },
+    "header": "Generador de Tellraw para Minecraft 1.7+",
+    "textsnippets": {
+        "trn": "Traducido al idioma del Jugador",
+        "clickevent": {
+            "runcommand": "Ejecutar comando",
+            "openurl": "Abrir una URL",
+            "suggestcommand": "Introducir comando",
+            "header": "Al hacer clic:",
+            "none": "None"
+        },
+        "parameter": "Par\u00e1metro",
+        "editsnippet": "Editar Texto",
+        "close": "Cerrar",
+        "hoverevent": {
+            "addtext": "A\u00f1adir texto",
+            "removetext": "Quitar el \u00faltimo texto",
+            "header": "Al pasar el cursor:",
+            "showachievement": "Mostrar Logro",
+            "id": "ID:",
+            "showentity": "Mostrar Entidad",
+            "showitem": "Mostrar \u00cdtem",
+            "type": "Tipo:",
+            "none": "Nada",
+            "showtext": "Mostrar Texto",
+            "name": "Nombre"
+        },
+        "notext": "Sin Texto",
+        "NEW_ITERATE_FLAG": "Cr\u00e9ditos (Libro)",
+        "insert": "Insertar",
+        "addsnippet": "A\u00f1adir Texto",
+        "insertion": {
+            "header": "Insertar en Chat"
+        },
+        "sel": "Selector",
+        "format": {
+            "bold": "Negrita",
+            "underlined": "Subrayado",
+            "obfuscated": "Confuso",
+            "italic": "Cursiva",
+            "strikethrough": "Tachado"
+        },
+        "player": "Jugador",
+        "obj2": "Objetivo",
+        "obj": "Objetivo del scoreboard",
+        "nosnippets": "Sin texto todav\u00eda",
+        "header": "Fragmentos de texto",
+        "text": "Texto",
+        "raw": "Texto Simple",
+        "warning": {
+            "title": "\u00a1Precauci\u00f3n!"
+        }
+    },
+    "headerbar": {
+        "help": "Ayuda",
+        "report_an_issue": "Reportar un fallo\/error",
+        "dropdown": {
+            "tweet": "Twitea",
+            "request_needed_translations": "Lista de traducciones pendientes",
+            "forum_thread": "Tema en el Foro",
+            "changelog": "Historial de cambios"
+        }
+    },
+    "language": {
+        "translate": "Traduce",
+        "name": "Espa\u00f1ol",
+        "header": "Idioma",
+        "credit": "Traducido por KaliNuska, IvanCR72"
+    },
+    "player": {
+        "header": "Jugador Objetivo",
+        "description": "Empleado para ejecutar el comando en uno o varios jugadores"
+    },
+    "commandblock": "Debes ejecutar este comando mediante un Bloque de Comandos o en la consola del servidor.",
+    "alert": {
+        "report": "Enviar fallos",
+        "changed": "Esta p\u00e1gina est\u00e1 a\u00fan en su versi\u00f3n beta, por lo que puede haber errores. Recarga la p\u00e1gina si algo va mal.",
+        "receiveupdates": "Recibe notificaciones (\"Suscr\u00edbete\" al post)"
+    },
+    "command": "Comando:",
+    "export": {
+        "heading": "Tu comando exportado",
+        "close": "Cerrar"
+    },
+    "attribution": "Mientras que puedes usar esta p\u00e1gina sin m\u00e1s, siempre ser\u00e1 apreciado si publicas el enlace a esta p\u00e1gina web o al Tema en el Foro de Minecraft."
 }

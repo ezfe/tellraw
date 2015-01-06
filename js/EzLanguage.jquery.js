@@ -27,7 +27,7 @@ function getLanguageString(string,currentLanguageCode,enTest,do_encode) {
 	var oldLanguageCode = '';
 	if (enTest) {
 		oldLanguageCode = currentLanguageCode;
-		currentLanguageCode = 'en_us';
+		currentLanguageCode = 'en_US';
 	}
 	var strArray = string.split(".");
 	var curobj = lang[currentLanguageCode];
@@ -35,7 +35,7 @@ function getLanguageString(string,currentLanguageCode,enTest,do_encode) {
 		if (curobj[strArray[i]] != undefined) {
 			curobj = curobj[strArray[i]];
 			if (curobj === undefined) {
-				if (currentLanguageCode != 'en_us') {
+				if (currentLanguageCode != 'en_US') {
 					return getLanguageString(string,currentLanguageCode,true);
 				}
 				else {

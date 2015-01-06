@@ -35,22 +35,22 @@
         "execute_tellraw": "Execute"
     },
     "output": {
-        "nothing": "Nothing to see here",
-        "header": "Output Preview:"
+        "nothing": "Hier is niks te zien",
+        "header": "Output voorbeeld:"
     },
     "saves": {
         "header": "Saves",
-        "hide": "Close Saves",
-        "persistencenotice": "Saves may reset at any time, and depend on your browsers cookies. Do not rely on them for extended periods of time.",
-        "show": "Open Saves",
+        "hide": "Verberg Saves",
+        "persistencenotice": "Saves kunnen altijd resetten, en zijn afhankelijk van de cookies in je browsers. Vertrouw er niet op voor een langdurige tijd.",
+        "show": "Saves laten zien",
         "deleteall": {
-            "body": "Clicking Delete will remove all your saves, but won't affect your current text",
-            "yes": "Delete All Saves",
-            "heading": "Are you sure!?!",
-            "no": "Cancel"
+            "body": "Als je op 'Delete' klikt, verwijdert het al je saves, maar het laat je huidige instellingen staan",
+            "yes": "Verwijder alle saves",
+            "heading": "Weet je het zeker!?!",
+            "no": "Nee"
         },
-        "nosaves": "You don't have anything saved",
-        "new": "Save Current String"
+        "nosaves": "Je hebt niks opgeslagen",
+        "new": "Sla op"
     },
     "settings": {
         "nlOutput": "Show Structured Output",
@@ -61,90 +61,90 @@
         "show": "Open Settings",
         "hide": "Close Settings",
         "fontSize": "Preview Font Size",
-        "previewcolor": "Preview Background Color:",
+        "previewcolor": "Voorbeeld achtergrondkleur:",
         "export": "Export",
         "deleteall": {
-            "body": "Clicking Delete will remove all your text and reset it to an empty string.",
-            "heading": "Are you sure!?!",
-            "yes": "Delete All",
-            "no": "Cancel"
+            "body": "Als je op 'Delete' klikt, verwijdert het al je huidige instellingen.",
+            "heading": "Weet je het zeker!?!",
+            "yes": "Verwijder alles",
+            "no": "Nee"
         },
         "importtext": {
-            "default": "Please enter the tellraw command. Use the Delete All button if it incorrectly imports. Import only works with \/tellraw commands",
+            "default": "Voer het 'tellraw' commando hier in. Gebruik de verwijder alles knop als het verkeerd importeert. Import werkt alleen met 'tellraw' commando's",
             "exported": "Please enter the string you were given when you exported your command"
         },
         "import": "Import",
-        "header": "Settings:"
+        "header": "Instellingen:"
     },
     "color": {
-        "color_green": "Green",
-        "color_red": "Red",
-        "color_none": "None",
-        "color_dark_aqua": "Dark Aqua",
-        "color_dark_purple": "Dark Purple",
-        "color_dark_blue": "Dark Blue",
-        "color_aqua": "Aqua",
-        "color_white": "White",
-        "color_dark_gray": "Dark Gray",
-        "color_dark_red": "Dark Red",
-        "color_dark_green": "Dark Green",
-        "color_gold": "Gold",
-        "color_blue": "Blue",
-        "color_black": "Black",
-        "color_gray": "Gray",
-        "color_light_purple": "Light Purple",
-        "color_yellow": "Yellow"
+        "color_green": "Groen",
+        "color_red": "Rood",
+        "color_none": "Geen",
+        "color_dark_aqua": "Donker water",
+        "color_dark_purple": "Donker paars",
+        "color_dark_blue": "Donker blauw",
+        "color_aqua": "Water",
+        "color_white": "Wit",
+        "color_dark_gray": "Donker grijs",
+        "color_dark_red": "Donker rood",
+        "color_dark_green": "Donker groen",
+        "color_gold": "Goud",
+        "color_blue": "Blauw",
+        "color_black": "Zwart",
+        "color_gray": "Grijs",
+        "color_light_purple": "Licht paars",
+        "color_yellow": "Geel"
     },
-    "header": "Tellraw Generator for Minecraft 1.7+",
+    "header": "Tellraw Generator voor Minecraft 1.7+",
     "textsnippets": {
-        "trn": "Translated",
+        "trn": "Vertaald",
         "clickevent": {
-            "runcommand": "Run Command",
-            "openurl": "Open URL",
-            "suggestcommand": "Suggest Command",
-            "header": "Click Event:",
-            "none": "None"
+            "runcommand": "Voer commando uit",
+            "openurl": "Open Link",
+            "suggestcommand": "Beveel commando aan",
+            "header": "Klik gebeurtenis:",
+            "none": "Geen"
         },
         "parameter": "Parameter",
-        "editsnippet": "Edit Text",
-        "close": "Close",
+        "editsnippet": "Bewerk tekst",
+        "close": "Sluit",
         "hoverevent": {
             "addtext": "Add Text",
             "removetext": "Remove Last Text",
-            "header": "Hover Event:",
-            "showachievement": "Show Achievement",
+            "header": "Hover gebeurtenis:",
+            "showachievement": "Laat archievement zien",
             "id": "ID:",
-            "showentity": "Show Entity",
-            "showitem": "Show Item",
+            "showentity": "Laat entity zien",
+            "showitem": "Laat item zien",
             "type": "Type:",
-            "none": "None",
-            "showtext": "Show Text",
-            "name": "Name"
+            "none": "Geen",
+            "showtext": "Laat tekst zien",
+            "name": "Naam"
         },
-        "notext": "No Text",
+        "notext": "Geen tekst",
         "NEW_ITERATE_FLAG": "Book Page \/ Sign Line",
-        "insert": "Insert",
-        "addsnippet": "Add Text",
+        "insert": "Invoegen",
+        "addsnippet": "Voeg tekst toe",
         "insertion": {
-            "header": "Insertion"
+            "header": "Invoegen"
         },
         "sel": "Selector",
         "format": {
             "bold": "Bold",
-            "underlined": "Underlined",
+            "underlined": "Onderstreept",
             "obfuscated": "Obfuscated",
-            "italic": "Italic",
-            "strikethrough": "Strikethrough"
+            "italic": "Schuin",
+            "strikethrough": "Doorgestreept"
         },
-        "player": "Player",
-        "obj2": "Objective",
-        "obj": "Scoreboard Objective",
-        "nosnippets": "No text yet",
+        "player": "Speler",
+        "obj2": "Doel",
+        "obj": "Scorebord Doel",
+        "nosnippets": "Nog geen tekst",
         "header": "Text Snippets",
-        "text": "Text",
-        "raw": "Raw",
+        "text": "Tekst",
+        "raw": "Ruw",
         "warning": {
-            "title": "Warning!"
+            "title": "Waarschuwing!"
         }
     },
     "headerbar": {
@@ -158,22 +158,22 @@
         }
     },
     "language": {
-        "translate": "Translate",
-        "name": "English",
-        "header": "Language",
-        "credit": "Translated by Ezekiel"
+        "translate": "Vertalen",
+        "name": "Nederlands",
+        "header": "Taal",
+        "credit": "Vertaald door rhbvkleef"
     },
     "player": {
-        "header": "Player and Command",
+        "header": "Speler en commando",
         "description": "Used to select and execute different players"
     },
-    "commandblock": "You must run this in the server console or in a command block.",
+    "commandblock": "Dit commando moet je uitvoeren in de server console of in een command block.",
     "alert": {
-        "report": "Report Problem",
-        "changed": "This page was recently modified, so there might be problems. Reload the page if something doesn't seem to work.",
-        "receiveupdates": "Receive updates here (\"Follow\" the topic)"
+        "report": "Reporteer probleem",
+        "changed": "Deze pagina was recent veranderd, dus er kunnen problemen zijn. Herlaad de pagina als er iets niet werkt",
+        "receiveupdates": "Ontvang updates hier! (\"Volg\" het onderwerp)"
     },
-    "command": "Command:",
+    "command": "Commando:",
     "export": {
         "heading": "Your Exported Command",
         "close": "Close"
