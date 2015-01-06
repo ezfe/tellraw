@@ -57,6 +57,18 @@
 	font-family: "minecraftiaregular","Minecraftia","Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-size: 16px;
 }
+
+#exportText {
+	resize: none;
+	border-style: none;
+	border-color: Transparent;
+	outline:none;
+	overflow: auto;
+	width: 100%;
+	height: 100%;
+	background-color: Transparent;
+}
+
 div.popover {
 	font-family: "Menlo",monospace;
 	font-size: 12px;
