@@ -1396,10 +1396,10 @@ function initialize() {
 		editing = true;
 	});
 	$( "#translate_input" ).autocomplete({
-		source: Object.keys(translationStrings)
+		//source: Object.keys(translationStrings)
 	});
 	$( "#translate_input_edit" ).autocomplete({
-		source: Object.keys(translationStrings)
+		//source: Object.keys(translationStrings)
 	});
 	$('#show-saves').on('click',function(){
 		showView('saves');
