@@ -151,9 +151,12 @@ div[class*='col-xs-'] {
 
 
 /*Issue Buttons*/
+.black-theme .issue-button {
+	border-color: white;
+}
 .issue-button {
 	background-color: transparent;
-	border-color: white;
+	border-color: black;
 	border-style: solid;
 	border-radius: 5px;
 	height: 100px;
