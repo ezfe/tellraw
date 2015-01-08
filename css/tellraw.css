@@ -150,17 +150,22 @@ div[class*='col-xs-'] {
 /*}/**/
 
 
+#issue-view-container {
+	padding-top: 70px;
+	padding-bottom: 70px;
+}
 /*Issue Buttons*/
 .issue-button {
-	background-color: transparent;
-	border-color: white;
+	background-color: #D9534F;
+	border-color: border-color;
 	border-style: solid;
 	border-radius: 5px;
-	height: 100px;
+	height: 50px;
 	width: 150px;
+	color: #ffffff;
 }
 .issue-button:hover {
-	border-color: #3AB0D3;
+	border-color: #c9302c;
 }
 .issue-button:hover::after {
 	position: absolute;
