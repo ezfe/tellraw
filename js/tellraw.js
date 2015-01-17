@@ -299,6 +299,7 @@ function deleteAllCancel() {
 }
 function clearJObjectSaves() {
 	$('#deleteJObjectConfirm').remove();
+	showView('tellraw');
 	$('.alerts').append('<div id="deleteJObjectConfirm" class="alert alert-danger"><h4 lang="saves.deleteall.heading"></h4><p lang="saves.deleteall.body"></p><p><button type="button" onclick="clearJObjectSavesConfirmed()" class="btn btn-danger" lang="saves.deleteall.yes"></button> <button type="button" onclick="clearJObjectSavesCancel()" class="btn btn-default" lang="saves.deleteall.no"></button></p></div>');
 	refreshLanguage();
 }
@@ -311,9 +312,11 @@ function clearJObjectSavesConfirmed() {
 	};
 	$('#deleteJObjectConfirm').slideUp();
 	refreshSavesList();
+	showView('saves');
 }
 function clearJObjectSavesCancel() {
 	$('#deleteJObjectConfirm').slideUp();
+	showView('saves');
 }
 function obfuscationPreviewHandler() {
 	$('.jsonPreviewObfuscated').html(setObfuscatedString($('.jsonPreviewObfuscated').html()));
