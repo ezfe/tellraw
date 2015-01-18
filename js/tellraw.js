@@ -303,12 +303,14 @@ function clearJObjectSaves() {
 	refreshLanguage();
 }
 function clearJObjectSavesConfirmed() {
-	for (var i = 0; i < Object.keys(localStorage).length; i++) {
-		var key = Object.keys(localStorage)[i];
-		if (key.indexOf('saveSlot_') != -1) {
-			localStorage.removeItem(key);
+	for (var x = 0; x < Object.keys(localStorage).length; x++) {
+		for (var i = 0; i < Object.keys(localStorage).length; i++) {
+			var key = Object.keys(localStorage)[i];
+			if (key.indexOf('saveSlot_') != -1) {
+				localStorage.removeItem(key);
+			}
 		}
-	};
+	}
 	$('#deleteJObjectConfirm').slideUp();
 	refreshSavesList();
 }
@@ -1343,9 +1345,9 @@ function initialize() {
 		$exportText = $('#exportText');
 		$exportText.select();
 		$exportText.height('1px');
-        	$exportText.height(exportText.scrollHeight + "px");
+		$exportText.height(exportText.scrollHeight + "px");
 		$exportText.click(function(){
-    			this.select();
+			this.select();
 		});
 		goToByScroll('exporter');
 		refreshLanguage();
@@ -1443,27 +1445,27 @@ function initialize() {
 			$('#issue-workflow-r2-output').fadeIn();
 		//} else if (id == "other-issue-button") {
 		//	reportAnIssue();
-		} else if (id == "translation-current-issue-button") {
-			reportAnIssue('Translation Issue (' + localStorage.getItem('langCode') + ')');
-			showView('tellraw');
-		} else if (id == "translation-other-issue-button") {
-			reportAnIssue('Translation Issue (Other)');
-			showView('tellraw');
-		} else if (id == "output-quotes-issue-button") {
-			$('.templateButton[template=tellraw]').click();
-			alert('The issue should be fixed.\n\nIf it is not, please report as Output > Other, and note this event in your report..');
-			showView('tellraw');
-		} else if (id == "output-other-issue-button") {
-			reportAnIssue('Output Issue (Other)');
-			showView('tellraw');
-		} else if (id == "cancel-issue-button") {
-			showView('tellraw');
-			parentRow.show();
-		} else {
-			showView('tellraw');
-			reportAnIssue();
-		}
-	});
+	} else if (id == "translation-current-issue-button") {
+		reportAnIssue('Translation Issue (' + localStorage.getItem('langCode') + ')');
+		showView('tellraw');
+	} else if (id == "translation-other-issue-button") {
+		reportAnIssue('Translation Issue (Other)');
+		showView('tellraw');
+	} else if (id == "output-quotes-issue-button") {
+		$('.templateButton[template=tellraw]').click();
+		alert('The issue should be fixed.\n\nIf it is not, please report as Output > Other, and note this event in your report..');
+		showView('tellraw');
+	} else if (id == "output-other-issue-button") {
+		reportAnIssue('Output Issue (Other)');
+		showView('tellraw');
+	} else if (id == "cancel-issue-button") {
+		showView('tellraw');
+		parentRow.show();
+	} else {
+		showView('tellraw');
+		reportAnIssue();
+	}
+});
 
 	//Dark Mode
 
