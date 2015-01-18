@@ -1,4 +1,56 @@
 {
+    "textsnippets": {
+        "clickevent": {
+            "changepage": "Change Page",
+            "runcommand": "Executar comando",
+            "openurl": "Abrir link",
+            "suggestcommand": "Sugerir comando",
+            "header": "Evento ao clicar:",
+            "none": "Nenhum"
+        },
+        "trn": "Traduzido",
+        "parameter": "Par\u00e2metro",
+        "editsnippet": "Editar texto",
+        "close": "Fechar",
+        "hoverevent": {
+            "addtext": "Adicionar texto",
+            "removetext": "Remover ultimo texto",
+            "header": "Evento ao passar mouse:",
+            "showachievement": "Mostrar conquista",
+            "id": "ID:",
+            "showentity": "Mostrar entity",
+            "showitem": "Mostrar item",
+            "type": "Tipo:",
+            "none": "Nenhum",
+            "showtext": "Mostrar texto",
+            "name": "Nome"
+        },
+        "notext": "Sem texto",
+        "NEW_ITERATE_FLAG": "Pagina do livro \/ Linha da placa",
+        "insert": "Inserir",
+        "addsnippet": "Adicionar texto",
+        "insertion": {
+            "header": "Inser\u00e7\u00e3o"
+        },
+        "sel": "Seletor",
+        "format": {
+            "bold": "Negrito",
+            "underlined": "Sublinhado",
+            "obfuscated": "Obfuscado",
+            "italic": "It\u00e1lico",
+            "strikethrough": "Riscado"
+        },
+        "player": "Jogador",
+        "obj2": "Objetivo",
+        "obj": "Objetivo do scoreboard",
+        "nosnippets": "Sem texto",
+        "header": "Textos",
+        "text": "Texto",
+        "raw": "Raw",
+        "warning": {
+            "title": "Aviso"
+        }
+    },
     "donate": {
         "patreon-button": "Patreon",
         "support-header": "(Por favor) Suporte este site",
@@ -16,7 +68,7 @@
     },
     "help": {
         "textfield": "Use\\npara fazer uma nova linha",
-        "raw-text-tab": "Choose your text choice. Raw is normal text. Scoreboard pulls a value from the scoreboard. Selector pulls the name of an entity.",
+        "raw-text-tab": "Escolha seu tipo de texto. Raw \u00e9 padr\u00e3o\/normal. Scoreboard pega um valor do comando scoreboard. Seletor pega o nome de entidades\/entities.",
         "report-an-issue": "Clique aqui para reportar um problema. Se voc\u00ea achar qualquer tipo de bug, voc\u00ea deve reporta-lo aqui.",
         "dropdown-list": "Tweete, veja o log de altera\u00e7\u00f5es do site, veja o nosso t\u00f3pico em minecraft forum, ou receba recursos para traduzir o site.",
         "addsnippet": "Adiciona texto ao seu comando.",
@@ -96,60 +148,9 @@
         "color_yellow": "Amarelo"
     },
     "header": "Gerador de Tellraw para minecraft 1.7+",
-    "textsnippets": {
-        "trn": "Traduzido",
-        "clickevent": {
-            "runcommand": "Executar comando",
-            "openurl": "Abrir link",
-            "suggestcommand": "Sugerir comando",
-            "header": "Evento ao clicar:",
-            "none": "Nenhum"
-        },
-        "parameter": "Par\u00e2metro",
-        "editsnippet": "Editar texto",
-        "close": "Fechar",
-        "hoverevent": {
-            "addtext": "Adicionar texto",
-            "removetext": "Remover ultimo texto",
-            "header": "Evento ao passar mouse:",
-            "showachievement": "Mostrar conquista",
-            "id": "ID:",
-            "showentity": "Mostrar entity",
-            "showitem": "Mostrar item",
-            "type": "Tipo:",
-            "none": "Nenhum",
-            "showtext": "Mostrar texto",
-            "name": "Nome"
-        },
-        "notext": "Sem texto",
-        "NEW_ITERATE_FLAG": "Pagina do livro \/ Linha da placa",
-        "insert": "Inserir",
-        "addsnippet": "Adicionar texto",
-        "insertion": {
-            "header": "Inser\u00e7\u00e3o"
-        },
-        "sel": "Seletor",
-        "format": {
-            "bold": "Negrito",
-            "underlined": "Sublinhado",
-            "obfuscated": "Obfuscado",
-            "italic": "It\u00e1lico",
-            "strikethrough": "Riscado"
-        },
-        "player": "Jogador",
-        "obj2": "Objetivo",
-        "obj": "Objetivo do scoreboard",
-        "nosnippets": "Sem texto",
-        "header": "Textos",
-        "text": "Texto",
-        "raw": "Raw",
-        "warning": {
-            "title": "Aviso"
-        }
-    },
     "headerbar": {
         "help": "Ajuda",
-        "report_an_issue": "Report an Issue",
+        "report_an_issue": "Reportar um erro",
         "dropdown": {
             "tweet": "Tweet",
             "request_needed_translations": "Needed Translations List",

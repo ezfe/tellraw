@@ -1,4 +1,56 @@
 {
+    "textsnippets": {
+        "clickevent": {
+            "changepage": "Change Page",
+            "runcommand": "Spustit p\u0159\u00edkaz:",
+            "openurl": "Otev\u0159\u00edt webovou adresu",
+            "suggestcommand": "Navrhnout p\u0159\u00edkaz",
+            "header": "Ud\u00e1lost p\u0159i kliknut\u00ed:",
+            "none": "Nic"
+        },
+        "trn": "P\u0159elo\u017een\u00e9",
+        "parameter": "Vlastnost",
+        "editsnippet": "Edit Text",
+        "close": "Zav\u0159\u00edt",
+        "hoverevent": {
+            "addtext": "Add Text",
+            "removetext": "Remove Last Text",
+            "header": "Ud\u00e1lost p\u0159i p\u0159ejet\u00ed my\u0161\u00ed:",
+            "showachievement": "Uk\u00e1zat ocen\u011bn\u00ed (achievement)",
+            "id": "ID:",
+            "showentity": "Uk\u00e1zat subjekt (\u017eij\u00edc\u00ed v\u011bc, entity)",
+            "showitem": "Uk\u00e1zat p\u0159edm\u011bt (item)",
+            "type": "Typ:",
+            "none": "Nic",
+            "showtext": "Uk\u00e1zat text",
+            "name": "Jm\u00e9no"
+        },
+        "notext": "No Text",
+        "NEW_ITERATE_FLAG": "Book Page \/ Sign Line",
+        "insert": "Vlo\u017eit",
+        "addsnippet": "P\u0159idat text ",
+        "insertion": {
+            "header": "Vlo\u017een\u00ed:"
+        },
+        "sel": "Selector",
+        "format": {
+            "bold": "Tu\u010dn\u00e9",
+            "underlined": "Podtrhnut\u00e9",
+            "obfuscated": "Zmaten\u00e9 (\u00a7k)",
+            "italic": "Kurz\u00edva",
+            "strikethrough": "P\u0159e\u0161krtnut\u00e9"
+        },
+        "player": "Player",
+        "obj2": "Objective",
+        "obj": "Scoreboard Objective",
+        "nosnippets": "Zat\u00edm \u017e\u00e1dn\u00fd text",
+        "header": "\u00daryvky textu",
+        "text": "Text",
+        "raw": "Nezpracovan\u00e9",
+        "warning": {
+            "title": "Warning!"
+        }
+    },
     "donate": {
         "patreon-button": "Patreon",
         "support-header": "(Please) Support This Website",
@@ -96,57 +148,6 @@
         "color_yellow": "\u017dlut\u00e1"
     },
     "header": "Gener\u00e1tor TellRaw pro Minecraft 1.7 a vy\u0161\u0161\u00ed",
-    "textsnippets": {
-        "trn": "P\u0159elo\u017een\u00e9",
-        "clickevent": {
-            "runcommand": "Spustit p\u0159\u00edkaz:",
-            "openurl": "Otev\u0159\u00edt webovou adresu",
-            "suggestcommand": "Navrhnout p\u0159\u00edkaz",
-            "header": "Ud\u00e1lost p\u0159i kliknut\u00ed:",
-            "none": "Nic"
-        },
-        "parameter": "Vlastnost",
-        "editsnippet": "Edit Text",
-        "close": "Zav\u0159\u00edt",
-        "hoverevent": {
-            "addtext": "Add Text",
-            "removetext": "Remove Last Text",
-            "header": "Ud\u00e1lost p\u0159i p\u0159ejet\u00ed my\u0161\u00ed:",
-            "showachievement": "Uk\u00e1zat ocen\u011bn\u00ed (achievement)",
-            "id": "ID:",
-            "showentity": "Uk\u00e1zat subjekt (\u017eij\u00edc\u00ed v\u011bc, entity)",
-            "showitem": "Uk\u00e1zat p\u0159edm\u011bt (item)",
-            "type": "Typ:",
-            "none": "Nic",
-            "showtext": "Uk\u00e1zat text",
-            "name": "Jm\u00e9no"
-        },
-        "notext": "No Text",
-        "NEW_ITERATE_FLAG": "Book Page \/ Sign Line",
-        "insert": "Vlo\u017eit",
-        "addsnippet": "P\u0159idat text ",
-        "insertion": {
-            "header": "Vlo\u017een\u00ed:"
-        },
-        "sel": "Selector",
-        "format": {
-            "bold": "Tu\u010dn\u00e9",
-            "underlined": "Podtrhnut\u00e9",
-            "obfuscated": "Zmaten\u00e9 (\u00a7k)",
-            "italic": "Kurz\u00edva",
-            "strikethrough": "P\u0159e\u0161krtnut\u00e9"
-        },
-        "player": "Player",
-        "obj2": "Objective",
-        "obj": "Scoreboard Objective",
-        "nosnippets": "Zat\u00edm \u017e\u00e1dn\u00fd text",
-        "header": "\u00daryvky textu",
-        "text": "Text",
-        "raw": "Nezpracovan\u00e9",
-        "warning": {
-            "title": "Warning!"
-        }
-    },
     "headerbar": {
         "help": "Help",
         "report_an_issue": "Report an Issue",

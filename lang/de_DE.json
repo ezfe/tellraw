@@ -1,4 +1,56 @@
 {
+    "textsnippets": {
+        "clickevent": {
+            "changepage": "Change Page",
+            "runcommand": "Befehl ausf\u00fchren",
+            "openurl": "URL \u00f6ffnen",
+            "suggestcommand": "Befehl vorschlagen",
+            "header": "Klick Ereigniss:",
+            "none": "Keins"
+        },
+        "trn": "\u00dcbersetzt",
+        "parameter": "Parameter",
+        "editsnippet": "Text bearbeiten",
+        "close": "Schlie\u00dfen",
+        "hoverevent": {
+            "addtext": "Text hinzuf\u00fcgen.",
+            "removetext": "Letzten Text l\u00f6schen.",
+            "header": "Mouseover Ereigniss:",
+            "showachievement": "Zeige Errungenschaft",
+            "id": "ID:",
+            "showentity": "Zeige Entity",
+            "showitem": "Zeige Item",
+            "type": "Typ:",
+            "none": "Keins",
+            "showtext": "Zeige Text",
+            "name": "Name"
+        },
+        "notext": "Kein Text",
+        "NEW_ITERATE_FLAG": "Buch-Seite \/ Schild-Zeile",
+        "insert": "Einf\u00fcgen",
+        "addsnippet": "Text hinzuf\u00fcgen",
+        "insertion": {
+            "header": "Einzuf\u00fcgender Text"
+        },
+        "sel": "Selector",
+        "format": {
+            "bold": "Fett",
+            "underlined": "Unterstrichen",
+            "obfuscated": "Verschleiert",
+            "italic": "Kursiv",
+            "strikethrough": "Durchgestrichen"
+        },
+        "player": "Spieler",
+        "obj2": "Objective",
+        "obj": "Scoreboard Objective",
+        "nosnippets": "Noch kein Text",
+        "header": "Textabschitte",
+        "text": "Text",
+        "raw": "Roh",
+        "warning": {
+            "title": "Warnung!"
+        }
+    },
     "donate": {
         "patreon-button": "Patreon",
         "support-header": "Unterst\u00fctze diese Seite",
@@ -96,57 +148,6 @@
         "color_yellow": "Gelb"
     },
     "header": "Tellraw Befehlsgenerator f\u00fcr Minecraft 1.7+",
-    "textsnippets": {
-        "trn": "\u00dcbersetzt",
-        "clickevent": {
-            "runcommand": "Befehl ausf\u00fchren",
-            "openurl": "URL \u00f6ffnen",
-            "suggestcommand": "Befehl vorschlagen",
-            "header": "Klick Ereigniss:",
-            "none": "Keins"
-        },
-        "parameter": "Parameter",
-        "editsnippet": "Text bearbeiten",
-        "close": "Schlie\u00dfen",
-        "hoverevent": {
-            "addtext": "Text hinzuf\u00fcgen.",
-            "removetext": "Letzten Text l\u00f6schen.",
-            "header": "Mouseover Ereigniss:",
-            "showachievement": "Zeige Errungenschaft",
-            "id": "ID:",
-            "showentity": "Zeige Entity",
-            "showitem": "Zeige Item",
-            "type": "Typ:",
-            "none": "Keins",
-            "showtext": "Zeige Text",
-            "name": "Name"
-        },
-        "notext": "Kein Text",
-        "NEW_ITERATE_FLAG": "Buch-Seite \/ Schild-Zeile",
-        "insert": "Einf\u00fcgen",
-        "addsnippet": "Text hinzuf\u00fcgen",
-        "insertion": {
-            "header": "Einzuf\u00fcgender Text"
-        },
-        "sel": "Selector",
-        "format": {
-            "bold": "Fett",
-            "underlined": "Unterstrichen",
-            "obfuscated": "Verschleiert",
-            "italic": "Kursiv",
-            "strikethrough": "Durchgestrichen"
-        },
-        "player": "Spieler",
-        "obj2": "Objective",
-        "obj": "Scoreboard Objective",
-        "nosnippets": "Noch kein Text",
-        "header": "Textabschitte",
-        "text": "Text",
-        "raw": "Roh",
-        "warning": {
-            "title": "Warnung!"
-        }
-    },
     "headerbar": {
         "help": "Hilfe",
         "report_an_issue": "Melde einen Fehler",
@@ -175,8 +176,8 @@
     },
     "command": "Befehl:",
     "export": {
-        "heading": "Your Exported Command",
-        "close": "Close"
+        "heading": "Dein exportierter Befehl",
+        "close": "Schlie\u00dfen"
     },
     "attribution": "Obwohl nichts erforderlich ist um das hier zu benutzen, ist es trotzdem immer willkommen wenn du zu dieser Webseite oder zu dem Minercaft Forum Thread verlinkst."
 }

@@ -1,4 +1,56 @@
 {
+    "textsnippets": {
+        "clickevent": {
+            "changepage": "Change Page",
+            "runcommand": "Pokreni Naredbu",
+            "openurl": "Otvori URL",
+            "suggestcommand": "Predlo\u017ei Naredbu",
+            "header": "Klikni Dogadaj:",
+            "none": "Nijedan"
+        },
+        "trn": "Prevedeni",
+        "parameter": "Parametar",
+        "editsnippet": "Uredi Tekst",
+        "close": "Zatvori",
+        "hoverevent": {
+            "addtext": "Add Text",
+            "removetext": "Remove Last Text",
+            "header": "Vidi Dogadaj:",
+            "showachievement": "Prika\u017ei Dostignuce",
+            "id": "ID:",
+            "showentity": "Prika\u017ei Entitet",
+            "showitem": "Prika\u017ei Predmet",
+            "type": "Vrsta:",
+            "none": "Nijedan",
+            "showtext": "Prika\u017ei Tekst",
+            "name": "Ime"
+        },
+        "notext": "Nema Teksta",
+        "NEW_ITERATE_FLAG": "Book Page \/ Sign Line",
+        "insert": "Umetni",
+        "addsnippet": "Dodaj Tekst",
+        "insertion": {
+            "header": "Umetanje"
+        },
+        "sel": "Selector",
+        "format": {
+            "bold": "Podebljano",
+            "underlined": "Podcrtano",
+            "obfuscated": "Zamagljeno",
+            "italic": "Kurziv",
+            "strikethrough": "Precrtano"
+        },
+        "player": "Igrac",
+        "obj2": "Objekt",
+        "obj": "Rezultatni Objekt",
+        "nosnippets": "Jo\u0161 uvijek nema teksta",
+        "header": "Isjecke Teksta",
+        "text": "Tekst",
+        "raw": "Obicni",
+        "warning": {
+            "title": "Oprez!"
+        }
+    },
     "donate": {
         "patreon-button": "Patreon",
         "support-header": "(Please) Support This Website",
@@ -96,57 +148,6 @@
         "color_yellow": "\u017duta"
     },
     "header": "Tellraw Generator za Minecraft 1.7+",
-    "textsnippets": {
-        "trn": "Prevedeni",
-        "clickevent": {
-            "runcommand": "Pokreni Naredbu",
-            "openurl": "Otvori URL",
-            "suggestcommand": "Predlo\u017ei Naredbu",
-            "header": "Klikni Dogadaj:",
-            "none": "Nijedan"
-        },
-        "parameter": "Parametar",
-        "editsnippet": "Uredi Tekst",
-        "close": "Zatvori",
-        "hoverevent": {
-            "addtext": "Add Text",
-            "removetext": "Remove Last Text",
-            "header": "Vidi Dogadaj:",
-            "showachievement": "Prika\u017ei Dostignuce",
-            "id": "ID:",
-            "showentity": "Prika\u017ei Entitet",
-            "showitem": "Prika\u017ei Predmet",
-            "type": "Vrsta:",
-            "none": "Nijedan",
-            "showtext": "Prika\u017ei Tekst",
-            "name": "Ime"
-        },
-        "notext": "Nema Teksta",
-        "NEW_ITERATE_FLAG": "Book Page \/ Sign Line",
-        "insert": "Umetni",
-        "addsnippet": "Dodaj Tekst",
-        "insertion": {
-            "header": "Umetanje"
-        },
-        "sel": "Selector",
-        "format": {
-            "bold": "Podebljano",
-            "underlined": "Podcrtano",
-            "obfuscated": "Zamagljeno",
-            "italic": "Kurziv",
-            "strikethrough": "Precrtano"
-        },
-        "player": "Igrac",
-        "obj2": "Objekt",
-        "obj": "Rezultatni Objekt",
-        "nosnippets": "Jo\u0161 uvijek nema teksta",
-        "header": "Isjecke Teksta",
-        "text": "Tekst",
-        "raw": "Obicni",
-        "warning": {
-            "title": "Oprez!"
-        }
-    },
     "headerbar": {
         "help": "Help",
         "report_an_issue": "Report an Issue",

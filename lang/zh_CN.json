@@ -1,35 +1,87 @@
 {
+    "textsnippets": {
+        "clickevent": {
+            "changepage": "Change Page",
+            "runcommand": "\u8fd0\u884c\u6307\u4ee4",
+            "openurl": "\u8bbf\u95eeURL",
+            "suggestcommand": "\u81ea\u52a8\u8f93\u5165\u6307\u4ee4",
+            "header": "\u70b9\u51fb\u52a8\u4f5c:",
+            "none": "\u65e0"
+        },
+        "trn": "\u5df2\u7ffb\u8bd1\u6587\u672c",
+        "parameter": "\u53c2\u6570",
+        "editsnippet": "\u7f16\u8f91\u6587\u672c",
+        "close": "\u5173\u95ed",
+        "hoverevent": {
+            "addtext": "\u6dfb\u52a0\u6587\u672c",
+            "removetext": "\u5220\u9664\u6700\u540e\u7684\u6587\u672c",
+            "header": "\u60ac\u6d6e\u52a8\u4f5c:",
+            "showachievement": "\u663e\u793a\u6210\u5c31",
+            "id": "ID:",
+            "showentity": "\u663e\u793a\u5b9e\u4f53",
+            "showitem": "\u663e\u793a\u7269\u54c1",
+            "type": "\u7c7b\u578b:",
+            "none": "\u65e0",
+            "showtext": "\u663e\u793a\u6587\u5b57",
+            "name": "\u540d\u79f0"
+        },
+        "notext": "\u65e0\u5185\u5bb9",
+        "NEW_ITERATE_FLAG": "\u6210\u4e66\u9875\u7801\/\u544a\u793a\u724c\u884c\u6570",
+        "insert": "\u63d2\u5165",
+        "addsnippet": "\u65b0\u589e\u6587\u672c",
+        "insertion": {
+            "header": "\u63d2\u5165\u5185\u5bb9"
+        },
+        "sel": "\u9009\u62e9\u5668",
+        "format": {
+            "bold": "\u7c97\u4f53",
+            "underlined": "\u4e0b\u5212\u7ebf",
+            "obfuscated": "\u968f\u673a\u5b57\u7b26",
+            "italic": "\u659c\u4f53",
+            "strikethrough": "\u5220\u9664\u7ebf"
+        },
+        "player": "\u73a9\u5bb6",
+        "obj2": "\u5bf9\u8c61(Objective)",
+        "obj": "\u8ba1\u5206\u677f\u5bf9\u8c61(Scoreboard Objective)",
+        "nosnippets": "\u6682\u65e0\u6587\u672c",
+        "header": "\u6587\u672c\u5217\u8868",
+        "text": "\u5185\u5bb9",
+        "raw": "\u81ea\u8ba2\u5185\u5bb9",
+        "warning": {
+            "title": "\u8b66\u544a\uff01"
+        }
+    },
     "donate": {
         "patreon-button": "Patreon",
-        "support-header": "(Please) Support This Website",
+        "support-header": "(\u8bf7)\u652f\u6301\u672c\u7f51\u7ad9\u8fd0\u884c",
         "paypal-note": "I do not offer paypal as a listed option due to fees (Stripe doesn't charge fees to Students). However, if you wish you can send me money over PayPal via funds@ezekielelin.com",
         "patreon-text": "If you Pledge to donate a certain amount each month, I can rely on that to upgrade the servers.",
         "support-subheader": "I don't want to put ads on this website, please donate to support the costs of maintaining this website.",
-        "donate-button": "Donate",
+        "donate-button": "\u6350\u6b3e",
         "donate-text": "Make a donation of the value you choose (Stripe).",
         "overcast-text": "Want to buy me a rank on the Overcast Network? Click the picture above, and enter ezekielelin as my username.",
-        "exit": "Exit",
-        "exit-text": "You won't see this again so long as you keep your cookies intact. Unfortunately I have no way of detecting you if you reset your cookies."
+        "exit": "\u5173\u95ed",
+        "exit-text": "\u8fd9\u5219\u6d88\u606f\u5c06\u4e0d\u4f1a\u518d\u6b21\u5f39\u51fa\uff0c\u9664\u975e\u4f60\u6e05\u9664\u4e86\u6d4f\u89c8\u5668cookies\u3002"
     },
     "issues": {
-        "go-home": "Ignore Issue"
+        "go-home": "\u5ffd\u7565\u9519\u8bef"
     },
     "help": {
-        "textfield": "Use \\n to make a newline",
+        "textfield": "\u8f93\u5165\"\\n\"\\n\u6dfb\u52a0\u4e00\u4e2a\u65b0\u884c",
         "raw-text-tab": "Choose your text choice. Raw is normal text. Scoreboard pulls a value from the scoreboard. Selector pulls the name of an entity.",
-        "report-an-issue": "Click here to report an issue. If you experience any sort of bug, you should report it here.",
-        "dropdown-list": "Tweet, view the changelog, view the minecraft forums thread, or get resources for translation.",
-        "addsnippet": "Add text to your tellraw command.",
-        "delete-all-saves": "Clear your saves, but leave your current command in the main editor intact.",
-        "create-new-save": "Make a new save. This will overwrite an existing save by the same name, if you so choose.",
-        "delete-all-snippets": "Clear your command completely, but leave your saves intact.",
-        "show-saves": "Show your saves editor, allows saving, loading, and deletion of saves."
+        "report-an-issue": "\u70b9\u51fb\u6b64\u5904\u62a5\u544a\u95ee\u9898\u3002\u5982\u679c\u4f60\u4f7f\u7528\u8fc7\u7a0b\u4e2d\u53d1\u73b0\u4e86\u6f0f\u6d1e\uff0c\u8bf7\u5728\u8fd9\u91cc\u62a5\u544a\u9519\u8bef\u3002",
+        "dropdown-list": "\u5206\u4eab\u5230\u63a8\u7279\uff0c\u67e5\u770b\u66f4\u65b0\u65e5\u5fd7\uff0c\u8bba\u575b\u539f\u5e16\uff0c\u4ee5\u53ca\u8bf7\u6c42\u7ffb\u8bd1\u5217\u8868\u3002",
+        "addsnippet": "\u5411\u4f60\u7684Tellraw\u6307\u4ee4\u65b0\u589e\u6587\u672c\u3002",
+        "delete-all-saves": "\u6e05\u9664\u5b58\u6863\uff0c\u4f46\u4f1a\u4fdd\u7559\u5f53\u524d\u7684Tellraw\u6307\u4ee4\u3002",
+        "create-new-save": "\u6dfb\u52a0\u4e00\u4e2a\u5b58\u6863\u3002\u5982\u679c\u547d\u540d\u4e0e\u5f53\u524d\u5df2\u5b58\u5728\u7684\u5b58\u6863\u76f8\u540c\uff0c\u8be5\u5b58\u6863\u4f1a\u88ab\u8986\u76d6\u3002",
+        "delete-all-snippets": "\u6e05\u9664\u5f53\u524d\u7684Tellraw\u6307\u4ee4\uff0c\u4f46\u4f1a\u4fdd\u7559\u4f60\u7684\u5b58\u6863\u3002",
+        "show-saves": "\u663e\u793a\u5b58\u6863\u7f16\u8f91\u5668\uff0c\u7528\u4e8e\u4fdd\u5b58\u3001\u8bfb\u53d6\u3001\u5220\u9664\u6307\u4ee4\u5b58\u6863\u3002"
     },
     "template": {
         "sign_block": "\u544a\u793a\u724c (\/blockdata)",
         "sign_item": "\u544a\u793a\u724c (\/give)",
-        "subtitle": "\u5b50\u6807\u9898",
-        "title": "\u6807\u9898",
+        "subtitle": "\u5b50\u6807\u9898(\/title)",
+        "title": "\u6807\u9898(\/title)",
         "tellraw": "Tellraw",
         "book": "\u6210\u4e66",
         "execute_tellraw": "Execute"
@@ -53,14 +105,14 @@
         "new": "\u50a8\u5b58\u6b64\u6587\u672c"
     },
     "settings": {
-        "nlOutput": "Show Structured Output",
+        "nlOutput": "\u663e\u793a\u683c\u5f0f\u5316\u8f93\u51fa",
         "darkmode": {
-            "turn_on": "Dark Theme",
-            "turn_off": "Light Theme"
+            "turn_on": "\u6697\u8272\u4e3b\u9898",
+            "turn_off": "\u4eae\u8272\u4e3b\u9898"
         },
-        "show": "Open Settings",
-        "hide": "Close Settings",
-        "fontSize": "Preview Font Size",
+        "show": "\u663e\u793a\u8bbe\u7f6e",
+        "hide": "\u9690\u85cf\u8bbe\u7f6e",
+        "fontSize": "\u9884\u89c8\u5b57\u4f53\u5927\u5c0f",
         "previewcolor": "\u9884\u89c8\u80cc\u666f\u989c\u8272:",
         "export": "\u5bfc\u51fa",
         "deleteall": {
@@ -77,78 +129,27 @@
         "header": "\u8bbe\u7f6e:"
     },
     "color": {
-        "color_green": "\u7eff\u8272",
+        "color_green": "\u9c9c\u7eff\u8272",
         "color_red": "\u7ea2\u8272",
         "color_none": "\u65e0",
-        "color_dark_aqua": "Dark Aqua",
-        "color_dark_purple": "\u6697\u7d2b\u8272",
+        "color_dark_aqua": "\u6e56\u84dd\u8272",
+        "color_dark_purple": "\u7d2b\u8272",
         "color_dark_blue": "\u6df1\u84dd\u8272",
-        "color_aqua": "Aqua",
+        "color_aqua": "\u6c34\u84dd\u8272",
         "color_white": "\u767d\u8272",
-        "color_dark_gray": "\u7070\u8272",
+        "color_dark_gray": "\u6df1\u7070\u8272",
         "color_dark_red": "\u6df1\u7ea2\u8272",
-        "color_dark_green": "\u6697\u7eff\u8272",
+        "color_dark_green": "\u6df1\u7eff\u8272",
         "color_gold": "\u91d1\u8272",
-        "color_blue": "\u84dd\u8272",
+        "color_blue": "\u975b\u84dd\u8272",
         "color_black": "\u9ed1\u8272",
-        "color_gray": "\u4eae\u7070\u8272",
-        "color_light_purple": "\u4eae\u7d2b\u8272",
+        "color_gray": "\u7070\u8272",
+        "color_light_purple": "\u7c89\u8272",
         "color_yellow": "\u9ec4\u8272"
     },
     "header": "\u7528\u4e8eMinecraft 1.7+\u7684Tellraw\u6307\u4ee4\u751f\u6210\u5668",
-    "textsnippets": {
-        "trn": "\u5df2\u7ffb\u8bd1\u6587\u672c",
-        "clickevent": {
-            "runcommand": "\u8fd0\u884c\u6307\u4ee4",
-            "openurl": "\u8bbf\u95eeURL",
-            "suggestcommand": "\u81ea\u52a8\u8f93\u5165\u6307\u4ee4",
-            "header": "\u70b9\u51fb\u52a8\u4f5c:",
-            "none": "\u65e0"
-        },
-        "parameter": "\u53c2\u6570",
-        "editsnippet": "\u7f16\u8f91\u6587\u672c",
-        "close": "\u5173\u95ed",
-        "hoverevent": {
-            "addtext": "Add Text",
-            "removetext": "Remove Last Text",
-            "header": "\u60ac\u6d6e\u52a8\u4f5c:",
-            "showachievement": "\u663e\u793a\u6210\u5c31",
-            "id": "ID:",
-            "showentity": "\u663e\u793a\u5b9e\u4f53",
-            "showitem": "\u663e\u793a\u7269\u54c1",
-            "type": "\u7c7b\u578b:",
-            "none": "\u65e0",
-            "showtext": "\u663e\u793a\u6587\u5b57",
-            "name": "\u540d\u79f0"
-        },
-        "notext": "\u65e0\u5185\u5bb9",
-        "NEW_ITERATE_FLAG": "Book Page \/ Sign Line",
-        "insert": "Insert",
-        "addsnippet": "\u65b0\u589e\u6587\u672c",
-        "insertion": {
-            "header": "Insertion"
-        },
-        "sel": "\u9009\u62e9\u5668",
-        "format": {
-            "bold": "\u7c97\u4f53",
-            "underlined": "\u4e0b\u5212\u7ebf",
-            "obfuscated": "\u968f\u673a\u5b57\u7b26",
-            "italic": "\u659c\u4f53",
-            "strikethrough": "\u5220\u9664\u7ebf"
-        },
-        "player": "\u73a9\u5bb6",
-        "obj2": "Objective",
-        "obj": "Scoreboard Objective",
-        "nosnippets": "\u6682\u65e0\u6587\u672c",
-        "header": "\u6587\u672c\u5217\u8868",
-        "text": "\u5185\u5bb9",
-        "raw": "\u81ea\u8ba2\u5185\u5bb9",
-        "warning": {
-            "title": "\u8b66\u544a\uff01"
-        }
-    },
     "headerbar": {
-        "help": "Help",
+        "help": "\u5e2e\u52a9",
         "report_an_issue": "\u62a5\u544a\u95ee\u9898",
         "dropdown": {
             "tweet": "\u5206\u4eab\u5230\u63a8\u7279\uff08\u4e2d\u56fd\u5730\u533a\u4e0d\u53ef\u7528\uff09",
@@ -159,7 +160,7 @@
     },
     "language": {
         "translate": "\u7ffb\u8bd1",
-        "name": "\u7b80\u4f53\u4e2d\u6587",
+        "name": "\u82f1\u6587",
         "header": "\u8bed\u8a00",
         "credit": "\u7531DoraJDJ\u63d0\u4f9b\u7b80\u4f53\u4e2d\u6587\u7ffb\u8bd1"
     },

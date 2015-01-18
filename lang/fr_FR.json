@@ -1,4 +1,56 @@
 {
+    "textsnippets": {
+        "clickevent": {
+            "changepage": "Change Page",
+            "runcommand": "Envoyer une commande :",
+            "openurl": "Ouvrir une URL",
+            "suggestcommand": "Sugg\u00e9rer une commande",
+            "header": "\u00c9v\u00e8nement \"Clic\"",
+            "none": "Aucun"
+        },
+        "trn": "Traduit",
+        "parameter": "Param\u00e8tre",
+        "editsnippet": "Edit Text",
+        "close": "Fermer",
+        "hoverevent": {
+            "addtext": "Add Text",
+            "removetext": "Remove Last Text",
+            "header": "\u00c9v\u00e8nement \"Survol\"",
+            "showachievement": "Montrer un succ\u00e8s",
+            "id": "ID:",
+            "showentity": "Show Entity",
+            "showitem": "Montrer un objet",
+            "type": "Type:",
+            "none": "Aucun",
+            "showtext": "Montrer du texte",
+            "name": "Name"
+        },
+        "notext": "No Text",
+        "NEW_ITERATE_FLAG": "Book Page \/ Sign Line",
+        "insert": "Ins\u00e9rer",
+        "addsnippet": "Ajouter du texte",
+        "insertion": {
+            "header": "Insertion"
+        },
+        "sel": "Selector",
+        "format": {
+            "bold": "Gras",
+            "underlined": "Soulign\u00e9",
+            "obfuscated": "Cach\u00e9",
+            "italic": "Italique",
+            "strikethrough": "Barr\u00e9"
+        },
+        "player": "Player",
+        "obj2": "Objective",
+        "obj": "Scoreboard Objective",
+        "nosnippets": "Aucun texte",
+        "header": "Morceaux de texte",
+        "text": "Texte",
+        "raw": "Brut",
+        "warning": {
+            "title": "Warning!"
+        }
+    },
     "donate": {
         "patreon-button": "Patreon",
         "support-header": "(Please) Support This Website",
@@ -96,57 +148,6 @@
         "color_yellow": "Jaune"
     },
     "header": "G\u00e9n\u00e9rateur de Tellraw pour Minecraft 1.7+",
-    "textsnippets": {
-        "trn": "Traduit",
-        "clickevent": {
-            "runcommand": "Envoyer une commande :",
-            "openurl": "Ouvrir une URL",
-            "suggestcommand": "Sugg\u00e9rer une commande",
-            "header": "\u00c9v\u00e8nement \"Clic\"",
-            "none": "Aucun"
-        },
-        "parameter": "Param\u00e8tre",
-        "editsnippet": "Edit Text",
-        "close": "Fermer",
-        "hoverevent": {
-            "addtext": "Add Text",
-            "removetext": "Remove Last Text",
-            "header": "\u00c9v\u00e8nement \"Survol\"",
-            "showachievement": "Montrer un succ\u00e8s",
-            "id": "ID:",
-            "showentity": "Show Entity",
-            "showitem": "Montrer un objet",
-            "type": "Type:",
-            "none": "Aucun",
-            "showtext": "Montrer du texte",
-            "name": "Name"
-        },
-        "notext": "No Text",
-        "NEW_ITERATE_FLAG": "Book Page \/ Sign Line",
-        "insert": "Ins\u00e9rer",
-        "addsnippet": "Ajouter du texte",
-        "insertion": {
-            "header": "Insertion"
-        },
-        "sel": "Selector",
-        "format": {
-            "bold": "Gras",
-            "underlined": "Soulign\u00e9",
-            "obfuscated": "Cach\u00e9",
-            "italic": "Italique",
-            "strikethrough": "Barr\u00e9"
-        },
-        "player": "Player",
-        "obj2": "Objective",
-        "obj": "Scoreboard Objective",
-        "nosnippets": "Aucun texte",
-        "header": "Morceaux de texte",
-        "text": "Texte",
-        "raw": "Brut",
-        "warning": {
-            "title": "Warning!"
-        }
-    },
     "headerbar": {
         "help": "Help",
         "report_an_issue": "Signaler un probl\u00e8me",

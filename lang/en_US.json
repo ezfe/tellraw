@@ -1,4 +1,56 @@
 {
+    "textsnippets": {
+        "clickevent": {
+            "changepage": "Change Page",
+            "runcommand": "Run Command",
+            "openurl": "Open URL",
+            "suggestcommand": "Suggest Command",
+            "header": "Click Event:",
+            "none": "None"
+        },
+        "trn": "Translated",
+        "parameter": "Parameter",
+        "editsnippet": "Edit Text",
+        "close": "Close",
+        "hoverevent": {
+            "addtext": "Add Text",
+            "removetext": "Remove Last Text",
+            "header": "Hover Event:",
+            "showachievement": "Show Achievement",
+            "id": "ID:",
+            "showentity": "Show Entity",
+            "showitem": "Show Item",
+            "type": "Type:",
+            "none": "None",
+            "showtext": "Show Text",
+            "name": "Name"
+        },
+        "notext": "No Text",
+        "NEW_ITERATE_FLAG": "Book Page \/ Sign Line",
+        "insert": "Insert",
+        "addsnippet": "Add Text",
+        "insertion": {
+            "header": "Insertion"
+        },
+        "sel": "Selector",
+        "format": {
+            "bold": "Bold",
+            "underlined": "Underlined",
+            "obfuscated": "Obfuscated",
+            "italic": "Italic",
+            "strikethrough": "Strikethrough"
+        },
+        "player": "Player",
+        "obj2": "Objective",
+        "obj": "Scoreboard Objective",
+        "nosnippets": "No text yet",
+        "header": "Text Snippets",
+        "text": "Text",
+        "raw": "Raw",
+        "warning": {
+            "title": "Warning!"
+        }
+    },
     "donate": {
         "patreon-button": "Patreon",
         "support-header": "(Please) Support This Website",
@@ -96,57 +148,6 @@
         "color_yellow": "Yellow"
     },
     "header": "Tellraw Generator for Minecraft 1.7+",
-    "textsnippets": {
-        "trn": "Translated",
-        "clickevent": {
-            "runcommand": "Run Command",
-            "openurl": "Open URL",
-            "suggestcommand": "Suggest Command",
-            "header": "Click Event:",
-            "none": "None"
-        },
-        "parameter": "Parameter",
-        "editsnippet": "Edit Text",
-        "close": "Close",
-        "hoverevent": {
-            "addtext": "Add Text",
-            "removetext": "Remove Last Text",
-            "header": "Hover Event:",
-            "showachievement": "Show Achievement",
-            "id": "ID:",
-            "showentity": "Show Entity",
-            "showitem": "Show Item",
-            "type": "Type:",
-            "none": "None",
-            "showtext": "Show Text",
-            "name": "Name"
-        },
-        "notext": "No Text",
-        "NEW_ITERATE_FLAG": "Book Page \/ Sign Line",
-        "insert": "Insert",
-        "addsnippet": "Add Text",
-        "insertion": {
-            "header": "Insertion"
-        },
-        "sel": "Selector",
-        "format": {
-            "bold": "Bold",
-            "underlined": "Underlined",
-            "obfuscated": "Obfuscated",
-            "italic": "Italic",
-            "strikethrough": "Strikethrough"
-        },
-        "player": "Player",
-        "obj2": "Objective",
-        "obj": "Scoreboard Objective",
-        "nosnippets": "No text yet",
-        "header": "Text Snippets",
-        "text": "Text",
-        "raw": "Raw",
-        "warning": {
-            "title": "Warning!"
-        }
-    },
     "headerbar": {
         "help": "Help",
         "report_an_issue": "Report an Issue",

@@ -1,4 +1,56 @@
 {
+    "textsnippets": {
+        "clickevent": {
+            "changepage": "Change Page",
+            "runcommand": "Esegui comando",
+            "openurl": "Apri URL",
+            "suggestcommand": "Suggerisci comando",
+            "header": "Caso pressione:",
+            "none": "Nessuno"
+        },
+        "trn": "Tradotto",
+        "parameter": "Parametro",
+        "editsnippet": "Modifica testo",
+        "close": "Chiudi",
+        "hoverevent": {
+            "addtext": "Add Text",
+            "removetext": "Remove Last Text",
+            "header": "Caso mouse sopra:",
+            "showachievement": "Mostra conquiste",
+            "id": "ID:",
+            "showentity": "Mostra entit\u00e0",
+            "showitem": "Mostra oggetto",
+            "type": "Tipo:",
+            "none": "Nessuno",
+            "showtext": "Mostra testo",
+            "name": "Nome"
+        },
+        "notext": "Nessun testo",
+        "NEW_ITERATE_FLAG": "Book Page \/ Sign Line",
+        "insert": "Inserisci",
+        "addsnippet": "Aggiungi testo",
+        "insertion": {
+            "header": "Inserimento"
+        },
+        "sel": "Selettore",
+        "format": {
+            "bold": "Grassetto",
+            "underlined": "Sottolineato",
+            "obfuscated": "Confuso",
+            "italic": "Italico",
+            "strikethrough": "Barrato"
+        },
+        "player": "Giocatore",
+        "obj2": "Obbiettivo",
+        "obj": "Obbiettivo della Scoreboard",
+        "nosnippets": "Non c'\u00e8 ancora testo",
+        "header": "Frammenti di testo",
+        "text": "Testo",
+        "raw": "Crudo",
+        "warning": {
+            "title": "Attenzione!"
+        }
+    },
     "donate": {
         "patreon-button": "Patreon",
         "support-header": "(Please) Support This Website",
@@ -96,57 +148,6 @@
         "color_yellow": "Giallo"
     },
     "header": "Generatore Tellraw per Minecraft 1.7+",
-    "textsnippets": {
-        "trn": "Tradotto",
-        "clickevent": {
-            "runcommand": "Esegui comando",
-            "openurl": "Apri URL",
-            "suggestcommand": "Suggerisci comando",
-            "header": "Caso pressione:",
-            "none": "Nessuno"
-        },
-        "parameter": "Parametro",
-        "editsnippet": "Modifica testo",
-        "close": "Chiudi",
-        "hoverevent": {
-            "addtext": "Add Text",
-            "removetext": "Remove Last Text",
-            "header": "Caso mouse sopra:",
-            "showachievement": "Mostra conquiste",
-            "id": "ID:",
-            "showentity": "Mostra entit\u00e0",
-            "showitem": "Mostra oggetto",
-            "type": "Tipo:",
-            "none": "Nessuno",
-            "showtext": "Mostra testo",
-            "name": "Nome"
-        },
-        "notext": "Nessun testo",
-        "NEW_ITERATE_FLAG": "Book Page \/ Sign Line",
-        "insert": "Inserisci",
-        "addsnippet": "Aggiungi testo",
-        "insertion": {
-            "header": "Inserimento"
-        },
-        "sel": "Selettore",
-        "format": {
-            "bold": "Grassetto",
-            "underlined": "Sottolineato",
-            "obfuscated": "Confuso",
-            "italic": "Italico",
-            "strikethrough": "Barrato"
-        },
-        "player": "Giocatore",
-        "obj2": "Obbiettivo",
-        "obj": "Obbiettivo della Scoreboard",
-        "nosnippets": "Non c'\u00e8 ancora testo",
-        "header": "Frammenti di testo",
-        "text": "Testo",
-        "raw": "Crudo",
-        "warning": {
-            "title": "Attenzione!"
-        }
-    },
     "headerbar": {
         "help": "Help",
         "report_an_issue": "Riporta Un problema",

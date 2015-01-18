@@ -1,4 +1,56 @@
 {
+    "textsnippets": {
+        "clickevent": {
+            "changepage": "Change Page",
+            "runcommand": "Ejecutar comando",
+            "openurl": "Abrir una URL",
+            "suggestcommand": "Introducir comando",
+            "header": "Al hacer clic:",
+            "none": "None"
+        },
+        "trn": "Traducido al idioma del Jugador",
+        "parameter": "Par\u00e1metro",
+        "editsnippet": "Editar Texto",
+        "close": "Cerrar",
+        "hoverevent": {
+            "addtext": "A\u00f1adir texto",
+            "removetext": "Quitar el \u00faltimo texto",
+            "header": "Al pasar el cursor:",
+            "showachievement": "Mostrar Logro",
+            "id": "ID:",
+            "showentity": "Mostrar Entidad",
+            "showitem": "Mostrar \u00cdtem",
+            "type": "Tipo:",
+            "none": "Nada",
+            "showtext": "Mostrar Texto",
+            "name": "Nombre"
+        },
+        "notext": "Sin Texto",
+        "NEW_ITERATE_FLAG": "Cr\u00e9ditos (Libro)",
+        "insert": "Insertar",
+        "addsnippet": "A\u00f1adir Texto",
+        "insertion": {
+            "header": "Insertar en Chat"
+        },
+        "sel": "Selector",
+        "format": {
+            "bold": "Negrita",
+            "underlined": "Subrayado",
+            "obfuscated": "Confuso",
+            "italic": "Cursiva",
+            "strikethrough": "Tachado"
+        },
+        "player": "Jugador",
+        "obj2": "Objetivo",
+        "obj": "Objetivo del scoreboard",
+        "nosnippets": "Sin texto todav\u00eda",
+        "header": "Fragmentos de texto",
+        "text": "Texto",
+        "raw": "Texto Simple",
+        "warning": {
+            "title": "\u00a1Precauci\u00f3n!"
+        }
+    },
     "donate": {
         "patreon-button": "Patreon",
         "support-header": "Por favor apoya a esta p\u00e1gina",
@@ -96,57 +148,6 @@
         "color_yellow": "Amarillo"
     },
     "header": "Generador de Tellraw para Minecraft 1.7+",
-    "textsnippets": {
-        "trn": "Traducido al idioma del Jugador",
-        "clickevent": {
-            "runcommand": "Ejecutar comando",
-            "openurl": "Abrir una URL",
-            "suggestcommand": "Introducir comando",
-            "header": "Al hacer clic:",
-            "none": "None"
-        },
-        "parameter": "Par\u00e1metro",
-        "editsnippet": "Editar Texto",
-        "close": "Cerrar",
-        "hoverevent": {
-            "addtext": "A\u00f1adir texto",
-            "removetext": "Quitar el \u00faltimo texto",
-            "header": "Al pasar el cursor:",
-            "showachievement": "Mostrar Logro",
-            "id": "ID:",
-            "showentity": "Mostrar Entidad",
-            "showitem": "Mostrar \u00cdtem",
-            "type": "Tipo:",
-            "none": "Nada",
-            "showtext": "Mostrar Texto",
-            "name": "Nombre"
-        },
-        "notext": "Sin Texto",
-        "NEW_ITERATE_FLAG": "Cr\u00e9ditos (Libro)",
-        "insert": "Insertar",
-        "addsnippet": "A\u00f1adir Texto",
-        "insertion": {
-            "header": "Insertar en Chat"
-        },
-        "sel": "Selector",
-        "format": {
-            "bold": "Negrita",
-            "underlined": "Subrayado",
-            "obfuscated": "Confuso",
-            "italic": "Cursiva",
-            "strikethrough": "Tachado"
-        },
-        "player": "Jugador",
-        "obj2": "Objetivo",
-        "obj": "Objetivo del scoreboard",
-        "nosnippets": "Sin texto todav\u00eda",
-        "header": "Fragmentos de texto",
-        "text": "Texto",
-        "raw": "Texto Simple",
-        "warning": {
-            "title": "\u00a1Precauci\u00f3n!"
-        }
-    },
     "headerbar": {
         "help": "Ayuda",
         "report_an_issue": "Reportar un fallo\/error",

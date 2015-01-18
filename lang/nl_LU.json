@@ -1,4 +1,56 @@
 {
+    "textsnippets": {
+        "clickevent": {
+            "changepage": "Change Page",
+            "runcommand": "Voer commando uit",
+            "openurl": "Open Link",
+            "suggestcommand": "Beveel commando aan",
+            "header": "Klik gebeurtenis:",
+            "none": "Geen"
+        },
+        "trn": "Vertaald",
+        "parameter": "Parameter",
+        "editsnippet": "Bewerk tekst",
+        "close": "Sluit",
+        "hoverevent": {
+            "addtext": "Add Text",
+            "removetext": "Remove Last Text",
+            "header": "Hover gebeurtenis:",
+            "showachievement": "Laat archievement zien",
+            "id": "ID:",
+            "showentity": "Laat entity zien",
+            "showitem": "Laat item zien",
+            "type": "Type:",
+            "none": "Geen",
+            "showtext": "Laat tekst zien",
+            "name": "Naam"
+        },
+        "notext": "Geen tekst",
+        "NEW_ITERATE_FLAG": "Book Page \/ Sign Line",
+        "insert": "Invoegen",
+        "addsnippet": "Voeg tekst toe",
+        "insertion": {
+            "header": "Invoegen"
+        },
+        "sel": "Selector",
+        "format": {
+            "bold": "Bold",
+            "underlined": "Onderstreept",
+            "obfuscated": "Obfuscated",
+            "italic": "Schuin",
+            "strikethrough": "Doorgestreept"
+        },
+        "player": "Speler",
+        "obj2": "Doel",
+        "obj": "Scorebord Doel",
+        "nosnippets": "Nog geen tekst",
+        "header": "Text Snippets",
+        "text": "Tekst",
+        "raw": "Ruw",
+        "warning": {
+            "title": "Waarschuwing!"
+        }
+    },
     "donate": {
         "patreon-button": "Patreon",
         "support-header": "(Please) Support This Website",
@@ -96,57 +148,6 @@
         "color_yellow": "Geel"
     },
     "header": "Tellraw Generator voor Minecraft 1.7+",
-    "textsnippets": {
-        "trn": "Vertaald",
-        "clickevent": {
-            "runcommand": "Voer commando uit",
-            "openurl": "Open Link",
-            "suggestcommand": "Beveel commando aan",
-            "header": "Klik gebeurtenis:",
-            "none": "Geen"
-        },
-        "parameter": "Parameter",
-        "editsnippet": "Bewerk tekst",
-        "close": "Sluit",
-        "hoverevent": {
-            "addtext": "Add Text",
-            "removetext": "Remove Last Text",
-            "header": "Hover gebeurtenis:",
-            "showachievement": "Laat archievement zien",
-            "id": "ID:",
-            "showentity": "Laat entity zien",
-            "showitem": "Laat item zien",
-            "type": "Type:",
-            "none": "Geen",
-            "showtext": "Laat tekst zien",
-            "name": "Naam"
-        },
-        "notext": "Geen tekst",
-        "NEW_ITERATE_FLAG": "Book Page \/ Sign Line",
-        "insert": "Invoegen",
-        "addsnippet": "Voeg tekst toe",
-        "insertion": {
-            "header": "Invoegen"
-        },
-        "sel": "Selector",
-        "format": {
-            "bold": "Bold",
-            "underlined": "Onderstreept",
-            "obfuscated": "Obfuscated",
-            "italic": "Schuin",
-            "strikethrough": "Doorgestreept"
-        },
-        "player": "Speler",
-        "obj2": "Doel",
-        "obj": "Scorebord Doel",
-        "nosnippets": "Nog geen tekst",
-        "header": "Text Snippets",
-        "text": "Tekst",
-        "raw": "Ruw",
-        "warning": {
-            "title": "Waarschuwing!"
-        }
-    },
     "headerbar": {
         "help": "Help",
         "report_an_issue": "Report an Issue",

@@ -1,4 +1,56 @@
 {
+    "textsnippets": {
+        "clickevent": {
+            "changepage": "Change Page",
+            "runcommand": "K\u00f6r kommando",
+            "openurl": "\u00d6ppna URL",
+            "suggestcommand": "F\u00f6resl\u00e5 kommando",
+            "header": "Klick\u00e5tg\u00e4rd:",
+            "none": "Ingen"
+        },
+        "trn": "\u00d6versatt",
+        "parameter": "Parameter",
+        "editsnippet": "Redigera text",
+        "close": "St\u00e4ng",
+        "hoverevent": {
+            "addtext": "L\u00e4gg till text",
+            "removetext": "Ta bort senaste texten",
+            "header": "\u00c5tg\u00e4rd n\u00e4r mus f\u00f6rs \u00f6ver:",
+            "showachievement": "Visa prestation",
+            "id": "ID:",
+            "showentity": "Visa objekt",
+            "showitem": "Visa sak",
+            "type": "Typ:",
+            "none": "Ingen",
+            "showtext": "Visa text",
+            "name": "Namn"
+        },
+        "notext": "Ingen text",
+        "NEW_ITERATE_FLAG": "Boksida \/ Skyltlinje",
+        "insert": "Infoga",
+        "addsnippet": "L\u00e4gg till text",
+        "insertion": {
+            "header": "Infogning"
+        },
+        "sel": "V\u00e4jare",
+        "format": {
+            "bold": "Fet",
+            "underlined": "Understruken",
+            "obfuscated": "F\u00f6rvr\u00e4ngd",
+            "italic": "Kursiv",
+            "strikethrough": "Genomstruken"
+        },
+        "player": "Spelare",
+        "obj2": "M\u00e5l:",
+        "obj": "Po\u00e4ngtavelsm\u00e5l:",
+        "nosnippets": "Ingen text \u00e4n",
+        "header": "Textsnuttar",
+        "text": "Text",
+        "raw": "R\u00e5",
+        "warning": {
+            "title": "Varning!"
+        }
+    },
     "donate": {
         "patreon-button": "Patreon",
         "support-header": "(Sn\u00e4lla) St\u00f6d den h\u00e4r webbsidan",
@@ -96,57 +148,6 @@
         "color_yellow": "Gul"
     },
     "header": "Tellraw Generator f\u00f6r Minecraft 1.7+",
-    "textsnippets": {
-        "trn": "\u00d6versatt",
-        "clickevent": {
-            "runcommand": "K\u00f6r kommando",
-            "openurl": "\u00d6ppna URL",
-            "suggestcommand": "F\u00f6resl\u00e5 kommando",
-            "header": "Klick\u00e5tg\u00e4rd:",
-            "none": "Ingen"
-        },
-        "parameter": "Parameter",
-        "editsnippet": "Redigera text",
-        "close": "St\u00e4ng",
-        "hoverevent": {
-            "addtext": "L\u00e4gg till text",
-            "removetext": "Ta bort senaste texten",
-            "header": "\u00c5tg\u00e4rd n\u00e4r mus f\u00f6rs \u00f6ver:",
-            "showachievement": "Visa prestation",
-            "id": "ID:",
-            "showentity": "Visa objekt",
-            "showitem": "Visa sak",
-            "type": "Typ:",
-            "none": "Ingen",
-            "showtext": "Visa text",
-            "name": "Namn"
-        },
-        "notext": "Ingen text",
-        "NEW_ITERATE_FLAG": "Boksida \/ Skyltlinje",
-        "insert": "Infoga",
-        "addsnippet": "L\u00e4gg till text",
-        "insertion": {
-            "header": "Infogning"
-        },
-        "sel": "V\u00e4jare",
-        "format": {
-            "bold": "Fet",
-            "underlined": "Understruken",
-            "obfuscated": "F\u00f6rvr\u00e4ngd",
-            "italic": "Kursiv",
-            "strikethrough": "Genomstruken"
-        },
-        "player": "Spelare",
-        "obj2": "M\u00e5l:",
-        "obj": "Po\u00e4ngtavelsm\u00e5l",
-        "nosnippets": "Ingen text \u00e4n",
-        "header": "Textsnuttar",
-        "text": "Text",
-        "raw": "R\u00e5",
-        "warning": {
-            "title": "Varning!"
-        }
-    },
     "headerbar": {
         "help": "Hj\u00e4lp",
         "report_an_issue": "Rapportera ett problem",

@@ -1,4 +1,56 @@
 {
+    "textsnippets": {
+        "clickevent": {
+            "changepage": "Change Page",
+            "runcommand": "\u57f7\u884c\u6307\u4ee4",
+            "openurl": "\u958b\u555f\u7db2\u5740(URL=\u7db2\u5740)",
+            "suggestcommand": "\u5efa\u8b70\u6307\u4ee4",
+            "header": "\u9ede\u64ca\u4e8b\u4ef6\uff1a",
+            "none": "\u7121"
+        },
+        "trn": "\u7ffb\u8b6f",
+        "parameter": "\u53c3\u6578",
+        "editsnippet": "Edit Text",
+        "close": "\u95dc\u9589",
+        "hoverevent": {
+            "addtext": "Add Text",
+            "removetext": "Remove Last Text",
+            "header": "\u61f8\u6d6e\u4e8b\u4ef6\uff1a",
+            "showachievement": "\u986f\u793a\u6210\u5c31",
+            "id": "ID:",
+            "showentity": "\u986f\u793a\u5be6\u9ad4",
+            "showitem": "\u986f\u793a\u7269\u54c1",
+            "type": "\u985e\u578b\uff1a",
+            "none": "\u7121",
+            "showtext": "\u986f\u793a\u6587\u5b57",
+            "name": "\u540d\u7a31"
+        },
+        "notext": "No Text",
+        "NEW_ITERATE_FLAG": "Book Page \/ Sign Line",
+        "insert": "\u63d2\u5165",
+        "addsnippet": "\u52a0\u5165\u6587\u5b57",
+        "insertion": {
+            "header": "\u63d2\u5165"
+        },
+        "sel": "Selector",
+        "format": {
+            "bold": "\u7c97\u9ad4",
+            "underlined": "\u5e95\u7dda",
+            "obfuscated": "\u4e82\u78bc",
+            "italic": "\u659c\u9ad4",
+            "strikethrough": "\u522a\u9664\u7dda"
+        },
+        "player": "Player",
+        "obj2": "Objective",
+        "obj": "Scoreboard Objective",
+        "nosnippets": "\u9084\u6c92\u6709\u6587\u5b57",
+        "header": "\u6587\u5b57",
+        "text": "\u6587\u5b57",
+        "raw": "\u81ea\u8a02",
+        "warning": {
+            "title": "Warning!"
+        }
+    },
     "donate": {
         "patreon-button": "Patreon",
         "support-header": "(Please) Support This Website",
@@ -96,57 +148,6 @@
         "color_yellow": "\u9ec3\u8272"
     },
     "header": "Tellraw \u6307\u4ee4\u7522\u751f\u5668",
-    "textsnippets": {
-        "trn": "\u7ffb\u8b6f",
-        "clickevent": {
-            "runcommand": "\u57f7\u884c\u6307\u4ee4",
-            "openurl": "\u958b\u555f\u7db2\u5740(URL=\u7db2\u5740)",
-            "suggestcommand": "\u5efa\u8b70\u6307\u4ee4",
-            "header": "\u9ede\u64ca\u4e8b\u4ef6\uff1a",
-            "none": "\u7121"
-        },
-        "parameter": "\u53c3\u6578",
-        "editsnippet": "Edit Text",
-        "close": "\u95dc\u9589",
-        "hoverevent": {
-            "addtext": "Add Text",
-            "removetext": "Remove Last Text",
-            "header": "\u61f8\u6d6e\u4e8b\u4ef6\uff1a",
-            "showachievement": "\u986f\u793a\u6210\u5c31",
-            "id": "ID:",
-            "showentity": "\u986f\u793a\u5be6\u9ad4",
-            "showitem": "\u986f\u793a\u7269\u54c1",
-            "type": "\u985e\u578b\uff1a",
-            "none": "\u7121",
-            "showtext": "\u986f\u793a\u6587\u5b57",
-            "name": "\u540d\u7a31"
-        },
-        "notext": "No Text",
-        "NEW_ITERATE_FLAG": "Book Page \/ Sign Line",
-        "insert": "\u63d2\u5165",
-        "addsnippet": "\u52a0\u5165\u6587\u5b57",
-        "insertion": {
-            "header": "\u63d2\u5165"
-        },
-        "sel": "Selector",
-        "format": {
-            "bold": "\u7c97\u9ad4",
-            "underlined": "\u5e95\u7dda",
-            "obfuscated": "\u4e82\u78bc",
-            "italic": "\u659c\u9ad4",
-            "strikethrough": "\u522a\u9664\u7dda"
-        },
-        "player": "Player",
-        "obj2": "Objective",
-        "obj": "Scoreboard Objective",
-        "nosnippets": "\u9084\u6c92\u6709\u6587\u5b57",
-        "header": "\u6587\u5b57",
-        "text": "\u6587\u5b57",
-        "raw": "\u81ea\u8a02",
-        "warning": {
-            "title": "Warning!"
-        }
-    },
     "headerbar": {
         "help": "Help",
         "report_an_issue": "Report an Issue",
