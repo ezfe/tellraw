@@ -21,6 +21,8 @@ var hasAlertedTranslationObjects = false;
 var webLangRelations;
 var editing = false;
 var issueLog = [];
+var bookPage = 1;
+var topPage = 1;
 
 function reportAnIssue(ptitle) {
 	var title = "";
@@ -1080,16 +1082,37 @@ function jsonParse() {
 	$('#jsonPreview').html('');
 	if (templates[localStorage.getItem('jtemplate')].formatType == 'bookarray') {
 		$('#jsonPreview').addClass('bookPreview');
+		$('#previewBack').show();
+		$('#previewForwards').show();
+		$('#previewPage').show();
 	} else {
 		$('#jsonPreview').removeClass('bookPreview');
+		$('#previewBack').hide();
+		$('#previewForwards').hide();
+		$('#previewPage').hide();
 	}
 	if (get_type(jobject) == "[object Array]") {
+		var pageHash = {};
+		var counter = 1;
 		for (var i = 0; i < jobject.length; i++) {
 			if (jobject[i].NEW_ITERATE_FLAG) {
-				if (templates[localStorage.getItem('jtemplate')].formatType == 'bookarray' || templates[localStorage.getItem('jtemplate')].formatType == 'signset') {
+				counter++;
+			} else {
+				pageHash['index.' + i] = counter;
+				topPage = counter;
+			}
+		}
+
+		//console.log(pageHash);
+
+		$('#previewPage').html('Page ' + bookPage + ' of ' + topPage);
+
+		for (var i = 0; i < jobject.length; i++) {
+			if (jobject[i].NEW_ITERATE_FLAG) {
+				if (/*templates[localStorage.getItem('jtemplate')].formatType == 'bookarray' || */templates[localStorage.getItem('jtemplate')].formatType == 'signset') {
 					$('#jsonPreview').append('<span id="jsonPreviewSpanElement'+ i +'"><hr></span>');
 				}
-			} else {
+			} else if (pageHash['index.' + i] == bookPage) {
 				var doClickEvent = false;
 				var doHoverEvent = false;
 				var popoverTitle = "";
@@ -1440,6 +1463,16 @@ function initialize() {
 	});
 
 
+	$('#previewBack').click(function(){
+		if (bookPage != 1) bookPage--;
+		refreshOutput();
+	});
+
+	$('#previewForwards').click(function(){
+		if (bookPage < topPage) bookPage++;
+		refreshOutput();
+	});
+
 	$('.issue-button').click(function(){
 		var parentRow = $(this).parent().parent();
 		parentRow.hide();
@@ -1448,29 +1481,27 @@ function initialize() {
 			$('#issue-workflow-r2-translation').fadeIn();
 		} else if (id == "output-issue-button") {
 			$('#issue-workflow-r2-output').fadeIn();
-		//} else if (id == "other-issue-button") {
-		//	reportAnIssue();
-	} else if (id == "translation-current-issue-button") {
-		reportAnIssue('Translation Issue (' + localStorage.getItem('langCode') + ')');
-		showView('tellraw');
-	} else if (id == "translation-other-issue-button") {
-		reportAnIssue('Translation Issue (Other)');
-		showView('tellraw');
-	} else if (id == "output-quotes-issue-button") {
-		$('.templateButton[template=tellraw]').click();
-		alert('The issue should be fixed.\n\nIf it is not, please report as Output > Other, and note this event in your report..');
-		showView('tellraw');
-	} else if (id == "output-other-issue-button") {
-		reportAnIssue('Output Issue (Other)');
-		showView('tellraw');
-	} else if (id == "cancel-issue-button") {
-		showView('tellraw');
-		parentRow.show();
-	} else {
-		showView('tellraw');
-		reportAnIssue();
-	}
-});
+		} else if (id == "translation-current-issue-button") {
+			reportAnIssue('Translation Issue (' + localStorage.getItem('langCode') + ')');
+			showView('tellraw');
+		} else if (id == "translation-other-issue-button") {
+			reportAnIssue('Translation Issue (Other)');
+			showView('tellraw');
+		} else if (id == "output-quotes-issue-button") {
+			$('.templateButton[template=tellraw]').click();
+			alert('The issue should be fixed.\n\nIf it is not, please report as Output > Other, and note this event in your report..');
+			showView('tellraw');
+		} else if (id == "output-other-issue-button") {
+			reportAnIssue('Output Issue (Other)');
+			showView('tellraw');
+		} else if (id == "cancel-issue-button") {
+			showView('tellraw');
+			parentRow.show();
+		} else {
+			showView('tellraw');
+			reportAnIssue();
+		}
+	});
 
 	//Dark Mode
 
@@ -1487,6 +1518,7 @@ $(document).ready(function(){
 	}
 	$('.view-container').hide();
 	showView('loading',true,true,true);
+
 	$('#loadingtxt').html('Loading Assets');
 	try {
 		data = getURL('resources.json');
