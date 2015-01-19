@@ -194,7 +194,7 @@ var templates =
 		"mouseActionOptions": false
 	},
 	"sign_item": {
-		"command": "/give @a sign 1 0 {BlockEntityTag:{%s,id:\"Sign\"}}",
+		"command": "/give @p sign 1 0 {BlockEntityTag:{%s,id:\"Sign\"}}",
 		"version": "1.8",
 		"formatType": "signset",
 		"mouseActionOptions": false
@@ -206,7 +206,7 @@ var templates =
 		"mouseActionOptions": false
 	},
 	"book": {
-		"command": "/give @a written_book 1 0 {pages:%s,title:Book,author:TellrawGenerator}",
+		"command": "/give @p written_book 1 0 {pages:%s,title:Book,author:TellrawGenerator}",
 		"version": "1.8",
 		"formatType": "bookarray",
 		"mouseActionOptions": true
@@ -290,7 +290,7 @@ function deleteAllConfirmed() {
 	$('#deleteConfirm').slideUp();
 	$('#deleteConfirm');
 	jobject = [];
-	$('#command').val('/tellraw @a %s');
+	$('#command').val('/tellraw @p %s');
 	localStorage.setItem('jtemplate','book');
 	refreshOutput();
 }
@@ -762,7 +762,7 @@ function refreshOutput(input) {
 		jobject = verify_jobject_format(jobject);
 
 		if ($('#command').val().indexOf('%s') == -1) {
-			$('#command').val('/tellraw @a %s');
+			$('#command').val('/tellraw @p %s');
 			localStorage.setItem('jtemplate','tellraw');
 		}
 
