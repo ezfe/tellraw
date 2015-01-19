@@ -171,3 +171,23 @@ div[class*='col-xs-'] {
 	left: -10px;
 	width: 200px;
 }
+
+#jsonPreview {
+	padding: 20px;
+}
+
+#jsonPreview.bookPreview {
+	color: black;
+	padding-top: 60px;
+	padding-left: 30px;
+	padding-right: 70px;
+	max-width: 292px;
+	height: 360px;
+	background-image: url(../book.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-color: transparent !important;
+	border: none !important;
+	/*word-break: break-word;*/
+	white-space: pre-wrap; 
+}

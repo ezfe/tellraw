@@ -341,7 +341,7 @@ function getCSSHEXFromWord(w) {
 	if (w == "yellow") return("#FFFF00");
 	if (w == "white") return("#FFFFFF");
 	if (w == "none") return("#FFFFFF");
-	return("#FFFFFF");
+	return templates[localStorage.getItem('jtemplate')].formatType == 'bookarray' ? ('#000000') : ("#FFFFFF");
 }
 function removeWhiteSpace(s) {
 	return s;
@@ -1078,6 +1078,11 @@ function jsonParse() {
 	$('#jsonPreview').css('font-size',$('#previewFontSize').val() + 'px');
 	localStorage["color"] = $('#previewcolor').val();
 	$('#jsonPreview').html('');
+	if (templates[localStorage.getItem('jtemplate')].formatType == 'bookarray') {
+		$('#jsonPreview').addClass('bookPreview');
+	} else {
+		$('#jsonPreview').removeClass('bookPreview');
+	}
 	if (get_type(jobject) == "[object Array]") {
 		for (var i = 0; i < jobject.length; i++) {
 			if (jobject[i].NEW_ITERATE_FLAG) {
