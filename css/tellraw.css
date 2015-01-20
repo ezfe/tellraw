@@ -43,6 +43,9 @@
 .modal {
 	color: black;
 }
+.no-focus-outline:focus {
+	outline: none;
+}
 @font-face {
 	font-family: 'minecraftiaregular';
 	src: url('../minecraftia/minecraftia-webfont.eot');
