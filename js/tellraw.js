@@ -1112,7 +1112,7 @@ function jsonParse() {
 				if (/*templates[localStorage.getItem('jtemplate')].formatType == 'bookarray' || */templates[localStorage.getItem('jtemplate')].formatType == 'signset') {
 					$('#jsonPreview').append('<span id="jsonPreviewSpanElement'+ i +'"><hr></span>');
 				}
-			} else if (pageHash['index.' + i] == bookPage) {
+			} else if (pageHash['index.' + i] == bookPage || !templates[localStorage.getItem('jtemplate')].formatType == 'bookarray') {
 				var doClickEvent = false;
 				var doHoverEvent = false;
 				var popoverTitle = "";
