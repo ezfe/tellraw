@@ -5,7 +5,7 @@
             "runcommand": "Befehl ausf\u00fchren",
             "openurl": "URL \u00f6ffnen",
             "suggestcommand": "Befehl vorschlagen",
-            "header": "Klick Ereigniss:",
+            "header": "Klick Ereignis:",
             "none": "Keins"
         },
         "trn": "\u00dcbersetzt",
@@ -15,7 +15,7 @@
         "hoverevent": {
             "addtext": "Text hinzuf\u00fcgen.",
             "removetext": "Letzten Text l\u00f6schen.",
-            "header": "Mouseover Ereigniss:",
+            "header": "Maus\u00fcberfahren Ereignis",
             "showachievement": "Zeige Errungenschaft",
             "id": "ID:",
             "showentity": "Zeige Entity",
@@ -41,8 +41,8 @@
             "strikethrough": "Durchgestrichen"
         },
         "player": "Spieler",
-        "obj2": "Objective",
-        "obj": "Scoreboard Objective",
+        "obj2": "Objekt",
+        "obj": "Scoreboard Objekt",
         "nosnippets": "Noch kein Text",
         "header": "Textabschitte",
         "text": "Text",
@@ -96,7 +96,7 @@
         "persistencenotice": "Die gespeicherten Daten k\u00f6nnten sich jederzeit zur\u00fccksetzen, und h\u00e4ngen von deinen Browser Cookies ab. Vertraue deshalb nicht auf sie \u00fcber einen l\u00e4ngeren Zeitraum.",
         "show": "Zeige gespeicherte Daten",
         "deleteall": {
-            "body": "Das klicken von L\u00f6schen wird alle gespeicherten Daten l\u00f6schen, aber nicht deinen aktuellen text",
+            "body": "Das klicken von L\u00f6schen wird alle gespeicherten Daten l\u00f6schen, aber nicht deinen aktuellen Text",
             "yes": "Alle gespeicherten Daten l\u00f6schen",
             "heading": "Bist du dir sicher!?!",
             "no": "Abbrechen"
@@ -155,7 +155,7 @@
             "tweet": "Link twittern",
             "request_needed_translations": "Noch zu \u00fcbersetzender Text",
             "forum_thread": "Forum Beitrag",
-            "changelog": "\u00c4nderungsprotokoll"
+            "changelog": "Changelog"
         }
     },
     "language": {
@@ -166,13 +166,13 @@
     },
     "player": {
         "header": "Spieler und Befehl:",
-        "description": "(@a, @p, @r, oder ein bestimmter Spieler)"
+        "description": "(@a, @p, @r, @e, oder ein bestimmter Spieler)"
     },
     "commandblock": "Du musst den Befehl in der Server Konsole oder in einem Befehlsblock ausf\u00fchren.",
     "alert": {
         "report": "Problem melden",
         "changed": "Diese Seite wurde k\u00fcrzlich ge\u00e4ndert, also k\u00f6nnten Probleme auftreten. Lade die Seite neu wenn es so aus sieht als ob etwas nicht funktionieren w\u00fcrde.",
-        "receiveupdates": "Bekomme updates hier (\"Folge\" dem Thema)"
+        "receiveupdates": "Erhalte Updates hier (\"Folge\" dem Thema)"
     },
     "command": "Befehl:",
     "export": {
