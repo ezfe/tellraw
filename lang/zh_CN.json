@@ -51,6 +51,16 @@
             "title": "\u8b66\u544a\uff01"
         }
     },
+    "headerbar": {
+        "dropdown": {
+            "translate_page_link": "Translation Site",
+            "tweet": "\u5206\u4eab\u5230\u63a8\u7279\uff08\u4e2d\u56fd\u5730\u533a\u4e0d\u53ef\u7528\uff09",
+            "forum_thread": "\u8bba\u575b\u539f\u5e16",
+            "changelog": "\u66f4\u65b0\u65e5\u5fd7"
+        },
+        "help": "\u5e2e\u52a9",
+        "report_an_issue": "\u62a5\u544a\u95ee\u9898"
+    },
     "donate": {
         "patreon-button": "Patreon",
         "support-header": "(\u8bf7)\u652f\u6301\u672c\u7f51\u7ad9\u8fd0\u884c",
@@ -148,16 +158,6 @@
         "color_yellow": "\u9ec4\u8272"
     },
     "header": "\u7528\u4e8eMinecraft 1.7+\u7684Tellraw\u6307\u4ee4\u751f\u6210\u5668",
-    "headerbar": {
-        "help": "\u5e2e\u52a9",
-        "report_an_issue": "\u62a5\u544a\u95ee\u9898",
-        "dropdown": {
-            "tweet": "\u5206\u4eab\u5230\u63a8\u7279\uff08\u4e2d\u56fd\u5730\u533a\u4e0d\u53ef\u7528\uff09",
-            "request_needed_translations": "\u8bf7\u6c42\u7ffb\u8bd1\u5217\u8868",
-            "forum_thread": "\u8bba\u575b\u539f\u5e16",
-            "changelog": "\u66f4\u65b0\u65e5\u5fd7"
-        }
-    },
     "language": {
         "translate": "\u7ffb\u8bd1",
         "name": "\u82f1\u6587",

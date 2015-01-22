@@ -51,6 +51,16 @@
             "title": "Varning!"
         }
     },
+    "headerbar": {
+        "dropdown": {
+            "translate_page_link": "Translation Site",
+            "tweet": "Tweeta",
+            "forum_thread": "Forumtr\u00e5d",
+            "changelog": "\u00c4ndringslogg"
+        },
+        "help": "Hj\u00e4lp",
+        "report_an_issue": "Rapportera ett problem"
+    },
     "donate": {
         "patreon-button": "Patreon",
         "support-header": "(Sn\u00e4lla) St\u00f6d den h\u00e4r webbsidan",
@@ -148,16 +158,6 @@
         "color_yellow": "Gul"
     },
     "header": "Tellraw Generator f\u00f6r Minecraft 1.7+",
-    "headerbar": {
-        "help": "Hj\u00e4lp",
-        "report_an_issue": "Rapportera ett problem",
-        "dropdown": {
-            "tweet": "Tweeta",
-            "request_needed_translations": "Lista \u00f6ver \u00f6vers\u00e4ttningar som beh\u00f6vs",
-            "forum_thread": "Forumtr\u00e5d",
-            "changelog": "\u00c4ndringslogg"
-        }
-    },
     "language": {
         "translate": "\u00d6vers\u00e4tt",
         "name": "Svenska",

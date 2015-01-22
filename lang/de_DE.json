@@ -51,6 +51,16 @@
             "title": "Warnung!"
         }
     },
+    "headerbar": {
+        "dropdown": {
+            "translate_page_link": "Translation Site",
+            "tweet": "Link twittern",
+            "forum_thread": "Forum Beitrag",
+            "changelog": "Changelog"
+        },
+        "help": "Hilfe",
+        "report_an_issue": "Melde einen Fehler"
+    },
     "donate": {
         "patreon-button": "Patreon",
         "support-header": "Unterst\u00fctze diese Seite",
@@ -148,16 +158,6 @@
         "color_yellow": "Gelb"
     },
     "header": "Tellraw Befehlsgenerator f\u00fcr Minecraft 1.7+",
-    "headerbar": {
-        "help": "Hilfe",
-        "report_an_issue": "Melde einen Fehler",
-        "dropdown": {
-            "tweet": "Link twittern",
-            "request_needed_translations": "Noch zu \u00fcbersetzender Text",
-            "forum_thread": "Forum Beitrag",
-            "changelog": "Changelog"
-        }
-    },
     "language": {
         "translate": "\u00dcbersetzen",
         "name": "Deutsch",

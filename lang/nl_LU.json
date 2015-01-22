@@ -51,6 +51,16 @@
             "title": "Waarschuwing!"
         }
     },
+    "headerbar": {
+        "dropdown": {
+            "translate_page_link": "Translation Site",
+            "tweet": "Tweet",
+            "forum_thread": "Forum Thread",
+            "changelog": "Changelog"
+        },
+        "help": "Help",
+        "report_an_issue": "Report an Issue"
+    },
     "donate": {
         "patreon-button": "Patreon",
         "support-header": "(Please) Support This Website",
@@ -148,16 +158,6 @@
         "color_yellow": "Geel"
     },
     "header": "Tellraw Generator voor Minecraft 1.7+",
-    "headerbar": {
-        "help": "Help",
-        "report_an_issue": "Report an Issue",
-        "dropdown": {
-            "tweet": "Tweet",
-            "request_needed_translations": "Needed Translations List",
-            "forum_thread": "Forum Thread",
-            "changelog": "Changelog"
-        }
-    },
     "language": {
         "translate": "Vertalen",
         "name": "Nederlands",

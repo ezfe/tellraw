@@ -51,6 +51,16 @@
             "title": "Attenzione!"
         }
     },
+    "headerbar": {
+        "dropdown": {
+            "translate_page_link": "Translation Site",
+            "tweet": "Tweet",
+            "forum_thread": "Discussione nel forum",
+            "changelog": "Changelog"
+        },
+        "help": "Help",
+        "report_an_issue": "Riporta Un problema"
+    },
     "donate": {
         "patreon-button": "Patreon",
         "support-header": "(Please) Support This Website",
@@ -148,16 +158,6 @@
         "color_yellow": "Giallo"
     },
     "header": "Generatore Tellraw per Minecraft 1.7+",
-    "headerbar": {
-        "help": "Help",
-        "report_an_issue": "Riporta Un problema",
-        "dropdown": {
-            "tweet": "Tweet",
-            "request_needed_translations": "Lista delle traduzioni richieste",
-            "forum_thread": "Discussione nel forum",
-            "changelog": "Changelog"
-        }
-    },
     "language": {
         "translate": "Traduci",
         "name": "Italiano",

@@ -51,6 +51,16 @@
             "title": "\u00a1Precauci\u00f3n!"
         }
     },
+    "headerbar": {
+        "dropdown": {
+            "translate_page_link": "Translation Site",
+            "tweet": "Twitea",
+            "forum_thread": "Tema en el Foro",
+            "changelog": "Historial de cambios"
+        },
+        "help": "Ayuda",
+        "report_an_issue": "Reportar un fallo\/error"
+    },
     "donate": {
         "patreon-button": "Patreon",
         "support-header": "Por favor apoya a esta p\u00e1gina",
@@ -148,16 +158,6 @@
         "color_yellow": "Amarillo"
     },
     "header": "Generador de Tellraw para Minecraft 1.7+",
-    "headerbar": {
-        "help": "Ayuda",
-        "report_an_issue": "Reportar un fallo\/error",
-        "dropdown": {
-            "tweet": "Twitea",
-            "request_needed_translations": "Lista de traducciones pendientes",
-            "forum_thread": "Tema en el Foro",
-            "changelog": "Historial de cambios"
-        }
-    },
     "language": {
         "translate": "Traduce",
         "name": "Espa\u00f1ol",

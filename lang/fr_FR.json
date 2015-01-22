@@ -51,6 +51,16 @@
             "title": "Attention!"
         }
     },
+    "headerbar": {
+        "dropdown": {
+            "translate_page_link": "Translation Site",
+            "tweet": "Tweet",
+            "forum_thread": "Topic Forum",
+            "changelog": "Changelog"
+        },
+        "help": "AIde",
+        "report_an_issue": "Signaler un probl\u00e8me"
+    },
     "donate": {
         "patreon-button": "Patreon",
         "support-header": "Merci de soutenir ce site.",
@@ -148,16 +158,6 @@
         "color_yellow": "Jaune"
     },
     "header": "G\u00e9n\u00e9rateur de Tellraw pour Minecraft 1.7+",
-    "headerbar": {
-        "help": "AIde",
-        "report_an_issue": "Signaler un probl\u00e8me",
-        "dropdown": {
-            "tweet": "Tweet",
-            "request_needed_translations": "Liste des traductions n\u00e9cessaires",
-            "forum_thread": "Topic Forum",
-            "changelog": "Changelog"
-        }
-    },
     "language": {
         "translate": "Traduire",
         "name": "Fran\u00e7ais",
