@@ -929,9 +929,11 @@
 		"es_ES",
 		"en_US",
 		"de_DE",
-		"cs"
+		"cs",
+		"tr"
 	],
 	"web_language_relations": {
+		
 	},
 	"minecraft_language_strings": {
 		"en_us": {
