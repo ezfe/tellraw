@@ -53,7 +53,7 @@
     },
     "headerbar": {
         "dropdown": {
-            "translate_page_link": "Translation Site",
+            "translate_page_link": "Site de traductions",
             "tweet": "Tweet",
             "forum_thread": "Topic Forum",
             "changelog": "Changelog"

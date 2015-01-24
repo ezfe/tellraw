@@ -1,7 +1,7 @@
 {
     "textsnippets": {
         "clickevent": {
-            "changepage": "Change Page",
+            "changepage": "Seite \u00e4ndern",
             "runcommand": "Befehl ausf\u00fchren",
             "openurl": "URL \u00f6ffnen",
             "suggestcommand": "Befehl vorschlagen",
@@ -15,7 +15,7 @@
         "hoverevent": {
             "addtext": "Text hinzuf\u00fcgen.",
             "removetext": "Letzten Text l\u00f6schen.",
-            "header": "Maus\u00fcberfahren Ereignis",
+            "header": "Maus\u00fcberfahren Ereignis:",
             "showachievement": "Zeige Errungenschaft",
             "id": "ID:",
             "showentity": "Zeige Entity",
@@ -53,7 +53,7 @@
     },
     "headerbar": {
         "dropdown": {
-            "translate_page_link": "Translation Site",
+            "translate_page_link": "\u00dcbersetzungsseite",
             "tweet": "Link twittern",
             "forum_thread": "Forum Beitrag",
             "changelog": "Changelog"
@@ -78,7 +78,7 @@
     },
     "help": {
         "textfield": "Benutze \/n um eine neue Zeile zu markieren.",
-        "raw-text-tab": "Choose your text choice. Raw is normal text. Scoreboard pulls a value from the scoreboard. Selector pulls the name of an entity.",
+        "raw-text-tab": "W\u00e4hle deine Text-Sorte. Raw ist normaler Text. Scoreboard zeigt einen Wert vom Scoreboard. Selector zeigt den Namen eines Entitys.",
         "report-an-issue": "Kilck hier um einen Fehler zu melden. Wenn dir irgendwelche Bugs auffallen, solltest du sie hier melden.",
         "dropdown-list": "Tweet, Changelog ansehen, Minecraft Forum Beitrag ansehen, oder bekomme die Resourcen zum \u00fcbersetzen.",
         "addsnippet": "F\u00fcge dem Tellraw-Befehl Text hinzu.",
@@ -132,8 +132,8 @@
             "no": "Abbrechen"
         },
         "importtext": {
-            "default": "Please enter the tellraw command. Use the Delete All button if it incorrectly imports. Import only works with \/tellraw commands",
-            "exported": "Please enter the string you were given when you exported your command"
+            "default": "Bitte gib den Tellraw-Befehl ein. Benutze die Alles L\u00f6schen Schaltfl\u00e4che, wenn es falsch importiert wird. Importieren funktioniert nur mit \/Tellraw Befehlen.",
+            "exported": "Bitte gib den String ein, der dir gegeben wurde, als du den Befehl exportiert hast."
         },
         "import": "Importieren",
         "header": "Einstellungen:"

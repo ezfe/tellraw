@@ -1,7 +1,7 @@
 {
     "textsnippets": {
         "clickevent": {
-            "changepage": "Change Page",
+            "changepage": "\u6539\u8b8a\u9801\u9762",
             "runcommand": "\u57f7\u884c\u6307\u4ee4",
             "openurl": "\u958b\u555f\u7db2\u5740(URL=\u7db2\u5740)",
             "suggestcommand": "\u5efa\u8b70\u6307\u4ee4",
@@ -53,7 +53,7 @@
     },
     "headerbar": {
         "dropdown": {
-            "translate_page_link": "Translation Site",
+            "translate_page_link": "\u7ffb\u8b6f\u7db2\u7ad9",
             "tweet": "Tweet",
             "forum_thread": "Forum Thread",
             "changelog": "Changelog"
@@ -62,12 +62,12 @@
         "report_an_issue": "Report an Issue"
     },
     "donate": {
-        "patreon-button": "Patreon",
-        "support-header": "(Please) Support This Website",
+        "patreon-button": "Patron",
+        "support-header": "(\u8acb)\u652f\u6301\u9019\u500b\u7db2\u7ad9",
         "paypal-note": "I do not offer paypal as a listed option due to fees (Stripe doesn't charge fees to Students). However, if you wish you can send me money over PayPal via funds@ezekielelin.com",
         "patreon-text": "If you Pledge to donate a certain amount each month, I can rely on that to upgrade the servers.",
         "support-subheader": "I don't want to put ads on this website, please donate to support the costs of maintaining this website.",
-        "donate-button": "Donate",
+        "donate-button": "\u8d0a\u52a9",
         "donate-text": "Make a donation of the value you choose (Stripe).",
         "overcast-text": "Want to buy me a rank on the Overcast Network? Click the picture above, and enter ezekielelin as my username.",
         "exit": "Exit",
