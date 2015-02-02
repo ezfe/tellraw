@@ -286,15 +286,13 @@ function deleteAll() {
 	$('#deleteConfirm').remove();
 	$('.alerts').append('<div id="deleteConfirm" class="alert alert-danger"><h4 lang="settings.deleteall.heading"></h4><p lang="settings.deleteall.body"></p><p><button type="button" onclick="deleteAllConfirmed()" class="btn btn-danger" lang="settings.deleteall.yes"></button> <button type="button" onclick="deleteAllCancel()" class="btn btn-default" lang="settings.deleteall.no"></button></p></div>');
 	goToByScroll('deleteConfirm');
-	$('.templateButton[template=tellraw]').click();
 	refreshOutput();
 }
 function deleteAllConfirmed() {
 	$('#deleteConfirm').slideUp();
 	$('#deleteConfirm');
 	jobject = [];
-	$('#command').val('/tellraw @p %s');
-	localStorage.setItem('jtemplate','book');
+	$('.templateButton[template=tellraw]').click();
 	refreshOutput();
 }
 function deleteAllCancel() {
