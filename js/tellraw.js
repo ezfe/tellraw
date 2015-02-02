@@ -135,13 +135,13 @@ function formatJObjectList(data) {
 		return [];
 	}
 	var ret_val = [];
-	var currentDataToPlug = {"text":"","extra":[]};
+	var currentDataToPlug = [""];
 	for (var i = 0; i < data.length; i++) {
 		if (data[i].NEW_ITERATE_FLAG) {
 			ret_val.push(JSON.stringify(currentDataToPlug));
-			currentDataToPlug = {"text":"","extra":[]};
+			currentDataToPlug = [""];
 		} else {
-			currentDataToPlug.extra.push(data[i]);
+			currentDataToPlug.push(data[i]);
 		}
 	}
 	if (!data[data.length - 1].NEW_ITERATE_FLAG) {
