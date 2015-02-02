@@ -1,0 +1,183 @@
+{
+    "textsnippets": {
+        "clickevent": {
+            "changepage": "Change Page",
+            "runcommand": "Run Command",
+            "openurl": "Open URL",
+            "suggestcommand": "Suggest Command",
+            "header": "Click Event:",
+            "none": "None"
+        },
+        "trn": "Translated",
+        "parameter": "Parameter",
+        "editsnippet": "Edit Text",
+        "close": "Close",
+        "hoverevent": {
+            "addtext": "Add Text",
+            "removetext": "Remove Last Text",
+            "header": "Hover Event:",
+            "showachievement": "Show Achievement",
+            "id": "ID:",
+            "showentity": "Show Entity",
+            "showitem": "Show Item",
+            "type": "Type:",
+            "none": "None",
+            "showtext": "Show Text",
+            "name": "Name"
+        },
+        "notext": "No Text",
+        "NEW_ITERATE_FLAG": "Book Page \/ Sign Line",
+        "insert": "Insert",
+        "addsnippet": "Add Text",
+        "insertion": {
+            "header": "Insertion"
+        },
+        "sel": "Selector",
+        "format": {
+            "bold": "Bold",
+            "underlined": "Underlined",
+            "obfuscated": "Obfuscated",
+            "italic": "Italic",
+            "strikethrough": "Strikethrough"
+        },
+        "player": "Player",
+        "obj2": "Objective",
+        "obj": "Scoreboard Objective",
+        "nosnippets": "No text yet",
+        "header": "Text Snippets",
+        "text": "Text",
+        "raw": "Raw",
+        "warning": {
+            "title": "Warning!"
+        }
+    },
+    "headerbar": {
+        "dropdown": {
+            "translate_page_link": "Ford\u00edt\u00f3 oldal",
+            "tweet": "Tweet",
+            "forum_thread": "Forum Thread",
+            "changelog": "Changelog"
+        },
+        "help": "Help",
+        "report_an_issue": "Report an Issue"
+    },
+    "donate": {
+        "patreon-button": "Patreon",
+        "support-header": "K\u00e9rlek t\u00e1mogasd az oldalt!",
+        "paypal-note": "Nem akarjuk r\u00e1der\u00f6ltetni, de t\u00e1mogathatsz minket paypal-on. C\u00edm: funds@ezekielelin.com (A Stirpe nem sz\u00e1m\u00edt fel k\u00fcl\u00f6n d\u00edjakat)",
+        "patreon-text": "Ha adott \u00f6sszeggel t\u00e1mogatsz minden h\u00f3napban, meg tudjuk \u00faj\u00edtani az oldalt!",
+        "support-subheader": "Ha nem szeretn\u00e9l hirdet\u00e9seket l\u00e1tni, t\u00e1mogass minket \u00e9s seg\u00edts fedezni a fenttart\u00e1si k\u00f6lts\u00e9geket!",
+        "donate-button": "T\u00e1mogat\u00e1s",
+        "donate-text": "T\u00e1mogass adott \u00f6sszegben (Stripe)",
+        "overcast-text": "Szeretn\u00e9l rangot venni? Kattints a fenti k\u00e9pre \u00e9s add meg felhaszn\u00e1l\u00f3neved!",
+        "exit": "Kil\u00e9p\u00e9s",
+        "exit-text": "Sajnos ez n\u00e9lk\u00fcl\u00f6zhetetlen az oldal m\u0171k\u00f6d\u00e9s\u00e9hez!"
+    },
+    "issues": {
+        "go-home": "Figyelmen k\u00edv\u00fcl hagy\u00e1s"
+    },
+    "help": {
+        "textfield": "Use \\n to make a newline",
+        "raw-text-tab": "Choose your text choice. Raw is normal text. Scoreboard pulls a value from the scoreboard. Selector pulls the name of an entity.",
+        "report-an-issue": "Click here to report an issue. If you experience any sort of bug, you should report it here.",
+        "dropdown-list": "Tweet, view the changelog, view the minecraft forums thread, or get resources for translation.",
+        "addsnippet": "Add text to your tellraw command.",
+        "delete-all-saves": "Clear your saves, but leave your current command in the main editor intact.",
+        "create-new-save": "Make a new save. This will overwrite an existing save by the same name, if you so choose.",
+        "delete-all-snippets": "Clear your command completely, but leave your saves intact.",
+        "show-saves": "Show your saves editor, allows saving, loading, and deletion of saves."
+    },
+    "template": {
+        "sign_block": "T\u00e1bla (\/blockdata)",
+        "sign_item": "T\u00e1bla (\/give)",
+        "subtitle": "F\u0151c\u00edm",
+        "title": "C\u00edm",
+        "tellraw": "Tellraw",
+        "book": "K\u00f6nyv",
+        "execute_tellraw": "Execute"
+    },
+    "output": {
+        "nothing": "Nothing to see here",
+        "header": "Output Preview:"
+    },
+    "saves": {
+        "header": "Ment\u00e9sek",
+        "hide": "Ment\u00e9sek bez\u00e1r\u00e1sa",
+        "persistencenotice": "Saves may reset at any time, and depend on your browsers cookies. Do not rely on them for extended periods of time.",
+        "show": "Ment\u00e9sek megnyit\u00e1sa",
+        "deleteall": {
+            "body": "Clicking Delete will remove all your saves, but won't affect your current text",
+            "yes": "Minden ment\u00e9s t\u00f6rl\u00e9se",
+            "heading": "Biztos?",
+            "no": "M\u00e9gsem"
+        },
+        "nosaves": "You don't have anything saved",
+        "new": "Mostani projekt ment\u00e9se"
+    },
+    "settings": {
+        "nlOutput": "Parancssor megtekint\u00e9se",
+        "darkmode": {
+            "turn_on": "Dark Theme",
+            "turn_off": "Light Theme"
+        },
+        "show": "Be\u00e1ll\u00edt\u00e1sok megnyit\u00e1sa",
+        "hide": "Be\u00e1ll\u00edt\u00e1sok bez\u00e1r\u00e1sa",
+        "fontSize": "V\u00e1rhat\u00f3 kimenet magass\u00e1ga",
+        "previewcolor": "Preview Background Color:",
+        "export": "Export",
+        "deleteall": {
+            "body": "Clicking Delete will remove all your text and reset it to an empty string.",
+            "heading": "Are you sure!?!",
+            "yes": "Delete All",
+            "no": "Cancel"
+        },
+        "importtext": {
+            "default": "Please enter the tellraw command. Use the Delete All button if it incorrectly imports. Import only works with \/tellraw commands",
+            "exported": "Please enter the string you were given when you exported your command"
+        },
+        "import": "Import",
+        "header": "Settings:"
+    },
+    "color": {
+        "color_green": "Green",
+        "color_red": "Red",
+        "color_none": "None",
+        "color_dark_aqua": "Dark Aqua",
+        "color_dark_purple": "Dark Purple",
+        "color_dark_blue": "Dark Blue",
+        "color_aqua": "Aqua",
+        "color_white": "White",
+        "color_dark_gray": "Dark Gray",
+        "color_dark_red": "Dark Red",
+        "color_dark_green": "Dark Green",
+        "color_gold": "Gold",
+        "color_blue": "Blue",
+        "color_black": "Black",
+        "color_gray": "Gray",
+        "color_light_purple": "Light Purple",
+        "color_yellow": "Yellow"
+    },
+    "header": "Tellraw Generator for Minecraft 1.7+",
+    "language": {
+        "translate": "Translate",
+        "name": "English",
+        "header": "Language",
+        "credit": "Translated by Ezekiel"
+    },
+    "player": {
+        "header": "Player and Command",
+        "description": "Used to select and execute different players"
+    },
+    "commandblock": "You must run this in the server console or in a command block.",
+    "alert": {
+        "report": "Report Problem",
+        "changed": "This page was recently modified, so there might be problems. Reload the page if something doesn't seem to work.",
+        "receiveupdates": "Receive updates here (\"Follow\" the topic)"
+    },
+    "command": "Command:",
+    "export": {
+        "heading": "Your Exported Command",
+        "close": "Close"
+    },
+    "attribution": "While nothing is required to use this, it would always be appreciated if you linked to this webpage or the MCF thread."
+}

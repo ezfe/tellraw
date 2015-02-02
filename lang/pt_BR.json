@@ -1,7 +1,7 @@
 {
     "textsnippets": {
         "clickevent": {
-            "changepage": "Change Page",
+            "changepage": "Alterar p\u00e1gina",
             "runcommand": "Executar comando",
             "openurl": "Abrir link",
             "suggestcommand": "Sugerir comando",
@@ -53,9 +53,9 @@
     },
     "headerbar": {
         "dropdown": {
-            "translate_page_link": "Translation Site",
+            "translate_page_link": "Site de tradu\u00e7\u00f5es",
             "tweet": "Tweet",
-            "forum_thread": "Forum Thread",
+            "forum_thread": "T\u00f3pico no f\u00f3rum",
             "changelog": "Changelog"
         },
         "help": "Ajuda",
@@ -160,7 +160,7 @@
     "header": "Gerador de Tellraw para minecraft 1.7+",
     "language": {
         "translate": "Traduzir",
-        "name": "Portugu\u00eas Brasileiro",
+        "name": "Portugu\u00eas (Brasil)",
         "header": "Linguagem",
         "credit": "Traduzido por Gerottinho"
     },
