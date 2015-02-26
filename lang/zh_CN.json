@@ -53,7 +53,7 @@
     },
     "headerbar": {
         "dropdown": {
-            "translate_page_link": "Translation Site",
+            "translate_page_link": "\u7ffb\u8bd1\u672c\u7ad9",
             "tweet": "\u5206\u4eab\u5230\u63a8\u7279\uff08\u4e2d\u56fd\u5730\u533a\u4e0d\u53ef\u7528\uff09",
             "forum_thread": "\u8bba\u575b\u539f\u5e16",
             "changelog": "\u66f4\u65b0\u65e5\u5fd7"

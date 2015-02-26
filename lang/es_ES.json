@@ -1,7 +1,7 @@
 {
     "textsnippets": {
         "clickevent": {
-            "changepage": "Change Page",
+            "changepage": "Cambiar p\u00e1gina",
             "runcommand": "Ejecutar comando",
             "openurl": "Abrir una URL",
             "suggestcommand": "Introducir comando",
@@ -53,7 +53,7 @@
     },
     "headerbar": {
         "dropdown": {
-            "translate_page_link": "Translation Site",
+            "translate_page_link": "P\u00e1gina web de traducci\u00f3n",
             "tweet": "Twitea",
             "forum_thread": "Tema en el Foro",
             "changelog": "Historial de cambios"
@@ -65,20 +65,20 @@
         "patreon-button": "Patreon",
         "support-header": "Por favor apoya a esta p\u00e1gina",
         "paypal-note": "I do not offer paypal as a listed option due to fees (Stripe doesn't charge fees to Students). However, if you wish you can send me money over PayPal via funds@ezekielelin.com",
-        "patreon-text": "If you Pledge to donate a certain amount each month, I can rely on that to upgrade the servers.",
+        "patreon-text": "Si te comprometes a donar cierta cantidad cada mes,puedes confiar en que mejorare los servidores.",
         "support-subheader": "No quiero poner anuncios en esta p\u00e1gina, por favor dona para apoyar los costes de mantenimiento en esta p\u00e1gina.",
         "donate-button": "Donar",
-        "donate-text": "Make a donation of the value you choose (Stripe).",
+        "donate-text": "Haz una donaci\u00f3n del valor que elijas (Stripe)",
         "overcast-text": "\u00bfQuieres comprarme un rango en el Overcast Network? Dale a la imagen de abajo, y pon ezekielelin como mi nombre de usuario.",
         "exit": "Salir",
-        "exit-text": "You won't see this again so long as you keep your cookies intact. Unfortunately I have no way of detecting you if you reset your cookies."
+        "exit-text": "No volver\u00e1s a ver esto si mantienes tus cookies intactas. Desafortunadamente no tenemos ninguna manera de detectar si has reseteado tus cookies."
     },
     "issues": {
         "go-home": "Ignorar error"
     },
     "help": {
         "textfield": "Emplea \\n para hacer un salto de l\u00ednea",
-        "raw-text-tab": "Escribe el texto. Si es simple, no tendr\u00e1 ning\u00fan a\u00f1adido. Scoreboard modifica un valor de un scoreboard. Selector escoge una entidad para ejecutar el comando.",
+        "raw-text-tab": "Elige el texto que quieras.\"Raw\" es el texto normal.Scoreboard elige un valor del scoreboard.Selctor pone nombre a una entidad",
         "report-an-issue": "Haz click para reportar un error. Si ves alg\u00fan tipo de fallo, comun\u00edcalo aqu\u00ed.",
         "dropdown-list": "Twitea, historial de cambios, ve al tema en el foro de minecraft, o mira los idiomas por traducir.",
         "addsnippet": "A\u00f1ade texto al comando \/tellraw.",

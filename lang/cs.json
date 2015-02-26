@@ -1,7 +1,7 @@
 {
     "textsnippets": {
         "clickevent": {
-            "changepage": "Change Page",
+            "changepage": "Zm\u011bnit Str\u00e1nku",
             "runcommand": "Spustit p\u0159\u00edkaz:",
             "openurl": "Otev\u0159\u00edt webovou adresu",
             "suggestcommand": "Navrhnout p\u0159\u00edkaz",
@@ -53,7 +53,7 @@
     },
     "headerbar": {
         "dropdown": {
-            "translate_page_link": "Translation Site",
+            "translate_page_link": "Upravit P\u0159eklad",
             "tweet": "Tweet",
             "forum_thread": "Forum Thread",
             "changelog": "Changelog"
@@ -63,37 +63,37 @@
     },
     "donate": {
         "patreon-button": "Patreon",
-        "support-header": "(Please) Support This Website",
+        "support-header": "Podporujte pros\u00edm tuto str\u00e1nku.",
         "paypal-note": "I do not offer paypal as a listed option due to fees (Stripe doesn't charge fees to Students). However, if you wish you can send me money over PayPal via funds@ezekielelin.com",
         "patreon-text": "If you Pledge to donate a certain amount each month, I can rely on that to upgrade the servers.",
-        "support-subheader": "I don't want to put ads on this website, please donate to support the costs of maintaining this website.",
-        "donate-button": "Donate",
+        "support-subheader": "Nechci d\u00e1vat reklamy na tuto str\u00e1nku, proto m\u011b pros\u00edm podpo\u0159te n\u011bjakou finan\u010dn\u00ed \u010d\u00e1stkou na provoz webu.",
+        "donate-button": "Podpo\u0159it !",
         "donate-text": "Make a donation of the value you choose (Stripe).",
         "overcast-text": "Want to buy me a rank on the Overcast Network? Click the picture above, and enter ezekielelin as my username.",
-        "exit": "Exit",
+        "exit": "Odej\u00edt",
         "exit-text": "You won't see this again so long as you keep your cookies intact. Unfortunately I have no way of detecting you if you reset your cookies."
     },
     "issues": {
-        "go-home": "Ignore Issue"
+        "go-home": "Ignorovat probl\u00e9m."
     },
     "help": {
         "textfield": "Use \\n to make a newline",
         "raw-text-tab": "Choose your text choice. Raw is normal text. Scoreboard pulls a value from the scoreboard. Selector pulls the name of an entity.",
-        "report-an-issue": "Click here to report an issue. If you experience any sort of bug, you should report it here.",
+        "report-an-issue": "Ze m\u016f\u017eete nahl\u00e1sit jak\u00fdkoliv objeven\u00fd bug. pokud n\u011bjak\u00fd objev\u00edte, nahla\u0161te ho pros\u00edm.",
         "dropdown-list": "Tweet, view the changelog, view the minecraft forums thread, or get resources for translation.",
-        "addsnippet": "Add text to your tellraw command.",
+        "addsnippet": "P\u0159idat text do va\u0161eho \"tellraw\" p\u0159\u00edkazu.",
         "delete-all-saves": "Clear your saves, but leave your current command in the main editor intact.",
         "create-new-save": "Make a new save. This will overwrite an existing save by the same name, if you so choose.",
         "delete-all-snippets": "Clear your command completely, but leave your saves intact.",
         "show-saves": "Show your saves editor, allows saving, loading, and deletion of saves."
     },
     "template": {
-        "sign_block": "Sign (\/blockdata)",
-        "sign_item": "Sign (\/give)",
+        "sign_block": "Cedulka (\/blockdata)",
+        "sign_item": "Cedulka (\/give)",
         "subtitle": "Subtitle",
         "title": "Title",
         "tellraw": "Tellraw",
-        "book": "Book",
+        "book": "Kniha",
         "execute_tellraw": "Execute"
     },
     "output": {
@@ -101,15 +101,15 @@
         "header": "N\u00e1hled v\u00fdstupu:"
     },
     "saves": {
-        "header": "Saves",
-        "hide": "Close Saves",
+        "header": "Ulo\u017een\u00e9",
+        "hide": "Zav\u0159\u00edt Ulo\u017een\u00e9",
         "persistencenotice": "Saves may reset at any time, and depend on your browsers cookies. Do not rely on them for extended periods of time.",
-        "show": "Open Saves",
+        "show": "Otev\u0159\u00edt Ulo\u017een\u00e9",
         "deleteall": {
             "body": "Clicking Delete will remove all your saves, but won't affect your current text",
             "yes": "Delete All Saves",
             "heading": "Are you sure!?!",
-            "no": "Cancel"
+            "no": "Zru\u0161it"
         },
         "nosaves": "You don't have anything saved",
         "new": "Save Current String"
@@ -121,8 +121,8 @@
             "turn_off": "Light Theme"
         },
         "show": "Open Settings",
-        "hide": "Close Settings",
-        "fontSize": "Preview Font Size",
+        "hide": "Zav\u0159\u00edt nastaven\u00ed",
+        "fontSize": "N\u00e1hled velikosti p\u00edsma.",
         "previewcolor": "Barva pozad\u00ed n\u00e1hledu:",
         "export": "Export",
         "deleteall": {
