@@ -861,6 +861,14 @@ function refreshOutput(input) {
 			$('.insertionContainer').hide();
 		}
 
+		if (templates[localStorage.getItem('jtemplate')].formatType == 'signset') {
+			$('.clickEventDisabledSigns').show();
+			$('.hoverEventDisabledSigns').show();
+		} else {
+			$('.clickEventDisabledSigns').hide();
+			$('.hoverEventDisabledSigns').hide();			
+		}
+
 
 		/*EXTRA TRANSLATE STRING MANAGER*/
 
