@@ -918,20 +918,24 @@
 	"web_language_urls": [
 		"zh_TW",
 		"zh_CN",
+		"tr",
 		"sv",
+		"ru",
 		"ru_RU",
 		"pt_BR",
+		"pl",
 		"nl_LU",
+		"ko",
+		"ja",
 		"it",
+		"hu",
 		"hr",
 		"he",
 		"fr_FR",
 		"es_ES",
 		"en_US",
 		"de_DE",
-		"cs",
-		"tr",
-		"pl"
+		"cs"
 	],
 	"web_language_relations": {
 		
