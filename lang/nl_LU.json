@@ -2,17 +2,25 @@
     "textsnippets": {
         "clickevent": {
             "changepage": "Change Page",
+            "unavailable": {
+                "sign": {
+                    "header": "Sign click events are not available",
+                    "body": "Click here to go to an unaffiliated website to create signs with click events."
+                }
+            },
             "runcommand": "Voer commando uit",
             "openurl": "Open Link",
             "suggestcommand": "Beveel commando aan",
             "header": "Klik gebeurtenis:",
             "none": "Geen"
         },
-        "trn": "Vertaald",
-        "parameter": "Parameter",
-        "editsnippet": "Bewerk tekst",
-        "close": "Sluit",
         "hoverevent": {
+            "unavailable": {
+                "sign": {
+                    "header": "Sign hover events are not available",
+                    "body": "This is due to Minecraft not supporting hover events in signs."
+                }
+            },
             "addtext": "Add Text",
             "removetext": "Remove Last Text",
             "header": "Hover gebeurtenis:",
@@ -25,6 +33,10 @@
             "showtext": "Laat tekst zien",
             "name": "Naam"
         },
+        "trn": "Vertaald",
+        "parameter": "Parameter",
+        "editsnippet": "Bewerk tekst",
+        "close": "Sluit",
         "notext": "Geen tekst",
         "NEW_ITERATE_FLAG": "Book Page \/ Sign Line",
         "insert": "Invoegen",

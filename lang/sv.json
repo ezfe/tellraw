@@ -2,17 +2,25 @@
     "textsnippets": {
         "clickevent": {
             "changepage": "Change Page",
+            "unavailable": {
+                "sign": {
+                    "header": "Sign click events are not available",
+                    "body": "Click here to go to an unaffiliated website to create signs with click events."
+                }
+            },
             "runcommand": "K\u00f6r kommando",
             "openurl": "\u00d6ppna URL",
             "suggestcommand": "F\u00f6resl\u00e5 kommando",
             "header": "Klick\u00e5tg\u00e4rd:",
             "none": "Ingen"
         },
-        "trn": "\u00d6versatt",
-        "parameter": "Parameter",
-        "editsnippet": "Redigera text",
-        "close": "St\u00e4ng",
         "hoverevent": {
+            "unavailable": {
+                "sign": {
+                    "header": "Sign hover events are not available",
+                    "body": "This is due to Minecraft not supporting hover events in signs."
+                }
+            },
             "addtext": "L\u00e4gg till text",
             "removetext": "Ta bort senaste texten",
             "header": "\u00c5tg\u00e4rd n\u00e4r mus f\u00f6rs \u00f6ver:",
@@ -25,6 +33,10 @@
             "showtext": "Visa text",
             "name": "Namn"
         },
+        "trn": "\u00d6versatt",
+        "parameter": "Parameter",
+        "editsnippet": "Redigera text",
+        "close": "St\u00e4ng",
         "notext": "Ingen text",
         "NEW_ITERATE_FLAG": "Boksida \/ Skyltlinje",
         "insert": "Infoga",

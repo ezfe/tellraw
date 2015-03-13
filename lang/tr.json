@@ -2,17 +2,25 @@
     "textsnippets": {
         "clickevent": {
             "changepage": "Sayfay\u0131 de\u011fi\u015ftir",
+            "unavailable": {
+                "sign": {
+                    "header": "Sign click events are not available",
+                    "body": "Click here to go to an unaffiliated website to create signs with click events."
+                }
+            },
             "runcommand": "Komutu \u00e7al\u0131\u015ft\u0131r",
             "openurl": "URL a\u00e7",
             "suggestcommand": "Komut \u00f6ner",
             "header": "Bas\u0131nca:",
             "none": "Yok"
         },
-        "trn": "\u00c7evrilimi\u015f",
-        "parameter": "Parametre",
-        "editsnippet": "Yaz\u0131y\u0131 d\u00fczenle",
-        "close": "Kapat",
         "hoverevent": {
+            "unavailable": {
+                "sign": {
+                    "header": "Sign hover events are not available",
+                    "body": "This is due to Minecraft not supporting hover events in signs."
+                }
+            },
             "addtext": "Yaz\u0131 ekle",
             "removetext": "\u00d6nceki Yaz\u0131y\u0131 Kald\u0131r",
             "header": "\u00dcst\u00fcnde Bekletince:",
@@ -25,6 +33,10 @@
             "showtext": "Yaz\u0131 G\u00f6ster",
             "name": "\u0130sim"
         },
+        "trn": "\u00c7evrilimi\u015f",
+        "parameter": "Parametre",
+        "editsnippet": "Yaz\u0131y\u0131 d\u00fczenle",
+        "close": "Kapat",
         "notext": "Yaz\u0131 yok :(",
         "NEW_ITERATE_FLAG": "Kitap Sayfas\u0131 \/ Tabela Sat\u0131r\u0131",
         "insert": "Ekle",

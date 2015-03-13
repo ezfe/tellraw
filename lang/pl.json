@@ -1,0 +1,195 @@
+{
+    "textsnippets": {
+        "clickevent": {
+            "changepage": "Zmie\u0144 stron\u0119",
+            "unavailable": {
+                "sign": {
+                    "header": "Sign click events are not available",
+                    "body": "Click here to go to an unaffiliated website to create signs with click events."
+                }
+            },
+            "runcommand": "Wykonaj komend\u0119",
+            "openurl": "Otw\u00f3rz adres URL",
+            "suggestcommand": "Zaproponuj komend\u0119",
+            "header": "Wydarzenie przy klikni\u0119ciu",
+            "none": "Nic"
+        },
+        "hoverevent": {
+            "unavailable": {
+                "sign": {
+                    "header": "Sign hover events are not available",
+                    "body": "This is due to Minecraft not supporting hover events in signs."
+                }
+            },
+            "addtext": "Dodaj tekst",
+            "removetext": "Usu\u0144 ostatni tekst",
+            "header": "Hover Event:",
+            "showachievement": "Poka\u017c osi\u0105gni\u0119cie",
+            "id": "ID:",
+            "showentity": "Show Entity",
+            "showitem": "Poka\u017c przedmiot",
+            "type": "Typ:",
+            "none": "\u017baden",
+            "showtext": "Poka\u017c tekst",
+            "name": "Nazwa"
+        },
+        "trn": "Przet\u0142umaczone",
+        "parameter": "Parametr",
+        "editsnippet": "Edytuj tekst",
+        "close": "Zamknij",
+        "notext": "Brak tekstu",
+        "NEW_ITERATE_FLAG": "Strona ksi\u0105\u017cki \/ Linia Tabliczki",
+        "insert": "Wstaw",
+        "addsnippet": "Dodaj tekst",
+        "insertion": {
+            "header": "Insertion"
+        },
+        "sel": "Selector",
+        "format": {
+            "bold": "Pogrub",
+            "underlined": "Podkre\u015bl",
+            "obfuscated": "Matrix",
+            "italic": "Pochyl",
+            "strikethrough": "Pochyl"
+        },
+        "player": "Gracz",
+        "obj2": "Cel",
+        "obj": "Cel Tablicy Zada\u0144",
+        "nosnippets": "No text yet",
+        "header": "Text Snippets",
+        "text": "Tekst",
+        "raw": "Normalnie",
+        "warning": {
+            "title": "Uwaga!"
+        }
+    },
+    "headerbar": {
+        "dropdown": {
+            "translate_page_link": "T\u0142umaczenie strony",
+            "tweet": "Tweet",
+            "forum_thread": "Forum Thread",
+            "changelog": "Lista Zmian"
+        },
+        "help": "Pomoc",
+        "report_an_issue": "Zg\u0142o\u015b problem"
+    },
+    "donate": {
+        "patreon-button": "Patreon",
+        "support-header": "(Prosimy) Wspom\u00f3\u017c t\u0105 stron\u0119!",
+        "paypal-note": "Je\u015bli masz ochot\u0119\u00a0nas wspom\u00f3c wy\u015blij troch\u0119 pieni\u0119dzy przez PayPal'a na maila funds@ezekielelin.com",
+        "patreon-text": "Je\u017celi zobowi\u0105\u017cesz si\u0119 do wp\u0142acania pewnej kwoty w ka\u017cdym miesi\u0105cu, mo\u017cesz liczy\u0107 na to \u017ce serwery zostan\u0105 ulepszone.",
+        "support-subheader": "Nie chce dodawa\u0107 reklam do tej strony, wi\u0119c prosz\u0119 o wspomo\u017cenie pieni\u0119\u017cne dla  tej strony",
+        "donate-button": "Wspom\u00f3\u017c",
+        "donate-text": "Wspom\u00f3\u017c stron\u0119 ilo\u015bci\u0105 pieni\u0119dzy kt\u00f3r\u0105 wybierzesz (Stripe)",
+        "overcast-text": "Chcia\u0142by\u015b kupi\u0107 rang\u0119 w Overcast Network? Kliknij obrazek, a nast\u0119pnie wpisz ezekielelin jako moja nazwa u\u017cytkownika.",
+        "exit": "Wyjd\u017a",
+        "exit-text": "B\u0119dziesz widzia\u0142 ten zapis dop\u00f3ki nie usuniesz ciasteczek (cookies) w przegl\u0105darce. Niestety ma mo\u017cliwo\u015bci wykrycia twojego zapisu je\u015bli zresetujesz ciasteczka (cookies)"
+    },
+    "issues": {
+        "go-home": "Ignoruj b\u0142\u0105d"
+    },
+    "help": {
+        "textfield": "U\u017cyj\\ndo robienia nowej lini",
+        "raw-text-tab": "Wybierz rodzaj tekstu. Raw to normaly tekst. Scoreboard sprawdza warto\u015b\u0107 tablicy wynik\u00f3w. Selector sprawdza nazw\u0119 zwierzaka, potwora, itemu.",
+        "report-an-issue": "Naci\u015bnij tutaj aby zg\u0142osi\u0107 problem. Je\u017celi zauwa\u017cy\u0142e\u015b jakikolwiek b\u0142\u0105d, zg\u0142o\u015b go tutaj.",
+        "dropdown-list": "Tweet, view the changelog, view the minecraft forums thread, or get resources for translation.",
+        "addsnippet": "Dodaj tekst do Twojej komendy \/tellraw",
+        "delete-all-saves": "Usu\u0144 swoje zapisy, ale zostaw aktualn\u0105 komend\u0119 w g\u0142\u00f3wnym edytorze.",
+        "create-new-save": "Stw\u00f3rz nowy zapis. To mo\u017ce nadpisa\u0107 istniej\u0105cy zapis je\u017celi zapiszesz ten pod t\u0105 sam\u0105 nazw\u0105.",
+        "delete-all-snippets": "Wyczy\u015b\u0107 swoj\u0105 komend\u0119 kompletnie, ale zostaw swoje zapisy.",
+        "show-saves": "Poka\u017c edytor twoich zapis\u00f3w, pozwala na zapisywanie, za\u0142adowywanie i usuwanie zapis\u00f3w"
+    },
+    "template": {
+        "sign_block": "Tabliczka (\/blockdata)",
+        "sign_item": "Tabliczka (\/give)",
+        "subtitle": "Podtytu\u0142",
+        "title": "Tytu\u0142",
+        "tellraw": "\/tellraw",
+        "book": "Ksi\u0105\u017cka",
+        "execute_tellraw": "\/execute"
+    },
+    "output": {
+        "nothing": "Nic tu nie ma do zobaczenia",
+        "header": "Efekt Ko\u0144cowy:"
+    },
+    "saves": {
+        "header": "Zapisy",
+        "hide": "Zamknij Zapisy",
+        "persistencenotice": "Saves may reset at any time, and depend on your browsers cookies. Do not rely on them for extended periods of time.",
+        "show": "Otw\u00f3rz Zapisy",
+        "deleteall": {
+            "body": "Naciskaj\u0105c Usu\u0144 zostan\u0105 usuni\u0119te twoje wszystkie zapisy, bez obaw, tw\u00f3j aktualny tekst nie zostanie usuni\u0119ty",
+            "yes": "Usu\u0144 wszystkie zapisy",
+            "heading": "Czy jeste\u015b pewny!?!",
+            "no": "Anuluj"
+        },
+        "nosaves": "Nic jeszcze nie zapisa\u0142e\u015b",
+        "new": "Zapisz aktualn\u0105 linijk\u0119"
+    },
+    "settings": {
+        "nlOutput": "Show Structured Output",
+        "darkmode": {
+            "turn_on": "Ciemny motyw",
+            "turn_off": "Jasny motyw"
+        },
+        "show": "Otw\u00f3rz ustawienia",
+        "hide": "Zamknij ustawienia",
+        "fontSize": "Podgl\u0105d rozmiaru czcionki",
+        "previewcolor": "Podgl\u0105d koloru t\u0142a:",
+        "export": "eksport",
+        "deleteall": {
+            "body": "Naciskaj\u0105c Usu\u0144 usuwasz ca\u0142y tw\u00f3j tekst i resetujesz do pustej lini.",
+            "heading": "Jeste\u015b tego pewny?",
+            "yes": "Usu\u0144 wszystko",
+            "no": "Anuluj"
+        },
+        "importtext": {
+            "default": "Please enter the tellraw command. Use the Delete All button if it incorrectly imports. Import only works with \/tellraw commands",
+            "exported": "Please enter the string you were given when you exported your command"
+        },
+        "import": "Zaimportuj",
+        "header": "Ustawienia:"
+    },
+    "color": {
+        "color_green": "Zielony",
+        "color_red": "Czerwony",
+        "color_none": "\u017badny",
+        "color_dark_aqua": "Ciemny b\u0142\u0119kitny",
+        "color_dark_purple": "Ciemny fioletowy",
+        "color_dark_blue": "Ciemny niebieski",
+        "color_aqua": "B\u0142\u0119kitny",
+        "color_white": "Bia\u0142y",
+        "color_dark_gray": "Ciemny szary",
+        "color_dark_red": "Ciemny czerwony",
+        "color_dark_green": "Ciemny zielony",
+        "color_gold": "Z\u0142oty",
+        "color_blue": "Niebieski",
+        "color_black": "Czarny",
+        "color_gray": "Szary",
+        "color_light_purple": "Jasny fioletowy",
+        "color_yellow": "Z\u00f3\u0142ty"
+    },
+    "header": "Generator Tellraw dla Minecraft 1.7+",
+    "language": {
+        "translate": "Przet\u0142umacz",
+        "name": "Angielski",
+        "header": "J\u0119zyk",
+        "credit": "Translated by Ezekiel"
+    },
+    "player": {
+        "header": "Gracz i komenda",
+        "description": "Used to select and execute different players"
+    },
+    "commandblock": "Musisz uruchomi\u0107 to w konsoli serwera lub w bloku polece\u0144.",
+    "alert": {
+        "report": "Zg\u0142o\u015b problem",
+        "changed": "This page was recently modified, so there might be problems. Reload the page if something doesn't seem to work.",
+        "receiveupdates": "Receive updates here (\"Follow\" the topic)"
+    },
+    "command": "Komenda:",
+    "export": {
+        "heading": "Your Exported Command",
+        "close": "Zamknij"
+    },
+    "attribution": "While nothing is required to use this, it would always be appreciated if you linked to this webpage or the MCF thread."
+}

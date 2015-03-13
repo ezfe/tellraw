@@ -2,17 +2,25 @@
     "textsnippets": {
         "clickevent": {
             "changepage": "Alterar p\u00e1gina",
+            "unavailable": {
+                "sign": {
+                    "header": "Sign click events are not available",
+                    "body": "Click here to go to an unaffiliated website to create signs with click events."
+                }
+            },
             "runcommand": "Executar comando",
             "openurl": "Abrir link",
             "suggestcommand": "Sugerir comando",
             "header": "Evento ao clicar:",
             "none": "Nenhum"
         },
-        "trn": "Traduzido",
-        "parameter": "Par\u00e2metro",
-        "editsnippet": "Editar texto",
-        "close": "Fechar",
         "hoverevent": {
+            "unavailable": {
+                "sign": {
+                    "header": "Sign hover events are not available",
+                    "body": "This is due to Minecraft not supporting hover events in signs."
+                }
+            },
             "addtext": "Adicionar texto",
             "removetext": "Remover ultimo texto",
             "header": "Evento ao passar mouse:",
@@ -25,6 +33,10 @@
             "showtext": "Mostrar texto",
             "name": "Nome"
         },
+        "trn": "Traduzido",
+        "parameter": "Par\u00e2metro",
+        "editsnippet": "Editar texto",
+        "close": "Fechar",
         "notext": "Sem texto",
         "NEW_ITERATE_FLAG": "Pagina do livro \/ Linha da placa",
         "insert": "Inserir",

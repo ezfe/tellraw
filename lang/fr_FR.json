@@ -2,17 +2,25 @@
     "textsnippets": {
         "clickevent": {
             "changepage": "Changer de page",
+            "unavailable": {
+                "sign": {
+                    "header": "Sign click events are not available",
+                    "body": "Click here to go to an unaffiliated website to create signs with click events."
+                }
+            },
             "runcommand": "Executer une commande:",
             "openurl": "Ouvrir une URL",
             "suggestcommand": "Sugg\u00e9rer une commande",
             "header": "\u00c9v\u00e8nement au \"Clic\"",
             "none": "Aucun"
         },
-        "trn": "Traduit",
-        "parameter": "Param\u00e8tre",
-        "editsnippet": "Editer le texte",
-        "close": "Fermer",
         "hoverevent": {
+            "unavailable": {
+                "sign": {
+                    "header": "Sign hover events are not available",
+                    "body": "This is due to Minecraft not supporting hover events in signs."
+                }
+            },
             "addtext": "Ajouter du texte",
             "removetext": "Supprimer le dernier texte",
             "header": "\u00c9v\u00e8nement au \"Survol\"",
@@ -25,6 +33,10 @@
             "showtext": "Afficher du texte",
             "name": "Nom"
         },
+        "trn": "Traduit",
+        "parameter": "Param\u00e8tre",
+        "editsnippet": "Editer le texte",
+        "close": "Fermer",
         "notext": "Pas de texte",
         "NEW_ITERATE_FLAG": "Page d'un livre \/ Ligne d'un panneau",
         "insert": "Ins\u00e9rer",

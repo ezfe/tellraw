@@ -2,17 +2,25 @@
     "textsnippets": {
         "clickevent": {
             "changepage": "Zm\u011bnit Str\u00e1nku",
+            "unavailable": {
+                "sign": {
+                    "header": "Sign click events are not available",
+                    "body": "Click here to go to an unaffiliated website to create signs with click events."
+                }
+            },
             "runcommand": "Spustit p\u0159\u00edkaz:",
             "openurl": "Otev\u0159\u00edt webovou adresu",
             "suggestcommand": "Navrhnout p\u0159\u00edkaz",
             "header": "Ud\u00e1lost p\u0159i kliknut\u00ed:",
             "none": "Nic"
         },
-        "trn": "P\u0159elo\u017een\u00e9",
-        "parameter": "Vlastnost",
-        "editsnippet": "Edit Text",
-        "close": "Zav\u0159\u00edt",
         "hoverevent": {
+            "unavailable": {
+                "sign": {
+                    "header": "Sign hover events are not available",
+                    "body": "This is due to Minecraft not supporting hover events in signs."
+                }
+            },
             "addtext": "Add Text",
             "removetext": "Remove Last Text",
             "header": "Ud\u00e1lost p\u0159i p\u0159ejet\u00ed my\u0161\u00ed:",
@@ -25,6 +33,10 @@
             "showtext": "Uk\u00e1zat text",
             "name": "Jm\u00e9no"
         },
+        "trn": "P\u0159elo\u017een\u00e9",
+        "parameter": "Vlastnost",
+        "editsnippet": "Edit Text",
+        "close": "Zav\u0159\u00edt",
         "notext": "No Text",
         "NEW_ITERATE_FLAG": "Book Page \/ Sign Line",
         "insert": "Vlo\u017eit",

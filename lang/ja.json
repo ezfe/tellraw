@@ -2,17 +2,25 @@
     "textsnippets": {
         "clickevent": {
             "changepage": "\u30da\u30fc\u30b8\u3092\u5909\u66f4",
+            "unavailable": {
+                "sign": {
+                    "header": "Sign click events are not available",
+                    "body": "Click here to go to an unaffiliated website to create signs with click events."
+                }
+            },
             "runcommand": "\u30b3\u30de\u30f3\u30c9\u3092\u5b9f\u884c",
             "openurl": "URL\u3092\u958b\u304f",
             "suggestcommand": "\u30b3\u30de\u30f3\u30c9\u3092\u63d0\u6848",
             "header": "\u30af\u30ea\u30c3\u30af\u30a4\u30d9\u30f3\u30c8:",
             "none": "\u306a\u3057"
         },
-        "trn": "\u7ffb\u8a33",
-        "parameter": "\u30d1\u30e9\u30e1\u30fc\u30bf\u30fc",
-        "editsnippet": "\u30c6\u30ad\u30b9\u30c8\u3092\u7de8\u96c6",
-        "close": "\u9589\u3058\u308b",
         "hoverevent": {
+            "unavailable": {
+                "sign": {
+                    "header": "Sign hover events are not available",
+                    "body": "This is due to Minecraft not supporting hover events in signs."
+                }
+            },
             "addtext": "\u30c6\u30ad\u30b9\u30c8\u3092\u8ffd\u52a0",
             "removetext": "\u6700\u5f8c\u306e\u30c6\u30ad\u30b9\u30c8\u3092\u524a\u9664",
             "header": "\u30db\u30d0\u30fc\u30a4\u30d9\u30f3\u30c8",
@@ -25,6 +33,10 @@
             "showtext": "\u30c6\u30ad\u30b9\u30c8\u3092\u8868\u793a",
             "name": "\u540d\u524d"
         },
+        "trn": "\u7ffb\u8a33",
+        "parameter": "\u30d1\u30e9\u30e1\u30fc\u30bf\u30fc",
+        "editsnippet": "\u30c6\u30ad\u30b9\u30c8\u3092\u7de8\u96c6",
+        "close": "\u9589\u3058\u308b",
         "notext": "\u30c6\u30ad\u30b9\u30c8\u306a\u3057",
         "NEW_ITERATE_FLAG": "Book Page \/ Sign Line",
         "insert": "\u7d44\u307f\u8fbc\u3080",

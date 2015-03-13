@@ -2,17 +2,25 @@
     "textsnippets": {
         "clickevent": {
             "changepage": "Seite \u00e4ndern",
+            "unavailable": {
+                "sign": {
+                    "header": "Sign click events are not available",
+                    "body": "Click here to go to an unaffiliated website to create signs with click events."
+                }
+            },
             "runcommand": "Befehl ausf\u00fchren",
             "openurl": "URL \u00f6ffnen",
             "suggestcommand": "Befehl vorschlagen",
             "header": "Klick Ereignis:",
             "none": "Keins"
         },
-        "trn": "\u00dcbersetzt",
-        "parameter": "Parameter",
-        "editsnippet": "Text bearbeiten",
-        "close": "Schlie\u00dfen",
         "hoverevent": {
+            "unavailable": {
+                "sign": {
+                    "header": "Sign hover events are not available",
+                    "body": "This is due to Minecraft not supporting hover events in signs."
+                }
+            },
             "addtext": "Text hinzuf\u00fcgen.",
             "removetext": "Letzten Text l\u00f6schen.",
             "header": "Maus\u00fcberfahren Ereignis:",
@@ -25,6 +33,10 @@
             "showtext": "Zeige Text",
             "name": "Name"
         },
+        "trn": "\u00dcbersetzt",
+        "parameter": "Parameter",
+        "editsnippet": "Text bearbeiten",
+        "close": "Schlie\u00dfen",
         "notext": "Kein Text",
         "NEW_ITERATE_FLAG": "Buch-Seite \/ Schild-Zeile",
         "insert": "Einf\u00fcgen",
