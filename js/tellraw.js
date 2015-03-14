@@ -34,6 +34,22 @@ function reportAnIssue(ptitle) {
 	var win = window.open('http://github.com/ezfe/tellraw/issues/new?body=' + body + '&title=' + title, '_blank');
 	win.focus();
 }
+function getLanguageName(langCode) {
+	var name = lang[langCode].language.name;
+	if (name == "English" && langCode != "en_US") {
+		return langCode
+	} else {
+		return name
+	}
+}
+function getLanguageHighlightClass(langCode) {
+	var name = lang[langCode].language.name;
+	if (name == "English" && langCode != "en_US") {
+		return "label label-warning"
+	} else {
+		return ""
+	}
+}
 function logIssue(name,data,solution) {
 	issueLog.push({"name":name,"data":data});
 	$('#issue-info-span').html('<small><br>' + name + ' - <a href="#" onclick="alert(JSON.stringify(issueLog[issueLog.length - 1].data))">Issue Data</a></small>');
@@ -775,7 +791,11 @@ function refreshOutput(input) {
 
 		/*LANGUAGE SELECTIONS*/
 
-		$('.langSelect').removeClass('label label-success');
+		if ($('.langSelect').hasClass('label label-warning')) {
+			$('.langSelect').removeClass('label-success');	
+		} else {
+			$('.langSelect').removeClass('label label-success');
+		}
 		$('.' + localStorage.getItem('langCode')).addClass('label label-success');
 
 		/*EXTRA MODAL COLOR PREVIEW MANAGER*/
@@ -1285,7 +1305,7 @@ function initialize() {
 		localStorage.setItem('jtemplate', 'tellraw');
 	}
 	if (lang[localStorage.getItem('langCode')]) {
-		errorString = lang[localStorage.getItem('langCode')].language.name+'<br><br>';
+		errorString = getLanguageName(localStorage.getItem('langCode')) + '<br><br>';
 	} else {
 		errorString = '&lt;language unknown&gt;<br><br>';
 	}
@@ -1295,7 +1315,7 @@ function initialize() {
 		var currentCount = JSON.stringify(lang[langKey]).length;
 		var currentPercentage = Math.round(currentCount/enCount*100);
 		console.log(currentPercentage);*/
-		$('#language_keys').append('<li><a onclick="errorString = \''+lang[Object.keys(lang)[i]].language.name+'<br><br>\'; localStorage.setItem(\'langCode\',\''+Object.keys(lang)[i]+'\'); refreshLanguage(true); refreshOutput();"><span class="'+Object.keys(lang)[i]+' langSelect" id="language_select_'+Object.keys(lang)[i]+'">'+lang[Object.keys(lang)[i]].language.name+'</span></a></li>');
+		$('#language_keys').append('<li><a onclick="errorString = \''+ getLanguageName(Object.keys(lang)[i]) +'<br><br>\'; localStorage.setItem(\'langCode\',\''+Object.keys(lang)[i]+'\'); refreshLanguage(true); refreshOutput();"><span class="' + getLanguageHighlightClass(Object.keys(lang)[i]) + ' ' + Object.keys(lang)[i] + ' langSelect" id="language_select_'+Object.keys(lang)[i]+'">'+ getLanguageName(Object.keys(lang)[i]) +'</span></a></li>');
 	};
 	$('#language_keys').append('<li class="divider"></li>');
 	$('#language_keys').append('<li><a href="http://translate.minecraftjson.com"><span class="language_area" lang="language.translate"></span></a></li>');
