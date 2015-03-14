@@ -5,14 +5,14 @@
             "unavailable": {
                 "sign": {
                     "header": "Sign click events are not available",
-                    "body": "Click here to go to an unaffiliated website to create signs with click events."
+                    "body": "Dale aqu\u00ed para ir a una p\u00e1gina no afiliada para crear carteles con eventos de click."
                 }
             },
             "runcommand": "Ejecutar comando",
             "openurl": "Abrir una URL",
             "suggestcommand": "Introducir comando",
             "header": "Al hacer clic:",
-            "none": "None"
+            "none": "Nada"
         },
         "hoverevent": {
             "unavailable": {
@@ -33,12 +33,12 @@
             "showtext": "Mostrar Texto",
             "name": "Nombre"
         },
-        "trn": "Traducido al idioma del Jugador",
+        "trn": "Traducido",
         "parameter": "Par\u00e1metro",
         "editsnippet": "Editar Texto",
         "close": "Cerrar",
         "notext": "Sin Texto",
-        "NEW_ITERATE_FLAG": "Cr\u00e9ditos (Libro)",
+        "NEW_ITERATE_FLAG": "P\u00e1gina del libro \/ L\u00ednea del cartel",
         "insert": "Insertar",
         "addsnippet": "A\u00f1adir Texto",
         "insertion": {
@@ -58,14 +58,14 @@
         "nosnippets": "Sin texto todav\u00eda",
         "header": "Fragmentos de texto",
         "text": "Texto",
-        "raw": "Texto Simple",
+        "raw": "Texto",
         "warning": {
             "title": "\u00a1Precauci\u00f3n!"
         }
     },
     "headerbar": {
         "dropdown": {
-            "translate_page_link": "P\u00e1gina web de traducci\u00f3n",
+            "translate_page_link": "P\u00e1gina de traducci\u00f3n",
             "tweet": "Twitea",
             "forum_thread": "Tema en el Foro",
             "changelog": "Historial de cambios"
@@ -77,7 +77,7 @@
         "patreon-button": "Patreon",
         "support-header": "Por favor apoya a esta p\u00e1gina",
         "paypal-note": "I do not offer paypal as a listed option due to fees (Stripe doesn't charge fees to Students). However, if you wish you can send me money over PayPal via funds@ezekielelin.com",
-        "patreon-text": "Si te comprometes a donar cierta cantidad cada mes,puedes confiar en que mejorare los servidores.",
+        "patreon-text": "Si te comprometes a donar cierta cantidad cada mes, puedes confiar en que mejorare los servidores.",
         "support-subheader": "No quiero poner anuncios en esta p\u00e1gina, por favor dona para apoyar los costes de mantenimiento en esta p\u00e1gina.",
         "donate-button": "Donar",
         "donate-text": "Haz una donaci\u00f3n del valor que elijas (Stripe)",
@@ -90,13 +90,13 @@
     },
     "help": {
         "textfield": "Emplea \\n para hacer un salto de l\u00ednea",
-        "raw-text-tab": "Elige el texto que quieras.\"Raw\" es el texto normal.Scoreboard elige un valor del scoreboard.Selctor pone nombre a una entidad",
+        "raw-text-tab": "Elige el texto que quieras. \"Raw\" es el texto normal. Scoreboard elige un valor del scoreboard. Selctor pone nombre a una entidad.",
         "report-an-issue": "Haz click para reportar un error. Si ves alg\u00fan tipo de fallo, comun\u00edcalo aqu\u00ed.",
         "dropdown-list": "Twitea, historial de cambios, ve al tema en el foro de minecraft, o mira los idiomas por traducir.",
-        "addsnippet": "A\u00f1ade texto al comando \/tellraw.",
-        "delete-all-saves": "Elimina los comandos guardados, dejando el que est\u00e1s creando, intacto.",
+        "addsnippet": "A\u00f1ade texto al comando tellraw.",
+        "delete-all-saves": "Elimina los comandos guardados, dejando el que est\u00e1s creando intacto.",
         "create-new-save": "Guarda una copia. Esto sobreescribir\u00e1 otra copia con el mismo nombre, si as\u00ed lo quieres.",
-        "delete-all-snippets": "Elimina el comando por completo. Las copias gurardadas permanecer\u00e1n.",
+        "delete-all-snippets": "Elimina el comando por completo. Las copias guardadas permanecer\u00e1n.",
         "show-saves": "Muestra el editor de las copias guradadas, permite guardar, cargar, y eliminar los comandos guardados."
     },
     "template": {
@@ -113,13 +113,13 @@
         "header": "Vista previa del comando:"
     },
     "saves": {
-        "header": "Comandos guardados",
+        "header": "Guardados",
         "hide": "Ocultar copias",
         "persistencenotice": "Las copias pueden ser eliminadas en cualquier momento ya que dependen de las Cookies del navegador. No las almacenes durante mucho tiempo.",
         "show": "Mostrar copias",
         "deleteall": {
             "body": "Eliminar todas las copias guardadas no modificar\u00e1 el texto actual",
-            "yes": "ELIMINA TODAS las copias guardadas",
+            "yes": "Elimina TODAS las copias guardadas",
             "heading": "\u00a1\u00bf\u00a1SEGURO!?!",
             "no": "Cancelar"
         },
@@ -154,7 +154,7 @@
         "color_green": "Verde",
         "color_red": "Rojo",
         "color_none": "Nada",
-        "color_dark_aqua": "Aguamarina Oscuro",
+        "color_dark_aqua": "Aguamarina Oscura",
         "color_dark_purple": "Morado Oscuro",
         "color_dark_blue": "Azul Oscuro",
         "color_aqua": "Aguamarina",
@@ -177,7 +177,7 @@
         "credit": "Traducido por KaliNuska, IvanCR72"
     },
     "player": {
-        "header": "Jugador Objetivo",
+        "header": "Jugador y objetivo",
         "description": "Empleado para ejecutar el comando en uno o varios jugadores"
     },
     "commandblock": "Debes ejecutar este comando mediante un Bloque de Comandos o en la consola del servidor.",

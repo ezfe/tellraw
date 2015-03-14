@@ -4,8 +4,8 @@
             "changepage": "Seite \u00e4ndern",
             "unavailable": {
                 "sign": {
-                    "header": "Sign click events are not available",
-                    "body": "Click here to go to an unaffiliated website to create signs with click events."
+                    "header": "Schild Klick Ereignisse sind nicht verf\u00fcgbar",
+                    "body": "Hier Klicken um auf eine (nicht zu der Website geh\u00f6rende Seite) zu gehen, wo man Schilder mit Klick Ereignissen machen kann"
                 }
             },
             "runcommand": "Befehl ausf\u00fchren",
@@ -17,7 +17,7 @@
         "hoverevent": {
             "unavailable": {
                 "sign": {
-                    "header": "Sign hover events are not available",
+                    "header": "Maus\u00fcberfahr-Ereignisse sind nicht verf\u00fcgbar",
                     "body": "This is due to Minecraft not supporting hover events in signs."
                 }
             },
@@ -75,7 +75,7 @@
     },
     "donate": {
         "patreon-button": "Patreon",
-        "support-header": "Unterst\u00fctze diese Seite",
+        "support-header": "Bitte unterst\u00fctze diese Seite",
         "paypal-note": "Ich biete aufgrund von Geb\u00fchren nicht PayPal als b\u00f6rsennotierte Option an (Stripe l\u00e4sst keine Geb\u00fchren an Studenten anfallen). Allerdings, wenn Sie m\u00f6chten, k\u00f6nnen Sie mir Geld \u00fcber PayPal an funds@ezekielelin.com senden",
         "patreon-text": "Wenn Sie sich verpflichten, eine bestimmte Menge jeden Monat zu spenden, k\u00f6nnen sie sich darauf verlassen, dass ich die Server aufr\u00fcste.",
         "support-subheader": "Ich m\u00f6chte auf dieser Internetseite keine Werbung schalten, bitte spende, um die Kosten f\u00fcr die Erhaltung der Internetseite zu unterst\u00fctzen.",
@@ -93,7 +93,7 @@
         "raw-text-tab": "W\u00e4hle deine Text-Sorte. Raw ist normaler Text. Scoreboard zeigt einen Wert vom Scoreboard. Selector zeigt den Namen eines Entitys.",
         "report-an-issue": "Kilck hier um einen Fehler zu melden. Wenn dir irgendwelche Bugs auffallen, solltest du sie hier melden.",
         "dropdown-list": "Tweet, Changelog ansehen, Minecraft Forum Beitrag ansehen, oder bekomme die Resourcen zum \u00fcbersetzen.",
-        "addsnippet": "F\u00fcge dem Tellraw-Befehl Text hinzu.",
+        "addsnippet": "F\u00fcge dem Befehl einen Text hinzu.",
         "delete-all-saves": "L\u00f6sche deine Sicherungen, aber lasse deinen ausgew\u00e4hlten Befehl in dem Haupteditor unversehrt.",
         "create-new-save": "Mache eine neue Sicherung. Dies wird eine Sicherung mit dem gleichen Namen \u00fcberschreiben, wenn du es so ausw\u00e4hlst.",
         "delete-all-snippets": "L\u00f6sche deinen Befehl komplett, aber lasse deine Sicherungen unversehrt.",

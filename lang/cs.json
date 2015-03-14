@@ -4,7 +4,7 @@
             "changepage": "Zm\u011bnit Str\u00e1nku",
             "unavailable": {
                 "sign": {
-                    "header": "Sign click events are not available",
+                    "header": "Bohu\u017eel nen\u00ed mo\u017en\u00e9 vytvo\u0159it kliknuteln\u00fd text pro cedulku.",
                     "body": "Click here to go to an unaffiliated website to create signs with click events."
                 }
             },
@@ -80,7 +80,7 @@
         "patreon-text": "If you Pledge to donate a certain amount each month, I can rely on that to upgrade the servers.",
         "support-subheader": "Nechci d\u00e1vat reklamy na tuto str\u00e1nku, proto m\u011b pros\u00edm podpo\u0159te n\u011bjakou finan\u010dn\u00ed \u010d\u00e1stkou na provoz webu.",
         "donate-button": "Podpo\u0159it !",
-        "donate-text": "Make a donation of the value you choose (Stripe).",
+        "donate-text": "P\u0159isp\u011bjte kolik chcete! (Stripe)",
         "overcast-text": "Want to buy me a rank on the Overcast Network? Click the picture above, and enter ezekielelin as my username.",
         "exit": "Odej\u00edt",
         "exit-text": "You won't see this again so long as you keep your cookies intact. Unfortunately I have no way of detecting you if you reset your cookies."
