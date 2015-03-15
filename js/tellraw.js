@@ -23,6 +23,7 @@ var editing = false;
 var issueLog = [];
 var bookPage = 1;
 var topPage = 1;
+var embed = false;
 
 function reportAnIssue(ptitle) {
 	var title = "";
@@ -48,6 +49,9 @@ function logIssue(name,data,solution) {
 	$('#issue-info-span').html('<small><br>' + name + ' - <a href="#" onclick="alert(JSON.stringify(issueLog[issueLog.length - 1].data))">Issue Data</a></small>');
 }
 function showView(viewname,suppressAnimation,hideOthers,hideMenubar) {
+	if (embed) {
+		hideMenubar = true;
+	}
 	var toHide = $('.view-container').not('.view-container[view="' + viewname + '"]');
 	if (!hideMenubar) {
 		toHide = toHide.not('.view-container[view="pageheader"]');
@@ -55,9 +59,6 @@ function showView(viewname,suppressAnimation,hideOthers,hideMenubar) {
 	var toShow = $('.view-container[view="' + viewname + '"]');
 	if (!hideMenubar) {
 		$($('.view-container[view="pageheader"]')).show();
-	}
-	if (localStorage.getItem('jtosaccept') == undefined || localStorage.getItem('jtosaccept') != tos_version && viewname != 'tos' && viewname != 'tos-header') {
-		toHide = toHide.not('.view-container[view="tos-header"]');
 	}
 	if (hideOthers === false) {
 		toHide = $('');
@@ -69,7 +70,7 @@ function showView(viewname,suppressAnimation,hideOthers,hideMenubar) {
 		toHide.slideUp();
 		toShow.slideDown();
 	}
-	if (viewname != "loading" && viewname != "pageheader" && viewname != "tos-header" && viewname != "issue") {
+	if (viewname != "loading" && viewname != "pageheader" && viewname != "issue") {
 		localStorage.setItem('jview',JSON.stringify({"viewname":viewname,"suppressAnimation":suppressAnimation,"hideOthers":hideOthers,"hideMenubar":hideMenubar}));
 	}
 	if (toShow.length == 0) {
@@ -1336,7 +1337,7 @@ function initialize() {
 	
 	showView('pageheader',true,false);
 	//JSON.stringify({"viewname":viewname,"suppressAnimation":suppressAnimation,"hideOthers":hideOthers,"hideMenubar":hideMenubar})
-	if (localStorage.getItem('jview') != undefined && typeof JSON.stringify(localStorage.getItem('jview')) != "string") {
+	if (localStorage.getItem('jview') != undefined/* && typeof JSON.stringify(localStorage.getItem('jview')) != "string"*/) {
 		var viewObject = JSON.parse(localStorage.getItem('jview'));
 		showView(viewObject.viewname,viewObject.suppressAnimation,viewObject.hideOthers,viewObject.hideMenubar);
 	} else {
@@ -1547,6 +1548,10 @@ $(document).ready(function(){
 		} catch(err) {
 			alert('An error occured loading page assets. Please try again later.');
 		}
+	}
+	if (location.hash == "#embed") {
+		$('.view-container[view="tellraw"]').children().filter('br').remove();
+		embed = true;
 	}
 	translationStrings = data['minecraft_language_strings']['en_US'];
 	webLangRelations = data['web_language_relations'];
