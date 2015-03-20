@@ -105,6 +105,9 @@ div[class*='col-xs-'] {
 	background-color: #222;
 	color: white;
 }
+.sweet-alert {
+	color: black;
+}
 .black-theme .well {
 	color: black;
 }

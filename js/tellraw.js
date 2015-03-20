@@ -3,8 +3,13 @@ var matchLength = 0;
 var version = 3;
 var tos_version = 1;
 var notice = {
+	"show": false,
 	"id": 4,
-	"message": "Sorry about that, I screwed up the cookies.\n\nUse the export button if you're worried about cookies resetting in the future."
+	"message": {
+		"title": "Sorry about that...",
+		"text": "I screwed up the cookies and had to reset them.\n\nUse the export button if you're worried about cookies resetting in the future.",
+		"type": "info"
+	}
 };
 var jobject = [];
 var selectedHover;
@@ -25,6 +30,10 @@ var bookPage = 1;
 var topPage = 1;
 var embed = false;
 
+function alert(message) {
+	return swal(message);
+}
+
 function reportAnIssue(ptitle) {
 	var title = "";
 	var body = "";
@@ -43,10 +52,14 @@ function getLanguageName(langCode) {
 		return name
 	}
 }
-
-function logIssue(name,data,solution) {
+function showIssue() {
+	swal(issueLog[issueLog.length - 1].name,issueLog[issueLog.length - 1].data,'error');
+}
+function logIssue(name,data,critical) {
 	issueLog.push({"name":name,"data":data});
-	$('#issue-info-span').html('<small><br>' + name + ' - <a href="#" onclick="alert(JSON.stringify(issueLog[issueLog.length - 1].data))">Issue Data</a></small>');
+	if (critical) {
+		swal(name,data,'error');
+	}
 }
 function showView(viewname,suppressAnimation,hideOthers,hideMenubar) {
 	var hideMenubarOriginal = hideMenubar;
@@ -75,8 +88,8 @@ function showView(viewname,suppressAnimation,hideOthers,hideMenubar) {
 		localStorage.setItem('jview',JSON.stringify({"viewname":viewname,"suppressAnimation":suppressAnimation,"hideOthers":hideOthers,"hideMenubar":hideMenubar}));
 	}
 	if (toShow.length == 0) {
-		logIssue('Missing View',viewname);
-		showView('issue');
+		logIssue('Missing View',viewname,true);
+		showView('tellraw');
 	}
 }
 function getURL(url){
@@ -96,16 +109,26 @@ function donateAlert(state,hasDonated) {
 	}
 }
 function verify_jobject_format(jdata) {
+	var resetError = JSON.stringify({"title": "Object Verification Failed", "text": "An error occured and the page has been reset", "type": "error"});
+
 	if (get_type(jdata) == "[object Object]") {
 		if (get_type(jdata.extra) == "[object Array]") {
 			jdata = jdata.extra;
+		} else {
+			sessionStorage.setItem('nextTimeAlert',resetError);
+			localStorage.clear();
+			location.reload();
+			return;
 		}
 	}
 
 	if (get_type(jdata) != "[object Array]") {
-		logIssue('Stored Variable Corrupted',jdata);
-		showView('issue');
+		sessionStorage.setItem('nextTimeAlert',resetError);
+		localStorage.clear();
+		location.reload();
+		return;
 	}
+
 	if (jdata.text != '' && get_type(jdata) != "[object Array]") {
 		jdata.unshift(new Object());
 		jdata[0].text = jdata.text;
@@ -155,6 +178,7 @@ function formatJObjectList(data) {
 			currentDataToPlug.push(data[i]);
 		}
 	}
+	console.log(data);
 	if (!data[data.length - 1].NEW_ITERATE_FLAG) {
 		ret_val.push(JSON.stringify(currentDataToPlug));
 	}
@@ -183,7 +207,7 @@ function goToByScroll(id){
 var templates = 
 {
 	"tellraw": {
-		"command": "/tellraw @a %s",
+		"command": "/tellraw @p %s",
 		"version": "1.7",
 		"formatType": "standardjson",
 		"mouseActionOptions": true
@@ -252,35 +276,38 @@ function setObfuscatedString(string) {
 	return output;
 }
 function saveJObject() {
-	if (localStorage.getItem('currentSaveSlot') != null) {
-		var saveTo = prompt('Please enter a save name. If you choose an existing one, it will overwrite it.', localStorage.getItem('currentSaveSlot'));
-	} else {
-		var saveTo = prompt('Please enter a save name. If you choose an existing one, it will overwrite it.');
-	}
-	if (saveTo == '' || saveTo == undefined || new RegExp('[^a-zA-Z0-9]').test(saveTo)) {
-		alert('You didn\'t enter a valid save name! Please omit special characters');
-		return false;
-	}
-	var saveSlot = 'saveSlot_' + saveTo;
-	var overwrite = false;
-	if (localStorage.getItem(saveSlot) != undefined) {
-		overwrite = true;
-	}
-	localStorage.setItem('currentSaveSlot',saveTo);
-	localStorage.setItem(saveSlot, JSON.stringify({"command": $('#command').val(), "jobject": jobject}));
-	if (overwrite) {
-		alert('Saved your current revision to `' + saveTo + '`, overwriting your previous save to that slot');	
-	} else {
-		alert('Saved your current revision to `' + saveTo + '`, which created a new saveSlot');
-	}
-	refreshSavesList();
-	refreshOutput();
+	swal({
+		title: "Please enter a save name.",
+		text: "If you enter an existing one, it will overwrite it.",
+		type: "input",
+		showCancelButton: true,
+	}, function(inputValue) {
+		if (inputValue == '' || inputValue == undefined || new RegExp('[^a-zA-Z0-9]').test(inputValue)) {
+			swal('You didn\'t enter a valid save name! Please omit special characters','error')
+		} else {
+			var saveTo = inputValue
+			var saveSlot = 'saveSlot_' + saveTo;
+			var overwrite = false;
+			if (localStorage.getItem(saveSlot) != undefined) {
+				overwrite = true;
+			}
+			localStorage.setItem('currentSaveSlot',saveTo);
+			localStorage.setItem(saveSlot, JSON.stringify({"command": $('#command').val(), "jobject": jobject}));
+			if (overwrite) {
+				swal('Saved your current revision to `' + saveTo + '`, overwriting your previous save to that slot');	
+			} else {
+				swal('Saved your current revision to `' + saveTo + '`, which created a new saveSlot');
+			}
+			refreshSavesList();
+			refreshOutput();
+		}
+	});
 }
 function loadJObject(saveName) {
 	var saveItem = getJObject(saveName);
 	jobject = saveItem.jobject;
 	$('#command').val(saveItem.command);
-	alert('Loaded save `' + saveName + '`');
+	swal('Loaded save `' + saveName + '`','','success');
 	refreshSavesList();
 	refreshOutput();
 }
@@ -294,40 +321,46 @@ function getJObject(saveName) {
 	return JSON.parse(localStorage.getItem(saveSlot));
 }
 function deleteAll() {
-	$('#deleteConfirm').remove();
-	$('.alerts').append('<div id="deleteConfirm" class="alert alert-danger"><h4 lang="settings.deleteall.heading"></h4><p lang="settings.deleteall.body"></p><p><button type="button" onclick="deleteAllConfirmed()" class="btn btn-danger" lang="settings.deleteall.yes"></button> <button type="button" onclick="deleteAllCancel()" class="btn btn-default" lang="settings.deleteall.no"></button></p></div>');
-	goToByScroll('deleteConfirm');
-	refreshOutput();
-}
-function deleteAllConfirmed() {
-	$('#deleteConfirm').slideUp();
-	$('#deleteConfirm');
-	jobject = [];
-	$('.templateButton[template=tellraw]').click();
-	refreshOutput();
-}
-function deleteAllCancel() {
-	$('#deleteConfirm').slideUp();
+	swal({
+		"title": getLanguageString('settings.deleteall.heading',localStorage.getItem('langCode')),
+		"text": getLanguageString('settings.deleteall.body',localStorage.getItem('langCode')),
+		"cancelButtonText": getLanguageString('settings.deleteall.no',localStorage.getItem('langCode')),
+		"confirmButtonText": getLanguageString('settings.deleteall.yes',localStorage.getItem('langCode')),
+		"showCancelButton": true,
+		"closeOnConfirm": false,
+		"type": "warning"
+	},function(isConfirm){
+		if (isConfirm) {
+			jobject = [];
+			$('.templateButton[template=tellraw]').click();
+			refreshOutput();
+			swal('Deleted!','Your current thing was deleted', 'success');
+		}
+	});
 }
 function clearJObjectSaves() {
-	$('#deleteJObjectConfirm').remove();
-	$('.save-alerts').append('<div id="deleteJObjectConfirm" class="alert alert-danger"><h4 lang="saves.deleteall.heading"></h4><p lang="saves.deleteall.body"></p><p><button type="button" onclick="clearJObjectSavesConfirmed()" class="btn btn-danger" lang="saves.deleteall.yes"></button> <button type="button" onclick="clearJObjectSavesCancel()" class="btn btn-default" lang="saves.deleteall.no"></button></p></div>');
-	refreshLanguage();
-}
-function clearJObjectSavesConfirmed() {
-	for (var x = 0; x < Object.keys(localStorage).length; x++) {
-		for (var i = 0; i < Object.keys(localStorage).length; i++) {
-			var key = Object.keys(localStorage)[i];
-			if (key.indexOf('saveSlot_') != -1) {
-				localStorage.removeItem(key);
+	swal({
+		"title": getLanguageString('saves.deleteall.heading',localStorage.getItem('langCode')),
+		"text": getLanguageString('saves.deleteall.body',localStorage.getItem('langCode')),
+		"cancelButtonText": getLanguageString('saves.deleteall.no',localStorage.getItem('langCode')),
+		"confirmButtonText": getLanguageString('saves.deleteall.yes',localStorage.getItem('langCode')),
+		"showCancelButton": true,
+		"closeOnConfirm": false,
+		"type": "warning"
+	},function(isConfirm){
+		if (isConfirm) {
+			for (var x = 0; x < Object.keys(localStorage).length; x++) {
+				for (var i = 0; i < Object.keys(localStorage).length; i++) {
+					var key = Object.keys(localStorage)[i];
+					if (key.indexOf('saveSlot_') != -1) {
+						localStorage.removeItem(key);
+					}
+				}
 			}
+			refreshSavesList();
+			swal('Deleted!','Your saves were deleted', 'success');
 		}
-	}
-	$('#deleteJObjectConfirm').slideUp();
-	refreshSavesList();
-}
-function clearJObjectSavesCancel() {
-	$('#deleteJObjectConfirm').slideUp();
+	});
 }
 function obfuscationPreviewHandler() {
 	$('.jsonPreviewObfuscated').html(setObfuscatedString($('.jsonPreviewObfuscated').html()));
@@ -435,7 +468,7 @@ function editExtra(index) {
 		$('#selector_extra_container_edit').hide();
 		$('#translate_selector_container_edit').show();
 		if (!hasAlertedTranslationObjects) {
-			alert('Translation objects are currently broken and may crash your game. Please test your translation before publishing it.');
+			swal('Translation objects are currently broken and may crash your game.','Please test your translation before publishing it.','warning');
 			hasAlertedTranslationObjects = true;
 		}
 	} else if (jobject[index].score != undefined) {
@@ -537,7 +570,7 @@ function saveExtraEdit() {
 			};
 		}
 	} else {
-		alert('An unexpected error occured.');
+		swal('An unexpected error occured.');
 	}
 
 	delete jobject[extraIndex].bold;
@@ -574,7 +607,7 @@ function saveExtraEdit() {
 		jobject[extraIndex].clickEvent.value = $('#clickEventText_edit').val();
 		if (clickEventType_edit == "run_command" || clickEventType_edit == "suggest_command") {
 			if ($('#clickEventText_edit').val().length > 90) {
-				alert('Commands cannot be longer than 90 characters! You should edit the length of your command before using this in game.')
+				swal('Commands cannot be longer than 90 characters!','You should edit the length of your command before using this in game.','error');
 			}
 		}
 	}
@@ -643,7 +676,7 @@ function addExtra() {
 		$('#textsnippets-add-button').addClass('btn-danger');
 		return false;
 	} else if ($("#hoverEvent").val() == 'show_text' && $('#hoverEventTextSnippet').val() != '') {
-		alert('You entered text, but never added it!');
+		swal('You entered text, but never added it!');
 		$('#hoverEventTextSnippet').focus();
 		$('#textsnippets-add-button').removeClass('btn-default');
 		$('#textsnippets-add-button').addClass('btn-danger');
@@ -710,7 +743,7 @@ function addExtra() {
 			jobject[extraIndex].clickEvent.value = $('#clickEventText').val();
 			if (clickEventType == "run_command" || clickEventType == "suggest_command") {
 				if ($('#clickEventText').val().length > 90) {
-					alert('Commands cannot be longer than 90 characters! You should edit the length of your command before using this in game.')
+					swal('Commands cannot be longer than 90 characters!','You should edit the length of your command before using this in game.','error');
 				}
 			}
 
@@ -760,337 +793,379 @@ function refreshSavesList() {
 }
 function deleteJObjectSave(saveName) {
 	var saveSlot = 'saveSlot_' + saveName;
-	if (confirm('Are you sure you want to delete ' + saveName + '?')) {
+	swal({
+		title: "Are you sure?",
+		text: "Are you sure you want to delete " + saveName + "?",
+		type: "warning",
+		showCancelButton: true,
+		confirmButtonText: "Yes, delete it!",
+		closeOnConfirm: false
+	}, function(){
 		localStorage.removeItem(saveSlot);
-	}
+		refreshSavesList();
+		swal("Deleted!", saveName + ' was deleted.', "success");
+	});
 	refreshSavesList();
 }
 function showFixerView() {
 	showView('escaping-issue',true,false,true);
 }
 function refreshOutput(input) {
-	try {
-		/*VERIFY CONTENTS*/
-		jobject = verify_jobject_format(jobject);
+	/*VERIFY CONTENTS*/
+	jobject = verify_jobject_format(jobject);
 
-		if ($('#command').val().indexOf('%s') == -1) {
-			$('#command').val('/tellraw @p %s');
-			localStorage.setItem('jtemplate','tellraw');
-		}
+	if ($('#command').val().indexOf('%s') == -1) {
+		$('#command').val('/tellraw @p %s');
+		localStorage.setItem('jtemplate','tellraw');
+	}
 
-		if ($('#command').val().indexOf('/tellraw') != -1 && templates[localStorage.getItem('jtemplate')].formatType != 'standardjson' && localStorage.getItem('dontShowQuoteFixer') != "true" && jobject.length > 0) {
-			setTimeout(showFixerView,4000);
-		}
+	if ($('#command').val().indexOf('/tellraw') != -1 && templates[localStorage.getItem('jtemplate')].formatType != 'standardjson' && localStorage.getItem('dontShowQuoteFixer') != "true" && jobject.length > 0) {
+		setTimeout(showFixerView,4000);
+	}
 
-		refreshSavesList();
+	refreshSavesList();
 
-		/*LANGUAGE SELECTIONS*/
+	/*LANGUAGE SELECTIONS*/
 
-		$('.langSelect').removeClass('label label-success');
-		$('.' + localStorage.getItem('langCode')).addClass('label label-success');
+	$('.langSelect').removeClass('label label-success');
+	$('.' + localStorage.getItem('langCode')).addClass('label label-success');
 
-		/*EXTRA MODAL COLOR PREVIEW MANAGER*/
-		$('#colorPreviewColor').css({ 'background-color': getCSSHEXFromWord(getSelected('color_extra')) });
+	/*EXTRA MODAL COLOR PREVIEW MANAGER*/
+	$('#colorPreviewColor').css({ 'background-color': getCSSHEXFromWord(getSelected('color_extra')) });
 
-		/*EXTRA VIEWER MANAGER*/
-		$('#textsnippets_header').html(getLanguageString('textsnippets.header',localStorage.getItem('langCode')));
-		if (input != 'previewLineChange') {
-			if (get_type(jobject) == "[object Array]") {
-				var extraOutputPreview = "";
-				$('.extraContainer div.extraRow').remove();
-				$('.extraContainer').html('');
-				for (var i = 0; i <= jobject.length - 1; i++) {
-					if (jobject.length-1 > i) {
-						downButton = '<i onclick="moveUp(' + i + ')" class="fa fa-arrow-circle-down"></i> ';
+	/*EXTRA VIEWER MANAGER*/
+	$('#textsnippets_header').html(getLanguageString('textsnippets.header',localStorage.getItem('langCode')));
+	if (input != 'previewLineChange') {
+		if (get_type(jobject) == "[object Array]") {
+			var extraOutputPreview = "";
+			$('.extraContainer div.extraRow').remove();
+			$('.extraContainer').html('');
+			for (var i = 0; i <= jobject.length - 1; i++) {
+				if (jobject.length-1 > i) {
+					downButton = '<i onclick="moveUp(' + i + ')" class="fa fa-arrow-circle-down"></i> ';
+				} else {
+					downButton = "";
+				}
+				if (i > 0) {
+					upButton = '<i onclick="moveUp(' + (i-1) + ')" class="fa fa-arrow-circle-up"></i> ';
+				} else {
+					upButton = "";
+				}
+				if (jobject[i].NEW_ITERATE_FLAG) {
+					if (templates[localStorage.getItem('jtemplate')].formatType != 'bookarray' && templates[localStorage.getItem('jtemplate')].formatType != 'signset') {
+						var tempJSON = '<span style="color:gray;text-decoration:line-through;" lang="textsnippets.NEW_ITERATE_FLAG"></span>';
 					} else {
-						downButton = "";
+						var tempJSON = '<span lang="textsnippets.NEW_ITERATE_FLAG"></span>';
 					}
-					if (i > 0) {
-						upButton = '<i onclick="moveUp(' + (i-1) + ')" class="fa fa-arrow-circle-up"></i> ';
-					} else {
-						upButton = "";
-					}
-					if (jobject[i].NEW_ITERATE_FLAG) {
-						if (templates[localStorage.getItem('jtemplate')].formatType != 'bookarray' && templates[localStorage.getItem('jtemplate')].formatType != 'signset') {
-							var tempJSON = '<span style="color:gray;text-decoration:line-through;" lang="textsnippets.NEW_ITERATE_FLAG"></span>';
-						} else {
-							var tempJSON = '<span lang="textsnippets.NEW_ITERATE_FLAG"></span>';
-						}
+					var saveButton = '';
+				} else {
+					if (get_type(jobject[i].text) != "[object Undefined]") {
+						var tempJSON = '<input id="previewLine'+i+'" onkeyup="jobject['+i+'].text = $(\'#previewLine'+i+'\').val(); refreshOutput(\'previewLineChange\')" type="text" class="form-control previewLine" value="'+jobject[i].text+'">';
 						var saveButton = '';
+					} else if (get_type(jobject[i].translate) != "[object Undefined]") {
+						var tempJSON = '<input type="text" class="form-control previewLine" disabled value="'+jobject[i].translate+'">';
+						var saveButton = '';
+					} else if (get_type(jobject[i].score) != "[object Undefined]") {
+						var tempJSON = '<input type="text" class="form-control previewLine" disabled value="'+jobject[i].score.name+'\'s '+jobject[i].score.objective+' score">';
+						var saveButton = '';
+					} else if (get_type(jobject[i].selector) != "[object Undefined]") {
+						var tempJSON = '<input type="text" class="form-control previewLine" disabled value="Selector: '+jobject[i].selector+'">';
+						var saveButton = '';
+					}
+					if (input == 'noEditIfMatches' && jobject[i].text != $('#previewLine'+matchTo).val()) {
+						var blah = 'blah'; /* wtf */
 					} else {
-						if (get_type(jobject[i].text) != "[object Undefined]") {
-							var tempJSON = '<input id="previewLine'+i+'" onkeyup="jobject['+i+'].text = $(\'#previewLine'+i+'\').val(); refreshOutput(\'previewLineChange\')" type="text" class="form-control previewLine" value="'+jobject[i].text+'">';
-							var saveButton = '';
-						} else if (get_type(jobject[i].translate) != "[object Undefined]") {
-							var tempJSON = '<input type="text" class="form-control previewLine" disabled value="'+jobject[i].translate+'">';
-							var saveButton = '';
-						} else if (get_type(jobject[i].score) != "[object Undefined]") {
-							var tempJSON = '<input type="text" class="form-control previewLine" disabled value="'+jobject[i].score.name+'\'s '+jobject[i].score.objective+' score">';
-							var saveButton = '';
-						} else if (get_type(jobject[i].selector) != "[object Undefined]") {
-							var tempJSON = '<input type="text" class="form-control previewLine" disabled value="Selector: '+jobject[i].selector+'">';
-							var saveButton = '';
-						}
-						if (input == 'noEditIfMatches' && jobject[i].text != $('#previewLine'+matchTo).val()) {
-							var blah = 'blah'; /* wtf */
-						} else {
-							tempJSON = '<div class="row"><div class="col-xs-10 col-md-11">'+tempJSON+'</div><div class="col-xs-2 col-md-1"><div class="colorPreview"><div class="colorPreviewColor" style="background-color:'+getCSSHEXFromWord(jobject[i].color)+'"></div></div></div></div>';
-						}
+						tempJSON = '<div class="row"><div class="col-xs-10 col-md-11">'+tempJSON+'</div><div class="col-xs-2 col-md-1"><div class="colorPreview"><div class="colorPreviewColor" style="background-color:'+getCSSHEXFromWord(jobject[i].color)+'"></div></div></div></div>';
 					}
-					var deleteButton = '<i id="'+i+'RowEditButton" onclick="editExtra('+i+');" class="fa fa-pencil"></i> <i onclick="deleteIndex('+ i +');" class="fa fa-times-circle"></i> ';
-					if (jobject[i].NEW_ITERATE_FLAG) {
-						deleteButton = '<i style="color:gray;" class="fa fa-pencil"></i> <i onclick="deleteIndex('+ i +');" class="fa fa-times-circle"></i> ';
-					}
-					$('.extraContainer').append('<div class="row extraRow row-margin-top row-margin-bottom mover-row RowIndex' + i + '"><div class="col-xs-4 col-sm-2 col-lg-1">'+deleteButton+downButton+upButton+'</div><div class="col-xs-8 col-sm-10 col-lg-11" style="padding:none;">'+tempJSON+'</div></div>');
 				}
-				if (jobject.length == 0) {
-					delete jobject;
-					$('.extraContainer').html('<br><br>');
-					refreshLanguage();
+				var deleteButton = '<i id="'+i+'RowEditButton" onclick="editExtra('+i+');" class="fa fa-pencil"></i> <i onclick="deleteIndex('+ i +');" class="fa fa-times-circle"></i> ';
+				if (jobject[i].NEW_ITERATE_FLAG) {
+					deleteButton = '<i style="color:gray;" class="fa fa-pencil"></i> <i onclick="deleteIndex('+ i +');" class="fa fa-times-circle"></i> ';
 				}
-			} else {
-				$('.extraContainer div.extraRow').remove();
-				$('.extraContainer').html('<div class="row"><div class="col-xs-12"><h4>'+getLanguageString('textsnippets.nosnippets',localStorage.getItem('langCode'))+'</h4></div></div>');
+				$('.extraContainer').append('<div class="row extraRow row-margin-top row-margin-bottom mover-row RowIndex' + i + '"><div class="col-xs-4 col-sm-2 col-lg-1">'+deleteButton+downButton+upButton+'</div><div class="col-xs-8 col-sm-10 col-lg-11" style="padding:none;">'+tempJSON+'</div></div>');
 			}
-			refreshLanguage();
-		}
-
-		/* SHOW MOUSE ACTION OPTIONS FOR JSON TEMPLATES WITH THAT FLAG */
-		if (templates[localStorage.getItem('jtemplate')].mouseActionOptions) {
-			$('.hoverEventContainer_edit').show();
-			$('.clickEventContainer_edit').show();
-			$('.insertionContainer_edit').show();
-			$('.hoverEventContainer').show();
-			$('.clickEventContainer').show();
-			$('.insertionContainer').show();
-		} else {
-			$('.hoverEventContainer_edit').hide();
-			$('.clickEventContainer_edit').hide();
-			$('.insertionContainer_edit').hide();
-			$('.hoverEventContainer').hide();
-			$('.clickEventContainer').hide();
-			$('.insertionContainer').hide();
-		}
-
-		if (templates[localStorage.getItem('jtemplate')].formatType == 'signset') {
-			$('.clickEventDisabledSigns').show();
-			$('.hoverEventDisabledSigns').show();
-		} else {
-			$('.clickEventDisabledSigns').hide();
-			$('.hoverEventDisabledSigns').hide();			
-		}
-
-
-		/*EXTRA TRANSLATE STRING MANAGER*/
-
-		if (extraTextFormat == "trn") {
-			$('#obj_extra_container').hide();
-			$('#text_extra_container').hide();
-			$('#selector_extra_container').hide();
-			$('#translate_selector_container').show();
-			if (!hasAlertedTranslationObjects) {
-				alert('Translation objects are currently broken and may crash your game. Please test your translation before publishing it.');
-				hasAlertedTranslationObjects = true;
+			if (jobject.length == 0) {
+				delete jobject;
+				$('.extraContainer').html('<br><br>');
+				refreshLanguage();
 			}
-		} else if (extraTextFormat == "obj") {
-			$('#text_extra_container').hide();
-			$('#translate_selector_container').hide();
-			$('#selector_extra_container').hide();
-			$('#obj_extra_container').show();
-		} else if (extraTextFormat == "sel") {
-			$('#text_extra_container').hide();
-			$('#translate_selector_container').hide();
-			$('#selector_extra_container').show();
-			$('#obj_extra_container').hide();
-		} else if (extraTextFormat == "raw") {
-			$('#text_extra_container').show();
-			$('#obj_extra_container').hide();
-			$('#translate_selector_container').hide();
-			$('#selector_extra_container').hide();
-			$('.extraTranslationParameterRow').hide();
+		} else {
+			$('.extraContainer div.extraRow').remove();
+			$('.extraContainer').html('<div class="row"><div class="col-xs-12"><h4>'+getLanguageString('textsnippets.nosnippets',localStorage.getItem('langCode'))+'</h4></div></div>');
 		}
-		if (extraTextFormat == 'NEW_ITERATE_FLAG') {
-			if (templates[localStorage.getItem('jtemplate')].formatType != 'bookarray' && templates[localStorage.getItem('jtemplate')].formatType != 'signset') {
-				alert('You must be using the book or sign template(s)');
-				if (confirm('Do you want to go to the home page and change your template?\n\nYou will loose any text entered in the current window.')) {
-					cancelAddExtra();
+		refreshLanguage();
+	}
+
+	/* SHOW MOUSE ACTION OPTIONS FOR JSON TEMPLATES WITH THAT FLAG */
+	if (templates[localStorage.getItem('jtemplate')].mouseActionOptions) {
+		$('.hoverEventContainer_edit').show();
+		$('.clickEventContainer_edit').show();
+		$('.insertionContainer_edit').show();
+		$('.hoverEventContainer').show();
+		$('.clickEventContainer').show();
+		$('.insertionContainer').show();
+	} else {
+		$('.hoverEventContainer_edit').hide();
+		$('.clickEventContainer_edit').hide();
+		$('.insertionContainer_edit').hide();
+		$('.hoverEventContainer').hide();
+		$('.clickEventContainer').hide();
+		$('.insertionContainer').hide();
+	}
+
+	if (templates[localStorage.getItem('jtemplate')].formatType == 'signset') {
+		$('.clickEventDisabledSigns').show();
+		$('.hoverEventDisabledSigns').show();
+	} else {
+		$('.clickEventDisabledSigns').hide();
+		$('.hoverEventDisabledSigns').hide();			
+	}
+
+
+	/*EXTRA TRANSLATE STRING MANAGER*/
+
+	if (extraTextFormat == "trn") {
+		$('#obj_extra_container').hide();
+		$('#text_extra_container').hide();
+		$('#selector_extra_container').hide();
+		$('#translate_selector_container').show();
+		if (!hasAlertedTranslationObjects) {
+			swal('Translation objects are currently broken and may crash your game.','Please test your translation before publishing it.','warning');
+			hasAlertedTranslationObjects = true;
+		}
+	} else if (extraTextFormat == "obj") {
+		$('#text_extra_container').hide();
+		$('#translate_selector_container').hide();
+		$('#selector_extra_container').hide();
+		$('#obj_extra_container').show();
+	} else if (extraTextFormat == "sel") {
+		$('#text_extra_container').hide();
+		$('#translate_selector_container').hide();
+		$('#selector_extra_container').show();
+		$('#obj_extra_container').hide();
+	} else if (extraTextFormat == "raw") {
+		$('#text_extra_container').show();
+		$('#obj_extra_container').hide();
+		$('#translate_selector_container').hide();
+		$('#selector_extra_container').hide();
+		$('.extraTranslationParameterRow').hide();
+	}
+	if (extraTextFormat == 'NEW_ITERATE_FLAG') {
+		if (templates[localStorage.getItem('jtemplate')].formatType != 'bookarray' && templates[localStorage.getItem('jtemplate')].formatType != 'signset') {
+			var swalObject = {
+				title: "You must be using the book or sign templates",
+				text: "Do you want to change your template?",
+				showCancelButton: true,
+				confirmButtonText: "Yes",
+				cancelButtonText: "No",
+				closeOnConfirm: false,
+				closeOnCancel: true
+			};
+			var swalCallback = function(isConfirm) {
+				var template = undefined;
+				if (isConfirm) {
+					template = "book";
+				} else {
+					template = "sign_item";
 				}
-				$('#fmtExtraRaw').click();
+
+				$('.templateButton').removeClass('btn-success').removeClass('btn-default').addClass('btn-default');
+				$('.templateButton[template=' + template + ']').addClass('btn-success').removeClass('btn-default');
+
+				localStorage.setItem('jtemplate',template);
+				$('#command').val(templates[localStorage.getItem('jtemplate')]['command']);
+
+				refreshOutput();
+
+				swal("Done!", "Your template has been changed to " + getLanguageString('template.' + template,localStorage.getItem('langCode')), "success");
 			}
-			$('.NEW_ITERATE_FLAG_not_container').hide();
-		} else {
-			$('.NEW_ITERATE_FLAG_not_container').show();
-		}
-
-		/*COMMAND MANAGER*/
-		if ($("#command").val() == "") $("#command").val(templates[localStorage.getItem('jtemplate')]['command']);
-
-		/*HOVEREVENT SUGGESTION MANAGER*/
-		$('#hoverEventValue').removeAttr('disabled');
-		selectedHover = getSelected("hoverEvent");
-		if (selectedHover == "show_achievement") {
-			$('#hoverEventValue').autocomplete({
-				source: achievements
-			});
-		} else if (selectedHover == "show_item") {
-			$('#hoverEventValue').autocomplete({
-				source: []
-			});
-		} else if (selectedHover == "show_entity") {
-			$('.hovertext_default').hide();
-			$('.hovertext_entity').show();
-		} else if (selectedHover == "none") {
-			$('#hoverEventValue').attr('disabled','true');
-			$('#hoverEventValue').autocomplete({
-				source: []
-			});
-		}
-		if (selectedHover != "show_entity") {
-			$('.hovertext_default').show();
-			$('.hovertext_entity').hide();
-		}
-		if (selectedHover == "show_text") {
-			$('.hovertext_default').hide();
-			$('.hovertext_text').show();
-			$('#hoverEventText').val(JSON.stringify({"text":"","extra":[]}));
-		} else {
-			$('.hovertext_text').hide();
-		}
-
-		/*HOVEREVENT EDIT SUGGESTION MANAGER*/
-		$('#hoverEventText_edit').removeAttr('disabled');
-		selectedHover_edit = getSelected('hoverEvent_edit');
-		if (selectedHover_edit == "show_achievement") {
-			$('#hoverEventText_edit').autocomplete({
-				source: achievements
-			});
-		} else if (selectedHover_edit == "show_item") {
-			$('#hoverEventText_edit').autocomplete({
-				source: []
-			});
-		} else if (selectedHover_edit == "show_entity") {
-			$('.hovertext_default_edit').hide();
-			$('.hovertext_entity_edit').show();
-		} else if (selectedHover_edit == "none") {
-			$('#hoverEventText_edit').attr('disabled','true');
-			$('#hoverEventText_edit').autocomplete({
-				source: []
-			});
-		}
-		if (selectedHover_edit != "show_entity") {
-			$('.hovertext_default_edit').show();
-			$('.hovertext_entity_edit').hide();
-		}
-		if (selectedHover_edit != "show_text") {
-			$('.hovertext_text_edit').hide();
-		} else {
-			$('.hovertext_text_edit').show();
-		}
-
-		/*CLICKEVENT SUGGESTION MANAGER*/
-		$('#clickEventText').removeAttr('disabled');
-		selectedClick = getSelected("clickEvent");
-		if (selectedClick == "run_command" || selectedClick == "suggest_command") {
-			$('#clickEventText').autocomplete({
-				source: commands
-			});
-		} else if (selectedClick == "open_url") {
-			$('#clickEventText').autocomplete({
-				source: ["https://", "http://", "http://apple.com", "https://minecraft.net", "https://mojang.com", "http://ezekielelin.com", "https://reddit.com"]
-			});
-		} else if (selectedClick == "none") {
-			$('#clickEventText').attr('disabled','true');
-			$('#clickEventText').autocomplete({
-				source: []
-			});
-		}
-
-		/*CLICKEVENT EDIT SUGGESTION MANAGER*/
-		$('#clickEventText_edit').removeAttr('disabled');
-		selectedClick_edit = getSelected('clickEvent_edit');
-		if (selectedClick_edit == "run_command" || selectedClick_edit == "suggest_command") {
-			$('#clickEventText_edit').autocomplete({
-				source: commands
-			});
-		} else if (selectedClick_edit == "open_url") {
-			$('#clickEventText_edit').autocomplete({
-				source: ["http://apple.com", "https://minecraft.net", "https://mojang.com", "http://ezekielelin.com", "https://", "https://reddit.com", "http://"]
-			});
-		} else if (selectedClick_edit == "none") {
-			$('#clickEventText_edit').attr('disabled','true');
-			$('#clickEventText_edit').autocomplete({
-				source: []
-			});
-		}
-
-		/*PREPARING OUTPUT*/
-
-		var commandString = $('#command').val();
-
-		var JSONOutputString = '';
-		var EscapedJSONOutputString = '';
-		var formattedJObject = formatJObjectList(jobject);
-
-		var newLineExpressions = {
-			"bookarray": /\\\\\\\\n/g,
-			"standardjson": /\\\\n/g,
-			"signset": /\\\\\\\\n/g
-		}
-		if (!formattedJObject.length > 0) {
-			JSONOutputString = '{}';
-		} else {
-			if (templates[localStorage.getItem('jtemplate')].formatType == 'bookarray') {
-				JSONOutputString = JSON.stringify(formattedJObject);
-				JSONOutputString = JSONOutputString.replace(newLineExpressions.bookarray,'\\n');
-			} else if (templates[localStorage.getItem('jtemplate')].formatType == 'standardjson') {
-				JSONOutputString = formattedJObject[0];
-				JSONOutputString = JSONOutputString.replace(newLineExpressions.standardjson,'\\n');
-			} else if (templates[localStorage.getItem('jtemplate')].formatType == 'signset') {
-				JSONOutputString = 'Text1:' + JSON.stringify(formattedJObject[0]);
-				if (formattedJObject.length > 1) {
-					JSONOutputString += ',Text2:' + JSON.stringify(formattedJObject[1])
-				} 
-				if (formattedJObject.length > 2) {
-					JSONOutputString += ',Text3:' + JSON.stringify(formattedJObject[2])
+			swal(swalObject, function(isConfirm){
+				if (isConfirm) {
+					swal({
+						title: "Book or Sign?",
+						text: "Do you want to make a book or a sign? (You can change this later)",
+						type: "info",
+						showCancelButton: true,
+						confirmButtonText: "Book",
+						cancelButtonText: "Sign",
+						closeOnConfirm: false,
+						closeOnCancel: false
+					}, swalCallback);
 				}
-				if (formattedJObject.length > 3) {
-					JSONOutputString += ',Text4:' + JSON.stringify(formattedJObject[3])
-				}
-				JSONOutputString = JSONOutputString.replace(newLineExpressions.signset,'\\n');
+			});
+			$('#fmtExtraRaw').click();
+		}
+		$('.NEW_ITERATE_FLAG_not_container').hide();
+	} else {
+		$('.NEW_ITERATE_FLAG_not_container').show();
+	}
+
+	/*COMMAND MANAGER*/
+	if ($("#command").val() == "") $("#command").val(templates[localStorage.getItem('jtemplate')]['command']);
+
+	/*HOVEREVENT SUGGESTION MANAGER*/
+	$('#hoverEventValue').removeAttr('disabled');
+	selectedHover = getSelected("hoverEvent");
+	if (selectedHover == "show_achievement") {
+		$('#hoverEventValue').autocomplete({
+			source: achievements
+		});
+	} else if (selectedHover == "show_item") {
+		$('#hoverEventValue').autocomplete({
+			source: []
+		});
+	} else if (selectedHover == "show_entity") {
+		$('.hovertext_default').hide();
+		$('.hovertext_entity').show();
+	} else if (selectedHover == "none") {
+		$('#hoverEventValue').attr('disabled','true');
+		$('#hoverEventValue').autocomplete({
+			source: []
+		});
+	}
+	if (selectedHover != "show_entity") {
+		$('.hovertext_default').show();
+		$('.hovertext_entity').hide();
+	}
+	if (selectedHover == "show_text") {
+		$('.hovertext_default').hide();
+		$('.hovertext_text').show();
+		$('#hoverEventText').val(JSON.stringify({"text":"","extra":[]}));
+	} else {
+		$('.hovertext_text').hide();
+	}
+
+	/*HOVEREVENT EDIT SUGGESTION MANAGER*/
+	$('#hoverEventText_edit').removeAttr('disabled');
+	selectedHover_edit = getSelected('hoverEvent_edit');
+	if (selectedHover_edit == "show_achievement") {
+		$('#hoverEventText_edit').autocomplete({
+			source: achievements
+		});
+	} else if (selectedHover_edit == "show_item") {
+		$('#hoverEventText_edit').autocomplete({
+			source: []
+		});
+	} else if (selectedHover_edit == "show_entity") {
+		$('.hovertext_default_edit').hide();
+		$('.hovertext_entity_edit').show();
+	} else if (selectedHover_edit == "none") {
+		$('#hoverEventText_edit').attr('disabled','true');
+		$('#hoverEventText_edit').autocomplete({
+			source: []
+		});
+	}
+	if (selectedHover_edit != "show_entity") {
+		$('.hovertext_default_edit').show();
+		$('.hovertext_entity_edit').hide();
+	}
+	if (selectedHover_edit != "show_text") {
+		$('.hovertext_text_edit').hide();
+	} else {
+		$('.hovertext_text_edit').show();
+	}
+
+	/*CLICKEVENT SUGGESTION MANAGER*/
+	$('#clickEventText').removeAttr('disabled');
+	selectedClick = getSelected("clickEvent");
+	if (selectedClick == "run_command" || selectedClick == "suggest_command") {
+		$('#clickEventText').autocomplete({
+			source: commands
+		});
+	} else if (selectedClick == "open_url") {
+		$('#clickEventText').autocomplete({
+			source: ["https://", "http://", "http://apple.com", "https://minecraft.net", "https://mojang.com", "http://ezekielelin.com", "https://reddit.com"]
+		});
+	} else if (selectedClick == "none") {
+		$('#clickEventText').attr('disabled','true');
+		$('#clickEventText').autocomplete({
+			source: []
+		});
+	}
+
+	/*CLICKEVENT EDIT SUGGESTION MANAGER*/
+	$('#clickEventText_edit').removeAttr('disabled');
+	selectedClick_edit = getSelected('clickEvent_edit');
+	if (selectedClick_edit == "run_command" || selectedClick_edit == "suggest_command") {
+		$('#clickEventText_edit').autocomplete({
+			source: commands
+		});
+	} else if (selectedClick_edit == "open_url") {
+		$('#clickEventText_edit').autocomplete({
+			source: ["http://apple.com", "https://minecraft.net", "https://mojang.com", "http://ezekielelin.com", "https://", "https://reddit.com", "http://"]
+		});
+	} else if (selectedClick_edit == "none") {
+		$('#clickEventText_edit').attr('disabled','true');
+		$('#clickEventText_edit').autocomplete({
+			source: []
+		});
+	}
+
+	/*PREPARING OUTPUT*/
+
+	var commandString = $('#command').val();
+
+	var JSONOutputString = '';
+	var EscapedJSONOutputString = '';
+	var formattedJObject = formatJObjectList(jobject);
+
+	var newLineExpressions = {
+		"bookarray": /\\\\\\\\n/g,
+		"standardjson": /\\\\n/g,
+		"signset": /\\\\\\\\n/g
+	}
+	if (!formattedJObject.length > 0) {
+		JSONOutputString = '{}';
+	} else {
+		if (templates[localStorage.getItem('jtemplate')].formatType == 'bookarray') {
+			JSONOutputString = JSON.stringify(formattedJObject);
+			JSONOutputString = JSONOutputString.replace(newLineExpressions.bookarray,'\\n');
+		} else if (templates[localStorage.getItem('jtemplate')].formatType == 'standardjson') {
+			JSONOutputString = formattedJObject[0];
+			JSONOutputString = JSONOutputString.replace(newLineExpressions.standardjson,'\\n');
+		} else if (templates[localStorage.getItem('jtemplate')].formatType == 'signset') {
+			JSONOutputString = 'Text1:' + JSON.stringify(formattedJObject[0]);
+			if (formattedJObject.length > 1) {
+				JSONOutputString += ',Text2:' + JSON.stringify(formattedJObject[1])
+			} 
+			if (formattedJObject.length > 2) {
+				JSONOutputString += ',Text3:' + JSON.stringify(formattedJObject[2])
 			}
+			if (formattedJObject.length > 3) {
+				JSONOutputString += ',Text4:' + JSON.stringify(formattedJObject[3])
+			}
+			JSONOutputString = JSONOutputString.replace(newLineExpressions.signset,'\\n');
 		}
+	}
 
-		commandString = commandString.replace('%s',JSONOutputString);
+	commandString = commandString.replace('%s',JSONOutputString);
 
-		outputString = commandString;
+	outputString = commandString;
 
-		$('#outputtextfield').val(outputString);
-		if ($('#showNiceLookingOutput').is(':checked')) {
-			localStorage.setItem('nlOutput','yes');
-			$('#nicelookingoutput').show().html(JSON.stringify(jobject, null, 4).replace(newLineExpressions.standardjson,'\\n'));
-		} else {
-			localStorage.setItem('nlOutput','no');
-			$('#nicelookingoutput').hide();
-		}
-		jsonParse();
+	$('#outputtextfield').val(outputString);
+	if ($('#showNiceLookingOutput').is(':checked')) {
+		localStorage.setItem('nlOutput','yes');
+		$('#nicelookingoutput').show().html(JSON.stringify(jobject, null, 4).replace(newLineExpressions.standardjson,'\\n'));
+	} else {
+		localStorage.setItem('nlOutput','no');
+		$('#nicelookingoutput').hide();
+	}
+	jsonParse();
 
-		/*COMMAND BLOCK WARNING*/
-		if ($('#outputtextfield').val().length > 90) {
-			$('#commandblock').show();
-		} else {
-			$('#commandblock').hide();
-		}
+	/*COMMAND BLOCK WARNING*/
+	if ($('#outputtextfield').val().length > 90) {
+		$('#commandblock').show();
+	} else {
+		$('#commandblock').hide();
+	}
 
-		/*SAVE VARIABLES*/
-		localStorage['jobject'] = JSON.stringify(jobject);
-		localStorage['jcommand'] = $('#command').val();
+	/*SAVE VARIABLES*/
+	localStorage['jobject'] = JSON.stringify(jobject);
+	localStorage['jcommand'] = $('#command').val();
 
-		/*RERUN*/
-		if (input != 'noLoop' && input != 'previewLineChange') {
-			refreshOutput('noLoop');
-		}
-	} catch(err) {
-		logIssue('Unknown Error',err);
+	/*RERUN*/
+	if (input != 'noLoop' && input != 'previewLineChange') {
+		refreshOutput('noLoop');
 	}
 }
 function jsonParse() {
@@ -1268,20 +1343,35 @@ function initialize() {
 	}
 
 	if (localStorage.getItem('jformat') != version && localStorage.getItem('jformat') != undefined) {
-		if (confirm('Your cookie format is old and may cause issues. Would you like to reset them? You won\'t be asked again until the format changes again')) {
-			localStorage.clear();
-			location.reload();
-		} else {
-			alert('You won\'t be asked again until the cookie format changes. If you experience an issue, please clear your coookies for this website');
-		}
+		swal({
+			title: "Your cookie format is old!",
+			text: "This may cause issues. Would you like to reset them? You won't be asked again until the next time the format changes.",
+			showCancelButton: true,
+			confirmButtonText: "Reset Cookies",
+			cancelButtonText: "Don't Reset",
+			closeOnCancel: false
+		},function(isConfirm){
+			if (isConfirm) {
+				sessionStorage.setItem('nextTimeAlert',JSON.stringify({'title': 'All Done', 'text': 'Your cookies have successfully been reset.\n\nCookies are reset when the format changes drastically, or when a mistake causes the cookies to break the website.', 'type': 'success'}));
+				localStorage.clear();
+				location.reload();
+			} else {
+				swal('Nothing was reset','You won\'t be asked again until the cookie format changes. If you experience an issue, please clear your coookies for this website', 'info');
+			}
+		});
 	} else {
 		/*check if alert isn't correctly set. Do not show the alert is jformat isn't set – that means the user hasn't been here before*/
-		if (localStorage.getItem('jalert') != notice.id && localStorage.getItem('jformat') != undefined) {
-			alert(notice.message);
+		if (localStorage.getItem('jalert') != notice.id && localStorage.getItem('jformat') != undefined && notice.show) {
+			swal(notice.message);
 		}
 		localStorage.setItem('jalert',notice.id);
 	}
 	localStorage.setItem('jformat',version);
+
+	if (sessionStorage.getItem('nextTimeAlert')) {
+		swal(JSON.parse(sessionStorage.getItem('nextTimeAlert')));
+		sessionStorage.removeItem('nextTimeAlert');
+	}
 
 	for (var i = 0; i < Object.keys(templates).length; i++) {
 		var key = Object.keys(templates)[i]
@@ -1364,14 +1454,27 @@ function initialize() {
 	$('#command').change(function(){refreshOutput()});
 
 	$('#import').click(function() {
-		var inpt = prompt(getLanguageString('settings.importtext.exported',localStorage.getItem('langCode'),false,false));
-		inpt = JSON.parse(inpt)
-		jobject = inpt['jobject'];
-		if (inpt['jtemplate']) {
-			localStorage.setItem('jtemplate',inpt['jtemplate'])
-		}
-		$('#command').val(inpt['command']);
-		refreshOutput();
+		swal({
+			"title": "Import",
+			"text": getLanguageString('settings.importtext.exported',localStorage.getItem('langCode'),false,false),
+			"type": "input",
+			"closeOnConfirm": false
+		},function(oinpt){
+			var inpt = undefined
+			try {
+				inpt = JSON.parse(oinpt);
+			} catch(err) {
+				logIssue('Import failed','Provided input: ' + oinpt,true)
+			}
+			jobject = inpt['jobject'];
+			if (inpt['jtemplate']) {
+				localStorage.setItem('jtemplate',inpt['jtemplate'])
+			}
+			$('#command').val(inpt['command']);
+
+			swal("Imported", "Your command has been imported", "success");
+			refreshOutput();
+		})
 	});
 	$('#export').click(function(){
 		$('#exporter').remove();
@@ -1396,7 +1499,7 @@ function initialize() {
 		if (match != null) {
 			for (var i = matchLength - 1; i >= 0; i--) {
 				if (matchLength > 5) {
-					alert('An unexpected error has occured. EID-more than 5 matches');
+					swal('An unexpected error has occured.','EID-more than 5 matches','error');
 				}
 				for (var i = matchLength - 1; i >= 0; i--) {
 					$('#parameter'+i+'row').show();
@@ -1495,7 +1598,7 @@ function initialize() {
 			showView('tellraw');
 		} else if (id == "output-quotes-issue-button") {
 			$('.templateButton[template=tellraw]').click();
-			alert('The issue should be fixed.\n\nIf it is not, please report as Output > Other, and note this event in your report..');
+			swal('The issue should be fixed.','If it is not, please report as Output > Other, and note this event in your report..','info');
 			showView('tellraw');
 		} else if (id == "output-other-issue-button") {
 			reportAnIssue('Output Issue (Other)');
@@ -1529,13 +1632,25 @@ $(document).ready(function(){
 	try {
 		data = getURL('resources.json');
 	} catch(err) {
-		alert('An error occured loading page assets. Please try again later.');
+		swal({
+			"title": "Error!",
+			"text": "An error occured loading page assets. Please try again later.",
+			"type": "error"
+		},function(){
+			$('html').html('Please try again later');
+		});
 	}
 	if (typeof data == 'string') {
 		try {
 			data = JSON.parse(data);
 		} catch(err) {
-			alert('An error occured loading page assets. Please try again later.');
+			swal({
+				"title": "Error!",
+				"text": "An error occured loading page assets. Please try again later.",
+				"type": "error"
+			},function(){
+				$('html').html('Please try again later');
+			});
 		}
 	}
 	if (location.hash == "#embed") {
