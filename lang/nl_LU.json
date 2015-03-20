@@ -144,7 +144,6 @@
             "no": "Nee"
         },
         "importtext": {
-            "default": "Voer het 'tellraw' commando hier in. Gebruik de verwijder alles knop als het verkeerd importeert. Import werkt alleen met 'tellraw' commando's",
             "exported": "Please enter the string you were given when you exported your command"
         },
         "import": "Import",

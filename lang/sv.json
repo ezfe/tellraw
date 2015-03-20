@@ -144,7 +144,6 @@
             "no": "Avbryt"
         },
         "importtext": {
-            "default": "Var v\u00e4nlig ange ditt tellrawkommando. Anv\u00e4nd Radera Allt-knappen om den inte importeras som den ska. Importeringen fungerar bara med \/tellraw kommandon",
             "exported": "Var v\u00e4nlig ange texten du fick n\u00e4r du exporterat ditt kommando"
         },
         "import": "Importera",

@@ -144,7 +144,6 @@
             "no": "\u30ad\u30e3\u30f3\u30bb\u30eb"
         },
         "importtext": {
-            "default": "Please enter the tellraw command. Use the Delete All button if it incorrectly imports. Import only works with \/tellraw commands",
             "exported": "Please enter the string you were given when you exported your command"
         },
         "import": "\u5165\u529b",

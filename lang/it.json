@@ -144,7 +144,6 @@
             "no": "Annulla"
         },
         "importtext": {
-            "default": "Per favore inserisci il comando tellraw. Usa il pulsante cancella tutto se viene importato incorrettamente. Importare funziona solo con i comandi \/tellraw",
             "exported": "Per favore inserisci la stringa che c'era quando hai esportato il comando"
         },
         "import": "Importa",

@@ -144,7 +144,6 @@
             "no": "\u53d6\u6d88"
         },
         "importtext": {
-            "default": "Please enter the tellraw command. Use the Delete All button if it incorrectly imports. Import only works with \/tellraw commands",
             "exported": "Please enter the string you were given when you exported your command"
         },
         "import": "\u532f\u5165",

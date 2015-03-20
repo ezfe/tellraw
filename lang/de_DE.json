@@ -144,7 +144,6 @@
             "no": "Abbrechen"
         },
         "importtext": {
-            "default": "Bitte gib den Tellraw-Befehl ein. Benutze die Alles L\u00f6schen Schaltfl\u00e4che, wenn es falsch importiert wird. Importieren funktioniert nur mit \/Tellraw Befehlen.",
             "exported": "Bitte gib den String ein, der dir gegeben wurde, als du den Befehl exportiert hast."
         },
         "import": "Importieren",

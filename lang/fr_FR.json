@@ -4,38 +4,38 @@
             "changepage": "Changer de page",
             "unavailable": {
                 "sign": {
-                    "header": "Sign click events are not available",
-                    "body": "Click here to go to an unaffiliated website to create signs with click events."
+                    "header": "Les panneaux avec des \u00e9v\u00e9nements au clic ne sont pas disponible.",
+                    "body": "Cliquez ici pour aller sur un site non-affili\u00e9 pour cr\u00e9er des panneaux avec des \u00e9v\u00e9nements au clic."
                 }
             },
-            "runcommand": "Executer une commande:",
-            "openurl": "Ouvrir une URL",
+            "runcommand": "Ex\u00e9cuter une commande",
+            "openurl": "Ouvrir un lien",
             "suggestcommand": "Sugg\u00e9rer une commande",
-            "header": "\u00c9v\u00e8nement au \"Clic\"",
+            "header": "\u00c9v\u00e9nement au clic",
             "none": "Aucun"
         },
         "hoverevent": {
             "unavailable": {
                 "sign": {
-                    "header": "Sign hover events are not available",
-                    "body": "This is due to Minecraft not supporting hover events in signs."
+                    "header": "Les panneaux avec des \u00e9v\u00e9nements au survol ne sont pas disponible.",
+                    "body": "Cela est d\u00fb au fait que Minecraft ne supporte pas les \u00e9v\u00e9nements au survol dans les panneaux."
                 }
             },
             "addtext": "Ajouter du texte",
             "removetext": "Supprimer le dernier texte",
-            "header": "\u00c9v\u00e8nement au \"Survol\"",
+            "header": "\u00c9v\u00e9nement au survol :",
             "showachievement": "Afficher un succ\u00e8s",
-            "id": "ID:",
+            "id": "Identifiant :",
             "showentity": "Afficher une entit\u00e9",
             "showitem": "Afficher un objet",
-            "type": "Type:",
+            "type": "Type :",
             "none": "Aucun",
             "showtext": "Afficher du texte",
             "name": "Nom"
         },
         "trn": "Traduit",
         "parameter": "Param\u00e8tre",
-        "editsnippet": "Editer le texte",
+        "editsnippet": "\u00c9diter le texte",
         "close": "Fermer",
         "notext": "Pas de texte",
         "NEW_ITERATE_FLAG": "Page d'un livre \/ Ligne d'un panneau",
@@ -44,7 +44,7 @@
         "insertion": {
             "header": "Insertion"
         },
-        "sel": "Selecteur",
+        "sel": "S\u00e9lecteur",
         "format": {
             "bold": "Gras",
             "underlined": "Soulign\u00e9",
@@ -60,7 +60,7 @@
         "text": "Texte",
         "raw": "Brut",
         "warning": {
-            "title": "Attention!"
+            "title": "Attention !"
         }
     },
     "headerbar": {
@@ -144,7 +144,6 @@
             "no": "Annuler"
         },
         "importtext": {
-            "default": "Entrez la commande tellraw. Utilisez le bouton Tout Supprimer si l'importation est incorrecte. Importez seulement des commandes \/tellraw",
             "exported": "Merci d'entrer le texte donn\u00e9 \u00e0 l'export de la commande"
         },
         "import": "Importer",
@@ -169,7 +168,7 @@
         "color_light_purple": "Violet clair",
         "color_yellow": "Jaune"
     },
-    "header": "G\u00e9n\u00e9rateur de Tellraw pour Minecraft 1.7+",
+    "header": "G\u00e9n\u00e9rateur de \/tellraw pour Minecraft 1.7 et +",
     "language": {
         "translate": "Traduire",
         "name": "Fran\u00e7ais",

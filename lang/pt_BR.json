@@ -144,7 +144,6 @@
             "no": "Cancelar"
         },
         "importtext": {
-            "default": "Insira o comando. Em caso de erros, use o bot\u00e3o \"Deletar tudo\". Apenas \/tellraw funciona.",
             "exported": "Insira aqui. Comandos n\u00e3o criados diretamente deste site podem n\u00e3o funcionar."
         },
         "import": "Importar",

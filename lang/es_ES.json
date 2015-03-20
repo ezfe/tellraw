@@ -144,7 +144,6 @@
             "no": "Cancelar"
         },
         "importtext": {
-            "default": "Introduce aqu\u00ed tu comando tellraw. Emplea el bot\u00f3n Eliminar todo si se importa de manera incorrecta. S\u00f3lo funciona con \/tellraw.",
             "exported": "Introduce aqu\u00ed el texto obtenido al exportar un comando"
         },
         "import": "Importar",

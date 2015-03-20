@@ -4,8 +4,8 @@
             "changepage": "Sayfay\u0131 de\u011fi\u015ftir",
             "unavailable": {
                 "sign": {
-                    "header": "Sign click events are not available",
-                    "body": "Click here to go to an unaffiliated website to create signs with click events."
+                    "header": "Tabela t\u0131klamalar\u0131 etkin de\u011fil",
+                    "body": "T\u0131klanabilir olan tabelalar yapmak i\u00e7in ba\u015fka bir siteye git"
                 }
             },
             "runcommand": "Komutu \u00e7al\u0131\u015ft\u0131r",
@@ -17,8 +17,8 @@
         "hoverevent": {
             "unavailable": {
                 "sign": {
-                    "header": "Sign hover events are not available",
-                    "body": "This is due to Minecraft not supporting hover events in signs."
+                    "header": "Tabelalarda \u00fcst\u00fcnde tutma etkin de\u011fil",
+                    "body": "\u00c7\u00fcnk\u00fc Minecraft bunu desteklemiyor"
                 }
             },
             "addtext": "Yaz\u0131 ekle",
@@ -144,7 +144,6 @@
             "no": "\u0130ptal"
         },
         "importtext": {
-            "default": "L\u00fctfen bir tellraw komutu girin. E\u011fer yanl\u0131\u015f yaparsan\u0131z \"T\u00fcm\u00fcn\u00fc sil\" butonuna bas\u0131n. \"Al\" sadece \/tellraw'la \u00e7al\u0131\u015f\u0131r.",
             "exported": "L\u00fctfen komutu ald\u0131\u011f\u0131n\u0131zda verilen sat\u0131r\u0131 yaz\u0131n."
         },
         "import": "\u0130\u00e7e aktar",
