@@ -1364,26 +1364,14 @@ function initialize() {
 	$('#command').change(function(){refreshOutput()});
 
 	$('#import').click(function() {
-		if (confirm("Would you like to import an \"exported\" command? Press Ok if you made the string by using the export option")) {
-			var inpt = prompt(getLanguageString('settings.importtext.exported',localStorage.getItem('langCode'),false,false));
-			inpt = JSON.parse(inpt)
-			jobject = inpt['jobject'];
-			if (inpt['jtemplate']) {
-				localStorage.setItem('jtemplate',inpt['jtemplate'])
-			}
-			$('#command').val(inpt['command']);
-			refreshOutput();
-		} else {
-			var inpt = prompt(getLanguageString('settings.importtext.default',localStorage.getItem('langCode'),false,false));
-			$('#command').val(inpt.substring(0,inpt.indexOf("{")-1));
-			try {
-				jobject = JSON.parse(inpt.substring(inpt.indexOf("{")))['extra'];
-			} catch(err) {
-				alert(err.message);
-				jobject = [];
-			}
-			refreshOutput();
+		var inpt = prompt(getLanguageString('settings.importtext.exported',localStorage.getItem('langCode'),false,false));
+		inpt = JSON.parse(inpt)
+		jobject = inpt['jobject'];
+		if (inpt['jtemplate']) {
+			localStorage.setItem('jtemplate',inpt['jtemplate'])
 		}
+		$('#command').val(inpt['command']);
+		refreshOutput();
 	});
 	$('#export').click(function(){
 		$('#exporter').remove();
