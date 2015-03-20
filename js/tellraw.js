@@ -1,10 +1,10 @@
 var chars = [1,2,3,4,5,6,7,8,9,0,'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 var matchLength = 0;
-var version = 2;
+var version = 3;
 var tos_version = 1;
 var notice = {
-	"id": 3,
-	"message": "Some formats have changed. %e is no longer a valid marker, use %s now.\n\nIt is recommended you reset to the templates."
+	"id": 4,
+	"message": "Sorry about that, I screwed up the cookies.\n\nUse the export button if you're worried about cookies resetting in the future."
 };
 var jobject = [];
 var selectedHover;
@@ -49,6 +49,7 @@ function logIssue(name,data,solution) {
 	$('#issue-info-span').html('<small><br>' + name + ' - <a href="#" onclick="alert(JSON.stringify(issueLog[issueLog.length - 1].data))">Issue Data</a></small>');
 }
 function showView(viewname,suppressAnimation,hideOthers,hideMenubar) {
+	var hideMenubarOriginal = hideMenubar;
 	if (embed) {
 		hideMenubar = true;
 	}
@@ -1552,6 +1553,8 @@ $(document).ready(function(){
 	if (location.hash == "#embed") {
 		$('.view-container[view="tellraw"]').children().filter('br').remove();
 		embed = true;
+	} else {
+		embed = false;
 	}
 	translationStrings = data['minecraft_language_strings']['en_US'];
 	webLangRelations = data['web_language_relations'];
