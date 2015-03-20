@@ -1267,12 +1267,6 @@ function initialize() {
 		localStorage.setItem('langCode','en_US');
 	}
 
-	/*check if alert isn't correctly set. Do not show the alert is jformat isn't set – that means the user hasn't been here before*/
-	if (localStorage.getItem('jalert') != notice.id && localStorage.getItem('jformat') != undefined) {
-		alert(notice.message);
-	}
-	localStorage.setItem('jalert',notice.id);
-
 	if (localStorage.getItem('jformat') != version && localStorage.getItem('jformat') != undefined) {
 		if (confirm('Your cookie format is old and may cause issues. Would you like to reset them? You won\'t be asked again until the format changes again')) {
 			localStorage.clear();
@@ -1280,6 +1274,12 @@ function initialize() {
 		} else {
 			alert('You won\'t be asked again until the cookie format changes. If you experience an issue, please clear your coookies for this website');
 		}
+	} else {
+		/*check if alert isn't correctly set. Do not show the alert is jformat isn't set – that means the user hasn't been here before*/
+		if (localStorage.getItem('jalert') != notice.id && localStorage.getItem('jformat') != undefined) {
+			alert(notice.message);
+		}
+		localStorage.setItem('jalert',notice.id);
 	}
 	localStorage.setItem('jformat',version);
 
