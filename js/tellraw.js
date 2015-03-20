@@ -100,14 +100,6 @@ function getURL(url){
 		async: false
 	}).responseText;
 }
-function donateAlert(state,hasDonated) {
-	if (state) {
-		localStorage.setItem('donateAlertShown',true)
-		showView('donate')
-	} else {
-		showView('tellraw')
-	}
-}
 function verify_jobject_format(jdata) {
 	var resetError = JSON.stringify({"title": "Object Verification Failed", "text": "An error occured and the page has been reset", "type": "error"});
 
@@ -1371,6 +1363,79 @@ function initialize() {
 	if (sessionStorage.getItem('nextTimeAlert')) {
 		swal(JSON.parse(sessionStorage.getItem('nextTimeAlert')));
 		sessionStorage.removeItem('nextTimeAlert');
+	}
+	if (localStorage.getItem('nextTimeAlert')) {
+		swal(JSON.parse(localStorage.getItem('nextTimeAlert')));
+		localStorage.removeItem('nextTimeAlert');
+	}
+
+	if (localStorage.getItem('donateAlert') != "shown" && localStorage.getItem('donateAlert') != "not-shown") {
+		localStorage.setItem('donateAlert','not-shown')
+	} else {
+		if (localStorage.getItem('donateAlert') == 'not-shown') {
+			swal({
+				"title": "Please Consider Donating",
+				"text": "Donations help support my developement of these programs!\n\nDonations can be done through a variety of services, it's up to you.",
+				"confirmButtonText": "I want to donate",
+				"cancelButtonText": "I have already or don't want to donate",
+				"showCancelButton": true,
+				"closeOnConfirm": false,
+				"closeOnCancel": false
+			}, function(want){
+				if (want) {
+					var swalCallback = function(amount){
+						if (amount > 25 && amount < 40) {
+							var swalMessage = {
+								"title": "Overcast Network",
+								"text": "That amount fits nicely with an upgrade to my <a href=\"http://oc.tc/ezfe\">Overcast Network</a> account",
+								"html": true,
+								"confirmButtonText": "Ok, show me the page",
+								"cancelButtonText": "I'd rather just send the money",
+								"showCancelButton": true,
+								"closeOnConfirm": false,
+								"closeOnCancel": false
+							};
+							var swalCallback = function(shouldGoToOvercast){
+								if (shouldGoToOvercast) {
+									swal({
+										"title": "Almost done...",
+										"text": "When you arrive, enter the username <i>ezfe</i>",
+										"html": true,
+									},function(){
+										localStorage.setItem('nextTimeAlert',JSON.stringify({"title": "Thanks!", "text": "I'm assuming you donated, in which case thanks! Otherwise, perhaps later?", "type": "success"}));
+										location.href = "https://oc.tc/shop";
+									});
+								} else {
+									var swalMessage = {
+										"title": "Ok, that's fine",
+										"text": "Right now, I only offer PayPal, because my web payment system is broken.\n\nYou can find my email address at the bottom of the page!",
+										"status": "success"
+									};
+									swal(swalMessage);
+								}
+							}
+							swal(swalMessage,swalCallback);
+						} else {
+							var swalMessage = {
+								"title": "Great!",
+								"text": "Right now, I only offer PayPal, because my web payment system is broken.\n\nYou can find my email address at the bottom of the page!",
+								"status": "success"
+							};
+							swal(swalMessage);
+						}
+					}
+					swal({
+						"title": "Awesome",
+						"text": "How much do you want to donate?\n(Please enter a number, like 3 or 11. Don't enter the $ symbol)",
+						"type": "input",
+						"closeOnConfirm":  false
+					},swalCallback);
+				} else {
+					swal('Awe...','I won\'t bother you again, so long as you don\'t reset your cookies.\n\nI can\'t remember things if you do that.');
+				}
+			});
+			localStorage.setItem('donateAlert','shown');
+		}
 	}
 
 	for (var i = 0; i < Object.keys(templates).length; i++) {
