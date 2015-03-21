@@ -1372,7 +1372,7 @@ function initialize() {
 	if (localStorage.getItem('donateAlert') != "shown" && localStorage.getItem('donateAlert') != "not-shown") {
 		localStorage.setItem('donateAlert','not-shown')
 	} else {
-		if (localStorage.getItem('donateAlert') == 'not-shown') {
+		if (localStorage.getItem('donateAlert') == 'not-shown' && false) {
 			swal({
 				"title": "Please Consider Donating",
 				"text": "Donations help support my developement of these programs!\n\nDonations can be done through a variety of services, it's up to you.",
