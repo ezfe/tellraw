@@ -1434,29 +1434,29 @@ function initialize() {
 					swal('Awe...','I won\'t bother you again, so long as you don\'t reset your cookies.\n\nI can\'t remember things if you do that.');
 				}
 			});
-			localStorage.setItem('donateAlert','shown');
-		}
-	}
+localStorage.setItem('donateAlert','shown');
+}
+}
 
-	for (var i = 0; i < Object.keys(templates).length; i++) {
-		var key = Object.keys(templates)[i]
-		if (key == localStorage.getItem('jtemplate')) {
-			var classString = 'btn-success';
-		} else {
-			var classString = 'btn-default';
-		}
-		$('#templateButtons').append('<button class="btn btn-xs ' + classString + ' templateButton" lang="template.' + key + '" version="' + templates[key]['version'] + '" template="'+ key +'"></button> ');
-	}
-	if (localStorage.getItem('jtemplate') == undefined) {
-		localStorage.setItem('jtemplate', 'tellraw');
-	}
-	if (lang[localStorage.getItem('langCode')]) {
-		errorString = getLanguageName(localStorage.getItem('langCode')) + '<br><br>';
+for (var i = 0; i < Object.keys(templates).length; i++) {
+	var key = Object.keys(templates)[i]
+	if (key == localStorage.getItem('jtemplate')) {
+		var classString = 'btn-success';
 	} else {
-		errorString = '&lt;language unknown&gt;<br><br>';
+		var classString = 'btn-default';
 	}
-	/*var enCount = JSON.stringify(lang['en_US']).length;*/
-	for (var i = 0; i < Object.keys(lang).length; i++) {
+	$('#templateButtons').append('<button class="btn btn-xs ' + classString + ' templateButton" lang="template.' + key + '" version="' + templates[key]['version'] + '" template="'+ key +'"></button> ');
+}
+if (localStorage.getItem('jtemplate') == undefined) {
+	localStorage.setItem('jtemplate', 'tellraw');
+}
+if (lang[localStorage.getItem('langCode')]) {
+	errorString = getLanguageName(localStorage.getItem('langCode')) + '<br><br>';
+} else {
+	errorString = '&lt;language unknown&gt;<br><br>';
+}
+/*var enCount = JSON.stringify(lang['en_US']).length;*/
+for (var i = 0; i < Object.keys(lang).length; i++) {
 		/*var langKey = Object.keys(lang)[i];
 		var currentCount = JSON.stringify(lang[langKey]).length;
 		var currentPercentage = Math.round(currentCount/enCount*100);
@@ -1681,6 +1681,14 @@ function initialize() {
 
 	if (localStorage.getItem('darkMode') && localStorage.getItem('darkMode') == 'true') {
 		$('#enable_dark_mode').click(); //Finish setting up dark mode after handlers exist
+	}
+
+	if (localStorage.getItem('rec_alert_banner_shown_key') != "YES") {
+		var html = '<div class="alert-banner" style="height: 140px; width: 1279px; background-color: rgb(11, 135, 234); text-align: center; padding-top: 30px; font-size: 24pt;">I am looking for an experienced JS developer to improve this website<br><a class="btn btn-success" href="#" onclick="swal(\'Send me an email (listed at the bottom of the page) so we can get in touch\');localStorage[\'rec_alert_banner_shown_key\']=\'YES\'">I\'m interested</a> &nbsp; <a class="btn btn-danger" href="#" onclick="$(\'.alert-banner\').remove();localStorage[\'rec_alert_banner_shown_key\']=\'YES\'">Make this go away</a></div>';
+
+		$('body').prepend(html);
+
+		$('.alert-banner').height('140px').width($(window).width());
 	}
 }
 $(document).ready(function(){
