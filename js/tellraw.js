@@ -1682,14 +1682,6 @@ for (var i = 0; i < Object.keys(lang).length; i++) {
 	if (localStorage.getItem('darkMode') && localStorage.getItem('darkMode') == 'true') {
 		$('#enable_dark_mode').click(); //Finish setting up dark mode after handlers exist
 	}
-
-	if (localStorage.getItem('rec_alert_banner_shown_key') != "YES") {
-		var html = '<div class="alert-banner" style="height: 140px; width: 1279px; background-color: rgb(11, 135, 234); text-align: center; padding-top: 30px; font-size: 24pt;">I am looking for an experienced JS developer to improve this website<br><a class="btn btn-success" href="#" onclick="swal(\'Send me an email (listed at the bottom of the page) so we can get in touch\');localStorage[\'rec_alert_banner_shown_key\']=\'YES\'">I\'m interested</a> &nbsp; <a class="btn btn-danger" href="#" onclick="$(\'.alert-banner\').remove();localStorage[\'rec_alert_banner_shown_key\']=\'YES\'">Make this go away</a></div>';
-
-		$('body').prepend(html);
-
-		$('.alert-banner').height('140px').width($(window).width());
-	}
 }
 $(document).ready(function(){
 	if (localStorage.getItem('darkMode') && localStorage.getItem('darkMode') == 'true') {
