@@ -200,7 +200,7 @@ function strictifyItem(job,index) {
 
 	for (var i = 0; i < Object.keys(prejoi).length; i++) {
 		var key = Object.keys(prejoi)[i];
-		var doNotCheckKeys = ["text", "score", "selector","color", "clickEvent"]
+		var doNotCheckKeys = ["text", "score", "selector", "color", "clickEvent", "hoverEvent", "insertion"]
 		if (doNotCheckKeys.indexOf(key) == -1) {
 			if (prejoi[key] === "true" && joi[key] === undefined) {
 				joi[key] = "false";
@@ -210,11 +210,11 @@ function strictifyItem(job,index) {
 				if (joi["color"] === undefined) {
 					joi["color"] = noneName();
 				}
-			} else if (key == "hoverEvent" || key == "clickEvent") {
+			}/* else if (key == "hoverEvent" || key == "clickEvent") {
 				if (joi[key] == undefined) {
-					joi[key] = {"action": "", "value":""};
+					// DO SOMETHING
 				}
-			}
+			}*/
 			continue;
 		}
 	}
