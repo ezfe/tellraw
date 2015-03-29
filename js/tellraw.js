@@ -30,6 +30,41 @@ var bookPage = 1;
 var topPage = 1;
 var embed = false;
 
+/* http://stackoverflow.com/a/728694/2059595 */
+function clone(obj) {
+	var copy;
+
+    // Handle the 3 simple types, and null or undefined
+    if (null == obj || "object" != typeof obj) return obj;
+
+    // Handle Date
+    if (obj instanceof Date) {
+    	copy = new Date();
+    	copy.setTime(obj.getTime());
+    	return copy;
+    }
+
+    // Handle Array
+    if (obj instanceof Array) {
+    	copy = [];
+    	for (var i = 0, len = obj.length; i < len; i++) {
+    		copy[i] = clone(obj[i]);
+    	}
+    	return copy;
+    }
+
+    // Handle Object
+    if (obj instanceof Object) {
+    	copy = {};
+    	for (var attr in obj) {
+    		if (obj.hasOwnProperty(attr)) copy[attr] = clone(obj[attr]);
+    	}
+    	return copy;
+    }
+
+    throw new Error("Unable to copy obj! Its type isn't supported.");
+}
+
 function alert(message) {
 	return swal(message);
 }
@@ -156,7 +191,47 @@ function verify_jobject_format(jdata) {
 	return jdata;
 }
 
-function formatJObjectList(data) {
+function strictifyItem(job,index) {
+	var joi = job[index];
+	if (index == 0 || job[index - 1].NEW_ITERATE_FLAG || job[index].NEW_ITERATE_FLAG) {
+		return joi;
+	}
+	var prejoi = job[index - 1];
+
+	for (var i = 0; i < Object.keys(prejoi).length; i++) {
+		var key = Object.keys(prejoi)[i];
+		var doNotCheckKeys = ["text", "score", "selector","color", "clickEvent"]
+		if (doNotCheckKeys.indexOf(key) == -1) {
+			if (prejoi[key] === "true" && joi[key] === undefined) {
+				joi[key] = "false";
+			}
+		} else {
+			if (key == "color") {
+				if (joi["color"] === undefined) {
+					joi["color"] = noneName();
+				}
+			} else if (key == "hoverEvent" || key == "clickEvent") {
+				if (joi[key] == undefined) {
+					joi[key] = {"action": "", "value":""};
+				}
+			}
+			continue;
+		}
+	}
+
+	return joi;
+}
+
+function strictifyJObject(job) {
+	for (var x = 0; x < job.length; x++) {
+		job[x] = strictifyItem(job,x);
+	}
+	return job;
+}
+
+function formatJObjectList(d) {
+	data = strictifyJObject(clone(d));
+
 	if (data.length == 0) {
 		return [];
 	}
@@ -170,7 +245,6 @@ function formatJObjectList(data) {
 			currentDataToPlug.push(data[i]);
 		}
 	}
-	console.log(data);
 	if (!data[data.length - 1].NEW_ITERATE_FLAG) {
 		ret_val.push(JSON.stringify(currentDataToPlug));
 	}
@@ -360,6 +434,25 @@ function obfuscationPreviewHandler() {
 		setTimeout(obfuscationPreviewHandler, 20);
 	}
 }
+function currentTemplate() {
+	return templates[localStorage.getItem('jtemplate')];
+}
+function noneHex() {
+	if (currentTemplate().formatType == 'bookarray' || currentTemplate().formatType == 'signset') {
+		return '#000000';
+	} else {
+		return '#FFFFFF'
+	}
+}
+function noneName() {
+	return 'none';
+	/* I think none is the proper name */
+	// if (currentTemplate().formatType == 'bookarray' || currentTemplate().formatType == 'signset') {
+	// 	return 'black';
+	// } else {
+	// 	return 'white'
+	// }
+}
 function getCSSHEXFromWord(w) {
 	if (w == "black") return("#000000");
 	if (w == "dark_blue") return("#0000B2");
@@ -377,8 +470,8 @@ function getCSSHEXFromWord(w) {
 	if (w == "light_purple") return("#FD4DFF");
 	if (w == "yellow") return("#FFFF00");
 	if (w == "white") return("#FFFFFF");
-	if (w == "none") return("#FFFFFF");
-	return templates[localStorage.getItem('jtemplate')].formatType == 'bookarray' ? ('#000000') : ("#FFFFFF");
+	if (w == "none") return(noneHex());
+	return noneHex();
 }
 function removeWhiteSpace(s) {
 	return s;
