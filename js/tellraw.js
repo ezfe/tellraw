@@ -1107,7 +1107,7 @@ function refreshOutput(input) {
 		"signset": /\\\\\\\\n/g
 	}
 	if (!formattedJObject.length > 0) {
-		JSONOutputString = '{}';
+		JSONOutputString = '[]';
 	} else {
 		if (templates[localStorage.getItem('jtemplate')].formatType == 'bookarray') {
 			JSONOutputString = JSON.stringify(formattedJObject);
