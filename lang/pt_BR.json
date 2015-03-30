@@ -4,8 +4,8 @@
             "changepage": "Alterar p\u00e1gina",
             "unavailable": {
                 "sign": {
-                    "header": "Sign click events are not available",
-                    "body": "Click here to go to an unaffiliated website to create signs with click events."
+                    "header": "Os eventos ao clicar n\u00e3o est\u00e3o dispon\u00edveis para placas",
+                    "body": "Clique aqui para acessar um site (n\u00e3o filiado) para criar placas com eventos ao clicar."
                 }
             },
             "runcommand": "Executar comando",
@@ -17,8 +17,8 @@
         "hoverevent": {
             "unavailable": {
                 "sign": {
-                    "header": "Sign hover events are not available",
-                    "body": "This is due to Minecraft not supporting hover events in signs."
+                    "header": "Os eventos ao passar mouse n\u00e3o est\u00e3o dispon\u00edveis",
+                    "body": "Isso \u00e9 devido ao Minecraft n\u00e3o suportar esse tipo de eventos em placas."
                 }
             },
             "addtext": "Adicionar texto",
@@ -168,7 +168,7 @@
         "color_light_purple": "Rosa",
         "color_yellow": "Amarelo"
     },
-    "header": "Gerador de Tellraw para minecraft 1.7+",
+    "header": "Gerador de Tellraw para Minecraft 1.7+",
     "language": {
         "translate": "Traduzir",
         "name": "Portugu\u00eas (Brasil)",
