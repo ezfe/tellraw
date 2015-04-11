@@ -4,8 +4,8 @@
             "changepage": "Zmie\u0144 stron\u0119",
             "unavailable": {
                 "sign": {
-                    "header": "Sign click events are not available",
-                    "body": "Click here to go to an unaffiliated website to create signs with click events."
+                    "header": "Klikanie na tabliczki niemo\u017cliwe (Click Event)",
+                    "body": "Kliknij by wej\u015b\u0107 na niezrzeszon\u0105 stron\u0119 by stworzy\u0107 tabliczk\u0119 z mo\u017cliwo\u015bci\u0105 wydarze\u0144 po klikni\u0119ciu na ni\u0105. (Click Event"
                 }
             },
             "runcommand": "Wykonaj komend\u0119",
@@ -17,16 +17,16 @@
         "hoverevent": {
             "unavailable": {
                 "sign": {
-                    "header": "Sign hover events are not available",
-                    "body": "This is due to Minecraft not supporting hover events in signs."
+                    "header": "Wydarzenie naje\u017cd\u017cania na tabliczk\u0119 jest niedost\u0119pne",
+                    "body": "Minecraft nie wspomaga wydarzeni po najechaniu na tabliczk\u0119."
                 }
             },
             "addtext": "Dodaj tekst",
             "removetext": "Usu\u0144 ostatni tekst",
-            "header": "Hover Event:",
+            "header": "Wydarzenie po najechaniu",
             "showachievement": "Poka\u017c osi\u0105gni\u0119cie",
             "id": "ID:",
-            "showentity": "Show Entity",
+            "showentity": "Poka\u017c byt",
             "showitem": "Poka\u017c przedmiot",
             "type": "Typ:",
             "none": "\u017baden",
@@ -42,9 +42,9 @@
         "insert": "Wstaw",
         "addsnippet": "Dodaj tekst",
         "insertion": {
-            "header": "Insertion"
+            "header": "Wprowadzenie"
         },
-        "sel": "Selector",
+        "sel": "Selektor",
         "format": {
             "bold": "Pogrub",
             "underlined": "Podkre\u015bl",
@@ -55,8 +55,8 @@
         "player": "Gracz",
         "obj2": "Cel",
         "obj": "Cel Tablicy Zada\u0144",
-        "nosnippets": "No text yet",
-        "header": "Text Snippets",
+        "nosnippets": "Jeszcze nie ma tekstu",
+        "header": "Urywki tekstu",
         "text": "Tekst",
         "raw": "Normalnie",
         "warning": {
@@ -67,7 +67,7 @@
         "dropdown": {
             "translate_page_link": "T\u0142umaczenie strony",
             "tweet": "Tweet",
-            "forum_thread": "Forum Thread",
+            "forum_thread": "Forum",
             "changelog": "Lista Zmian"
         },
         "help": "Pomoc",
@@ -92,7 +92,7 @@
         "textfield": "U\u017cyj\\ndo robienia nowej lini",
         "raw-text-tab": "Wybierz rodzaj tekstu. Raw to normaly tekst. Scoreboard sprawdza warto\u015b\u0107 tablicy wynik\u00f3w. Selector sprawdza nazw\u0119 zwierzaka, potwora, itemu.",
         "report-an-issue": "Naci\u015bnij tutaj aby zg\u0142osi\u0107 problem. Je\u017celi zauwa\u017cy\u0142e\u015b jakikolwiek b\u0142\u0105d, zg\u0142o\u015b go tutaj.",
-        "dropdown-list": "Tweet, view the changelog, view the minecraft forums thread, or get resources for translation.",
+        "dropdown-list": "Tweet, zobacz zmiany, forum minecrafta, albo zdob\u0105d\u017a zasoby do t\u0142umaczenia.",
         "addsnippet": "Dodaj tekst do Twojej komendy \/tellraw",
         "delete-all-saves": "Usu\u0144 swoje zapisy, ale zostaw aktualn\u0105 komend\u0119 w g\u0142\u00f3wnym edytorze.",
         "create-new-save": "Stw\u00f3rz nowy zapis. To mo\u017ce nadpisa\u0107 istniej\u0105cy zapis je\u017celi zapiszesz ten pod t\u0105 sam\u0105 nazw\u0105.",
@@ -115,7 +115,7 @@
     "saves": {
         "header": "Zapisy",
         "hide": "Zamknij Zapisy",
-        "persistencenotice": "Saves may reset at any time, and depend on your browsers cookies. Do not rely on them for extended periods of time.",
+        "persistencenotice": "Zapis mo\u017ce zosta\u0107 usuni\u0119ty w ka\u017cdym momencie. Zale\u017cy to od twoich ciasteczek (Cookies). Nie polegaj na nich przez d\u0142u\u017cszy okres czasu.",
         "show": "Otw\u00f3rz Zapisy",
         "deleteall": {
             "body": "Naciskaj\u0105c Usu\u0144 zostan\u0105 usuni\u0119te twoje wszystkie zapisy, bez obaw, tw\u00f3j aktualny tekst nie zostanie usuni\u0119ty",
@@ -127,7 +127,7 @@
         "new": "Zapisz aktualn\u0105 linijk\u0119"
     },
     "settings": {
-        "nlOutput": "Show Structured Output",
+        "nlOutput": "Poka\u017c efekt ko\u0144cowy",
         "darkmode": {
             "turn_on": "Ciemny motyw",
             "turn_off": "Jasny motyw"
@@ -136,15 +136,15 @@
         "hide": "Zamknij ustawienia",
         "fontSize": "Podgl\u0105d rozmiaru czcionki",
         "previewcolor": "Podgl\u0105d koloru t\u0142a:",
-        "export": "eksport",
+        "export": "Eksport",
         "deleteall": {
-            "body": "Naciskaj\u0105c Usu\u0144 usuwasz ca\u0142y tw\u00f3j tekst i resetujesz do pustej lini.",
+            "body": "Naciskaj\u0105c Usu\u0144 usuwasz ca\u0142y tw\u00f3j tekst i resetujesz do pustej linii.",
             "heading": "Jeste\u015b tego pewny?",
             "yes": "Usu\u0144 wszystko",
             "no": "Anuluj"
         },
         "importtext": {
-            "exported": "Please enter the string you were given when you exported your command"
+            "exported": "Prosz\u0119 wpisz ci\u0105g, kt\u00f3ry otrzyma\u0142e\u015b eksportuj\u0105c twoj\u0105 kom\u0119de"
         },
         "import": "Zaimportuj",
         "header": "Ustawienia:"
@@ -177,18 +177,18 @@
     },
     "player": {
         "header": "Gracz i komenda",
-        "description": "Used to select and execute different players"
+        "description": "U\u017cyj by zaznaczy\u0107 i wykona\u0107 r\u00f3\u017cnych graczy"
     },
     "commandblock": "Musisz uruchomi\u0107 to w konsoli serwera lub w bloku polece\u0144.",
     "alert": {
         "report": "Zg\u0142o\u015b problem",
-        "changed": "This page was recently modified, so there might be problems. Reload the page if something doesn't seem to work.",
-        "receiveupdates": "Receive updates here (\"Follow\" the topic)"
+        "changed": "Strona jest obecnie modyfikowana, wi\u0119c mog\u0105 wyst\u0105pi\u0107 problemy. Prze\u0142aduj stron\u0119 je\u017celi nie dzia\u0142a.",
+        "receiveupdates": "Otrzymuj powiadomienia o aktualizacjach tutaj (\"Obserwuj temat\")"
     },
     "command": "Komenda:",
     "export": {
-        "heading": "Your Exported Command",
+        "heading": "Twoja wyeksportowana kom\u0119da",
         "close": "Zamknij"
     },
-    "attribution": "While nothing is required to use this, it would always be appreciated if you linked to this webpage or the MCF thread."
+    "attribution": "Nic nie jest wymagane by u\u017cywa\u0107 tego, ale by\u0142o by mi\u0142o je\u017celi wy\u015blesz link do tej strony lub forum."
 }

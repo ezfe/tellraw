@@ -1,7 +1,7 @@
 {
     "textsnippets": {
         "clickevent": {
-            "changepage": "Change Page",
+            "changepage": "Cambia Pagina",
             "unavailable": {
                 "sign": {
                     "header": "Sign click events are not available",

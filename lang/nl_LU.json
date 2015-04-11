@@ -82,34 +82,34 @@
         "donate-button": "Donate",
         "donate-text": "Make a donation of the value you choose (Stripe).",
         "overcast-text": "Want to buy me a rank on the Overcast Network? Click the picture above, and enter ezekielelin as my username.",
-        "exit": "Exit",
+        "exit": "Sluiten",
         "exit-text": "You won't see this again so long as you keep your cookies intact. Unfortunately I have no way of detecting you if you reset your cookies."
     },
     "issues": {
         "go-home": "Ignore Issue"
     },
     "help": {
-        "textfield": "Use \\n to make a newline",
+        "textfield": "Gebruik\\nom een nieuwe lijn te maken.",
         "raw-text-tab": "Choose your text choice. Raw is normal text. Scoreboard pulls a value from the scoreboard. Selector pulls the name of an entity.",
-        "report-an-issue": "Click here to report an issue. If you experience any sort of bug, you should report it here.",
+        "report-an-issue": "Click hier om een probleem in te sturen. Als je een bug tegen komt, meld hem hier.",
         "dropdown-list": "Tweet, view the changelog, view the minecraft forums thread, or get resources for translation.",
-        "addsnippet": "Add text to your tellraw command.",
+        "addsnippet": "Voeg text toe aan je tellraw command.",
         "delete-all-saves": "Clear your saves, but leave your current command in the main editor intact.",
         "create-new-save": "Make a new save. This will overwrite an existing save by the same name, if you so choose.",
         "delete-all-snippets": "Clear your command completely, but leave your saves intact.",
         "show-saves": "Show your saves editor, allows saving, loading, and deletion of saves."
     },
     "template": {
-        "sign_block": "Sign (\/blockdata)",
-        "sign_item": "Sign (\/give)",
+        "sign_block": "Bordje (\/blockdata)",
+        "sign_item": "Bordje (\/give)",
         "subtitle": "Subtitle",
         "title": "Title",
         "tellraw": "Tellraw",
-        "book": "Book",
+        "book": "Boek",
         "execute_tellraw": "Execute"
     },
     "output": {
-        "nothing": "Hier is niks te zien",
+        "nothing": "Plaathouders",
         "header": "Output voorbeeld:"
     },
     "saves": {

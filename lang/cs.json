@@ -21,8 +21,8 @@
                     "body": "This is due to Minecraft not supporting hover events in signs."
                 }
             },
-            "addtext": "Add Text",
-            "removetext": "Remove Last Text",
+            "addtext": "P\u0159idat Text",
+            "removetext": "Odstranit Posledn\u00ed Text",
             "header": "Ud\u00e1lost p\u0159i p\u0159ejet\u00ed my\u0161\u00ed:",
             "showachievement": "Uk\u00e1zat ocen\u011bn\u00ed (achievement)",
             "id": "ID:",
@@ -35,10 +35,10 @@
         },
         "trn": "P\u0159elo\u017een\u00e9",
         "parameter": "Vlastnost",
-        "editsnippet": "Edit Text",
+        "editsnippet": "Editovat Text",
         "close": "Zav\u0159\u00edt",
         "notext": "No Text",
-        "NEW_ITERATE_FLAG": "Book Page \/ Sign Line",
+        "NEW_ITERATE_FLAG": "Str\u00e1nka Knihy \/ \u0158\u00e1dek Cedulky",
         "insert": "Vlo\u017eit",
         "addsnippet": "P\u0159idat text ",
         "insertion": {
@@ -52,7 +52,7 @@
             "italic": "Kurz\u00edva",
             "strikethrough": "P\u0159e\u0161krtnut\u00e9"
         },
-        "player": "Player",
+        "player": "Hr\u00e1\u010d",
         "obj2": "Objective",
         "obj": "Scoreboard Objective",
         "nosnippets": "Zat\u00edm \u017e\u00e1dn\u00fd text",
@@ -70,7 +70,7 @@
             "forum_thread": "Forum Thread",
             "changelog": "Changelog"
         },
-        "help": "Help",
+        "help": "Pomoc",
         "report_an_issue": "Report an Issue"
     },
     "donate": {
@@ -104,7 +104,7 @@
         "sign_item": "Cedulka (\/give)",
         "subtitle": "Subtitle",
         "title": "Title",
-        "tellraw": "Tellraw",
+        "tellraw": "TellRaw",
         "book": "Kniha",
         "execute_tellraw": "Execute"
     },
@@ -119,7 +119,7 @@
         "show": "Otev\u0159\u00edt Ulo\u017een\u00e9",
         "deleteall": {
             "body": "Clicking Delete will remove all your saves, but won't affect your current text",
-            "yes": "Delete All Saves",
+            "yes": "Smazat v\u010dechno ulo\u017een\u00e9",
             "heading": "Are you sure!?!",
             "no": "Zru\u0161it"
         },
@@ -132,7 +132,7 @@
             "turn_on": "Dark Theme",
             "turn_off": "Light Theme"
         },
-        "show": "Open Settings",
+        "show": "Otev\u0159\u00edt Nastaven\u00ed",
         "hide": "Zav\u0159\u00edt nastaven\u00ed",
         "fontSize": "N\u00e1hled velikosti p\u00edsma.",
         "previewcolor": "Barva pozad\u00ed n\u00e1hledu:",
@@ -152,9 +152,9 @@
     "color": {
         "color_green": "Zelen\u00e1",
         "color_red": "\u010cerven\u00e1",
-        "color_none": "None",
+        "color_none": "nic",
         "color_dark_aqua": "Tmav\u011b modrozelen\u00e1",
-        "color_dark_purple": "Fialov\u00e1",
+        "color_dark_purple": "Tmav\u00e1 Fialov\u00e1",
         "color_dark_blue": "Tmav\u011b modr\u00e1",
         "color_aqua": "Modrozelen\u00e1",
         "color_white": "B\u00edl\u00e1",
@@ -171,7 +171,7 @@
     "header": "Gener\u00e1tor TellRaw pro Minecraft 1.7 a vy\u0161\u0161\u00ed",
     "language": {
         "translate": "P\u0159elo\u017eit",
-        "name": "\u010ce\u0161tina",
+        "name": "Angli\u010dtina",
         "header": "Jazyk",
         "credit": "Do \u010de\u0161tiny p\u0159elo\u017eil Matojeje (Matuli Yoshi)"
     },
@@ -188,7 +188,7 @@
     "command": "P\u0159\u00edkaz:",
     "export": {
         "heading": "Your Exported Command",
-        "close": "Close"
+        "close": "Zav\u0159\u00edt"
     },
     "attribution": "While nothing is required to use this, it would always be appreciated if you linked to this webpage or the MCF thread."
 }
