@@ -347,9 +347,11 @@ function saveJObject() {
 		text: "If you enter an existing one, it will overwrite it.",
 		type: "input",
 		showCancelButton: true,
+		closeOnConfirm: false
 	}, function(inputValue) {
-		if (inputValue == '' || inputValue == undefined || new RegExp('[^a-zA-Z0-9]').test(inputValue)) {
-			swal('You didn\'t enter a valid save name! Please omit special characters','error')
+		inputValue = inputValue.replace(' ','_');
+		if (inputValue == '' || inputValue == undefined || new RegExp('[^a-zA-Z0-9_]').test(inputValue)) {
+			swal('Invalid Save Name!','Please omit special characters','error');
 		} else {
 			var saveTo = inputValue
 			var saveSlot = 'saveSlot_' + saveTo;
@@ -360,9 +362,15 @@ function saveJObject() {
 			localStorage.setItem('currentSaveSlot',saveTo);
 			localStorage.setItem(saveSlot, JSON.stringify({"command": $('#command').val(), "jobject": jobject}));
 			if (overwrite) {
-				swal('Saved your current revision to `' + saveTo + '`, overwriting your previous save to that slot');	
+				swal({
+					title: 'Saved your current revision to <code>' + saveTo.replace('_', ' ') + '</code>, overwriting your previous save to that slot',
+					html: true
+				});
 			} else {
-				swal('Saved your current revision to `' + saveTo + '`, which created a new saveSlot');
+				swal({
+					title: 'Saved your current revision to <code>' + saveTo.replace('_', ' ') + '</code>, which created a new saveSlot',
+					html: true
+				});
 			}
 			refreshSavesList();
 			refreshOutput();
@@ -868,7 +876,7 @@ function refreshSavesList() {
 	for (var i = 0; i < Object.keys(localStorage).length; i++) {
 		var key = Object.keys(localStorage)[i];
 		if (key.indexOf('saveSlot_') != -1) {
-			$('.savesContainer').append('<div class="row" saveKey="' + key.substring('9') + '"><div class="col-xs-3"><a href="#" onclick="loadJObject(\'' + key.substring('9') + '\')">Load ' + key.substring('9') + '</a></div><div class="col-xs-6">' + localStorage.getItem(key).substring(0,90) + ' ...</div><div class="div class="col-xs-3"><a href="#" onclick="deleteJObjectSave(\'' + key.substring('9') + '\')">Delete ' + key.substring('9') + '</a></div></div>')
+			$('.savesContainer').append('<div class="row" saveKey="' + key.substring('9') + '"><div class="col-xs-3"><a href="#" onclick="loadJObject(\'' + key.substring('9') + '\')">Load ' + key.substring('9').replace('_', ' ') + '</a></div><div class="col-xs-6">' + localStorage.getItem(key).substring(0,90) + ' ...</div><div class="div class="col-xs-3"><a href="#" onclick="deleteJObjectSave(\'' + key.substring('9') + '\')">Delete ' + key.substring('9') + '</a></div></div>')
 		}
 	};
 	if ($('.savesContainer').html() == '') {
