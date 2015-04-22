@@ -4,7 +4,7 @@
             "changepage": "Cambiar p\u00e1gina",
             "unavailable": {
                 "sign": {
-                    "header": "Sign click events are not available",
+                    "header": "Los eventos del click en los carteles no est\u00e1n disponibles",
                     "body": "Dale aqu\u00ed para ir a una p\u00e1gina no afiliada para crear carteles con eventos de click."
                 }
             },

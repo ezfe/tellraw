@@ -1,11 +1,11 @@
 {
     "textsnippets": {
         "clickevent": {
-            "changepage": "Change Page",
+            "changepage": "lol",
             "unavailable": {
                 "sign": {
-                    "header": "Sign click events are not available",
-                    "body": "Click here to go to an unaffiliated website to create signs with click events."
+                    "header": "lol",
+                    "body": "lol"
                 }
             },
             "runcommand": "K\u00f6r kommando",
@@ -17,8 +17,8 @@
         "hoverevent": {
             "unavailable": {
                 "sign": {
-                    "header": "Sign hover events are not available",
-                    "body": "This is due to Minecraft not supporting hover events in signs."
+                    "header": "lol",
+                    "body": "lol"
                 }
             },
             "addtext": "L\u00e4gg till text",
@@ -65,7 +65,7 @@
     },
     "headerbar": {
         "dropdown": {
-            "translate_page_link": "Translation Site",
+            "translate_page_link": "lol",
             "tweet": "Tweeta",
             "forum_thread": "Forumtr\u00e5d",
             "changelog": "\u00c4ndringslogg"
