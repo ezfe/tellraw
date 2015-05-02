@@ -1,11 +1,11 @@
 {
     "textsnippets": {
         "clickevent": {
-            "changepage": "Change Page",
+            "changepage": "Verander Pagina",
             "unavailable": {
                 "sign": {
-                    "header": "Sign click events are not available",
-                    "body": "Click here to go to an unaffiliated website to create signs with click events."
+                    "header": "Bord klik opdrachten zijn niet beschikbaar",
+                    "body": "Klik hier om naar een niet aangesloten website te gaan voor het maken van een bord met klikmogelijkheden."
                 }
             },
             "runcommand": "Voer commando uit",
@@ -17,12 +17,12 @@
         "hoverevent": {
             "unavailable": {
                 "sign": {
-                    "header": "Sign hover events are not available",
+                    "header": "Bord hover opdrachten zijn niet beschikbaar.",
                     "body": "This is due to Minecraft not supporting hover events in signs."
                 }
             },
-            "addtext": "Add Text",
-            "removetext": "Remove Last Text",
+            "addtext": "Voeg tekst toe",
+            "removetext": "Verwijder nieuwste tekst",
             "header": "Hover gebeurtenis:",
             "showachievement": "Laat archievement zien",
             "id": "ID:",
@@ -38,7 +38,7 @@
         "editsnippet": "Bewerk tekst",
         "close": "Sluit",
         "notext": "Geen tekst",
-        "NEW_ITERATE_FLAG": "Book Page \/ Sign Line",
+        "NEW_ITERATE_FLAG": "Pagina boek \/ Regel bord",
         "insert": "Invoegen",
         "addsnippet": "Voeg tekst toe",
         "insertion": {
@@ -48,13 +48,13 @@
         "format": {
             "bold": "Bold",
             "underlined": "Onderstreept",
-            "obfuscated": "Obfuscated",
-            "italic": "Schuin",
+            "obfuscated": "Matrix code",
+            "italic": "Schuingedrukt",
             "strikethrough": "Doorgestreept"
         },
         "player": "Speler",
-        "obj2": "Doel",
-        "obj": "Scorebord Doel",
+        "obj2": "Objective",
+        "obj": "Scorebord Objective",
         "nosnippets": "Nog geen tekst",
         "header": "Text Snippets",
         "text": "Tekst",
@@ -65,38 +65,38 @@
     },
     "headerbar": {
         "dropdown": {
-            "translate_page_link": "Translation Site",
+            "translate_page_link": "Vertaal Site",
             "tweet": "Tweet",
-            "forum_thread": "Forum Thread",
+            "forum_thread": "Forum Link",
             "changelog": "Changelog"
         },
         "help": "Help",
-        "report_an_issue": "Report an Issue"
+        "report_an_issue": "Meld een probleem"
     },
     "donate": {
         "patreon-button": "Patreon",
-        "support-header": "(Please) Support This Website",
+        "support-header": "(Alstublieft) Support deze webstie",
         "paypal-note": "I do not offer paypal as a listed option due to fees (Stripe doesn't charge fees to Students). However, if you wish you can send me money over PayPal via funds@ezekielelin.com",
         "patreon-text": "If you Pledge to donate a certain amount each month, I can rely on that to upgrade the servers.",
-        "support-subheader": "I don't want to put ads on this website, please donate to support the costs of maintaining this website.",
-        "donate-button": "Donate",
+        "support-subheader": "Zou u alstublieft willen doneren, Ik wil deze website advertentie vrij houden en daar heb ik u voor nodig om de webhost te betalen.",
+        "donate-button": "Doneer",
         "donate-text": "Make a donation of the value you choose (Stripe).",
         "overcast-text": "Want to buy me a rank on the Overcast Network? Click the picture above, and enter ezekielelin as my username.",
         "exit": "Sluiten",
         "exit-text": "You won't see this again so long as you keep your cookies intact. Unfortunately I have no way of detecting you if you reset your cookies."
     },
     "issues": {
-        "go-home": "Ignore Issue"
+        "go-home": "Negeer problemen"
     },
     "help": {
         "textfield": "Gebruik\\nom een nieuwe lijn te maken.",
-        "raw-text-tab": "Choose your text choice. Raw is normal text. Scoreboard pulls a value from the scoreboard. Selector pulls the name of an entity.",
-        "report-an-issue": "Click hier om een probleem in te sturen. Als je een bug tegen komt, meld hem hier.",
+        "raw-text-tab": "Kies je tekst soort. Ruw is normale tekst. Scoreboard gebruikt een waarde van een scoreboard. Selector gebruikt de naam van een entity.",
+        "report-an-issue": "Klik hier om een probleem in te sturen. Als je een bug tegen komt, meld hem hier.",
         "dropdown-list": "Tweet, view the changelog, view the minecraft forums thread, or get resources for translation.",
         "addsnippet": "Voeg text toe aan je tellraw command.",
-        "delete-all-saves": "Clear your saves, but leave your current command in the main editor intact.",
-        "create-new-save": "Make a new save. This will overwrite an existing save by the same name, if you so choose.",
-        "delete-all-snippets": "Clear your command completely, but leave your saves intact.",
+        "delete-all-saves": "Wis je saves, maar laat je huidige command in de editor",
+        "create-new-save": "Sla je command op, dit zal wel het gelijknamige command overschrijven, als je dat kiest.",
+        "delete-all-snippets": "Verwijder je command volledig maar hou je saves intact.",
         "show-saves": "Show your saves editor, allows saving, loading, and deletion of saves."
     },
     "template": {
@@ -109,54 +109,54 @@
         "execute_tellraw": "Execute"
     },
     "output": {
-        "nothing": "Plaathouders",
+        "nothing": "Niks te zien hier...",
         "header": "Output voorbeeld:"
     },
     "saves": {
         "header": "Saves",
         "hide": "Verberg Saves",
-        "persistencenotice": "Saves kunnen altijd resetten, en zijn afhankelijk van de cookies in je browsers. Vertrouw er niet op voor een langdurige tijd.",
-        "show": "Saves laten zien",
+        "persistencenotice": "Saves kun je altijd resetten, en zijn afhankelijk van de cookies in je browsers. Vertrouw er niet op voor een langdurige tijd.",
+        "show": "Laat Saves Zien",
         "deleteall": {
             "body": "Als je op 'Delete' klikt, verwijdert het al je saves, maar het laat je huidige instellingen staan",
-            "yes": "Verwijder alle saves",
+            "yes": "Verwijder Alle Saves",
             "heading": "Weet je het zeker!?!",
-            "no": "Nee"
+            "no": "Annuleer"
         },
         "nosaves": "Je hebt niks opgeslagen",
-        "new": "Sla op"
+        "new": "Sla dit command op"
     },
     "settings": {
-        "nlOutput": "Show Structured Output",
+        "nlOutput": "Toon gestructureerde output",
         "darkmode": {
-            "turn_on": "Dark Theme",
-            "turn_off": "Light Theme"
+            "turn_on": "Donker Thema",
+            "turn_off": "Licht Thema"
         },
-        "show": "Open Settings",
-        "hide": "Close Settings",
-        "fontSize": "Preview Font Size",
+        "show": "Open Instellingen",
+        "hide": "Sluit Instellingen",
+        "fontSize": "Laat Lettergrootte Zien",
         "previewcolor": "Voorbeeld achtergrondkleur:",
         "export": "Export",
         "deleteall": {
             "body": "Als je op 'Delete' klikt, verwijdert het al je huidige instellingen.",
             "heading": "Weet je het zeker!?!",
             "yes": "Verwijder alles",
-            "no": "Nee"
+            "no": "Anuleer"
         },
         "importtext": {
-            "exported": "Please enter the string you were given when you exported your command"
+            "exported": "Voer alstublieft de tekst in die je gegeven is bij het ge\u00ebxporteerde command."
         },
-        "import": "Import",
+        "import": "Importeer",
         "header": "Instellingen:"
     },
     "color": {
         "color_green": "Groen",
         "color_red": "Rood",
         "color_none": "Geen",
-        "color_dark_aqua": "Donker water",
+        "color_dark_aqua": "Donker aqua",
         "color_dark_purple": "Donker paars",
         "color_dark_blue": "Donker blauw",
-        "color_aqua": "Water",
+        "color_aqua": "Aqua",
         "color_white": "Wit",
         "color_dark_gray": "Donker grijs",
         "color_dark_red": "Donker rood",
@@ -177,18 +177,18 @@
     },
     "player": {
         "header": "Speler en commando",
-        "description": "Used to select and execute different players"
+        "description": "Gebruikt om verschillende spelers te selecteren"
     },
     "commandblock": "Dit commando moet je uitvoeren in de server console of in een command block.",
     "alert": {
-        "report": "Reporteer probleem",
+        "report": "Meld een probleem",
         "changed": "Deze pagina was recent veranderd, dus er kunnen problemen zijn. Herlaad de pagina als er iets niet werkt",
         "receiveupdates": "Ontvang updates hier! (\"Volg\" het onderwerp)"
     },
     "command": "Commando:",
     "export": {
-        "heading": "Your Exported Command",
-        "close": "Close"
+        "heading": "Je ge\u00ebxporteerde Commando",
+        "close": "Sluiten"
     },
     "attribution": "While nothing is required to use this, it would always be appreciated if you linked to this webpage or the MCF thread."
 }

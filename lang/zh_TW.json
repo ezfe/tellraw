@@ -86,15 +86,15 @@
         "exit-text": "You won't see this again so long as you keep your cookies intact. Unfortunately I have no way of detecting you if you reset your cookies."
     },
     "issues": {
-        "go-home": "Ignore Issue"
+        "go-home": "\u5ffd\u7565\u554f\u984c"
     },
     "help": {
         "textfield": "\u4f7f\u7528\\n\u65b0\u7684\u4e00\u884c",
         "raw-text-tab": "Choose your text choice. Raw is normal text. Scoreboard pulls a value from the scoreboard. Selector pulls the name of an entity.",
-        "report-an-issue": "\u9ede\u64ca\u6b64\u8655\u56de\u5831\u554f\u984c\u3002\u5982\u679c\u4f60\u4f7f\u7528\u904e\u7a0b\u4e2d\u767c\u73fe\u4e86\u6f0f\u6d1e\uff0c\u8bf7\u5728\u9019\u88e1\u56de\u5831\u932f\u8aa4\u3002",
+        "report-an-issue": "\u9ede\u64ca\u6b64\u8655\u56de\u5831\u554f\u984c\u3002\u5982\u679c\u60a8\u5728\u4f7f\u7528\u904e\u7a0b\u4e2d\u767c\u73fe\u4e86\u6f0f\u6d1e\uff0c\u8acb\u5728\u9019\u88e1\u56de\u5831\u932f\u8aa4\u3002",
         "dropdown-list": "\u5206\u4eab\u5230Twitter\uff0c\u67e5\u770b\u66f4\u65b0\u65e5\u8a8c\uff0c\u8ad6\u58c7\u539f\u6587\uff0c\u8207\u7ffb\u8b6f\u5217\u8868\u3002",
         "addsnippet": "\u65b0\u589e\u6587\u5b57\u81f3\u4f60\u7684tellraw\u6307\u4ee4",
-        "delete-all-saves": "\u6e05\u9664\u4fdd\u5b58\u7d00\u9304\uff0c\u4f46\u6703\u4fdd\u7559\u7576\u524d\u524d\u7684Tellraw\u6307\u4ee4\u3002",
+        "delete-all-saves": "\u6e05\u9664\u4fdd\u5b58\u7d00\u9304\uff0c\u4f46\u4ecd\u6703\u4fdd\u7559\u76ee\u524d\u7684Tellraw\u6307\u4ee4\u3002",
         "create-new-save": "\u65b0\u589e\u4e00\u500b\u5b58\u6a94\u3002\u5982\u679c\u547d\u540d\u8207\u7576\u524d\u5df2\u5b58\u5728\u7684\u5b58\u6a94\u540d\u5b57\u76f8\u540c\uff0c\u8a72\u5b58\u6a94\u5c07\u6703\u88ab\u8986\u84cb\u3002",
         "delete-all-snippets": "\u6e05\u9664\u7576\u524d\u7684Tellraw\u6307\u4ee4\uff0c\u4f46\u6703\u4fdd\u7559\u5b58\u6a94\u3002",
         "show-saves": "\u986f\u793a\u5b58\u6a94\u7de8\u8f2f\u5668\uff0c\u7528\u65bc\u4fdd\u5b58\u3001\u8b80\u53d6\u3001\u522a\u9664\u6307\u4ee4\u5b58\u6a94\u3002"
@@ -123,8 +123,8 @@
             "heading": "\u4f60\u78ba\u5b9a!?!",
             "no": "\u53d6\u6d88"
         },
-        "nosaves": "\u4f60\u6c92\u6709\u4efb\u4f55\u7684\u4fdd\u5b58",
-        "new": "\u4fdd\u5b58\u7576\u524d\u5c08\u6848"
+        "nosaves": "\u60a8\u6c92\u6709\u4efb\u4f55\u7684\u5b58\u6a94\u7d00\u9304",
+        "new": "\u5132\u5b58\u76ee\u524d\u5b57\u4e32"
     },
     "settings": {
         "nlOutput": "\u986f\u793a\u683c\u5f0f\u5316\u8f38\u51fa",
@@ -132,11 +132,11 @@
             "turn_on": "\u591c\u665a\u4e3b\u984c",
             "turn_off": "\u660e\u4eae\u4e3b\u984c"
         },
-        "show": "\u958b\u8d77\u8a2d\u5b9a",
+        "show": "\u958b\u555f\u8a2d\u5b9a",
         "hide": "\u95dc\u9589\u8a2d\u5b9a",
         "fontSize": "\u9810\u89bd\u5b57\u9ad4\u5927\u5c0f",
         "previewcolor": "\u9810\u89bd\u8f38\u51fa\u80cc\u666f\u984f\u8272",
-        "export": "\u8f38\u51fa",
+        "export": "\u532f\u51fa",
         "deleteall": {
             "body": "\u522a\u9664\u6240\u6709\u7684\u6587\u5b57\u55ce\uff1f",
             "heading": "\u78ba\u5b9a\u8981\u9019\u9ebc\u505a\u55ce\uff1f",

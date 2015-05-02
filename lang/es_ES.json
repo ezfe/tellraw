@@ -4,33 +4,33 @@
             "changepage": "Cambiar p\u00e1gina",
             "unavailable": {
                 "sign": {
-                    "header": "Los eventos del click en los carteles no est\u00e1n disponibles",
-                    "body": "Dale aqu\u00ed para ir a una p\u00e1gina no afiliada para crear carteles con eventos de click."
+                    "header": "Los eventos de click en los carteles no est\u00e1n disponibles",
+                    "body": "Dale aqu\u00ed para ir a una p\u00e1gina no afiliada para crear carteles con eventos de click"
                 }
             },
             "runcommand": "Ejecutar comando",
             "openurl": "Abrir una URL",
-            "suggestcommand": "Introducir comando",
+            "suggestcommand": "Introducir comando en el chat",
             "header": "Al hacer clic:",
             "none": "Nada"
         },
         "hoverevent": {
             "unavailable": {
                 "sign": {
-                    "header": "Sign hover events are not available",
-                    "body": "This is due to Minecraft not supporting hover events in signs."
+                    "header": "Los eventos de mostrar elementos sobre el cursor no est\u00e1n disponibles",
+                    "body": "Se debe a que Minecraft no los puede ejecutar en carteles."
                 }
             },
             "addtext": "A\u00f1adir texto",
             "removetext": "Quitar el \u00faltimo texto",
-            "header": "Al pasar el cursor:",
-            "showachievement": "Mostrar Logro",
+            "header": "Mostrar sobre el cursor:",
+            "showachievement": "Mostrar logro",
             "id": "ID:",
-            "showentity": "Mostrar Entidad",
-            "showitem": "Mostrar \u00cdtem",
+            "showentity": "Mostrar entidad",
+            "showitem": "Mostrar \u00edtem",
             "type": "Tipo:",
             "none": "Nada",
-            "showtext": "Mostrar Texto",
+            "showtext": "Mostrar texto",
             "name": "Nombre"
         },
         "trn": "Traducido",
@@ -52,7 +52,7 @@
             "italic": "Cursiva",
             "strikethrough": "Tachado"
         },
-        "player": "Jugador",
+        "player": "Selector",
         "obj2": "Objetivo",
         "obj": "Objetivo del scoreboard",
         "nosnippets": "Sin texto todav\u00eda",
@@ -66,7 +66,7 @@
     "headerbar": {
         "dropdown": {
             "translate_page_link": "P\u00e1gina de traducci\u00f3n",
-            "tweet": "Twitea",
+            "tweet": "Twitea esta p\u00e1gina",
             "forum_thread": "Tema en el Foro",
             "changelog": "Historial de cambios"
         },
@@ -75,28 +75,28 @@
     },
     "donate": {
         "patreon-button": "Patreon",
-        "support-header": "Por favor apoya a esta p\u00e1gina",
-        "paypal-note": "I do not offer paypal as a listed option due to fees (Stripe doesn't charge fees to Students). However, if you wish you can send me money over PayPal via funds@ezekielelin.com",
-        "patreon-text": "Si te comprometes a donar cierta cantidad cada mes, puedes confiar en que mejorare los servidores.",
-        "support-subheader": "No quiero poner anuncios en esta p\u00e1gina, por favor dona para apoyar los costes de mantenimiento en esta p\u00e1gina.",
+        "support-header": "Por favor, apoya a esta p\u00e1gina",
+        "paypal-note": "No incluyo PayPal como opci\u00f3n debido a las tarifas (Stripe no las aplica a estudiantes).\nSin embargo, puedes enviarme dinero desde PayPal mediante funds@ezekielelin.com",
+        "patreon-text": "Si te comprometes a donar cierta cantidad cada mes, puedes confiar en que mejorar\u00e9 los servidores.",
+        "support-subheader": "No quiero poner anuncios en esta p\u00e1gina. Por favor, dona para apoyar los costes de mantenimiento de esta p\u00e1gina.",
         "donate-button": "Donar",
-        "donate-text": "Haz una donaci\u00f3n del valor que elijas (Stripe)",
-        "overcast-text": "\u00bfQuieres comprarme un rango en el Overcast Network? Dale a la imagen de abajo, y pon ezekielelin como mi nombre de usuario.",
+        "donate-text": "Haz una donaci\u00f3n del valor que elijas (Stripe).",
+        "overcast-text": "\u00bfQuieres comprarme un rango en Overcast Network? Haz clic en la imagen de abajo, y pon ezekielelin como mi nombre de usuario.",
         "exit": "Salir",
-        "exit-text": "No volver\u00e1s a ver esto si mantienes tus cookies intactas. Desafortunadamente no tenemos ninguna manera de detectar si has reseteado tus cookies."
+        "exit-text": "No volver\u00e1s a ver esto si mantienes tus cookies intactas. Por desgracia no tenemos ninguna manera de detectar si las has reseteado."
     },
     "issues": {
         "go-home": "Ignorar error"
     },
     "help": {
         "textfield": "Emplea \\n para hacer un salto de l\u00ednea",
-        "raw-text-tab": "Elige el texto que quieras. \"Raw\" es el texto normal. Scoreboard elige un valor del scoreboard. Selctor pone nombre a una entidad.",
-        "report-an-issue": "Haz click para reportar un error. Si ves alg\u00fan tipo de fallo, comun\u00edcalo aqu\u00ed.",
-        "dropdown-list": "Twitea, historial de cambios, ve al tema en el foro de minecraft, o mira los idiomas por traducir.",
-        "addsnippet": "A\u00f1ade texto al comando tellraw.",
-        "delete-all-saves": "Elimina los comandos guardados, dejando el que est\u00e1s creando intacto.",
-        "create-new-save": "Guarda una copia. Esto sobreescribir\u00e1 otra copia con el mismo nombre, si as\u00ed lo quieres.",
-        "delete-all-snippets": "Elimina el comando por completo. Las copias guardadas permanecer\u00e1n.",
+        "raw-text-tab": "Escoge el tipo de texto. \"Raw\" es texto normal. Scoreboard emplea un valor de un scoreboard. Selector selecciona una entidad.",
+        "report-an-issue": "Haz click para reportar un error. Si encuentras alg\u00fan fallo, comun\u00edcalo aqu\u00ed.",
+        "dropdown-list": "Twitea esta p\u00e1gina, mira el historial de cambios, ve al tema en el foro de minecraft, o completa los idiomas a\u00fan por traducir.",
+        "addsnippet": "A\u00f1ade este texto al comando tellraw.",
+        "delete-all-saves": "Elimina los comandos guardados, conservando el que est\u00e1s creando.",
+        "create-new-save": "Guarda este comando. Esto sobreescribir\u00e1 cualquier otro con el mismo nombre.",
+        "delete-all-snippets": "Elimina este comando por completo. Las copias guardadas permanecer\u00e1n.",
         "show-saves": "Muestra el editor de las copias guradadas, permite guardar, cargar, y eliminar los comandos guardados."
     },
     "template": {
@@ -109,13 +109,13 @@
         "execute_tellraw": "Execute"
     },
     "output": {
-        "nothing": "Nada todav\u00eda",
+        "nothing": "Nada por ahora",
         "header": "Vista previa del comando:"
     },
     "saves": {
         "header": "Guardados",
-        "hide": "Ocultar copias",
-        "persistencenotice": "Las copias pueden ser eliminadas en cualquier momento ya que dependen de las Cookies del navegador. No las almacenes durante mucho tiempo.",
+        "hide": "Ocultar guardados",
+        "persistencenotice": "Las comandos guardados pueden ser eliminados en cualquier momento, ya que dependen de las Cookies del navegador. No conf\u00edes en que los almacenar\u00e1 durante mucho tiempo.",
         "show": "Mostrar copias",
         "deleteall": {
             "body": "Eliminar todas las copias guardadas no modificar\u00e1 el texto actual",
@@ -124,7 +124,7 @@
             "no": "Cancelar"
         },
         "nosaves": "No tienes nada guardado",
-        "new": "Guarda el texto actual"
+        "new": "Guarda el comando actual"
     },
     "settings": {
         "nlOutput": "Muestra el comando estructurado",
@@ -134,11 +134,11 @@
         },
         "show": "Mostrar configuraci\u00f3n",
         "hide": "Ocultar configuraci\u00f3n",
-        "fontSize": "Tama\u00f1o de fuente de la previsualizaci\u00f3n",
+        "fontSize": "Tama\u00f1o de fuente",
         "previewcolor": "Color de fondo de la previsualizaci\u00f3n:",
         "export": "Exportar",
         "deleteall": {
-            "body": "Eliminar todo borrar\u00e1 el texto actual y crear\u00e1 uno nuevo en blanco.",
+            "body": "Eliminar todo borrar\u00e1 el comando actual y crear\u00e1 uno nuevo en blanco.",
             "heading": "\u00a1\u00bf\u00a1SEGURO!?!",
             "yes": "Eliminar todo",
             "no": "Cancelar"
@@ -181,14 +181,14 @@
     },
     "commandblock": "Debes ejecutar este comando mediante un Bloque de Comandos o en la consola del servidor.",
     "alert": {
-        "report": "Enviar fallos",
+        "report": "Enviar fallos\/errores",
         "changed": "Esta p\u00e1gina est\u00e1 a\u00fan en su versi\u00f3n beta, por lo que puede haber errores. Recarga la p\u00e1gina si algo va mal.",
-        "receiveupdates": "Recibe notificaciones (\"Suscr\u00edbete\" al post)"
+        "receiveupdates": "Recibe notificaciones (Suscr\u00edbete al post)"
     },
     "command": "Comando:",
     "export": {
         "heading": "Tu comando exportado",
         "close": "Cerrar"
     },
-    "attribution": "Mientras que puedes usar esta p\u00e1gina sin m\u00e1s, siempre ser\u00e1 apreciado si publicas el enlace a esta p\u00e1gina web o al Tema en el Foro de Minecraft."
+    "attribution": "Puedes hacer un uso normal de esta p\u00e1gina, aunque siempre ser\u00e1 apreciado si la compartes o sigues el tema en el Foro de Minecraft."
 }
