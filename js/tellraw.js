@@ -1377,6 +1377,9 @@ function jsonParse() {
 						}
 					}
 					if (doHoverEvent) {
+						if (hoverEventType == 'show_text') {
+							hoverEventValue = JSON.stringify(hoverEventValue);
+						}
 						popoverContentHover = hoverEventType+':'+hoverEventValue;
 					}
 					if (doHoverEvent && doClickEvent) {
