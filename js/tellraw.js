@@ -515,6 +515,7 @@ function clearExtra() {
 	$("#hoverEventValue").val("");
 	$("#hoverEventTextSnippet").val("");
 	$("#snippetcolor").val("none");
+	$('#snippetcolor').change();
 	$("#text_extra").val("");
 	$("#color_extra").val("none");
 	$("#clickEvent").val('none');
