@@ -1,11 +1,11 @@
 {
     "textsnippets": {
         "clickevent": {
-            "changepage": "lol",
+            "changepage": "\u00c4ndra sida",
             "unavailable": {
                 "sign": {
-                    "header": "lol",
-                    "body": "lol"
+                    "header": "Klickh\u00e4ndelser f\u00f6r skyltar \u00e4r inte tillg\u00e4ngliga",
+                    "body": "Klicka h\u00e4r f\u00f6r att g\u00e5 till en sida utan anslutning till den h\u00e4r f\u00f6r att skapa skyltar med klickh\u00e4ndelser."
                 }
             },
             "runcommand": "K\u00f6r kommando",
@@ -17,8 +17,8 @@
         "hoverevent": {
             "unavailable": {
                 "sign": {
-                    "header": "lol",
-                    "body": "lol"
+                    "header": "H\u00e4ndelse f\u00f6r n\u00e4r m\u00f6ss dras \u00f6ver \u00e4r inte tillg\u00e4ngliga",
+                    "body": "Det beror p\u00e5 att Minecraft inte st\u00f6djer h\u00e4ndelser f\u00f6r n\u00e4r m\u00f6ss dras \u00f6ver p\u00e5 skyltar."
                 }
             },
             "addtext": "L\u00e4gg till text",
@@ -44,7 +44,7 @@
         "insertion": {
             "header": "Infogning"
         },
-        "sel": "V\u00e4jare",
+        "sel": "V\u00e4ljare",
         "format": {
             "bold": "Fet",
             "underlined": "Understruken",
@@ -53,8 +53,8 @@
             "strikethrough": "Genomstruken"
         },
         "player": "Spelare",
-        "obj2": "M\u00e5l:",
-        "obj": "Po\u00e4ngtavelsm\u00e5l:",
+        "obj2": "M\u00e5l",
+        "obj": "Po\u00e4ngtavelsm\u00e5l",
         "nosnippets": "Ingen text \u00e4n",
         "header": "Textsnuttar",
         "text": "Text",
@@ -65,7 +65,7 @@
     },
     "headerbar": {
         "dropdown": {
-            "translate_page_link": "lol",
+            "translate_page_link": "\u00d6vers\u00e4ttningssida",
             "tweet": "Tweeta",
             "forum_thread": "Forumtr\u00e5d",
             "changelog": "\u00c4ndringslogg"
@@ -89,10 +89,10 @@
         "go-home": "Ignorera problem"
     },
     "help": {
-        "textfield": "Anv\u00e4nd \\n f\u00f6r att g\u00f6ra en ny rad.",
+        "textfield": "Anv\u00e4nd \\n\\n f\u00f6r att g\u00f6ra en ny rad.",
         "raw-text-tab": "V\u00e4lj text. R\u00e5 \u00e4r normal text. Po\u00e4ngtavla tar ett v\u00e4rde fr\u00e5n po\u00e4ngtavlan. V\u00e4ljare tar ett namn fr\u00e5n ett objekt.",
         "report-an-issue": "Klicka h\u00e4r f\u00f6r att rapportera ett problem. Om du hittar n\u00e5gon sorts bugg, rapportera den h\u00e4r.",
-        "dropdown-list": "Tweeta, visa \u00e4ndringslogg, visa minecraftforumstr\u00e5den, eller f\u00e5 resurser f\u00f6r \u00f6vers\u00e4ttning.",
+        "dropdown-list": "Tweeta, visa \u00e4ndringslogg, visa minecraftforumstr\u00e5den eller f\u00e5 resurser f\u00f6r \u00f6vers\u00e4ttning.",
         "addsnippet": "L\u00e4gg till text till ditt tellrawkommando.",
         "delete-all-saves": "Rensa dina sparade kommandon, men l\u00e4mna det nuvarande kommandot i huvudredigeraren intakt.",
         "create-new-save": "Spara ett nytt kommando. Om du vill kan du skriva \u00f6ver ett annat sparat kommando genom att anv\u00e4nda samma namn.",
@@ -106,7 +106,7 @@
         "title": "Rubrik",
         "tellraw": "Tellraw",
         "book": "Bok",
-        "execute_tellraw": "Execute"
+        "execute_tellraw": "Utf\u00f6ra"
     },
     "output": {
         "nothing": "Inget att se h\u00e4r",
@@ -123,11 +123,11 @@
             "heading": "\u00c4r du s\u00e4ker!?!",
             "no": "Avbryt"
         },
-        "nosaves": "Du har inga sparade kommandon.",
+        "nosaves": "Du har inte n\u00e5got sparat",
         "new": "Spara nuvarande text."
     },
     "settings": {
-        "nlOutput": "Visa strukturerat resultat:",
+        "nlOutput": "Visa strukturerat resultat",
         "darkmode": {
             "turn_on": "M\u00f6rkt tema",
             "turn_off": "Ljust tema"
@@ -168,7 +168,7 @@
         "color_light_purple": "Ljuslila",
         "color_yellow": "Gul"
     },
-    "header": "Tellraw Generator f\u00f6r Minecraft 1.7+",
+    "header": "Tellrawgenerator f\u00f6r Minecraft 1.7+",
     "language": {
         "translate": "\u00d6vers\u00e4tt",
         "name": "Svenska",

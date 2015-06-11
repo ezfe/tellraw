@@ -17,8 +17,8 @@
         "hoverevent": {
             "unavailable": {
                 "sign": {
-                    "header": "Sign hover events are not available",
-                    "body": "This is due to Minecraft not supporting hover events in signs."
+                    "header": "Bohu\u017eel nen\u00ed mo\u017en\u00e9 vytvo\u0159it akci v\u00e1zanou na p\u0159ejet\u00ed u cedulek.",
+                    "body": "Minecraft bohu\u017eel tuto funkci nepodporuje u cedulek."
                 }
             },
             "addtext": "P\u0159idat Text",
@@ -37,14 +37,14 @@
         "parameter": "Vlastnost",
         "editsnippet": "Editovat Text",
         "close": "Zav\u0159\u00edt",
-        "notext": "No Text",
+        "notext": "\u017e\u00e1dn\u00fd text",
         "NEW_ITERATE_FLAG": "Str\u00e1nka Knihy \/ \u0158\u00e1dek Cedulky",
         "insert": "Vlo\u017eit",
         "addsnippet": "P\u0159idat text ",
         "insertion": {
             "header": "Vlo\u017een\u00ed:"
         },
-        "sel": "Selector",
+        "sel": "v\u00fdb\u011br",
         "format": {
             "bold": "Tu\u010dn\u00e9",
             "underlined": "Podtrhnut\u00e9",
@@ -53,14 +53,14 @@
             "strikethrough": "P\u0159e\u0161krtnut\u00e9"
         },
         "player": "Hr\u00e1\u010d",
-        "obj2": "Objective",
+        "obj2": "objektiv",
         "obj": "Scoreboard Objective",
         "nosnippets": "Zat\u00edm \u017e\u00e1dn\u00fd text",
         "header": "\u00daryvky textu",
         "text": "Text",
         "raw": "Nezpracovan\u00e9",
         "warning": {
-            "title": "Warning!"
+            "title": "Varov\u00e1n\u00ed !"
         }
     },
     "headerbar": {
@@ -89,8 +89,8 @@
         "go-home": "Ignorovat probl\u00e9m."
     },
     "help": {
-        "textfield": "Use \\n to make a newline",
-        "raw-text-tab": "Choose your text choice. Raw is normal text. Scoreboard pulls a value from the scoreboard. Selector pulls the name of an entity.",
+        "textfield": "Pou\u017eijte\\npro nov\u00fd \u0159\u00e1dek.",
+        "raw-text-tab": "Vyberte typ textu. Nezpracovan\u00e9 je norm\u00e1ln\u00ed text. Scoreboard objective vlo\u017e\u00ed \"scoreboard\". Selector vlo\u017e\u00ed n\u00e1zev entity.",
         "report-an-issue": "Ze m\u016f\u017eete nahl\u00e1sit jak\u00fdkoliv objeven\u00fd bug. pokud n\u011bjak\u00fd objev\u00edte, nahla\u0161te ho pros\u00edm.",
         "dropdown-list": "Tweet, view the changelog, view the minecraft forums thread, or get resources for translation.",
         "addsnippet": "P\u0159idat text do va\u0161eho \"tellraw\" p\u0159\u00edkazu.",
@@ -102,11 +102,11 @@
     "template": {
         "sign_block": "Cedulka (\/blockdata)",
         "sign_item": "Cedulka (\/give)",
-        "subtitle": "Subtitle",
-        "title": "Title",
+        "subtitle": "Podtitul",
+        "title": "Titulek",
         "tellraw": "TellRaw",
         "book": "Kniha",
-        "execute_tellraw": "Execute"
+        "execute_tellraw": "prov\u00e9st"
     },
     "output": {
         "nothing": "Nic k vid\u011bn\u00ed",
@@ -118,9 +118,9 @@
         "persistencenotice": "Saves may reset at any time, and depend on your browsers cookies. Do not rely on them for extended periods of time.",
         "show": "Otev\u0159\u00edt Ulo\u017een\u00e9",
         "deleteall": {
-            "body": "Clicking Delete will remove all your saves, but won't affect your current text",
+            "body": "Kliknut\u00edm na Smazat sma\u017eete v\u0161e ulo\u017een\u00e9, ale nic to neud\u011bl\u00e1 s aktu\u00e1ln\u00edm textem.",
             "yes": "Smazat v\u010dechno ulo\u017een\u00e9",
-            "heading": "Are you sure!?!",
+            "heading": "Jste si jist !?!",
             "no": "Zru\u0161it"
         },
         "nosaves": "You don't have anything saved",
