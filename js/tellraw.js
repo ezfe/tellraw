@@ -81,7 +81,7 @@ function reportAnIssue(ptitle) {
 }
 function getLanguageName(langCode) {
 	var name = lang[langCode].language.name;
-	if (name == "English" && langCode != "en_US") {
+	if (name == "English" && langCode != "en-US") {
 		return langCode
 	} else {
 		return name
@@ -1402,7 +1402,7 @@ function refreshLanguage(dropdownSelection) {
 	if (lang[localStorage.getItem('langCode')]) {
 		$('*').refreshLanguage(localStorage.getItem('langCode'));
 	} else {
-		localStorage.setItem('langCode','en_US')
+		localStorage.setItem('langCode','en-US')
 	}
 	$('*').each(function(){
 		//if ($(this).attr('version') != undefined && (localStorage['versionIndicators'] == "true" || localStorage['versionIndicators'] == undefined)) {
