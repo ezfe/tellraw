@@ -121,15 +121,15 @@
             "body": "Kliknut\u00edm na Smazat sma\u017eete v\u0161e ulo\u017een\u00e9, ale nic to neud\u011bl\u00e1 s aktu\u00e1ln\u00edm textem.",
             "yes": "Smazat v\u010dechno ulo\u017een\u00e9",
             "heading": "Jste si jist !?!",
-            "no": "Zru\u0161it"
+            "no": "Zav\u0159\u00edt"
         },
-        "nosaves": "You don't have anything saved",
+        "nosaves": "Nem\u00e1te nic ulo\u017een\u00e9ho.",
         "new": "Save Current String"
     },
     "settings": {
         "nlOutput": "Show Structured Output",
         "darkmode": {
-            "turn_on": "Dark Theme",
+            "turn_on": "Tmav\u00fd styl",
             "turn_off": "Light Theme"
         },
         "show": "Otev\u0159\u00edt Nastaven\u00ed",
