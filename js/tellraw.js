@@ -1782,6 +1782,13 @@ for (var i = 0; i < Object.keys(lang).length; i++) {
 		}
 	});
 
+	// Beta tooltip
+	$('#dropdown-list-a').tooltip({"title":"<i style=\"color: #F8814C;\" class=\"fa fa-exclamation-circle\"></i> " + getLanguageString('headerbar.dropdown.hover',localStorage.getItem('langCode')),"html":true,"placement":"bottom"});
+	if (localStorage['beta-tooltip-a-shown'] != "yes") {
+		$('#dropdown-list-a').tooltip('show');
+	}
+	localStorage['beta-tooltip-a-shown'] = "yes";
+
 	//Dark Mode
 
 	if (localStorage.getItem('darkMode') && localStorage.getItem('darkMode') == 'true') {
