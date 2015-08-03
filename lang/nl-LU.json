@@ -104,7 +104,7 @@
                     "header": "Import failed",
                     "description": "Provided input"
                 },
-                "": "Voer alstublieft de tekst in die je gegeven is bij het ge\u00ebxporteerde command."
+                "description": "Voer alstublieft de tekst in die je gegeven is bij het ge\u00ebxporteerde command."
             }
         },
         "nlOutput": "Toon gestructureerde output",

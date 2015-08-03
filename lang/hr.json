@@ -104,7 +104,7 @@
                     "header": "Import failed",
                     "description": "Provided input"
                 },
-                "": "Please enter the string you were given when you exported your command"
+                "description": "Please enter the string you were given when you exported your command"
             }
         },
         "nlOutput": "Show Structured Output",

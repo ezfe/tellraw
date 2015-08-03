@@ -36,20 +36,20 @@
         "NEW_ITERATE_FLAG": {
             "incorrect_template": {
                 "primary": {
-                    "header": "You must be using the book or sign templates",
-                    "description": "Do you want to change your template?",
-                    "yes": "Yes",
+                    "header": "Debes usar la plantilla de libro o de cartel",
+                    "description": "\u00bfQuieres cambiar la plantilla?",
+                    "yes": "S\u00ed",
                     "no": "No"
                 },
                 "secondary": {
-                    "header": "Book or Sign?",
-                    "description": "Do you want to make a book or a sign? (You can change this later)",
-                    "book": "Book",
-                    "sign": "Sign"
+                    "header": "\u00bfLibro o Cartel?",
+                    "description": "\u00bfQuieres hacer un libro o un cartel?  (Puedes cambiarlo despu\u00e9s)",
+                    "book": "Libro",
+                    "sign": "Cartel"
                 },
                 "tertiary": {
-                    "header": "Done!",
-                    "description": "Your template has been changed to %c"
+                    "header": "\u00a1Listo!",
+                    "description": "Tu plantilla ha sido cambiada a %c"
                 }
             },
             "buttontext": "P\u00e1gina del libro \/ L\u00ednea del cartel"
@@ -86,8 +86,8 @@
     "headerbar": {
         "dropdown": {
             "translate_page_link": "P\u00e1gina de traducci\u00f3n",
-            "hover": "Beta Version Available!",
-            "beta_link": "Beta Version",
+            "hover": "Versi\u00f3n Beta disponible",
+            "beta_link": "Versi\u00f3n Beta",
             "tweet": "Twitea esta p\u00e1gina",
             "forum_thread": "Tema en el Foro",
             "changelog": "Historial de cambios"
@@ -95,16 +95,16 @@
         "help": "Ayuda",
         "report_an_issue": "Reportar un fallo\/error"
     },
-    "header_rev2": "Tellraw Generator for Minecraft ",
+    "header_rev2": "Generador de Tellraw para Minecraft ",
     "settings": {
         "importtext": {
             "exported": {
-                "header": "Import",
+                "header": "Importar",
                 "failed": {
-                    "header": "Import failed",
-                    "description": "Provided input"
+                    "header": "Fallo al importar",
+                    "description": "Entrada"
                 },
-                "": "Introduce aqu\u00ed el texto obtenido al exportar un comando"
+                "description": "Introduce aqu\u00ed el texto obtenido al exportar un comando"
             }
         },
         "nlOutput": "Muestra el comando estructurado",

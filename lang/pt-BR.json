@@ -1,17 +1,17 @@
 {
     "textsnippets": {
         "clickevent": {
-            "changepage": "Alterar P\u00e1gina",
+            "changepage": "Change Page",
             "unavailable": {
                 "sign": {
                     "header": "A cria\u00e7\u00e3o de placas clic\u00e1veis n\u00e3o est\u00e1 dispon\u00edvel",
                     "body": "Clique aqui para ir a um website n\u00e3o-afiliado para criar placas clic\u00e1veis."
                 }
             },
-            "runcommand": "Executar Comando",
+            "runcommand": "Executar comando",
             "openurl": "Abrir URL",
-            "suggestcommand": "Sugerir Comando",
-            "header": "Evento ao Clicar:",
+            "suggestcommand": "Sugerir comando",
+            "header": "Evento ao clicar:",
             "none": "Nenhum"
         },
         "hoverevent": {
@@ -21,46 +21,46 @@
                     "body": "Isso \u00e9 porque o Minecraft n\u00e3o suporta esses eventos em placas."
                 }
             },
-            "addtext": "Adicionar Texto",
-            "removetext": "Remover \u00daltimo Texto",
-            "header": "Evento ao Passar o Mouse:",
-            "showachievement": "Exibir Conquista",
+            "addtext": "Adicionar texto",
+            "removetext": "Remover \u00faltimo texto",
+            "header": "Evento ao passar mouse:",
+            "showachievement": "Exibir conquista",
             "id": "ID:",
-            "showentity": "Exibir Entidade",
-            "showitem": "Exibir Item",
+            "showentity": "Exibir entidade",
+            "showitem": "Exibir item",
             "type": "Tipo:",
             "none": "Nenhum",
-            "showtext": "Exibir Texto",
+            "showtext": "Exibir texto",
             "name": "Nome"
         },
         "NEW_ITERATE_FLAG": {
             "incorrect_template": {
                 "primary": {
-                    "header": "You must be using the book or sign templates",
-                    "description": "Do you want to change your template?",
-                    "yes": "Yes",
-                    "no": "No"
+                    "header": "Voc\u00ea deve usar o modelo para livros ou placas",
+                    "description": "Voc\u00ea quer alterar seu modelo?",
+                    "yes": "Sim",
+                    "no": "N\u00e3o"
                 },
                 "secondary": {
-                    "header": "Book or Sign?",
-                    "description": "Do you want to make a book or a sign? (You can change this later)",
-                    "book": "Book",
-                    "sign": "Sign"
+                    "header": "Livro ou placa?",
+                    "description": "Voc\u00ea quer criar um livro ou uma placa? (Voc\u00ea pode mudar isso depois)",
+                    "book": "Livro",
+                    "sign": "Placa"
                 },
                 "tertiary": {
-                    "header": "Done!",
-                    "description": "Your template has been changed to %c"
+                    "header": "Feito!",
+                    "description": "Seu modelo foi alterado para %c"
                 }
             },
-            "buttontext": "P\u00e1gina (Livro)\/Linha (Placa)"
+            "buttontext": "Pagina do livro \/ Linha da placa"
         },
         "trn": "Traduzido",
         "parameter": "Par\u00e2metro",
-        "editsnippet": "Editar Texto",
+        "editsnippet": "Editar texto",
         "close": "Fechar",
-        "notext": "Sem Texto",
+        "notext": "Sem texto",
         "insert": "Inserir",
-        "addsnippet": "Adicionar Texto",
+        "addsnippet": "Adicionar texto",
         "insertion": {
             "header": "Inser\u00e7\u00e3o"
         },
@@ -74,9 +74,9 @@
         },
         "player": "Jogador",
         "obj2": "Objetivo",
-        "obj": "Objetivo do Placar",
-        "nosnippets": "Sem texto ainda",
-        "header": "Partes do Texto",
+        "obj": "Objetivo do scoreboard",
+        "nosnippets": "Sem texto",
+        "header": "Partes do texto",
         "text": "Texto",
         "raw": "Bruto",
         "warning": {
@@ -85,17 +85,17 @@
     },
     "headerbar": {
         "dropdown": {
-            "translate_page_link": "Site de Tradu\u00e7\u00f5es",
-            "hover": "Beta Version Available!",
-            "beta_link": "Beta Version",
+            "translate_page_link": "Translation Site",
+            "hover": "Vers\u00e3o beta dispon\u00edvel!",
+            "beta_link": "Vers\u00e3o beta",
             "tweet": "Tweetar",
-            "forum_thread": "T\u00f3pico do F\u00f3rum",
-            "changelog": "Registro de Atualiza\u00e7\u00f5es"
+            "forum_thread": "T\u00f3pico no f\u00f3rum",
+            "changelog": "Registro de atualiza\u00e7\u00f5es"
         },
         "help": "Ajuda",
-        "report_an_issue": "Reportar um Problema"
+        "report_an_issue": "Reportar um erro"
     },
-    "header_rev2": "Tellraw Generator for Minecraft ",
+    "header_rev2": "Gerador de Tellraw para Minecraft ",
     "settings": {
         "importtext": {
             "exported": {
@@ -104,22 +104,22 @@
                     "header": "Import failed",
                     "description": "Provided input"
                 },
-                "": "Por favor insira o texto que voc\u00ea recebeu quando exportou seu comando"
+                "description": "Por favor insira o texto que voc\u00ea recebeu quando exportou seu comando"
             }
         },
-        "nlOutput": "Mostrar Sa\u00edda Estruturada",
+        "nlOutput": "Mostrar sa\u00edda estruturada",
         "darkmode": {
-            "turn_on": "Tema Escuro",
+            "turn_on": "Tema escuro",
             "turn_off": "Tema claro"
         },
-        "show": "Abrir Op\u00e7\u00f5es",
-        "hide": "Fechar Op\u00e7\u00f5es",
-        "fontSize": "Tamanho da Fonte",
-        "previewcolor": "Cor do Plano de Fundo:",
+        "show": "Abrir op\u00e7\u00f5es",
+        "hide": "Fechar op\u00e7\u00f5es",
+        "fontSize": "Tamanho da fonte",
+        "previewcolor": "Cor do plano de fundo:",
         "export": "Exportar",
         "deleteall": {
-            "body": "Clicar em Excluir remover\u00e1 todo o seu texto atual.",
-            "heading": "Tem certeza??",
+            "body": "Isso ir\u00e1 deletar todo o comando atual.",
+            "heading": "Tem certeza?",
             "yes": "Excluir",
             "no": "Cancelar"
         },
@@ -135,11 +135,11 @@
         "donate-button": "Doar",
         "donate-text": "Fa\u00e7a uma doa\u00e7\u00e3o com o valor que quiser (Stripe).",
         "overcast-text": "Quer comprar um rank pra mim na Overcast Network? Clique na imagem acima, e insira ezekielelin como seu apelido.",
-        "exit": "Sair",
+        "exit": "Fechar",
         "exit-text": "Voc\u00ea n\u00e3o ver\u00e1 isso de novo enquanto mantiver seus cookies intactos. Infelizmente n\u00e3o tenho como detectar se voc\u00ea limpar seus cookies."
     },
     "issues": {
-        "go-home": "Ignorar"
+        "go-home": "Ignorar problema"
     },
     "help": {
         "textfield": "Use\\npara criar uma nova linha",
@@ -148,9 +148,9 @@
         "dropdown-list": "Compartilhe no Twitter, veja o registro de atualiza\u00e7\u00f5es, veja o t\u00f3pico no Minecraft Forums ou obtenha recursos para tradu\u00e7\u00e3o.",
         "addsnippet": "Adiciona texto ao comando.",
         "delete-all-saves": "Limpa seus comandos salvos, mas mant\u00e9m seu comando atual intacto.",
-        "create-new-save": "Salva um comando. Isso ir\u00e1 substituir qualquer comando salvo com o mesmo nome, se voc\u00ea o fizer.",
+        "create-new-save": "Salva um comando. Isso ir\u00e1 substituir qualquer comando salvo com o mesmo nome.",
         "delete-all-snippets": "Limpa completamente seu comando atual, mas mant\u00e9m seus comandos salvos intactos.",
-        "show-saves": "Mostra o editor de comandos salvos, o que permite salv\u00e1-los, carreg\u00e1-los e exclu\u00ed-los."
+        "show-saves": "Mostra seus comandos salvos, permite salvar, carregar e deletar comandos."
     },
     "template": {
         "sign_block": "Placa (\/blockdata)",
@@ -162,35 +162,35 @@
         "execute_tellraw": "Executar"
     },
     "output": {
-        "nothing": "N\u00e3o h\u00e1 nada aqui",
+        "nothing": "Nada aqui.",
         "header": "Previs\u00e3o:"
     },
     "saves": {
         "header": "Comandos salvos",
-        "hide": "Ocultar Comandos Salvos",
+        "hide": "Ocultar comandos salvos",
         "persistencenotice": "Os comandos salvos podem ser reiniciados a qualquer momento, e dependem dos cookies do seu navegador. N\u00e3o confie neles por muito tempo.",
-        "show": "Mostrar Comandos Salvos",
+        "show": "Mostrar comandos salvos",
         "deleteall": {
             "body": "Clicar em Excluir remover\u00e1 apenas seus comandos salvos, mas n\u00e3o o seu texto atual",
-            "yes": "Excluir",
-            "heading": "Tem certeza??",
+            "yes": "Excluir tudo",
+            "heading": "Tem certeza?",
             "no": "Cancelar"
         },
         "nosaves": "Voc\u00ea n\u00e3o tem nada salvo",
-        "new": "Salvar Comando Atual"
+        "new": "Salvar comando atual"
     },
     "color": {
         "color_green": "Verde",
         "color_red": "Vermelho",
         "color_none": "Nenhuma",
-        "color_dark_aqua": "Ciano Escuro",
+        "color_dark_aqua": "Ciano escuro",
         "color_dark_purple": "Lil\u00e1s",
-        "color_dark_blue": "Azul Escuro",
+        "color_dark_blue": "Azul escuro",
         "color_aqua": "Ciano",
         "color_white": "Branco",
-        "color_dark_gray": "Cinza Escuro",
-        "color_dark_red": "Vermelho Escuro",
-        "color_dark_green": "Verde Escuro",
+        "color_dark_gray": "Cinza escuro",
+        "color_dark_red": "Vermelho escuro",
+        "color_dark_green": "Verde escuro",
         "color_gold": "Laranja",
         "color_blue": "Azul",
         "color_black": "Preto",
@@ -204,18 +204,18 @@
         "header": "Idioma"
     },
     "player": {
-        "header": "Jogador e Comando",
+        "header": "Comando e jogador",
         "description": "Usando para selecionar e executar em diferentes jogadores"
     },
     "commandblock": "Voc\u00ea deve executar este comando no console ou em um bloco de comando.",
     "alert": {
-        "report": "Reportar um Problema",
-        "changed": "Essa p\u00e1gina foi alterada recentemente, ent\u00e3o podem ocorrer problemas. Recarregue a p\u00e1gina se algo estiver errado.",
+        "report": "Reportar um erro",
+        "changed": "Esta p\u00e1gina foi modificada recentemente. No caso de problemas, recarregue-a.",
         "receiveupdates": "Receba atualiza\u00e7\u00f5es (\"Siga\" o t\u00f3pico)"
     },
     "command": "Comando:",
     "export": {
-        "heading": "Comando Exportado",
+        "heading": "Comando exportado",
         "close": "Fechar"
     },
     "attribution": "J\u00e1 que nada \u00e9 necess\u00e1rio para que voc\u00ea use isso, adorar\u00edamos se voc\u00ea divulgasse esse website ou o t\u00f3pico no Minecraft Forums."

@@ -104,7 +104,7 @@
                     "header": "Import failed",
                     "description": "Provided input"
                 },
-                "": "\ub2f9\uc2e0\uc774 \ub2f9\uc2e0\uc758 \uba85\ub839\uc744 \ub0b4\ubcf4\ub0bc \ub54c\uc774 \uc8fc\uc5b4\uc9c4 \ubb38\uc790\uc5f4\uc744 \uc785\ub825\ud558\uc138\uc694"
+                "description": "\ub2f9\uc2e0\uc774 \ub2f9\uc2e0\uc758 \uba85\ub839\uc744 \ub0b4\ubcf4\ub0bc \ub54c\uc774 \uc8fc\uc5b4\uc9c4 \ubb38\uc790\uc5f4\uc744 \uc785\ub825\ud558\uc138\uc694"
             }
         },
         "nlOutput": "\uad6c\uc870\ud654 \ub41c \ucd9c\ub825\uc744\ubcf4\uae30",

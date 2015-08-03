@@ -18,7 +18,7 @@
             "unavailable": {
                 "sign": {
                     "header": "H\u00e4ndelse f\u00f6r n\u00e4r m\u00f6ss dras \u00f6ver \u00e4r inte tillg\u00e4ngliga",
-                    "body": "Det beror p\u00e5 att Minecraft inte st\u00f6djer h\u00e4ndelser f\u00f6r n\u00e4r m\u00f6ss dras \u00f6ver p\u00e5 skyltar."
+                    "body": "Det beror p\u00e5 att Minecraft inte st\u00f6djer h\u00e4ndelser f\u00f6r n\u00e4r m\u00f6ss dras \u00f6ver skyltar."
                 }
             },
             "addtext": "L\u00e4gg till text",
@@ -36,20 +36,20 @@
         "NEW_ITERATE_FLAG": {
             "incorrect_template": {
                 "primary": {
-                    "header": "You must be using the book or sign templates",
-                    "description": "Do you want to change your template?",
-                    "yes": "Yes",
-                    "no": "No"
+                    "header": "Du m\u00e5ste anv\u00e4nda bok- eller skyltmallarna",
+                    "description": "Vill du \u00e4ndra din mall?",
+                    "yes": "Ja",
+                    "no": "Nej"
                 },
                 "secondary": {
-                    "header": "Book or Sign?",
-                    "description": "Do you want to make a book or a sign? (You can change this later)",
-                    "book": "Book",
-                    "sign": "Sign"
+                    "header": "Bok eller skylt?",
+                    "description": "Vill du g\u00f6ra en bok eller en skylt? (Du kan \u00e4ndra det senare)",
+                    "book": "Bok",
+                    "sign": "Skylt"
                 },
                 "tertiary": {
-                    "header": "Done!",
-                    "description": "Your template has been changed to %c"
+                    "header": "Klar!",
+                    "description": "Din mall har blivit \u00e4ndrad till %c"
                 }
             },
             "buttontext": "Boksida \/ Skyltlinje"
@@ -86,8 +86,8 @@
     "headerbar": {
         "dropdown": {
             "translate_page_link": "\u00d6vers\u00e4ttningssida",
-            "hover": "Beta Version Available!",
-            "beta_link": "Beta Version",
+            "hover": "Betaversion tillg\u00e4nglig!",
+            "beta_link": "Betaversion",
             "tweet": "Tweeta",
             "forum_thread": "Forumtr\u00e5d",
             "changelog": "\u00c4ndringslogg"
@@ -95,16 +95,16 @@
         "help": "Hj\u00e4lp",
         "report_an_issue": "Rapportera ett problem"
     },
-    "header_rev2": "Tellraw Generator for Minecraft ",
+    "header_rev2": "Tellrawgenerator f\u00f6r Minecraft ",
     "settings": {
         "importtext": {
             "exported": {
                 "header": "Import",
                 "failed": {
-                    "header": "Import failed",
-                    "description": "Provided input"
+                    "header": "Import misslyckades",
+                    "description": "Given inmatning"
                 },
-                "": "Var v\u00e4nlig ange texten du fick n\u00e4r du exporterat ditt kommando"
+                "description": "Var v\u00e4nlig ange texten du fick n\u00e4r du exporterat ditt kommando"
             }
         },
         "nlOutput": "Visa strukturerat resultat",
@@ -129,9 +129,9 @@
     "donate": {
         "patreon-button": "Patreon",
         "support-header": "(Sn\u00e4lla) St\u00f6d den h\u00e4r webbsidan",
-        "paypal-note": "Jag erbjuder inte paypal ett val i listan p\u00e5 grund av avgifter (Stripe drar inte ut avgifter f\u00f6r studenter). Men, om du vill kan du skicka pengar till mig med PayPal via funds@ezekielelin.com",
+        "paypal-note": "Jag erbjuder inte PayPal ett val i listan p\u00e5 grund av avgifter (Stripe drar inte ut avgifter f\u00f6r studenter). Men, om du vill kan du skicka pengar till mig med PayPal via funds@ezekielelin.com",
         "patreon-text": "Om du donerar m\u00e5nadsvis, kan jag f\u00f6rlita mig p\u00e5 det f\u00f6r att uppgradera servrarna.",
-        "support-subheader": "Jag vill inte l\u00e4gga annonser p\u00e5 den h\u00e4r webbsidan, sn\u00e4lla donera f\u00f6r att st\u00f6dja kostnaderna att ha ig\u00e5ng den.",
+        "support-subheader": "Jag vill inte l\u00e4gga annonser p\u00e5 den h\u00e4r webbsidan, sn\u00e4lla donera f\u00f6r att st\u00f6dja kostnaderna att h\u00e5lla ig\u00e5ng den.",
         "donate-button": "Donera",
         "donate-text": "Donera ett v\u00e4rde du v\u00e4ljer (Stripe).",
         "overcast-text": "Vill du k\u00f6pa en rank \u00e5t mig p\u00e5 Overcast Network? Klicka p\u00e5 bilden ovan, skriv sen in mitt anv\u00e4ndernamn ezekielelin.",
@@ -159,7 +159,7 @@
         "title": "Rubrik",
         "tellraw": "Tellraw",
         "book": "Bok",
-        "execute_tellraw": "Utf\u00f6ra"
+        "execute_tellraw": "Utf\u00f6r"
     },
     "output": {
         "nothing": "Inget att se h\u00e4r",

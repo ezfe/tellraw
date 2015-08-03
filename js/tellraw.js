@@ -1626,7 +1626,7 @@ for (var i = 0; i < Object.keys(lang).length; i++) {
 	$('#import').click(function() {
 		swal({
 			"title": "Import",
-			"text": getLanguageString('settings.importtext.exported',localStorage.getItem('langCode'),false,false),
+			"text": getLanguageString('settings.importtext.exported.description',localStorage.getItem('langCode')),
 			"type": "input",
 			"closeOnConfirm": false
 		},function(oinpt){
@@ -1634,7 +1634,7 @@ for (var i = 0; i < Object.keys(lang).length; i++) {
 			try {
 				inpt = JSON.parse(oinpt);
 			} catch(err) {
-				logIssue(getLanguageString('settings.importtext.exported.failed.header',localStorage.getItem('langCode'),false,false),getLanguageString('settings.importtext.exported.failed.description',localStorage.getItem('langCode'),false,false) + ': ' + oinpt,true)
+				logIssue(getLanguageString('settings.importtext.exported.failed.header',localStorage.getItem('langCode')),getLanguageString('settings.importtext.exported.failed.description',localStorage.getItem('langCode')) + ': ' + oinpt,true)
 			}
 			jobject = inpt['jobject'];
 			if (inpt['jtemplate']) {

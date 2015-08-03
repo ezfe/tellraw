@@ -36,20 +36,20 @@
         "NEW_ITERATE_FLAG": {
             "incorrect_template": {
                 "primary": {
-                    "header": "You must be using the book or sign templates",
-                    "description": "Do you want to change your template?",
-                    "yes": "Yes",
-                    "no": "No"
+                    "header": "Mus\u00edte pou\u017e\u00edvat template knihy nebu cedulky.",
+                    "description": "P\u0159ejete si ulo\u017eit svoji p\u0159ednastavenou konfiguraci ?",
+                    "yes": "Ano",
+                    "no": "Ne"
                 },
                 "secondary": {
-                    "header": "Book or Sign?",
-                    "description": "Do you want to make a book or a sign? (You can change this later)",
-                    "book": "Book",
-                    "sign": "Sign"
+                    "header": "Kniha nebo cedulka ?",
+                    "description": "P\u0159ejete si vytvo\u0159it knihu nebu cedulku ? (m\u016f\u017eete to zm\u011bnit pozd\u011bji).",
+                    "book": "Kniha",
+                    "sign": "Cedulka"
                 },
                 "tertiary": {
-                    "header": "Done!",
-                    "description": "Your template has been changed to %c"
+                    "header": "Hotovo !",
+                    "description": "Va\u0161e konfigurace byla zm\u011bn\u011bna na %c"
                 }
             },
             "buttontext": "Str\u00e1nka Knihy \/ \u0158\u00e1dek Cedulky"
@@ -86,8 +86,8 @@
     "headerbar": {
         "dropdown": {
             "translate_page_link": "Upravit P\u0159eklad",
-            "hover": "Beta Version Available!",
-            "beta_link": "Beta Version",
+            "hover": "Beta verze je dostupn\u00e1 !",
+            "beta_link": "Beta verze",
             "tweet": "Tweet",
             "forum_thread": "F\u00f3rum \u010cl\u00e1nek",
             "changelog": "Seznam Zm\u011bn"
@@ -95,16 +95,16 @@
         "help": "Pomoc",
         "report_an_issue": "Po\u0161li n\u00e1m n\u00e1pad"
     },
-    "header_rev2": "Tellraw Generator for Minecraft ",
+    "header_rev2": "Tellraw generator pro Minecraft ",
     "settings": {
         "importtext": {
             "exported": {
-                "header": "Import",
+                "header": "Importovat",
                 "failed": {
-                    "header": "Import failed",
-                    "description": "Provided input"
+                    "header": "Importov\u00e1n\u00ed selhalo",
+                    "description": "Dostupn\u00fd vstup"
                 },
-                "": "Pros\u00edm zadej text kter\u00fd jsi z\u00edskal p\u0159i exportu"
+                "description": "Pros\u00edm zadej text kter\u00fd jsi z\u00edskal p\u0159i exportu"
             }
         },
         "nlOutput": "Uk\u00e1zat Strukturovan\u00fd N\u00e1hled",
@@ -155,7 +155,7 @@
     "template": {
         "sign_block": "Cedulka (\/blockdata)",
         "sign_item": "Cedulka (\/give)",
-        "subtitle": "Podtitul",
+        "subtitle": "Podtitulek",
         "title": "Titulek",
         "tellraw": "TellRaw",
         "book": "Kniha",

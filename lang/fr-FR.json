@@ -38,13 +38,13 @@
                 "primary": {
                     "header": "You must be using the book or sign templates",
                     "description": "Do you want to change your template?",
-                    "yes": "Yes",
-                    "no": "No"
+                    "yes": "Oui",
+                    "no": "Non"
                 },
                 "secondary": {
                     "header": "Book or Sign?",
                     "description": "Do you want to make a book or a sign? (You can change this later)",
-                    "book": "Book",
+                    "book": "Livre",
                     "sign": "Sign"
                 },
                 "tertiary": {
@@ -86,7 +86,7 @@
     "headerbar": {
         "dropdown": {
             "translate_page_link": "Site de traductions",
-            "hover": "Beta Version Available!",
+            "hover": "Version Beta Disponible!",
             "beta_link": "Beta Version",
             "tweet": "Tweet",
             "forum_thread": "Topic Forum",
@@ -104,7 +104,7 @@
                     "header": "Import failed",
                     "description": "Provided input"
                 },
-                "": "Merci d'entrer le texte donn\u00e9 \u00e0 l'export de la commande"
+                "description": "Merci d'entrer le texte donn\u00e9 \u00e0 l'export de la commande"
             }
         },
         "nlOutput": "Voir le r\u00e9sultat structur\u00e9",

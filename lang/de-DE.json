@@ -5,7 +5,7 @@
             "unavailable": {
                 "sign": {
                     "header": "Schild Klick Ereignisse sind nicht verf\u00fcgbar",
-                    "body": "Hier Klicken um auf eine (nicht zu der Website geh\u00f6rende Seite) zu gehen, wo man Schilder mit Klick Ereignissen machen kann"
+                    "body": "Hier klicken um auf eine (nicht zu der Website geh\u00f6rende Seite) zu gehen, auf der man Schilder mit Klickereignissen erstellen kann."
                 }
             },
             "runcommand": "Befehl ausf\u00fchren",
@@ -37,18 +37,18 @@
             "incorrect_template": {
                 "primary": {
                     "header": "You must be using the book or sign templates",
-                    "description": "Do you want to change your template?",
-                    "yes": "Yes",
-                    "no": "No"
+                    "description": "M\u00f6chtest du die Vorlage \u00e4ndern?",
+                    "yes": "Ja",
+                    "no": "Nein"
                 },
                 "secondary": {
-                    "header": "Book or Sign?",
+                    "header": "Buch oder Schild?",
                     "description": "Do you want to make a book or a sign? (You can change this later)",
-                    "book": "Book",
-                    "sign": "Sign"
+                    "book": "Buch",
+                    "sign": "Schild"
                 },
                 "tertiary": {
-                    "header": "Done!",
+                    "header": "Fertig!",
                     "description": "Your template has been changed to %c"
                 }
             },
@@ -99,12 +99,12 @@
     "settings": {
         "importtext": {
             "exported": {
-                "header": "Import",
+                "header": "Importien",
                 "failed": {
-                    "header": "Import failed",
+                    "header": "Importien fehlgeschlagen",
                     "description": "Provided input"
                 },
-                "": "Bitte gib den String ein, der dir gegeben wurde, als du den Befehl exportiert hast."
+                "description": "Bitte gib den String ein, der dir gegeben wurde, als du den Befehl exportiert hast."
             }
         },
         "nlOutput": "Zeige struktuierte Ausgabe",
@@ -128,12 +128,12 @@
     },
     "donate": {
         "patreon-button": "Patreon",
-        "support-header": "Bitte unterst\u00fctze diese Seite",
-        "paypal-note": "Ich biete aufgrund von Geb\u00fchren nicht PayPal als b\u00f6rsennotierte Option an (Stripe l\u00e4sst keine Geb\u00fchren an Studenten anfallen). Allerdings, wenn Sie m\u00f6chten, k\u00f6nnen Sie mir Geld \u00fcber PayPal an funds@ezekielelin.com senden",
+        "support-header": "(Bitte) Unterst\u00fctze diese Seite",
+        "paypal-note": "Auf Grund von Geb\u00fchren, biete ich PayPal nicht als Option an (Stripe erhebt keine Geb\u00fchren f\u00fcr Studenten). Wenn Sie m\u00f6chten, k\u00f6nnen Sie mir Geld \u00fcber PayPal an funds@ezekielelin.com senden",
         "patreon-text": "Wenn Sie sich verpflichten, eine bestimmte Menge jeden Monat zu spenden, k\u00f6nnen sie sich darauf verlassen, dass ich die Server aufr\u00fcste.",
         "support-subheader": "Ich m\u00f6chte auf dieser Internetseite keine Werbung schalten, bitte spende, um die Kosten f\u00fcr die Erhaltung der Internetseite zu unterst\u00fctzen.",
         "donate-button": "Spenden",
-        "donate-text": "Mache eine Spende in der H\u00f6he, die du willst (Streifen).",
+        "donate-text": "Mache eine Spende in der H\u00f6he, die du willst (Stripe).",
         "overcast-text": "M\u00f6chtest du mir einen Rang in dem Overcast Netzwerk kaufen? Klicke auf das Bild oben, und betrete ezekielelin mit meinem Benutzernamen.",
         "exit": "Schlie\u00dfen",
         "exit-text": "Du wirst dies hier nicht mehr sehen, es sei denn, du setzt deine Cookies zur\u00fcck. Leider kann ich nicht \u00fcberpr\u00fcfen, ob du sie zur\u00fcckgesetzt hast."

@@ -104,7 +104,7 @@
                     "header": "Import failed",
                     "description": "Provided input"
                 },
-                "": "Prosz\u0119 wpisz ci\u0105g, kt\u00f3ry otrzyma\u0142e\u015b eksportuj\u0105c twoj\u0105 kom\u0119de"
+                "description": "Prosz\u0119 wpisz ci\u0105g, kt\u00f3ry otrzyma\u0142e\u015b eksportuj\u0105c twoj\u0105 kom\u0119de"
             }
         },
         "nlOutput": "Poka\u017c efekt ko\u0144cowy",
