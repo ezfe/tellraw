@@ -52,7 +52,7 @@
                     "description": "Your template has been changed to %c"
                 }
             },
-            "": "P\u00e1gina (Livro)\/Linha (Placa)"
+            "buttontext": "P\u00e1gina (Livro)\/Linha (Placa)"
         },
         "trn": "Traduzido",
         "parameter": "Par\u00e2metro",

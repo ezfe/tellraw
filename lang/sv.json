@@ -52,7 +52,7 @@
                     "description": "Your template has been changed to %c"
                 }
             },
-            "": "Boksida \/ Skyltlinje"
+            "buttontext": "Boksida \/ Skyltlinje"
         },
         "trn": "\u00d6versatt",
         "parameter": "Parameter",

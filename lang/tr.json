@@ -52,7 +52,7 @@
                     "description": "Your template has been changed to %c"
                 }
             },
-            "": "Kitap Sayfas\u0131 \/ Tabela Sat\u0131r\u0131"
+            "buttontext": "Kitap Sayfas\u0131 \/ Tabela Sat\u0131r\u0131"
         },
         "trn": "\u00c7evrilimi\u015f",
         "parameter": "Parametre",

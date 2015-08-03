@@ -52,7 +52,7 @@
                     "description": "Your template has been changed to %c"
                 }
             },
-            "": "Pagina boek \/ Regel bord"
+            "buttontext": "Pagina boek \/ Regel bord"
         },
         "trn": "Vertaald",
         "parameter": "Parameter",

@@ -52,7 +52,7 @@
                     "description": "Your template has been changed to %c"
                 }
             },
-            "": "\u6210\u4e66\u9875\u7801\/\u544a\u793a\u724c\u884c\u6570"
+            "buttontext": "\u6210\u4e66\u9875\u7801\/\u544a\u793a\u724c\u884c\u6570"
         },
         "trn": "\u5df2\u7ffb\u8bd1\u6587\u672c",
         "parameter": "\u53c2\u6570",

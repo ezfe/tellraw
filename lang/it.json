@@ -52,7 +52,7 @@
                     "description": "Your template has been changed to %c"
                 }
             },
-            "": "Pagina di un libro \/ Linea di un cartello"
+            "buttontext": "Pagina di un libro \/ Linea di un cartello"
         },
         "trn": "Tradotto",
         "parameter": "Parametro",

@@ -52,7 +52,7 @@
                     "description": "Your template has been changed to %c"
                 }
             },
-            "": "\ubd81 \ud398\uc774\uc9c0 \/ \uc0ac\uc778 \ub77c\uc778"
+            "buttontext": "\ubd81 \ud398\uc774\uc9c0 \/ \uc0ac\uc778 \ub77c\uc778"
         },
         "trn": "\ubc88\uc5ed",
         "parameter": "\ub9e4\uac1c \ubcc0\uc218",

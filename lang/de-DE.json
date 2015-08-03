@@ -52,7 +52,7 @@
                     "description": "Your template has been changed to %c"
                 }
             },
-            "": "Buch-Seite \/ Schild-Zeile"
+            "buttontext": "Buch-Seite \/ Schild-Zeile"
         },
         "trn": "\u00dcbersetzt",
         "parameter": "Parameter",

@@ -52,7 +52,7 @@
                     "description": "Your template has been changed to %c"
                 }
             },
-            "": "Book Page \/ Sign Line"
+            "buttontext": "Book Page \/ Sign Line"
         },
         "trn": "Translated",
         "parameter": "Parameter",

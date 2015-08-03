@@ -52,7 +52,7 @@
                     "description": "Your template has been changed to %c"
                 }
             },
-            "": "Strona ksi\u0105\u017cki \/ Linia Tabliczki"
+            "buttontext": "Strona ksi\u0105\u017cki \/ Linia Tabliczki"
         },
         "trn": "Przet\u0142umaczone",
         "parameter": "Parametr",

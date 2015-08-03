@@ -52,7 +52,7 @@
                     "description": "Your template has been changed to %c"
                 }
             },
-            "": "P\u00e1gina del libro \/ L\u00ednea del cartel"
+            "buttontext": "P\u00e1gina del libro \/ L\u00ednea del cartel"
         },
         "trn": "Traducido",
         "parameter": "Par\u00e1metro",

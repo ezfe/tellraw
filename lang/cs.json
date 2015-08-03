@@ -52,7 +52,7 @@
                     "description": "Your template has been changed to %c"
                 }
             },
-            "": "Str\u00e1nka Knihy \/ \u0158\u00e1dek Cedulky"
+            "buttontext": "Str\u00e1nka Knihy \/ \u0158\u00e1dek Cedulky"
         },
         "trn": "P\u0159elo\u017een\u00e9",
         "parameter": "Vlastnost",
