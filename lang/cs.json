@@ -5,10 +5,10 @@
             "unavailable": {
                 "sign": {
                     "header": "Bohu\u017eel nen\u00ed mo\u017en\u00e9 vytvo\u0159it kliknuteln\u00fd text pro cedulku.",
-                    "body": "Click here to go to an unaffiliated website to create signs with click events."
+                    "body": "Klikni zde pro p\u0159esm\u011brov\u00e1n\u00ed na str\u00e1nku pro vytvo\u0159en\u00ed cedulek s kliknuteln\u00fdm textem. (Nen\u00ed spojena s touto!)"
                 }
             },
-            "runcommand": "Spustit p\u0159\u00edkaz:",
+            "runcommand": "Spustit p\u0159\u00edkaz",
             "openurl": "Otev\u0159\u00edt webovou adresu",
             "suggestcommand": "Navrhnout p\u0159\u00edkaz",
             "header": "Ud\u00e1lost p\u0159i kliknut\u00ed:",
@@ -24,27 +24,27 @@
             "addtext": "P\u0159idat Text",
             "removetext": "Odstranit Posledn\u00ed Text",
             "header": "Ud\u00e1lost p\u0159i p\u0159ejet\u00ed my\u0161\u00ed:",
-            "showachievement": "Uk\u00e1zat ocen\u011bn\u00ed (achievement)",
+            "showachievement": "Uk\u00e1zat ocen\u011bn\u00ed (Achievement)",
             "id": "ID:",
-            "showentity": "Uk\u00e1zat subjekt (\u017eij\u00edc\u00ed v\u011bc, entity)",
-            "showitem": "Uk\u00e1zat p\u0159edm\u011bt (item)",
+            "showentity": "Uk\u00e1zat Entitu",
+            "showitem": "Uk\u00e1zat Item",
             "type": "Typ:",
             "none": "Nic",
-            "showtext": "Uk\u00e1zat text",
+            "showtext": "Uk\u00e1zat Text",
             "name": "Jm\u00e9no"
         },
         "trn": "P\u0159elo\u017een\u00e9",
         "parameter": "Vlastnost",
         "editsnippet": "Editovat Text",
         "close": "Zav\u0159\u00edt",
-        "notext": "\u017e\u00e1dn\u00fd text",
+        "notext": "\u017d\u00e1dn\u00fd Text",
         "NEW_ITERATE_FLAG": "Str\u00e1nka Knihy \/ \u0158\u00e1dek Cedulky",
         "insert": "Vlo\u017eit",
-        "addsnippet": "P\u0159idat text ",
+        "addsnippet": "P\u0159idat Text",
         "insertion": {
-            "header": "Vlo\u017een\u00ed:"
+            "header": "Vlo\u017een\u00ed"
         },
-        "sel": "v\u00fdb\u011br",
+        "sel": "V\u00fdb\u011br",
         "format": {
             "bold": "Tu\u010dn\u00e9",
             "underlined": "Podtrhnut\u00e9",
@@ -53,37 +53,37 @@
             "strikethrough": "P\u0159e\u0161krtnut\u00e9"
         },
         "player": "Hr\u00e1\u010d",
-        "obj2": "objektiv",
-        "obj": "Scoreboard Objective",
-        "nosnippets": "Zat\u00edm \u017e\u00e1dn\u00fd text",
+        "obj2": "Objective (Objektiv)",
+        "obj": "Scoreboard Objective (Objektiv)",
+        "nosnippets": "Zat\u00edm \u017d\u00e1dn\u00fd Text",
         "header": "\u00daryvky textu",
         "text": "Text",
         "raw": "Nezpracovan\u00e9",
         "warning": {
-            "title": "Varov\u00e1n\u00ed !"
+            "title": "Varov\u00e1n\u00ed!"
         }
     },
     "headerbar": {
         "dropdown": {
             "translate_page_link": "Upravit P\u0159eklad",
             "tweet": "Tweet",
-            "forum_thread": "Forum Thread",
-            "changelog": "Changelog"
+            "forum_thread": "F\u00f3rum \u010cl\u00e1nek",
+            "changelog": "Seznam Zm\u011bn"
         },
         "help": "Pomoc",
-        "report_an_issue": "Report an Issue"
+        "report_an_issue": "Po\u0161li n\u00e1m n\u00e1pad"
     },
     "donate": {
         "patreon-button": "Patreon",
-        "support-header": "Podporujte pros\u00edm tuto str\u00e1nku.",
-        "paypal-note": "I do not offer paypal as a listed option due to fees (Stripe doesn't charge fees to Students). However, if you wish you can send me money over PayPal via funds@ezekielelin.com",
-        "patreon-text": "If you Pledge to donate a certain amount each month, I can rely on that to upgrade the servers.",
+        "support-header": "(Pros\u00edm) Podpo\u0159te tuto str\u00e1nku",
+        "paypal-note": "PayPal nechci pou\u017e\u00edvat jako hlavn\u00ed \u0159e\u0161en\u00ed kv\u016fli poplatk\u016fm. (Stripe ne\u00fa\u010dtuje poplatky pro Studenty). ale pokud nem\u00e1te jinou mo\u017enost m\u016f\u017eete mi poslat PayPal dary na funds@ezekielelin.com",
+        "patreon-text": "Pokud se rozhodnete p\u0159isp\u011bt jakoukoliv \u010d\u00e1stkou tento m\u011bs\u00edc, tak v\u00e1m m\u016f\u017eu sl\u00edbit \u017ee bude vyu\u017eita pro vylep\u0161en\u00ed serveru.",
         "support-subheader": "Nechci d\u00e1vat reklamy na tuto str\u00e1nku, proto m\u011b pros\u00edm podpo\u0159te n\u011bjakou finan\u010dn\u00ed \u010d\u00e1stkou na provoz webu.",
         "donate-button": "Podpo\u0159it !",
         "donate-text": "P\u0159isp\u011bjte kolik chcete! (Stripe)",
-        "overcast-text": "Want to buy me a rank on the Overcast Network? Click the picture above, and enter ezekielelin as my username.",
+        "overcast-text": "Chcete mi koupit rank na Overcast Network? Klikn\u011bte na obr\u00e1zek dole a zadejte ezekielelin jako moj\u00ed p\u0159ezd\u00edvku.",
         "exit": "Odej\u00edt",
-        "exit-text": "You won't see this again so long as you keep your cookies intact. Unfortunately I have no way of detecting you if you reset your cookies."
+        "exit-text": "Neuvid\u00edte to zase tak dlouho, dokud si neudr\u017e\u00edte sv\u00e9 cookie soubory neporu\u0161en\u00e9. Bohu\u017eel nem\u00e1m zp\u016fsob, jak detekovat, zda si obnov\u00edte soubory cookie."
     },
     "issues": {
         "go-home": "Ignorovat probl\u00e9m."
@@ -91,13 +91,13 @@
     "help": {
         "textfield": "Pou\u017eijte\\npro nov\u00fd \u0159\u00e1dek.",
         "raw-text-tab": "Vyberte typ textu. Nezpracovan\u00e9 je norm\u00e1ln\u00ed text. Scoreboard objective vlo\u017e\u00ed \"scoreboard\". Selector vlo\u017e\u00ed n\u00e1zev entity.",
-        "report-an-issue": "Ze m\u016f\u017eete nahl\u00e1sit jak\u00fdkoliv objeven\u00fd bug. pokud n\u011bjak\u00fd objev\u00edte, nahla\u0161te ho pros\u00edm.",
-        "dropdown-list": "Tweet, view the changelog, view the minecraft forums thread, or get resources for translation.",
+        "report-an-issue": "Zde m\u016f\u017eete nahl\u00e1sit jak\u00fdkoliv objeven\u00fd bug. pokud n\u011bjak\u00fd objev\u00edte, nahla\u0161te ho pros\u00edm.",
+        "dropdown-list": "Tweet, zobraz\u00ed seznam zm\u011bn, zobraz Minecraft forum \u010dl\u00e1nek, nebo z\u00edskej dopl\u0148ky pro p\u0159eklad.",
         "addsnippet": "P\u0159idat text do va\u0161eho \"tellraw\" p\u0159\u00edkazu.",
-        "delete-all-saves": "Clear your saves, but leave your current command in the main editor intact.",
-        "create-new-save": "Make a new save. This will overwrite an existing save by the same name, if you so choose.",
-        "delete-all-snippets": "Clear your command completely, but leave your saves intact.",
-        "show-saves": "Show your saves editor, allows saving, loading, and deletion of saves."
+        "delete-all-saves": "Vy\u010dist\u00ed tv\u00e9 ulo\u017een\u00e9 texty ale zanech\u00e1 ji\u017e vytvo\u0159en\u00fd text v editoru.",
+        "create-new-save": "Vytvo\u0159it nov\u00fd ulo\u017een\u00fd text. Toto p\u0159ep\u00ed\u0161e text se stejn\u00fdm n\u00e1zvem, pokud se tak rozhodnete.",
+        "delete-all-snippets": "Vy\u010dist\u00ed kompletn\u011b tv\u016fj p\u0159\u00edkaz ale zanech\u00e1 tv\u00e9 ulo\u017een\u00e9 texty.",
+        "show-saves": "Uk\u00e1\u017ee tv\u016fj editor ulo\u017een\u00fdch text\u016f, umo\u017en\u00ed ulo\u017een\u00ed, na\u010dten\u00ed nebo smaz\u00e1n\u00ed ulo\u017een\u00fdch text\u016f."
     },
     "template": {
         "sign_block": "Cedulka (\/blockdata)",
@@ -106,61 +106,61 @@
         "title": "Titulek",
         "tellraw": "TellRaw",
         "book": "Kniha",
-        "execute_tellraw": "prov\u00e9st"
+        "execute_tellraw": "\/Execute CMD"
     },
     "output": {
-        "nothing": "Nic k vid\u011bn\u00ed",
-        "header": "N\u00e1hled v\u00fdstupu:"
+        "nothing": "Zde nen\u00ed na co koukat ;)",
+        "header": "\u017div\u00fd N\u00e1hled:"
     },
     "saves": {
         "header": "Ulo\u017een\u00e9",
-        "hide": "Zav\u0159\u00edt Ulo\u017een\u00e9",
-        "persistencenotice": "Saves may reset at any time, and depend on your browsers cookies. Do not rely on them for extended periods of time.",
+        "hide": "Zav\u0159\u00edt Ulo\u017een\u00e9 Texty",
+        "persistencenotice": "Ulo\u017een\u00e9 texty se m\u016f\u017eou kdykoliv vyresetovat, a jsou z\u00e1visl\u00e9 na Cookies souborech. Nespol\u00e9hejte tedy na n\u011b po del\u0161\u00ed dobu.",
         "show": "Otev\u0159\u00edt Ulo\u017een\u00e9",
         "deleteall": {
             "body": "Kliknut\u00edm na Smazat sma\u017eete v\u0161e ulo\u017een\u00e9, ale nic to neud\u011bl\u00e1 s aktu\u00e1ln\u00edm textem.",
-            "yes": "Smazat v\u010dechno ulo\u017een\u00e9",
-            "heading": "Jste si jist !?!",
+            "yes": "Smazat v\u0161echny Ulo\u017een\u00e9 texty",
+            "heading": "Jsi si jist\u00fd!?",
             "no": "Zav\u0159\u00edt"
         },
-        "nosaves": "Nem\u00e1te nic ulo\u017een\u00e9ho.",
-        "new": "Save Current String"
+        "nosaves": "Nem\u00e1\u0161 nic ulo\u017een\u00e9ho.",
+        "new": "Ulo\u017eit Aktu\u00e1ln\u00ed Text"
     },
     "settings": {
-        "nlOutput": "Show Structured Output",
+        "nlOutput": "Uk\u00e1zat Strukturovan\u00fd N\u00e1hled",
         "darkmode": {
             "turn_on": "Tmav\u00fd styl",
-            "turn_off": "Light Theme"
+            "turn_off": "Sv\u011btl\u00fd Styl"
         },
         "show": "Otev\u0159\u00edt Nastaven\u00ed",
-        "hide": "Zav\u0159\u00edt nastaven\u00ed",
-        "fontSize": "N\u00e1hled velikosti p\u00edsma.",
-        "previewcolor": "Barva pozad\u00ed n\u00e1hledu:",
+        "hide": "Zav\u0159\u00edt Nastaven\u00ed",
+        "fontSize": "N\u00e1hled Velikosti P\u00edsma",
+        "previewcolor": "Barva Pozad\u00ed N\u00e1hledu :",
         "export": "Export",
         "deleteall": {
             "body": "Vyma\u017ee v\u0161echen tv\u016fj text a resetuje ho na pr\u00e1zdnou hodnotu.",
-            "heading": "Doopravdy!?!",
+            "heading": "Jsi si jist\u00fd?!",
             "yes": "Vymazat v\u0161e",
             "no": "Zru\u0161it"
         },
         "importtext": {
-            "exported": "Please enter the string you were given when you exported your command"
+            "exported": "Pros\u00edm zadej text kter\u00fd jsi z\u00edskal p\u0159i exportu"
         },
         "import": "Importovat",
-        "header": "Nastaven\u00ed:"
+        "header": "Nastaven\u00ed :"
     },
     "color": {
         "color_green": "Zelen\u00e1",
         "color_red": "\u010cerven\u00e1",
-        "color_none": "nic",
-        "color_dark_aqua": "Tmav\u011b modrozelen\u00e1",
-        "color_dark_purple": "Tmav\u00e1 Fialov\u00e1",
-        "color_dark_blue": "Tmav\u011b modr\u00e1",
+        "color_none": "\u017d\u00e1dn\u00e1",
+        "color_dark_aqua": "Tmav\u011b Modrozelen\u00e1",
+        "color_dark_purple": "Tmav\u011b Fialov\u00e1",
+        "color_dark_blue": "Tmav\u011b Modr\u00e1",
         "color_aqua": "Modrozelen\u00e1",
         "color_white": "B\u00edl\u00e1",
-        "color_dark_gray": "Tmav\u011b \u0161ed\u00e1",
-        "color_dark_red": "Tmav\u011b \u010derven\u00e1",
-        "color_dark_green": "Tmav\u011b zelen\u00e1",
+        "color_dark_gray": "Tmav\u011b \u0160ed\u00e1",
+        "color_dark_red": "Tmav\u011b \u010cerven\u00e1",
+        "color_dark_green": "Tmav\u011b Zelen\u00e1",
         "color_gold": "Zlat\u00e1",
         "color_blue": "Modr\u00e1",
         "color_black": "\u010cern\u00e1",
@@ -168,7 +168,7 @@
         "color_light_purple": "R\u016f\u017eov\u00e1",
         "color_yellow": "\u017dlut\u00e1"
     },
-    "header": "Gener\u00e1tor TellRaw pro Minecraft 1.7 a vy\u0161\u0161\u00ed",
+    "header": "Gener\u00e1tor TellRaw pro Minecraft 1.7+",
     "language": {
         "translate": "P\u0159elo\u017eit",
         "name": "Angli\u010dtina",
@@ -177,18 +177,18 @@
     },
     "player": {
         "header": "Hr\u00e1\u010d:",
-        "description": "(@a, @p, @r, nebo jm\u00e9no hr\u00e1\u010de)"
+        "description": "(@a, @p, @r, @e nebo jm\u00e9no hr\u00e1\u010de)"
     },
     "commandblock": "Tento p\u0159\u00edkaz mus\u00ed\u0161 spustit p\u0159es konzoli serveru nebo p\u0159es p\u0159\u00edkazov\u00fd blok.",
     "alert": {
-        "report": "Report Problem",
+        "report": "Nahla\u0161 Probl\u00e9m",
         "changed": "Tato str\u00e1nka byla ned\u00e1vno zm\u011bn\u011bna, tak\u017ee tu mohou b\u00fdt probl\u00e9my. Pokud n\u011bco nefunguje, obnov str\u00e1nku.",
         "receiveupdates": "Aktualizace t\u00e9to str\u00e1nky (\"Sleduj\" t\u00e9ma)"
     },
     "command": "P\u0159\u00edkaz:",
     "export": {
-        "heading": "Your Exported Command",
+        "heading": "Tv\u016fj Vyexportovan\u00fd P\u0159\u00edkaz",
         "close": "Zav\u0159\u00edt"
     },
-    "attribution": "While nothing is required to use this, it would always be appreciated if you linked to this webpage or the MCF thread."
+    "attribution": "Kdy\u017e nic nen\u00ed pot\u0159eba pro pou\u017eit\u00ed tohoto, v\u017edy ocen\u00edm kdy\u017e toto spoj\u00edte s webovou str\u00e1nkou nebo MCF vl\u00e1knem"
 }

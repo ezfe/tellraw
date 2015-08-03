@@ -18,7 +18,7 @@
             "unavailable": {
                 "sign": {
                     "header": "Bord hover opdrachten zijn niet beschikbaar.",
-                    "body": "This is due to Minecraft not supporting hover events in signs."
+                    "body": "Dit komt door het feit dat Minecraft hover-signs niet support."
                 }
             },
             "addtext": "Voeg tekst toe",
@@ -49,7 +49,7 @@
             "bold": "Bold",
             "underlined": "Onderstreept",
             "obfuscated": "Matrix code",
-            "italic": "Schuingedrukt",
+            "italic": "Schuin",
             "strikethrough": "Doorgestreept"
         },
         "player": "Speler",
@@ -76,8 +76,8 @@
     "donate": {
         "patreon-button": "Patreon",
         "support-header": "(Alstublieft) Support deze webstie",
-        "paypal-note": "I do not offer paypal as a listed option due to fees (Stripe doesn't charge fees to Students). However, if you wish you can send me money over PayPal via funds@ezekielelin.com",
-        "patreon-text": "If you Pledge to donate a certain amount each month, I can rely on that to upgrade the servers.",
+        "paypal-note": "Ik offer PayPal niet aan als een betaal methode door de kosten die hier aan zijn verbonden. Stripe rekent geen kosten. Maar als je wel met paypal wil betalen kan dit door te betalen aan funds@ezekielelin.com",
+        "patreon-text": "Als je heel graag iedere maand een bepaald bedrag wil doneren. Is dit mogelijk zodra ik de servers update.",
         "support-subheader": "Zou u alstublieft willen doneren, Ik wil deze website advertentie vrij houden en daar heb ik u voor nodig om de webhost te betalen.",
         "donate-button": "Doneer",
         "donate-text": "Make a donation of the value you choose (Stripe).",
@@ -92,12 +92,12 @@
         "textfield": "Gebruik\\nom een nieuwe lijn te maken.",
         "raw-text-tab": "Kies je tekst soort. Ruw is normale tekst. Scoreboard gebruikt een waarde van een scoreboard. Selector gebruikt de naam van een entity.",
         "report-an-issue": "Klik hier om een probleem in te sturen. Als je een bug tegen komt, meld hem hier.",
-        "dropdown-list": "Tweet, view the changelog, view the minecraft forums thread, or get resources for translation.",
+        "dropdown-list": "Tweet, bekijk de changelog, bekijk de minecraft forum thread of krijg resources voor vertaling",
         "addsnippet": "Voeg text toe aan je tellraw command.",
         "delete-all-saves": "Wis je saves, maar laat je huidige command in de editor",
         "create-new-save": "Sla je command op, dit zal wel het gelijknamige command overschrijven, als je dat kiest.",
         "delete-all-snippets": "Verwijder je command volledig maar hou je saves intact.",
-        "show-saves": "Show your saves editor, allows saving, loading, and deletion of saves."
+        "show-saves": "Show je saves editor, enables saving, laden en verwijdering van saves."
     },
     "template": {
         "sign_block": "Bordje (\/blockdata)",
@@ -190,5 +190,5 @@
         "heading": "Je ge\u00ebxporteerde Commando",
         "close": "Sluiten"
     },
-    "attribution": "While nothing is required to use this, it would always be appreciated if you linked to this webpage or the MCF thread."
+    "attribution": "Ook al is het niet verplicht. Het is altijd fijn als je deze pagina linkt aan de thread op de MCF website."
 }
