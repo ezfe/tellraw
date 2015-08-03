@@ -1047,11 +1047,11 @@ function refreshOutput(input) {
 	if (extraTextFormat == 'NEW_ITERATE_FLAG') {
 		if (templates[localStorage.getItem('jtemplate')].formatType != 'bookarray' && templates[localStorage.getItem('jtemplate')].formatType != 'signset') {
 			var swalObject = {
-				title: "You must be using the book or sign templates",
-				text: "Do you want to change your template?",
+				title: getLanguageString('textsnippets.NEW_ITERATE_FLAG.incorrect_template.primary.header',localStorage.getItem('langCode')),
+				text: getLanguageString('textsnippets.NEW_ITERATE_FLAG.incorrect_template.primary.description',localStorage.getItem('langCode')),
 				showCancelButton: true,
-				confirmButtonText: "Yes",
-				cancelButtonText: "No",
+				confirmButtonText: getLanguageString('textsnippets.NEW_ITERATE_FLAG.incorrect_template.primary.yes',localStorage.getItem('langCode')),
+				cancelButtonText: getLanguageString('textsnippets.NEW_ITERATE_FLAG.incorrect_template.primary.no',localStorage.getItem('langCode')),
 				closeOnConfirm: false,
 				closeOnCancel: true
 			};
@@ -1071,17 +1071,17 @@ function refreshOutput(input) {
 
 				refreshOutput();
 
-				swal("Done!", "Your template has been changed to " + getLanguageString('template.' + template,localStorage.getItem('langCode')), "success");
+				swal(getLanguageString('textsnippets.NEW_ITERATE_FLAG.incorrect_template.tertiary.header',localStorage.getItem('langCode')), getLanguageString('textsnippets.NEW_ITERATE_FLAG.incorrect_template.tertiary.description',localStorage.getItem('langCode')).replace('%c', getLanguageString('template.' + template,localStorage.getItem('langCode'))), "success");
 			}
 			swal(swalObject, function(isConfirm){
 				if (isConfirm) {
 					swal({
-						title: "Book or Sign?",
-						text: "Do you want to make a book or a sign? (You can change this later)",
+						title: getLanguageString('textsnippets.NEW_ITERATE_FLAG.incorrect_template.secondary.header',localStorage.getItem('langCode')),
+						text: getLanguageString('textsnippets.NEW_ITERATE_FLAG.incorrect_template.secondary.description',localStorage.getItem('langCode')),
 						type: "info",
 						showCancelButton: true,
-						confirmButtonText: "Book",
-						cancelButtonText: "Sign",
+						confirmButtonText: getLanguageString('textsnippets.NEW_ITERATE_FLAG.incorrect_template.secondary.book',localStorage.getItem('langCode')),
+						cancelButtonText: getLanguageString('textsnippets.NEW_ITERATE_FLAG.incorrect_template.secondary.sign',localStorage.getItem('langCode')),
 						closeOnConfirm: false,
 						closeOnCancel: false
 					}, swalCallback);
@@ -1634,7 +1634,7 @@ for (var i = 0; i < Object.keys(lang).length; i++) {
 			try {
 				inpt = JSON.parse(oinpt);
 			} catch(err) {
-				logIssue('Import failed','Provided input: ' + oinpt,true)
+				logIssue(getLanguageString('settings.importtext.exported.failed.header',localStorage.getItem('langCode'),false,false),getLanguageString('settings.importtext.exported.failed.description',localStorage.getItem('langCode'),false,false) + ': ' + oinpt,true)
 			}
 			jobject = inpt['jobject'];
 			if (inpt['jtemplate']) {

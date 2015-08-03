@@ -33,12 +33,32 @@
             "showtext": "Poka\u017c tekst",
             "name": "Nazwa"
         },
+        "NEW_ITERATE_FLAG": {
+            "incorrect_template": {
+                "primary": {
+                    "header": "You must be using the book or sign templates",
+                    "description": "Do you want to change your template?",
+                    "yes": "Yes",
+                    "no": "No"
+                },
+                "secondary": {
+                    "header": "Book or Sign?",
+                    "description": "Do you want to make a book or a sign? (You can change this later)",
+                    "book": "Book",
+                    "sign": "Sign"
+                },
+                "tertiary": {
+                    "header": "Done!",
+                    "description": "Your template has been changed to %c"
+                }
+            },
+            "": "Strona ksi\u0105\u017cki \/ Linia Tabliczki"
+        },
         "trn": "Przet\u0142umaczone",
         "parameter": "Parametr",
         "editsnippet": "Edytuj tekst",
         "close": "Zamknij",
         "notext": "Brak tekstu",
-        "NEW_ITERATE_FLAG": "Strona ksi\u0105\u017cki \/ Linia Tabliczki",
         "insert": "Wstaw",
         "addsnippet": "Dodaj tekst",
         "insertion": {
@@ -66,12 +86,45 @@
     "headerbar": {
         "dropdown": {
             "translate_page_link": "T\u0142umaczenie strony",
+            "hover": "Beta Version Available!",
+            "beta_link": "Beta Version",
             "tweet": "Tweet",
             "forum_thread": "Forum",
             "changelog": "Lista Zmian"
         },
         "help": "Pomoc",
         "report_an_issue": "Zg\u0142o\u015b problem"
+    },
+    "header_rev2": "Tellraw Generator for Minecraft ",
+    "settings": {
+        "importtext": {
+            "exported": {
+                "header": "Import",
+                "failed": {
+                    "header": "Import failed",
+                    "description": "Provided input"
+                },
+                "": "Prosz\u0119 wpisz ci\u0105g, kt\u00f3ry otrzyma\u0142e\u015b eksportuj\u0105c twoj\u0105 kom\u0119de"
+            }
+        },
+        "nlOutput": "Poka\u017c efekt ko\u0144cowy",
+        "darkmode": {
+            "turn_on": "Ciemny motyw",
+            "turn_off": "Jasny motyw"
+        },
+        "show": "Otw\u00f3rz ustawienia",
+        "hide": "Zamknij ustawienia",
+        "fontSize": "Podgl\u0105d rozmiaru czcionki",
+        "previewcolor": "Podgl\u0105d koloru t\u0142a:",
+        "export": "Eksport",
+        "deleteall": {
+            "body": "Naciskaj\u0105c Usu\u0144 usuwasz ca\u0142y tw\u00f3j tekst i resetujesz do pustej linii.",
+            "heading": "Jeste\u015b tego pewny?",
+            "yes": "Usu\u0144 wszystko",
+            "no": "Anuluj"
+        },
+        "import": "Zaimportuj",
+        "header": "Ustawienia:"
     },
     "donate": {
         "patreon-button": "Patreon",
@@ -126,29 +179,6 @@
         "nosaves": "Nic jeszcze nie zapisa\u0142e\u015b",
         "new": "Zapisz aktualn\u0105 linijk\u0119"
     },
-    "settings": {
-        "nlOutput": "Poka\u017c efekt ko\u0144cowy",
-        "darkmode": {
-            "turn_on": "Ciemny motyw",
-            "turn_off": "Jasny motyw"
-        },
-        "show": "Otw\u00f3rz ustawienia",
-        "hide": "Zamknij ustawienia",
-        "fontSize": "Podgl\u0105d rozmiaru czcionki",
-        "previewcolor": "Podgl\u0105d koloru t\u0142a:",
-        "export": "Eksport",
-        "deleteall": {
-            "body": "Naciskaj\u0105c Usu\u0144 usuwasz ca\u0142y tw\u00f3j tekst i resetujesz do pustej linii.",
-            "heading": "Jeste\u015b tego pewny?",
-            "yes": "Usu\u0144 wszystko",
-            "no": "Anuluj"
-        },
-        "importtext": {
-            "exported": "Prosz\u0119 wpisz ci\u0105g, kt\u00f3ry otrzyma\u0142e\u015b eksportuj\u0105c twoj\u0105 kom\u0119de"
-        },
-        "import": "Zaimportuj",
-        "header": "Ustawienia:"
-    },
     "color": {
         "color_green": "Zielony",
         "color_red": "Czerwony",
@@ -168,12 +198,10 @@
         "color_light_purple": "Jasny fioletowy",
         "color_yellow": "Z\u00f3\u0142ty"
     },
-    "header": "Generator Tellraw dla Minecraft 1.7+",
     "language": {
         "translate": "Przet\u0142umacz",
         "name": "Angielski",
-        "header": "J\u0119zyk",
-        "credit": "Translated by Ezekiel"
+        "header": "J\u0119zyk"
     },
     "player": {
         "header": "Gracz i komenda",

@@ -33,12 +33,32 @@
             "showtext": "Laat tekst zien",
             "name": "Naam"
         },
+        "NEW_ITERATE_FLAG": {
+            "incorrect_template": {
+                "primary": {
+                    "header": "You must be using the book or sign templates",
+                    "description": "Do you want to change your template?",
+                    "yes": "Yes",
+                    "no": "No"
+                },
+                "secondary": {
+                    "header": "Book or Sign?",
+                    "description": "Do you want to make a book or a sign? (You can change this later)",
+                    "book": "Book",
+                    "sign": "Sign"
+                },
+                "tertiary": {
+                    "header": "Done!",
+                    "description": "Your template has been changed to %c"
+                }
+            },
+            "": "Pagina boek \/ Regel bord"
+        },
         "trn": "Vertaald",
         "parameter": "Parameter",
         "editsnippet": "Bewerk tekst",
         "close": "Sluit",
         "notext": "Geen tekst",
-        "NEW_ITERATE_FLAG": "Pagina boek \/ Regel bord",
         "insert": "Invoegen",
         "addsnippet": "Voeg tekst toe",
         "insertion": {
@@ -66,12 +86,45 @@
     "headerbar": {
         "dropdown": {
             "translate_page_link": "Vertaal Site",
+            "hover": "Beta Version Available!",
+            "beta_link": "Beta Version",
             "tweet": "Tweet",
             "forum_thread": "Forum Link",
             "changelog": "Changelog"
         },
         "help": "Help",
         "report_an_issue": "Meld een probleem"
+    },
+    "header_rev2": "Tellraw Generator for Minecraft ",
+    "settings": {
+        "importtext": {
+            "exported": {
+                "header": "Import",
+                "failed": {
+                    "header": "Import failed",
+                    "description": "Provided input"
+                },
+                "": "Voer alstublieft de tekst in die je gegeven is bij het ge\u00ebxporteerde command."
+            }
+        },
+        "nlOutput": "Toon gestructureerde output",
+        "darkmode": {
+            "turn_on": "Donker Thema",
+            "turn_off": "Licht Thema"
+        },
+        "show": "Open Instellingen",
+        "hide": "Sluit Instellingen",
+        "fontSize": "Laat Lettergrootte Zien",
+        "previewcolor": "Voorbeeld achtergrondkleur:",
+        "export": "Export",
+        "deleteall": {
+            "body": "Als je op 'Delete' klikt, verwijdert het al je huidige instellingen.",
+            "heading": "Weet je het zeker!?!",
+            "yes": "Verwijder alles",
+            "no": "Anuleer"
+        },
+        "import": "Importeer",
+        "header": "Instellingen:"
     },
     "donate": {
         "patreon-button": "Patreon",
@@ -126,29 +179,6 @@
         "nosaves": "Je hebt niks opgeslagen",
         "new": "Sla dit command op"
     },
-    "settings": {
-        "nlOutput": "Toon gestructureerde output",
-        "darkmode": {
-            "turn_on": "Donker Thema",
-            "turn_off": "Licht Thema"
-        },
-        "show": "Open Instellingen",
-        "hide": "Sluit Instellingen",
-        "fontSize": "Laat Lettergrootte Zien",
-        "previewcolor": "Voorbeeld achtergrondkleur:",
-        "export": "Export",
-        "deleteall": {
-            "body": "Als je op 'Delete' klikt, verwijdert het al je huidige instellingen.",
-            "heading": "Weet je het zeker!?!",
-            "yes": "Verwijder alles",
-            "no": "Anuleer"
-        },
-        "importtext": {
-            "exported": "Voer alstublieft de tekst in die je gegeven is bij het ge\u00ebxporteerde command."
-        },
-        "import": "Importeer",
-        "header": "Instellingen:"
-    },
     "color": {
         "color_green": "Groen",
         "color_red": "Rood",
@@ -168,12 +198,10 @@
         "color_light_purple": "Licht paars",
         "color_yellow": "Geel"
     },
-    "header": "Tellraw Generator voor Minecraft 1.7+",
     "language": {
         "translate": "Vertalen",
         "name": "Nederlands",
-        "header": "Taal",
-        "credit": "Vertaald door rhbvkleef"
+        "header": "Taal"
     },
     "player": {
         "header": "Speler en commando",

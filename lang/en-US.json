@@ -33,12 +33,32 @@
             "showtext": "Show Text",
             "name": "Name"
         },
+        "NEW_ITERATE_FLAG": {
+            "incorrect_template": {
+                "primary": {
+                    "header": "You must be using the book or sign templates",
+                    "description": "Do you want to change your template?",
+                    "yes": "Yes",
+                    "no": "No"
+                },
+                "secondary": {
+                    "header": "Book or Sign?",
+                    "description": "Do you want to make a book or a sign? (You can change this later)",
+                    "book": "Book",
+                    "sign": "Sign"
+                },
+                "tertiary": {
+                    "header": "Done!",
+                    "description": "Your template has been changed to %c"
+                }
+            },
+            "": "Book Page \/ Sign Line"
+        },
         "trn": "Translated",
         "parameter": "Parameter",
         "editsnippet": "Edit Text",
         "close": "Close",
         "notext": "No Text",
-        "NEW_ITERATE_FLAG": "Book Page \/ Sign Line",
         "insert": "Insert",
         "addsnippet": "Add Text",
         "insertion": {
@@ -66,12 +86,45 @@
     "headerbar": {
         "dropdown": {
             "translate_page_link": "Translation Site",
+            "hover": "Beta Version Available!",
+            "beta_link": "Beta Version",
             "tweet": "Tweet",
             "forum_thread": "Forum Thread",
             "changelog": "Changelog"
         },
         "help": "Help",
         "report_an_issue": "Report an Issue"
+    },
+    "header_rev2": "Tellraw Generator for Minecraft ",
+    "settings": {
+        "importtext": {
+            "exported": {
+                "header": "Import",
+                "failed": {
+                    "header": "Import failed",
+                    "description": "Provided input"
+                },
+                "": "Please enter the string you were given when you exported your command"
+            }
+        },
+        "nlOutput": "Show Structured Output",
+        "darkmode": {
+            "turn_on": "Dark Theme",
+            "turn_off": "Light Theme"
+        },
+        "show": "Open Settings",
+        "hide": "Close Settings",
+        "fontSize": "Preview Font Size",
+        "previewcolor": "Preview Background Color:",
+        "export": "Export",
+        "deleteall": {
+            "body": "Clicking Delete will remove all your text and reset it to an empty string.",
+            "heading": "Are you sure!?!",
+            "yes": "Delete All",
+            "no": "Cancel"
+        },
+        "import": "Import",
+        "header": "Settings:"
     },
     "donate": {
         "patreon-button": "Patreon",
@@ -126,29 +179,6 @@
         "nosaves": "You don't have anything saved",
         "new": "Save Current String"
     },
-    "settings": {
-        "nlOutput": "Show Structured Output",
-        "darkmode": {
-            "turn_on": "Dark Theme",
-            "turn_off": "Light Theme"
-        },
-        "show": "Open Settings",
-        "hide": "Close Settings",
-        "fontSize": "Preview Font Size",
-        "previewcolor": "Preview Background Color:",
-        "export": "Export",
-        "deleteall": {
-            "body": "Clicking Delete will remove all your text and reset it to an empty string.",
-            "heading": "Are you sure!?!",
-            "yes": "Delete All",
-            "no": "Cancel"
-        },
-        "importtext": {
-            "exported": "Please enter the string you were given when you exported your command"
-        },
-        "import": "Import",
-        "header": "Settings:"
-    },
     "color": {
         "color_green": "Green",
         "color_red": "Red",
@@ -168,12 +198,10 @@
         "color_light_purple": "Light Purple",
         "color_yellow": "Yellow"
     },
-    "header": "Tellraw Generator for Minecraft 1.7+",
     "language": {
         "translate": "Translate",
         "name": "English",
-        "header": "Language",
-        "credit": "Translated by Ezekiel"
+        "header": "Language"
     },
     "player": {
         "header": "Player and Command",

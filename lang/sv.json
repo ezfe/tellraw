@@ -33,12 +33,32 @@
             "showtext": "Visa text",
             "name": "Namn"
         },
+        "NEW_ITERATE_FLAG": {
+            "incorrect_template": {
+                "primary": {
+                    "header": "You must be using the book or sign templates",
+                    "description": "Do you want to change your template?",
+                    "yes": "Yes",
+                    "no": "No"
+                },
+                "secondary": {
+                    "header": "Book or Sign?",
+                    "description": "Do you want to make a book or a sign? (You can change this later)",
+                    "book": "Book",
+                    "sign": "Sign"
+                },
+                "tertiary": {
+                    "header": "Done!",
+                    "description": "Your template has been changed to %c"
+                }
+            },
+            "": "Boksida \/ Skyltlinje"
+        },
         "trn": "\u00d6versatt",
         "parameter": "Parameter",
         "editsnippet": "Redigera text",
         "close": "St\u00e4ng",
         "notext": "Ingen text",
-        "NEW_ITERATE_FLAG": "Boksida \/ Skyltlinje",
         "insert": "Infoga",
         "addsnippet": "L\u00e4gg till text",
         "insertion": {
@@ -66,12 +86,45 @@
     "headerbar": {
         "dropdown": {
             "translate_page_link": "\u00d6vers\u00e4ttningssida",
+            "hover": "Beta Version Available!",
+            "beta_link": "Beta Version",
             "tweet": "Tweeta",
             "forum_thread": "Forumtr\u00e5d",
             "changelog": "\u00c4ndringslogg"
         },
         "help": "Hj\u00e4lp",
         "report_an_issue": "Rapportera ett problem"
+    },
+    "header_rev2": "Tellraw Generator for Minecraft ",
+    "settings": {
+        "importtext": {
+            "exported": {
+                "header": "Import",
+                "failed": {
+                    "header": "Import failed",
+                    "description": "Provided input"
+                },
+                "": "Var v\u00e4nlig ange texten du fick n\u00e4r du exporterat ditt kommando"
+            }
+        },
+        "nlOutput": "Visa strukturerat resultat",
+        "darkmode": {
+            "turn_on": "M\u00f6rkt tema",
+            "turn_off": "Ljust tema"
+        },
+        "show": "\u00d6ppna inst\u00e4llningar",
+        "hide": "St\u00e4ng inst\u00e4llningar",
+        "fontSize": "F\u00f6rhansvisa typsnittsstorlek",
+        "previewcolor": "F\u00f6rhandsvisa bakgrundsf\u00e4rg:",
+        "export": "Exportera",
+        "deleteall": {
+            "body": "Att klicka Radera kommer att ta bort all din text och \u00e5terst\u00e4lla det till en tom.",
+            "heading": "\u00c4r du s\u00e4ker!?!",
+            "yes": "Radera allt",
+            "no": "Avbryt"
+        },
+        "import": "Importera",
+        "header": "Inst\u00e4llningar:"
     },
     "donate": {
         "patreon-button": "Patreon",
@@ -126,29 +179,6 @@
         "nosaves": "Du har inte n\u00e5got sparat",
         "new": "Spara nuvarande text."
     },
-    "settings": {
-        "nlOutput": "Visa strukturerat resultat",
-        "darkmode": {
-            "turn_on": "M\u00f6rkt tema",
-            "turn_off": "Ljust tema"
-        },
-        "show": "\u00d6ppna inst\u00e4llningar",
-        "hide": "St\u00e4ng inst\u00e4llningar",
-        "fontSize": "F\u00f6rhansvisa typsnittsstorlek",
-        "previewcolor": "F\u00f6rhandsvisa bakgrundsf\u00e4rg:",
-        "export": "Exportera",
-        "deleteall": {
-            "body": "Att klicka Radera kommer att ta bort all din text och \u00e5terst\u00e4lla det till en tom.",
-            "heading": "\u00c4r du s\u00e4ker!?!",
-            "yes": "Radera allt",
-            "no": "Avbryt"
-        },
-        "importtext": {
-            "exported": "Var v\u00e4nlig ange texten du fick n\u00e4r du exporterat ditt kommando"
-        },
-        "import": "Importera",
-        "header": "Inst\u00e4llningar:"
-    },
     "color": {
         "color_green": "Gr\u00f6n",
         "color_red": "R\u00f6d",
@@ -168,12 +198,10 @@
         "color_light_purple": "Ljuslila",
         "color_yellow": "Gul"
     },
-    "header": "Tellrawgenerator f\u00f6r Minecraft 1.7+",
     "language": {
         "translate": "\u00d6vers\u00e4tt",
         "name": "Svenska",
-        "header": "Spr\u00e5k",
-        "credit": "\u00d6versatt av metarmask, NeonMaster"
+        "header": "Spr\u00e5k"
     },
     "player": {
         "header": "Spelare och kommando",

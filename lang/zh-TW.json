@@ -33,12 +33,32 @@
             "showtext": "\u986f\u793a\u6587\u5b57",
             "name": "\u540d\u7a31"
         },
+        "NEW_ITERATE_FLAG": {
+            "incorrect_template": {
+                "primary": {
+                    "header": "You must be using the book or sign templates",
+                    "description": "Do you want to change your template?",
+                    "yes": "Yes",
+                    "no": "No"
+                },
+                "secondary": {
+                    "header": "Book or Sign?",
+                    "description": "Do you want to make a book or a sign? (You can change this later)",
+                    "book": "Book",
+                    "sign": "Sign"
+                },
+                "tertiary": {
+                    "header": "Done!",
+                    "description": "Your template has been changed to %c"
+                }
+            },
+            "": "\u65b0\u589e\u66f8\u672c\u9801\u6578\/\u544a\u793a\u724c\u63db\u884c"
+        },
         "trn": "\u7ffb\u8b6f",
         "parameter": "\u53c3\u6578",
         "editsnippet": "\u7de8\u8f2f\u6587\u5b57",
         "close": "\u95dc\u9589",
         "notext": "\u5c1a\u672a\u6709\u6587\u5b57",
-        "NEW_ITERATE_FLAG": "\u65b0\u589e\u66f8\u672c\u9801\u6578\/\u544a\u793a\u724c\u63db\u884c",
         "insert": "\u63d2\u5165",
         "addsnippet": "\u52a0\u5165\u6587\u5b57",
         "insertion": {
@@ -66,12 +86,45 @@
     "headerbar": {
         "dropdown": {
             "translate_page_link": "\u7ffb\u8b6f\u7db2\u7ad9",
+            "hover": "Beta Version Available!",
+            "beta_link": "Beta Version",
             "tweet": "\u5206\u4eab-Twitter",
             "forum_thread": "\u8ad6\u58c7\u6587\u7ae0",
             "changelog": "\u66f4\u65b0\u65e5\u8a8c"
         },
         "help": "\u5e6b\u52a9",
         "report_an_issue": "\u56de\u5831\u554f\u984c"
+    },
+    "header_rev2": "Tellraw Generator for Minecraft ",
+    "settings": {
+        "importtext": {
+            "exported": {
+                "header": "Import",
+                "failed": {
+                    "header": "Import failed",
+                    "description": "Provided input"
+                },
+                "": "\u8acb\u8f38\u5165\u900f\u904e\u8f38\u51fa\u7684\u6307\u4ee4\u5167\u5bb9"
+            }
+        },
+        "nlOutput": "\u986f\u793a\u683c\u5f0f\u5316\u8f38\u51fa",
+        "darkmode": {
+            "turn_on": "\u591c\u665a\u4e3b\u984c",
+            "turn_off": "\u660e\u4eae\u4e3b\u984c"
+        },
+        "show": "\u958b\u555f\u8a2d\u5b9a",
+        "hide": "\u95dc\u9589\u8a2d\u5b9a",
+        "fontSize": "\u9810\u89bd\u5b57\u9ad4\u5927\u5c0f",
+        "previewcolor": "\u9810\u89bd\u8f38\u51fa\u80cc\u666f\u984f\u8272",
+        "export": "\u532f\u51fa",
+        "deleteall": {
+            "body": "\u522a\u9664\u6240\u6709\u7684\u6587\u5b57\u55ce\uff1f",
+            "heading": "\u78ba\u5b9a\u8981\u9019\u9ebc\u505a\u55ce\uff1f",
+            "yes": "\u522a\u9664\u5168\u90e8",
+            "no": "\u53d6\u6d88"
+        },
+        "import": "\u532f\u5165",
+        "header": "\u8a2d\u5b9a\uff1a"
     },
     "donate": {
         "patreon-button": "\u9867\u5ba2",
@@ -126,29 +179,6 @@
         "nosaves": "\u60a8\u6c92\u6709\u4efb\u4f55\u7684\u5b58\u6a94\u7d00\u9304",
         "new": "\u5132\u5b58\u76ee\u524d\u5b57\u4e32"
     },
-    "settings": {
-        "nlOutput": "\u986f\u793a\u683c\u5f0f\u5316\u8f38\u51fa",
-        "darkmode": {
-            "turn_on": "\u591c\u665a\u4e3b\u984c",
-            "turn_off": "\u660e\u4eae\u4e3b\u984c"
-        },
-        "show": "\u958b\u555f\u8a2d\u5b9a",
-        "hide": "\u95dc\u9589\u8a2d\u5b9a",
-        "fontSize": "\u9810\u89bd\u5b57\u9ad4\u5927\u5c0f",
-        "previewcolor": "\u9810\u89bd\u8f38\u51fa\u80cc\u666f\u984f\u8272",
-        "export": "\u532f\u51fa",
-        "deleteall": {
-            "body": "\u522a\u9664\u6240\u6709\u7684\u6587\u5b57\u55ce\uff1f",
-            "heading": "\u78ba\u5b9a\u8981\u9019\u9ebc\u505a\u55ce\uff1f",
-            "yes": "\u522a\u9664\u5168\u90e8",
-            "no": "\u53d6\u6d88"
-        },
-        "importtext": {
-            "exported": "\u8acb\u8f38\u5165\u900f\u904e\u8f38\u51fa\u7684\u6307\u4ee4\u5167\u5bb9"
-        },
-        "import": "\u532f\u5165",
-        "header": "\u8a2d\u5b9a\uff1a"
-    },
     "color": {
         "color_green": "\u7da0\u8272",
         "color_red": "\u7d05\u8272",
@@ -168,12 +198,10 @@
         "color_light_purple": "\u4eae\u7d2b\u8272",
         "color_yellow": "\u9ec3\u8272"
     },
-    "header": "Tellraw \u6307\u4ee4\u7522\u751f\u5668",
     "language": {
         "translate": "\u7ffb\u8b6f",
         "name": "\u7e41\u9ad4\u4e2d\u6587",
-        "header": "\u8a9e\u8a00",
-        "credit": "\u7ffb\u8b6f by \u6d77\u8c79(seadog007) \u548c \u67ef\u67ef(TaiwaneseFTW)"
+        "header": "\u8a9e\u8a00"
     },
     "player": {
         "header": "\u73a9\u5bb6\uff1a",

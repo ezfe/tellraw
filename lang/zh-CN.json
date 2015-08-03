@@ -33,12 +33,32 @@
             "showtext": "\u663e\u793a\u6587\u5b57",
             "name": "\u540d\u79f0"
         },
+        "NEW_ITERATE_FLAG": {
+            "incorrect_template": {
+                "primary": {
+                    "header": "You must be using the book or sign templates",
+                    "description": "Do you want to change your template?",
+                    "yes": "Yes",
+                    "no": "No"
+                },
+                "secondary": {
+                    "header": "Book or Sign?",
+                    "description": "Do you want to make a book or a sign? (You can change this later)",
+                    "book": "Book",
+                    "sign": "Sign"
+                },
+                "tertiary": {
+                    "header": "Done!",
+                    "description": "Your template has been changed to %c"
+                }
+            },
+            "": "\u6210\u4e66\u9875\u7801\/\u544a\u793a\u724c\u884c\u6570"
+        },
         "trn": "\u5df2\u7ffb\u8bd1\u6587\u672c",
         "parameter": "\u53c2\u6570",
         "editsnippet": "\u7f16\u8f91\u6587\u672c",
         "close": "\u5173\u95ed",
         "notext": "\u65e0\u5185\u5bb9",
-        "NEW_ITERATE_FLAG": "\u6210\u4e66\u9875\u7801\/\u544a\u793a\u724c\u884c\u6570",
         "insert": "\u63d2\u5165",
         "addsnippet": "\u65b0\u589e\u6587\u672c",
         "insertion": {
@@ -66,12 +86,45 @@
     "headerbar": {
         "dropdown": {
             "translate_page_link": "\u7ffb\u8bd1\u672c\u7ad9",
+            "hover": "Beta Version Available!",
+            "beta_link": "Beta Version",
             "tweet": "\u5206\u4eab\u5230\u63a8\u7279\uff08\u4e2d\u56fd\u5730\u533a\u4e0d\u53ef\u7528\uff09",
             "forum_thread": "\u8bba\u575b\u539f\u5e16",
             "changelog": "\u66f4\u65b0\u65e5\u5fd7"
         },
         "help": "\u5e2e\u52a9",
         "report_an_issue": "\u62a5\u544a\u95ee\u9898"
+    },
+    "header_rev2": "Tellraw Generator for Minecraft ",
+    "settings": {
+        "importtext": {
+            "exported": {
+                "header": "Import",
+                "failed": {
+                    "header": "Import failed",
+                    "description": "Provided input"
+                },
+                "": "\u8bf7\u8f93\u5165\u901a\u8fc7\u5bfc\u51fa\u529f\u80fd\u5bfc\u51fa\u7684\u547d\u4ee4\u5185\u5bb9"
+            }
+        },
+        "nlOutput": "\u663e\u793a\u683c\u5f0f\u5316\u8f93\u51fa",
+        "darkmode": {
+            "turn_on": "\u6697\u8272\u4e3b\u9898",
+            "turn_off": "\u4eae\u8272\u4e3b\u9898"
+        },
+        "show": "\u663e\u793a\u8bbe\u7f6e",
+        "hide": "\u9690\u85cf\u8bbe\u7f6e",
+        "fontSize": "\u9884\u89c8\u5b57\u4f53\u5927\u5c0f",
+        "previewcolor": "\u9884\u89c8\u80cc\u666f\u989c\u8272:",
+        "export": "\u5bfc\u51fa",
+        "deleteall": {
+            "body": "\u70b9\u51fb\u5220\u9664\u540e\u5c06\u4f1a\u6e05\u9664\u6240\u6709\u6587\u672c\u5e76\u6062\u590d\u5230\u539f\u5148\u72b6\u6001",
+            "heading": "\u8bf7\u4f60\u786e\u5b9a\uff01\uff1f\uff01",
+            "yes": "\u5220\u9664\u6240\u6709\u6587\u672c",
+            "no": "\u53d6\u6d88"
+        },
+        "import": "\u5bfc\u5165",
+        "header": "\u8bbe\u7f6e:"
     },
     "donate": {
         "patreon-button": "Patreon",
@@ -126,29 +179,6 @@
         "nosaves": "\u4f60\u6ca1\u6709\u50a8\u5b58\u4efb\u4f55\u5b58\u6863",
         "new": "\u50a8\u5b58\u6b64\u6587\u672c"
     },
-    "settings": {
-        "nlOutput": "\u663e\u793a\u683c\u5f0f\u5316\u8f93\u51fa",
-        "darkmode": {
-            "turn_on": "\u6697\u8272\u4e3b\u9898",
-            "turn_off": "\u4eae\u8272\u4e3b\u9898"
-        },
-        "show": "\u663e\u793a\u8bbe\u7f6e",
-        "hide": "\u9690\u85cf\u8bbe\u7f6e",
-        "fontSize": "\u9884\u89c8\u5b57\u4f53\u5927\u5c0f",
-        "previewcolor": "\u9884\u89c8\u80cc\u666f\u989c\u8272:",
-        "export": "\u5bfc\u51fa",
-        "deleteall": {
-            "body": "\u70b9\u51fb\u5220\u9664\u540e\u5c06\u4f1a\u6e05\u9664\u6240\u6709\u6587\u672c\u5e76\u6062\u590d\u5230\u539f\u5148\u72b6\u6001",
-            "heading": "\u8bf7\u4f60\u786e\u5b9a\uff01\uff1f\uff01",
-            "yes": "\u5220\u9664\u6240\u6709\u6587\u672c",
-            "no": "\u53d6\u6d88"
-        },
-        "importtext": {
-            "exported": "\u8bf7\u8f93\u5165\u901a\u8fc7\u5bfc\u51fa\u529f\u80fd\u5bfc\u51fa\u7684\u547d\u4ee4\u5185\u5bb9"
-        },
-        "import": "\u5bfc\u5165",
-        "header": "\u8bbe\u7f6e:"
-    },
     "color": {
         "color_green": "\u9c9c\u7eff\u8272",
         "color_red": "\u7ea2\u8272",
@@ -168,12 +198,10 @@
         "color_light_purple": "\u7c89\u8272",
         "color_yellow": "\u9ec4\u8272"
     },
-    "header": "\u7528\u4e8eMinecraft 1.7+\u7684Tellraw\u6307\u4ee4\u751f\u6210\u5668",
     "language": {
         "translate": "\u7ffb\u8bd1",
         "name": "\u7b80\u4f53\u4e2d\u6587",
-        "header": "\u8bed\u8a00",
-        "credit": "\u7531DoraJDJ\u63d0\u4f9b\u7b80\u4f53\u4e2d\u6587\u7ffb\u8bd1"
+        "header": "\u8bed\u8a00"
     },
     "player": {
         "header": "\u73a9\u5bb6\u548c\u6307\u4ee4",

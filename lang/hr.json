@@ -33,12 +33,32 @@
             "showtext": "Prika\u017ei Tekst",
             "name": "Ime"
         },
+        "NEW_ITERATE_FLAG": {
+            "incorrect_template": {
+                "primary": {
+                    "header": "You must be using the book or sign templates",
+                    "description": "Do you want to change your template?",
+                    "yes": "Yes",
+                    "no": "No"
+                },
+                "secondary": {
+                    "header": "Book or Sign?",
+                    "description": "Do you want to make a book or a sign? (You can change this later)",
+                    "book": "Book",
+                    "sign": "Sign"
+                },
+                "tertiary": {
+                    "header": "Done!",
+                    "description": "Your template has been changed to %c"
+                }
+            },
+            "": "Book Page \/ Sign Line"
+        },
         "trn": "Prevedeni",
         "parameter": "Parametar",
         "editsnippet": "Uredi Tekst",
         "close": "Zatvori",
         "notext": "Nema Teksta",
-        "NEW_ITERATE_FLAG": "Book Page \/ Sign Line",
         "insert": "Umetni",
         "addsnippet": "Dodaj Tekst",
         "insertion": {
@@ -66,12 +86,45 @@
     "headerbar": {
         "dropdown": {
             "translate_page_link": "Translation Site",
+            "hover": "Beta Version Available!",
+            "beta_link": "Beta Version",
             "tweet": "Tweet",
             "forum_thread": "Forum Thread",
             "changelog": "Changelog"
         },
         "help": "Help",
         "report_an_issue": "Report an Issue"
+    },
+    "header_rev2": "Tellraw Generator for Minecraft ",
+    "settings": {
+        "importtext": {
+            "exported": {
+                "header": "Import",
+                "failed": {
+                    "header": "Import failed",
+                    "description": "Provided input"
+                },
+                "": "Please enter the string you were given when you exported your command"
+            }
+        },
+        "nlOutput": "Show Structured Output",
+        "darkmode": {
+            "turn_on": "Dark Theme",
+            "turn_off": "Light Theme"
+        },
+        "show": "Open Settings",
+        "hide": "Close Settings",
+        "fontSize": "Preview Font Size",
+        "previewcolor": "Pregled boja teksta:",
+        "export": "Export",
+        "deleteall": {
+            "body": "Klikom na Izbri\u0161i Sve cete izbrisati cijeli tekst i restartati cete sve.",
+            "heading": "Jeste li sigurni!?!",
+            "yes": "Izbri\u0161i Sve",
+            "no": "Poni\u0161ti"
+        },
+        "import": "Umetni",
+        "header": "Postavke:"
     },
     "donate": {
         "patreon-button": "Patreon",
@@ -126,29 +179,6 @@
         "nosaves": "You don't have anything saved",
         "new": "Save Current String"
     },
-    "settings": {
-        "nlOutput": "Show Structured Output",
-        "darkmode": {
-            "turn_on": "Dark Theme",
-            "turn_off": "Light Theme"
-        },
-        "show": "Open Settings",
-        "hide": "Close Settings",
-        "fontSize": "Preview Font Size",
-        "previewcolor": "Pregled boja teksta:",
-        "export": "Export",
-        "deleteall": {
-            "body": "Klikom na Izbri\u0161i Sve cete izbrisati cijeli tekst i restartati cete sve.",
-            "heading": "Jeste li sigurni!?!",
-            "yes": "Izbri\u0161i Sve",
-            "no": "Poni\u0161ti"
-        },
-        "importtext": {
-            "exported": "Please enter the string you were given when you exported your command"
-        },
-        "import": "Umetni",
-        "header": "Postavke:"
-    },
     "color": {
         "color_green": "Zelena",
         "color_red": "Crvena",
@@ -168,12 +198,10 @@
         "color_light_purple": "Svijetlo Ljubicasta",
         "color_yellow": "\u017duta"
     },
-    "header": "Tellraw Generator za Minecraft 1.7+",
     "language": {
         "translate": "Prijevod",
         "name": "Hrvatski",
-        "header": "Jezik",
-        "credit": "Preveo Braydongem"
+        "header": "Jezik"
     },
     "player": {
         "header": "Igrac:",

@@ -21,6 +21,7 @@ var errorString = '';
 }(jQuery));
 
 function getLanguageString(string,currentLanguageCode,enTest,do_encode) {
+	return string;
 	if (currentLanguageCode == undefined) {
 		return 'language_not_set'; /* DONT RETURN FALSE HERE YOULL HAVE A BAD DAY */
 	}
