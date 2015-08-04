@@ -947,9 +947,9 @@ function refreshOutput(input) {
 				}
 				if (jobject[i].NEW_ITERATE_FLAG) {
 					if (templates[localStorage.getItem('jtemplate')].formatType != 'bookarray' && templates[localStorage.getItem('jtemplate')].formatType != 'signset') {
-						var tempJSON = '<span style="color:gray;text-decoration:line-through;" lang="textsnippets.NEW_ITERATE_FLAG"></span>';
+						var tempJSON = '<span style="color:gray;text-decoration:line-through;" lang="textsnippets.NEW_ITERATE_FLAG.buttontext"></span>';
 					} else {
-						var tempJSON = '<span lang="textsnippets.NEW_ITERATE_FLAG"></span>';
+						var tempJSON = '<span lang="textsnippets.NEW_ITERATE_FLAG.buttontext"></span>';
 					}
 					var saveButton = '';
 				} else {
