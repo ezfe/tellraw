@@ -585,18 +585,28 @@ function editExtra(index) {
 
 	if (jobject[index].bold != undefined) {
 		$('#bold_text_extra_edit').prop('checked',true);
+	} else {
+		$('#bold_text_extra_edit').prop('checked',false);
 	}
 	if (jobject[index].italic != undefined) {
 		$('#italic_text_extra_edit').prop('checked',true);
+	} else {
+		$('#italic_text_extra_edit').prop('checked',false);
 	}
 	if (jobject[index].underlined != undefined) {
 		$('#underlined_text_extra_edit').prop('checked',true);
+	} else {
+		$('#underlined_text_extra_edit').prop('checked',false);
 	}
 	if (jobject[index].strikethrough != undefined) {
 		$('#strikethrough_text_extra_edit').prop('checked',true);
+	} else {
+		$('#strikethrough_text_extra_edit').prop('checked',false);
 	}
 	if (jobject[index].obfuscated != undefined) {
 		$('#obfuscated_text_extra_edit').prop('checked',true);
+	} else {
+		$('#obfuscated_text_extra_edit').prop('checked',false);
 	}
 
 	if (jobject[index].clickEvent != undefined) {
