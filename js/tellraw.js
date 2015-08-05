@@ -202,8 +202,8 @@ function strictifyItem(job,index) {
 		var key = Object.keys(prejoi)[i];
 		var doNotCheckKeys = ["text", "score", "selector", "color", "clickEvent", "hoverEvent", "insertion"]
 		if (doNotCheckKeys.indexOf(key) == -1) {
-			if (prejoi[key] === "true" && joi[key] === undefined) {
-				joi[key] = "false";
+			if (prejoi[key] === true && joi[key] === undefined) {
+				joi[key] = false;
 			}
 		} else {
 			if (key == "color") {
@@ -684,19 +684,19 @@ function saveExtraEdit() {
 	delete jobject[extraIndex].obfuscated;
 
 	if (getChecked("bold_text_extra_edit")) {
-		jobject[extraIndex].bold = "true";
+		jobject[extraIndex].bold = true;
 	}
 	if (getChecked("italic_text_extra_edit")) {
-		jobject[extraIndex].italic = "true";
+		jobject[extraIndex].italic = true;
 	}
 	if (getChecked("underlined_text_extra_edit")) {
-		jobject[extraIndex].underlined = "true";
+		jobject[extraIndex].underlined = true;
 	}
 	if (getChecked("strikethrough_text_extra_edit")) {
-		jobject[extraIndex].strikethrough = "true";
+		jobject[extraIndex].strikethrough = true;
 	}
 	if (getChecked("obfuscated_text_extra_edit")) {
-		jobject[extraIndex].obfuscated = "true";
+		jobject[extraIndex].obfuscated = true;
 	}
 
 	delete jobject[extraIndex].clickEvent;
@@ -826,19 +826,19 @@ function addExtra() {
 		}
 
 		if (getChecked("bold_text_extra")) {
-			jobject[extraIndex].bold = "true";
+			jobject[extraIndex].bold = true;
 		}
 		if (getChecked("italic_text_extra")) {
-			jobject[extraIndex].italic = "true";
+			jobject[extraIndex].italic = true;
 		}
 		if (getChecked("underlined_text_extra")) {
-			jobject[extraIndex].underlined = "true";
+			jobject[extraIndex].underlined = true;
 		}
 		if (getChecked("strikethrough_text_extra")) {
-			jobject[extraIndex].strikethrough = "true";
+			jobject[extraIndex].strikethrough = true;
 		}
 		if (getChecked("obfuscated_text_extra")) {
-			jobject[extraIndex].obfuscated = "true";
+			jobject[extraIndex].obfuscated = true;
 		}
 
 		if (clickEventType != "none") {
@@ -1333,16 +1333,16 @@ function jsonParse() {
 					$('#jsonPreviewSpanElement'+i).html('<span class="label label-danger">Unknown Element</span>');
 				}
 
-				if (jobject[i].bold == "true") {
+				if (jobject[i].bold == true) {
 					$('#jsonPreviewSpanElement'+i).addClass('bold');
 				}
-				if (jobject[i].italic == "true") {
+				if (jobject[i].italic == true) {
 					$('#jsonPreviewSpanElement'+i).addClass('italic');
 				}
-				if (jobject[i].underlined == "true") {
+				if (jobject[i].underlined == true) {
 					$('#jsonPreviewSpanElement'+i).addClass('underlined');
 				}
-				if (jobject[i].strikethrough == "true") {
+				if (jobject[i].strikethrough == true) {
 					if ($('#jsonPreviewSpanElement'+i).hasClass('underlined')) {
 						$('#jsonPreviewSpanElement'+i).removeClass('underlined');
 						$('#jsonPreviewSpanElement'+i).addClass('strikethroughunderlined');
@@ -1350,7 +1350,7 @@ function jsonParse() {
 						$('#jsonPreviewSpanElement'+i).addClass('strikethrough');
 					}
 				}
-				if (jobject[i].obfuscated == "true") {
+				if (jobject[i].obfuscated == true) {
 					$('#jsonPreviewSpanElement'+i).addClass('jsonPreviewObfuscated');
 				}
 
