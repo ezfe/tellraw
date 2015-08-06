@@ -4,10 +4,10 @@ var version = 3;
 var tos_version = 1;
 var notice = {
 	"show": false,
-	"id": 4,
+	"id": 8,
 	"message": {
-		"title": "Sorry about that...",
-		"text": "I screwed up the cookies and had to reset them.\n\nUse the export button if you're worried about cookies resetting in the future.",
+		"title": "Updated...",
+		"text": "Hi",
 		"type": "info"
 	}
 };
@@ -174,7 +174,12 @@ function verify_jobject_format(jdata) {
 		jdata.text = '';
 	}
 
+	//Tracks changes for "true" --> true
+	var booleanUpdateCount = 0;
+
 	for (var i = 0; i < jdata.length; i++) {
+
+		//Convert show_text to structured format
 		if (jdata[i].hoverEvent != undefined) {
 			if (jdata[i].hoverEvent.action == "show_text") {
 				if (typeof jdata[i].hoverEvent.value == "object") {
@@ -186,6 +191,40 @@ function verify_jobject_format(jdata) {
 				}
 			}
 		}
+
+		if (jdata[i].bold == "true") {
+			jdata[i].bold = true;
+			booleanUpdateCount++;
+		} else if (jdata[i].bold !== true) {
+			delete jdata[i].bold;
+		}
+		if (jdata[i].italic == "true") {
+			jdata[i].italic = true;
+			booleanUpdateCount++;
+		} else if (jdata[i].italic !== true) {
+			delete jdata[i].italic;
+		}
+		if (jdata[i].underlined == "true") {
+			jdata[i].underlined = true;
+			booleanUpdateCount++;
+		} else if (jdata[i].underlined !== true) {
+			delete jdata[i].underlined;
+		}
+		if (jdata[i].strikethrough == "true") {
+			jdata[i].strikethrough = true;
+			booleanUpdateCount++;
+		} else if (jdata[i].strikethrough !== true) {
+			delete jdata[i].strikethrough;
+		}
+		if (jdata[i].obfuscated == "true") {
+			jdata[i].obfuscated = true;
+			booleanUpdateCount++;
+		} else if (jdata[i].obfuscated !== true) {
+			delete jdata[i].obfuscated;
+		}
+	}
+	if (booleanUpdateCount > 0) {
+		swal({"title": "Udated!", "text": "All strings representing boolean values have been updated to true/false values (" + booleanUpdateCount + " change" + (booleanUpdateCount == 1 ? "" : "s") + ")", "type": "success"});
 	}
 
 	return jdata;
