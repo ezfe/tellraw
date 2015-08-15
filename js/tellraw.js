@@ -30,6 +30,39 @@ var bookPage = 1;
 var topPage = 1;
 var embed = false;
 
+var lsm = {};
+lsm.enabled = false;
+lsm.storage = {};
+lsm.setItem = function(key, value) {
+	try {
+		localStorage.setItem(key, value);
+	} catch(e) {
+		lsm.enabled = true;
+		lsm.storage[key] = value;
+	}
+}
+lsm.getItem = function(key) {
+	if (lsm.enabled) {
+		return lsm.storage[key];
+	} else {
+		return localStorage.getItem(key);
+	}
+}
+lsm.clear = function() {
+	if (lsm.enabled) {
+		lsm.storage = {};
+	} else {
+		localStorage.clear();
+	}
+}
+lsm.removeItem = function(key) {
+	if (lsm.enabled) {
+		delete lsm.storage[key];
+	} else {
+		localStorage.removeItem(key);
+	}
+}
+
 /* http://stackoverflow.com/a/728694/2059595 */
 function clone(obj) {
 	var copy;
@@ -120,7 +153,7 @@ function showView(viewname,suppressAnimation,hideOthers,hideMenubar) {
 		toShow.slideDown();
 	}
 	if (viewname != "loading" && viewname != "pageheader" && viewname != "issue") {
-		localStorage.setItem('jview',JSON.stringify({"viewname":viewname,"suppressAnimation":suppressAnimation,"hideOthers":hideOthers,"hideMenubar":hideMenubar}));
+		lsm.setItem('jview',JSON.stringify({"viewname":viewname,"suppressAnimation":suppressAnimation,"hideOthers":hideOthers,"hideMenubar":hideMenubar}));
 	}
 	if (toShow.length == 0) {
 		logIssue('Missing View',viewname,true);
@@ -143,7 +176,7 @@ function verify_jobject_format(jdata) {
 			jdata = jdata.extra;
 		} else {
 			sessionStorage.setItem('nextTimeAlert',resetError);
-			localStorage.clear();
+			lsm.clear();
 			location.reload();
 			return;
 		}
@@ -151,7 +184,7 @@ function verify_jobject_format(jdata) {
 
 	if (get_type(jdata) != "[object Array]") {
 		sessionStorage.setItem('nextTimeAlert',resetError);
-		localStorage.clear();
+		lsm.clear();
 		location.reload();
 		return;
 	}
@@ -395,11 +428,11 @@ function saveJObject() {
 			var saveTo = inputValue
 			var saveSlot = 'saveSlot_' + saveTo;
 			var overwrite = false;
-			if (localStorage.getItem(saveSlot) != undefined) {
+			if (lsm.getItem(saveSlot) != undefined) {
 				overwrite = true;
 			}
-			localStorage.setItem('currentSaveSlot',saveTo);
-			localStorage.setItem(saveSlot, JSON.stringify({"command": $('#command').val(), "jobject": jobject}));
+			lsm.setItem('currentSaveSlot',saveTo);
+			lsm.setItem(saveSlot, JSON.stringify({"command": $('#command').val(), "jobject": jobject}));
 			if (overwrite) {
 				swal({
 					title: 'Saved your current revision to <code>' + saveTo.replace('_', ' ') + '</code>, overwriting your previous save to that slot',
@@ -426,19 +459,19 @@ function loadJObject(saveName) {
 }
 function doesJObjectExist(saveName) {
 	var saveSlot = 'saveSlot_' + saveName;
-	return localStorage.getItem(saveSlot) != undefined;
+	return lsm.getItem(saveSlot) != undefined;
 
 }
 function getJObject(saveName) {
 	var saveSlot = 'saveSlot_' + saveName;
-	return JSON.parse(localStorage.getItem(saveSlot));
+	return JSON.parse(lsm.getItem(saveSlot));
 }
 function deleteAll() {
 	swal({
-		"title": getLanguageString('settings.deleteall.heading',localStorage.getItem('langCode')),
-		"text": getLanguageString('settings.deleteall.body',localStorage.getItem('langCode')),
-		"cancelButtonText": getLanguageString('settings.deleteall.no',localStorage.getItem('langCode')),
-		"confirmButtonText": getLanguageString('settings.deleteall.yes',localStorage.getItem('langCode')),
+		"title": getLanguageString('settings.deleteall.heading',lsm.getItem('langCode')),
+		"text": getLanguageString('settings.deleteall.body',lsm.getItem('langCode')),
+		"cancelButtonText": getLanguageString('settings.deleteall.no',lsm.getItem('langCode')),
+		"confirmButtonText": getLanguageString('settings.deleteall.yes',lsm.getItem('langCode')),
 		"showCancelButton": true,
 		"closeOnConfirm": false,
 		"type": "warning"
@@ -453,20 +486,20 @@ function deleteAll() {
 }
 function clearJObjectSaves() {
 	swal({
-		"title": getLanguageString('saves.deleteall.heading',localStorage.getItem('langCode')),
-		"text": getLanguageString('saves.deleteall.body',localStorage.getItem('langCode')),
-		"cancelButtonText": getLanguageString('saves.deleteall.no',localStorage.getItem('langCode')),
-		"confirmButtonText": getLanguageString('saves.deleteall.yes',localStorage.getItem('langCode')),
+		"title": getLanguageString('saves.deleteall.heading',lsm.getItem('langCode')),
+		"text": getLanguageString('saves.deleteall.body',lsm.getItem('langCode')),
+		"cancelButtonText": getLanguageString('saves.deleteall.no',lsm.getItem('langCode')),
+		"confirmButtonText": getLanguageString('saves.deleteall.yes',lsm.getItem('langCode')),
 		"showCancelButton": true,
 		"closeOnConfirm": false,
 		"type": "warning"
 	},function(isConfirm){
 		if (isConfirm) {
-			for (var x = 0; x < Object.keys(localStorage).length; x++) {
-				for (var i = 0; i < Object.keys(localStorage).length; i++) {
-					var key = Object.keys(localStorage)[i];
+			for (var x = 0; x < Object.keys(lsm).length; x++) {
+				for (var i = 0; i < Object.keys(lsm).length; i++) {
+					var key = Object.keys(lsm)[i];
 					if (key.indexOf('saveSlot_') != -1) {
-						localStorage.removeItem(key);
+						lsm.removeItem(key);
 					}
 				}
 			}
@@ -482,7 +515,7 @@ function obfuscationPreviewHandler() {
 	}
 }
 function currentTemplate() {
-	return templates[localStorage.getItem('jtemplate')];
+	return templates[lsm.getItem('jtemplate')];
 }
 function noneHex() {
 	if (currentTemplate().formatType == 'bookarray' || currentTemplate().formatType == 'signset') {
@@ -568,7 +601,7 @@ function clearExtra() {
 	$('#hoverEventEntityName').val('');
 	$('#hoverEventEntityID').val('');
 	$('#hoverEventEntityType').val('');
-	$('#textsnippets_add').html(getLanguageString('textsnippets.addsnippet'),localStorage.getItem('langCode'));
+	$('#textsnippets_add').html(getLanguageString('textsnippets.addsnippet'),lsm.getItem('langCode'));
 	$('#textsnippets-add-button').addClass('btn-default');
 	$('#textsnippets-add-button').removeClass('btn-danger');
 	$('#obj_player').val('');
@@ -923,10 +956,10 @@ function addExtra() {
 }
 function refreshSavesList() {
 	$('.savesContainer').html('');
-	for (var i = 0; i < Object.keys(localStorage).length; i++) {
-		var key = Object.keys(localStorage)[i];
+	for (var i = 0; i < Object.keys(lsm).length; i++) {
+		var key = Object.keys(lsm)[i];
 		if (key.indexOf('saveSlot_') != -1) {
-			$('.savesContainer').append('<div class="row" saveKey="' + key.substring('9') + '"><div class="col-xs-3"><a href="#" onclick="loadJObject(\'' + key.substring('9') + '\')">Load ' + key.substring('9').replace('_', ' ') + '</a></div><div class="col-xs-6">' + localStorage.getItem(key).substring(0,90) + ' ...</div><div class="div class="col-xs-3"><a href="#" onclick="deleteJObjectSave(\'' + key.substring('9') + '\')">Delete ' + key.substring('9') + '</a></div></div>')
+			$('.savesContainer').append('<div class="row" saveKey="' + key.substring('9') + '"><div class="col-xs-3"><a href="#" onclick="loadJObject(\'' + key.substring('9') + '\')">Load ' + key.substring('9').replace('_', ' ') + '</a></div><div class="col-xs-6">' + lsm.getItem(key).substring(0,90) + ' ...</div><div class="div class="col-xs-3"><a href="#" onclick="deleteJObjectSave(\'' + key.substring('9') + '\')">Delete ' + key.substring('9') + '</a></div></div>')
 		}
 	};
 	if ($('.savesContainer').html() == '') {
@@ -944,7 +977,7 @@ function deleteJObjectSave(saveName) {
 		confirmButtonText: "Yes, delete it!",
 		closeOnConfirm: false
 	}, function(){
-		localStorage.removeItem(saveSlot);
+		lsm.removeItem(saveSlot);
 		refreshSavesList();
 		swal("Deleted!", saveName + ' was deleted.', "success");
 	});
@@ -959,10 +992,10 @@ function refreshOutput(input) {
 
 	if ($('#command').val().indexOf('%s') == -1) {
 		$('#command').val('/tellraw @p %s');
-		localStorage.setItem('jtemplate','tellraw');
+		lsm.setItem('jtemplate','tellraw');
 	}
 
-	if ($('#command').val().indexOf('/tellraw') != -1 && templates[localStorage.getItem('jtemplate')].formatType != 'standardjson' && localStorage.getItem('dontShowQuoteFixer') != "true" && jobject.length > 0) {
+	if ($('#command').val().indexOf('/tellraw') != -1 && templates[lsm.getItem('jtemplate')].formatType != 'standardjson' && lsm.getItem('dontShowQuoteFixer') != "true" && jobject.length > 0) {
 		setTimeout(showFixerView,4000);
 	}
 
@@ -971,13 +1004,13 @@ function refreshOutput(input) {
 	/*LANGUAGE SELECTIONS*/
 
 	$('.langSelect').removeClass('label label-success');
-	$('.' + localStorage.getItem('langCode')).addClass('label label-success');
+	$('.' + lsm.getItem('langCode')).addClass('label label-success');
 
 	/*EXTRA MODAL COLOR PREVIEW MANAGER*/
 	$('#colorPreviewColor').css({ 'background-color': getCSSHEXFromWord(getSelected('color_extra')) });
 
 	/*EXTRA VIEWER MANAGER*/
-	$('#textsnippets_header').html(getLanguageString('textsnippets.header',localStorage.getItem('langCode')));
+	$('#textsnippets_header').html(getLanguageString('textsnippets.header',lsm.getItem('langCode')));
 	if (input != 'previewLineChange') {
 		if (get_type(jobject) == "[object Array]") {
 			var extraOutputPreview = "";
@@ -995,7 +1028,7 @@ function refreshOutput(input) {
 					upButton = "";
 				}
 				if (jobject[i].NEW_ITERATE_FLAG) {
-					if (templates[localStorage.getItem('jtemplate')].formatType != 'bookarray' && templates[localStorage.getItem('jtemplate')].formatType != 'signset') {
+					if (templates[lsm.getItem('jtemplate')].formatType != 'bookarray' && templates[lsm.getItem('jtemplate')].formatType != 'signset') {
 						var tempJSON = '<span style="color:gray;text-decoration:line-through;" lang="textsnippets.NEW_ITERATE_FLAG.buttontext"></span>';
 					} else {
 						var tempJSON = '<span lang="textsnippets.NEW_ITERATE_FLAG.buttontext"></span>';
@@ -1034,13 +1067,13 @@ function refreshOutput(input) {
 			}
 		} else {
 			$('.extraContainer div.extraRow').remove();
-			$('.extraContainer').html('<div class="row"><div class="col-xs-12"><h4>'+getLanguageString('textsnippets.nosnippets',localStorage.getItem('langCode'))+'</h4></div></div>');
+			$('.extraContainer').html('<div class="row"><div class="col-xs-12"><h4>'+getLanguageString('textsnippets.nosnippets',lsm.getItem('langCode'))+'</h4></div></div>');
 		}
 		refreshLanguage();
 	}
 
 	/* SHOW MOUSE ACTION OPTIONS FOR JSON TEMPLATES WITH THAT FLAG */
-	if (templates[localStorage.getItem('jtemplate')].mouseActionOptions) {
+	if (templates[lsm.getItem('jtemplate')].mouseActionOptions) {
 		$('.hoverEventContainer_edit').show();
 		$('.clickEventContainer_edit').show();
 		$('.insertionContainer_edit').show();
@@ -1056,7 +1089,7 @@ function refreshOutput(input) {
 		$('.insertionContainer').hide();
 	}
 
-	if (templates[localStorage.getItem('jtemplate')].formatType == 'signset') {
+	if (templates[lsm.getItem('jtemplate')].formatType == 'signset') {
 		$('.clickEventDisabledSigns').show();
 		$('.hoverEventDisabledSigns').show();
 	} else {
@@ -1094,13 +1127,13 @@ function refreshOutput(input) {
 		$('.extraTranslationParameterRow').hide();
 	}
 	if (extraTextFormat == 'NEW_ITERATE_FLAG') {
-		if (templates[localStorage.getItem('jtemplate')].formatType != 'bookarray' && templates[localStorage.getItem('jtemplate')].formatType != 'signset') {
+		if (templates[lsm.getItem('jtemplate')].formatType != 'bookarray' && templates[lsm.getItem('jtemplate')].formatType != 'signset') {
 			var swalObject = {
-				title: getLanguageString('textsnippets.NEW_ITERATE_FLAG.incorrect_template.primary.header',localStorage.getItem('langCode')),
-				text: getLanguageString('textsnippets.NEW_ITERATE_FLAG.incorrect_template.primary.description',localStorage.getItem('langCode')),
+				title: getLanguageString('textsnippets.NEW_ITERATE_FLAG.incorrect_template.primary.header',lsm.getItem('langCode')),
+				text: getLanguageString('textsnippets.NEW_ITERATE_FLAG.incorrect_template.primary.description',lsm.getItem('langCode')),
 				showCancelButton: true,
-				confirmButtonText: getLanguageString('textsnippets.NEW_ITERATE_FLAG.incorrect_template.primary.yes',localStorage.getItem('langCode')),
-				cancelButtonText: getLanguageString('textsnippets.NEW_ITERATE_FLAG.incorrect_template.primary.no',localStorage.getItem('langCode')),
+				confirmButtonText: getLanguageString('textsnippets.NEW_ITERATE_FLAG.incorrect_template.primary.yes',lsm.getItem('langCode')),
+				cancelButtonText: getLanguageString('textsnippets.NEW_ITERATE_FLAG.incorrect_template.primary.no',lsm.getItem('langCode')),
 				closeOnConfirm: false,
 				closeOnCancel: true
 			};
@@ -1115,22 +1148,22 @@ function refreshOutput(input) {
 				$('.templateButton').removeClass('btn-success').removeClass('btn-default').addClass('btn-default');
 				$('.templateButton[template=' + template + ']').addClass('btn-success').removeClass('btn-default');
 
-				localStorage.setItem('jtemplate',template);
-				$('#command').val(templates[localStorage.getItem('jtemplate')]['command']);
+				lsm.setItem('jtemplate',template);
+				$('#command').val(templates[lsm.getItem('jtemplate')]['command']);
 
 				refreshOutput();
 
-				swal(getLanguageString('textsnippets.NEW_ITERATE_FLAG.incorrect_template.tertiary.header',localStorage.getItem('langCode')), getLanguageString('textsnippets.NEW_ITERATE_FLAG.incorrect_template.tertiary.description',localStorage.getItem('langCode')).replace('%c', getLanguageString('template.' + template,localStorage.getItem('langCode'))), "success");
+				swal(getLanguageString('textsnippets.NEW_ITERATE_FLAG.incorrect_template.tertiary.header',lsm.getItem('langCode')), getLanguageString('textsnippets.NEW_ITERATE_FLAG.incorrect_template.tertiary.description',lsm.getItem('langCode')).replace('%c', getLanguageString('template.' + template,lsm.getItem('langCode'))), "success");
 			}
 			swal(swalObject, function(isConfirm){
 				if (isConfirm) {
 					swal({
-						title: getLanguageString('textsnippets.NEW_ITERATE_FLAG.incorrect_template.secondary.header',localStorage.getItem('langCode')),
-						text: getLanguageString('textsnippets.NEW_ITERATE_FLAG.incorrect_template.secondary.description',localStorage.getItem('langCode')),
+						title: getLanguageString('textsnippets.NEW_ITERATE_FLAG.incorrect_template.secondary.header',lsm.getItem('langCode')),
+						text: getLanguageString('textsnippets.NEW_ITERATE_FLAG.incorrect_template.secondary.description',lsm.getItem('langCode')),
 						type: "info",
 						showCancelButton: true,
-						confirmButtonText: getLanguageString('textsnippets.NEW_ITERATE_FLAG.incorrect_template.secondary.book',localStorage.getItem('langCode')),
-						cancelButtonText: getLanguageString('textsnippets.NEW_ITERATE_FLAG.incorrect_template.secondary.sign',localStorage.getItem('langCode')),
+						confirmButtonText: getLanguageString('textsnippets.NEW_ITERATE_FLAG.incorrect_template.secondary.book',lsm.getItem('langCode')),
+						cancelButtonText: getLanguageString('textsnippets.NEW_ITERATE_FLAG.incorrect_template.secondary.sign',lsm.getItem('langCode')),
 						closeOnConfirm: false,
 						closeOnCancel: false
 					}, swalCallback);
@@ -1144,7 +1177,7 @@ function refreshOutput(input) {
 	}
 
 	/*COMMAND MANAGER*/
-	if ($("#command").val() == "") $("#command").val(templates[localStorage.getItem('jtemplate')]['command']);
+	if ($("#command").val() == "") $("#command").val(templates[lsm.getItem('jtemplate')]['command']);
 
 	/*HOVEREVENT SUGGESTION MANAGER*/
 	$('#hoverEventValue').removeAttr('disabled');
@@ -1260,13 +1293,13 @@ function refreshOutput(input) {
 	if (!formattedJObject.length > 0) {
 		JSONOutputString = '[]';
 	} else {
-		if (templates[localStorage.getItem('jtemplate')].formatType == 'bookarray') {
+		if (templates[lsm.getItem('jtemplate')].formatType == 'bookarray') {
 			JSONOutputString = JSON.stringify(formattedJObject);
 			JSONOutputString = JSONOutputString.replace(newLineExpressions.bookarray,'\\n');
-		} else if (templates[localStorage.getItem('jtemplate')].formatType == 'standardjson') {
+		} else if (templates[lsm.getItem('jtemplate')].formatType == 'standardjson') {
 			JSONOutputString = formattedJObject[0];
 			JSONOutputString = JSONOutputString.replace(newLineExpressions.standardjson,'\\n');
-		} else if (templates[localStorage.getItem('jtemplate')].formatType == 'signset') {
+		} else if (templates[lsm.getItem('jtemplate')].formatType == 'signset') {
 			JSONOutputString = 'Text1:' + JSON.stringify(formattedJObject[0]);
 			if (formattedJObject.length > 1) {
 				JSONOutputString += ',Text2:' + JSON.stringify(formattedJObject[1])
@@ -1287,10 +1320,10 @@ function refreshOutput(input) {
 
 	$('#outputtextfield').val(outputString);
 	if ($('#showNiceLookingOutput').is(':checked')) {
-		localStorage.setItem('nlOutput','yes');
+		lsm.setItem('nlOutput','yes');
 		$('#nicelookingoutput').show().html(JSON.stringify(jobject, null, 4).replace(newLineExpressions.standardjson,'\\n'));
 	} else {
-		localStorage.setItem('nlOutput','no');
+		lsm.setItem('nlOutput','no');
 		$('#nicelookingoutput').hide();
 	}
 	jsonParse();
@@ -1303,8 +1336,8 @@ function refreshOutput(input) {
 	}
 
 	/*SAVE VARIABLES*/
-	localStorage['jobject'] = JSON.stringify(jobject);
-	localStorage['jcommand'] = $('#command').val();
+	lsm.setItem('jobject',JSON.stringify(jobject));
+	lsm.setItem('jcommand', $('#command').val());
 
 	/*RERUN*/
 	if (input != 'noLoop' && input != 'previewLineChange') {
@@ -1314,9 +1347,9 @@ function refreshOutput(input) {
 function jsonParse() {
 	$('#jsonPreview').css('background-color','#'+$('#previewcolor').val());
 	$('#jsonPreview').css('font-size',$('#previewFontSize').val() + 'px');
-	localStorage["color"] = $('#previewcolor').val();
+	lsm.setItem("color",$('#previewcolor').val());
 	$('#jsonPreview').html('');
-	if (templates[localStorage.getItem('jtemplate')].formatType == 'bookarray') {
+	if (templates[lsm.getItem('jtemplate')].formatType == 'bookarray') {
 		$('#jsonPreview').addClass('bookPreview');
 		$('#previewBack').show();
 		$('#previewForwards').show();
@@ -1345,10 +1378,10 @@ function jsonParse() {
 
 		for (var i = 0; i < jobject.length; i++) {
 			if (jobject[i].NEW_ITERATE_FLAG) {
-				if (/*templates[localStorage.getItem('jtemplate')].formatType == 'bookarray' || */templates[localStorage.getItem('jtemplate')].formatType == 'signset') {
+				if (/*templates[lsm.getItem('jtemplate')].formatType == 'bookarray' || */templates[lsm.getItem('jtemplate')].formatType == 'signset') {
 					$('#jsonPreview').append('<span id="jsonPreviewSpanElement'+ i +'"><hr></span>');
 				}
-			} else if (pageHash['index.' + i] == bookPage || templates[localStorage.getItem('jtemplate')].formatType != 'bookarray') {
+			} else if (pageHash['index.' + i] == bookPage || templates[lsm.getItem('jtemplate')].formatType != 'bookarray') {
 				var doClickEvent = false;
 				var doHoverEvent = false;
 				var popoverTitle = "";
@@ -1402,19 +1435,19 @@ function jsonParse() {
 					if (get_type(jobject[i].clickEvent) != "[object Undefined]") doClickEvent = true;
 					if (get_type(jobject[i].hoverEvent) != "[object Undefined]") doHoverEvent = true;
 					if (doHoverEvent && doClickEvent) {
-						popoverTitle = getLanguageString('textsnippets.hoverevent.header',localStorage.getItem('langCode')) + ' and ' + getLanguageString('textsnippets.clickevent.header',localStorage.getItem('langCode'));
+						popoverTitle = getLanguageString('textsnippets.hoverevent.header',lsm.getItem('langCode')) + ' and ' + getLanguageString('textsnippets.clickevent.header',lsm.getItem('langCode'));
 						hoverEventType = jobject[i].hoverEvent.action;
 						hoverEventValue = jobject[i].hoverEvent.value;
 						clickEventType = jobject[i].clickEvent.action;
 						clickEventValue = jobject[i].clickEvent.value;
 					}
 					if (doHoverEvent && !doClickEvent) {
-						popoverTitle = getLanguageString('textsnippets.hoverevent.header',localStorage.getItem('langCode'));
+						popoverTitle = getLanguageString('textsnippets.hoverevent.header',lsm.getItem('langCode'));
 						hoverEventType = jobject[i].hoverEvent.action;
 						hoverEventValue = jobject[i].hoverEvent.value;
 					}
 					if (!doHoverEvent && doClickEvent) {
-						popoverTitle = getLanguageString('textsnippets.clickevent.header',localStorage.getItem('langCode'));
+						popoverTitle = getLanguageString('textsnippets.clickevent.header',lsm.getItem('langCode'));
 						clickEventType = jobject[i].clickEvent.action;
 						clickEventValue = jobject[i].clickEvent.value;
 					}
@@ -1440,7 +1473,7 @@ function jsonParse() {
 			}
 		}
 	} else {
-		$('#jsonPreview').html(getLanguageString('output.nothing',localStorage.getItem('langCode')));
+		$('#jsonPreview').html(getLanguageString('output.nothing',lsm.getItem('langCode')));
 		$('#jsonPreview').css('color','white');
 	}
 	if ($('.jsonPreviewObfuscated').length > 0) {
@@ -1448,13 +1481,13 @@ function jsonParse() {
 	}
 }
 function refreshLanguage(dropdownSelection) {
-	if (lang[localStorage.getItem('langCode')]) {
-		$('*').refreshLanguage(localStorage.getItem('langCode'));
+	if (lang[lsm.getItem('langCode')]) {
+		$('*').refreshLanguage(lsm.getItem('langCode'));
 	} else {
-		localStorage.setItem('langCode','en-US')
+		lsm.setItem('langCode','en-US')
 	}
 	$('*').each(function(){
-		//if ($(this).attr('version') != undefined && (localStorage['versionIndicators'] == "true" || localStorage['versionIndicators'] == undefined)) {
+		//if ($(this).attr('version') != undefined && (lsm.getItem('versionIndicators') == "true" || lsm.getItem('versionIndicators') == undefined)) {
 			if (false) {
 				var labelLevel = 'success';
 				if ($(this).attr('version') == '1.9') {
@@ -1470,25 +1503,25 @@ function refreshLanguage(dropdownSelection) {
 }
 
 function initialize() {
-	if (localStorage.getItem('initialTimestamp') == undefined) {
-		localStorage.setItem('initialTimestamp',new Date().getTime())
+	if (lsm.getItem('initialTimestamp') == undefined) {
+		lsm.setItem('initialTimestamp',new Date().getTime())
 	}
 
-	if (localStorage.getItem('langCode') == undefined) {
+	if (lsm.getItem('langCode') == undefined) {
 		if (lang[navigator.language.toLowerCase()] != undefined) {
-			localStorage.setItem('langCode',navigator.language.toLowerCase());
+			lsm.setItem('langCode',navigator.language.toLowerCase());
 		} else {
 			if (webLangRelations[navigator.language.toLowerCase()] != undefined) {
-				localStorage.setItem('langCode',webLangRelations[navigator.language.toLowerCase()]);
+				lsm.setItem('langCode',webLangRelations[navigator.language.toLowerCase()]);
 			}
 		}
 	}
 
-	if (localStorage.getItem('langCode') == undefined) {
-		localStorage.setItem('langCode','en_US');
+	if (lsm.getItem('langCode') == undefined) {
+		lsm.setItem('langCode','en_US');
 	}
 
-	if (localStorage.getItem('jformat') != version && localStorage.getItem('jformat') != undefined) {
+	if (lsm.getItem('jformat') != version && lsm.getItem('jformat') != undefined) {
 		swal({
 			title: "Your cookie format is old!",
 			text: "This may cause issues. Would you like to reset them? You won't be asked again until the next time the format changes.",
@@ -1499,7 +1532,7 @@ function initialize() {
 		},function(isConfirm){
 			if (isConfirm) {
 				sessionStorage.setItem('nextTimeAlert',JSON.stringify({'title': 'All Done', 'text': 'Your cookies have successfully been reset.\n\nCookies are reset when the format changes drastically, or when a mistake causes the cookies to break the website.', 'type': 'success'}));
-				localStorage.clear();
+				lsm.clear();
 				location.reload();
 			} else {
 				swal('Nothing was reset','You won\'t be asked again until the cookie format changes. If you experience an issue, please clear your coookies for this website', 'info');
@@ -1507,26 +1540,26 @@ function initialize() {
 		});
 	} else {
 		/*check if alert isn't correctly set. Do not show the alert is jformat isn't set – that means the user hasn't been here before*/
-		if (localStorage.getItem('jalert') != notice.id && localStorage.getItem('jformat') != undefined && notice.show) {
+		if (lsm.getItem('jalert') != notice.id && lsm.getItem('jformat') != undefined && notice.show) {
 			swal(notice.message);
 		}
-		localStorage.setItem('jalert',notice.id);
+		lsm.setItem('jalert',notice.id);
 	}
-	localStorage.setItem('jformat',version);
+	lsm.setItem('jformat',version);
 
 	if (sessionStorage.getItem('nextTimeAlert')) {
 		swal(JSON.parse(sessionStorage.getItem('nextTimeAlert')));
 		sessionStorage.removeItem('nextTimeAlert');
 	}
-	if (localStorage.getItem('nextTimeAlert')) {
-		swal(JSON.parse(localStorage.getItem('nextTimeAlert')));
-		localStorage.removeItem('nextTimeAlert');
+	if (lsm.getItem('nextTimeAlert')) {
+		swal(JSON.parse(lsm.getItem('nextTimeAlert')));
+		lsm.removeItem('nextTimeAlert');
 	}
 
-	if (localStorage.getItem('donateAlert') != "shown" && localStorage.getItem('donateAlert') != "not-shown") {
-		localStorage.setItem('donateAlert','not-shown')
+	if (lsm.getItem('donateAlert') != "shown" && lsm.getItem('donateAlert') != "not-shown") {
+		lsm.setItem('donateAlert','not-shown')
 	} else {
-		if (localStorage.getItem('donateAlert') == 'not-shown' && false) {
+		if (lsm.getItem('donateAlert') == 'not-shown' && false) {
 			swal({
 				"title": "Please Consider Donating",
 				"text": "Donations help support my developement of these programs!\n\nDonations can be done through a variety of services, it's up to you.",
@@ -1556,7 +1589,7 @@ function initialize() {
 										"text": "When you arrive, enter the username <i>ezfe</i>",
 										"html": true,
 									},function(){
-										localStorage.setItem('nextTimeAlert',JSON.stringify({"title": "Thanks!", "text": "I'm assuming you donated, in which case thanks! Otherwise, perhaps later?", "type": "success"}));
+										lsm.setItem('nextTimeAlert',JSON.stringify({"title": "Thanks!", "text": "I'm assuming you donated, in which case thanks! Otherwise, perhaps later?", "type": "success"}));
 										location.href = "https://oc.tc/shop";
 									});
 								} else {
@@ -1588,24 +1621,24 @@ function initialize() {
 					swal('Awe...','I won\'t bother you again, so long as you don\'t reset your cookies.\n\nI can\'t remember things if you do that.');
 				}
 			});
-localStorage.setItem('donateAlert','shown');
+lsm.setItem('donateAlert','shown');
 }
 }
 
 for (var i = 0; i < Object.keys(templates).length; i++) {
 	var key = Object.keys(templates)[i]
-	if (key == localStorage.getItem('jtemplate')) {
+	if (key == lsm.getItem('jtemplate')) {
 		var classString = 'btn-success';
 	} else {
 		var classString = 'btn-default';
 	}
 	$('#templateButtons').append('<button class="btn btn-xs ' + classString + ' templateButton" lang="template.' + key + '" version="' + templates[key]['version'] + '" template="'+ key +'"></button> ');
 }
-if (localStorage.getItem('jtemplate') == undefined) {
-	localStorage.setItem('jtemplate', 'tellraw');
+if (lsm.getItem('jtemplate') == undefined) {
+	lsm.setItem('jtemplate', 'tellraw');
 }
-if (lang[localStorage.getItem('langCode')]) {
-	errorString = getLanguageName(localStorage.getItem('langCode')) + '<br><br>';
+if (lang[lsm.getItem('langCode')]) {
+	errorString = getLanguageName(lsm.getItem('langCode')) + '<br><br>';
 } else {
 	errorString = '&lt;language unknown&gt;<br><br>';
 }
@@ -1615,15 +1648,15 @@ for (var i = 0; i < Object.keys(lang).length; i++) {
 		var currentCount = JSON.stringify(lang[langKey]).length;
 		var currentPercentage = Math.round(currentCount/enCount*100);
 		console.log(currentPercentage);*/
-		$('#language_keys').append('<li><a onclick="errorString = \''+ getLanguageName(Object.keys(lang)[i]) +'<br><br>\'; localStorage.setItem(\'langCode\',\''+Object.keys(lang)[i]+'\'); refreshLanguage(true); refreshOutput();"><span class="' + Object.keys(lang)[i] + ' langSelect" id="language_select_'+Object.keys(lang)[i]+'">'+ getLanguageName(Object.keys(lang)[i]) +'</span></a></li>');
+		$('#language_keys').append('<li><a onclick="errorString = \''+ getLanguageName(Object.keys(lang)[i]) +'<br><br>\'; lsm.setItem(\'langCode\',\''+Object.keys(lang)[i]+'\'); refreshLanguage(true); refreshOutput();"><span class="' + Object.keys(lang)[i] + ' langSelect" id="language_select_'+Object.keys(lang)[i]+'">'+ getLanguageName(Object.keys(lang)[i]) +'</span></a></li>');
 	};
 	$('#language_keys').append('<li class="divider"></li>');
 	$('#language_keys').append('<li><a href="http://translate.minecraftjson.com"><span class="language_area" lang="language.translate"></span></a></li>');
 
 	$('.extraTranslationParameterRow').hide();
 
-	if (localStorage['color'] != undefined) {
-		$('#previewcolor').val(localStorage["color"]);	
+	if (lsm.getItem('color') != undefined) {
+		$('#previewcolor').val(lsm.getItem("color"));	
 	} else {
 		$('#previewcolor').val('617A80');
 	}
@@ -1631,15 +1664,15 @@ for (var i = 0; i < Object.keys(lang).length; i++) {
 	
 	jsonParse();
 	
-	if (localStorage['jobject'] != undefined) {
-		jobject = verify_jobject_format(JSON.parse(localStorage["jobject"]));
+	if (lsm.getItem('jobject') != undefined) {
+		jobject = verify_jobject_format(JSON.parse(lsm.getItem("jobject")));
 	}
 
-	if (localStorage.getItem('nlOutput') == undefined) {
-		localStorage.setItem('nlOutput','no');
+	if (lsm.getItem('nlOutput') == undefined) {
+		lsm.setItem('nlOutput','no');
 	}
 
-	if (localStorage.getItem('nlOutput') == 'no') {
+	if (lsm.getItem('nlOutput') == 'no') {
 		$('#showNiceLookingOutput').prop('checked', false);
 	} else {
 		$('#showNiceLookingOutput').prop('checked', true);
@@ -1647,13 +1680,13 @@ for (var i = 0; i < Object.keys(lang).length; i++) {
 	
 	showView('pageheader',true,false);
 	//JSON.stringify({"viewname":viewname,"suppressAnimation":suppressAnimation,"hideOthers":hideOthers,"hideMenubar":hideMenubar})
-	if (localStorage.getItem('jview') != undefined/* && typeof JSON.stringify(localStorage.getItem('jview')) != "string"*/) {
-		var viewObject = JSON.parse(localStorage.getItem('jview'));
+	if (lsm.getItem('jview') != undefined/* && typeof JSON.stringify(lsm.getItem('jview')) != "string"*/) {
+		var viewObject = JSON.parse(lsm.getItem('jview'));
 		showView(viewObject.viewname,viewObject.suppressAnimation,viewObject.hideOthers,viewObject.hideMenubar);
 	} else {
 		showView('tellraw')
 	}
-	if (localStorage.getItem('jtosaccept') == undefined || localStorage.getItem('jtosaccept') != tos_version) {
+	if (lsm.getItem('jtosaccept') == undefined || lsm.getItem('jtosaccept') != tos_version) {
 		//showView('tos-header',true,false,true);
 	}
 	$('.templateButton').click(function(){
@@ -1662,20 +1695,20 @@ for (var i = 0; i < Object.keys(lang).length; i++) {
 
 		var template = $(this).attr('template');
 
-		localStorage.setItem('jtemplate',template);
-		$('#command').val(templates[localStorage.getItem('jtemplate')]['command']);
+		lsm.setItem('jtemplate',template);
+		$('#command').val(templates[lsm.getItem('jtemplate')]['command']);
 
 		refreshOutput();
 	});
 
-	$('#command').val(localStorage.getItem('jcommand'));
+	$('#command').val(lsm.getItem('jcommand'));
 
 	$('#command').change(function(){refreshOutput()});
 
 	$('#import').click(function() {
 		swal({
 			"title": "Import",
-			"text": getLanguageString('settings.importtext.exported.description',localStorage.getItem('langCode')),
+			"text": getLanguageString('settings.importtext.exported.description',lsm.getItem('langCode')),
 			"type": "input",
 			"closeOnConfirm": false
 		},function(oinpt){
@@ -1683,11 +1716,11 @@ for (var i = 0; i < Object.keys(lang).length; i++) {
 			try {
 				inpt = JSON.parse(oinpt);
 			} catch(err) {
-				logIssue(getLanguageString('settings.importtext.exported.failed.header',localStorage.getItem('langCode')),getLanguageString('settings.importtext.exported.failed.description',localStorage.getItem('langCode')) + ': ' + oinpt,true)
+				logIssue(getLanguageString('settings.importtext.exported.failed.header',lsm.getItem('langCode')),getLanguageString('settings.importtext.exported.failed.description',lsm.getItem('langCode')) + ': ' + oinpt,true)
 			}
 			jobject = inpt['jobject'];
 			if (inpt['jtemplate']) {
-				localStorage.setItem('jtemplate',inpt['jtemplate'])
+				lsm.setItem('jtemplate',inpt['jtemplate'])
 			}
 			$('#command').val(inpt['command']);
 
@@ -1697,7 +1730,7 @@ for (var i = 0; i < Object.keys(lang).length; i++) {
 	});
 	$('#export').click(function(){
 		$('#exporter').remove();
-		$('.alerts').append('<div id="exporter" class="alert alert-info"><h4 lang="export.heading"></h4><p><textarea readonly id="exportText">' + JSON.stringify({"command":$('#command').val(),"jobject":jobject,"jtemplate":localStorage.getItem('jtemplate')}) + '</textarea></p><p><button type="button" onclick="closeExport()" class="btn btn-default" lang="export.close"></button></p></div>');
+		$('.alerts').append('<div id="exporter" class="alert alert-info"><h4 lang="export.heading"></h4><p><textarea readonly id="exportText">' + JSON.stringify({"command":$('#command').val(),"jobject":jobject,"jtemplate":lsm.getItem('jtemplate')}) + '</textarea></p><p><button type="button" onclick="closeExport()" class="btn btn-default" lang="export.close"></button></p></div>');
 		$exportText = $('#exportText');
 		$exportText.select();
 		$exportText.height('1px');
@@ -1773,13 +1806,13 @@ for (var i = 0; i < Object.keys(lang).length; i++) {
 		$('.help-box').toggle();
 	});
 	$('#enable_dark_mode').on('click',function(){
-		localStorage.setItem('darkMode','true');
+		lsm.setItem('darkMode','true');
 		$('body').addClass('black-theme');
 		$(this).hide();
 		$('#disable_dark_mode').show();
 	});
 	$('#disable_dark_mode').on('click',function(){
-		localStorage.setItem('darkMode','false');
+		lsm.setItem('darkMode','false');
 		$('body').removeClass('black-theme');
 		$(this).hide();
 		$('#enable_dark_mode').show();
@@ -1810,7 +1843,7 @@ for (var i = 0; i < Object.keys(lang).length; i++) {
 		} else if (id == "output-issue-button") {
 			$('#issue-workflow-r2-output').fadeIn();
 		} else if (id == "translation-current-issue-button") {
-			reportAnIssue('Translation Issue (' + localStorage.getItem('langCode') + ')');
+			reportAnIssue('Translation Issue (' + lsm.getItem('langCode') + ')');
 			showView('tellraw');
 		} else if (id == "translation-other-issue-button") {
 			reportAnIssue('Translation Issue (Other)');
@@ -1832,24 +1865,24 @@ for (var i = 0; i < Object.keys(lang).length; i++) {
 	});
 
 	// Beta tooltip
-	$('#dropdown-list-a').tooltip({"title":"<i style=\"color: #F8814C;\" class=\"fa fa-exclamation-circle\"></i> " + getLanguageString('headerbar.dropdown.hover',localStorage.getItem('langCode')),"html":true,"placement":"bottom"});
-	if (localStorage['beta-tooltip-a-shown'] != "yes") {
+	$('#dropdown-list-a').tooltip({"title":"<i style=\"color: #F8814C;\" class=\"fa fa-exclamation-circle\"></i> " + getLanguageString('headerbar.dropdown.hover',lsm.getItem('langCode')),"html":true,"placement":"bottom"});
+	if (lsm.getItem('beta-tooltip-a-shown') != "yes") {
 		$('#dropdown-list-a').tooltip('show');
 	}
-	localStorage['beta-tooltip-a-shown'] = "yes";
+	lsm.setItem('beta-tooltip-a-shown',"yes");
 
 	//Dark Mode
 
-	if (localStorage.getItem('darkMode') && localStorage.getItem('darkMode') == 'true') {
+	if (lsm.getItem('darkMode') && lsm.getItem('darkMode') == 'true') {
 		$('#enable_dark_mode').click(); //Finish setting up dark mode after handlers exist
 	}
 }
 $(document).ready(function(){
-	if (localStorage.getItem('darkMode') && localStorage.getItem('darkMode') == 'true') {
+	if (lsm.getItem('darkMode') && lsm.getItem('darkMode') == 'true') {
 		$('body').addClass('black-theme'); //Rest of "dark mode" is handled later, color scheme handled early for appearance
-	} else if (localStorage.getItem('darkMode') == undefined) {
+	} else if (lsm.getItem('darkMode') == undefined) {
 		$('body').addClass('black-theme');
-		localStorage.setItem('darkMode','true');
+		lsm.setItem('darkMode','true');
 	}
 	$('.view-container').hide();
 	showView('loading',true,true,true);
