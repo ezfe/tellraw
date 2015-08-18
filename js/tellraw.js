@@ -1368,8 +1368,18 @@ function jsonParse() {
 				counter++;
 			} else {
 				pageHash['index.' + i] = counter;
+				
 				topPage = counter;
+
 			}
+		}
+
+		if (jobject.length == 0) {
+			topPage = 1;
+		}
+
+		if (bookPage > topPage) {
+			bookPage = topPage;
 		}
 
 		//console.log(pageHash);
