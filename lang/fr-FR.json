@@ -4,7 +4,7 @@
             "changepage": "Changer de page",
             "unavailable": {
                 "sign": {
-                    "header": "Les panneaux avec des \u00e9v\u00e9nements au clic ne sont pas disponible.",
+                    "header": "Les panneaux cliquables sont indisponibles.",
                     "body": "Cliquez ici pour aller sur un site non-affili\u00e9 pour cr\u00e9er des panneaux avec des \u00e9v\u00e9nements au clic."
                 }
             },
@@ -25,31 +25,31 @@
             "removetext": "Supprimer le dernier texte",
             "header": "\u00c9v\u00e9nement au survol :",
             "showachievement": "Afficher un succ\u00e8s",
-            "id": "Identifiant :",
+            "id": "ID :",
             "showentity": "Afficher une entit\u00e9",
             "showitem": "Afficher un objet",
             "type": "Type :",
             "none": "Aucun",
-            "showtext": "Afficher du texte",
+            "showtext": "Afficher un texte",
             "name": "Nom"
         },
         "NEW_ITERATE_FLAG": {
             "incorrect_template": {
                 "primary": {
-                    "header": "You must be using the book or sign templates",
-                    "description": "Do you want to change your template?",
+                    "header": "Vous devez utiliser le mod\u00e8le du livre ou du panneau.",
+                    "description": "Voulez-vous changer votre mod\u00e8le ?",
                     "yes": "Oui",
                     "no": "Non"
                 },
                 "secondary": {
-                    "header": "Book or Sign?",
-                    "description": "Do you want to make a book or a sign? (You can change this later)",
+                    "header": "Livre ou panneau ?",
+                    "description": "Vous souhaitez cr\u00e9er un livre ou un panneau ? Vous pourrez modifier ce choix plus tard.",
                     "book": "Livre",
-                    "sign": "Sign"
+                    "sign": "Panneau"
                 },
                 "tertiary": {
-                    "header": "Done!",
-                    "description": "Your template has been changed to %c"
+                    "header": "Termin\u00e9",
+                    "description": "Votre mod\u00e8le a \u00e9t\u00e9 chang\u00e9 en %c"
                 }
             },
             "buttontext": "Page d'un livre \/ Ligne d'un panneau"
@@ -68,13 +68,13 @@
         "format": {
             "bold": "Gras",
             "underlined": "Soulign\u00e9",
-            "obfuscated": "Cach\u00e9",
+            "obfuscated": "Magie",
             "italic": "Italique",
             "strikethrough": "Barr\u00e9"
         },
         "player": "Joueur",
         "obj2": "Objectif",
-        "obj": "Objectif du scoreboard",
+        "obj": "Objectif du Scoreboard",
         "nosnippets": "Aucun texte",
         "header": "Parties de texte",
         "text": "Texte",
@@ -85,24 +85,24 @@
     },
     "headerbar": {
         "dropdown": {
-            "translate_page_link": "Site de traductions",
-            "hover": "Version Beta Disponible!",
-            "beta_link": "Beta Version",
+            "translate_page_link": "Traduisez vous aussi !",
+            "hover": "Version B\u00eata disponible.",
+            "beta_link": "Version B\u00eata",
             "tweet": "Tweet",
             "forum_thread": "Topic Forum",
-            "changelog": "Changelog"
+            "changelog": "Changements"
         },
         "help": "AIde",
         "report_an_issue": "Signaler un probl\u00e8me"
     },
-    "header_rev2": "Tellraw Generator for Minecraft ",
+    "header_rev2": "Generateur de JSON pour Minecraft ",
     "settings": {
         "importtext": {
             "exported": {
-                "header": "Import",
+                "header": "Importer",
                 "failed": {
-                    "header": "Import failed",
-                    "description": "Provided input"
+                    "header": "L'importation a \u00e9chou\u00e9",
+                    "description": "Entr\u00e9e fournie"
                 },
                 "description": "Merci d'entrer le texte donn\u00e9 \u00e0 l'export de la commande"
             }
@@ -113,13 +113,13 @@
             "turn_off": "Th\u00e8me clair"
         },
         "show": "Ouvrir les param\u00e8tres",
-        "hide": "Fermer les param\u00e8tres",
+        "hide": "Fermer la fen\u00eatre des param\u00e8tres",
         "fontSize": "Aper\u00e7u de la taille de la police",
         "previewcolor": "Aper\u00e7u de la couleur de fond :",
         "export": "Exporter",
         "deleteall": {
-            "body": "Cliquer sur Tout supprimer va supprimer votre texte et tout remettre \u00e0 z\u00e9ro.",
-            "heading": "Etes-vous s\u00fbr !?!",
+            "body": "Cliquer sur \"Tout supprimer\" va supprimer votre texte et tout remettre \u00e0 z\u00e9ro.",
+            "heading": "Etes-vous s\u00fbr ?!",
             "yes": "Tout supprimer",
             "no": "Annuler"
         },
@@ -205,18 +205,18 @@
     },
     "player": {
         "header": "Joueur et commande",
-        "description": "(@a, @p, @r, ou un joueur sp\u00e9cifique)"
+        "description": "(@a, @p, @r ou un joueur sp\u00e9cifique)"
     },
-    "commandblock": "Vous devez lancer ceci dans une console ou dans un bloc de commande.",
+    "commandblock": "Vous devez lancer ceci dans la console du serveur ou dans un bloc de commande.",
     "alert": {
-        "report": "Rapporter un probl\u00e8me",
-        "changed": "Cette page a \u00e9t\u00e9 modifi\u00e9e r\u00e9cemment, il peut y avoir des probl\u00e8mes. Rechargez la page si quelque chose semble mal fonctionner.",
-        "receiveupdates": "Retrouvez les mises \u00e0 jour ici (\"Suivez\" le sujet)"
+        "report": "Signaler un probl\u00e8me",
+        "changed": "Cette page a \u00e9t\u00e9 modifi\u00e9e r\u00e9cemment, il peut y avoir des probl\u00e8mes. Actualisez la page si quelque chose semble mal fonctionner.",
+        "receiveupdates": "Retrouvez les mises \u00e0 jour ici (Suivez le sujet)"
     },
     "command": "Commande :",
     "export": {
         "heading": "Votre commande export\u00e9e",
         "close": "Fermer"
     },
-    "attribution": "Comme rien ne vous est demand\u00e9 pour utiliser le site, ca serait sympa de donner le lien de cette page ou du topic Minecraft Forums."
+    "attribution": "Rien ne vous ai demand\u00e9 pour utiliser ce site, mais inclure le lien du site ou du topic de Minecraft Forums serai appr\u00e9ci\u00e9 :-)"
 }

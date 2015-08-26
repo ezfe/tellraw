@@ -1,11 +1,11 @@
 {
     "textsnippets": {
         "clickevent": {
-            "changepage": "Change Page",
+            "changepage": "\u66f4\u6539\u9875\u7801",
             "unavailable": {
                 "sign": {
-                    "header": "Sign click events are not available",
-                    "body": "Click here to go to an unaffiliated website to create signs with click events."
+                    "header": "\u70b9\u51fb\u544a\u793a\u724c\u7684\u4e8b\u4ef6\u529f\u80fd\u672a\u88ab\u52a0\u5165",
+                    "body": "\u70b9\u51fb\u6b64\u5904\u53bb\u53e6\u4e00\u4e2a\u7f51\u7ad9\u6dfb\u52a0\u70b9\u51fb\u544a\u793a\u724c\u7684\u4e8b\u4ef6"
                 }
             },
             "runcommand": "\u8fd0\u884c\u6307\u4ee4",
@@ -17,8 +17,8 @@
         "hoverevent": {
             "unavailable": {
                 "sign": {
-                    "header": "Sign hover events are not available",
-                    "body": "This is due to Minecraft not supporting hover events in signs."
+                    "header": "\u6307\u9488\u60ac\u6d6e\u544a\u793a\u724c\u7684\u4e8b\u4ef6\u529f\u80fd\u672a\u88ab\u52a0\u5165",
+                    "body": "\u8fd9\u662f\u56e0\u4e3aMinecraft\u6682\u4e0d\u652f\u6301\u6307\u9488\u60ac\u6d6e\u544a\u793a\u724c\u7684\u4e8b\u4ef6\u3002"
                 }
             },
             "addtext": "\u6dfb\u52a0\u6587\u672c",
@@ -36,20 +36,20 @@
         "NEW_ITERATE_FLAG": {
             "incorrect_template": {
                 "primary": {
-                    "header": "You must be using the book or sign templates",
-                    "description": "Do you want to change your template?",
-                    "yes": "Yes",
-                    "no": "No"
+                    "header": "\u60a8\u4e00\u5b9a\u5728\u4f7f\u7528\u6210\u4e66\u6216\u544a\u793a\u724c\u7684\u6a21\u677f",
+                    "description": "\u60a8\u662f\u5426\u8981\u66f4\u6539\u8be5\u6a21\u677f\uff1f",
+                    "yes": "\u662f",
+                    "no": "\u5426"
                 },
                 "secondary": {
-                    "header": "Book or Sign?",
-                    "description": "Do you want to make a book or a sign? (You can change this later)",
-                    "book": "Book",
-                    "sign": "Sign"
+                    "header": "\u6210\u4e66\u6216\u662f\u544a\u793a\u724c\uff1f",
+                    "description": "\u60a8\u662f\u5426\u8981\u5236\u4f5c\u6210\u4e66\u6216\u544a\u793a\u724c\uff08\u7a0d\u540e\u53ef\u4ee5\u66f4\u6539\uff09\uff1f",
+                    "book": "\u6210\u4e66",
+                    "sign": "\u544a\u793a\u724c"
                 },
                 "tertiary": {
-                    "header": "Done!",
-                    "description": "Your template has been changed to %c"
+                    "header": "\u5df2\u5b8c\u6210\uff01",
+                    "description": "\u60a8\u7684\u6a21\u677f\u5df2\u88ab\u66f4\u6539\u4e3a %c"
                 }
             },
             "buttontext": "\u6210\u4e66\u9875\u7801\/\u544a\u793a\u724c\u884c\u6570"
@@ -85,9 +85,9 @@
     },
     "headerbar": {
         "dropdown": {
-            "translate_page_link": "\u7ffb\u8bd1\u672c\u7ad9",
-            "hover": "Beta Version Available!",
-            "beta_link": "Beta Version",
+            "translate_page_link": "\u5e2e\u52a9\u7ffb\u8bd1\u672c\u7ad9",
+            "hover": "\u672c\u5de5\u5177\u7684\u6d4b\u8bd5\u7248\u53ef\u4f9b\u4f7f\u7528\uff01",
+            "beta_link": "\u6d4b\u8bd5\u7248",
             "tweet": "\u5206\u4eab\u5230\u63a8\u7279\uff08\u4e2d\u56fd\u5730\u533a\u4e0d\u53ef\u7528\uff09",
             "forum_thread": "\u8bba\u575b\u539f\u5e16",
             "changelog": "\u66f4\u65b0\u65e5\u5fd7"
@@ -95,14 +95,14 @@
         "help": "\u5e2e\u52a9",
         "report_an_issue": "\u62a5\u544a\u95ee\u9898"
     },
-    "header_rev2": "Tellraw Generator for Minecraft ",
+    "header_rev2": "Minecraft Tellraw\u7b49\u6307\u4ee4\u751f\u6210\u5668 ",
     "settings": {
         "importtext": {
             "exported": {
-                "header": "Import",
+                "header": "\u5bfc\u5165",
                 "failed": {
-                    "header": "Import failed",
-                    "description": "Provided input"
+                    "header": "\u5bfc\u5165\u5931\u8d25",
+                    "description": "\u63d0\u4f9b\u8f93\u5165"
                 },
                 "description": "\u8bf7\u8f93\u5165\u901a\u8fc7\u5bfc\u51fa\u529f\u80fd\u5bfc\u51fa\u7684\u547d\u4ee4\u5185\u5bb9"
             }
@@ -127,14 +127,14 @@
         "header": "\u8bbe\u7f6e:"
     },
     "donate": {
-        "patreon-button": "Patreon",
+        "patreon-button": "Patreon \u6bcf\u6708\u6301\u7eed\u6350\u6b3e",
         "support-header": "(\u8bf7)\u652f\u6301\u672c\u7f51\u7ad9\u8fd0\u884c",
-        "paypal-note": "I do not offer paypal as a listed option due to fees (Stripe doesn't charge fees to Students). However, if you wish you can send me money over PayPal via funds@ezekielelin.com",
-        "patreon-text": "If you Pledge to donate a certain amount each month, I can rely on that to upgrade the servers.",
-        "support-subheader": "I don't want to put ads on this website, please donate to support the costs of maintaining this website.",
+        "paypal-note": "\u6211\u5e76\u4e0d\u63d0\u4f9bpaypal\u4ed8\u6b3e\u670d\u52a1\uff08Stripe\u5145\u503c\u516c\u53f8\u4e0d\u5141\u8bb8\u5b66\u751f\u4ed8\u6b3e\uff09\uff0c\u4f46\u60a8\u4e5f\u53ef\u4ee5\u901a\u8fc7PayPal\u5411funds@ezekielelin.com\u6350\u6b3e\u3002",
+        "patreon-text": "\u5982\u679c\u60a8\u6253\u7b97\u6bcf\u6708\u6301\u7eed\u5411\u672c\u7ad9\u6350\u6b3e\uff0c\u6211\u53ef\u4ee5\u786e\u4fdd\u6301\u7eed\u5347\u7ea7\u672c\u7ad9\u3002",
+        "support-subheader": "\u6211\u5e76\u4e0d\u6253\u7b97\u5728\u672c\u7ad9\u653e\u7f6e\u5e7f\u544a\uff0c\u8bf7\u60a8\u5411\u672c\u7ad9\u6350\u6b3e\u4ee5\u652f\u6301\u672c\u7ad9\u3002",
         "donate-button": "\u6350\u6b3e",
-        "donate-text": "Make a donation of the value you choose (Stripe).",
-        "overcast-text": "Want to buy me a rank on the Overcast Network? Click the picture above, and enter ezekielelin as my username.",
+        "donate-text": "\u6309\u7167\u60a8\u9009\u62e9\u7684\u6570\u503c\u6350\u6b3e\uff08\u901a\u8fc7Stripe\u4ed8\u6b3e\u516c\u53f8\uff09\u3002",
+        "overcast-text": "\u60f3\u63d0\u9ad8\u6211\u5728Overcast Network\u7684\u6392\u540d\uff1f\u70b9\u51fb\u6b64\u56fe\u7247\u7136\u540e\u5728username\uff08\u7528\u6237\u540d\uff09\u4e00\u680f\u8f93\u5165ezekielelin\u3002",
         "exit": "\u5173\u95ed",
         "exit-text": "\u8fd9\u5219\u6d88\u606f\u5c06\u4e0d\u4f1a\u518d\u6b21\u5f39\u51fa\uff0c\u9664\u975e\u4f60\u6e05\u9664\u4e86\u6d4f\u89c8\u5668cookies\u3002"
     },
@@ -143,9 +143,9 @@
     },
     "help": {
         "textfield": "\u8f93\u5165\"\\n\"\\n\u6dfb\u52a0\u4e00\u4e2a\u65b0\u884c",
-        "raw-text-tab": "Choose your text choice. Raw is normal text. Scoreboard pulls a value from the scoreboard. Selector pulls the name of an entity.",
+        "raw-text-tab": "\u6539\u53d8\u60a8\u7684\u6587\u672c\uff1aRaw\u662f\u4e00\u6bb5\u666e\u901a\u7684\u6587\u672c\uff0cScoreboard\uff08\u8ba1\u5206\u677f\uff09\u663e\u793a\u8ba1\u5206\u677f\u7684\u4e00\u9879\u6570\u636e\uff0cSelector\uff08\u9009\u62e9\u5668\uff09\u663e\u793a\u5b9e\u4f53\u7684\u540d\u5b57\u3002",
         "report-an-issue": "\u70b9\u51fb\u6b64\u5904\u62a5\u544a\u95ee\u9898\u3002\u5982\u679c\u4f60\u4f7f\u7528\u8fc7\u7a0b\u4e2d\u53d1\u73b0\u4e86\u6f0f\u6d1e\uff0c\u8bf7\u5728\u8fd9\u91cc\u62a5\u544a\u9519\u8bef\u3002",
-        "dropdown-list": "\u5206\u4eab\u5230\u63a8\u7279\uff0c\u67e5\u770b\u66f4\u65b0\u65e5\u5fd7\uff0c\u8bba\u575b\u539f\u5e16\uff0c\u4ee5\u53ca\u8bf7\u6c42\u7ffb\u8bd1\u5217\u8868\u3002",
+        "dropdown-list": "\u5206\u4eab\u5230\u63a8\u7279\uff08Twitter\uff0cTweet\uff09\uff0c\u67e5\u770b\u66f4\u65b0\u65e5\u5fd7\uff0c\u8bba\u575b\u539f\u5e16\uff0c\u4ee5\u53ca\u8bf7\u6c42\u7ffb\u8bd1\u5217\u8868\u3002",
         "addsnippet": "\u5411\u4f60\u7684Tellraw\u6307\u4ee4\u65b0\u589e\u6587\u672c\u3002",
         "delete-all-saves": "\u6e05\u9664\u5b58\u6863\uff0c\u4f46\u4f1a\u4fdd\u7559\u5f53\u524d\u7684Tellraw\u6307\u4ee4\u3002",
         "create-new-save": "\u6dfb\u52a0\u4e00\u4e2a\u5b58\u6863\u3002\u5982\u679c\u547d\u540d\u4e0e\u5f53\u524d\u5df2\u5b58\u5728\u7684\u5b58\u6863\u76f8\u540c\uff0c\u8be5\u5b58\u6863\u4f1a\u88ab\u8986\u76d6\u3002",

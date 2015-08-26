@@ -1,11 +1,11 @@
 {
     "textsnippets": {
         "clickevent": {
-            "changepage": "Change Page",
+            "changepage": "\u05e9\u05e0\u05d4 \u05e2\u05de\u05d5\u05d3",
             "unavailable": {
                 "sign": {
-                    "header": "Sign click events are not available",
-                    "body": "Click here to go to an unaffiliated website to create signs with click events."
+                    "header": "\u05d0\u05d9\u05e8\u05d5\u05e2\u05d9 \u05dc\u05d7\u05d9\u05e6\u05d4 \u05dc\u05e9\u05dc\u05d8\u05d9\u05dd \u05d0\u05d9\u05e0\u05dd \u05d6\u05de\u05d9\u05e0\u05d9\u05dd",
+                    "body": "\u05dc\u05d7\u05e5 \u05db\u05d0\u05df \u05db\u05d3\u05d9 \u05dc\u05dc\u05db\u05ea \u05dc\u05d0\u05ea\u05e8 \u05de\u05e1\u05d5\u05e0\u05e3 \u05db\u05d3\u05d9 \u05dc\u05d9\u05e6\u05d5\u05e8 \u05e9\u05dc\u05d8\u05d9\u05dd \u05e2\u05dd \u05d0\u05d9\u05e8\u05d5\u05e2\u05d9 \u05dc\u05d7\u05d9\u05e6\u05d4"
                 }
             },
             "runcommand": "\u05d4\u05e4\u05e2\u05dc \u05e4\u05e7\u05d5\u05d3\u05d4:",
@@ -17,8 +17,8 @@
         "hoverevent": {
             "unavailable": {
                 "sign": {
-                    "header": "Sign hover events are not available",
-                    "body": "This is due to Minecraft not supporting hover events in signs."
+                    "header": "\u05d0\u05d9\u05e8\u05d5\u05e2\u05d9 \u05e8\u05d7\u05d9\u05e4\u05d4 \u05dc\u05e9\u05dc\u05d8\u05d9\u05dd \u05d0\u05d9\u05e0\u05dd \u05d6\u05de\u05d9\u05e0\u05d9\u05dd",
+                    "body": "\u05d6\u05d4 \u05d1\u05d2\u05dc\u05dc \u05e9\u05d4\u05de\u05e9\u05d7\u05e7 \u05dc\u05d0 \u05ea\u05d5\u05de\u05da \u05d1\u05d0\u05d9\u05e8\u05d5\u05e2\u05d9 \u05e8\u05d7\u05d9\u05e4\u05d4 \u05dc\u05e9\u05dc\u05d8\u05d9\u05dd."
                 }
             },
             "addtext": "\u05d4\u05d5\u05e1\u05e3 \u05d8\u05e7\u05e1\u05d8",
@@ -26,7 +26,7 @@
             "header": "\u05d0\u05d9\u05e8\u05d5\u05e2 \u05e8\u05d9\u05d7\u05d5\u05e3:",
             "showachievement": "\u05d4\u05e6\u05d2 \u05d4\u05d9\u05e9\u05d2",
             "id": "\u05de\u05e1\u05e4\u05e8 \u05d6\u05d9\u05d4\u05d5\u05d9:",
-            "showentity": "\u05d4\u05e6\u05d2 \u05d7\u05d9\u05d4\u05de\u05d5\u05d1",
+            "showentity": "\u05d4\u05e6\u05d2 \u05d7\u05d9\u05d4 \u05d0\u05d5 \u05de\u05d5\u05d1",
             "showitem": "\u05d4\u05e6\u05d2 \u05e4\u05e8\u05d9\u05d8",
             "type": "\u05e1\u05d5\u05d2:",
             "none": "\u05dc\u05dc\u05d0",
@@ -36,20 +36,20 @@
         "NEW_ITERATE_FLAG": {
             "incorrect_template": {
                 "primary": {
-                    "header": "You must be using the book or sign templates",
-                    "description": "Do you want to change your template?",
-                    "yes": "Yes",
-                    "no": "No"
+                    "header": "\u05d0\u05ea\u05d4 \u05d7\u05d9\u05d9\u05d1 \u05dc\u05d4\u05e9\u05ea\u05de\u05e9 \u05d1\u05d8\u05de\u05e4\u05dc\u05d8 \u05e2\u05d1\u05d5\u05e8 \u05e1\u05e4\u05e8\u05d9\u05dd \u05d0\u05d5 \u05e9\u05dc\u05d8\u05d9\u05dd",
+                    "description": "\u05ea\u05e8\u05e6\u05d4 \u05dc\u05e9\u05e0\u05d5\u05ea \u05d0\u05ea \u05d4\u05d8\u05de\u05e4\u05dc\u05d8 \u05e9\u05dc\u05da?",
+                    "yes": "\u05db\u05df",
+                    "no": "\u05dc\u05d0"
                 },
                 "secondary": {
-                    "header": "Book or Sign?",
-                    "description": "Do you want to make a book or a sign? (You can change this later)",
-                    "book": "Book",
-                    "sign": "Sign"
+                    "header": "\u05e1\u05e4\u05e8 \u05d0\u05d5 \u05e9\u05dc\u05d8?",
+                    "description": "\u05ea\u05e8\u05e6\u05d4 \u05dc\u05d4\u05db\u05d9\u05df \u05e1\u05e4\u05e8 \u05d0\u05d5 \u05e9\u05dc\u05d8? (\u05ea\u05d5\u05db\u05dc \u05dc\u05e9\u05e0\u05d5\u05ea \u05d6\u05d0\u05ea \u05d0\u05d7\u05e8 \u05db\u05da)",
+                    "book": "\u05e1\u05e4\u05e8",
+                    "sign": "\u05e9\u05dc\u05d8"
                 },
                 "tertiary": {
-                    "header": "Done!",
-                    "description": "Your template has been changed to %c"
+                    "header": "\u05d4\u05d5\u05e9\u05dc\u05dd!",
+                    "description": "\u05d4\u05d8\u05de\u05e4\u05dc\u05d8 \u05e9\u05dc\u05da \u05e0\u05e9\u05de\u05e8 \u05dc- %c"
                 }
             },
             "buttontext": "\u05e2\u05de\u05d5\u05d3 \u05d1\u05e1\u05e4\u05e8 \u05d0\u05d5 \u05e9\u05d5\u05e8\u05d4 \u05d1\u05e9\u05dc\u05d8"
@@ -76,7 +76,7 @@
         "obj2": "\u05de\u05d8\u05e8\u05d4 (Objective)",
         "obj": "\u05de\u05d8\u05e8\u05d4(Objective) \u05d1\u05dc\u05d5\u05d7 \u05e6\u05d9\u05d5\u05df",
         "nosnippets": "\u05d0\u05d9\u05df \u05d8\u05e7\u05e1\u05d8 \u05d1\u05d9\u05e0\u05ea\u05d9\u05d9\u05dd",
-        "header": "Text Snippets",
+        "header": "\u05e7\u05d8\u05e2\u05d9 \u05d8\u05e7\u05e1\u05d8",
         "text": "\u05d8\u05e7\u05e1\u05d8",
         "raw": "\u05e0\u05e2",
         "warning": {
@@ -85,9 +85,9 @@
     },
     "headerbar": {
         "dropdown": {
-            "translate_page_link": "Translation Site",
-            "hover": "Beta Version Available!",
-            "beta_link": "Beta Version",
+            "translate_page_link": "\u05d0\u05ea\u05e8 \u05ea\u05e8\u05d2\u05d5\u05de\u05d9\u05dd",
+            "hover": "\u05d2\u05e8\u05e1\u05ea \u05d1\u05d8\u05d0 \u05d6\u05de\u05d9\u05e0\u05d4!",
+            "beta_link": "\u05d2\u05e8\u05e1\u05ea \u05d1\u05d8\u05d0",
             "tweet": "Tweet",
             "forum_thread": "\u05d0\u05e9\u05db\u05d5\u05dc \u05e4\u05d5\u05e8\u05d5\u05dd",
             "changelog": "\u05d3\u05d5\u05d7 \u05e9\u05d9\u05e0\u05d5\u05d9\u05d9\u05dd"
@@ -95,14 +95,14 @@
         "help": "\u05e2\u05d6\u05e8\u05d4",
         "report_an_issue": "\u05d3\u05d5\u05d5\u05d7 \u05e2\u05dc \u05d1\u05e2\u05d9\u05d4"
     },
-    "header_rev2": "Tellraw Generator for Minecraft ",
+    "header_rev2": "\u05d9\u05d5\u05e6\u05e8 \u05d0\u05de\u05d9\u05e8\u05d4 \u05e0\u05e2\u05d4 \u05e2\u05d1\u05d5\u05e8 Minecraft ",
     "settings": {
         "importtext": {
             "exported": {
-                "header": "Import",
+                "header": "\u05d9\u05d1\u05d5\u05d0",
                 "failed": {
-                    "header": "Import failed",
-                    "description": "Provided input"
+                    "header": "\u05d4\u05d9\u05d1\u05d5\u05d0 \u05e0\u05db\u05e9\u05dc",
+                    "description": "\u05e7\u05dc\u05d8 \u05de\u05e1\u05d5\u05e4\u05e7"
                 },
                 "description": "\u05d1\u05d1\u05e7\u05e9\u05d4 \u05d4\u05db\u05e0\u05e1 \u05d0\u05ea \u05d4\u05de\u05d7\u05e8\u05d5\u05d6\u05ea \u05e9\u05e0\u05d9\u05ea\u05e0\u05d4 \u05dc\u05da \u05db\u05e9\u05d9\u05d9\u05e6\u05d0\u05ea \u05d0\u05ea \u05d4\u05e4\u05e7\u05d5\u05d3\u05d4."
             }
@@ -119,8 +119,8 @@
         "export": "\u05d9\u05e6\u05d0",
         "deleteall": {
             "body": "\u05dc\u05d7\u05d9\u05e6\u05d4 \u05e2\u05dc \u05de\u05d7\u05e7 \u05ea\u05e1\u05d9\u05e8 \u05d0\u05ea \u05db\u05dc \u05d4\u05d8\u05e7\u05e1\u05d8 \u05d5\u05ea\u05d2\u05d3\u05d9\u05e8 \u05d0\u05d5\u05ea\u05d5 \u05de\u05d7\u05d3\u05e9 \u05dc\u05d8\u05e7\u05e1\u05d8 \u05e8\u05d9\u05e7.",
-            "heading": "\u05d0\u05ea\u05d4 \u05d1\u05d8\u05d5\u05d7?!?",
-            "yes": "\u05de\u05d7\u05e7 \u05d4\u05db\u05dc",
+            "heading": "\u05d4\u05d0\u05dd \u05d0\u05ea\u05d4 \u05d1\u05d8\u05d5\u05d7?!?",
+            "yes": "\u05de\u05d7\u05e7 \u05d4\u05db\u05d5\u05dc",
             "no": "\u05d1\u05d8\u05dc"
         },
         "import": "\u05d9\u05d1\u05d0",
@@ -157,12 +157,12 @@
         "sign_item": "\u05e9\u05dc\u05d8 (give)",
         "subtitle": "\u05ea\u05ea \u05db\u05d5\u05ea\u05e8\u05ea",
         "title": "\u05db\u05d5\u05ea\u05e8\u05ea",
-        "tellraw": "Tellraw",
+        "tellraw": "\u05d0\u05de\u05d9\u05e8\u05d4 \u05e0\u05e2\u05d4",
         "book": "\u05e1\u05e4\u05e8",
         "execute_tellraw": "\u05d1\u05e6\u05e2(execute)"
     },
     "output": {
-        "nothing": "\u05d0\u05d9\u05df \u05e4\u05d4 \u05e9\u05d5\u05dd \u05d3\u05d1\u05e8",
+        "nothing": "\u05d0\u05d9\u05df \u05e4\u05d4 \u05d3\u05d1\u05e8",
         "header": "\u05ea\u05e6\u05d5\u05d2\u05d4 \u05de\u05e7\u05d3\u05d9\u05de\u05d4:"
     },
     "saves": {
@@ -205,7 +205,7 @@
     },
     "player": {
         "header": "\u05e9\u05d7\u05e7\u05df:",
-        "description": "(@a, @p, @r, \u05d0\u05d5 \u05e9\u05d7\u05e7\u05df \u05e1\u05e4\u05e6\u05d9\u05e4\u05d9)"
+        "description": "\u05dc\u05d1\u05d7\u05d9\u05e8\u05d4 \u05d5\u05d1\u05d9\u05e6\u05d5\u05e2 \u05e4\u05e7\u05d5\u05d3\u05d5\u05ea \u05e2\u05dc \u05e9\u05d7\u05e7\u05e0\u05d9\u05dd \u05e9\u05d5\u05e0\u05d9\u05dd"
     },
     "commandblock": "\u05d0\u05ea\u05d4 \u05d7\u05d9\u05d9\u05d1 \u05dc\u05d4\u05e8\u05d9\u05e5 \u05d0\u05ea \u05d4\u05e4\u05e7\u05d5\u05d3\u05d4 \u05d1\u05e7\u05d5\u05e0\u05e1\u05d5\u05dc\u05ea \u05d4\u05e9\u05e8\u05ea \u05d0\u05d5 \u05d1\u05dc\u05d5\u05e7 \u05e4\u05e7\u05d5\u05d3\u05d4.",
     "alert": {

@@ -36,20 +36,20 @@
         "NEW_ITERATE_FLAG": {
             "incorrect_template": {
                 "primary": {
-                    "header": "You must be using the book or sign templates",
+                    "header": "Du musst die Buch- oder Schildvorlagen benutzen",
                     "description": "M\u00f6chtest du die Vorlage \u00e4ndern?",
                     "yes": "Ja",
                     "no": "Nein"
                 },
                 "secondary": {
                     "header": "Buch oder Schild?",
-                    "description": "Do you want to make a book or a sign? (You can change this later)",
+                    "description": "Willst du ein Buch oder ein Schild erstellen? (Du kannst deine Wahl sp\u00e4ter \u00e4ndern)",
                     "book": "Buch",
                     "sign": "Schild"
                 },
                 "tertiary": {
                     "header": "Fertig!",
-                    "description": "Your template has been changed to %c"
+                    "description": "Deine Vorlage wurde zu %c ge\u00e4ndert."
                 }
             },
             "buttontext": "Buch-Seite \/ Schild-Zeile"
@@ -86,7 +86,7 @@
     "headerbar": {
         "dropdown": {
             "translate_page_link": "\u00dcbersetzungsseite",
-            "hover": "Beta Version Available!",
+            "hover": "Beta-Version verf\u00fcgbar!",
             "beta_link": "Beta Version",
             "tweet": "Link twittern",
             "forum_thread": "Forum Beitrag",
@@ -95,14 +95,14 @@
         "help": "Hilfe",
         "report_an_issue": "Melde einen Fehler"
     },
-    "header_rev2": "Tellraw Generator for Minecraft ",
+    "header_rev2": "Tellraw Generierer f\u00fcr Minecraft ",
     "settings": {
         "importtext": {
             "exported": {
                 "header": "Importien",
                 "failed": {
-                    "header": "Importien fehlgeschlagen",
-                    "description": "Provided input"
+                    "header": "Importieren fehlgeschlagen",
+                    "description": "vorausgesetzte Eingabe"
                 },
                 "description": "Bitte gib den String ein, der dir gegeben wurde, als du den Befehl exportiert hast."
             }

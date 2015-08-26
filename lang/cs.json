@@ -204,8 +204,8 @@
         "header": "Jazyk"
     },
     "player": {
-        "header": "Hr\u00e1\u010d:",
-        "description": "(@a, @p, @r, @e nebo jm\u00e9no hr\u00e1\u010de)"
+        "header": "\u00daprava P\u0159ikazu:",
+        "description": "Uprav si p\u0159\u00edkaz! Sou\u0159adnice, Hr\u00e1\u010de (@a, @e, @r a @p)..."
     },
     "commandblock": "Tento p\u0159\u00edkaz mus\u00ed\u0161 spustit p\u0159es konzoli serveru nebo p\u0159es p\u0159\u00edkazov\u00fd blok.",
     "alert": {

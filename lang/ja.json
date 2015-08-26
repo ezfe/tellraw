@@ -142,7 +142,7 @@
         "go-home": "Issue\u3092\u7121\u8996"
     },
     "help": {
-        "textfield": "Use \\n to make a newline",
+        "textfield": "Use %n to make a newline",
         "raw-text-tab": "Choose your text choice. Raw is normal text. Scoreboard pulls a value from the scoreboard. Selector pulls the name of an entity.",
         "report-an-issue": "Click here to report an issue. If you experience any sort of bug, you should report it here.",
         "dropdown-list": "\u30c4\u30a4\u30fc\u30c8\u3092\u3057\u305f\u308a\u3001\u5909\u66f4\u5c65\u6b74\u3001Minecraft\u30d5\u30a9\u30fc\u30e9\u30e0\u30b9\u30ec\u30c3\u30c9\u3001\u7ffb\u8a33\u306e\u305f\u3081\u306e\u30ea\u30bd\u30fc\u30b9\u3092\u307f\u308b\u3053\u3068\u304c\u3067\u304d\u307e\u3059\u3002",

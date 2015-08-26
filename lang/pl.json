@@ -36,20 +36,20 @@
         "NEW_ITERATE_FLAG": {
             "incorrect_template": {
                 "primary": {
-                    "header": "You must be using the book or sign templates",
-                    "description": "Do you want to change your template?",
-                    "yes": "Yes",
-                    "no": "No"
+                    "header": "Musisz u\u017cywa\u0107 wzor\u00f3w ksi\u0105\u017cki albo tabliczki",
+                    "description": "Czy chcesz zmieni\u0107 sw\u00f3j wz\u00f3r ?",
+                    "yes": "Tak",
+                    "no": "Nie"
                 },
                 "secondary": {
-                    "header": "Book or Sign?",
-                    "description": "Do you want to make a book or a sign? (You can change this later)",
-                    "book": "Book",
-                    "sign": "Sign"
+                    "header": "Ksi\u0105\u017cka czy tabliczka ?",
+                    "description": "Czy chcesz zrobi\u0107 ksi\u0105\u017ck\u0119 czy tabliczk\u0119 ? (Mo\u017cesz to zmieni\u0107 p\u00f3\u017aniej)",
+                    "book": "Ksi\u0105\u017cka",
+                    "sign": "Tabliczka"
                 },
                 "tertiary": {
-                    "header": "Done!",
-                    "description": "Your template has been changed to %c"
+                    "header": "Zrobione",
+                    "description": "Tw\u00f3j wz\u00f3r zosta\u0142 zmieniony na %c"
                 }
             },
             "buttontext": "Strona ksi\u0105\u017cki \/ Linia Tabliczki"
@@ -86,8 +86,8 @@
     "headerbar": {
         "dropdown": {
             "translate_page_link": "T\u0142umaczenie strony",
-            "hover": "Beta Version Available!",
-            "beta_link": "Beta Version",
+            "hover": "Wersja BETA ju\u017c dost\u0119pna!",
+            "beta_link": "Wersja BETA",
             "tweet": "Tweet",
             "forum_thread": "Forum",
             "changelog": "Lista Zmian"

@@ -1,11 +1,11 @@
 {
     "textsnippets": {
         "clickevent": {
-            "changepage": "Change Page",
+            "changepage": "\u0386\u03bb\u03bb\u03b1\u03be\u03b5 \u03c3\u03b5\u03bb\u03af\u03b4\u03b1",
             "unavailable": {
                 "sign": {
-                    "header": "Sign click events are not available",
-                    "body": "Click here to go to an unaffiliated website to create signs with click events."
+                    "header": "\u03a4\u03b1 \u03c3\u03c5\u03bc\u03b2\u03ac\u03bd\u03c4\u03b1 \u03c3\u03c4\u03bf \u03ba\u03bb\u03b9\u03ba \u03c4\u03b7\u03c2 \u03c0\u03b9\u03bd\u03b1\u03ba\u03af\u03b4\u03b1\u03c2 \u03b4\u03b5\u03bd \u03b5\u03af\u03bd\u03b1\u03b9 \u03b4\u03b9\u03b1\u03b8\u03ad\u03c3\u03b9\u03bc\u03b1",
+                    "body": "\u039a\u03ac\u03bd\u03b5 \u03ba\u03bb\u03b9\u03ba \u03b5\u03b4\u03ce \u03b3\u03b9\u03b1 \u03bd\u03b1 \u03c0\u03b1\u03c2 \u03c3\u03b5 \u03ac\u03bb\u03bb\u03b7 \u03b9\u03c3\u03c4\u03bf\u03c3\u03b5\u03bb\u03af\u03b4\u03b1 \u03b3\u03b9\u03b1 \u03bd\u03b1 \u03ba\u03ac\u03bd\u03b5\u03b9\u03c2 \u03c0\u03b9\u03bd\u03b1\u03ba\u03af\u03b4\u03b5\u03c2 \u03bc\u03b5 \u03c3\u03c5\u03bc\u03b2\u03ac\u03bd\u03c4\u03b1 \u03c3\u03c4\u03b1 \u03ba\u03bb\u03b9\u03ba."
                 }
             },
             "runcommand": "Run Command",
@@ -17,8 +17,8 @@
         "hoverevent": {
             "unavailable": {
                 "sign": {
-                    "header": "Sign hover events are not available",
-                    "body": "This is due to Minecraft not supporting hover events in signs."
+                    "header": "\u03a4\u03b1 \u03c3\u03c5\u03bc\u03b2\u03ac\u03bd\u03c4\u03b1 \u03c3\u03c4\u03b7\u03bd \u03b1\u03b9\u03ce\u03c1\u03b7\u03c3\u03b7 \u03c0\u03ac\u03bd\u03c9 \u03b1\u03c0\u03cc \u03c4\u03b7\u03bd \u03c0\u03b9\u03bd\u03b1\u03ba\u03af\u03b4\u03b1 \u03b4\u03b5\u03bd \u03b5\u03af\u03bd\u03b1\u03b9 \u03b4\u03b9\u03b1\u03b8\u03ad\u03c3\u03b9\u03bc\u03b1",
+                    "body": "\u0391\u03c5\u03c4\u03cc \u03b5\u03af\u03bd\u03b1\u03b9 \u03b5\u03c0\u03b5\u03b9\u03b4\u03ae \u03c4\u03bf Minecraft \u03b4\u03b5\u03bd \u03c5\u03c0\u03bf\u03c3\u03c4\u03b7\u03c1\u03af\u03b6\u03b5\u03b9 \u03c3\u03c5\u03bc\u03b2\u03ac\u03bd\u03c4\u03b1 \u03c3\u03c4\u03b7\u03bd \u03b1\u03b9\u03ce\u03c1\u03b7\u03c3\u03b7 \u03c0\u03ac\u03bd\u03c9 \u03b1\u03c0\u03cc \u03c4\u03b7\u03bd \u03c0\u03b9\u03bd\u03b1\u03ba\u03af\u03b4\u03b1."
                 }
             },
             "addtext": "Add Text",
@@ -36,20 +36,20 @@
         "NEW_ITERATE_FLAG": {
             "incorrect_template": {
                 "primary": {
-                    "header": "You must be using the book or sign templates",
+                    "header": "\u03a0\u03c1\u03ad\u03c0\u03b5\u03b9 \u03bd\u03b1 \u03c7\u03c1\u03b7\u03c3\u03b9\u03bc\u03bf\u03c0\u03bf\u03b9\u03b5\u03af\u03c2 \u03ae \u03c4\u03bf \u03c0\u03c1\u03cc\u03c4\u03c5\u03c0\u03bf \u03c4\u03bf\u03c5 \u03b2\u03b9\u03b2\u03bb\u03af\u03bf\u03c5, \u03ae \u03c4\u03b7\u03c2 \u03c0\u03b9\u03bd\u03b1\u03ba\u03af\u03b4\u03b1\u03c2",
                     "description": "Do you want to change your template?",
-                    "yes": "Yes",
-                    "no": "No"
+                    "yes": "\u039d\u03b1\u03af",
+                    "no": "\u038c\u03c7\u03b9"
                 },
                 "secondary": {
-                    "header": "Book or Sign?",
-                    "description": "Do you want to make a book or a sign? (You can change this later)",
-                    "book": "Book",
-                    "sign": "Sign"
+                    "header": "\u0392\u03b9\u03b2\u03bb\u03af\u03bf \u03ae \u03a0\u03b9\u03bd\u03b1\u03ba\u03af\u03b4\u03b1",
+                    "description": "\u0398\u03ad\u03bb\u03b5\u03b9\u03c2 \u03bd\u03b1 \u03c4\u03bf \u03ba\u03ac\u03bd\u03b5\u03b9\u03c2 \u03b1\u03c5\u03c4\u03cc \u03ad\u03bd\u03b1 \u03b2\u03b9\u03b2\u03bb\u03af\u03bf \u03ae \u03bc\u03af\u03b1 \u03c0\u03b9\u03bd\u03b1\u03ba\u03af\u03b4\u03b1? (\u039c\u03c0\u03bf\u03c1\u03b5\u03af\u03c2 \u03bd\u03b1 \u03c4\u03bf \u03b1\u03bb\u03bb\u03ac\u03be\u03b5\u03b9\u03c2 \u03b1\u03c5\u03c4\u03cc \u03bc\u03b5\u03c4\u03ac)",
+                    "book": "\u0392\u03b9\u03b2\u03bb\u03af\u03bf",
+                    "sign": "\u03a0\u03b9\u03bd\u03b1\u03ba\u03af\u03b4\u03b1"
                 },
                 "tertiary": {
-                    "header": "Done!",
-                    "description": "Your template has been changed to %c"
+                    "header": "\u03a4\u03b5\u03bb\u03b5\u03af\u03c9\u03c3\u03b5!",
+                    "description": "\u03a4\u03bf \u03c0\u03c1\u03cc\u03c4\u03c5\u03c0\u03bf \u03c3\u03bf\u03c5 \u03ad\u03c7\u03b5\u03b9 \u03b1\u03bb\u03bb\u03ac\u03be\u03b5\u03b9 \u03c3\u03b5 %c"
                 }
             },
             "buttontext": "Book Page \/ Sign Line"
@@ -85,8 +85,8 @@
     },
     "headerbar": {
         "dropdown": {
-            "translate_page_link": "Translation Site",
-            "hover": "Beta Version Available!",
+            "translate_page_link": "\u03a3\u03b1\u03ca\u03c4 \u039c\u03b5\u03c4\u03ac\u03c6\u03c1\u03b1\u03c3\u03b7\u03c2",
+            "hover": "\u03a5\u03c0\u03ac\u03c1\u03c7\u03b5\u03b9 \u03b4\u03b9\u03b1\u03b8\u03ad\u03c3\u03b9\u03bc\u03bf beta version!",
             "beta_link": "Beta Version",
             "tweet": "Tweet",
             "forum_thread": "Forum Thread",
@@ -95,14 +95,14 @@
         "help": "Help",
         "report_an_issue": "Report an Issue"
     },
-    "header_rev2": "Tellraw Generator for Minecraft ",
+    "header_rev2": "\u0394\u03b7\u03bc\u03b9\u03bf\u03c5\u03c1\u03b3\u03cc\u03c2 Tellraw \u03b3\u03b9\u03b1 \u03c4\u03bf Minecraft",
     "settings": {
         "importtext": {
             "exported": {
-                "header": "Import",
+                "header": "\u0395\u03b9\u03c3\u03ae\u03b3\u03b1\u03b3\u03b5",
                 "failed": {
-                    "header": "Import failed",
-                    "description": "Provided input"
+                    "header": "\u0397 \u03b5\u03b9\u03c3\u03b1\u03b3\u03c9\u03b3\u03ae \u03b1\u03c0\u03ad\u03c4\u03c5\u03c7\u03b5",
+                    "description": "\u0394\u03bf\u03c3\u03bc\u03ad\u03bd\u03b7  \u03b5\u03b9\u03c3\u03b1\u03b3\u03c9\u03b3\u03ae"
                 },
                 "description": "Please enter the string you were given when you exported your command"
             }
@@ -128,8 +128,8 @@
     },
     "donate": {
         "patreon-button": "Patreon",
-        "support-header": "(Please) Support This Website",
-        "paypal-note": "I do not offer paypal as a listed option due to fees (Stripe doesn't charge fees to Students). However, if you wish you can send me money over PayPal via funds@ezekielelin.com",
+        "support-header": "(\u03a0\u03b1\u03c1\u03b1\u03ba\u03b1\u03bb\u03ce) \u03a5\u03c0\u03bf\u03c3\u03c4\u03b7\u03c1\u03af\u03be\u03c4\u03b5 \u03b1\u03c5\u03c4\u03ae\u03bd \u03c4\u03b7\u03bd \u03b9\u03c3\u03c4\u03bf\u03c3\u03b5\u03bb\u03af\u03b4\u03b1",
+        "paypal-note": "\u0394\u03b5\u03bd \u03c0\u03c1\u03bf\u03c3\u03c6\u03ad\u03c1\u03c9 \u03c4\u03bf paypal \u03b3\u03b9\u03b1 \u03c4\u03bf\u03c5\u03c2 \u03c6\u03cc\u03c1\u03bf\u03c5\u03c2 (\u03a4\u03bf Stripe \u03b4\u03b5\u03bd \u03c7\u03c1\u03b5\u03ce\u03bd\u03b5\u03b9 \u03c6\u03cc\u03c1\u03bf\u03c5\u03c2 \u03c3\u03b5 \u03bc\u03b1\u03b8\u03b7\u03c4\u03ad\u03c2). \u0395\u03ac\u03bd \u03cc\u03bc\u03c9\u03c2 \u03b8\u03ad\u03bb\u03b5\u03b9\u03c2 \u03bd\u03b1 \u03bc\u03bf\u03c5 \u03b4\u03ce\u03c3\u03b5\u03b9\u03c2 \u03c7\u03c1\u03ae\u03bc\u03b1\u03c4\u03b1 \u03bc\u03ad\u03c3\u03c9 \u03c4\u03bf\u03c5 PayPal \u03bc\u03c0\u03bf\u03c1\u03b5\u03af\u03c2 \u03bc\u03ad\u03c3\u03c9 \u03c4\u03bf\u03c5 funds@ezekielelin.com",
         "patreon-text": "If you Pledge to donate a certain amount each month, I can rely on that to upgrade the servers.",
         "support-subheader": "I don't want to put ads on this website, please donate to support the costs of maintaining this website.",
         "donate-button": "Donate",
@@ -153,16 +153,16 @@
         "show-saves": "Show your saves editor, allows saving, loading, and deletion of saves."
     },
     "template": {
-        "sign_block": "Sign (\/blockdata)",
-        "sign_item": "Sign (\/give)",
+        "sign_block": "\u03a4\u03b1\u03bc\u03c0\u03ad\u03bb\u03b1 (\/blockdata)",
+        "sign_item": "\u03a4\u03b1\u03bc\u03c0\u03ad\u03bb\u03b1 (\/give)",
         "subtitle": "Subtitle",
         "title": "Title",
         "tellraw": "Tellraw",
-        "book": "Book",
+        "book": "\u0392\u03b9\u03b2\u03bb\u03af\u03bf",
         "execute_tellraw": "Execute"
     },
     "output": {
-        "nothing": "Nothing to see here",
+        "nothing": "\u03a4\u03af\u03c0\u03bf\u03c4\u03b1 \u03bd\u03b1 \u03b4\u03b5\u03b9\u03c2 \u03b5\u03b4\u03ce",
         "header": "Output Preview:"
     },
     "saves": {

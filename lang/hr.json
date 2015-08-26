@@ -1,17 +1,17 @@
 {
     "textsnippets": {
         "clickevent": {
-            "changepage": "Change Page",
+            "changepage": "Promjeni Stranicu",
             "unavailable": {
                 "sign": {
                     "header": "Sign click events are not available",
                     "body": "Click here to go to an unaffiliated website to create signs with click events."
                 }
             },
-            "runcommand": "Pokreni Naredbu",
+            "runcommand": "Pokreni Komandu",
             "openurl": "Otvori URL",
-            "suggestcommand": "Predlo\u017ei Naredbu",
-            "header": "Klikni Dogadaj:",
+            "suggestcommand": "Predlo\u017ei Komandu",
+            "header": "Klikni Event:",
             "none": "Nijedan"
         },
         "hoverevent": {
@@ -21,10 +21,10 @@
                     "body": "This is due to Minecraft not supporting hover events in signs."
                 }
             },
-            "addtext": "Add Text",
-            "removetext": "Remove Last Text",
-            "header": "Vidi Dogadaj:",
-            "showachievement": "Prika\u017ei Dostignuce",
+            "addtext": "Dodaj Tekst",
+            "removetext": "Zatvori Zadnji Tekst",
+            "header": "Vidi Event:",
+            "showachievement": "Prika\u017ei Dostignu\u0107e",
             "id": "ID:",
             "showentity": "Prika\u017ei Entitet",
             "showitem": "Prika\u017ei Predmet",
@@ -36,25 +36,25 @@
         "NEW_ITERATE_FLAG": {
             "incorrect_template": {
                 "primary": {
-                    "header": "You must be using the book or sign templates",
-                    "description": "Do you want to change your template?",
-                    "yes": "Yes",
-                    "no": "No"
+                    "header": "Mora\u0161 koristiti knjigu ili predlo\u017eak za znak",
+                    "description": "\u017deli\u0161 li promjeniti predlo\u017eak?",
+                    "yes": "Da",
+                    "no": "Ne"
                 },
                 "secondary": {
-                    "header": "Book or Sign?",
-                    "description": "Do you want to make a book or a sign? (You can change this later)",
-                    "book": "Book",
-                    "sign": "Sign"
+                    "header": "Knjiga ili Znak",
+                    "description": "\u017deli\u0161 li napraviti knjigu ili znak? (Ovo mo\u017ee\u0161 promjeniti kasnije)",
+                    "book": "Knjiga",
+                    "sign": "Znak"
                 },
                 "tertiary": {
-                    "header": "Done!",
-                    "description": "Your template has been changed to %c"
+                    "header": "Gotovo!",
+                    "description": "Predlo\u017eak je promjenjen u %c"
                 }
             },
-            "buttontext": "Book Page \/ Sign Line"
+            "buttontext": "Stranica Knjige \/ Linija Znaka"
         },
-        "trn": "Prevedeni",
+        "trn": "Prevedeno",
         "parameter": "Parametar",
         "editsnippet": "Uredi Tekst",
         "close": "Zatvori",
@@ -64,7 +64,7 @@
         "insertion": {
             "header": "Umetanje"
         },
-        "sel": "Selector",
+        "sel": "Selektor",
         "format": {
             "bold": "Podebljano",
             "underlined": "Podcrtano",
@@ -72,53 +72,53 @@
             "italic": "Kurziv",
             "strikethrough": "Precrtano"
         },
-        "player": "Igrac",
+        "player": "Igra\u010d",
         "obj2": "Objekt",
-        "obj": "Rezultatni Objekt",
+        "obj": "Scoreboard Objekt",
         "nosnippets": "Jo\u0161 uvijek nema teksta",
-        "header": "Isjecke Teksta",
+        "header": "Isje\u010dke Teksta",
         "text": "Tekst",
-        "raw": "Obicni",
+        "raw": "Obi\u010dni",
         "warning": {
             "title": "Oprez!"
         }
     },
     "headerbar": {
         "dropdown": {
-            "translate_page_link": "Translation Site",
-            "hover": "Beta Version Available!",
-            "beta_link": "Beta Version",
+            "translate_page_link": "Stranica za Prevo\u0111enje",
+            "hover": "Probna Verzija Dostupna!",
+            "beta_link": "Probna Verzija",
             "tweet": "Tweet",
-            "forum_thread": "Forum Thread",
-            "changelog": "Changelog"
+            "forum_thread": "Forum Post",
+            "changelog": "Lista Izmjena"
         },
-        "help": "Help",
-        "report_an_issue": "Report an Issue"
+        "help": "Pomo\u0107",
+        "report_an_issue": "Izvijesti problem"
     },
-    "header_rev2": "Tellraw Generator for Minecraft ",
+    "header_rev2": "Tellraw Generator za Minecraft",
     "settings": {
         "importtext": {
             "exported": {
-                "header": "Import",
+                "header": "Umetni",
                 "failed": {
-                    "header": "Import failed",
-                    "description": "Provided input"
+                    "header": "Umetanje nije uspjelo",
+                    "description": "Pru\u017eajte umetanje"
                 },
-                "description": "Please enter the string you were given when you exported your command"
+                "description": "Molimo da unesite niz koji ste dobili kada ste izvezli svoju komandu"
             }
         },
-        "nlOutput": "Show Structured Output",
+        "nlOutput": "Prika\u017ei Strukturirani Izlazak",
         "darkmode": {
-            "turn_on": "Dark Theme",
-            "turn_off": "Light Theme"
+            "turn_on": "Tamna Tema",
+            "turn_off": "Svijetla Tema"
         },
-        "show": "Open Settings",
-        "hide": "Close Settings",
-        "fontSize": "Preview Font Size",
+        "show": "Otvori Postavke",
+        "hide": "Zatvori Postavke",
+        "fontSize": "Pregled Veli\u010dine Font-a",
         "previewcolor": "Pregled boja teksta:",
-        "export": "Export",
+        "export": "Izvoz",
         "deleteall": {
-            "body": "Klikom na Izbri\u0161i Sve cete izbrisati cijeli tekst i restartati cete sve.",
+            "body": "Klikanjem na Izbri\u0161i \u010dete izbrisati cijeli tekst i  ponovno \u0107ete pokrenuti prazan niz.",
             "heading": "Jeste li sigurni!?!",
             "yes": "Izbri\u0161i Sve",
             "no": "Poni\u0161ti"
@@ -128,63 +128,63 @@
     },
     "donate": {
         "patreon-button": "Patreon",
-        "support-header": "(Please) Support This Website",
-        "paypal-note": "I do not offer paypal as a listed option due to fees (Stripe doesn't charge fees to Students). However, if you wish you can send me money over PayPal via funds@ezekielelin.com",
-        "patreon-text": "If you Pledge to donate a certain amount each month, I can rely on that to upgrade the servers.",
-        "support-subheader": "I don't want to put ads on this website, please donate to support the costs of maintaining this website.",
-        "donate-button": "Donate",
-        "donate-text": "Make a donation of the value you choose (Stripe).",
-        "overcast-text": "Want to buy me a rank on the Overcast Network? Click the picture above, and enter ezekielelin as my username.",
-        "exit": "Exit",
+        "support-header": "(Molimo Vas) Podr\u017eajte Ovu Web-stranicu",
+        "paypal-note": "Ja ne nudim paypal kao opciju na listi zbog naknada (Stripe ne napla\u0107uje naknade za studente). Me\u0111utim, ako \u017eelite mo\u017eete mi poslati novac preko PayPal via funds@ezekielelin.com",
+        "patreon-text": "Ako \u017eelite donirati odre\u0111enu koli\u010dinu svaki mjesec, ja se mogu osloniti na nadogradnju servera.",
+        "support-subheader": "Ne \u017eelim stavljati reklame na ovu web-stranicu, molim Vas donirajte te podr\u017eite tro\u0161kove za odr\u017eavanje ove web-stranice.",
+        "donate-button": "Doniraj",
+        "donate-text": "Napravi donaciju od vrijednosti koju izabere\u0161 (Stripe).",
+        "overcast-text": "\u017deli\u0161 li mi kupiti rang na Overcast Network-u? Klikni sliku gore, i upi\u0161i ezekielelin kao moje korisni\u010dko ime.",
+        "exit": "Iza\u0111i",
         "exit-text": "You won't see this again so long as you keep your cookies intact. Unfortunately I have no way of detecting you if you reset your cookies."
     },
     "issues": {
-        "go-home": "Ignore Issue"
+        "go-home": "Ignoriraj problem"
     },
     "help": {
-        "textfield": "Use \\n to make a newline",
-        "raw-text-tab": "Choose your text choice. Raw is normal text. Scoreboard pulls a value from the scoreboard. Selector pulls the name of an entity.",
-        "report-an-issue": "Click here to report an issue. If you experience any sort of bug, you should report it here.",
-        "dropdown-list": "Tweet, view the changelog, view the minecraft forums thread, or get resources for translation.",
-        "addsnippet": "Add text to your tellraw command.",
-        "delete-all-saves": "Clear your saves, but leave your current command in the main editor intact.",
-        "create-new-save": "Make a new save. This will overwrite an existing save by the same name, if you so choose.",
-        "delete-all-snippets": "Clear your command completely, but leave your saves intact.",
-        "show-saves": "Show your saves editor, allows saving, loading, and deletion of saves."
+        "textfield": "Koristi\\nda bi napravio novu liniju",
+        "raw-text-tab": "Izaberi tekst. Raw je normalan tekst. Scoreboard vu\u010de vrijednost od scoreboard-a. Selector vu\u010de ime entiteta.",
+        "report-an-issue": "Klikni ovdje da bi izvjestio problem. Ako iskusi\u0161 bilo koju vrstu gre\u0161ke, trebao bi ju izvjestiti ovdje.",
+        "dropdown-list": "Tweet, pogledaj listu promjena, pogledaj minecraft forum post, ili dobi sredstva za prijevod.",
+        "addsnippet": "Dodaj tekst na tvoju tellraw komandu.",
+        "delete-all-saves": "Izbri\u0161i svoje spremi\u0161te, ali ostavi svoju trenutnu komandu u glavnom editor-u netaknutu.",
+        "create-new-save": "Napravi novo spremi\u0161te. Ovo \u0107e prebrisati postoje\u0107e spremi\u0161te pod istim imenom, ako to izabere\u0161.",
+        "delete-all-snippets": "Izbri\u0161i svoju komandu u potpunosti, ali ostavi tvoje spremi\u0161te netaknuto.",
+        "show-saves": "Prikazuje tvoje spremi\u0161te editor-a, omogu\u0107uje spremanje, u\u010ditavanje, i brisanje spremi\u0161ta."
     },
     "template": {
-        "sign_block": "Sign (\/blockdata)",
-        "sign_item": "Sign (\/give)",
-        "subtitle": "Subtitle",
-        "title": "Title",
+        "sign_block": "Znak (\/blockdata)",
+        "sign_item": "Znak (\/give)",
+        "subtitle": "Podnaslov",
+        "title": "Naslov",
         "tellraw": "Tellraw",
-        "book": "Book",
-        "execute_tellraw": "Execute"
+        "book": "Knjiga",
+        "execute_tellraw": "Izvr\u0161i"
     },
     "output": {
         "nothing": "Ni\u0161ta za vidjeti ovdje",
-        "header": "Izlazni pregled:"
+        "header": "Izlazni Pregled:"
     },
     "saves": {
-        "header": "Saves",
-        "hide": "Close Saves",
-        "persistencenotice": "Saves may reset at any time, and depend on your browsers cookies. Do not rely on them for extended periods of time.",
-        "show": "Open Saves",
+        "header": "Spremi\u0161ta",
+        "hide": "Zatvori Spremi\u0161ta",
+        "persistencenotice": "Spremi\u0161ta se mogu poni\u0161titi u bilo koje vrijeme, i zavisiti o kola\u010di\u0107ima na Va\u0161em pregledniku. Nemojte se oslanjati na njih za dulje koli\u010dine vremena.",
+        "show": "Otvori Spremi\u0161ta",
         "deleteall": {
-            "body": "Clicking Delete will remove all your saves, but won't affect your current text",
-            "yes": "Delete All Saves",
-            "heading": "Are you sure!?!",
-            "no": "Cancel"
+            "body": "Klikanjem na Izbri\u0161i \u0107e izbrisati sva tvoja spremi\u0161ta, ali ne\u0107e utjecati na tvoj trenutni tekst.",
+            "yes": "Izbri\u0161i Sva Spremi\u0161ta",
+            "heading": "Jesi li siguran!?!",
+            "no": "Poni\u0161ti"
         },
-        "nosaves": "You don't have anything saved",
-        "new": "Save Current String"
+        "nosaves": "Nema\u0161 ni\u0161ta spremljeno",
+        "new": "Spremi Trenutni String"
     },
     "color": {
         "color_green": "Zelena",
         "color_red": "Crvena",
-        "color_none": "None",
+        "color_none": "Ni\u0161ta",
         "color_dark_aqua": "Tamno Tirkizna",
-        "color_dark_purple": "Tamno Ljubicasta",
+        "color_dark_purple": "Tamno Ljubi\u010dasta",
         "color_dark_blue": "Tamno Plava",
         "color_aqua": "Tirkizna",
         "color_white": "Bijela",
@@ -195,7 +195,7 @@
         "color_blue": "Plava",
         "color_black": "Crna",
         "color_gray": "Siva",
-        "color_light_purple": "Svijetlo Ljubicasta",
+        "color_light_purple": "Svijetlo Ljubi\u010dasta",
         "color_yellow": "\u017duta"
     },
     "language": {
@@ -205,18 +205,18 @@
     },
     "player": {
         "header": "Igrac:",
-        "description": "(@a, @p, @r, ili specifican igrac)"
+        "description": "(@a, @p, @r, ili specifi\u010dan igra\u010d)"
     },
     "commandblock": "To morate pokrenuti u konzoli ili naredbenom bloku.",
     "alert": {
-        "report": "Report Problem",
-        "changed": "Ova stranica je nedavno izmjenjena, tako da bi moglo biti nekih problema. Osvje\u017eite stranicu ako ne\u0161to ne radi.",
-        "receiveupdates": "Primajte a\u017euriranja ovdje: (\"Pratite\" temu)"
+        "report": "Izvijesti Problem",
+        "changed": "Ova stranica je nedavno izmjenjena, tako da bi moglo biti problema. Osvje\u017eite stranicu ako mislite da ne\u0161to ne radi.",
+        "receiveupdates": "Primajte a\u017euriranja ovdje (\"Pratite\" post)"
     },
     "command": "Komanda:",
     "export": {
-        "heading": "Your Exported Command",
-        "close": "Close"
+        "heading": "Tvoja Izvezena Komanda",
+        "close": "Zatvori"
     },
-    "attribution": "While nothing is required to use this, it would always be appreciated if you linked to this webpage or the MCF thread."
+    "attribution": "Iako ni\u0161ta nije potrebno da bi ste koristili ovo, uvijek \u0107e biti dobrodo\u0161lo ako bi povezali ovu web-stranicu ili MCF post."
 }
