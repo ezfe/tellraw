@@ -142,7 +142,7 @@
         "go-home": "Ignoriraj problem"
     },
     "help": {
-        "textfield": "Koristi\\nda bi napravio novu liniju",
+        "textfield": "Koristi %n da bi napravio novu liniju",
         "raw-text-tab": "Izaberi tekst. Raw je normalan tekst. Scoreboard vu\u010de vrijednost od scoreboard-a. Selector vu\u010de ime entiteta.",
         "report-an-issue": "Klikni ovdje da bi izvjestio problem. Ako iskusi\u0161 bilo koju vrstu gre\u0161ke, trebao bi ju izvjestiti ovdje.",
         "dropdown-list": "Tweet, pogledaj listu promjena, pogledaj minecraft forum post, ili dobi sredstva za prijevod.",

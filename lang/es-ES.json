@@ -142,7 +142,7 @@
         "go-home": "Ignorar error"
     },
     "help": {
-        "textfield": "Emplea \\n para hacer un salto de l\u00ednea",
+        "textfield": "Emplea %n para hacer un salto de l\u00ednea",
         "raw-text-tab": "Escoge el tipo de texto. \"Raw\" es texto normal. Scoreboard emplea un valor de un scoreboard. Selector selecciona una entidad.",
         "report-an-issue": "Haz click para reportar un error. Si encuentras alg\u00fan fallo, comun\u00edcalo aqu\u00ed.",
         "dropdown-list": "Twitea esta p\u00e1gina, mira el historial de cambios, ve al tema en el foro de minecraft, o completa los idiomas a\u00fan por traducir.",

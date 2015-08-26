@@ -142,7 +142,7 @@
         "go-home": "Negeer problemen"
     },
     "help": {
-        "textfield": "Gebruik\\nom een nieuwe lijn te maken.",
+        "textfield": "Gebruik %n om een nieuwe lijn te maken.",
         "raw-text-tab": "Kies je tekstsoort. Ruw is normale tekst. Scoreboard gebruikt een waarde van de scoreboard. Selector gebruikt de naam van een entiteit.",
         "report-an-issue": "Klik hier om een probleem in te sturen. Als je een bug tegenkomt, meld hem hier.",
         "dropdown-list": "Tweet, bekijk de changelog, bekijk de minecraftforum thread of krijg resources voor vertaling",

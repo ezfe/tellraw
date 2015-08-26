@@ -142,7 +142,7 @@
         "go-home": "Fehler ignorieren"
     },
     "help": {
-        "textfield": "Benutze \/n um eine neue Zeile zu markieren.",
+        "textfield": "Benutze %n um eine neue Zeile zu markieren.",
         "raw-text-tab": "W\u00e4hle deine Text-Sorte. Raw ist normaler Text. Scoreboard zeigt einen Wert vom Scoreboard. Selector zeigt den Namen eines Entitys.",
         "report-an-issue": "Klicke hier, um einen Fehler zu melden. Wenn dir irgendwelche Bugs auffallen, solltest du sie hier melden.",
         "dropdown-list": "Tweet, Changelog ansehen, Minecraft Forum Beitrag ansehen, oder bekomme die Resourcen zum \u00fcbersetzen.",

@@ -142,7 +142,7 @@
         "go-home": "Sorunu G\u00f6rmezden Gel"
     },
     "help": {
-        "textfield": "Kullan\u0131n:\\nyeni bir yaz\u0131 yapmak i\u00e7in.",
+        "textfield": "Kullan\u0131n: %n yeni bir yaz\u0131 yapmak i\u00e7in.",
         "raw-text-tab": "Bir se\u00e7im yap\u0131n. \"Normal\", bildi\u011finiz yaz\u0131d\u0131r. \"Scoreboard\", scoreboard'dan bir de\u011fer al\u0131r. \"Se\u00e7ici\" bir canl\u0131n\u0131n ad\u0131n\u0131 al\u0131r.",
         "report-an-issue": "Bir sorun bildirmek i\u00e7in t\u0131klay\u0131n. E\u011fer hata oldu\u011funu g\u00f6r\u00fcrseniz, buraya bildirmelisiniz.",
         "dropdown-list": "Tweet'le, de\u011fi\u015fim kayd\u0131n\u0131 g\u00f6ster, MC Forum konusunu a\u00e7, ya da \u00e7eviri i\u00e7in kaynak al.",

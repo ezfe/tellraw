@@ -142,7 +142,7 @@
         "go-home": "Ignorera problem"
     },
     "help": {
-        "textfield": "Anv\u00e4nd \\n\\n f\u00f6r att g\u00f6ra en ny rad.",
+        "textfield": "Anv\u00e4nd %n f\u00f6r att g\u00f6ra en ny rad.",
         "raw-text-tab": "V\u00e4lj text. R\u00e5 \u00e4r normal text. Po\u00e4ngtavla tar ett v\u00e4rde fr\u00e5n po\u00e4ngtavlan. V\u00e4ljare tar ett namn fr\u00e5n ett objekt.",
         "report-an-issue": "Klicka h\u00e4r f\u00f6r att rapportera ett problem. Om du hittar n\u00e5gon sorts bugg, rapportera den h\u00e4r.",
         "dropdown-list": "Tweeta, visa \u00e4ndringslogg, visa minecraftforumstr\u00e5den eller f\u00e5 resurser f\u00f6r \u00f6vers\u00e4ttning.",

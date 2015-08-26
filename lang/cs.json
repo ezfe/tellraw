@@ -142,7 +142,7 @@
         "go-home": "Ignorovat probl\u00e9m."
     },
     "help": {
-        "textfield": "Pou\u017eijte\\npro nov\u00fd \u0159\u00e1dek.",
+        "textfield": "Pou\u017eijte %n pro nov\u00fd \u0159\u00e1dek.",
         "raw-text-tab": "Vyberte typ textu. Nezpracovan\u00e9 je norm\u00e1ln\u00ed text. Scoreboard objective vlo\u017e\u00ed \"scoreboard\". Selector vlo\u017e\u00ed n\u00e1zev entity.",
         "report-an-issue": "Zde m\u016f\u017eete nahl\u00e1sit jak\u00fdkoliv objeven\u00fd bug. pokud n\u011bjak\u00fd objev\u00edte, nahla\u0161te ho pros\u00edm.",
         "dropdown-list": "Tweet, zobraz\u00ed seznam zm\u011bn, zobraz Minecraft forum \u010dl\u00e1nek, nebo z\u00edskej dopl\u0148ky pro p\u0159eklad.",

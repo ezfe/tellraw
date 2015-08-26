@@ -113,7 +113,7 @@
             "turn_off": "Th\u00e8me clair"
         },
         "show": "Ouvrir les param\u00e8tres",
-        "hide": "Fermer la fen\u00eatre des param\u00e8tres",
+        "hide": "Fermer les param\u00e8tres",
         "fontSize": "Aper\u00e7u de la taille de la police",
         "previewcolor": "Aper\u00e7u de la couleur de fond :",
         "export": "Exporter",
@@ -142,7 +142,7 @@
         "go-home": "Ignorer le bug"
     },
     "help": {
-        "textfield": "Utilis\u00e9\\npour faire une nouvelle ligne",
+        "textfield": "Utilis\u00e9 %n pour faire une nouvelle ligne",
         "raw-text-tab": "Choisissez votre format de texte. Brut est un texte normal. Scoreboard prend une valeur du scoreboard. Selecteur prend le nom d'une entit\u00e9.",
         "report-an-issue": "Cliquez ici pour rapporter un bug. Si vous observez un bug, merci de le rapporter ici.",
         "dropdown-list": "Tweet, voir le changelog, voir le topic sur les forums de Minecraft, ou procurez vous des ressources pour la traduction.",
