@@ -20,7 +20,6 @@ var downButton;
 var upButton;
 var extraTextFormat = 'raw';
 var lang = {"status":"init"};
-var translationStrings;
 var currentEdit;
 var hasAlertedTranslationObjects = false;
 var webLangRelations;
@@ -1751,24 +1750,6 @@ for (var i = 0; i < Object.keys(lang).length; i++) {
 		goToByScroll('exporter');
 		refreshLanguage();
 	});
-	$('#translate_input').change(function(){
-		var val = translationStrings[$('#translate_input').val()];
-		var match = val.match(/%./g);
-		matchLength = match.length
-		var c = getSelected('translate_selector');
-		$('.extraTranslationParameterRow').hide();
-		$('.extraTranslationParameterRow').val('');
-		if (match != null) {
-			for (var i = matchLength - 1; i >= 0; i--) {
-				if (matchLength > 5) {
-					swal('An unexpected error has occured.','EID-more than 5 matches','error');
-				}
-				for (var i = matchLength - 1; i >= 0; i--) {
-					$('#parameter'+i+'row').show();
-				};
-			};
-		}
-	});
 	refreshLanguage();
 	refreshOutput();
 	$('.fmtExtra').on('click', function(){
@@ -1795,12 +1776,6 @@ for (var i = 0; i < Object.keys(lang).length; i++) {
 	$('#addExtraButton').on('click',function(){
 		showView('add-extra')
 		editing = true;
-	});
-	$( "#translate_input" ).autocomplete({
-		//source: Object.keys(translationStrings)
-	});
-	$( "#translate_input_edit" ).autocomplete({
-		//source: Object.keys(translationStrings)
 	});
 	$('#show-saves').on('click',function(){
 		showView('saves');
@@ -1928,7 +1903,6 @@ $(document).ready(function(){
 	} else {
 		embed = false;
 	}
-	translationStrings = data['minecraft_language_strings']['en_US'];
 	webLangRelations = data['web_language_relations'];
 	achievements = data['achievements'];
 	commands = data['commands'];
