@@ -7,6 +7,8 @@
 			var translateCode = $(this).attr('lang');
 			if (translateCode) {
 				langStr = getLanguageString(translateCode,currentLanguageCode);
+				langStr.replace('%n','\\n');
+				
 				if ($(this).prop('tagName') == 'INPUT') {
 					$(this).attr('placeholder',langStr);
 				} else {
