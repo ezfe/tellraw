@@ -61,6 +61,13 @@ lsm.removeItem = function(key) {
 		localStorage.removeItem(key);
 	}
 }
+lsm.dictionary = function() {
+	if (lsm.enabled) {
+		return lsm.storage;
+	} else {
+		return localStorage;
+	}
+}
 
 /* http://stackoverflow.com/a/728694/2059595 */
 function clone(obj) {
@@ -955,8 +962,8 @@ function addExtra() {
 }
 function refreshSavesList() {
 	$('.savesContainer').html('');
-	for (var i = 0; i < Object.keys(lsm).length; i++) {
-		var key = Object.keys(lsm)[i];
+	for (var i = 0; i < Object.keys(lsm.dictionary()).length; i++) {
+		var key = Object.keys(lsm.dictionary())[i];
 		if (key.indexOf('saveSlot_') != -1) {
 			$('.savesContainer').append('<div class="row" saveKey="' + key.substring('9') + '"><div class="col-xs-3"><a href="#" onclick="loadJObject(\'' + key.substring('9') + '\')">Load ' + key.substring('9').replace('_', ' ') + '</a></div><div class="col-xs-6">' + lsm.getItem(key).substring(0,90) + ' ...</div><div class="div class="col-xs-3"><a href="#" onclick="deleteJObjectSave(\'' + key.substring('9') + '\')">Delete ' + key.substring('9') + '</a></div></div>')
 		}
