@@ -1857,11 +1857,11 @@ for (var i = 0; i < Object.keys(lang).length; i++) {
 	});
 
 	// Beta tooltip
-	$('#dropdown-list-a').tooltip({"title":"<i style=\"color: #F8814C;\" class=\"fa fa-exclamation-circle\"></i> " + getLanguageString('headerbar.dropdown.hover',lsm.getItem('langCode')),"html":true,"placement":"bottom"});
-	if (lsm.getItem('beta-tooltip-a-shown') != "yes") {
-		$('#dropdown-list-a').tooltip('show');
-	}
-	lsm.setItem('beta-tooltip-a-shown',"yes");
+	// $('#dropdown-list-a').tooltip({"title":"<i style=\"color: #F8814C;\" class=\"fa fa-exclamation-circle\"></i> " + getLanguageString('headerbar.dropdown.hover',lsm.getItem('langCode')),"html":true,"placement":"bottom"});
+	// if (lsm.getItem('beta-tooltip-a-shown') != "yes") {
+		// $('#dropdown-list-a').tooltip('show');
+	// }
+	// lsm.setItem('beta-tooltip-a-shown',"yes");
 
 	//Dark Mode
 
