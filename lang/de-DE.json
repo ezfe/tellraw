@@ -4,8 +4,8 @@
             "changepage": "Seite \u00e4ndern",
             "unavailable": {
                 "sign": {
-                    "header": "Schild Klick Ereignisse sind nicht verf\u00fcgbar",
-                    "body": "Hier klicken um auf eine (nicht zu der Website geh\u00f6rende Seite) zu gehen, auf der man Schilder mit Klickereignissen erstellen kann."
+                    "header": "Ausf\u00fchrbare Schild Ereignisse sind nicht verf\u00fcgbar",
+                    "body": "Hier klicken um auf eine (nicht zu der Website geh\u00f6rende Seite) zu gehen, auf der man Schilder mit ausf\u00fchrbaren Ereignissen erstellen kann."
                 }
             },
             "runcommand": "Befehl ausf\u00fchren",
@@ -99,10 +99,10 @@
     "settings": {
         "importtext": {
             "exported": {
-                "header": "Importien",
+                "header": "Importieren",
                 "failed": {
                     "header": "Importieren fehlgeschlagen",
-                    "description": "vorausgesetzte Eingabe"
+                    "description": "Vorausgesetzte Eingabe"
                 },
                 "description": "Bitte gib den String ein, der dir gegeben wurde, als du den Befehl exportiert hast."
             }
@@ -118,7 +118,7 @@
         "previewcolor": "Hintergrundfarbe der Vorschau:",
         "export": "Exportieren",
         "deleteall": {
-            "body": "Das klicken von l\u00f6schen wird all deinen text l\u00f6schen und ihn zu einem leeren String zur\u00fccksetzen.",
+            "body": "Das klicken von L\u00f6schen wird all deinen text l\u00f6schen und ihn zu einem leeren String zur\u00fccksetzen.",
             "heading": "Bist du dir sicher!?!",
             "yes": "Alles L\u00f6schen",
             "no": "Abbrechen"
@@ -130,7 +130,7 @@
         "patreon-button": "Patreon",
         "support-header": "(Bitte) Unterst\u00fctze diese Seite",
         "paypal-note": "Auf Grund von Geb\u00fchren, biete ich PayPal nicht als Option an (Stripe erhebt keine Geb\u00fchren f\u00fcr Studenten). Wenn Sie m\u00f6chten, k\u00f6nnen Sie mir Geld \u00fcber PayPal an funds@ezekielelin.com senden",
-        "patreon-text": "Wenn Sie sich verpflichten, eine bestimmte Menge jeden Monat zu spenden, k\u00f6nnen sie sich darauf verlassen, dass ich die Server aufr\u00fcste.",
+        "patreon-text": "Wenn sie sich entscheiden, eine bestimmte Menge jeden Monat zu spenden, k\u00f6nnen sie sich darauf verlassen, dass ich die Server aufr\u00fcste.",
         "support-subheader": "Ich m\u00f6chte auf dieser Internetseite keine Werbung schalten, bitte spende, um die Kosten f\u00fcr die Erhaltung der Internetseite zu unterst\u00fctzen.",
         "donate-button": "Spenden",
         "donate-text": "Mache eine Spende in der H\u00f6he, die du willst (Stripe).",
@@ -145,7 +145,7 @@
         "textfield": "Benutze %n um eine neue Zeile zu markieren.",
         "raw-text-tab": "W\u00e4hle deine Text-Sorte. Raw ist normaler Text. Scoreboard zeigt einen Wert vom Scoreboard. Selector zeigt den Namen eines Entitys.",
         "report-an-issue": "Klicke hier, um einen Fehler zu melden. Wenn dir irgendwelche Bugs auffallen, solltest du sie hier melden.",
-        "dropdown-list": "Tweet, Changelog ansehen, Minecraft Forum Beitrag ansehen, oder bekomme die Resourcen zum \u00fcbersetzen.",
+        "dropdown-list": "Tweet, Changelog ansehen, Minecraft Forum Thread ansehen, oder bekomme die Texte zum \u00dcbersetzen.",
         "addsnippet": "F\u00fcge dem Befehl einen Text hinzu.",
         "delete-all-saves": "L\u00f6sche deine Sicherungen, aber lasse deinen ausgew\u00e4hlten Befehl in dem Haupteditor unversehrt.",
         "create-new-save": "Mache eine neue Sicherung. Dies wird eine Sicherung mit dem gleichen Namen \u00fcberschreiben, wenn du es so ausw\u00e4hlst.",
@@ -159,10 +159,10 @@
         "title": "Titel",
         "tellraw": "Tellraw",
         "book": "Buch",
-        "execute_tellraw": "Execute"
+        "execute_tellraw": "Ausf\u00fchren"
     },
     "output": {
-        "nothing": "Noch nichts zu sehen",
+        "nothing": "Hier ist nichts zu sehen",
         "header": "Vorschau:"
     },
     "saves": {

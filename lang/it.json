@@ -4,7 +4,7 @@
             "changepage": "Cambia Pagina",
             "unavailable": {
                 "sign": {
-                    "header": "Non sono disponibili eventi per cliccare cartelli",
+                    "header": "Non sono disponibili i click events per i cartelli",
                     "body": "Clicca qui per andare ad un sito non ufficiale per creare cartelli con eventi al click."
                 }
             },
@@ -37,19 +37,19 @@
             "incorrect_template": {
                 "primary": {
                     "header": "You must be using the book or sign templates",
-                    "description": "Do you want to change your template?",
-                    "yes": "Yes",
+                    "description": "Vuoi cambiare il template?",
+                    "yes": "Si",
                     "no": "No"
                 },
                 "secondary": {
-                    "header": "Book or Sign?",
-                    "description": "Do you want to make a book or a sign? (You can change this later)",
-                    "book": "Book",
-                    "sign": "Sign"
+                    "header": "Libro o Cartello?",
+                    "description": "Vuoi creare un libro o un cartello? (Puoi cambiare la tua scelta dopo)",
+                    "book": "Libro",
+                    "sign": "Cartello"
                 },
                 "tertiary": {
-                    "header": "Done!",
-                    "description": "Your template has been changed to %c"
+                    "header": "Finito!",
+                    "description": "Il template \u00e8 stato cambiato: %c"
                 }
             },
             "buttontext": "Pagina di un libro \/ Linea di un cartello"

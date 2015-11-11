@@ -5,7 +5,7 @@
             "unavailable": {
                 "sign": {
                     "header": "Bord klik-opdrachten zijn niet beschikbaar",
-                    "body": "Klik hier om naar een niet-aangesloten website te gaan voor het maken van een bord met klikmogelijkheden."
+                    "body": "Klik hier om naar een niet-aangesloten website te gaan voor het maken van een bord met klik-opdrachten."
                 }
             },
             "runcommand": "Voer commando uit",
@@ -86,7 +86,7 @@
     "headerbar": {
         "dropdown": {
             "translate_page_link": "Vertaal site",
-            "hover": "Betaversie beschikbaar!",
+            "hover": "Beta Versie beschikbaar!",
             "beta_link": "Betaversie",
             "tweet": "Tweet",
             "forum_thread": "Forum Link",
@@ -95,14 +95,14 @@
         "help": "Help",
         "report_an_issue": "Meld een probleem"
     },
-    "header_rev2": "Tellrawgenerator voor Minecraft ",
+    "header_rev2": "Tellraw Generator voor Minecraft ",
     "settings": {
         "importtext": {
             "exported": {
                 "header": "Importeer",
                 "failed": {
                     "header": "Importeren gefaald",
-                    "description": "Input gegeven"
+                    "description": "Gegeven input"
                 },
                 "description": "Voer alstublieft de tekst in die je gegeven is bij het ge\u00ebxporteerde command."
             }
@@ -114,8 +114,8 @@
         },
         "show": "Open instellingen",
         "hide": "Sluit instellingen",
-        "fontSize": "Laat lettergrootte zien",
-        "previewcolor": "Voorbeeld achtergrondkleur:",
+        "fontSize": "Lettergrootte",
+        "previewcolor": "Achtergrondkleur:",
         "export": "Exporteer",
         "deleteall": {
             "body": "Als je op 'Delete' klikt, verwijdert het al je huidige tekst.",
@@ -128,7 +128,7 @@
     },
     "donate": {
         "patreon-button": "Patreon",
-        "support-header": "(Alstublieft) Support deze webstie",
+        "support-header": "Support (alstublieft) deze webstie",
         "paypal-note": "Ik bied PayPal niet aan als een betaalmethode door de kosten die hier aan zijn verbonden. Stripe rekent geen kosten. Maar als je wel met paypal wil betalen kan dit door te betalen aan funds@ezekielelin.com",
         "patreon-text": "Als je heel graag iedere maand een bepaald bedrag wil doneren, is dit mogelijk zodra ik de servers update.",
         "support-subheader": "Zou u alstublieft willen doneren, Ik wil deze website advertentie vrij houden en daar heb ik u voor nodig om de webhost te betalen.",

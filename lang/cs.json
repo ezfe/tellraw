@@ -36,7 +36,7 @@
         "NEW_ITERATE_FLAG": {
             "incorrect_template": {
                 "primary": {
-                    "header": "Mus\u00edte pou\u017e\u00edvat template knihy nebu cedulky.",
+                    "header": "Mus\u00edte pou\u017e\u00edvat p\u0159edlohu knihy nebu cedulky.",
                     "description": "P\u0159ejete si ulo\u017eit svoji p\u0159ednastavenou konfiguraci ?",
                     "yes": "Ano",
                     "no": "Ne"
@@ -129,8 +129,8 @@
     "donate": {
         "patreon-button": "Patreon",
         "support-header": "(Pros\u00edm) Podpo\u0159te tuto str\u00e1nku",
-        "paypal-note": "PayPal nechci pou\u017e\u00edvat jako hlavn\u00ed \u0159e\u0161en\u00ed kv\u016fli poplatk\u016fm. (Stripe ne\u00fa\u010dtuje poplatky pro Studenty). ale pokud nem\u00e1te jinou mo\u017enost m\u016f\u017eete mi poslat PayPal dary na funds@ezekielelin.com",
-        "patreon-text": "Pokud se rozhodnete p\u0159isp\u011bt jakoukoliv \u010d\u00e1stkou tento m\u011bs\u00edc, tak v\u00e1m m\u016f\u017eu sl\u00edbit \u017ee bude vyu\u017eita pro vylep\u0161en\u00ed serveru.",
+        "paypal-note": "PayPal nechci pou\u017e\u00edvat jako hlavn\u00ed \u0159e\u0161en\u00ed kv\u016fli poplatk\u016fm. (Stripe ne\u00fa\u010dtuje poplatky pro Studenty). Ale pokud nem\u00e1te jinou mo\u017enost m\u016f\u017eete mi poslat PayPal dary na funds@ezekielelin.com",
+        "patreon-text": "Pokud se rozhodnete p\u0159isp\u011bt jakoukoliv \u010d\u00e1stkou ka\u017ed\u00fd m\u011bs\u00edc, tak v\u00e1m m\u016f\u017eu sl\u00edbit \u017ee bude vyu\u017eita pro vylep\u0161en\u00ed serveru.",
         "support-subheader": "Nechci d\u00e1vat reklamy na tuto str\u00e1nku, proto m\u011b pros\u00edm podpo\u0159te n\u011bjakou finan\u010dn\u00ed \u010d\u00e1stkou na provoz webu.",
         "donate-button": "Podpo\u0159it !",
         "donate-text": "P\u0159isp\u011bjte kolik chcete! (Stripe)",
@@ -159,7 +159,7 @@
         "title": "Titulek",
         "tellraw": "TellRaw",
         "book": "Kniha",
-        "execute_tellraw": "\/Execute CMD"
+        "execute_tellraw": "P\u0159\u00edkaz \/Execute"
     },
     "output": {
         "nothing": "Zde nen\u00ed na co koukat ;)",

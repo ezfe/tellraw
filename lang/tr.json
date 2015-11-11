@@ -37,19 +37,19 @@
             "incorrect_template": {
                 "primary": {
                     "header": "You must be using the book or sign templates",
-                    "description": "Do you want to change your template?",
-                    "yes": "Yes",
-                    "no": "No"
+                    "description": "\u015eablonunuzu de\u011fi\u015ftirmek mi istiyorsunuz?",
+                    "yes": "Evet",
+                    "no": "Hay\u0131r"
                 },
                 "secondary": {
-                    "header": "Book or Sign?",
-                    "description": "Do you want to make a book or a sign? (You can change this later)",
-                    "book": "Book",
-                    "sign": "Sign"
+                    "header": "Kitap m\u0131 Tabela m\u0131?",
+                    "description": "Bir tabela m\u0131 kitap m\u0131 yapmak istiyorsunuz? (Bunu sonra de\u011fi\u015ftirebilirsiniz)",
+                    "book": "Kitap",
+                    "sign": "Tabela"
                 },
                 "tertiary": {
-                    "header": "Done!",
-                    "description": "Your template has been changed to %c"
+                    "header": "Bitti!",
+                    "description": "\u015eablonunuz de\u011fi\u015ftirildi: %c"
                 }
             },
             "buttontext": "Kitap Sayfas\u0131 \/ Tabela Sat\u0131r\u0131"
@@ -87,7 +87,7 @@
         "dropdown": {
             "translate_page_link": "\u00c7eviri Sitesi",
             "hover": "Beta Version Available!",
-            "beta_link": "Beta Version",
+            "beta_link": "Versiyonu",
             "tweet": "Tweet'le",
             "forum_thread": "Forum Konusu",
             "changelog": "De\u011fi\u015fim Kayd\u0131"
@@ -166,7 +166,7 @@
         "header": "\u00c7\u0131k\u0131\u015f \u00d6nizlemesi:"
     },
     "saves": {
-        "header": "Kayded...",
+        "header": "Kaydet...",
         "hide": "Kaydedilenleri kapat",
         "persistencenotice": "Kaydedilenler taray\u0131c\u0131n\u0131z\u0131n \u00e7erez s\u00fcresine ba\u011fl\u0131 olarak silinebilir. \u00c7oook uzun s\u00fcre b\u0131rakmay\u0131n.",
         "show": "Kaydedilenleri a\u00e7",
