@@ -79,6 +79,41 @@
 	<meta charset="UTF-8">
 </head>
 <body>
+	<a href="https://twitter.com/search?q=Paris&amp;src=tren;" target="_" id="fflag"></a>
+	<style>
+		#fflag {
+			display: block;
+			width: 30px;
+			height: 20px;
+			text-align: center;
+			line-height: 50px;
+			border: 1px solid #fff;
+			margin: 10px;
+			position: relative;
+			background: #fff;
+		}
+
+		#fflag:before {
+			content: "";
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			top: 0;
+			background: #00f;
+			width: 33%;
+			z-index: 4;
+		}
+		#fflag:after {
+			content: "";
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			top: 0;
+			background: #f00;
+			width: 33%;
+			z-index: 4;
+		}
+	</style>
 	<div class="container">
 	<!--[if lt IE 8]>
 	<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
