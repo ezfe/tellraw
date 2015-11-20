@@ -8,9 +8,9 @@
                     "body": "\u039a\u03ac\u03bd\u03b5 \u03ba\u03bb\u03b9\u03ba \u03b5\u03b4\u03ce \u03b3\u03b9\u03b1 \u03bd\u03b1 \u03c0\u03b1\u03c2 \u03c3\u03b5 \u03ac\u03bb\u03bb\u03b7 \u03b9\u03c3\u03c4\u03bf\u03c3\u03b5\u03bb\u03af\u03b4\u03b1 \u03b3\u03b9\u03b1 \u03bd\u03b1 \u03ba\u03ac\u03bd\u03b5\u03b9\u03c2 \u03c0\u03b9\u03bd\u03b1\u03ba\u03af\u03b4\u03b5\u03c2 \u03bc\u03b5 \u03c3\u03c5\u03bc\u03b2\u03ac\u03bd\u03c4\u03b1 \u03c3\u03c4\u03b1 \u03ba\u03bb\u03b9\u03ba."
                 }
             },
-            "runcommand": "Run Command",
-            "openurl": "Open URL",
-            "suggestcommand": "Suggest Command",
+            "runcommand": "\u03a4\u03c1\u03ad\u03be\u03b5 \u03c4\u03b7\u03bd \u03b5\u03bd\u03c4\u03bf\u03bb\u03ae",
+            "openurl": "\u0386\u03bd\u03bf\u03b9\u03be\u03b5 URL",
+            "suggestcommand": "\u03a0\u03c1\u03cc\u03c4\u03b5\u03b9\u03bd\u03b5 \u0395\u03bd\u03c4\u03bf\u03bb\u03ae",
             "header": "Click Event:",
             "none": "None"
         },
@@ -21,8 +21,8 @@
                     "body": "\u0391\u03c5\u03c4\u03cc \u03b5\u03af\u03bd\u03b1\u03b9 \u03b5\u03c0\u03b5\u03b9\u03b4\u03ae \u03c4\u03bf Minecraft \u03b4\u03b5\u03bd \u03c5\u03c0\u03bf\u03c3\u03c4\u03b7\u03c1\u03af\u03b6\u03b5\u03b9 \u03c3\u03c5\u03bc\u03b2\u03ac\u03bd\u03c4\u03b1 \u03c3\u03c4\u03b7\u03bd \u03b1\u03b9\u03ce\u03c1\u03b7\u03c3\u03b7 \u03c0\u03ac\u03bd\u03c9 \u03b1\u03c0\u03cc \u03c4\u03b7\u03bd \u03c0\u03b9\u03bd\u03b1\u03ba\u03af\u03b4\u03b1."
                 }
             },
-            "addtext": "Add Text",
-            "removetext": "Remove Last Text",
+            "addtext": "\u03a0\u03c1\u03cc\u03c3\u03b8\u03b5\u03c3\u03b5 \u039a\u03b5\u03af\u03bc\u03b5\u03bd\u03bf",
+            "removetext": "\u0391\u03c6\u03b1\u03af\u03c1\u03b5\u03c3\u03b5 \u03c4\u03bf \u03c4\u03b5\u03bb\u03b5\u03c5\u03c4\u03b1\u03af\u03bf \u03ba\u03b5\u03af\u03bc\u03b5\u03bd\u03bf",
             "header": "Hover Event:",
             "showachievement": "Show Achievement",
             "id": "ID:",
@@ -38,11 +38,11 @@
                 "primary": {
                     "header": "\u03a0\u03c1\u03ad\u03c0\u03b5\u03b9 \u03bd\u03b1 \u03c7\u03c1\u03b7\u03c3\u03b9\u03bc\u03bf\u03c0\u03bf\u03b9\u03b5\u03af\u03c2 \u03ae \u03c4\u03bf \u03c0\u03c1\u03cc\u03c4\u03c5\u03c0\u03bf \u03c4\u03bf\u03c5 \u03b2\u03b9\u03b2\u03bb\u03af\u03bf\u03c5, \u03ae \u03c4\u03b7\u03c2 \u03c0\u03b9\u03bd\u03b1\u03ba\u03af\u03b4\u03b1\u03c2",
                     "description": "Do you want to change your template?",
-                    "yes": "\u039d\u03b1\u03af",
+                    "yes": "\u039d\u03b1\u03b9",
                     "no": "\u038c\u03c7\u03b9"
                 },
                 "secondary": {
-                    "header": "\u0392\u03b9\u03b2\u03bb\u03af\u03bf \u03ae \u03a0\u03b9\u03bd\u03b1\u03ba\u03af\u03b4\u03b1",
+                    "header": "\u0392\u03b9\u03b2\u03bb\u03af\u03bf \u03ae \u03a0\u03b9\u03bd\u03b1\u03ba\u03af\u03b4\u03b1;",
                     "description": "\u0398\u03ad\u03bb\u03b5\u03b9\u03c2 \u03bd\u03b1 \u03c4\u03bf \u03ba\u03ac\u03bd\u03b5\u03b9\u03c2 \u03b1\u03c5\u03c4\u03cc \u03ad\u03bd\u03b1 \u03b2\u03b9\u03b2\u03bb\u03af\u03bf \u03ae \u03bc\u03af\u03b1 \u03c0\u03b9\u03bd\u03b1\u03ba\u03af\u03b4\u03b1? (\u039c\u03c0\u03bf\u03c1\u03b5\u03af\u03c2 \u03bd\u03b1 \u03c4\u03bf \u03b1\u03bb\u03bb\u03ac\u03be\u03b5\u03b9\u03c2 \u03b1\u03c5\u03c4\u03cc \u03bc\u03b5\u03c4\u03ac)",
                     "book": "\u0392\u03b9\u03b2\u03bb\u03af\u03bf",
                     "sign": "\u03a0\u03b9\u03bd\u03b1\u03ba\u03af\u03b4\u03b1"
@@ -54,10 +54,10 @@
             },
             "buttontext": "Book Page \/ Sign Line"
         },
-        "trn": "Translated",
-        "parameter": "Parameter",
-        "editsnippet": "Edit Text",
-        "close": "Close",
+        "trn": "\u039c\u03b5\u03c4\u03b1\u03c6\u03c1\u03b1\u03c3\u03bc\u03ad\u03bd\u03bf",
+        "parameter": "\u03a0\u03b1\u03c1\u03ac\u03bc\u03b5\u03c4\u03c1\u03bf\u03c2",
+        "editsnippet": "\u0395\u03c0\u03b5\u03be\u03b5\u03c1\u03b3\u03b1\u03c3\u03af\u03b1 \u039a\u03b5\u03b9\u03bc\u03ad\u03bd\u03bf\u03c5",
+        "close": "\u039a\u03bb\u03ad\u03b9\u03c3\u03b9\u03bc\u03bf",
         "notext": "No Text",
         "insert": "Insert",
         "addsnippet": "Add Text",
@@ -85,9 +85,9 @@
     },
     "headerbar": {
         "dropdown": {
-            "translate_page_link": "\u03a3\u03b1\u03ca\u03c4 \u039c\u03b5\u03c4\u03ac\u03c6\u03c1\u03b1\u03c3\u03b7\u03c2",
+            "translate_page_link": "\u0399\u03c3\u03c4\u03bf\u03c3\u03b5\u03bb\u03af\u03b4\u03b1 \u039c\u03b5\u03c4\u03ac\u03c6\u03c1\u03b1\u03c3\u03b7\u03c2",
             "hover": "\u03a5\u03c0\u03ac\u03c1\u03c7\u03b5\u03b9 \u03b4\u03b9\u03b1\u03b8\u03ad\u03c3\u03b9\u03bc\u03bf beta version!",
-            "beta_link": "Beta Version",
+            "beta_link": "Beta \u0388\u03ba\u03b4\u03bf\u03c3\u03b7",
             "tweet": "Tweet",
             "forum_thread": "Forum Thread",
             "changelog": "Changelog"
@@ -109,22 +109,22 @@
         },
         "nlOutput": "Show Structured Output",
         "darkmode": {
-            "turn_on": "Dark Theme",
-            "turn_off": "Light Theme"
+            "turn_on": "\u03a3\u03ba\u03bf\u03c4\u03b5\u03b9\u03bd\u03cc \u0398\u03ad\u03bc\u03b1",
+            "turn_off": "\u0391\u03bd\u03bf\u03b9\u03c7\u03c4\u03cc \u0398\u03ad\u03bc\u03b1"
         },
-        "show": "Open Settings",
-        "hide": "Close Settings",
-        "fontSize": "Preview Font Size",
+        "show": "\u0386\u03bd\u03bf\u03b9\u03be\u03b5 \u03c4\u03b9\u03c2 \u03c1\u03c5\u03b8\u03bc\u03af\u03c3\u03b5\u03b9\u03c2",
+        "hide": "\u039a\u03bb\u03b5\u03af\u03c3\u03b5 \u03c4\u03b9\u03c2 \u03c1\u03c5\u03b8\u03bc\u03af\u03c3\u03b5\u03b9\u03c2",
+        "fontSize": "\u03a0\u03c1\u03cc\u03b2\u03b1\u03bb\u03b5 \u03c4\u03bf \u03bc\u03ad\u03b3\u03b5\u03b8\u03bf\u03c2 \u03c4\u03b7\u03c2 \u03b3\u03c1\u03b1\u03bc\u03bc\u03b1\u03c4\u03bf\u03c3\u03b5\u03b9\u03c1\u03ac\u03c2",
         "previewcolor": "Preview Background Color:",
-        "export": "Export",
+        "export": "\u0395\u03be\u03b1\u03b3\u03c9\u03b3\u03ae",
         "deleteall": {
             "body": "Clicking Delete will remove all your text and reset it to an empty string.",
             "heading": "Are you sure!?!",
-            "yes": "Delete All",
-            "no": "Cancel"
+            "yes": "\u0394\u03b9\u03b1\u03b3\u03c1\u03b1\u03c6\u03ae \u038c\u03bb\u03c9\u03bd",
+            "no": "\u0391\u03ba\u03cd\u03c1\u03c9\u03c3\u03b7"
         },
-        "import": "Import",
-        "header": "Settings:"
+        "import": "\u0395\u03b9\u03c3\u03b1\u03b3\u03c9\u03b3\u03ae",
+        "header": "\u03a1\u03c5\u03b8\u03bc\u03af\u03c3\u03b5\u03b9\u03c2:"
     },
     "donate": {
         "patreon-button": "Patreon",
@@ -132,21 +132,21 @@
         "paypal-note": "\u0394\u03b5\u03bd \u03c0\u03c1\u03bf\u03c3\u03c6\u03ad\u03c1\u03c9 \u03c4\u03bf paypal \u03b3\u03b9\u03b1 \u03c4\u03bf\u03c5\u03c2 \u03c6\u03cc\u03c1\u03bf\u03c5\u03c2 (\u03a4\u03bf Stripe \u03b4\u03b5\u03bd \u03c7\u03c1\u03b5\u03ce\u03bd\u03b5\u03b9 \u03c6\u03cc\u03c1\u03bf\u03c5\u03c2 \u03c3\u03b5 \u03bc\u03b1\u03b8\u03b7\u03c4\u03ad\u03c2). \u0395\u03ac\u03bd \u03cc\u03bc\u03c9\u03c2 \u03b8\u03ad\u03bb\u03b5\u03b9\u03c2 \u03bd\u03b1 \u03bc\u03bf\u03c5 \u03b4\u03ce\u03c3\u03b5\u03b9\u03c2 \u03c7\u03c1\u03ae\u03bc\u03b1\u03c4\u03b1 \u03bc\u03ad\u03c3\u03c9 \u03c4\u03bf\u03c5 PayPal \u03bc\u03c0\u03bf\u03c1\u03b5\u03af\u03c2 \u03bc\u03ad\u03c3\u03c9 \u03c4\u03bf\u03c5 funds@ezekielelin.com",
         "patreon-text": "If you Pledge to donate a certain amount each month, I can rely on that to upgrade the servers.",
         "support-subheader": "I don't want to put ads on this website, please donate to support the costs of maintaining this website.",
-        "donate-button": "Donate",
+        "donate-button": "\u0394\u03ce\u03c1\u03b9\u03c3\u03b5",
         "donate-text": "Make a donation of the value you choose (Stripe).",
         "overcast-text": "Want to buy me a rank on the Overcast Network? Click the picture above, and enter ezekielelin as my username.",
-        "exit": "Exit",
+        "exit": "\u0388\u03be\u03bf\u03b4\u03bf\u03c2",
         "exit-text": "You won't see this again so long as you keep your cookies intact. Unfortunately I have no way of detecting you if you reset your cookies."
     },
     "issues": {
         "go-home": "Ignore Issue"
     },
     "help": {
-        "textfield": "Use %n to make a newline",
+        "textfield": "\u0393\u03c1\u03ac\u03c8\u03b5 %n \u03b3\u03b9\u03b1 \u03bd\u03b1 \u03b4\u03b7\u03bc\u03b9\u03bf\u03c5\u03c1\u03b3\u03ae\u03c3\u03b5\u03b9\u03c2 \u03bd\u03ad\u03b1 \u03c3\u03b5\u03b9\u03c1\u03ac",
         "raw-text-tab": "Choose your text choice. Raw is normal text. Scoreboard pulls a value from the scoreboard. Selector pulls the name of an entity.",
         "report-an-issue": "Click here to report an issue. If you experience any sort of bug, you should report it here.",
         "dropdown-list": "Tweet, view the changelog, view the minecraft forums thread, or get resources for translation.",
-        "addsnippet": "Add text to your tellraw command.",
+        "addsnippet": "\u03a0\u03c1\u03cc\u03c3\u03b8\u03b5\u03c3\u03b5 \u03ba\u03b5\u03af\u03bc\u03b5\u03bd\u03bf \u03c3\u03c4\u03b7\u03bd \u03b5\u03bd\u03c4\u03bf\u03bb\u03ae tellraw \u03c3\u03bf\u03c5",
         "delete-all-saves": "Clear your saves, but leave your current command in the main editor intact.",
         "create-new-save": "Make a new save. This will overwrite an existing save by the same name, if you so choose.",
         "delete-all-snippets": "Clear your command completely, but leave your saves intact.",
@@ -173,30 +173,30 @@
         "deleteall": {
             "body": "Clicking Delete will remove all your saves, but won't affect your current text",
             "yes": "Delete All Saves",
-            "heading": "Are you sure!?!",
-            "no": "Cancel"
+            "heading": "\u0395\u03af\u03c3\u03b1\u03b9 \u03c3\u03af\u03b3\u03bf\u03c5\u03c1\u03bf\u03c2;",
+            "no": "\u0391\u03ba\u03cd\u03c1\u03c9\u03c3\u03b7"
         },
         "nosaves": "You don't have anything saved",
         "new": "Save Current String"
     },
     "color": {
-        "color_green": "Green",
-        "color_red": "Red",
-        "color_none": "None",
+        "color_green": "\u03a0\u03c1\u03ac\u03c3\u03b9\u03bd\u03bf",
+        "color_red": "\u039a\u03cc\u03ba\u03ba\u03b9\u03bd\u03bf",
+        "color_none": "\u039a\u03b1\u03bd\u03ad\u03bd\u03b1",
         "color_dark_aqua": "Dark Aqua",
-        "color_dark_purple": "Dark Purple",
-        "color_dark_blue": "Dark Blue",
+        "color_dark_purple": "\u0392\u03b1\u03b8\u03cd \u039c\u03c9\u03b2",
+        "color_dark_blue": "\u0392\u03b1\u03b8\u03cd \u039c\u03c0\u03bb\u03b5",
         "color_aqua": "Aqua",
-        "color_white": "White",
-        "color_dark_gray": "Dark Gray",
-        "color_dark_red": "Dark Red",
-        "color_dark_green": "Dark Green",
-        "color_gold": "Gold",
-        "color_blue": "Blue",
-        "color_black": "Black",
-        "color_gray": "Gray",
-        "color_light_purple": "Light Purple",
-        "color_yellow": "Yellow"
+        "color_white": "\u0386\u03c3\u03c0\u03c1\u03bf",
+        "color_dark_gray": "\u0392\u03b1\u03b8\u03cd \u0393\u03ba\u03c1\u03b9",
+        "color_dark_red": "\u0392\u03b1\u03b8\u03cd \u039a\u03cc\u03ba\u03ba\u03b9\u03bd\u03bf",
+        "color_dark_green": "\u0392\u03b1\u03b8\u03cd \u03a0\u03c1\u03ac\u03c3\u03b9\u03bd\u03bf",
+        "color_gold": "\u03a7\u03c1\u03c5\u03c3\u03b1\u03c6\u03af",
+        "color_blue": "\u039c\u03c0\u03bb\u03b5",
+        "color_black": "\u039c\u03b1\u03cd\u03c1\u03bf",
+        "color_gray": "\u0393\u03ba\u03c1\u03b9",
+        "color_light_purple": "\u0391\u03bd\u03bf\u03b9\u03c7\u03c4\u03cc \u039c\u03c9\u03b2",
+        "color_yellow": "\u039a\u03af\u03c4\u03c1\u03b9\u03bd\u03bf"
     },
     "language": {
         "translate": "Translate",
