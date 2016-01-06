@@ -99,9 +99,9 @@
     "settings": {
         "importtext": {
             "exported": {
-                "header": "Import",
+                "header": "Importera",
                 "failed": {
-                    "header": "Import misslyckades",
+                    "header": "Importering misslyckades",
                     "description": "Given inmatning"
                 },
                 "description": "Var v\u00e4nlig ange texten du fick n\u00e4r du exporterat ditt kommando"

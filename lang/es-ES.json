@@ -172,7 +172,7 @@
         "show": "Mostrar Guardados",
         "deleteall": {
             "body": "Eliminar todas las copias guardadas no modificar\u00e1 el texto actual",
-            "yes": "Elimina TODOS los comandos guardadas",
+            "yes": "Elimina TODOS los comandos guardados",
             "heading": "\u00a1\u00bf\u00a1SEGURO!?!",
             "no": "Cancelar"
         },
