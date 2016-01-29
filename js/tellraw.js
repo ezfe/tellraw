@@ -99,10 +99,10 @@ function initLanguageSupport(specific,lc) {
 			}
 			lang[languageData[i]] = urlFetch;
 		}
+		createLanguageDropdown();
 	}
 	delete lang.status;
 
-	createLanguageDropdown();
 	refreshLanguage();
 	refreshOutput();
 }
@@ -173,7 +173,7 @@ function reportAnIssue(ptitle) {
 }
 function getLanguageName(langCode) {
 	if (lang["status"] == "init") {
-		logIssue("Language Data Unavailable", {"requested": langCode}, true);
+		logIssue("Language Data Unavailable", {"requested": langCode}, false);
 		return "";
 	}
 	var name = lang[langCode].language.name;
