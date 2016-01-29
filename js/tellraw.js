@@ -157,10 +157,6 @@ function clone(obj) {
     throw new Error("Unable to copy obj! Its type isn't supported.");
 }
 
-function alert(message) {
-	return swal(message);
-}
-
 function reportAnIssue(ptitle) {
 	var title = "";
 	var body = "";
@@ -1845,7 +1841,10 @@ function initialize() {
 		editing = true;
 	});
 	$('#show-saves').on('click',function(){
-		showView('saves');
+		alert("Use the Export button to save your commands long-term. HTML5 Storage is not long-term.");
+		if (confirm("Would you like to see the saves box regardless?")) {
+			showView('saves');
+		}
 	});
 	$('#hide-saves').on('click',function(){
 		showView('tellraw');
