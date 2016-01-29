@@ -70,13 +70,13 @@ lsm.dictionary = function() {
 	}
 }
 
-function initLanguageSupport(justEnglish) {
-	if (justEnglish !== true) {
-		justEnglish = false
+function initLanguageSupport(specific,lc) {
+	if (specific !== true) {
+		specific = false
 	}
 
 	for (var i = 0; i < languageData.length; i++) {
-		if (languageData[i] == "en-US" || !justEnglish) {
+		if (languageData[i] == lc || !specific) {
 			try {
 				var urlFetch = getURL('lang/' + languageData[i] + '.json');
 			} catch(err) {
@@ -1720,6 +1720,7 @@ function initialize() {
 	if (lsm.getItem('jtemplate') == undefined) {
 		lsm.setItem('jtemplate', 'tellraw');
 	}
+	
 	if (lang[lsm.getItem('langCode')]) {
 		errorString = getLanguageName(lsm.getItem('langCode')) + '<br><br>';
 	} else {
@@ -1981,7 +1982,7 @@ $(document).ready(function(){
 	commands = data['commands'];
 	languageData = data['web_language_urls'];
 
-	initLanguageSupport(true);
+	initLanguageSupport(true,lsm.getItem('langCode'));
 	//see language-dropdown-button click action for rest
 
 	setTimeout(initialize,500);
