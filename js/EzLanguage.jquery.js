@@ -32,7 +32,7 @@ function getLanguageString(queryString,currentLanguageCode) {
 	for (var i = 0; i < strArray.length; i++) {
 		arrayItem = strArray[i];
 
-		if (currentObject && currentObject[arrayItem] !== undefined) {
+		if (currentObject[arrayItem] !== undefined) {
 			if (typeof currentObject[arrayItem] === "string") {
 				ret_val = currentObject[arrayItem];
 			} else {
