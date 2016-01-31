@@ -84,7 +84,7 @@ function initLanguageSupport(specific,lc) {
 
 	console.error("Received init request for " + lc);
 
-	if (langInitsRequested.indexOf(lc.toLowerCase()) != -1 && !specific) {
+	if (langInitsRequested.indexOf(lc.toLowerCase()) != -1) {
 		return;
 	}
 
