@@ -1962,6 +1962,8 @@ $('#language-dropdown-button').on('click',function(){
 		$('#enable_dark_mode').click(); //Finish setting up dark mode after handlers exist
 	}
 
+	initLanguageSupport(false,lsm.getItem('langCode'));
+
 }
 $(document).ready(function(){
 	if (lsm.getItem('darkMode') && lsm.getItem('darkMode') == 'true') {
@@ -2008,8 +2010,6 @@ $(document).ready(function(){
 	achievements = data['achievements'];
 	commands = data['commands'];
 	languageData = data['web_language_urls'];
-
-	initLanguageSupport(false,'');
 
 	//see language-dropdown-button click action for rest
 
