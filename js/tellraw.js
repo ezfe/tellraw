@@ -1865,10 +1865,10 @@ function initialize() {
 	$('#show-saves').on('click',function(){
 		alert("Use the Export button to save your commands long-term. HTML5 Storage is not long-term.");
 		if (saves)
-		if (confirm("Would you like to see the saves box regardless?")) {
-			showView('saves');
-		}
-	});
+			if (confirm("Would you like to see the saves box regardless?")) {
+				showView('saves');
+			}
+		});
 	$('#hide-saves').on('click',function(){
 		showView('tellraw');
 	});
@@ -1959,6 +1959,17 @@ $('#language-dropdown-button').on('click',function(){
 	}
 
 	initLanguageSupport(true,lsm.getItem('langCode'));
+
+
+	if (Object.keys(lang).length == 0 || !lang[lsm.getItem('langCode')]) {
+
+		$('#brokenNess').remove();
+		$('.alerts').append('<div id="brokenNess" class="alert alert-danger"><h4><i class="fa fa-warning"></i> *Sad Face*</h4><p>I broke it! I\'m working on fixing it, but in the mean time everything should function properly, the labels will just be a bit broken.</p></div>');
+		goToByScroll('brokenNess');
+
+	}
+
+	
 }
 $(document).ready(function(){
 	if (lsm.getItem('darkMode') && lsm.getItem('darkMode') == 'true') {
@@ -2009,9 +2020,4 @@ $(document).ready(function(){
 	//see language-dropdown-button click action for rest
 
 	setTimeout(initialize,500);
-
-	$('#brokenNess').remove();
-	$('.alerts').append('<div id="brokenNess" class="alert alert-danger"><h4><i class="fa fa-warning"></i> *Sad Face*</h4><p>I broke it! I\'m working on fixing it, but in the mean time everything should function properly, the labels will just be a bit broken.</p></div>');
-	goToByScroll('brokenNess');
-
 });
