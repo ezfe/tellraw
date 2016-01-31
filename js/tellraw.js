@@ -82,8 +82,6 @@ function languageSupported(langCode) {
 
 function initLanguageSupport(specific,lc) {
 
-	console.error("Received init request for " + lc);
-
 	if (langInitsRequested.indexOf(lc.toLowerCase()) != -1) {
 		return;
 	}
@@ -99,7 +97,7 @@ function initLanguageSupport(specific,lc) {
 			try {
 				var urlFetch = getURL('lang/' + languageData[i] + '.json');
 			} catch(err) {
-				if (languageData[i] == 'en-us') {
+				if (languageData[i] == 'en-US') {
 					var urlFetch = {"language":{"name":"English"}};
 				} else {
 					continue;
@@ -109,7 +107,7 @@ function initLanguageSupport(specific,lc) {
 				try {
 					urlFetch = JSON.parse(urlFetch);
 				} catch(err) {
-					if (languageData[i] == 'en-us') {
+					if (languageData[i] == 'en-US') {
 						var urlFetch = {"language":{"name":"English"}};
 					} else {
 						continue;
@@ -129,7 +127,7 @@ function initLanguageSupport(specific,lc) {
 function createLanguageDropdown() {
 	$('#language_keys').children().remove();
 
-	/*var enCount = JSON.stringify(lang['en-us']).length;*/
+	/*var enCount = JSON.stringify(lang['en-US']).length;*/
 	for (var i = 0; i < Object.keys(lang).length; i++) {
 		/*var langKey = Object.keys(lang)[i];
 		var currentCount = JSON.stringify(lang[langKey]).length;
@@ -192,7 +190,7 @@ function getLanguageName(langCode) {
 		return "";
 	}
 	var name = lang[langCode].language.name;
-	if (name == "English" && langCode != "en-us") {
+	if (name == "English" && langCode != "en-US") {
 		return langCode
 	} else {
 		return name
@@ -1585,7 +1583,7 @@ function refreshLanguage(dropdownSelection) {
 
 		$('*').refreshLanguage(lsm.getItem('langCode'));
 	} else {
-		lsm.setItem('langCode','en-us')
+		lsm.setItem('langCode','en-US')
 	}
 	$('*').each(function(){
 		//if ($(this).attr('version') != undefined && (lsm.getItem('versionIndicators') == "true" || lsm.getItem('versionIndicators') == undefined)) {
@@ -1961,6 +1959,17 @@ $('#language-dropdown-button').on('click',function(){
 	}
 
 	// initLanguageSupport(true,lsm.getItem('langCode'));
+	initLanguageSupport(false,'');
+	
+
+	if (Object.keys(lang).length == 0 || !lang[lsm.getItem('langCode')]) {
+
+		$('#brokenNess').remove();
+		$('.alerts').append('<div id="brokenNess" class="alert alert-danger"><h4><i class="fa fa-warning"></i> Uh Oh</h4><p>Stuff is a bit broken</p></div>');
+		goToByScroll('brokenNess');
+
+	}
+
 
 }
 $(document).ready(function(){
