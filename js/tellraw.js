@@ -114,7 +114,7 @@ function initLanguageSupport(specific,lc) {
 					}
 				}
 			}
-			lang[languageData[i]] = urlFetch;
+			lang[languageData[i].toLowerCase()] = urlFetch;
 		}
 		createLanguageDropdown();
 	}
@@ -1958,18 +1958,19 @@ $('#language-dropdown-button').on('click',function(){
 		$('#enable_dark_mode').click(); //Finish setting up dark mode after handlers exist
 	}
 
-	initLanguageSupport(true,lsm.getItem('langCode'));
-
+	// initLanguageSupport(true,lsm.getItem('langCode'));
+	initLanguageSupport(false,'');
+	
 
 	if (Object.keys(lang).length == 0 || !lang[lsm.getItem('langCode')]) {
 
 		$('#brokenNess').remove();
-		$('.alerts').append('<div id="brokenNess" class="alert alert-danger"><h4><i class="fa fa-warning"></i> *Sad Face*</h4><p>I broke it! I\'m working on fixing it, but in the mean time everything should function properly, the labels will just be a bit broken.</p></div>');
+		$('.alerts').append('<div id="brokenNess" class="alert alert-danger"><h4><i class="fa fa-warning"></i> Uh Oh</h4><p>Stuff is a bit broken</p></div>');
 		goToByScroll('brokenNess');
 
 	}
 
-	
+
 }
 $(document).ready(function(){
 	if (lsm.getItem('darkMode') && lsm.getItem('darkMode') == 'true') {
