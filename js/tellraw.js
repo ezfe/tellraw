@@ -73,7 +73,7 @@ lsm.dictionary = function() {
 
 function languageSupported(langCode) {
 	for (var i = languageData.length - 1; i >= 0; i--) {
-		if (languageData[i].toLowerCase() == langCode.toLowerCase()) {
+		if (langCode && languageData[i].toLowerCase() == langCode.toLowerCase()) {
 			return true;
 		}
 	}
