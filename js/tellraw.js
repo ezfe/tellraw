@@ -23,7 +23,6 @@ var lang = {"status":"init"};
 var currentEdit;
 var hasAlertedTranslationObjects = false;
 var webLangRelations;
-var languageData;
 var editing = false;
 var issueLog = [];
 var bookPage = 1;
@@ -68,58 +67,6 @@ lsm.dictionary = function() {
 	} else {
 		return localStorage;
 	}
-}
-
-function initLanguageSupport(justEnglish) {
-	if (justEnglish !== true) {
-		justEnglish = false
-	}
-
-	for (var i = 0; i < languageData.length; i++) {
-		if (languageData[i] == "en-US" || !justEnglish) {
-			try {
-				var urlFetch = getURL('lang/' + languageData[i] + '.json');
-			} catch(err) {
-				if (languageData[i] == 'en_US') {
-					var urlFetch = {"language":{"name":"English"}};
-				} else {
-					continue;
-				}
-			}
-			if (typeof urlFetch == 'string') {
-				try {
-					urlFetch = JSON.parse(urlFetch);
-				} catch(err) {
-					if (languageData[i] == 'en_US') {
-						var urlFetch = {"language":{"name":"English"}};
-					} else {
-						continue;
-					}
-				}
-			}
-			lang[languageData[i]] = urlFetch;
-		}
-	}
-	delete lang.status;
-
-	createLanguageDropdown();
-	refreshLanguage();
-	refreshOutput();
-}
-
-function createLanguageDropdown() {
-	$('#language_keys').children().remove();
-
-	/*var enCount = JSON.stringify(lang['en_US']).length;*/
-	for (var i = 0; i < Object.keys(lang).length; i++) {
-		/*var langKey = Object.keys(lang)[i];
-		var currentCount = JSON.stringify(lang[langKey]).length;
-		var currentPercentage = Math.round(currentCount/enCount*100);
-		console.log(currentPercentage);*/
-		$('#language_keys').append('<li><a onclick="errorString = \''+ getLanguageName(Object.keys(lang)[i]) +'<br><br>\'; lsm.setItem(\'langCode\',\''+Object.keys(lang)[i]+'\'); refreshLanguage(true); refreshOutput();"><span class="' + Object.keys(lang)[i] + ' langSelect" id="language_select_'+Object.keys(lang)[i]+'">'+ getLanguageName(Object.keys(lang)[i]) +'</span></a></li>');
-	};
-	$('#language_keys').append('<li class="divider"></li>');
-	$('#language_keys').append('<li><a href="http://translate.minecraftjson.com"><span class="language_area" lang="language.translate"></span></a></li>');
 }
 
 /* http://stackoverflow.com/a/728694/2059595 */
@@ -172,10 +119,6 @@ function reportAnIssue(ptitle) {
 	win.focus();
 }
 function getLanguageName(langCode) {
-	if (lang["status"] == "init") {
-		logIssue("Language Data Unavailable", {"requested": langCode}, true);
-		return "";
-	}
 	var name = lang[langCode].language.name;
 	if (name == "English" && langCode != "en-US") {
 		return langCode
@@ -184,20 +127,12 @@ function getLanguageName(langCode) {
 	}
 }
 function showIssue() {
-	swal(issueLog[issueLog.length - 1].name, issueLog[issueLog.length - 1].data, 'error');
+	swal(issueLog[issueLog.length - 1].name,issueLog[issueLog.length - 1].data,'error');
 }
 function logIssue(name,data,critical) {
 	issueLog.push({"name":name,"data":data});
 	if (critical) {
-		swal({
-			title: name,
-			text: data,
-			type: "error",
-			showCancelButton: false,
-			closeOnConfirm: true
-		},function(){
-			location.reload();
-		})
+		swal(name,data,'error');
 	}
 }
 function showView(viewname,suppressAnimation,hideOthers,hideMenubar) {
@@ -1702,31 +1637,37 @@ function initialize() {
 					swal('Awe...','I won\'t bother you again, so long as you don\'t reset your cookies.\n\nI can\'t remember things if you do that.');
 				}
 			});
+lsm.setItem('donateAlert','shown');
+}
+}
 
-			//
-			lsm.setItem('donateAlert','shown');
-		}
-	}
-
-	for (var i = 0; i < Object.keys(templates).length; i++) {
-		var key = Object.keys(templates)[i]
-		if (key == lsm.getItem('jtemplate')) {
-			var classString = 'btn-success';
-		} else {
-			var classString = 'btn-default';
-		}
-		$('#templateButtons').append('<button class="btn btn-xs ' + classString + ' templateButton" lang="template.' + key + '" version="' + templates[key]['version'] + '" template="'+ key +'"></button> ');
-	}
-	if (lsm.getItem('jtemplate') == undefined) {
-		lsm.setItem('jtemplate', 'tellraw');
-	}
-	if (lang[lsm.getItem('langCode')]) {
-		errorString = getLanguageName(lsm.getItem('langCode')) + '<br><br>';
+for (var i = 0; i < Object.keys(templates).length; i++) {
+	var key = Object.keys(templates)[i]
+	if (key == lsm.getItem('jtemplate')) {
+		var classString = 'btn-success';
 	} else {
-		errorString = '&lt;language unknown&gt;<br><br>';
+		var classString = 'btn-default';
 	}
-
-	createLanguageDropdown();
+	$('#templateButtons').append('<button class="btn btn-xs ' + classString + ' templateButton" lang="template.' + key + '" version="' + templates[key]['version'] + '" template="'+ key +'"></button> ');
+}
+if (lsm.getItem('jtemplate') == undefined) {
+	lsm.setItem('jtemplate', 'tellraw');
+}
+if (lang[lsm.getItem('langCode')]) {
+	errorString = getLanguageName(lsm.getItem('langCode')) + '<br><br>';
+} else {
+	errorString = '&lt;language unknown&gt;<br><br>';
+}
+/*var enCount = JSON.stringify(lang['en_US']).length;*/
+for (var i = 0; i < Object.keys(lang).length; i++) {
+		/*var langKey = Object.keys(lang)[i];
+		var currentCount = JSON.stringify(lang[langKey]).length;
+		var currentPercentage = Math.round(currentCount/enCount*100);
+		console.log(currentPercentage);*/
+		$('#language_keys').append('<li><a onclick="errorString = \''+ getLanguageName(Object.keys(lang)[i]) +'<br><br>\'; lsm.setItem(\'langCode\',\''+Object.keys(lang)[i]+'\'); refreshLanguage(true); refreshOutput();"><span class="' + Object.keys(lang)[i] + ' langSelect" id="language_select_'+Object.keys(lang)[i]+'">'+ getLanguageName(Object.keys(lang)[i]) +'</span></a></li>');
+	};
+	$('#language_keys').append('<li class="divider"></li>');
+	$('#language_keys').append('<li><a href="http://translate.minecraftjson.com"><span class="language_area" lang="language.translate"></span></a></li>');
 
 	$('.extraTranslationParameterRow').hide();
 
@@ -1915,13 +1856,6 @@ function initialize() {
 		}
 	});
 
-$('#language-dropdown-button').on('click',function(){
-	if (Object.keys(lang).length < languageData.length) {
-		var thtml = $(this).html();
-		initLanguageSupport(false);
-	}
-});
-
 	// Beta tooltip
 	// $('#dropdown-list-a').tooltip({"title":"<i style=\"color: #F8814C;\" class=\"fa fa-exclamation-circle\"></i> " + getLanguageString('headerbar.dropdown.hover',lsm.getItem('langCode')),"html":true,"placement":"bottom"});
 	// if (lsm.getItem('beta-tooltip-a-shown') != "yes") {
@@ -1979,10 +1913,29 @@ $(document).ready(function(){
 	webLangRelations = data['web_language_relations'];
 	achievements = data['achievements'];
 	commands = data['commands'];
-	languageData = data['web_language_urls'];
-
-	initLanguageSupport(true);
-	//see language-dropdown-button click action for rest
-
+	for (var i = 0; i < data['web_language_urls'].length; i++) {
+		try {
+			var urlFetch = getURL('lang/' + data['web_language_urls'][i] + '.json');
+		} catch(err) {
+			if (data['web_language_urls'][i] == 'en_US') {
+				var urlFetch = {"language":{"name":"English"}};
+			} else {
+				continue;
+			}
+		}
+		if (typeof urlFetch == 'string') {
+			try {
+				urlFetch = JSON.parse(urlFetch);
+			} catch(err) {
+				if (data['web_language_urls'][i] == 'en_US') {
+					var urlFetch = {"language":{"name":"English"}};
+				} else {
+					continue;
+				}
+			}
+		}
+		lang[data['web_language_urls'][i]] = urlFetch;
+	}
+	delete lang.status;
 	setTimeout(initialize,500);
 });
