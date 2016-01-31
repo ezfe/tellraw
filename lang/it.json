@@ -4,8 +4,8 @@
             "changepage": "Cambia Pagina",
             "unavailable": {
                 "sign": {
-                    "header": "Non sono disponibili i click events per i cartelli",
-                    "body": "Clicca qui per andare ad un sito non ufficiale per creare cartelli con eventi al click."
+                    "header": "Gli eventi su click su cartello non sono disponibili",
+                    "body": "Clicca qui per andare ad un sito non affiliato per creare eventi su click su cartello"
                 }
             },
             "runcommand": "Esegui comando",
@@ -17,7 +17,7 @@
         "hoverevent": {
             "unavailable": {
                 "sign": {
-                    "header": "Non sono disponibili eventi per puntare un cartello",
+                    "header": "Gli eventi anteprima del cartello non sono disponibili",
                     "body": "Questo \u00e8 dovuto a Minecraft che non supporta gli eventi di anteprima nei cartelli."
                 }
             },
@@ -37,19 +37,19 @@
             "incorrect_template": {
                 "primary": {
                     "header": "You must be using the book or sign templates",
-                    "description": "Vuoi cambiare il template?",
+                    "description": "Vorresti cambiare il tuo template?",
                     "yes": "Si",
                     "no": "No"
                 },
                 "secondary": {
                     "header": "Libro o Cartello?",
-                    "description": "Vuoi creare un libro o un cartello? (Puoi cambiare la tua scelta dopo)",
+                    "description": "Vorresti creare un libro o un cartello? (Potrai cambiare dopo) ",
                     "book": "Libro",
                     "sign": "Cartello"
                 },
                 "tertiary": {
                     "header": "Finito!",
-                    "description": "Il template \u00e8 stato cambiato: %c"
+                    "description": "Il template \u00e8 stato cambiato a {%c}"
                 }
             },
             "buttontext": "Pagina di un libro \/ Linea di un cartello"
@@ -130,11 +130,11 @@
         "patreon-button": "Patreon",
         "support-header": "(Per favore) Supporta questo sito",
         "paypal-note": "Io non offro paypal nella lista delle opzioni per colpa delle tasse (Stripe non tassa gli Studenti). Comunque, se tu vuoi puoi inviarmi soldi usando PayPal attraverso funds@ezekielelin.com",
-        "patreon-text": "Se ti impegni a donare una certa quantit\u00e0 di soldi a mese, io posso usarli per tenere online i server.",
+        "patreon-text": "Se ti impegnerai a donare una certa cifra ogni mese, io potr\u00f2 far affidamento su ci\u00f2 per potenziare i server.",
         "support-subheader": "Io non voglio mettere pubblicit\u00e0 in questo sito, per favore dona per supportare i costi di mantenimento di questo sito.",
         "donate-button": "Dona",
         "donate-text": "Fai una donazione usando la valuta che vuoi (Stripe).",
-        "overcast-text": "Vuoi comprarmi un rank nell'Overcast Network? Clicca nella foto in basso, e inserisci ezekielelin come mio nome.",
+        "overcast-text": "Vorresti comprarmi un rango nell'Overcast Network? Clicca nella foto in basso ed inserisci ezekielelin come mio nome.",
         "exit": "Esci",
         "exit-text": "Tu non vedrai questo ancora finch\u00e8 tieni i tuoi cookies intatti. Purtroppo io non ho nessuna via per rilevare se tu hai resettato i tuoi cookies."
     },
@@ -143,7 +143,7 @@
     },
     "help": {
         "textfield": "Usa %n per creare una nuova linea",
-        "raw-text-tab": "Scegli la tua scelta di testo. A crudo \u00e8 il testo normale. Le scoreboard tirano un valore dalla scoreboard. I selettori tirano il nome di una entit\u00e0.",
+        "raw-text-tab": "Scegli il tipo di testo. Raw \u00e8 il testo normalr.",
         "report-an-issue": "Clicca qui per riportare un problema. Se nella tua esperienza compare un bug, tu dovresti riportarlo qui.",
         "dropdown-list": "Twitta, visualizza il changelog, visualizza il thread del forum di minecraft o ottieni risorse per la traduzione.",
         "addsnippet": "Aggiungere il testo al comando tellraw",
