@@ -70,6 +70,15 @@ lsm.dictionary = function() {
 	}
 }
 
+function languageSupported(langCode) {
+	for (var i = languageData.length - 1; i >= 0; i--) {
+		if (languageData[i].toLowerCase() == langCode.toLowerCase()) {
+			return true;
+		}
+	}
+	return false;
+}
+
 function initLanguageSupport(specific,lc) {
 	if (specific !== true) {
 		specific = false
@@ -80,7 +89,7 @@ function initLanguageSupport(specific,lc) {
 			try {
 				var urlFetch = getURL('lang/' + languageData[i] + '.json');
 			} catch(err) {
-				if (languageData[i] == 'en_US') {
+				if (languageData[i] == 'en-US') {
 					var urlFetch = {"language":{"name":"English"}};
 				} else {
 					continue;
@@ -90,7 +99,7 @@ function initLanguageSupport(specific,lc) {
 				try {
 					urlFetch = JSON.parse(urlFetch);
 				} catch(err) {
-					if (languageData[i] == 'en_US') {
+					if (languageData[i] == 'en-US') {
 						var urlFetch = {"language":{"name":"English"}};
 					} else {
 						continue;
@@ -110,7 +119,7 @@ function initLanguageSupport(specific,lc) {
 function createLanguageDropdown() {
 	$('#language_keys').children().remove();
 
-	/*var enCount = JSON.stringify(lang['en_US']).length;*/
+	/*var enCount = JSON.stringify(lang['en-US']).length;*/
 	for (var i = 0; i < Object.keys(lang).length; i++) {
 		/*var langKey = Object.keys(lang)[i];
 		var currentCount = JSON.stringify(lang[langKey]).length;
@@ -1558,7 +1567,12 @@ function jsonParse() {
 	}
 }
 function refreshLanguage(dropdownSelection) {
-	if (lang[lsm.getItem('langCode')]) {
+	if (languageSupported(lsm.getItem('langCode'))) {
+
+		if (!lang[lsm.getItem('langCode')]) {
+			initLanguageSupport(true, lsm.getItem('langCode'));
+		}
+
 		$('*').refreshLanguage(lsm.getItem('langCode'));
 	} else {
 		lsm.setItem('langCode','en-US')
@@ -1585,8 +1599,8 @@ function initialize() {
 	}
 
 	if (lsm.getItem('langCode') == undefined) {
-		if (lang[navigator.language.toLowerCase()] != undefined) {
-			lsm.setItem('langCode',navigator.language.toLowerCase());
+		if (languageSupported(navigator.language.toLowerCase())) {
+			lsm.setItem('langCode', navigator.language.toLowerCase());
 		} else {
 			if (webLangRelations[navigator.language.toLowerCase()] != undefined) {
 				lsm.setItem('langCode',webLangRelations[navigator.language.toLowerCase()]);
@@ -1595,7 +1609,7 @@ function initialize() {
 	}
 
 	if (lsm.getItem('langCode') == undefined) {
-		lsm.setItem('langCode','en_US');
+		lsm.setItem('langCode','en-us');
 	}
 
 	if (lsm.getItem('jformat') != version && lsm.getItem('jformat') != undefined) {
@@ -1842,6 +1856,7 @@ function initialize() {
 	});
 	$('#show-saves').on('click',function(){
 		alert("Use the Export button to save your commands long-term. HTML5 Storage is not long-term.");
+		if (saves)
 		if (confirm("Would you like to see the saves box regardless?")) {
 			showView('saves');
 		}
@@ -1934,6 +1949,8 @@ $('#language-dropdown-button').on('click',function(){
 	if (lsm.getItem('darkMode') && lsm.getItem('darkMode') == 'true') {
 		$('#enable_dark_mode').click(); //Finish setting up dark mode after handlers exist
 	}
+
+	initLanguageSupport(true,lsm.getItem('langCode'));
 }
 $(document).ready(function(){
 	if (lsm.getItem('darkMode') && lsm.getItem('darkMode') == 'true') {
@@ -1981,7 +1998,6 @@ $(document).ready(function(){
 	commands = data['commands'];
 	languageData = data['web_language_urls'];
 
-	initLanguageSupport(true,lsm.getItem('langCode'));
 	//see language-dropdown-button click action for rest
 
 	setTimeout(initialize,500);
