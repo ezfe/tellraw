@@ -84,7 +84,7 @@ function initLanguageSupport(specific,lc) {
 
 	console.error("Received init request for " + lc);
 
-	if (langInitsRequested.indexOf(lc.toLowerCase()) != -1) {
+	if (langInitsRequested.indexOf(lc.toLowerCase()) != -1 && !specific) {
 		return;
 	}
 
@@ -1580,8 +1580,7 @@ function refreshLanguage(dropdownSelection) {
 	if (languageSupported(lsm.getItem('langCode'))) {
 
 		if (!lang[lsm.getItem('langCode')]) {
-			//TODO FIX
-			// initLanguageSupport(true, lsm.getItem('langCode'));
+			initLanguageSupport(true, lsm.getItem('langCode'));
 		}
 
 		$('*').refreshLanguage(lsm.getItem('langCode'));
@@ -1944,8 +1943,7 @@ function initialize() {
 $('#language-dropdown-button').on('click',function(){
 	if (Object.keys(lang).length < languageData.length) {
 		var thtml = $(this).html();
-		//TODO FIX
-		// initLanguageSupport(false);
+		initLanguageSupport(false);
 	}
 });
 
@@ -1962,7 +1960,7 @@ $('#language-dropdown-button').on('click',function(){
 		$('#enable_dark_mode').click(); //Finish setting up dark mode after handlers exist
 	}
 
-	initLanguageSupport(false,lsm.getItem('langCode'));
+	// initLanguageSupport(true,lsm.getItem('langCode'));
 
 }
 $(document).ready(function(){
