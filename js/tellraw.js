@@ -81,7 +81,7 @@ function languageSupported(langCode) {
 }
 
 function initLanguageSupport(specific,lc) {
-	alert(lc);
+	
 	if (langInitsRequested.indexOf(lc.toLowerCase()) != -1) {
 		return;
 	}
