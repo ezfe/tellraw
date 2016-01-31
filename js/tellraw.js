@@ -24,6 +24,7 @@ var currentEdit;
 var hasAlertedTranslationObjects = false;
 var webLangRelations;
 var languageData;
+var langInitsRequested = [];
 var editing = false;
 var issueLog = [];
 var bookPage = 1;
@@ -80,6 +81,13 @@ function languageSupported(langCode) {
 }
 
 function initLanguageSupport(specific,lc) {
+	alert(lc);
+	if (langInitsRequested.indexOf(lc.toLowerCase()) != -1) {
+		return;
+	}
+
+	langInitsRequested.push(lc.toLowerCase());
+
 	if (specific !== true) {
 		specific = false
 	}
