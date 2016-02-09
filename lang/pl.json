@@ -17,8 +17,8 @@
         "hoverevent": {
             "unavailable": {
                 "sign": {
-                    "header": "Wydarzenie naje\u017cd\u017cania na tabliczk\u0119 jest niedost\u0119pne",
-                    "body": "Minecraft nie wspomaga wydarzeni po najechaniu na tabliczk\u0119."
+                    "header": "Wydarzenia naje\u017cd\u017cania na tabliczk\u0119 s\u0105 niedost\u0119pne",
+                    "body": "Minecraft nie wspomaga wydarze\u0144 po najechaniu na tabliczk\u0119."
                 }
             },
             "addtext": "Dodaj tekst",
@@ -70,11 +70,11 @@
             "underlined": "Podkre\u015bl",
             "obfuscated": "Matrix",
             "italic": "Pochyl",
-            "strikethrough": "Pochyl"
+            "strikethrough": "Przekre\u015bl"
         },
         "player": "Gracz",
         "obj2": "Cel",
-        "obj": "Cel Tablicy Zada\u0144",
+        "obj": "Cel Tablicy Wynik\u00f3w",
         "nosnippets": "Jeszcze nie ma tekstu",
         "header": "Urywki tekstu",
         "text": "Tekst",
@@ -95,14 +95,14 @@
         "help": "Pomoc",
         "report_an_issue": "Zg\u0142o\u015b problem"
     },
-    "header_rev2": "Tellraw Generator for Minecraft ",
+    "header_rev2": "Generator Tellraw dla Minecraft ",
     "settings": {
         "importtext": {
             "exported": {
                 "header": "Import",
                 "failed": {
-                    "header": "Import failed",
-                    "description": "Provided input"
+                    "header": "Nie uda\u0142o si\u0119 zimportowa\u0107",
+                    "description": "Dane wej\u015bciowe"
                 },
                 "description": "Prosz\u0119 wpisz ci\u0105g, kt\u00f3ry otrzyma\u0142e\u015b eksportuj\u0105c twoj\u0105 kom\u0119de"
             }
@@ -142,7 +142,7 @@
         "go-home": "Ignoruj b\u0142\u0105d"
     },
     "help": {
-        "textfield": "U\u017cyj %n do robienia nowej lini",
+        "textfield": "U\u017cyj %n do tworzenia nowych linii",
         "raw-text-tab": "Wybierz rodzaj tekstu. Raw to normaly tekst. Scoreboard sprawdza warto\u015b\u0107 tablicy wynik\u00f3w. Selector sprawdza nazw\u0119 zwierzaka, potwora, itemu.",
         "report-an-issue": "Naci\u015bnij tutaj aby zg\u0142osi\u0107 problem. Je\u017celi zauwa\u017cy\u0142e\u015b jakikolwiek b\u0142\u0105d, zg\u0142o\u015b go tutaj.",
         "dropdown-list": "Tweet, zobacz zmiany, forum minecrafta, albo zdob\u0105d\u017a zasoby do t\u0142umaczenia.",
@@ -200,7 +200,7 @@
     },
     "language": {
         "translate": "Przet\u0142umacz",
-        "name": "Angielski",
+        "name": "Polski",
         "header": "J\u0119zyk"
     },
     "player": {
@@ -210,7 +210,7 @@
     "commandblock": "Musisz uruchomi\u0107 to w konsoli serwera lub w bloku polece\u0144.",
     "alert": {
         "report": "Zg\u0142o\u015b problem",
-        "changed": "Strona jest obecnie modyfikowana, wi\u0119c mog\u0105 wyst\u0105pi\u0107 problemy. Prze\u0142aduj stron\u0119 je\u017celi nie dzia\u0142a.",
+        "changed": "Strona by\u0142a ostatnio modyfikowana, wi\u0119c mog\u0105 wyst\u0105pi\u0107 problemy. Od\u015bwierz stron\u0119 je\u017celi nie dzia\u0142a.",
         "receiveupdates": "Otrzymuj powiadomienia o aktualizacjach tutaj (\"Obserwuj temat\")"
     },
     "command": "Komenda:",
@@ -218,5 +218,5 @@
         "heading": "Twoja wyeksportowana kom\u0119da",
         "close": "Zamknij"
     },
-    "attribution": "Nic nie jest wymagane by u\u017cywa\u0107 tego, ale by\u0142o by mi\u0142o je\u017celi wy\u015blesz link do tej strony lub forum."
+    "attribution": "Podczas gdy nic nie jest wymagane by tego u\u017cywa\u0107,  by\u0142oby mi\u0142o gdyby\u015b za\u0142\u0105czy\u0142 link do tej strony lub forum."
 }
