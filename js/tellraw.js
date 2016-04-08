@@ -969,6 +969,16 @@ function addExtra() {
 	refreshOutput();
 
 }
+function getNumberSaves() {
+	var num = 0;
+	for (var i = 0; i < Object.keys(lsm.dictionary()).length; i++) {
+		var key = Object.keys(lsm.dictionary())[i];
+		if (key.indexOf('saveSlot_') != -1) {
+			num++;
+		}
+	}
+	return num;
+}
 function refreshSavesList() {
 	$('.savesContainer').html('');
 	for (var i = 0; i < Object.keys(lsm.dictionary()).length; i++) {
@@ -1830,6 +1840,13 @@ for (var i = 0; i < Object.keys(lang).length; i++) {
 			reportAnIssue();
 		}
 	});
+
+	if (lsm.getItem('savesDeprecatedAlertShown') !== "AlertShown1") {
+		if (getNumberSaves() > 0) {
+			swal("Saves are being deprecated.","You may access your saves at the bottom of the page, please retrieve them and export them to a safe location, as this feature will be completely removed in a future update.");
+			lsm.setItem('savesDeprecatedAlertShown', "AlertShown1");
+		}
+	}
 
 	// Beta tooltip
 	// $('#dropdown-list-a').tooltip({"title":"<i style=\"color: #F8814C;\" class=\"fa fa-exclamation-circle\"></i> " + getLanguageString('headerbar.dropdown.hover',lsm.getItem('langCode')),"html":true,"placement":"bottom"});
