@@ -1,5 +1,30 @@
 {
     "textsnippets": {
+        "NEW_ITERATE_FLAG": {
+            "add": {
+                "book": "Add Book Page",
+                "sign": "Add Sign Line"
+            },
+            "incorrect_template": {
+                "primary": {
+                    "header": "You must be using the book or sign templates",
+                    "description": "\u015eablonunuzu de\u011fi\u015ftirmek mi istiyorsunuz?",
+                    "yes": "Evet",
+                    "no": "Hay\u0131r"
+                },
+                "secondary": {
+                    "header": "Kitap m\u0131 Tabela m\u0131?",
+                    "description": "Bir tabela m\u0131 kitap m\u0131 yapmak istiyorsunuz? (Bunu sonra de\u011fi\u015ftirebilirsiniz)",
+                    "book": "Kitap",
+                    "sign": "Tabela"
+                },
+                "tertiary": {
+                    "header": "Bitti!",
+                    "description": "\u015eablonunuz de\u011fi\u015ftirildi: %c"
+                }
+            },
+            "buttontext": "Kitap Sayfas\u0131 \/ Tabela Sat\u0131r\u0131"
+        },
         "clickevent": {
             "changepage": "Sayfay\u0131 de\u011fi\u015ftir",
             "unavailable": {
@@ -33,27 +58,6 @@
             "showtext": "Yaz\u0131 G\u00f6ster",
             "name": "\u0130sim"
         },
-        "NEW_ITERATE_FLAG": {
-            "incorrect_template": {
-                "primary": {
-                    "header": "You must be using the book or sign templates",
-                    "description": "\u015eablonunuzu de\u011fi\u015ftirmek mi istiyorsunuz?",
-                    "yes": "Evet",
-                    "no": "Hay\u0131r"
-                },
-                "secondary": {
-                    "header": "Kitap m\u0131 Tabela m\u0131?",
-                    "description": "Bir tabela m\u0131 kitap m\u0131 yapmak istiyorsunuz? (Bunu sonra de\u011fi\u015ftirebilirsiniz)",
-                    "book": "Kitap",
-                    "sign": "Tabela"
-                },
-                "tertiary": {
-                    "header": "Bitti!",
-                    "description": "\u015eablonunuz de\u011fi\u015ftirildi: %c"
-                }
-            },
-            "buttontext": "Kitap Sayfas\u0131 \/ Tabela Sat\u0131r\u0131"
-        },
         "trn": "\u00c7evrilimi\u015f",
         "parameter": "Parametre",
         "editsnippet": "Yaz\u0131y\u0131 d\u00fczenle",
@@ -86,7 +90,7 @@
     "headerbar": {
         "dropdown": {
             "translate_page_link": "\u00c7eviri Sitesi",
-            "hover": "Beta Version Available!",
+            "hover": "Beta versiyonu mevcut",
             "beta_link": "Versiyonu",
             "tweet": "Tweet'le",
             "forum_thread": "Forum Konusu",
@@ -95,13 +99,13 @@
         "help": "Yard\u0131m",
         "report_an_issue": "Sorun Bildir"
     },
-    "header_rev2": "Tellraw Generator for Minecraft ",
+    "header_rev2": "Minecraft i\u00e7in TellRaw Jenerat\u00f6r\u00fc",
     "settings": {
         "importtext": {
             "exported": {
-                "header": "Import",
+                "header": "\u0130\u00e7eri aktar.",
                 "failed": {
-                    "header": "Import failed",
+                    "header": "Aktar\u0131m ba\u015far\u0131s\u0131z.",
                     "description": "Provided input"
                 },
                 "description": "L\u00fctfen komutu ald\u0131\u011f\u0131n\u0131zda verilen sat\u0131r\u0131 yaz\u0131n."

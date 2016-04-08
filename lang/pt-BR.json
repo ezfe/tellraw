@@ -1,5 +1,30 @@
 {
     "textsnippets": {
+        "NEW_ITERATE_FLAG": {
+            "add": {
+                "book": "Add Book Page",
+                "sign": "Add Sign Line"
+            },
+            "incorrect_template": {
+                "primary": {
+                    "header": "Voc\u00ea deve usar o modelo para livros ou placas",
+                    "description": "Voc\u00ea quer alterar seu modelo?",
+                    "yes": "Sim",
+                    "no": "N\u00e3o"
+                },
+                "secondary": {
+                    "header": "Livro ou placa?",
+                    "description": "Voc\u00ea quer criar um livro ou uma placa? (Voc\u00ea pode mudar isso depois)",
+                    "book": "Livro",
+                    "sign": "Placa"
+                },
+                "tertiary": {
+                    "header": "Feito!",
+                    "description": "Seu modelo foi alterado para %c"
+                }
+            },
+            "buttontext": "Pagina do livro \/ Linha da placa"
+        },
         "clickevent": {
             "changepage": "Alterar p\u00e1gina",
             "unavailable": {
@@ -32,27 +57,6 @@
             "none": "Nenhum",
             "showtext": "Exibir texto",
             "name": "Nome"
-        },
-        "NEW_ITERATE_FLAG": {
-            "incorrect_template": {
-                "primary": {
-                    "header": "Voc\u00ea deve usar o modelo para livros ou placas",
-                    "description": "Voc\u00ea quer alterar seu modelo?",
-                    "yes": "Sim",
-                    "no": "N\u00e3o"
-                },
-                "secondary": {
-                    "header": "Livro ou placa?",
-                    "description": "Voc\u00ea quer criar um livro ou uma placa? (Voc\u00ea pode mudar isso depois)",
-                    "book": "Livro",
-                    "sign": "Placa"
-                },
-                "tertiary": {
-                    "header": "Feito!",
-                    "description": "Seu modelo foi alterado para %c"
-                }
-            },
-            "buttontext": "Pagina do livro \/ Linha da placa"
         },
         "trn": "Traduzido",
         "parameter": "Par\u00e2metro",

@@ -1,5 +1,30 @@
 {
     "textsnippets": {
+        "NEW_ITERATE_FLAG": {
+            "add": {
+                "book": "Add Book Page",
+                "sign": "Add Sign Line"
+            },
+            "incorrect_template": {
+                "primary": {
+                    "header": "Du m\u00e5ste anv\u00e4nda bok- eller skyltmallarna",
+                    "description": "Vill du \u00e4ndra din mall?",
+                    "yes": "Ja",
+                    "no": "Nej"
+                },
+                "secondary": {
+                    "header": "Bok eller skylt?",
+                    "description": "Vill du g\u00f6ra en bok eller en skylt? (Du kan \u00e4ndra det senare)",
+                    "book": "Bok",
+                    "sign": "Skylt"
+                },
+                "tertiary": {
+                    "header": "Klar!",
+                    "description": "Din mall har blivit \u00e4ndrad till %c"
+                }
+            },
+            "buttontext": "Boksida \/ Skyltlinje"
+        },
         "clickevent": {
             "changepage": "\u00c4ndra sida",
             "unavailable": {
@@ -32,27 +57,6 @@
             "none": "Ingen",
             "showtext": "Visa text",
             "name": "Namn"
-        },
-        "NEW_ITERATE_FLAG": {
-            "incorrect_template": {
-                "primary": {
-                    "header": "Du m\u00e5ste anv\u00e4nda bok- eller skyltmallarna",
-                    "description": "Vill du \u00e4ndra din mall?",
-                    "yes": "Ja",
-                    "no": "Nej"
-                },
-                "secondary": {
-                    "header": "Bok eller skylt?",
-                    "description": "Vill du g\u00f6ra en bok eller en skylt? (Du kan \u00e4ndra det senare)",
-                    "book": "Bok",
-                    "sign": "Skylt"
-                },
-                "tertiary": {
-                    "header": "Klar!",
-                    "description": "Din mall har blivit \u00e4ndrad till %c"
-                }
-            },
-            "buttontext": "Boksida \/ Skyltlinje"
         },
         "trn": "\u00d6versatt",
         "parameter": "Parameter",

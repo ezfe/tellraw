@@ -1,5 +1,30 @@
 {
     "textsnippets": {
+        "NEW_ITERATE_FLAG": {
+            "add": {
+                "book": "Add Book Page",
+                "sign": "Add Sign Line"
+            },
+            "incorrect_template": {
+                "primary": {
+                    "header": "Du musst die Buch- oder Schildvorlagen benutzen",
+                    "description": "M\u00f6chtest du die Vorlage \u00e4ndern?",
+                    "yes": "Ja",
+                    "no": "Nein"
+                },
+                "secondary": {
+                    "header": "Buch oder Schild?",
+                    "description": "Willst du ein Buch oder ein Schild erstellen? (Du kannst deine Wahl sp\u00e4ter \u00e4ndern)",
+                    "book": "Buch",
+                    "sign": "Schild"
+                },
+                "tertiary": {
+                    "header": "Fertig!",
+                    "description": "Deine Vorlage wurde zu %c ge\u00e4ndert."
+                }
+            },
+            "buttontext": "Buch-Seite \/ Schild-Zeile"
+        },
         "clickevent": {
             "changepage": "Seite \u00e4ndern",
             "unavailable": {
@@ -32,27 +57,6 @@
             "none": "Keins",
             "showtext": "Zeige Text",
             "name": "Name"
-        },
-        "NEW_ITERATE_FLAG": {
-            "incorrect_template": {
-                "primary": {
-                    "header": "Du musst die Buch- oder Schildvorlagen benutzen",
-                    "description": "M\u00f6chtest du die Vorlage \u00e4ndern?",
-                    "yes": "Ja",
-                    "no": "Nein"
-                },
-                "secondary": {
-                    "header": "Buch oder Schild?",
-                    "description": "Willst du ein Buch oder ein Schild erstellen? (Du kannst deine Wahl sp\u00e4ter \u00e4ndern)",
-                    "book": "Buch",
-                    "sign": "Schild"
-                },
-                "tertiary": {
-                    "header": "Fertig!",
-                    "description": "Deine Vorlage wurde zu %c ge\u00e4ndert."
-                }
-            },
-            "buttontext": "Buch-Seite \/ Schild-Zeile"
         },
         "trn": "\u00dcbersetzt",
         "parameter": "Parameter",

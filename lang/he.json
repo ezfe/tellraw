@@ -1,5 +1,30 @@
 {
     "textsnippets": {
+        "NEW_ITERATE_FLAG": {
+            "add": {
+                "book": "Add Book Page",
+                "sign": "Add Sign Line"
+            },
+            "incorrect_template": {
+                "primary": {
+                    "header": "\u05d0\u05ea\u05d4 \u05d7\u05d9\u05d9\u05d1 \u05dc\u05d4\u05e9\u05ea\u05de\u05e9 \u05d1\u05d8\u05de\u05e4\u05dc\u05d8 \u05e2\u05d1\u05d5\u05e8 \u05e1\u05e4\u05e8\u05d9\u05dd \u05d0\u05d5 \u05e9\u05dc\u05d8\u05d9\u05dd",
+                    "description": "\u05ea\u05e8\u05e6\u05d4 \u05dc\u05e9\u05e0\u05d5\u05ea \u05d0\u05ea \u05d4\u05d8\u05de\u05e4\u05dc\u05d8 \u05e9\u05dc\u05da?",
+                    "yes": "\u05db\u05df",
+                    "no": "\u05dc\u05d0"
+                },
+                "secondary": {
+                    "header": "\u05e1\u05e4\u05e8 \u05d0\u05d5 \u05e9\u05dc\u05d8?",
+                    "description": "\u05ea\u05e8\u05e6\u05d4 \u05dc\u05d4\u05db\u05d9\u05df \u05e1\u05e4\u05e8 \u05d0\u05d5 \u05e9\u05dc\u05d8? (\u05ea\u05d5\u05db\u05dc \u05dc\u05e9\u05e0\u05d5\u05ea \u05d6\u05d0\u05ea \u05d0\u05d7\u05e8 \u05db\u05da)",
+                    "book": "\u05e1\u05e4\u05e8",
+                    "sign": "\u05e9\u05dc\u05d8"
+                },
+                "tertiary": {
+                    "header": "\u05d4\u05d5\u05e9\u05dc\u05dd!",
+                    "description": "\u05d4\u05d8\u05de\u05e4\u05dc\u05d8 \u05e9\u05dc\u05da \u05e0\u05e9\u05de\u05e8 \u05dc- %c"
+                }
+            },
+            "buttontext": "\u05e2\u05de\u05d5\u05d3 \u05d1\u05e1\u05e4\u05e8 \u05d0\u05d5 \u05e9\u05d5\u05e8\u05d4 \u05d1\u05e9\u05dc\u05d8"
+        },
         "clickevent": {
             "changepage": "\u05e9\u05e0\u05d4 \u05e2\u05de\u05d5\u05d3",
             "unavailable": {
@@ -32,27 +57,6 @@
             "none": "\u05dc\u05dc\u05d0",
             "showtext": "\u05d4\u05e6\u05d2 \u05d8\u05e7\u05e1\u05d8",
             "name": "\u05e9\u05dd"
-        },
-        "NEW_ITERATE_FLAG": {
-            "incorrect_template": {
-                "primary": {
-                    "header": "\u05d0\u05ea\u05d4 \u05d7\u05d9\u05d9\u05d1 \u05dc\u05d4\u05e9\u05ea\u05de\u05e9 \u05d1\u05d8\u05de\u05e4\u05dc\u05d8 \u05e2\u05d1\u05d5\u05e8 \u05e1\u05e4\u05e8\u05d9\u05dd \u05d0\u05d5 \u05e9\u05dc\u05d8\u05d9\u05dd",
-                    "description": "\u05ea\u05e8\u05e6\u05d4 \u05dc\u05e9\u05e0\u05d5\u05ea \u05d0\u05ea \u05d4\u05d8\u05de\u05e4\u05dc\u05d8 \u05e9\u05dc\u05da?",
-                    "yes": "\u05db\u05df",
-                    "no": "\u05dc\u05d0"
-                },
-                "secondary": {
-                    "header": "\u05e1\u05e4\u05e8 \u05d0\u05d5 \u05e9\u05dc\u05d8?",
-                    "description": "\u05ea\u05e8\u05e6\u05d4 \u05dc\u05d4\u05db\u05d9\u05df \u05e1\u05e4\u05e8 \u05d0\u05d5 \u05e9\u05dc\u05d8? (\u05ea\u05d5\u05db\u05dc \u05dc\u05e9\u05e0\u05d5\u05ea \u05d6\u05d0\u05ea \u05d0\u05d7\u05e8 \u05db\u05da)",
-                    "book": "\u05e1\u05e4\u05e8",
-                    "sign": "\u05e9\u05dc\u05d8"
-                },
-                "tertiary": {
-                    "header": "\u05d4\u05d5\u05e9\u05dc\u05dd!",
-                    "description": "\u05d4\u05d8\u05de\u05e4\u05dc\u05d8 \u05e9\u05dc\u05da \u05e0\u05e9\u05de\u05e8 \u05dc- %c"
-                }
-            },
-            "buttontext": "\u05e2\u05de\u05d5\u05d3 \u05d1\u05e1\u05e4\u05e8 \u05d0\u05d5 \u05e9\u05d5\u05e8\u05d4 \u05d1\u05e9\u05dc\u05d8"
         },
         "trn": "\u05de\u05ea\u05d5\u05e8\u05d2\u05dd",
         "parameter": "\u05e4\u05e8\u05de\u05d8\u05e8",

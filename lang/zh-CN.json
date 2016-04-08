@@ -1,5 +1,30 @@
 {
     "textsnippets": {
+        "NEW_ITERATE_FLAG": {
+            "add": {
+                "book": "Add Book Page",
+                "sign": "Add Sign Line"
+            },
+            "incorrect_template": {
+                "primary": {
+                    "header": "\u60a8\u5fc5\u987b\u8981\u4f7f\u7528\u6210\u4e66\u6216\u544a\u793a\u724c\u7684\u6a21\u677f",
+                    "description": "\u60a8\u662f\u5426\u8981\u66f4\u6539\u8be5\u6a21\u677f\uff1f",
+                    "yes": "\u662f",
+                    "no": "\u5426"
+                },
+                "secondary": {
+                    "header": "\u6210\u4e66\u6216\u662f\u544a\u793a\u724c\uff1f",
+                    "description": "\u60a8\u8981\u5236\u4f5c\u6210\u4e66\u6216\u544a\u793a\u724c\uff08\u7a0d\u540e\u53ef\u4ee5\u66f4\u6539\uff09\uff1f",
+                    "book": "\u6210\u4e66",
+                    "sign": "\u544a\u793a\u724c"
+                },
+                "tertiary": {
+                    "header": "\u5df2\u5b8c\u6210\uff01",
+                    "description": "\u60a8\u7684\u6a21\u677f\u5df2\u88ab\u66f4\u6539\u4e3a %c"
+                }
+            },
+            "buttontext": "\u6210\u4e66\u9875\u7801\/\u544a\u793a\u724c\u884c\u6570"
+        },
         "clickevent": {
             "changepage": "\u66f4\u6539\u9875\u7801",
             "unavailable": {
@@ -32,27 +57,6 @@
             "none": "\u65e0",
             "showtext": "\u663e\u793a\u6587\u5b57",
             "name": "\u540d\u79f0"
-        },
-        "NEW_ITERATE_FLAG": {
-            "incorrect_template": {
-                "primary": {
-                    "header": "\u60a8\u5fc5\u987b\u8981\u4f7f\u7528\u6210\u4e66\u6216\u544a\u793a\u724c\u7684\u6a21\u677f",
-                    "description": "\u60a8\u662f\u5426\u8981\u66f4\u6539\u8be5\u6a21\u677f\uff1f",
-                    "yes": "\u662f",
-                    "no": "\u5426"
-                },
-                "secondary": {
-                    "header": "\u6210\u4e66\u6216\u662f\u544a\u793a\u724c\uff1f",
-                    "description": "\u60a8\u8981\u5236\u4f5c\u6210\u4e66\u6216\u544a\u793a\u724c\uff08\u7a0d\u540e\u53ef\u4ee5\u66f4\u6539\uff09\uff1f",
-                    "book": "\u6210\u4e66",
-                    "sign": "\u544a\u793a\u724c"
-                },
-                "tertiary": {
-                    "header": "\u5df2\u5b8c\u6210\uff01",
-                    "description": "\u60a8\u7684\u6a21\u677f\u5df2\u88ab\u66f4\u6539\u4e3a %c"
-                }
-            },
-            "buttontext": "\u6210\u4e66\u9875\u7801\/\u544a\u793a\u724c\u884c\u6570"
         },
         "trn": "\u5df2\u7ffb\u8bd1\u6587\u672c",
         "parameter": "\u53c2\u6570",

@@ -1,39 +1,10 @@
 {
     "textsnippets": {
-        "clickevent": {
-            "changepage": "Promjeni Stranicu",
-            "unavailable": {
-                "sign": {
-                    "header": "Sign click events are not available",
-                    "body": "Click here to go to an unaffiliated website to create signs with click events."
-                }
-            },
-            "runcommand": "Pokreni Komandu",
-            "openurl": "Otvori URL",
-            "suggestcommand": "Predlo\u017ei Komandu",
-            "header": "Klikni Event:",
-            "none": "Nijedan"
-        },
-        "hoverevent": {
-            "unavailable": {
-                "sign": {
-                    "header": "Sign hover events are not available",
-                    "body": "This is due to Minecraft not supporting hover events in signs."
-                }
-            },
-            "addtext": "Dodaj Tekst",
-            "removetext": "Zatvori Zadnji Tekst",
-            "header": "Vidi Event:",
-            "showachievement": "Prika\u017ei Dostignu\u0107e",
-            "id": "ID:",
-            "showentity": "Prika\u017ei Entitet",
-            "showitem": "Prika\u017ei Predmet",
-            "type": "Vrsta:",
-            "none": "Nijedan",
-            "showtext": "Prika\u017ei Tekst",
-            "name": "Ime"
-        },
         "NEW_ITERATE_FLAG": {
+            "add": {
+                "book": "Add Book Page",
+                "sign": "Add Sign Line"
+            },
             "incorrect_template": {
                 "primary": {
                     "header": "Mora\u0161 koristiti knjigu ili predlo\u017eak za znak",
@@ -53,6 +24,39 @@
                 }
             },
             "buttontext": "Stranica Knjige \/ Linija Znaka"
+        },
+        "clickevent": {
+            "changepage": "Promjeni Stranicu",
+            "unavailable": {
+                "sign": {
+                    "header": "\"Klikni znak\" doga\u0111aj nije dostupan",
+                    "body": "Klikni ovdje da ode\u0161 na anonimnu web-stranicu kako bi napravio znakove sa klik eventom."
+                }
+            },
+            "runcommand": "Pokreni Komandu",
+            "openurl": "Otvori URL",
+            "suggestcommand": "Predlo\u017ei Komandu",
+            "header": "Klikni Event:",
+            "none": "Nijedan"
+        },
+        "hoverevent": {
+            "unavailable": {
+                "sign": {
+                    "header": "\"Lebde\u0107i\" doga\u0111aji u znakovima nisu dostupni",
+                    "body": "Ovo je zato \u0161to Minecraft ne podr\u017eava lebde\u0107e doga\u0111aje u znakovima."
+                }
+            },
+            "addtext": "Dodaj Tekst",
+            "removetext": "Zatvori Zadnji Tekst",
+            "header": "Vidi Event:",
+            "showachievement": "Prika\u017ei Dostignu\u0107e",
+            "id": "ID:",
+            "showentity": "Prika\u017ei Entitet",
+            "showitem": "Prika\u017ei Predmet",
+            "type": "Vrsta:",
+            "none": "Nijedan",
+            "showtext": "Prika\u017ei Tekst",
+            "name": "Ime"
         },
         "trn": "Prevedeno",
         "parameter": "Parametar",
@@ -129,14 +133,14 @@
     "donate": {
         "patreon-button": "Patreon",
         "support-header": "(Molimo Vas) Podr\u017eajte Ovu Web-stranicu",
-        "paypal-note": "Ja ne nudim paypal kao opciju na listi zbog naknada (Stripe ne napla\u0107uje naknade za studente). Me\u0111utim, ako \u017eelite mo\u017eete mi poslati novac preko PayPal via funds@ezekielelin.com",
-        "patreon-text": "Ako \u017eelite donirati odre\u0111enu koli\u010dinu svaki mjesec, ja se mogu osloniti na nadogradnju servera.",
+        "paypal-note": "Ja ne nudim paypal kao opciju na listi zbog naknada (Stripe ne napla\u0107uje naknade za studente). Me\u0111utim, ako \u017eelite mo\u017eete mi poslati novac preko PayPal-a via funds@ezekielelin.com",
+        "patreon-text": "Ako \u017eelite donirati odre\u0111enu koli\u010dinu svaki mjesec, mogu osloniti na nadogradnju servera.",
         "support-subheader": "Ne \u017eelim stavljati reklame na ovu web-stranicu, molim Vas donirajte te podr\u017eite tro\u0161kove za odr\u017eavanje ove web-stranice.",
         "donate-button": "Doniraj",
         "donate-text": "Napravi donaciju od vrijednosti koju izabere\u0161 (Stripe).",
         "overcast-text": "\u017deli\u0161 li mi kupiti rang na Overcast Network-u? Klikni sliku gore, i upi\u0161i ezekielelin kao moje korisni\u010dko ime.",
         "exit": "Iza\u0111i",
-        "exit-text": "You won't see this again so long as you keep your cookies intact. Unfortunately I have no way of detecting you if you reset your cookies."
+        "exit-text": "Ovo ne\u010de\u0161 vidjeti vi\u0161e sve dok ne dira\u0161 kola\u010di\u0107e. Na\u017ealost nemam na\u010dina da otkrijem jesi li resetiro kola\u010di\u0107e."
     },
     "issues": {
         "go-home": "Ignoriraj problem"

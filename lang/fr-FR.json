@@ -1,5 +1,30 @@
 {
     "textsnippets": {
+        "NEW_ITERATE_FLAG": {
+            "add": {
+                "book": "Add Book Page",
+                "sign": "Add Sign Line"
+            },
+            "incorrect_template": {
+                "primary": {
+                    "header": "Vous devez utiliser le mod\u00e8le du livre ou du panneau.",
+                    "description": "Voulez-vous changer votre mod\u00e8le ?",
+                    "yes": "Oui",
+                    "no": "Non"
+                },
+                "secondary": {
+                    "header": "Livre ou panneau ?",
+                    "description": "Vous souhaitez cr\u00e9er un livre ou un panneau ? Vous pourrez modifier ce choix plus tard.",
+                    "book": "Livre",
+                    "sign": "Panneau"
+                },
+                "tertiary": {
+                    "header": "Termin\u00e9",
+                    "description": "Votre mod\u00e8le a \u00e9t\u00e9 chang\u00e9 en %c"
+                }
+            },
+            "buttontext": "Page d'un livre \/ Ligne d'un panneau"
+        },
         "clickevent": {
             "changepage": "Changer de page",
             "unavailable": {
@@ -32,27 +57,6 @@
             "none": "Aucun",
             "showtext": "Afficher un texte",
             "name": "Nom"
-        },
-        "NEW_ITERATE_FLAG": {
-            "incorrect_template": {
-                "primary": {
-                    "header": "Vous devez utiliser le mod\u00e8le du livre ou du panneau.",
-                    "description": "Voulez-vous changer votre mod\u00e8le ?",
-                    "yes": "Oui",
-                    "no": "Non"
-                },
-                "secondary": {
-                    "header": "Livre ou panneau ?",
-                    "description": "Vous souhaitez cr\u00e9er un livre ou un panneau ? Vous pourrez modifier ce choix plus tard.",
-                    "book": "Livre",
-                    "sign": "Panneau"
-                },
-                "tertiary": {
-                    "header": "Termin\u00e9",
-                    "description": "Votre mod\u00e8le a \u00e9t\u00e9 chang\u00e9 en %c"
-                }
-            },
-            "buttontext": "Page d'un livre \/ Ligne d'un panneau"
         },
         "trn": "Traduit",
         "parameter": "Param\u00e8tre",

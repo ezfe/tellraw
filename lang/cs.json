@@ -1,5 +1,30 @@
 {
     "textsnippets": {
+        "NEW_ITERATE_FLAG": {
+            "add": {
+                "book": "Add Book Page",
+                "sign": "Add Sign Line"
+            },
+            "incorrect_template": {
+                "primary": {
+                    "header": "Mus\u00edte pou\u017e\u00edvat p\u0159edlohu knihy nebu cedulky.",
+                    "description": "P\u0159ejete si ulo\u017eit svoji p\u0159ednastavenou konfiguraci ?",
+                    "yes": "Ano",
+                    "no": "Ne"
+                },
+                "secondary": {
+                    "header": "Kniha nebo cedulka ?",
+                    "description": "P\u0159ejete si vytvo\u0159it knihu nebu cedulku ? (m\u016f\u017eete to zm\u011bnit pozd\u011bji).",
+                    "book": "Kniha",
+                    "sign": "Cedulka"
+                },
+                "tertiary": {
+                    "header": "Hotovo !",
+                    "description": "Va\u0161e konfigurace byla zm\u011bn\u011bna na %c"
+                }
+            },
+            "buttontext": "Str\u00e1nka Knihy \/ \u0158\u00e1dek Cedulky"
+        },
         "clickevent": {
             "changepage": "Zm\u011bnit Str\u00e1nku",
             "unavailable": {
@@ -32,27 +57,6 @@
             "none": "Nic",
             "showtext": "Uk\u00e1zat Text",
             "name": "Jm\u00e9no"
-        },
-        "NEW_ITERATE_FLAG": {
-            "incorrect_template": {
-                "primary": {
-                    "header": "Mus\u00edte pou\u017e\u00edvat p\u0159edlohu knihy nebu cedulky.",
-                    "description": "P\u0159ejete si ulo\u017eit svoji p\u0159ednastavenou konfiguraci ?",
-                    "yes": "Ano",
-                    "no": "Ne"
-                },
-                "secondary": {
-                    "header": "Kniha nebo cedulka ?",
-                    "description": "P\u0159ejete si vytvo\u0159it knihu nebu cedulku ? (m\u016f\u017eete to zm\u011bnit pozd\u011bji).",
-                    "book": "Kniha",
-                    "sign": "Cedulka"
-                },
-                "tertiary": {
-                    "header": "Hotovo !",
-                    "description": "Va\u0161e konfigurace byla zm\u011bn\u011bna na %c"
-                }
-            },
-            "buttontext": "Str\u00e1nka Knihy \/ \u0158\u00e1dek Cedulky"
         },
         "trn": "P\u0159elo\u017een\u00e9",
         "parameter": "Vlastnost",
@@ -116,7 +120,7 @@
         "hide": "Zav\u0159\u00edt Nastaven\u00ed",
         "fontSize": "N\u00e1hled Velikosti P\u00edsma",
         "previewcolor": "Barva Pozad\u00ed N\u00e1hledu :",
-        "export": "Export",
+        "export": "Exportovat",
         "deleteall": {
             "body": "Vyma\u017ee v\u0161echen tv\u016fj text a resetuje ho na pr\u00e1zdnou hodnotu.",
             "heading": "Jsi si jist\u00fd?!",
@@ -128,7 +132,7 @@
     },
     "donate": {
         "patreon-button": "Patreon",
-        "support-header": "(Pros\u00edm) Podpo\u0159te tuto str\u00e1nku",
+        "support-header": "(Pros\u00edm) Podpo\u0159te tuto webovou str\u00e1nku",
         "paypal-note": "PayPal nechci pou\u017e\u00edvat jako hlavn\u00ed \u0159e\u0161en\u00ed kv\u016fli poplatk\u016fm. (Stripe ne\u00fa\u010dtuje poplatky pro Studenty). Ale pokud nem\u00e1te jinou mo\u017enost m\u016f\u017eete mi poslat PayPal dary na funds@ezekielelin.com",
         "patreon-text": "Pokud se rozhodnete p\u0159isp\u011bt jakoukoliv \u010d\u00e1stkou ka\u017ed\u00fd m\u011bs\u00edc, tak v\u00e1m m\u016f\u017eu sl\u00edbit \u017ee bude vyu\u017eita pro vylep\u0161en\u00ed serveru.",
         "support-subheader": "Nechci d\u00e1vat reklamy na tuto str\u00e1nku, proto m\u011b pros\u00edm podpo\u0159te n\u011bjakou finan\u010dn\u00ed \u010d\u00e1stkou na provoz webu.",

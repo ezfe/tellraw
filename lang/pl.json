@@ -1,5 +1,30 @@
 {
     "textsnippets": {
+        "NEW_ITERATE_FLAG": {
+            "add": {
+                "book": "Add Book Page",
+                "sign": "Add Sign Line"
+            },
+            "incorrect_template": {
+                "primary": {
+                    "header": "Musisz u\u017cywa\u0107 wzor\u00f3w ksi\u0105\u017cki albo tabliczki",
+                    "description": "Czy chcesz zmieni\u0107 sw\u00f3j wz\u00f3r ?",
+                    "yes": "Tak",
+                    "no": "Nie"
+                },
+                "secondary": {
+                    "header": "Ksi\u0105\u017cka czy tabliczka ?",
+                    "description": "Czy chcesz zrobi\u0107 ksi\u0105\u017ck\u0119 czy tabliczk\u0119 ? (Mo\u017cesz to zmieni\u0107 p\u00f3\u017aniej)",
+                    "book": "Ksi\u0105\u017cka",
+                    "sign": "Tabliczka"
+                },
+                "tertiary": {
+                    "header": "Zrobione",
+                    "description": "Tw\u00f3j wz\u00f3r zosta\u0142 zmieniony na %c"
+                }
+            },
+            "buttontext": "Strona ksi\u0105\u017cki \/ Linia Tabliczki"
+        },
         "clickevent": {
             "changepage": "Zmie\u0144 stron\u0119",
             "unavailable": {
@@ -32,27 +57,6 @@
             "none": "\u017baden",
             "showtext": "Poka\u017c tekst",
             "name": "Nazwa"
-        },
-        "NEW_ITERATE_FLAG": {
-            "incorrect_template": {
-                "primary": {
-                    "header": "Musisz u\u017cywa\u0107 wzor\u00f3w ksi\u0105\u017cki albo tabliczki",
-                    "description": "Czy chcesz zmieni\u0107 sw\u00f3j wz\u00f3r ?",
-                    "yes": "Tak",
-                    "no": "Nie"
-                },
-                "secondary": {
-                    "header": "Ksi\u0105\u017cka czy tabliczka ?",
-                    "description": "Czy chcesz zrobi\u0107 ksi\u0105\u017ck\u0119 czy tabliczk\u0119 ? (Mo\u017cesz to zmieni\u0107 p\u00f3\u017aniej)",
-                    "book": "Ksi\u0105\u017cka",
-                    "sign": "Tabliczka"
-                },
-                "tertiary": {
-                    "header": "Zrobione",
-                    "description": "Tw\u00f3j wz\u00f3r zosta\u0142 zmieniony na %c"
-                }
-            },
-            "buttontext": "Strona ksi\u0105\u017cki \/ Linia Tabliczki"
         },
         "trn": "Przet\u0142umaczone",
         "parameter": "Parametr",
@@ -210,12 +214,12 @@
     "commandblock": "Musisz uruchomi\u0107 to w konsoli serwera lub w bloku polece\u0144.",
     "alert": {
         "report": "Zg\u0142o\u015b problem",
-        "changed": "Strona by\u0142a ostatnio modyfikowana, wi\u0119c mog\u0105 wyst\u0105pi\u0107 problemy. Od\u015bwierz stron\u0119 je\u017celi nie dzia\u0142a.",
+        "changed": "Strona by\u0142a ostatnio modyfikowana, wi\u0119c mog\u0105 wyst\u0105pi\u0107 problemy. Od\u015bwie\u017c stron\u0119, je\u017celi nie dzia\u0142a.",
         "receiveupdates": "Otrzymuj powiadomienia o aktualizacjach tutaj (\"Obserwuj temat\")"
     },
     "command": "Komenda:",
     "export": {
-        "heading": "Twoja wyeksportowana kom\u0119da",
+        "heading": "Twoja wyeksportowana komenda",
         "close": "Zamknij"
     },
     "attribution": "Podczas gdy nic nie jest wymagane by tego u\u017cywa\u0107,  by\u0142oby mi\u0142o gdyby\u015b za\u0142\u0105czy\u0142 link do tej strony lub forum."

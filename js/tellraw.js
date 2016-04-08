@@ -29,6 +29,10 @@ var bookPage = 1;
 var topPage = 1;
 var embed = false;
 
+/***************************/
+/* Local Storage Interface */
+/***************************/
+
 var lsm = {};
 lsm.enabled = false;
 lsm.storage = {};
@@ -69,6 +73,10 @@ lsm.dictionary = function() {
 	}
 }
 
+/*********************/
+/* Utility Functions */
+/*********************/
+
 /* http://stackoverflow.com/a/728694/2059595 */
 function clone(obj) {
 	var copy;
@@ -104,9 +112,42 @@ function clone(obj) {
     throw new Error("Unable to copy obj! Its type isn't supported.");
 }
 
-function alert(message) {
-	return swal(message);
+function getURL(url){
+	return $.ajax({
+		type: "GET",
+		url: url,
+		cache: false,
+		async: false
+	}).responseText;
 }
+
+/*
+(c) 2012 Steven Levithan <http://slevithan.com/>
+MIT license
+*/
+if (!String.prototype.codePointAt) {
+	String.prototype.codePointAt = function (pos) {
+		pos = isNaN(pos) ? 0 : pos;
+		var str = String(this),
+		code = str.charCodeAt(pos),
+		next = str.charCodeAt(pos + 1);
+        // If a surrogate pair
+        if (0xD800 <= code && code <= 0xDBFF && 0xDC00 <= next && next <= 0xDFFF) {
+        	return ((code - 0xD800) * 0x400) + (next - 0xDC00) + 0x10000;
+        }
+        return code;
+    };
+}
+
+/******************/
+/* SWAL Interface */
+/******************/
+
+function alert(message) { return swal(message); }
+
+/*****************/
+/* Issue Reports */
+/*****************/
 
 function reportAnIssue(ptitle) {
 	var title = "";
@@ -118,6 +159,22 @@ function reportAnIssue(ptitle) {
 	var win = window.open('http://github.com/ezfe/tellraw/issues/new?body=' + body + '&title=' + title, '_blank');
 	win.focus();
 }
+
+function showIssue() {
+	swal(issueLog[issueLog.length - 1].name,issueLog[issueLog.length - 1].data,'error');
+}
+
+function logIssue(name,data,critical) {
+	issueLog.push({"name":name,"data":data});
+	if (critical) {
+		swal(name,data,'error');
+	}
+}
+
+/**********************/
+/* Language Utilities */
+/**********************/
+
 function getLanguageName(langCode) {
 	var name = lang[langCode].language.name;
 	if (name == "English" && langCode != "en-US") {
@@ -126,15 +183,11 @@ function getLanguageName(langCode) {
 		return name
 	}
 }
-function showIssue() {
-	swal(issueLog[issueLog.length - 1].name,issueLog[issueLog.length - 1].data,'error');
-}
-function logIssue(name,data,critical) {
-	issueLog.push({"name":name,"data":data});
-	if (critical) {
-		swal(name,data,'error');
-	}
-}
+
+/*****************/
+/* View Controls */
+/*****************/
+
 function showView(viewname,suppressAnimation,hideOthers,hideMenubar) {
 	var hideMenubarOriginal = hideMenubar;
 	if (embed) {
@@ -166,14 +219,7 @@ function showView(viewname,suppressAnimation,hideOthers,hideMenubar) {
 		showView('tellraw');
 	}
 }
-function getURL(url){
-	return $.ajax({
-		type: "GET",
-		url: url,
-		cache: false,
-		async: false
-	}).responseText;
-}
+
 function verify_jobject_format(jdata) {
 	var resetError = JSON.stringify({"title": "Object Verification Failed", "text": "An error occured and the page has been reset", "type": "error"});
 
@@ -269,7 +315,7 @@ function verify_jobject_format(jdata) {
 	return jdata;
 }
 
-function strictifyItem(job,index) {
+function strictifyItem(job, index) {
 	var joi = job[index];
 	if (index == 0 || job[index - 1].NEW_ITERATE_FLAG || job[index].NEW_ITERATE_FLAG) {
 		return joi;
@@ -288,11 +334,8 @@ function strictifyItem(job,index) {
 				if (joi["color"] === undefined) {
 					joi["color"] = noneName();
 				}
-			}/* else if (key == "hoverEvent" || key == "clickEvent") {
-				if (joi[key] == undefined) {
-					// DO SOMETHING
-				}
-			}*/
+			}
+
 			continue;
 		}
 	}
@@ -332,6 +375,7 @@ function formatJObjectList(d) {
 function closeExport() {
 	$('#exporter').remove();
 }
+
 function isScrolledIntoView(elem) {
 	elem = '#' + elem;
 	var docViewTop = $(window).scrollTop();
@@ -342,13 +386,14 @@ function isScrolledIntoView(elem) {
 
 	return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
 }
+
 function goToByScroll(id){
 	if (!isScrolledIntoView(id)) {
 		$('html,body').animate({scrollTop: $("#"+id).offset().top},'slow');
 	}
 }
 
-var templates = 
+var templates =
 {
 	"tellraw": {
 		"command": "/tellraw @p %s",
@@ -393,68 +438,23 @@ var templates =
 		"mouseActionOptions": true
 	}
 }
-/*
-(c) 2012 Steven Levithan <http://slevithan.com/>
-MIT license
-*/
-if (!String.prototype.codePointAt) {
-	String.prototype.codePointAt = function (pos) {
-		pos = isNaN(pos) ? 0 : pos;
-		var str = String(this),
-		code = str.charCodeAt(pos),
-		next = str.charCodeAt(pos + 1);
-        // If a surrogate pair
-        if (0xD800 <= code && code <= 0xDBFF && 0xDC00 <= next && next <= 0xDFFF) {
-        	return ((code - 0xD800) * 0x400) + (next - 0xDC00) + 0x10000;
-        }
-        return code;
-    };
-}
 
 function setObfuscatedString(string) {
 	var output = "";
 	for (var i = string.length - 1; i >= 0; i--) {
-		string[i]
-		output = output + chars[Math.floor(Math.random() * chars.length)];
+		if (string[i] != " ") {
+			output = output + chars[Math.floor(Math.random() * chars.length)];
+		} else {
+			output += " ";
+		}
 	};
 	return output;
 }
-function saveJObject() {
-	swal({
-		title: "Please enter a save name.",
-		text: "If you enter an existing one, it will overwrite it.",
-		type: "input",
-		showCancelButton: true,
-		closeOnConfirm: false
-	}, function(inputValue) {
-		inputValue = inputValue.replace(' ','_');
-		if (inputValue == '' || inputValue == undefined || new RegExp('[^a-zA-Z0-9_]').test(inputValue)) {
-			swal('Invalid Save Name!','Please omit special characters','error');
-		} else {
-			var saveTo = inputValue
-			var saveSlot = 'saveSlot_' + saveTo;
-			var overwrite = false;
-			if (lsm.getItem(saveSlot) != undefined) {
-				overwrite = true;
-			}
-			lsm.setItem('currentSaveSlot',saveTo);
-			lsm.setItem(saveSlot, JSON.stringify({"command": $('#command').val(), "jobject": jobject}));
-			if (overwrite) {
-				swal({
-					title: 'Saved your current revision to <code>' + saveTo.replace('_', ' ') + '</code>, overwriting your previous save to that slot',
-					html: true
-				});
-			} else {
-				swal({
-					title: 'Saved your current revision to <code>' + saveTo.replace('_', ' ') + '</code>, which created a new saveSlot',
-					html: true
-				});
-			}
-			refreshSavesList();
-			refreshOutput();
-		}
-	});
+
+function legacySavesNotice() {
+	swal("Saves are being phased out", "Please use the Export and Import options.");
 }
+
 function loadJObject(saveName) {
 	var saveItem = getJObject(saveName);
 	jobject = saveItem.jobject;
@@ -463,15 +463,18 @@ function loadJObject(saveName) {
 	refreshSavesList();
 	refreshOutput();
 }
+
 function doesJObjectExist(saveName) {
 	var saveSlot = 'saveSlot_' + saveName;
 	return lsm.getItem(saveSlot) != undefined;
 
 }
+
 function getJObject(saveName) {
 	var saveSlot = 'saveSlot_' + saveName;
 	return JSON.parse(lsm.getItem(saveSlot));
 }
+
 function deleteAll() {
 	swal({
 		"title": getLanguageString('settings.deleteall.heading',lsm.getItem('langCode')),
@@ -490,6 +493,7 @@ function deleteAll() {
 		}
 	});
 }
+
 function clearJObjectSaves() {
 	swal({
 		"title": getLanguageString('saves.deleteall.heading',lsm.getItem('langCode')),
@@ -514,15 +518,18 @@ function clearJObjectSaves() {
 		}
 	});
 }
+
 function obfuscationPreviewHandler() {
 	$('.jsonPreviewObfuscated').html(setObfuscatedString($('.jsonPreviewObfuscated').html()));
 	if ($('.jsonPreviewObfuscated').length > 0) {
 		setTimeout(obfuscationPreviewHandler, 20);
 	}
 }
+
 function currentTemplate() {
 	return templates[lsm.getItem('jtemplate')];
 }
+
 function noneHex() {
 	if (currentTemplate().formatType == 'bookarray' || currentTemplate().formatType == 'signset') {
 		return '#000000';
@@ -530,6 +537,7 @@ function noneHex() {
 		return '#FFFFFF'
 	}
 }
+
 function noneName() {
 	return 'none';
 	/* I think none is the proper name */
@@ -539,6 +547,7 @@ function noneName() {
 	// 	return 'white'
 	// }
 }
+
 function getCSSHEXFromWord(w) {
 	if (w == "black") return("#000000");
 	if (w == "dark_blue") return("#0000B2");
@@ -725,7 +734,7 @@ function cancelExtraEdit() {
 	$('#snippetsWell').show();
 }
 function saveExtraEdit() {
-	editing = false;	
+	editing = false;
 	extraIndex = currentEdit;
 	jobject[extraIndex].color = getSelected("color_extra_edit");
 
@@ -845,6 +854,10 @@ function modifyExtraText(index,text) {
 	}
 	refreshOutput();
 }
+function addNewIterateFlag() {
+	jobject.push({"NEW_ITERATE_FLAG":true});
+	refreshOutput();
+}
 function cancelAddExtra() {
 	showView('tellraw');
 	clearExtra();
@@ -869,93 +882,89 @@ function addExtra() {
 	if (get_type(jobject) != "[object Array]") {
 		jobject = [];
 	}
-	if (extraTextFormat == 'NEW_ITERATE_FLAG') {
-		jobject.push({"NEW_ITERATE_FLAG":true});
-	} else {
-		var clickEventType = $("#clickEvent").val();
-		var hoverEventType = $("#hoverEvent").val();
+	var clickEventType = $("#clickEvent").val();
+	var hoverEventType = $("#hoverEvent").val();
 
-		jobject.push(new Object());
-		var extraIndex = jobject.length - 1;
-		if (extraTextFormat == 'trn') {
-			jobject[extraIndex].translate = $('#translate_input').val();
-			if (matchLength != 0) {
-				if (get_type(jobject.with) != "[object Array]") {
-					jobject[extraIndex].with = new Array();
-				}
-				for (var i = 0; i < matchLength; i++) {
-					jobject[extraIndex].with[i] = $('#extraTranslationParameter'+i).val();
-				};
+	jobject.push(new Object());
+	var extraIndex = jobject.length - 1;
+	if (extraTextFormat == 'trn') {
+		jobject[extraIndex].translate = $('#translate_input').val();
+		if (matchLength != 0) {
+			if (get_type(jobject.with) != "[object Array]") {
+				jobject[extraIndex].with = new Array();
 			}
-		} else if (extraTextFormat == 'raw') {
-			jobject[extraIndex].text = $('#text_extra').val();
-		} else if (extraTextFormat == 'obj') {
-			jobject[extraIndex].score = new Object;
-			jobject[extraIndex].score.name = $('#obj_player').val();
-			jobject[extraIndex].score.objective = $('#obj_score').val();
-		} else if (extraTextFormat == 'sel') {
-			jobject[extraIndex].selector = $('#selector').val();
+			for (var i = 0; i < matchLength; i++) {
+				jobject[extraIndex].with[i] = $('#extraTranslationParameter'+i).val();
+			};
 		}
-
-
-		jobject[extraIndex].color = getSelected("color_extra");
-		if (jobject[extraIndex].color == 'none') {
-			delete jobject[extraIndex].color;
-		}
-
-		if (getChecked("bold_text_extra")) {
-			jobject[extraIndex].bold = true;
-		}
-		if (getChecked("italic_text_extra")) {
-			jobject[extraIndex].italic = true;
-		}
-		if (getChecked("underlined_text_extra")) {
-			jobject[extraIndex].underlined = true;
-		}
-		if (getChecked("strikethrough_text_extra")) {
-			jobject[extraIndex].strikethrough = true;
-		}
-		if (getChecked("obfuscated_text_extra")) {
-			jobject[extraIndex].obfuscated = true;
-		}
-
-		if (clickEventType != "none") {
-			jobject[extraIndex].clickEvent = new Object();
-			jobject[extraIndex].clickEvent.action = clickEventType;
-			jobject[extraIndex].clickEvent.value = $('#clickEventText').val();
-			if (clickEventType == "run_command" || clickEventType == "suggest_command") {
-				if ($('#clickEventText').val().length > 90) {
-					swal('Commands cannot be longer than 90 characters!','You should edit the length of your command before using this in game.','error');
-				}
-			}
-
-		}
-		if (hoverEventType != "none") {
-			jobject[extraIndex].hoverEvent = new Object();
-			jobject[extraIndex].hoverEvent.action = hoverEventType;
-			if (hoverEventType == 'show_text') {
-				jobject[extraIndex].hoverEvent.value = JSON.parse($('#hoverEventText').val());
-				if ($('#color_hover').val() != 'none') {
-					jobject[extraIndex].hoverEvent.value.color = $('#color_hover').val();
-				}
-			} else {
-				jobject[extraIndex].hoverEvent.value = $('#hoverEventValue').val();
-			}
-		}
-		if (hoverEventType == "show_entity") {
-			if ($('#hoverEventEntityID').val() == '') {
-				$('#hoverEventEntityID').val('(ID)')
-			}
-			if ($('#hoverEventEntityName').val() == '') {
-				$('#hoverEventEntityName').val('(Name)')
-			}
-			if ($('#hoverEventEntityType').val() == '') {
-				$('#hoverEventEntityType').val('(Type)')
-			}
-			jobject[extraIndex].hoverEvent.value = '{id:'+removeWhiteSpace($('#hoverEventEntityID').val())+',name:'+removeWhiteSpace($('#hoverEventEntityName').val())+',type:'+removeWhiteSpace($('#hoverEventEntityType').val())+'}';
-		}
-		if ($('#insertion_text').val() != '') jobject[extraIndex].insertion = $('#insertion_text').val();
+	} else if (extraTextFormat == 'raw') {
+		jobject[extraIndex].text = $('#text_extra').val();
+	} else if (extraTextFormat == 'obj') {
+		jobject[extraIndex].score = new Object;
+		jobject[extraIndex].score.name = $('#obj_player').val();
+		jobject[extraIndex].score.objective = $('#obj_score').val();
+	} else if (extraTextFormat == 'sel') {
+		jobject[extraIndex].selector = $('#selector').val();
 	}
+
+
+	jobject[extraIndex].color = getSelected("color_extra");
+	if (jobject[extraIndex].color == 'none') {
+		delete jobject[extraIndex].color;
+	}
+
+	if (getChecked("bold_text_extra")) {
+		jobject[extraIndex].bold = true;
+	}
+	if (getChecked("italic_text_extra")) {
+		jobject[extraIndex].italic = true;
+	}
+	if (getChecked("underlined_text_extra")) {
+		jobject[extraIndex].underlined = true;
+	}
+	if (getChecked("strikethrough_text_extra")) {
+		jobject[extraIndex].strikethrough = true;
+	}
+	if (getChecked("obfuscated_text_extra")) {
+		jobject[extraIndex].obfuscated = true;
+	}
+
+	if (clickEventType != "none") {
+		jobject[extraIndex].clickEvent = new Object();
+		jobject[extraIndex].clickEvent.action = clickEventType;
+		jobject[extraIndex].clickEvent.value = $('#clickEventText').val();
+		if (clickEventType == "run_command" || clickEventType == "suggest_command") {
+			if ($('#clickEventText').val().length > 90) {
+				swal('Commands cannot be longer than 90 characters!','You should edit the length of your command before using this in game.','error');
+			}
+		}
+
+	}
+	if (hoverEventType != "none") {
+		jobject[extraIndex].hoverEvent = new Object();
+		jobject[extraIndex].hoverEvent.action = hoverEventType;
+		if (hoverEventType == 'show_text') {
+			jobject[extraIndex].hoverEvent.value = JSON.parse($('#hoverEventText').val());
+			if ($('#color_hover').val() != 'none') {
+				jobject[extraIndex].hoverEvent.value.color = $('#color_hover').val();
+			}
+		} else {
+			jobject[extraIndex].hoverEvent.value = $('#hoverEventValue').val();
+		}
+	}
+	if (hoverEventType == "show_entity") {
+		if ($('#hoverEventEntityID').val() == '') {
+			$('#hoverEventEntityID').val('(ID)')
+		}
+		if ($('#hoverEventEntityName').val() == '') {
+			$('#hoverEventEntityName').val('(Name)')
+		}
+		if ($('#hoverEventEntityType').val() == '') {
+			$('#hoverEventEntityType').val('(Type)')
+		}
+		jobject[extraIndex].hoverEvent.value = '{id:'+removeWhiteSpace($('#hoverEventEntityID').val())+',name:'+removeWhiteSpace($('#hoverEventEntityName').val())+',type:'+removeWhiteSpace($('#hoverEventEntityType').val())+'}';
+	}
+	if ($('#insertion_text').val() != '') jobject[extraIndex].insertion = $('#insertion_text').val();
 	clearExtra();
 	refreshOutput();
 
@@ -1100,9 +1109,24 @@ function refreshOutput(input) {
 		$('.hoverEventDisabledSigns').show();
 	} else {
 		$('.clickEventDisabledSigns').hide();
-		$('.hoverEventDisabledSigns').hide();			
+		$('.hoverEventDisabledSigns').hide();
 	}
 
+	/* add-ITERATE-FLAG-label and add-ITERATE-FLAG*/
+
+	var templateItem = templates[lsm.getItem('jtemplate')];
+
+	if (templateItem.formatType == 'bookarray' || templateItem.formatType == 'signset') {
+		$('#add-ITERATE-FLAG').fadeIn();
+		if (templateItem.formatType == 'bookarray') {
+			$('#add-ITERATE-FLAG-label').attr('lang','textsnippets.NEW_ITERATE_FLAG.add.book');
+		} else if (templateItem.formatType == 'signset') {
+			$('#add-ITERATE-FLAG-label').attr('lang','textsnippets.NEW_ITERATE_FLAG.add.sign');
+		}
+		refreshLanguage();
+	} else {
+		$('#add-ITERATE-FLAG').fadeOut();
+	}
 
 	/*EXTRA TRANSLATE STRING MANAGER*/
 
@@ -1131,55 +1155,6 @@ function refreshOutput(input) {
 		$('#translate_selector_container').hide();
 		$('#selector_extra_container').hide();
 		$('.extraTranslationParameterRow').hide();
-	}
-	if (extraTextFormat == 'NEW_ITERATE_FLAG') {
-		if (templates[lsm.getItem('jtemplate')].formatType != 'bookarray' && templates[lsm.getItem('jtemplate')].formatType != 'signset') {
-			var swalObject = {
-				title: getLanguageString('textsnippets.NEW_ITERATE_FLAG.incorrect_template.primary.header',lsm.getItem('langCode')),
-				text: getLanguageString('textsnippets.NEW_ITERATE_FLAG.incorrect_template.primary.description',lsm.getItem('langCode')),
-				showCancelButton: true,
-				confirmButtonText: getLanguageString('textsnippets.NEW_ITERATE_FLAG.incorrect_template.primary.yes',lsm.getItem('langCode')),
-				cancelButtonText: getLanguageString('textsnippets.NEW_ITERATE_FLAG.incorrect_template.primary.no',lsm.getItem('langCode')),
-				closeOnConfirm: false,
-				closeOnCancel: true
-			};
-			var swalCallback = function(isConfirm) {
-				var template = undefined;
-				if (isConfirm) {
-					template = "book";
-				} else {
-					template = "sign_item";
-				}
-
-				$('.templateButton').removeClass('btn-success').removeClass('btn-default').addClass('btn-default');
-				$('.templateButton[template=' + template + ']').addClass('btn-success').removeClass('btn-default');
-
-				lsm.setItem('jtemplate',template);
-				$('#command').val(templates[lsm.getItem('jtemplate')]['command']);
-
-				refreshOutput();
-
-				swal(getLanguageString('textsnippets.NEW_ITERATE_FLAG.incorrect_template.tertiary.header',lsm.getItem('langCode')), getLanguageString('textsnippets.NEW_ITERATE_FLAG.incorrect_template.tertiary.description',lsm.getItem('langCode')).replace('%c', getLanguageString('template.' + template,lsm.getItem('langCode'))), "success");
-			}
-			swal(swalObject, function(isConfirm){
-				if (isConfirm) {
-					swal({
-						title: getLanguageString('textsnippets.NEW_ITERATE_FLAG.incorrect_template.secondary.header',lsm.getItem('langCode')),
-						text: getLanguageString('textsnippets.NEW_ITERATE_FLAG.incorrect_template.secondary.description',lsm.getItem('langCode')),
-						type: "info",
-						showCancelButton: true,
-						confirmButtonText: getLanguageString('textsnippets.NEW_ITERATE_FLAG.incorrect_template.secondary.book',lsm.getItem('langCode')),
-						cancelButtonText: getLanguageString('textsnippets.NEW_ITERATE_FLAG.incorrect_template.secondary.sign',lsm.getItem('langCode')),
-						closeOnConfirm: false,
-						closeOnCancel: false
-					}, swalCallback);
-				}
-			});
-			$('#fmtExtraRaw').click();
-		}
-		$('.NEW_ITERATE_FLAG_not_container').hide();
-	} else {
-		$('.NEW_ITERATE_FLAG_not_container').show();
 	}
 
 	/*COMMAND MANAGER*/
@@ -1309,7 +1284,7 @@ function refreshOutput(input) {
 			JSONOutputString = 'Text1:' + JSON.stringify(formattedJObject[0]);
 			if (formattedJObject.length > 1) {
 				JSONOutputString += ',Text2:' + JSON.stringify(formattedJObject[1])
-			} 
+			}
 			if (formattedJObject.length > 2) {
 				JSONOutputString += ',Text3:' + JSON.stringify(formattedJObject[2])
 			}
@@ -1374,7 +1349,7 @@ function jsonParse() {
 				counter++;
 			} else {
 				pageHash['index.' + i] = counter;
-				
+
 				topPage = counter;
 
 			}
@@ -1408,7 +1383,7 @@ function jsonParse() {
 				var clickEventType = "";
 				var clickEventValue = "";
 				$('#jsonPreview').append('<span id="jsonPreviewSpanElement'+ i +'"></span>');
-				
+
 				if (jobject[i].text) {
 					$('#jsonPreviewSpanElement'+i).html(jobject[i].text.replace(/\\\\n/g,'<br>').replace(/\\n/g,'<br>'));
 				} else if (jobject[i].score) {
@@ -1672,14 +1647,14 @@ for (var i = 0; i < Object.keys(lang).length; i++) {
 	$('.extraTranslationParameterRow').hide();
 
 	if (lsm.getItem('color') != undefined) {
-		$('#previewcolor').val(lsm.getItem("color"));	
+		$('#previewcolor').val(lsm.getItem("color"));
 	} else {
 		$('#previewcolor').val('617A80');
 	}
 	$('#previewcolor').css('background-color','#'+$('#previewcolor').val());
-	
+
 	jsonParse();
-	
+
 	if (lsm.getItem('jobject') != undefined) {
 		jobject = verify_jobject_format(JSON.parse(lsm.getItem("jobject")));
 	}
@@ -1693,7 +1668,7 @@ for (var i = 0; i < Object.keys(lang).length; i++) {
 	} else {
 		$('#showNiceLookingOutput').prop('checked', true);
 	}
-	
+
 	showView('pageheader',true,false);
 	//JSON.stringify({"viewname":viewname,"suppressAnimation":suppressAnimation,"hideOthers":hideOthers,"hideMenubar":hideMenubar})
 	if (lsm.getItem('jview') != undefined/* && typeof JSON.stringify(lsm.getItem('jview')) != "string"*/) {

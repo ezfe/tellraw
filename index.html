@@ -2,13 +2,13 @@
 <html>
 <head>
 	<title>JSON Creator for Minecraft</title>
-	<meta name="description" content="JSON Creator for Minecraft"> 
+	<meta name="description" content="JSON Creator for Minecraft">
 	<meta property="og:title" content="JSON Creator for Minecraft">
 
 	<meta property="og:site_name" content="MinecraftJSON">
-	
+
 	<meta property="og:url" content="http://minecraftjson.com">
-	
+
 	<meta property="og:type" content="website">
 
 	<meta property="og:locale" content="en_US">
@@ -38,12 +38,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 	<script>
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-		ga('create', 'UA-25756826-2', 'auto');
-		ga('send', 'pageview');
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-25756826-2', 'auto');
+	ga('send', 'pageview');
 	</script>
 
 	<!-- FAVICON -->
@@ -80,212 +80,210 @@
 </head>
 <body>
 	<div class="container">
-	<!--[if lt IE 8]>
-	<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-	<![endif]-->
-	<div class="view-container" style="margin-bottom:200%;">
-		<h1>Please enable JavaScript</h1>
-	</div>
-	<div class="view-container alert alert-danger" view="escaping-issue">
-		<div class="row">
-			<div class="col-md-12" style="text-align:center;">
-				<b><i class="fa fa-alert"></i> Experiencing issues with quotations/escaping?</b><br>
-				<button class="btn btn-xs btn-default" onclick="$('.templateButton[template=tellraw]').click();showView('tellraw');">Fix It</button>
-				<button class="btn btn-xs btn-default" onclick="localStorage.setItem('dontShowQuoteFixer','true');showView('tellraw');">Ignore</button>
+		<!--[if lt IE 8]>
+		<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+		<![endif]-->
+		<div class="view-container" style="margin-bottom:200%;">
+			<h1>Please enable JavaScript</h1>
+		</div>
+		<div class="view-container alert alert-danger" view="escaping-issue">
+			<div class="row">
+				<div class="col-md-12" style="text-align:center;">
+					<b><i class="fa fa-alert"></i> Experiencing issues with quotations/escaping?</b><br>
+					<button class="btn btn-xs btn-default" onclick="$('.templateButton[template=tellraw]').click();showView('tellraw');">Fix It</button>
+					<button class="btn btn-xs btn-default" onclick="localStorage.setItem('dontShowQuoteFixer','true');showView('tellraw');">Ignore</button>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="view-container" view="pageheader">
-		<div class="row">
-			<div class="col-sm-3 col-xs-12">
-				<h4 lang="header_rev2"></h4>
-			</div>
-			<div class="col-sm-2 col-sm-offset-1">
-				<button class="btn btn-block btn-xs btn-info" id="helptoggle">
-					<i class="fa fa-question-circle"></i> <span lang="headerbar.help"></span>
-				</button>
-			</div>
-			<div class="col-sm-3">
-				<button class="report-issue btn btn-block btn-xs btn-danger">
-					<i class="fa fa-exclamation-triangle"></i> <span lang="headerbar.report_an_issue"></span>
-				</button>
-				<div class="help-box" lang="help.report-an-issue"></div>
-			</div>
-			<div class="col-sm-1 col-xs-12 row-margin-top row-margin-bottom">
-				<div class="btn-group btn-block" id="dropdown-list-a">
-					<button type="button" class="btn btn-block btn-xs btn-default dropdown-toggle" data-toggle="dropdown">
-						<i class="fa fa-list"></i> <span class="caret"></span>
+		<div class="view-container" view="pageheader">
+			<div class="row">
+				<div class="col-sm-3 col-xs-12">
+					<h4 lang="header_rev2"></h4>
+				</div>
+				<div class="col-sm-2 col-sm-offset-1">
+					<button class="btn btn-block btn-xs btn-info" id="helptoggle">
+						<i class="fa fa-question-circle"></i> <span lang="headerbar.help"></span>
 					</button>
-					<ul class="dropdown-menu" role="menu">
-						<li><a href="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Fezekielelin.com%2Ftellraw%2F&amp;text=%2Ftellraw%20generator%20for%20minecraft&amp;tw_p=tweetbutton&amp;url=http%3A%2F%2Fezekielelin.com%2Ftellraw%2F&amp;via=ezekielfe" lang="headerbar.dropdown.tweet"></a></li>
-						<li><a href="changelog.html" lang="headerbar.dropdown.changelog"></a></li>
-						<li><a href="http://www.minecraftforum.net/topic/1980545-" lang="headerbar.dropdown.forum_thread"></a></li>
-						<li><a href="http://translate.minecraftjson.com" lang="headerbar.dropdown.translate_page_link"></a></li>
-					</ul>
 				</div>
-				<div class="help-box" lang="help.dropdown-list"></div>
-			</div>
-			<div class="col-sm-2 col-xs-12 row-margin-top row-margin-bottom">
-				<div class="btn-group btn-block">
-					<button type="button" class="btn btn-block btn-xs btn-default dropdown-toggle" data-toggle="dropdown">
-						<span lang="language.header"></span> <span class="caret"></span>
+				<div class="col-sm-3">
+					<button class="report-issue btn btn-block btn-xs btn-danger">
+						<i class="fa fa-exclamation-triangle"></i> <span lang="headerbar.report_an_issue"></span>
 					</button>
-					<ul class="dropdown-menu" role="menu" id="language_keys">
-					</ul>
+					<div class="help-box" lang="help.report-an-issue"></div>
 				</div>
-			</div>
-		</div>
-	</div>
-	<div class="view-container" view="report-issue">
-		<div class="row">
-			<div class="col-md-12" style="text-align:center;">
-				<h2>Please describe your issue</h2>
-			</div>
-		</div>
-		<div class="row" id="issue-workflow-r1">
-			<div class="col-md-2 col-md-offset-3">
-				<button class="issue-button" id="translation-issue-button"><i class="fa fa-font"></i> Translation Issue</button>
-			</div>
-			<div class="col-md-2">
-				<button class="issue-button" id="output-issue-button"><i class="fa fa-list-alt"></i> Output Issue</button>
-			</div>
-			<div class="col-md-2">
-				<button class="issue-button" id="other-issue-button"><i class="fa fa-question"></i> Other Issue</button>
-			</div>
-		</div>
-		<div class="row" style="display:none;" id="issue-workflow-r2-translation">
-			<div class="col-md-2 col-md-offset-4">
-				<button class="issue-button" id="translation-current-issue-button" lang="language.name"></button>
-			</div>
-			<div class="col-md-2">
-				<button class="issue-button" id="translation-other-issue-button">Other Language</button>
-			</div>
-		</div>
-		<div class="row" style="display:none;" id="issue-workflow-r2-output">
-			<div class="col-md-2 col-md-offset-4">
-				<button class="issue-button" id="output-quotes-issue-button"><i class="fa fa-quote-left"></i> Too Many Quotes</button>
-			</div>
-			<div class="col-md-2">
-				<button class="issue-button" id="output-other-issue-button"><i class="fa fa-question"></i> Other Issue</button>
-			</div>
-		</div>
-		<div class="row cancel-issue-row">
-			<div class="col-md-2 col-md-offset-5">
-				<button class="issue-button" id="cancel-issue-button"><i class="fa fa-times"></i> Cancel</button>
-			</div>
-		</div>
-	</div>
-	<div class="view-container well" view="settings">
-		<div class="row">
-			<div class="col-md-12">
-				<h4 lang="settings.header"></h4>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm-3 col-xs-12">
-				<label for="previewFontSize" lang="settings.fontSize"></label>
-			</div>
-			<div class="col-sm-4 col-xs-12">
-				<input id="previewFontSize" type="number" onchange="refreshOutput()" value="14" class="form-control">
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm-3 col-xs-12">
-				<label for="showNiceLookingOutput" lang="settings.nlOutput"></label>
-			</div>
-			<div class="col-sm-4 col-xs-12">
-				<input id="showNiceLookingOutput" type="checkbox" onchange="refreshOutput()" checked class="form-control">
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm-3 col-xs-12">
-				<label for="previewcolor"><span lang="settings.previewcolor"></span></label>
-			</div>
-			<div class="col-sm-4 col-xs-12">
-				<input onchange="refreshOutput()" id="previewcolor" class="color form-control" value="F5774A">
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm-2 col-xs-12">
-				<button onclick="showView('tellraw')" class="btn btn-block btn-default" id="closeSettings"><span lang="settings.hide"></span> <i class="fa fa-gear"></i></button>
-			</div>
-		</div>
-	</div>
-	<div class="view-container well" view="donate">
-		<div class="row">
-			<div class="col-md-12">
-				<h2><span lang="donate.support-header"></span><br><small lang="donate.support-subheader"></small></h2>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-2 col-md-offset-3" style="padding:0px;">
-				<div class="row">
-					<div class="col-md-12" style="text-align:center;">
-						<a class="btn btn-default" href="http://pixelhost.ezekielelin.com/payments/?payment_item_id=tellraw"><i class="fa fa-usd"></i> <span lang="donate.donate-button"></span></a>
+				<div class="col-sm-1 col-xs-12 row-margin-top row-margin-bottom">
+					<div class="btn-group btn-block" id="dropdown-list-a">
+						<button type="button" class="btn btn-block btn-xs btn-default dropdown-toggle" data-toggle="dropdown">
+							<i class="fa fa-list"></i> <span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Fezekielelin.com%2Ftellraw%2F&amp;text=%2Ftellraw%20generator%20for%20minecraft&amp;tw_p=tweetbutton&amp;url=http%3A%2F%2Fezekielelin.com%2Ftellraw%2F&amp;via=ezekielfe" lang="headerbar.dropdown.tweet"></a></li>
+							<li><a href="changelog.html" lang="headerbar.dropdown.changelog"></a></li>
+							<li><a href="http://www.minecraftforum.net/topic/1980545-" lang="headerbar.dropdown.forum_thread"></a></li>
+							<li><a href="http://translate.minecraftjson.com" lang="headerbar.dropdown.translate_page_link"></a></li>
+						</ul>
 					</div>
+					<div class="help-box" lang="help.dropdown-list"></div>
 				</div>
-				<div class="row">
-					<div class="col-md-12" style="">
-						<p lang="donate.donate-text"></p>
-						<p lang="donate.paypal-note"></p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12" style="text-align:center;">
-						<a class="btn btn-default" href="http://patreon.com/Ezekiel/"><i class="fa fa-usd"></i> <span lang="donate.patreon-button"></span></a>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12" style="">
-						<p lang="donate.patreon-text"></p>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-2 col-md-offset-1" style="padding:0px;">
-				<div class="row">
-					<div class="col-md-12">
-						<a href="http://oc.tc/shop"><img src="octc.png" width="50%"></a>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12">
-						<p lang="donate.overcast-text"></p>
+				<div class="col-sm-2 col-xs-12 row-margin-top row-margin-bottom">
+					<div class="btn-group btn-block">
+						<button type="button" class="btn btn-block btn-xs btn-default dropdown-toggle" data-toggle="dropdown">
+							<span lang="language.header"></span> <span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu" role="menu" id="language_keys">
+						</ul>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="row" style="margin-top:20px;">
-			<div class="col-md-2 col-md-offset-3" style="text-align:right;">
-				<button onclick="donateAlert(false);" class="btn btn-info btn-block" lang="donate.exit"></button>
+		<div class="view-container" view="report-issue">
+			<div class="row">
+				<div class="col-md-12" style="text-align:center;">
+					<h2>Please describe your issue</h2>
+				</div>
 			</div>
-			<div class="col-md-3" style="text-align:left;">
-				<p lang="donate.exit-text"></p>
+			<div class="row" id="issue-workflow-r1">
+				<div class="col-md-2 col-md-offset-3">
+					<button class="issue-button" id="translation-issue-button"><i class="fa fa-font"></i> Translation Issue</button>
+				</div>
+				<div class="col-md-2">
+					<button class="issue-button" id="output-issue-button"><i class="fa fa-list-alt"></i> Output Issue</button>
+				</div>
+				<div class="col-md-2">
+					<button class="issue-button" id="other-issue-button"><i class="fa fa-question"></i> Other Issue</button>
+				</div>
 			</div>
-		</div>
-	</div>
-	<div class="view-container" view="loading" style="text-align:center;">
-		<div class="row">
-			<div class="col-sm-12">
-				<div class="progress">
-					<div id="loaderProgressBar" class="progress-bar progress-bar-striped active" style="width: 100%"></div>
+			<div class="row" style="display:none;" id="issue-workflow-r2-translation">
+				<div class="col-md-2 col-md-offset-4">
+					<button class="issue-button" id="translation-current-issue-button" lang="language.name"></button>
+				</div>
+				<div class="col-md-2">
+					<button class="issue-button" id="translation-other-issue-button">Other Language</button>
+				</div>
+			</div>
+			<div class="row" style="display:none;" id="issue-workflow-r2-output">
+				<div class="col-md-2 col-md-offset-4">
+					<button class="issue-button" id="output-quotes-issue-button"><i class="fa fa-quote-left"></i> Too Many Quotes</button>
+				</div>
+				<div class="col-md-2">
+					<button class="issue-button" id="output-other-issue-button"><i class="fa fa-question"></i> Other Issue</button>
+				</div>
+			</div>
+			<div class="row cancel-issue-row">
+				<div class="col-md-2 col-md-offset-5">
+					<button class="issue-button" id="cancel-issue-button"><i class="fa fa-times"></i> Cancel</button>
 				</div>
 			</div>
 		</div>
-		<h4 id="loadingtxt">Loading Javascript</h4>
-		<h5>
-			If this page does not go away, try clicking <a onclick="localStorage.clear();location.reload();" href="#">here</a>. If that doesn't work, please <button class="report-issue btn btn-xs btn-danger"><i class="fa fa-exclamation-triangle"></i> <span>Report an Issue</span></button>
-		</h5>
-	</div>
-	<div class="view-container well" view="add-extra">
-		<div class="row row-margin-top row-margin-bottom">
-			<div class="btn-group col-sm-10">
-				<button type="button" version="1.7" lang="textsnippets.raw" id="fmtExtraRaw" tellrawType="raw" class="fmtExtra active btn btn-default"></button>
-				<button type="button" version="1.8" lang="textsnippets.obj" id="fmtExtraObj" tellrawType="obj" class="fmtExtra btn btn-default"></button>
-				<button type="button" version="1.8" lang="textsnippets.sel" id="fmtExtraSel" tellrawType="sel" class="fmtExtra btn btn-default"></button>
-				<button type="button" version="1.8" lang="textsnippets.NEW_ITERATE_FLAG.buttontext" id="fmtExtraNEW_ITERATE_FLAG" tellrawType="NEW_ITERATE_FLAG" class="fmtExtra btn btn-default"></button>
+		<div class="view-container well" view="settings">
+			<div class="row">
+				<div class="col-md-12">
+					<h4 lang="settings.header"></h4>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-3 col-xs-12">
+					<label for="previewFontSize" lang="settings.fontSize"></label>
+				</div>
+				<div class="col-sm-4 col-xs-12">
+					<input id="previewFontSize" type="number" onchange="refreshOutput()" value="14" class="form-control">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-3 col-xs-12">
+					<label for="showNiceLookingOutput" lang="settings.nlOutput"></label>
+				</div>
+				<div class="col-sm-4 col-xs-12">
+					<input id="showNiceLookingOutput" type="checkbox" onchange="refreshOutput()" checked class="form-control">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-3 col-xs-12">
+					<label for="previewcolor"><span lang="settings.previewcolor"></span></label>
+				</div>
+				<div class="col-sm-4 col-xs-12">
+					<input onchange="refreshOutput()" id="previewcolor" class="color form-control" value="F5774A">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-2 col-xs-12">
+					<button onclick="showView('tellraw')" class="btn btn-block btn-default" id="closeSettings"><span lang="settings.hide"></span> <i class="fa fa-gear"></i></button>
+				</div>
 			</div>
 		</div>
-		<div class="NEW_ITERATE_FLAG_not_container">
+		<div class="view-container well" view="donate">
+			<div class="row">
+				<div class="col-md-12">
+					<h2><span lang="donate.support-header"></span><br><small lang="donate.support-subheader"></small></h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-2 col-md-offset-3" style="padding:0px;">
+					<div class="row">
+						<div class="col-md-12" style="text-align:center;">
+							<a class="btn btn-default" href="http://pixelhost.ezekielelin.com/payments/?payment_item_id=tellraw"><i class="fa fa-usd"></i> <span lang="donate.donate-button"></span></a>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12" style="">
+							<p lang="donate.donate-text"></p>
+							<p lang="donate.paypal-note"></p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12" style="text-align:center;">
+							<a class="btn btn-default" href="http://patreon.com/Ezekiel/"><i class="fa fa-usd"></i> <span lang="donate.patreon-button"></span></a>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12" style="">
+							<p lang="donate.patreon-text"></p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-2 col-md-offset-1" style="padding:0px;">
+					<div class="row">
+						<div class="col-md-12">
+							<a href="http://oc.tc/shop"><img src="octc.png" width="50%"></a>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<p lang="donate.overcast-text"></p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row" style="margin-top:20px;">
+				<div class="col-md-2 col-md-offset-3" style="text-align:right;">
+					<button onclick="donateAlert(false);" class="btn btn-info btn-block" lang="donate.exit"></button>
+				</div>
+				<div class="col-md-3" style="text-align:left;">
+					<p lang="donate.exit-text"></p>
+				</div>
+			</div>
+		</div>
+		<div class="view-container" view="loading" style="text-align:center;">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="progress">
+						<div id="loaderProgressBar" class="progress-bar progress-bar-striped active" style="width: 100%"></div>
+					</div>
+				</div>
+			</div>
+			<h4 id="loadingtxt">Loading Javascript</h4>
+			<h5>
+				If this page does not go away, try clicking <a onclick="localStorage.clear();location.reload();" href="#">here</a>. If that doesn't work, please <button class="report-issue btn btn-xs btn-danger"><i class="fa fa-exclamation-triangle"></i> <span>Report an Issue</span></button>
+			</h5>
+		</div>
+		<div class="view-container well" view="add-extra">
+			<div class="row row-margin-top row-margin-bottom">
+				<div class="btn-group col-sm-10">
+					<button type="button" version="1.7" lang="textsnippets.raw" id="fmtExtraRaw" tellrawType="raw" class="fmtExtra active btn btn-default"></button>
+					<button type="button" version="1.8" lang="textsnippets.obj" id="fmtExtraObj" tellrawType="obj" class="fmtExtra btn btn-default"></button>
+					<button type="button" version="1.8" lang="textsnippets.sel" id="fmtExtraSel" tellrawType="sel" class="fmtExtra btn btn-default"></button>
+				</div>
+			</div>
 			<div class="row row-margin-top row-margin-bottom">
 				<div class="col-sm-7" id="obj_extra_container">
 					<div class="col-md-12" style="padding: 0px; margin: 0px;">
@@ -534,353 +532,352 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="row row-margin-top row-margin-bottom">
-			<div class="col-sm-offset-8 col-sm-2">
-				<button class="btn btn-default btn-block" id="textsnippets-close-button" lang="textsnippets.close" onclick="cancelAddExtra()"></button>
-			</div>
-			<div class="col-sm-2">
-				<button class="btn btn-primary btn-block" id="textsnippets-add-button" lang="textsnippets.addsnippet" onclick="addExtra()"></button>
-			</div>
-		</div>
-	</div>
-	<div view="saves" class="view-container well">
-		<div class="save-alerts">
-		</div>
-		<div class="row">
-			<div class="col-sm-4">
-				<h4 lang="saves.header"></h4>
-			</div>
-			<div class="col-sm-4 col-sm-offset-4">
-				<h5 lang="saves.persistencenotice"></h5>
+			<div class="row row-margin-top row-margin-bottom">
+				<div class="col-sm-offset-8 col-sm-2">
+					<button class="btn btn-default btn-block" id="textsnippets-close-button" lang="textsnippets.close" onclick="cancelAddExtra()"></button>
+				</div>
+				<div class="col-sm-2">
+					<button class="btn btn-primary btn-block" id="textsnippets-add-button" lang="textsnippets.addsnippet" onclick="addExtra()"></button>
+				</div>
 			</div>
 		</div>
-		<div class="savesContainer">
+		<div view="saves" class="view-container well">
+			<div class="save-alerts">
+			</div>
 			<div class="row">
-				<div class="col-sm-12">
-					<h4 lang="saves.nosaves"></h4>
+				<div class="col-sm-4">
+					<h4 lang="saves.header"></h4>
+				</div>
+				<div class="col-sm-4 col-sm-offset-4">
+					<h5 lang="saves.persistencenotice"></h5>
 				</div>
 			</div>
-		</div>
-		<div class="row row-margin-top row-margin-bottom">
-			<div class="col-sm-2 col-sm-offset-3">
-				<button class="btn btn-success btn-block" onclick="saveJObject()">
-					<span lang="saves.new"></span> <i class="fa fa-plus-circle"></i></span>
-				</button>
-				<div class="help-box" lang="help.create-new-save"></div>
-			</div>
-			<div class="col-sm-2">
-				<button class="btn btn-danger btn-block" onclick="clearJObjectSaves()">
-					<span lang="saves.deleteall.yes"></span> <i class="fa fa-times-circle"></i></span>
-				</button>
-				<div class="help-box" lang="help.delete-all-saves"></div>
-			</div>
-			<div class="col-sm-2">
-				<button class="btn btn-info btn-block" id="hide-saves">
-					<span lang="saves.hide"></span> <i class="fa fa-eye"></i></span>
-				</button>
-				<div class="help-box" lang="help.show-saves"></div>
-			</div>
-		</div>
-	</div>
-	<div view="tellraw" class="view-container">
-		<div class="alerts">
-		</div>
-		<br><br>
-		<div>
-			<div class="row">
-				<div class="col-sm-2 col-xs-12 row-margin-top row-margin-bottom">
-					<span lang="player.header"></span><br>
-					<span lang="player.description"></span>
-				</div>
-				<div id="playerDiv" class="col-sm-10 col-xs-12 row-margin-top row-margin-bottom command_container">
-					<input value="tellraw @a" id="command" type="text" class="form-control">
-					<br>
-					<div id="templateButtons"></div>
-				</div>
-			</div>
-			<div class="well row-margin-top" id="snippetsWell">
-				<div class="extraContainer">
-					<br><br>
-				</div>
-				<div class="row row-margin-top row-margin-bottom">
-					<div class="col-sm-3 col-sm-offset-2">
-						<button id="addExtraButton" class="btn btn-primary btn-block">
-							<span lang="textsnippets.addsnippet"></span> <i class="fa fa-plus-circle"></i></span>
-						</button>
-						<div class="help-box" lang="help.addsnippet"></div>
-					</div>
-					<div class="col-sm-3">
-						<button class="btn btn-danger btn-block" id="deleteAllBtn" onclick="deleteAll()">
-							<span lang="settings.deleteall.yes"></span> <i class="fa fa-times-circle"></i></span>
-						</button>
-						<div class="help-box" lang="help.delete-all-snippets"></div>
-					</div>
-					<div class="col-sm-3">
-						<button class="btn btn-info btn-block" id="show-saves">
-							<span lang="saves.show"></span> <i class="fa fa-eye"></i></span>
-						</button>
-						<div class="help-box" lang="help.show-saves"></div>
+			<div class="savesContainer">
+				<div class="row">
+					<div class="col-sm-12">
+						<h4 lang="saves.nosaves"></h4>
 					</div>
 				</div>
 			</div>
-			<div style="display:none;" class="well" id="editModalData">
-				<div class="row row-margin-top row-margin-bottom">
-					<div class="col-sm-7" id="obj_extra_container_edit">
-						<div>
-							<input lang="textsnippets.player" id="obj_player_edit" type="text" class="form-control">
+			<div class="row row-margin-top row-margin-bottom">
+				<div class="col-lg-2 col-lg-offset-3 col-md-3 col-md-offset-1 col-sm-4">
+					<button class="btn btn-success btn-block" onclick="legacySavesNotice()">
+						<span lang="saves.new"></span> <i class="fa fa-plus-circle"></i></span>
+					</button>
+					<div class="help-box" lang="help.create-new-save"></div>
+				</div>
+				<div class="col-lg-2 col-md-3 col-sm-4">
+					<button class="btn btn-danger btn-block" onclick="clearJObjectSaves()">
+						<span lang="saves.deleteall.yes"></span> <i class="fa fa-times-circle"></i></span>
+					</button>
+					<div class="help-box" lang="help.delete-all-saves"></div>
+				</div>
+				<div class="col-lg-2 col-md-3 col-sm-4">
+					<button class="btn btn-info btn-block" id="hide-saves">
+						<span lang="saves.hide"></span> <i class="fa fa-eye"></i></span>
+					</button>
+					<div class="help-box" lang="help.show-saves"></div>
+				</div>
+			</div>
+		</div>
+		<div view="tellraw" class="view-container">
+			<div class="alerts">
+			</div>
+			<br><br>
+			<div>
+				<div class="row">
+					<div class="col-sm-2 col-xs-12 row-margin-top row-margin-bottom">
+						<span lang="player.header"></span><br>
+						<span lang="player.description"></span>
+					</div>
+					<div id="playerDiv" class="col-sm-10 col-xs-12 row-margin-top row-margin-bottom command_container">
+						<input value="tellraw @a" id="command" type="text" class="form-control">
+						<br>
+						<div id="templateButtons"></div>
+					</div>
+				</div>
+				<div class="well row-margin-top" id="snippetsWell">
+					<div class="extraContainer">
+						<br><br>
+					</div>
+					<div class="row row-margin-top row-margin-bottom">
+						<div class="col-sm-3 col-sm-offset-2">
+							<button id="addExtraButton" class="btn btn-primary btn-block">
+								<span lang="textsnippets.addsnippet"></span> <i class="fa fa-plus-circle"></i></span>
+							</button>
+							<div class="help-box" lang="help.addsnippet"></div>
 						</div>
-						<div class="row-margin-top">
-							<input lang="textsnippets.obj2" id="obj_score_edit" type="text" class="form-control">
+						<div class="col-sm-3">
+							<button class="btn btn-danger btn-block" id="deleteAllBtn" onclick="deleteAll()">
+								<span lang="settings.deleteall.yes"></span> <i class="fa fa-times-circle"></i></span>
+							</button>
+							<div class="help-box" lang="help.delete-all-snippets"></div>
+						</div>
+						<div class="col-sm-3" id="saves-show-button-container">
+							<button style="display:none;" class="btn btn-info btn-block" onclick="addNewIterateFlag();" id="add-ITERATE-FLAG">
+								<span id="add-ITERATE-FLAG-label"></span> <i class="fa fa-eye"></i></span>
+							</button>
+							<!-- <div class="help-box" lang="help.show-saves"></div> -->
 						</div>
 					</div>
-					<div class="col-sm-7" id="text_extra_container_edit">
-						<input lang="textsnippets.text" id="text_extra_edit" type="text" class="form-control">
-					</div>
-					<div class="col-sm-7" id="selector_extra_container_edit">
-						<input placeholder="Selector" id="selector_edit" type="text" class="form-control">
-					</div>
-					<div class="col-sm-7" id="translate_selector_container_edit">
-						<input id="translate_input_edit" class="form-control" placeholder="language.string" disabled>
-					</div>
-					<div class="col-sm-4">
-						<div class="row">
-							<div class="col-sm-10">
-								<select class="form-control" onchange="$('#colorPreviewColor_edit').css('background-color',getCSSHEXFromWord($('#color_extra_edit').val()));" id="color_extra_edit">
-									<option lang="color.color_black" value="black">color_black</option>
-									<option lang="color.color_dark_blue" value="dark_blue">color_dark_blue</option>
-									<option lang="color.color_dark_green" value="dark_green">color_dark_green</option>
-									<option lang="color.color_dark_aqua" value="dark_aqua">color_dark_aqua</option>
-									<option lang="color.color_dark_red" value="dark_red">color_dark_red</option>
-									<option lang="color.color_dark_purple" value="dark_purple">color_dark_purple</option>
-									<option lang="color.color_gold" value="gold">color_gold</option>
-									<option lang="color.color_gray" value="gray">color_gray</option>
-									<option lang="color.color_dark_gray" value="dark_gray">color_dark_gray</option>
-									<option lang="color.color_blue" value="blue">color_blue</option>
-									<option lang="color.color_green" value="green">color_green</option>
-									<option lang="color.color_aqua" value="aqua">color_aqua</option>
-									<option lang="color.color_red" value="red">color_red</option>
-									<option lang="color.color_light_purple" value="light_purple">color_light_purple</option>
-									<option lang="color.color_yellow" value="yellow">color_yellow</option>
-									<option lang="color.color_white" value="white">color_white</option>
-									<option lang="color.color_none" value="none" selected="true">color_none</option>
-								</select>
+				</div>
+				<div style="display:none;" class="well" id="editModalData">
+					<div class="row row-margin-top row-margin-bottom">
+						<div class="col-sm-7" id="obj_extra_container_edit">
+							<div>
+								<input lang="textsnippets.player" id="obj_player_edit" type="text" class="form-control">
 							</div>
-							<div class="col-sm-2">
-								<div id="colorPreview_edit" class="colorPreview">
-									<div id="colorPreviewColor_edit" class="colorPreviewColor">
+							<div class="row-margin-top">
+								<input lang="textsnippets.obj2" id="obj_score_edit" type="text" class="form-control">
+							</div>
+						</div>
+						<div class="col-sm-7" id="text_extra_container_edit">
+							<input lang="textsnippets.text" id="text_extra_edit" type="text" class="form-control">
+						</div>
+						<div class="col-sm-7" id="selector_extra_container_edit">
+							<input placeholder="Selector" id="selector_edit" type="text" class="form-control">
+						</div>
+						<div class="col-sm-7" id="translate_selector_container_edit">
+							<input id="translate_input_edit" class="form-control" placeholder="language.string" disabled>
+						</div>
+						<div class="col-sm-4">
+							<div class="row">
+								<div class="col-sm-10">
+									<select class="form-control" onchange="$('#colorPreviewColor_edit').css('background-color',getCSSHEXFromWord($('#color_extra_edit').val()));" id="color_extra_edit">
+										<option lang="color.color_black" value="black">color_black</option>
+										<option lang="color.color_dark_blue" value="dark_blue">color_dark_blue</option>
+										<option lang="color.color_dark_green" value="dark_green">color_dark_green</option>
+										<option lang="color.color_dark_aqua" value="dark_aqua">color_dark_aqua</option>
+										<option lang="color.color_dark_red" value="dark_red">color_dark_red</option>
+										<option lang="color.color_dark_purple" value="dark_purple">color_dark_purple</option>
+										<option lang="color.color_gold" value="gold">color_gold</option>
+										<option lang="color.color_gray" value="gray">color_gray</option>
+										<option lang="color.color_dark_gray" value="dark_gray">color_dark_gray</option>
+										<option lang="color.color_blue" value="blue">color_blue</option>
+										<option lang="color.color_green" value="green">color_green</option>
+										<option lang="color.color_aqua" value="aqua">color_aqua</option>
+										<option lang="color.color_red" value="red">color_red</option>
+										<option lang="color.color_light_purple" value="light_purple">color_light_purple</option>
+										<option lang="color.color_yellow" value="yellow">color_yellow</option>
+										<option lang="color.color_white" value="white">color_white</option>
+										<option lang="color.color_none" value="none" selected="true">color_none</option>
+									</select>
+								</div>
+								<div class="col-sm-2">
+									<div id="colorPreview_edit" class="colorPreview">
+										<div id="colorPreviewColor_edit" class="colorPreviewColor">
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-						<label><input type="checkbox" id="bold_text_extra_edit"> <span lang="textsnippets.format.bold" ></span></label>
-						<label><input type="checkbox" id="italic_text_extra_edit"> <span lang="textsnippets.format.italic" ></span></label>
-						<label><input type="checkbox" id="underlined_text_extra_edit"> <span lang="textsnippets.format.underlined" ></span></label>
-						<label><input type="checkbox" id="strikethrough_text_extra_edit"> <span lang="textsnippets.format.strikethrough" ></span></label>
-						<label><input type="checkbox" id="obfuscated_text_extra_edit"> <span lang="textsnippets.format.obfuscated" ></span></label>
-					</div>
-				</div>
-				<div class="extraTranslationParameterRow row row-margin-top row-margin-bottom" id="parameter0row_edit">
-					<div class="col-sm-4" id="parameter0_edit">
-
-					</div>
-					<div class="col-sm-8">
-						<input type="text" class="form-control" class="extraTranslationParameter" id="extraTranslationParameter0_edit">
-					</div>
-				</div>
-				<div class="extraTranslationParameterRow row row-margin-top row-margin-bottom" id="parameter1row_edit">
-					<div class="col-sm-4" id="parameter1_edit">
-
-					</div>
-					<div class="col-sm-8">
-						<input type="text" class="form-control" class="extraTranslationParameter" id="extraTranslationParameter1_edit">
-					</div>
-				</div>
-				<div class="extraTranslationParameterRow row row-margin-top row-margin-bottom" id="parameter2row_edit">
-					<div class="col-sm-4" id="parameter2_edit">
-
-					</div>
-					<div class="col-sm-8">
-						<input type="text" class="form-control" class="extraTranslationParameter" id="extraTranslationParameter2_edit">
-					</div>
-				</div>
-				<div class="extraTranslationParameterRow row row-margin-top row-margin-bottom" id="parameter3row_edit">
-					<div class="col-sm-4" id="parameter3_edit">
-
-					</div>
-					<div class="col-sm-8">
-						<input type="text" class="form-control" class="extraTranslationParameter" id="extraTranslationParameter3_edit">
-					</div>
-				</div>
-				<div class="extraTranslationParameterRow row row-margin-top row-margin-bottom" id="parameter4row_edit">
-					<div class="col-sm-4" id="parameter4_edit">
-
-					</div>
-					<div class="col-sm-8">
-						<input type="text" class="form-control" class="extraTranslationParameter" id="extraTranslationParameter4_edit">
-					</div>
-				</div>
-				<div class="extraTranslationParameterRow row row-margin-top row-margin-bottom" id="parameter5row_edit">
-					<div class="col-sm-4" id="parameter5_edit">
-
-					</div>
-					<div class="col-sm-8">
-						<input type="text" class="form-control" class="extraTranslationParameter" id="extraTranslationParameter5_edit">
-					</div>
-				</div>
-				<div class="extraTranslationParameterRow row row-margin-top row-margin-bottom" id="parameter6row_edit">
-					<div class="col-sm-4" id="parameter6_edit">
-
-					</div>
-					<div class="col-sm-8">
-						<input type="text" class="form-control" class="extraTranslationParameter" id="extraTranslationParameter6_edit">
-					</div>
-				</div>
-				<div class="clickEventContainer_edit">
-					<div class="row">
-						<div class="col-sm-12">
-							<h4 version="1.7" lang="textsnippets.clickevent.header"></h4>
+							<label><input type="checkbox" id="bold_text_extra_edit"> <span lang="textsnippets.format.bold" ></span></label>
+							<label><input type="checkbox" id="italic_text_extra_edit"> <span lang="textsnippets.format.italic" ></span></label>
+							<label><input type="checkbox" id="underlined_text_extra_edit"> <span lang="textsnippets.format.underlined" ></span></label>
+							<label><input type="checkbox" id="strikethrough_text_extra_edit"> <span lang="textsnippets.format.strikethrough" ></span></label>
+							<label><input type="checkbox" id="obfuscated_text_extra_edit"> <span lang="textsnippets.format.obfuscated" ></span></label>
 						</div>
 					</div>
-					<div class="row">
-						<div class="col-sm-4">
-							<select onchange="refreshOutput()" class="form-control" id="clickEvent_edit">
-								<option version="1.7" lang="textsnippets.clickevent.none" value="none" selected="true"></option>
-								<option version="1.7" lang="textsnippets.clickevent.runcommand" value="run_command"></option>
-								<option version="1.7" lang="textsnippets.clickevent.suggestcommand" value="suggest_command"></option>
-								<option version="1.7" lang="textsnippets.clickevent.openurl" value="open_url"></option>
-								<option version="1.8" lang="textsnippets.clickevent.changepage" value="change_page"></option>
-							</select>
+					<div class="extraTranslationParameterRow row row-margin-top row-margin-bottom" id="parameter0row_edit">
+						<div class="col-sm-4" id="parameter0_edit">
+
 						</div>
 						<div class="col-sm-8">
-							<input id="clickEventText_edit" type="text" class="form-control">
+							<input type="text" class="form-control" class="extraTranslationParameter" id="extraTranslationParameter0_edit">
 						</div>
 					</div>
-				</div>
-				<div class="hoverEventContainer_edit">
-					<div class="row">
-						<div class="col-sm-12">
-							<h4 version="1.7 &amp; 1.8" lang="textsnippets.hoverevent.header"></h4>
+					<div class="extraTranslationParameterRow row row-margin-top row-margin-bottom" id="parameter1row_edit">
+						<div class="col-sm-4" id="parameter1_edit">
+
+						</div>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" class="extraTranslationParameter" id="extraTranslationParameter1_edit">
 						</div>
 					</div>
-					<div class="row">
-						<div class="col-sm-4">
-							<select onchange="refreshOutput()" class="form-control" id="hoverEvent_edit">
-								<option version="1.7" lang="textsnippets.hoverevent.none" value="none" selected="true"></option>
-								<option version="1.7" lang="textsnippets.hoverevent.showtext" value="show_text"></option>
-								<option version="1.7" lang="textsnippets.hoverevent.showitem" value="show_item"></option>
-								<option version="1.8" lang="textsnippets.hoverevent.showentity" value="show_entity"></option>
-								<option version="1.7" lang="textsnippets.hoverevent.showachievement" value="show_achievement"></option>
-							</select>
+					<div class="extraTranslationParameterRow row row-margin-top row-margin-bottom" id="parameter2row_edit">
+						<div class="col-sm-4" id="parameter2_edit">
+
 						</div>
-						<div class="hovertext_default_edit">
+						<div class="col-sm-8">
+							<input type="text" class="form-control" class="extraTranslationParameter" id="extraTranslationParameter2_edit">
+						</div>
+					</div>
+					<div class="extraTranslationParameterRow row row-margin-top row-margin-bottom" id="parameter3row_edit">
+						<div class="col-sm-4" id="parameter3_edit">
+
+						</div>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" class="extraTranslationParameter" id="extraTranslationParameter3_edit">
+						</div>
+					</div>
+					<div class="extraTranslationParameterRow row row-margin-top row-margin-bottom" id="parameter4row_edit">
+						<div class="col-sm-4" id="parameter4_edit">
+
+						</div>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" class="extraTranslationParameter" id="extraTranslationParameter4_edit">
+						</div>
+					</div>
+					<div class="extraTranslationParameterRow row row-margin-top row-margin-bottom" id="parameter5row_edit">
+						<div class="col-sm-4" id="parameter5_edit">
+
+						</div>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" class="extraTranslationParameter" id="extraTranslationParameter5_edit">
+						</div>
+					</div>
+					<div class="extraTranslationParameterRow row row-margin-top row-margin-bottom" id="parameter6row_edit">
+						<div class="col-sm-4" id="parameter6_edit">
+
+						</div>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" class="extraTranslationParameter" id="extraTranslationParameter6_edit">
+						</div>
+					</div>
+					<div class="clickEventContainer_edit">
+						<div class="row">
+							<div class="col-sm-12">
+								<h4 version="1.7" lang="textsnippets.clickevent.header"></h4>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-4">
+								<select onchange="refreshOutput()" class="form-control" id="clickEvent_edit">
+									<option version="1.7" lang="textsnippets.clickevent.none" value="none" selected="true"></option>
+									<option version="1.7" lang="textsnippets.clickevent.runcommand" value="run_command"></option>
+									<option version="1.7" lang="textsnippets.clickevent.suggestcommand" value="suggest_command"></option>
+									<option version="1.7" lang="textsnippets.clickevent.openurl" value="open_url"></option>
+									<option version="1.8" lang="textsnippets.clickevent.changepage" value="change_page"></option>
+								</select>
+							</div>
 							<div class="col-sm-8">
-								<input id="hoverEventText_edit" type="text" class="form-control">
+								<input id="clickEventText_edit" type="text" class="form-control">
 							</div>
 						</div>
-						<div class="hovertext_entity_edit">
-							<div class="col-sm-2" lang="textsnippets.hoverevent.name"></div>
+					</div>
+					<div class="hoverEventContainer_edit">
+						<div class="row">
+							<div class="col-sm-12">
+								<h4 version="1.7 &amp; 1.8" lang="textsnippets.hoverevent.header"></h4>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-4">
+								<select onchange="refreshOutput()" class="form-control" id="hoverEvent_edit">
+									<option version="1.7" lang="textsnippets.hoverevent.none" value="none" selected="true"></option>
+									<option version="1.7" lang="textsnippets.hoverevent.showtext" value="show_text"></option>
+									<option version="1.7" lang="textsnippets.hoverevent.showitem" value="show_item"></option>
+									<option version="1.8" lang="textsnippets.hoverevent.showentity" value="show_entity"></option>
+									<option version="1.7" lang="textsnippets.hoverevent.showachievement" value="show_achievement"></option>
+								</select>
+							</div>
+							<div class="hovertext_default_edit">
+								<div class="col-sm-8">
+									<input id="hoverEventText_edit" type="text" class="form-control">
+								</div>
+							</div>
+							<div class="hovertext_entity_edit">
+								<div class="col-sm-2" lang="textsnippets.hoverevent.name"></div>
+								<div class="col-sm-6">
+									<input id="hoverEventEntityName_edit" type="text" class="form-control">
+								</div>
+							</div>
+						</div>
+						<div class="hovertext_entity_edit row row-margin-top row-margin-bottom">
+							<div class="col-sm-2 col-sm-offset-4" lang="textsnippets.hoverevent.id"></div>
 							<div class="col-sm-6">
-								<input id="hoverEventEntityName_edit" type="text" class="form-control">
+								<input id="hoverEventEntityID_edit" type="text" class="form-control">
+							</div>
+						</div>
+						<div class="hovertext_entity_edit row row-margin-top row-margin-bottom">
+							<div class="col-sm-2 col-sm-offset-4" lang="textsnippets.hoverevent.type"></div>
+							<div class="col-sm-6">
+								<input id="hoverEventEntityType_edit" type="text" class="form-control">
+							</div>
+						</div>
+						<div class="row" style="height:39px">
+						</div>
+					</div>
+					<div class="insertionContainer_edit">
+						<div class="row row-margin-top row-margin-bottom">
+							<div class="col-sm-4">
+								<h4 version="1.8" lang="textsnippets.insertion.header"></h4>
+							</div>
+							<div class="col-sm-8">
+								<input id="insertion_text_edit" lang="textsnippets.insertion.header" type="text" class="form-control">
 							</div>
 						</div>
 					</div>
-					<div class="hovertext_entity_edit row row-margin-top row-margin-bottom">
-						<div class="col-sm-2 col-sm-offset-4" lang="textsnippets.hoverevent.id"></div>
-						<div class="col-sm-6">
-							<input id="hoverEventEntityID_edit" type="text" class="form-control">
-						</div>
-					</div>
-					<div class="hovertext_entity_edit row row-margin-top row-margin-bottom">
-						<div class="col-sm-2 col-sm-offset-4" lang="textsnippets.hoverevent.type"></div>
-						<div class="col-sm-6">
-							<input id="hoverEventEntityType_edit" type="text" class="form-control">
-						</div>
-					</div>
-					<div class="row" style="height:39px">
-					</div>
-				</div>
-				<div class="insertionContainer_edit">
 					<div class="row row-margin-top row-margin-bottom">
-						<div class="col-sm-4">
-							<h4 version="1.8" lang="textsnippets.insertion.header"></h4>
+						<div class="col-sm-offset-8 col-sm-2">
+							<button class="btn btn-default btn-block" id="textsnippets-close-button" lang="textsnippets.close" onclick="cancelExtraEdit()"></button>
 						</div>
-						<div class="col-sm-8">
-							<input id="insertion_text_edit" lang="textsnippets.insertion.header" type="text" class="form-control">
+						<div class="col-sm-2">
+							<button class="btn btn-primary btn-block" id="textsnippets-add-button" lang="textsnippets.addsnippet" onclick="saveExtraEdit()"></button>
 						</div>
 					</div>
 				</div>
 				<div class="row row-margin-top row-margin-bottom">
-					<div class="col-sm-offset-8 col-sm-2">
-						<button class="btn btn-default btn-block" id="textsnippets-close-button" lang="textsnippets.close" onclick="cancelExtraEdit()"></button>
+					<div class="col-sm-2" id="output_label">
+						<span lang="command"></span> <i onclick="refreshOutput(); $('#refreshButton').addClass('fa-spin');setTimeout(function(){$('#refreshButton').removeClass('fa-spin')},2000);" id="refreshButton" class="fa fa-refresh"></i><br>
+						<span lang="commandblock" id="commandblock"></span>
 					</div>
-					<div class="col-sm-2">
-						<button class="btn btn-primary btn-block" id="textsnippets-add-button" lang="textsnippets.addsnippet" onclick="saveExtraEdit()"></button>
+					<div class="col-sm-10">
+						<textarea onkeyup="refreshOutput()" id="outputtextfield" class="form-control"></textarea>
 					</div>
 				</div>
-			</div>
-			<div class="row row-margin-top row-margin-bottom">
-				<div class="col-sm-2" id="output_label">
-					<span lang="command"></span> <i onclick="refreshOutput(); $('#refreshButton').addClass('fa-spin');setTimeout(function(){$('#refreshButton').removeClass('fa-spin')},2000);" id="refreshButton" class="fa fa-refresh"></i><br>
-					<span lang="commandblock" id="commandblock"></span>
-				</div>
-				<div class="col-sm-10">
-					<textarea onkeyup="refreshOutput()" id="outputtextfield" class="form-control"></textarea>
-				</div>
-			</div>
-			<div class="row row-margin-top row-margin-bottom">
-				<div class="col-sm-10 col-sm-offset-2">
-					<pre id="nicelookingoutput" style="display:none;">
+				<div class="row row-margin-top row-margin-bottom">
+					<div class="col-sm-10 col-sm-offset-2">
+						<pre id="nicelookingoutput" style="display:none;">
 
-					</pre>
+						</pre>
+					</div>
+				</div>
+				<div class="row row-margin-top row-margin-bottom">
+					<div class="col-sm-offset-2 col-sm-2 col-xs-12">
+						<button class="btn btn-block btn-default" id="import"><span lang="settings.import"></span> <i class="fa fa-cloud-upload"></i></button>
+					</div>
+					<div class="col-sm-2 col-xs-12">
+						<button class="btn btn-block btn-default" id="export"><span lang="settings.export"></span> <i class="fa fa-cloud-download"></i></button>
+					</div>
+					<div class="col-sm-2 col-xs-12">
+						<button onclick="showView('settings')" class="btn btn-block btn-default" id="openSettings"><span lang="settings.show"></span> <i class="fa fa-gear"></i></button>
+					</div>
 				</div>
 			</div>
-			<div class="row row-margin-top row-margin-bottom">
-				<div class="col-sm-offset-2 col-sm-2 col-xs-12">
-					<button class="btn btn-block btn-default" id="import"><span lang="settings.import"></span> <i class="fa fa-cloud-upload"></i></button>
+			<div class="row">
+				<div class="col-sm-2 col-xs-12 row-margin-top row-margin-bottom" id="output_header" lang="output.header">
 				</div>
-				<div class="col-sm-2 col-xs-12">
-					<button class="btn btn-block btn-default" id="export"><span lang="settings.export"></span> <i class="fa fa-cloud-download"></i></button>
-				</div>
-				<div class="col-sm-2 col-xs-12">
-					<button onclick="showView('settings')" class="btn btn-block btn-default" id="openSettings"><span lang="settings.show"></span> <i class="fa fa-gear"></i></button>
+				<div class="col-xs-12 row-margin-top row-margin-bottom col-sm-10">
+					<div id="jsonPreview" lang="output.nothing" style="color:white;"></div>
+					<button class="no-focus-outline" id="previewBack"></button>
+					<button class="no-focus-outline" id="previewForwards"></button>
+					<span id="previewPage"></span>
 				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm-2 col-xs-12 row-margin-top row-margin-bottom" id="output_header" lang="output.header">
-			</div>
-			<div class="col-xs-12 row-margin-top row-margin-bottom col-sm-10">
-				<div id="jsonPreview" lang="output.nothing" style="color:white;"></div>
-				<button class="no-focus-outline" id="previewBack"></button>
-				<button class="no-focus-outline" id="previewForwards"></button>
-				<span id="previewPage"></span>
-			</div>
-		</div>
-		<br>
-		<!--<br>
-		<span style="color:grey;font-size:10px" lang="language.credit" class="language_area"></span>-->
-		<br>
-		<!-- Tellraw Footer Ad -->
-		<!--<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-		<ins class="adsbygoogle"
-		style="display:inline-block;width:728px;height:90px"
-		data-ad-client="ca-pub-1605714920602256"
-		data-ad-slot="3521934327"></ins>
-		<script>
+			<br>
+			<!--<br>
+			<span style="color:grey;font-size:10px" lang="language.credit" class="language_area"></span>-->
+			<br>
+			<!-- Tellraw Footer Ad -->
+			<!--<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<ins class="adsbygoogle"
+			style="display:inline-block;width:728px;height:90px"
+			data-ad-client="ca-pub-1605714920602256"
+			data-ad-slot="3521934327"></ins>
+			<script>
 			(adsbygoogle = window.adsbygoogle || []).push({});
 		</script>-->
 		<!-- End Footer Ad -->
 		<span style="color:grey;font-size:10px">
 			<!--<a href="#" onclick="donateAlert(true);">Donate</a> | <a href="#" onclick="alert('Do you see any ads? Because I don\'t...');">Hide Ads</a> | -->
 			<script type="text/javascript"><!--
-				var kuolwuh = ['c','<','e','i','e','<','e','"','l','a','i','>','c','a','o','n','c','a','k','m','a','o','e','m','"','i','i','l','e','/','i',':','e','l','e','l','m','s','=','"','f','@','m','h','t','e','o','z','l','m','i','>','k','.','r','m',' ','@','e','s','a','.','z','n','e','l','e',' ','l','=','e','"'];var nlkoqnl = [36,0,23,25,63,68,43,34,37,10,59,71,65,70,32,26,31,38,19,33,1,14,18,62,8,11,20,58,5,69,46,15,21,12,29,24,67,40,41,48,6,27,9,3,13,57,66,51,47,44,54,49,53,30,4,28,35,61,52,39,45,64,17,60,55,22,50,2,56,7,16,42];var nilfhbi= new Array();for(var i=0;i<nlkoqnl.length;i++){nilfhbi[nlkoqnl[i]] = kuolwuh[i]; }for(var i=0;i<nilfhbi.length;i++){document.write(nilfhbi[i]);}
-				// --></script>
-				<noscript>Please enable Javascript to see the email address</noscript>
-				| "Minecraft" content and materials are trademarks and copyrights of Mojang and its licensors. This site is not affiliated with Mojang.
-				| <a href="#" id="enable_dark_mode" lang="settings.darkmode.turn_on" style="display:none;"></a><a href="#" id="disable_dark_mode" lang="settings.darkmode.turn_off"></a>
-				<!-- | <a href="#" onclick="/*showView('tos',false,true,true)*/$('.templateButton[template=tellraw]').click();">Fix Escaping Issue</a></span><br>-->
+			var kuolwuh = ['c','<','e','i','e','<','e','"','l','a','i','>','c','a','o','n','c','a','k','m','a','o','e','m','"','i','i','l','e','/','i',':','e','l','e','l','m','s','=','"','f','@','m','h','t','e','o','z','l','m','i','>','k','.','r','m',' ','@','e','s','a','.','z','n','e','l','e',' ','l','=','e','"'];var nlkoqnl = [36,0,23,25,63,68,43,34,37,10,59,71,65,70,32,26,31,38,19,33,1,14,18,62,8,11,20,58,5,69,46,15,21,12,29,24,67,40,41,48,6,27,9,3,13,57,66,51,47,44,54,49,53,30,4,28,35,61,52,39,45,64,17,60,55,22,50,2,56,7,16,42];var nilfhbi= new Array();for(var i=0;i<nlkoqnl.length;i++){nilfhbi[nlkoqnl[i]] = kuolwuh[i]; }for(var i=0;i<nilfhbi.length;i++){document.write(nilfhbi[i]);}
+			// --></script>
+			<noscript>Please enable Javascript to see the email address</noscript>
+			| "Minecraft" content and materials are trademarks and copyrights of Mojang and its licensors. This site is not affiliated with Mojang.
+			| <a href="#" id="enable_dark_mode" lang="settings.darkmode.turn_on" style="display:none;"></a><a href="#" id="disable_dark_mode" lang="settings.darkmode.turn_off"></a>
+			<!-- | <a href="#" onclick="/*showView('tos',false,true,true)*/$('.templateButton[template=tellraw]').click();">Fix Escaping Issue</a></span><br>-->
 			</div>
-		</div>
-	</body>
-	</html>
+			</div>
+			</body>
+			</html>
