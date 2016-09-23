@@ -2,8 +2,8 @@
     "textsnippets": {
         "NEW_ITERATE_FLAG": {
             "add": {
-                "book": "Add Book Page",
-                "sign": "Add Sign Line"
+                "book": "Buchseite hinzuf\u00fcgen",
+                "sign": "Schildzeile hinzuf\u00fcgen"
             },
             "incorrect_template": {
                 "primary": {
@@ -42,8 +42,8 @@
         "hoverevent": {
             "unavailable": {
                 "sign": {
-                    "header": "Maus\u00fcberfahr-Ereignisse sind nicht verf\u00fcgbar",
-                    "body": "This is due to Minecraft not supporting hover events in signs."
+                    "header": "Maus\u00fcberfahr-Ereignisse sind f\u00fcr Schilder nicht verf\u00fcgbar",
+                    "body": "Das ist, weil Minecraft keine Hover-Events f\u00fcr Schilder unterst\u00fctzt."
                 }
             },
             "addtext": "Text hinzuf\u00fcgen.",
@@ -99,7 +99,7 @@
         "help": "Hilfe",
         "report_an_issue": "Melde einen Fehler"
     },
-    "header_rev2": "Tellraw Generierer f\u00fcr Minecraft ",
+    "header_rev2": "Tellraw Generator f\u00fcr Minecraft ",
     "settings": {
         "importtext": {
             "exported": {
@@ -113,8 +113,8 @@
         },
         "nlOutput": "Zeige struktuierte Ausgabe",
         "darkmode": {
-            "turn_on": "Dunkles Theme",
-            "turn_off": "Helles Theme"
+            "turn_on": "Dunkles Design",
+            "turn_off": "Helles Design"
         },
         "show": "Einstellungen \u00f6ffnen",
         "hide": "Einstellungen schlie\u00dfen",
@@ -146,7 +146,7 @@
         "go-home": "Fehler ignorieren"
     },
     "help": {
-        "textfield": "Benutze %n um eine neue Zeile zu markieren.",
+        "textfield": "Benutze %n um eine neue Zeile zu erstellen.",
         "raw-text-tab": "W\u00e4hle deine Text-Sorte. Raw ist normaler Text. Scoreboard zeigt einen Wert vom Scoreboard. Selector zeigt den Namen eines Entitys.",
         "report-an-issue": "Klicke hier, um einen Fehler zu melden. Wenn dir irgendwelche Bugs auffallen, solltest du sie hier melden.",
         "dropdown-list": "Tweet, Changelog ansehen, Minecraft Forum Thread ansehen, oder bekomme die Texte zum \u00dcbersetzen.",

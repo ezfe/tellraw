@@ -2,8 +2,8 @@
     "textsnippets": {
         "NEW_ITERATE_FLAG": {
             "add": {
-                "book": "Add Book Page",
-                "sign": "Add Sign Line"
+                "book": "Aggiungi pagina",
+                "sign": "Aggiungi linea di testo"
             },
             "incorrect_template": {
                 "primary": {
@@ -29,8 +29,8 @@
             "changepage": "Cambia Pagina",
             "unavailable": {
                 "sign": {
-                    "header": "Le azioni per il cartello cliccabili non sono disponibili",
-                    "body": "Clicca qui per andare ad un sito non affiliato per creare eventi su click su cartello"
+                    "header": "Questo comando non \u00e8 disponibile",
+                    "body": "Clicca qui per andare su un sito non affidabile per creare cartelli con gli eventi "
                 }
             },
             "runcommand": "Esegui comando",
@@ -42,8 +42,8 @@
         "hoverevent": {
             "unavailable": {
                 "sign": {
-                    "header": "Gli eventi anteprima del cartello non sono disponibili",
-                    "body": "Questo \u00e8 dovuto a Minecraft che non supporta gli eventi di anteprima nei cartelli."
+                    "header": "Non sono disponibili eventi al puntamento del cartello",
+                    "body": "Questo \u00e8 dovuto a Minecraft che non supporta questo comando di anteprima nei cartelli."
                 }
             },
             "addtext": "Aggiungi testo",
@@ -172,7 +172,7 @@
     "saves": {
         "header": "Salvataggi",
         "hide": "Chiudi Salvataggi",
-        "persistencenotice": "I salvataggi possono essere resettati in qualunque momento, e dipendono dai cookies del tuo browser. Non farci affidamento per lunghi periodi di tempo.",
+        "persistencenotice": "I salvataggi possono essere resettati in qualunque momento, e dipendono dai cookie del tuo browser. Non farci affidamento per lunghi periodi di tempo.",
         "show": "Mostra salvataggi",
         "deleteall": {
             "body": "Premendo Cancella rimuoverai tutti i tuoi salvataggi, ma non canceller\u00e0 il testo corrente",

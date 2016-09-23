@@ -2,8 +2,8 @@
     "textsnippets": {
         "NEW_ITERATE_FLAG": {
             "add": {
-                "book": "Add Book Page",
-                "sign": "Add Sign Line"
+                "book": "P\u0159idat Str\u00e1nku Knihy",
+                "sign": "P\u0159idat \u0158\u00e1dek Cedulky"
             },
             "incorrect_template": {
                 "primary": {
@@ -89,8 +89,8 @@
     },
     "headerbar": {
         "dropdown": {
-            "translate_page_link": "Upravit P\u0159eklad",
-            "hover": "Beta verze je dostupn\u00e1 !",
+            "translate_page_link": "P\u0159eklad Str\u00e1nky",
+            "hover": "Beta Verze je Dostupn\u00e1 !",
             "beta_link": "Beta verze",
             "tweet": "Tweet",
             "forum_thread": "F\u00f3rum \u010cl\u00e1nek",
@@ -99,7 +99,7 @@
         "help": "Pomoc",
         "report_an_issue": "Po\u0161li n\u00e1m n\u00e1pad"
     },
-    "header_rev2": "Tellraw generator pro Minecraft ",
+    "header_rev2": "Tellraw Generator pro Minecraft ",
     "settings": {
         "importtext": {
             "exported": {
@@ -204,7 +204,7 @@
     },
     "language": {
         "translate": "P\u0159elo\u017eit",
-        "name": "Angli\u010dtina",
+        "name": "\u010ce\u0161tina",
         "header": "Jazyk"
     },
     "player": {

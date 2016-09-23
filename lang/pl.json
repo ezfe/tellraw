@@ -2,8 +2,8 @@
     "textsnippets": {
         "NEW_ITERATE_FLAG": {
             "add": {
-                "book": "Add Book Page",
-                "sign": "Add Sign Line"
+                "book": "Dodaj stron\u0119 ksi\u0105\u017cki",
+                "sign": "Dodaj linijk\u0119 tabliczki"
             },
             "incorrect_template": {
                 "primary": {
@@ -13,13 +13,13 @@
                     "no": "Nie"
                 },
                 "secondary": {
-                    "header": "Ksi\u0105\u017cka czy tabliczka ?",
-                    "description": "Czy chcesz zrobi\u0107 ksi\u0105\u017ck\u0119 czy tabliczk\u0119 ? (Mo\u017cesz to zmieni\u0107 p\u00f3\u017aniej)",
+                    "header": "Ksi\u0105\u017cka czy tabliczka?",
+                    "description": "Czy chcesz zrobi\u0107 ksi\u0105\u017ck\u0119 czy tabliczk\u0119? (Mo\u017cesz to zmieni\u0107 p\u00f3\u017aniej)",
                     "book": "Ksi\u0105\u017cka",
                     "sign": "Tabliczka"
                 },
                 "tertiary": {
-                    "header": "Zrobione",
+                    "header": "Zrobione!",
                     "description": "Tw\u00f3j wz\u00f3r zosta\u0142 zmieniony na %c"
                 }
             },
@@ -29,15 +29,15 @@
             "changepage": "Zmie\u0144 stron\u0119",
             "unavailable": {
                 "sign": {
-                    "header": "Klikanie na tabliczki niemo\u017cliwe (Click Event)",
-                    "body": "Kliknij by wej\u015b\u0107 na niezrzeszon\u0105 stron\u0119 by stworzy\u0107 tabliczk\u0119 z mo\u017cliwo\u015bci\u0105 wydarze\u0144 po klikni\u0119ciu na ni\u0105. (Click Event)"
+                    "header": "Klikanie na tabliczki jest niemo\u017cliwe (Interact Event)",
+                    "body": "Kliknij, by przej\u015b\u0107 na niezrzeszon\u0105 stron\u0119 i stworzy\u0107 tabliczk\u0119 z mo\u017cliwo\u015bci\u0105 edytowania wydarze\u0144 po klikni\u0119ciu na ni\u0105 (Interact Event)"
                 }
             },
             "runcommand": "Wykonaj komend\u0119",
             "openurl": "Otw\u00f3rz adres URL",
             "suggestcommand": "Zaproponuj komend\u0119",
             "header": "Wydarzenie przy klikni\u0119ciu",
-            "none": "Nic"
+            "none": "\u017baden"
         },
         "hoverevent": {
             "unavailable": {
@@ -92,23 +92,23 @@
             "translate_page_link": "T\u0142umaczenie strony",
             "hover": "Wersja BETA ju\u017c dost\u0119pna!",
             "beta_link": "Wersja BETA",
-            "tweet": "Tweet",
+            "tweet": "Tweetnij",
             "forum_thread": "Forum",
             "changelog": "Lista Zmian"
         },
         "help": "Pomoc",
         "report_an_issue": "Zg\u0142o\u015b problem"
     },
-    "header_rev2": "Generator Tellraw dla Minecraft ",
+    "header_rev2": "Generator tekstu Tellraw dla gry Minecraft ",
     "settings": {
         "importtext": {
             "exported": {
-                "header": "Import",
+                "header": "Zaimportuj",
                 "failed": {
-                    "header": "Nie uda\u0142o si\u0119 zimportowa\u0107",
+                    "header": "Nie uda\u0142o si\u0119 zaimportowa\u0107",
                     "description": "Dane wej\u015bciowe"
                 },
-                "description": "Prosz\u0119 wpisz ci\u0105g, kt\u00f3ry otrzyma\u0142e\u015b eksportuj\u0105c twoj\u0105 kom\u0119de"
+                "description": "Prosz\u0119 wpisz tekst, kt\u00f3ry otrzyma\u0142e\u015b eksportuj\u0105c swoj\u0105 kom\u0119d\u0119"
             }
         },
         "nlOutput": "Poka\u017c efekt ko\u0144cowy",
@@ -120,10 +120,10 @@
         "hide": "Zamknij ustawienia",
         "fontSize": "Podgl\u0105d rozmiaru czcionki",
         "previewcolor": "Podgl\u0105d koloru t\u0142a:",
-        "export": "Eksport",
+        "export": "Eksportuj",
         "deleteall": {
-            "body": "Naciskaj\u0105c Usu\u0144 usuwasz ca\u0142y tw\u00f3j tekst i resetujesz do pustej linii.",
-            "heading": "Jeste\u015b tego pewny?",
+            "body": "Naciskaj\u0105c \"Usu\u0144\", usuwasz ca\u0142y tw\u00f3j tekst i resetujesz go do pustej linii.",
+            "heading": "Jeste\u015b tego pewny?!",
             "yes": "Usu\u0144 wszystko",
             "no": "Anuluj"
         },
@@ -147,12 +147,12 @@
     },
     "help": {
         "textfield": "U\u017cyj %n do tworzenia nowych linii",
-        "raw-text-tab": "Wybierz rodzaj tekstu. Raw to normaly tekst. Scoreboard sprawdza warto\u015b\u0107 tablicy wynik\u00f3w. Selector sprawdza nazw\u0119 zwierzaka, potwora, itemu.",
-        "report-an-issue": "Naci\u015bnij tutaj aby zg\u0142osi\u0107 problem. Je\u017celi zauwa\u017cy\u0142e\u015b jakikolwiek b\u0142\u0105d, zg\u0142o\u015b go tutaj.",
-        "dropdown-list": "Tweet, zobacz zmiany, forum minecrafta, albo zdob\u0105d\u017a zasoby do t\u0142umaczenia.",
-        "addsnippet": "Dodaj tekst do Twojej komendy \/tellraw",
+        "raw-text-tab": "Wybierz rodzaj tekstu. Raw to zwyk\u0142y tekst. Scoreboard sprawdza warto\u015b\u0107 tablicy wynik\u00f3w. Selector sprawdza nazw\u0119 dowolnego bytu.",
+        "report-an-issue": "Naci\u015bnij tutaj aby zg\u0142osi\u0107 problem. Je\u017celi zauwa\u017cy\u0142e\u015b jakikolwiek b\u0142\u0105d, powiniene\u015b go zg\u0142osi\u0107 tutaj.",
+        "dropdown-list": "Tweetnij, zobacz zmiany, forum Minecrafta albo zdob\u0105d\u017a zasoby do t\u0142umaczenia.",
+        "addsnippet": "Dodaj tekst do swojej komendy \/tellraw",
         "delete-all-saves": "Usu\u0144 swoje zapisy, ale zostaw aktualn\u0105 komend\u0119 w g\u0142\u00f3wnym edytorze.",
-        "create-new-save": "Stw\u00f3rz nowy zapis. To mo\u017ce nadpisa\u0107 istniej\u0105cy zapis je\u017celi zapiszesz ten pod t\u0105 sam\u0105 nazw\u0105.",
+        "create-new-save": "Stw\u00f3rz nowy zapis. To nadpisze istniej\u0105cy zapis, je\u017celi zapiszesz go pod t\u0105 sam\u0105 nazw\u0105.",
         "delete-all-snippets": "Wyczy\u015b\u0107 swoj\u0105 komend\u0119 kompletnie, ale zostaw swoje zapisy.",
         "show-saves": "Poka\u017c edytor twoich zapis\u00f3w, pozwala na zapisywanie, za\u0142adowywanie i usuwanie zapis\u00f3w"
     },
@@ -163,24 +163,24 @@
         "title": "Tytu\u0142",
         "tellraw": "\/tellraw",
         "book": "Ksi\u0105\u017cka",
-        "execute_tellraw": "\/execute"
+        "execute_tellraw": "Wykonaj"
     },
     "output": {
         "nothing": "Nic tu nie ma do zobaczenia",
-        "header": "Efekt Ko\u0144cowy:"
+        "header": "Efekt ko\u0144cowy:"
     },
     "saves": {
         "header": "Zapisy",
         "hide": "Zamknij Zapisy",
-        "persistencenotice": "Zapis mo\u017ce zosta\u0107 usuni\u0119ty w ka\u017cdym momencie. Zale\u017cy to od twoich ciasteczek (Cookies). Nie polegaj na nich przez d\u0142u\u017cszy okres czasu.",
+        "persistencenotice": "Zapisy mo\u017ce zosta\u0107 zresetowane w ka\u017cdym momencie, a zale\u017cy to od twoich ciasteczek (cookies). Nie polegaj na nich przez d\u0142u\u017cszy okres czasu.",
         "show": "Otw\u00f3rz Zapisy",
         "deleteall": {
-            "body": "Naciskaj\u0105c Usu\u0144 zostan\u0105 usuni\u0119te twoje wszystkie zapisy, bez obaw, tw\u00f3j aktualny tekst nie zostanie usuni\u0119ty",
+            "body": "Po naci\u015bni\u0119ciu \"Usu\u0144\", twoje wszystkie zapisy zostan\u0105 usuni\u0119te, ale tw\u00f3j aktualny tekst nie zostanie usuni\u0119ty",
             "yes": "Usu\u0144 wszystkie zapisy",
             "heading": "Czy jeste\u015b pewny!?!",
             "no": "Anuluj"
         },
-        "nosaves": "Nic jeszcze nie zapisa\u0142e\u015b",
+        "nosaves": "Jeszcze nic nie zapisa\u0142e\u015b",
         "new": "Zapisz aktualn\u0105 linijk\u0119"
     },
     "color": {
@@ -200,7 +200,7 @@
         "color_black": "Czarny",
         "color_gray": "Szary",
         "color_light_purple": "Jasny fioletowy",
-        "color_yellow": "Z\u00f3\u0142ty"
+        "color_yellow": "\u017b\u00f3\u0142ty"
     },
     "language": {
         "translate": "Przet\u0142umacz",
@@ -222,5 +222,5 @@
         "heading": "Twoja wyeksportowana komenda",
         "close": "Zamknij"
     },
-    "attribution": "Podczas gdy nic nie jest wymagane by tego u\u017cywa\u0107,  by\u0142oby mi\u0142o gdyby\u015b za\u0142\u0105czy\u0142 link do tej strony lub forum."
+    "attribution": "Podczas, gdy nic nie jest wymagane, by tego u\u017cywa\u0107, by\u0142oby mi\u0142o, gdyby\u015b za\u0142\u0105czy\u0142 link do tej strony lub forum."
 }

@@ -2,8 +2,8 @@
     "textsnippets": {
         "NEW_ITERATE_FLAG": {
             "add": {
-                "book": "Add Book Page",
-                "sign": "Add Sign Line"
+                "book": "\u30da\u30fc\u30b8\u3092\u8ffd\u52a0",
+                "sign": "\u770b\u677f\u3092\u4e00\u884c\u8ffd\u52a0"
             },
             "incorrect_template": {
                 "primary": {
@@ -99,7 +99,7 @@
         "help": "\u30d8\u30eb\u30d7",
         "report_an_issue": "\u554f\u984c\u3092\u5831\u544a"
     },
-    "header_rev2": "Tellraw Generator for Minecraft ",
+    "header_rev2": "Minecraft tellraw\u30b8\u30a7\u30cd\u30ec\u30fc\u30bf",
     "settings": {
         "importtext": {
             "exported": {

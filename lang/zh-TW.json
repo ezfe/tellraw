@@ -2,8 +2,8 @@
     "textsnippets": {
         "NEW_ITERATE_FLAG": {
             "add": {
-                "book": "Add Book Page",
-                "sign": "Add Sign Line"
+                "book": "\u66f8\u672c\u63db\u696d",
+                "sign": "\u544a\u793a\u724c\u63db\u884c"
             },
             "incorrect_template": {
                 "primary": {

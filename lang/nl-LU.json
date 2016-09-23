@@ -2,8 +2,8 @@
     "textsnippets": {
         "NEW_ITERATE_FLAG": {
             "add": {
-                "book": "Add Book Page",
-                "sign": "Add Sign Line"
+                "book": "Voeg boek-pagina toe.",
+                "sign": "Voeg regel toe."
             },
             "incorrect_template": {
                 "primary": {
@@ -29,7 +29,7 @@
             "changepage": "Verander pagina",
             "unavailable": {
                 "sign": {
-                    "header": "Bord klik-opdrachten zijn niet beschikbaar",
+                    "header": "Bord klik-opdrachten zijn niet beschikbaar.",
                     "body": "Klik hier om naar een niet-aangesloten website te gaan voor het maken van een bord met klik-opdrachten."
                 }
             },
@@ -138,7 +138,7 @@
         "support-subheader": "Zou u alstublieft willen doneren, Ik wil deze website advertentie vrij houden en daar heb ik u voor nodig om de webhost te betalen.",
         "donate-button": "Doneer",
         "donate-text": "Maak een donatie van een waarde die je zelf bepaalt (Stripe)",
-        "overcast-text": "Wil je voor me een rank op de Overcast Network kopen? Klik op de afbeelding hierboven en vul ezekielelin in als gebruikersnaam.",
+        "overcast-text": "Wilt u voor mij een rank op de Overcast Network kopen? Klik op de afbeelding hierboven en vul ezekielelin in als gebruikersnaam.",
         "exit": "Sluiten",
         "exit-text": "Je zal dit niet meer zien als je niks aan je cookies doet. Helaas kan ik niet checken of je je cookies reset."
     },
@@ -147,8 +147,8 @@
     },
     "help": {
         "textfield": "Gebruik %n om een nieuwe lijn te maken.",
-        "raw-text-tab": "Kies je tekstsoort. Ruw is normale tekst. Scoreboard gebruikt een waarde van de scoreboard. Selector gebruikt de naam van een entiteit.",
-        "report-an-issue": "Klik hier om een probleem in te sturen. Als je een bug tegenkomt, meld hem hier.",
+        "raw-text-tab": "Kies uw tekstsoort. Ruw is normale tekst. Scoreboard gebruikt een waarde van de scoreboard. Selector gebruikt de naam van een entiteit.",
+        "report-an-issue": "Klik hier om een probleem in te sturen. Als u een bug tegenkomt, meld hem hier.",
         "dropdown-list": "Tweet, bekijk de changelog, bekijk de minecraftforum thread of krijg resources voor vertaling",
         "addsnippet": "Voeg tekst toe aan je tellraw commando.",
         "delete-all-saves": "Wis je saves, maar laat je huidige command in de editor",

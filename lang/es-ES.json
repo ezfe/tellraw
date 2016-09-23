@@ -2,8 +2,8 @@
     "textsnippets": {
         "NEW_ITERATE_FLAG": {
             "add": {
-                "book": "Add Book Page",
-                "sign": "Add Sign Line"
+                "book": "A\u00f1adir p\u00e1gina al libro",
+                "sign": "A\u00f1adir l\u00ednea al cartel"
             },
             "incorrect_template": {
                 "primary": {
@@ -19,7 +19,7 @@
                     "sign": "Cartel"
                 },
                 "tertiary": {
-                    "header": "\u00a1Listo!",
+                    "header": "\u00a1Hecho!",
                     "description": "Tu plantilla ha sido cambiada a %c"
                 }
             },

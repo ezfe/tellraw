@@ -2,8 +2,8 @@
     "textsnippets": {
         "NEW_ITERATE_FLAG": {
             "add": {
-                "book": "Add Book Page",
-                "sign": "Add Sign Line"
+                "book": "Adicionar p\u00e1gina do livro",
+                "sign": "P\u00e1gina do livro\/Linha da placa"
             },
             "incorrect_template": {
                 "primary": {
