@@ -1557,6 +1557,11 @@ function initialize() {
 		lsm.removeItem('nextTimeAlert');
 	}
 
+	if (lsm.getItem('voteAlert') != "shown") {
+		lsm.setItem('voteAlert', "shown");
+		swal({"title":"You should vote","text":"Election day is November 8th","cancelButtonText":"Close","confirmButtonText":"Where to vote?","showCancelButton":true,"closeOnConfirm":true},function(shouldLookup){if(shouldLookup){window.open("https://g.co/kgs/cZC5K8","_blank");}})
+	}
+
 	if (lsm.getItem('donateAlert') != "shown" && lsm.getItem('donateAlert') != "not-shown") {
 		lsm.setItem('donateAlert','not-shown')
 	} else {
