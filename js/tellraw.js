@@ -1559,7 +1559,7 @@ function initialize() {
 
 	if (lsm.getItem('voteAlert') != "shown") {
 		lsm.setItem('voteAlert', "shown");
-		swal({"title":"You should vote","text":"Election day is November 8th","cancelButtonText":"Close","confirmButtonText":"Where to vote?","showCancelButton":true,"closeOnConfirm":true},function(shouldLookup){if(shouldLookup){window.open("https://g.co/kgs/cZC5K8","_blank");}})
+		swal({"title":"You should vote","text":"Today is Election Day","cancelButtonText":"Close","confirmButtonText":"Where to vote?","showCancelButton":true,"closeOnConfirm":true},function(shouldLookup){if(shouldLookup){window.open("https://www.usa.gov/election-day#item-37327","_blank");}})
 	}
 
 	if (lsm.getItem('donateAlert') != "shown" && lsm.getItem('donateAlert') != "not-shown") {
