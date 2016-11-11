@@ -580,6 +580,14 @@ function moveUp(index) {
 	jobject.splice(index+1, 0, jobject.splice(index, 1)[0]);
 	refreshOutput();
 }
+function fly(index) {
+	var moveTo = prompt("Enter new location (0-"+jobject.length+")");
+	if (moveTo > jobject.length) {
+		moveTo = jobject.length;
+	}
+	jobject.splice(moveTo, 0, jobject.splice(index, 1)[0]);
+	refreshOutput();
+}
 function getSelected(object) {
 	if ($('#'+object).length != 0) {
 		var e = document.getElementById(object);
@@ -1042,6 +1050,11 @@ function refreshOutput(input) {
 			$('.extraContainer div.extraRow').remove();
 			$('.extraContainer').html('');
 			for (var i = 0; i <= jobject.length - 1; i++) {
+				if (lsm.getItem('flyEnabled') == "yes") {
+					flyButton = '<i onclick="fly(' + i + ')" class="fa fa-plane"></i>';
+				} else {
+					flyButton = "";
+				}
 				if (jobject.length-1 > i) {
 					downButton = '<i onclick="moveUp(' + i + ')" class="fa fa-arrow-circle-down"></i> ';
 				} else {
@@ -1083,7 +1096,7 @@ function refreshOutput(input) {
 				if (jobject[i].NEW_ITERATE_FLAG) {
 					deleteButton = '<i style="color:gray;" class="fa fa-pencil"></i> <i onclick="deleteIndex('+ i +');" class="fa fa-times-circle"></i> ';
 				}
-				$('.extraContainer').append('<div class="row extraRow row-margin-top row-margin-bottom mover-row RowIndex' + i + '"><div class="col-xs-4 col-sm-2 col-lg-1">'+deleteButton+downButton+upButton+'</div><div class="col-xs-8 col-sm-10 col-lg-11" style="padding:none;">'+tempJSON+'</div></div>');
+				$('.extraContainer').append('<div class="row extraRow row-margin-top row-margin-bottom mover-row RowIndex' + i + '"><div class="col-xs-4 col-sm-2 col-lg-1">'+deleteButton+downButton+upButton+flyButton+'</div><div class="col-xs-8 col-sm-10 col-lg-11" style="padding:none;">'+tempJSON+'</div></div>');
 			}
 			if (jobject.length == 0) {
 				delete jobject;
