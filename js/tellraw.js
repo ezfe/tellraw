@@ -393,49 +393,52 @@ function goToByScroll(id){
 	}
 }
 
+var MOUSE_ACTION_HOVER = "MA_HOVER";
+var MOUSE_ACTION_CLICK = "MA_CLICK";
+var MOUSE_ACTION_INSERTION = "MA_INSERTION";
 var templates =
 {
 	"tellraw": {
 		"command": "/tellraw @p %s",
 		"version": "1.7",
 		"formatType": "standardjson",
-		"mouseActionOptions": true
+		"mouseActionOptions": [MOUSE_ACTION_HOVER, MOUSE_ACTION_CLICK, MOUSE_ACTION_INSERTION]
 	},
 	"execute_tellraw": {
 		"command": "/execute @a ~ ~ ~ tellraw @p %s",
 		"version": "1.8",
 		"formatType": "standardjson",
-		"mouseActionOptions": true
+		"mouseActionOptions": [MOUSE_ACTION_HOVER, MOUSE_ACTION_CLICK, MOUSE_ACTION_INSERTION]
 	},
 	"title": {
 		"command": "/title @a title %s",
 		"version": "1.8",
 		"formatType": "standardjson",
-		"mouseActionOptions": false
+		"mouseActionOptions": []
 	},
 	"subtitle": {
 		"command": "/title @a subtitle %s",
 		"version": "1.8",
 		"formatType": "standardjson",
-		"mouseActionOptions": false
+		"mouseActionOptions": []
 	},
 	"sign_item": {
 		"command": "/give @p sign 1 0 {BlockEntityTag:{%s,id:\"Sign\"}}",
 		"version": "1.8",
 		"formatType": "signset",
-		"mouseActionOptions": false
+		"mouseActionOptions": []
 	},
 	"sign_block": {
 		"command": "/blockdata [x] [y] [z] {%s}",
 		"version": "1.8",
 		"formatType": "signset",
-		"mouseActionOptions": false
+		"mouseActionOptions": []
 	},
 	"book": {
 		"command": "/give @p written_book 1 0 {pages:%s,title:Book,author:TellrawGenerator}",
 		"version": "1.8",
 		"formatType": "bookarray",
-		"mouseActionOptions": true
+		"mouseActionOptions": [MOUSE_ACTION_HOVER, MOUSE_ACTION_CLICK, MOUSE_ACTION_INSERTION]
 	}
 }
 
@@ -1111,28 +1114,41 @@ function refreshOutput(input) {
 	}
 
 	/* SHOW MOUSE ACTION OPTIONS FOR JSON TEMPLATES WITH THAT FLAG */
-	if (templates[lsm.getItem('jtemplate')].mouseActionOptions) {
+	var mouseOptions = templates[lsm.getItem('jtemplate')].mouseActionOptions;
+	if (mouseOptions.indexOf(MOUSE_ACTION_HOVER) != -1) {
 		$('.hoverEventContainer_edit').show();
-		$('.clickEventContainer_edit').show();
-		$('.insertionContainer_edit').show();
 		$('.hoverEventContainer').show();
-		$('.clickEventContainer').show();
-		$('.insertionContainer').show();
+
+		$('.hoverEventDisabledSigns').hide();
 	} else {
 		$('.hoverEventContainer_edit').hide();
-		$('.clickEventContainer_edit').hide();
-		$('.insertionContainer_edit').hide();
 		$('.hoverEventContainer').hide();
-		$('.clickEventContainer').hide();
-		$('.insertionContainer').hide();
+
+		$('.hoverEventDisabledSigns').show();
 	}
 
-	if (templates[lsm.getItem('jtemplate')].formatType == 'signset') {
-		$('.clickEventDisabledSigns').show();
-		$('.hoverEventDisabledSigns').show();
-	} else {
+	if (mouseOptions.indexOf(MOUSE_ACTION_CLICK) != -1) {
+		$('.clickEventContainer_edit').show();
+		$('.clickEventContainer').show();
+
+		//Signs are stupid
 		$('.clickEventDisabledSigns').hide();
-		$('.hoverEventDisabledSigns').hide();
+	} else {
+		$('.clickEventContainer_edit').hide();
+		$('.clickEventContainer').hide();
+
+		//Signs are stupid
+		if (templates[lsm.getItem('jtemplate')].formatType == 'signset') {
+			$('.clickEventDisabledSigns').show();
+		}
+	}
+
+	if (mouseOptions.indexOf(MOUSE_ACTION_INSERTION) != -1) {
+		$('.insertionContainer_edit').show();
+		$('.insertionContainer').show();
+	} else {
+		$('.insertionContainer_edit').hide();
+		$('.insertionContainer').hide();
 	}
 
 	/* add-ITERATE-FLAG-label and add-ITERATE-FLAG*/
