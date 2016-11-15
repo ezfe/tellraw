@@ -2,8 +2,8 @@
     "textsnippets": {
         "NEW_ITERATE_FLAG": {
             "add": {
-                "book": "Add Book Page",
-                "sign": "Add Sign Line"
+                "book": "Dodaj stranicu u knjigu",
+                "sign": "Dodaj liniju za znak"
             },
             "incorrect_template": {
                 "primary": {
@@ -20,7 +20,7 @@
                 },
                 "tertiary": {
                     "header": "Gotovo!",
-                    "description": "Predlo\u017eak je promjenjen u %c"
+                    "description": "Predlo\u017eak je promijenjen u %c"
                 }
             },
             "buttontext": "Stranica Knjige \/ Linija Znaka"
@@ -106,7 +106,7 @@
                 "header": "Umetni",
                 "failed": {
                     "header": "Umetanje nije uspjelo",
-                    "description": "Pru\u017eajte umetanje"
+                    "description": "Pru\u017eano umetanje"
                 },
                 "description": "Molimo da unesite niz koji ste dobili kada ste izvezli svoju komandu"
             }
@@ -133,7 +133,7 @@
     "donate": {
         "patreon-button": "Patreon",
         "support-header": "(Molimo Vas) Podr\u017eajte Ovu Web-stranicu",
-        "paypal-note": "Ja ne nudim paypal kao opciju na listi zbog naknada (Stripe ne napla\u0107uje naknade za studente). Me\u0111utim, ako \u017eelite mo\u017eete mi poslati novac preko PayPal-a via funds@ezekielelin.com",
+        "paypal-note": "Ne nudim paypal kao opciju na listi zbog naknada (Stripe ne napla\u0107uje naknade za studente). Me\u0111utim, ako \u017eelite mo\u017eete mi poslati novac preko PayPal-a putem funds@ezekielelin.com",
         "patreon-text": "Ako \u017eelite donirati odre\u0111enu koli\u010dinu svaki mjesec, mogu osloniti na nadogradnju servera.",
         "support-subheader": "Ne \u017eelim stavljati reklame na ovu web-stranicu, molim Vas donirajte te podr\u017eite tro\u0161kove za odr\u017eavanje ove web-stranice.",
         "donate-button": "Doniraj",
