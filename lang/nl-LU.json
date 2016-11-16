@@ -1,12 +1,12 @@
 {
     "report_issue": {
-        "describe": "Please describe your issue",
-        "translation_issue": "Translation Issue",
-        "output_issue": "Output Issue",
-        "other_issue": "Other Issue",
-        "other_language": "Other Language",
-        "too_many_quotes": "Too Many Quotes",
-        "cancel": "Cancel"
+        "describe": "Beschrijf alstublieft uw probleem",
+        "translation_issue": "Vertaling Probleem",
+        "output_issue": "Output Probleem",
+        "other_issue": "Ander Probleem",
+        "other_language": "Andere Taal",
+        "too_many_quotes": "Te Veel Citaten",
+        "cancel": "Annuleren"
     },
     "textsnippets": {
         "NEW_ITERATE_FLAG": {
@@ -22,7 +22,7 @@
                     "no": "Nee"
                 },
                 "secondary": {
-                    "header": "Boek of bord?",
+                    "header": "Boek of Bord?",
                     "description": "Wil je een boek of een bord maken? (Je kan dit later veranderen)",
                     "book": "Boek",
                     "sign": "Bord"
@@ -32,19 +32,19 @@
                     "description": "Jouw sjabloon is veranderd naar %c"
                 }
             },
-            "buttontext": "Pagina boek \/ Regel bord"
+            "buttontext": "Pagina Boek \/ Regel Bord"
         },
         "clickevent": {
-            "changepage": "Verander pagina",
+            "changepage": "Verander Pagina",
             "unavailable": {
                 "sign": {
-                    "header": "Bord klik-opdrachten zijn niet beschikbaar.",
+                    "header": "Bord klik-opdrachten zijn niet beschikbaar",
                     "body": "Klik hier om naar een niet-aangesloten website te gaan voor het maken van een bord met klik-opdrachten."
                 }
             },
             "runcommand": "Voer commando uit",
             "openurl": "Open URL",
-            "suggestcommand": "Suggesteer commando",
+            "suggestcommand": "Suggesteer Commando",
             "header": "Klikgebeurtenis:",
             "none": "Geen"
         },
@@ -55,25 +55,25 @@
                     "body": "Dit komt doordat Minecraft hover-signs niet ondersteunt."
                 }
             },
-            "addtext": "Voeg tekst toe",
-            "removetext": "Verwijder nieuwste tekst",
+            "addtext": "Voeg Tekst Toe",
+            "removetext": "Verwijder Nieuwste Tekst",
             "header": "Hover gebeurtenis:",
             "showachievement": "Laat archievement zien",
             "id": "ID:",
-            "showentity": "Laat entiteit zien",
-            "showitem": "Laat voorwerp zien",
+            "showentity": "Laat Entiteit Zien",
+            "showitem": "Laat Voorwerp Zien",
             "type": "Type:",
             "none": "Geen",
-            "showtext": "Laat tekst zien",
+            "showtext": "Laat Tekst Zien",
             "name": "Naam"
         },
         "trn": "Vertaald",
         "parameter": "Parameter",
         "editsnippet": "Bewerk tekst",
         "close": "Sluit",
-        "notext": "Geen tekst",
+        "notext": "Geen Tekst",
         "insert": "Invoegen",
-        "addsnippet": "Voeg tekst toe",
+        "addsnippet": "Voeg Tekst Toe",
         "insertion": {
             "header": "Invoegen"
         },
@@ -106,7 +106,7 @@
             "changelog": "Changelog"
         },
         "help": "Help",
-        "report_an_issue": "Meld een probleem"
+        "report_an_issue": "Meld een Probleem"
     },
     "header_rev2": "Tellraw Generator voor Minecraft ",
     "settings": {
@@ -120,9 +120,9 @@
                 "description": "Voer alstublieft de tekst in die je gegeven is bij het ge\u00ebxporteerde command."
             }
         },
-        "nlOutput": "Toon gestructureerde output",
+        "nlOutput": "Toon Gestructureerde Output",
         "darkmode": {
-            "turn_on": "Donker thema",
+            "turn_on": "Donker Thema",
             "turn_off": "Licht thema"
         },
         "show": "Open instellingen",
@@ -152,7 +152,7 @@
         "exit-text": "Je zal dit niet meer zien als je niks aan je cookies doet. Helaas kan ik niet checken of je je cookies reset."
     },
     "issues": {
-        "go-home": "Negeer problemen"
+        "go-home": "Negeer Probleem"
     },
     "help": {
         "textfield": "Gebruik %n om een nieuwe lijn te maken.",
@@ -175,8 +175,8 @@
         "execute_tellraw": "Execute"
     },
     "output": {
-        "nothing": "Niks te zien hier...",
-        "header": "Output voorbeeld:"
+        "nothing": "Niks te zien hier",
+        "header": "Output Voorbeeld:"
     },
     "saves": {
         "header": "Saves",
@@ -217,18 +217,18 @@
         "header": "Taal"
     },
     "player": {
-        "header": "Speler en commando",
+        "header": "Speler en Commando",
         "description": "Gebruikt om verschillende spelers te selecteren"
     },
     "commandblock": "Dit commando moet je uitvoeren in de serverconsole of in een commandoblok.",
     "alert": {
-        "report": "Meld een probleem",
+        "report": "Meld een Probleem",
         "changed": "Deze pagina was recent veranderd, dus er kunnen problemen zijn. Herlaad de pagina als er iets niet werkt.",
         "receiveupdates": "Ontvang updates hier! (\"Volg\" het onderwerp)"
     },
     "command": "Commando:",
     "export": {
-        "heading": "Je ge\u00ebxporteerde Commando",
+        "heading": "Je Ge\u00ebxporteerde Commando",
         "close": "Sluiten"
     },
     "attribution": "Ook al is het niet verplicht, het is altijd fijn als je deze pagina linkt aan de thread op de MCF website."

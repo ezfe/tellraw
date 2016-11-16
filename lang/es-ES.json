@@ -1,12 +1,12 @@
 {
     "report_issue": {
-        "describe": "Please describe your issue",
-        "translation_issue": "Translation Issue",
-        "output_issue": "Output Issue",
-        "other_issue": "Other Issue",
-        "other_language": "Other Language",
-        "too_many_quotes": "Too Many Quotes",
-        "cancel": "Cancel"
+        "describe": "Por favor, explica tu problema",
+        "translation_issue": "Problema con la traducci\u00f3n",
+        "output_issue": "Problema con el c\u00f3digo",
+        "other_issue": "Otro problema",
+        "other_language": "Otro idioma",
+        "too_many_quotes": "Demasiadas comillas",
+        "cancel": "Cancelar"
     },
     "textsnippets": {
         "NEW_ITERATE_FLAG": {
@@ -39,7 +39,7 @@
             "unavailable": {
                 "sign": {
                     "header": "Los eventos de click en los carteles no est\u00e1n disponibles",
-                    "body": "Haz clic aqu\u00ed para ir a una p\u00e1gina no afiliada para crear carteles con eventos de click"
+                    "body": "Haz clic aqu\u00ed para ir a una p\u00e1gina externa para crear carteles con eventos de click."
                 }
             },
             "runcommand": "Ejecutar comando",
@@ -125,8 +125,8 @@
             "turn_on": "Tema oscuro",
             "turn_off": "Tema claro"
         },
-        "show": "Mostrar configuraci\u00f3n",
-        "hide": "Ocultar configuraci\u00f3n",
+        "show": "Configuraci\u00f3n",
+        "hide": "Cerrar",
         "fontSize": "Tama\u00f1o de fuente",
         "previewcolor": "Color de fondo de la previsualizaci\u00f3n:",
         "export": "Exportar",
