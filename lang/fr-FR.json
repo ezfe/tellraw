@@ -1,11 +1,11 @@
 {
     "report_issue": {
-        "describe": "Please describe your issue",
-        "translation_issue": "Translation Issue",
-        "output_issue": "Output Issue",
-        "other_issue": "Other Issue",
-        "other_language": "Other Language",
-        "too_many_quotes": "Too Many Quotes",
+        "describe": "Veuillez d\u00e9crire votre probl\u00e8me",
+        "translation_issue": "Probl\u00e8me de traduction",
+        "output_issue": "Probl\u00e8me de r\u00e9sultat",
+        "other_issue": "Autre probl\u00e8me",
+        "other_language": "Autre langue",
+        "too_many_quotes": "Trop de citations",
         "cancel": "Fermer"
     },
     "textsnippets": {
