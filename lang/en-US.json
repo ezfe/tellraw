@@ -1,4 +1,14 @@
 {
+    "template": {
+        "actionbar": "Action Bar",
+        "sign_block": "Sign (\/blockdata)",
+        "sign_item": "Sign (\/give)",
+        "subtitle": "Subtitle",
+        "title": "Title",
+        "tellraw": "Tellraw",
+        "book": "Book",
+        "execute_tellraw": "Execute"
+    },
     "report_issue": {
         "describe": "Please describe your issue",
         "translation_issue": "Translation Issue",
@@ -164,15 +174,6 @@
         "create-new-save": "Make a new save. This will overwrite an existing save by the same name, if you so choose.",
         "delete-all-snippets": "Clear your command completely, but leave your saves intact.",
         "show-saves": "Show your saves editor, allows saving, loading, and deletion of saves."
-    },
-    "template": {
-        "sign_block": "Sign (\/blockdata)",
-        "sign_item": "Sign (\/give)",
-        "subtitle": "Subtitle",
-        "title": "Title",
-        "tellraw": "Tellraw",
-        "book": "Book",
-        "execute_tellraw": "Execute"
     },
     "output": {
         "nothing": "Nothing to see here",

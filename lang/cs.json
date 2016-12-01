@@ -1,4 +1,14 @@
 {
+    "template": {
+        "actionbar": "Action Bar",
+        "sign_block": "Cedulka (\/blockdata)",
+        "sign_item": "Cedulka (\/give)",
+        "subtitle": "Podtitulek",
+        "title": "Titulek",
+        "tellraw": "TellRaw",
+        "book": "Kniha",
+        "execute_tellraw": "P\u0159\u00edkaz \/Execute"
+    },
     "report_issue": {
         "describe": "Popi\u0161te sv\u016fj probl\u00e9m.",
         "translation_issue": "\u0160patn\u00fd p\u0159eklad",
@@ -164,15 +174,6 @@
         "create-new-save": "Vytvo\u0159it nov\u00fd ulo\u017een\u00fd text. Toto p\u0159ep\u00ed\u0161e text se stejn\u00fdm n\u00e1zvem, pokud se tak rozhodnete.",
         "delete-all-snippets": "Vy\u010dist\u00ed kompletn\u011b tv\u016fj p\u0159\u00edkaz ale zanech\u00e1 tv\u00e9 ulo\u017een\u00e9 texty.",
         "show-saves": "Uk\u00e1\u017ee tv\u016fj editor ulo\u017een\u00fdch text\u016f, umo\u017en\u00ed ulo\u017een\u00ed, na\u010dten\u00ed nebo smaz\u00e1n\u00ed ulo\u017een\u00fdch text\u016f."
-    },
-    "template": {
-        "sign_block": "Cedulka (\/blockdata)",
-        "sign_item": "Cedulka (\/give)",
-        "subtitle": "Podtitulek",
-        "title": "Titulek",
-        "tellraw": "TellRaw",
-        "book": "Kniha",
-        "execute_tellraw": "P\u0159\u00edkaz \/Execute"
     },
     "output": {
         "nothing": "Zde nen\u00ed na co koukat ;)",

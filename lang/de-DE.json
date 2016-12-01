@@ -1,4 +1,14 @@
 {
+    "template": {
+        "actionbar": "Action Bar",
+        "sign_block": "Schild (\/blockdata)",
+        "sign_item": "Schild (\/give)",
+        "subtitle": "Untertitel",
+        "title": "Titel",
+        "tellraw": "Tellraw",
+        "book": "Buch",
+        "execute_tellraw": "Ausf\u00fchren"
+    },
     "report_issue": {
         "describe": "Please describe your issue",
         "translation_issue": "Translation Issue",
@@ -164,15 +174,6 @@
         "create-new-save": "Mache eine neue Sicherung. Dies wird eine Sicherung mit dem gleichen Namen \u00fcberschreiben, wenn du es so ausw\u00e4hlst.",
         "delete-all-snippets": "L\u00f6sche deinen Befehl komplett, aber lasse deine Sicherungen unversehrt.",
         "show-saves": "Zeige deinen Sicherungseditor, erlaube speichern, laden, und l\u00f6schen der Sicherung."
-    },
-    "template": {
-        "sign_block": "Schild (\/blockdata)",
-        "sign_item": "Schild (\/give)",
-        "subtitle": "Untertitel",
-        "title": "Titel",
-        "tellraw": "Tellraw",
-        "book": "Buch",
-        "execute_tellraw": "Ausf\u00fchren"
     },
     "output": {
         "nothing": "Hier ist nichts zu sehen",

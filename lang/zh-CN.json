@@ -1,4 +1,14 @@
 {
+    "template": {
+        "actionbar": "Action Bar",
+        "sign_block": "\u544a\u793a\u724c (\/blockdata)",
+        "sign_item": "\u544a\u793a\u724c (\/give)",
+        "subtitle": "\u5b50\u6807\u9898(\/title(subtitle))",
+        "title": "\u6807\u9898(\/title)",
+        "tellraw": "Tellraw",
+        "book": "\u6210\u4e66",
+        "execute_tellraw": "Execute"
+    },
     "report_issue": {
         "describe": "Please describe your issue",
         "translation_issue": "Translation Issue",
@@ -164,15 +174,6 @@
         "create-new-save": "\u6dfb\u52a0\u4e00\u4e2a\u6307\u4ee4\u5b58\u6863\u3002\u5982\u679c\u547d\u540d\u4e0e\u5f53\u524d\u5df2\u5b58\u5728\u7684\u5b58\u6863\u76f8\u540c\uff0c\u8be5\u5b58\u6863\u4f1a\u88ab\u8986\u76d6\u3002",
         "delete-all-snippets": "\u6e05\u9664\u5f53\u524d\u7684Tellraw\u6307\u4ee4\uff0c\u4f46\u4f1a\u4fdd\u7559\u4f60\u7684\u6307\u4ee4\u5b58\u6863\u3002",
         "show-saves": "\u663e\u793a\u5b58\u6863\u7f16\u8f91\u5668\uff0c\u7528\u4e8e\u4fdd\u5b58\u3001\u8bfb\u53d6\u3001\u5220\u9664\u6307\u4ee4\u5b58\u6863\u3002"
-    },
-    "template": {
-        "sign_block": "\u544a\u793a\u724c (\/blockdata)",
-        "sign_item": "\u544a\u793a\u724c (\/give)",
-        "subtitle": "\u5b50\u6807\u9898(\/title(subtitle))",
-        "title": "\u6807\u9898(\/title)",
-        "tellraw": "Tellraw",
-        "book": "\u6210\u4e66",
-        "execute_tellraw": "Execute"
     },
     "output": {
         "nothing": "\u65e0\u4efb\u4f55\u8f93\u51fa",

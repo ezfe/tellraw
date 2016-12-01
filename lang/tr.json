@@ -1,4 +1,14 @@
 {
+    "template": {
+        "actionbar": "Action Bar",
+        "sign_block": "Tabela (\/blockdata)",
+        "sign_item": "Tabela (\/give)",
+        "subtitle": "Altyaz\u0131 (\/title)",
+        "title": "Ba\u015fl\u0131k",
+        "tellraw": "Tellraw",
+        "book": "Kitap",
+        "execute_tellraw": "Yapt\u0131rt"
+    },
     "report_issue": {
         "describe": "Please describe your issue",
         "translation_issue": "Translation Issue",
@@ -164,15 +174,6 @@
         "create-new-save": "Yeni bir kay\u0131t yap. Bu daha \u00f6nce olan kayd\u0131n\u0131z\u0131 silecektir (ismi ayn\u0131ysa).",
         "delete-all-snippets": "Komutu tamamen silin ama kaydedilenleri b\u0131rak\u0131n.",
         "show-saves": "Kaydedilenler D\u00fczenleyici'nizi g\u00f6sterin, kaydedebilir, y\u00fckleyebilir ve silebilirsiniz."
-    },
-    "template": {
-        "sign_block": "Tabela (\/blockdata)",
-        "sign_item": "Tabela (\/give)",
-        "subtitle": "Altyaz\u0131 (\/title)",
-        "title": "Ba\u015fl\u0131k",
-        "tellraw": "Tellraw",
-        "book": "Kitap",
-        "execute_tellraw": "Yapt\u0131rt"
     },
     "output": {
         "nothing": "Burada g\u00f6r\u00fclecek bir \u015fey yok!",

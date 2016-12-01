@@ -1,4 +1,14 @@
 {
+    "template": {
+        "actionbar": "Action Bar",
+        "sign_block": "Skylt (\/blockdata)",
+        "sign_item": "Skylt (\/give)",
+        "subtitle": "Underrubrik",
+        "title": "Rubrik",
+        "tellraw": "Tellraw",
+        "book": "Bok",
+        "execute_tellraw": "Utf\u00f6r"
+    },
     "report_issue": {
         "describe": "Please describe your issue",
         "translation_issue": "Translation Issue",
@@ -164,15 +174,6 @@
         "create-new-save": "Spara ett nytt kommando. Om du vill kan du skriva \u00f6ver ett annat sparat kommando genom att anv\u00e4nda samma namn.",
         "delete-all-snippets": "Rensa ditt nuvarande kommando helt, men bevara dina sparade kommandon.",
         "show-saves": "Sparade kommandon-hanterare, till\u00e5ter dig att spara, ladda in och ta bort kommandon."
-    },
-    "template": {
-        "sign_block": "Skylt (\/blockdata)",
-        "sign_item": "Skylt (\/give)",
-        "subtitle": "Underrubrik",
-        "title": "Rubrik",
-        "tellraw": "Tellraw",
-        "book": "Bok",
-        "execute_tellraw": "Utf\u00f6r"
     },
     "output": {
         "nothing": "Inget att se h\u00e4r",

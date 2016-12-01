@@ -1,4 +1,14 @@
 {
+    "template": {
+        "actionbar": "Action Bar",
+        "sign_block": "Bord (\/blockdata)",
+        "sign_item": "Bord (\/give)",
+        "subtitle": "Subtitel",
+        "title": "Titel",
+        "tellraw": "Tellraw",
+        "book": "Boek",
+        "execute_tellraw": "Execute"
+    },
     "report_issue": {
         "describe": "Beschrijf alstublieft uw probleem",
         "translation_issue": "Vertaling Probleem",
@@ -164,15 +174,6 @@
         "create-new-save": "Sla je command op, dit zal wel het gelijknamige command overschrijven, als je dat kiest.",
         "delete-all-snippets": "Verwijder je command volledig maar hou je saves intact.",
         "show-saves": "Show je saves editor, enables saving, laden en verwijdering van saves."
-    },
-    "template": {
-        "sign_block": "Bord (\/blockdata)",
-        "sign_item": "Bord (\/give)",
-        "subtitle": "Subtitel",
-        "title": "Titel",
-        "tellraw": "Tellraw",
-        "book": "Boek",
-        "execute_tellraw": "Execute"
     },
     "output": {
         "nothing": "Niks te zien hier",

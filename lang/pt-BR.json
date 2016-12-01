@@ -1,4 +1,14 @@
 {
+    "template": {
+        "actionbar": "Action Bar",
+        "sign_block": "Placa (\/blockdata)",
+        "sign_item": "Placa (\/give)",
+        "subtitle": "Subt\u00edtulo",
+        "title": "T\u00edtulo",
+        "tellraw": "Tellraw",
+        "book": "Livro",
+        "execute_tellraw": "Executar"
+    },
     "report_issue": {
         "describe": "Please describe your issue",
         "translation_issue": "Translation Issue",
@@ -164,15 +174,6 @@
         "create-new-save": "Salva um comando. Isso ir\u00e1 substituir qualquer comando salvo com o mesmo nome.",
         "delete-all-snippets": "Limpa completamente seu comando atual, mas mant\u00e9m seus comandos salvos intactos.",
         "show-saves": "Mostra seus comandos salvos, permite salvar, carregar e deletar comandos."
-    },
-    "template": {
-        "sign_block": "Placa (\/blockdata)",
-        "sign_item": "Placa (\/give)",
-        "subtitle": "Subt\u00edtulo",
-        "title": "T\u00edtulo",
-        "tellraw": "Tellraw",
-        "book": "Livro",
-        "execute_tellraw": "Executar"
     },
     "output": {
         "nothing": "Nada aqui.",

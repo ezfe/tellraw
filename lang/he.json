@@ -1,4 +1,14 @@
 {
+    "template": {
+        "actionbar": "Action Bar",
+        "sign_block": "\u05e9\u05dc\u05d8 (blockdata)",
+        "sign_item": "\u05e9\u05dc\u05d8 (give)",
+        "subtitle": "\u05ea\u05ea \u05db\u05d5\u05ea\u05e8\u05ea",
+        "title": "\u05db\u05d5\u05ea\u05e8\u05ea",
+        "tellraw": "\u05d0\u05de\u05d9\u05e8\u05d4 \u05e0\u05e2\u05d4",
+        "book": "\u05e1\u05e4\u05e8",
+        "execute_tellraw": "\u05d1\u05e6\u05e2(execute)"
+    },
     "report_issue": {
         "describe": "Please describe your issue",
         "translation_issue": "Translation Issue",
@@ -164,15 +174,6 @@
         "create-new-save": "\u05e6\u05d5\u05e8 \u05e9\u05de\u05d9\u05e8\u05d4 \u05d7\u05d3\u05e9\u05d4. \u05d6\u05d4 \u05d9\u05db\u05ea\u05d5\u05d1 \u05de\u05d7\u05d3\u05e9 \u05e2\u05dc \u05e9\u05de\u05d9\u05e8\u05d4 \u05e7\u05d9\u05d9\u05de\u05ea \u05e2\u05dd \u05d0\u05d5\u05ea\u05d5 \u05d4\u05e9\u05dd, \u05d0\u05dd \u05db\u05da \u05d0\u05ea\u05d4 \u05d1\u05d5\u05d7\u05e8.",
         "delete-all-snippets": "\u05e0\u05e7\u05d4 \u05d0\u05ea \u05d4\u05e4\u05e7\u05d5\u05d3\u05d4 \u05dc\u05d7\u05dc\u05d5\u05d8\u05d9\u05df, \u05d0\u05da \u05e9\u05de\u05d5\u05e8 \u05d0\u05ea \u05d4\u05e9\u05de\u05d9\u05e8\u05d5\u05ea \u05e9\u05dc\u05da",
         "show-saves": "\u05de\u05e8\u05d0\u05d4 \u05dc\u05da \u05e2\u05d5\u05e8\u05da \u05e9\u05de\u05d9\u05e8\u05d5\u05ea, \u05de\u05d0\u05e4\u05e9\u05e8 \u05dc\u05e9\u05de\u05d5\u05e8, \u05dc\u05d8\u05e2\u05d5\u05df \u05d5\u05dc\u05de\u05d7\u05d5\u05e7 \u05e9\u05de\u05d9\u05e8\u05d5\u05ea."
-    },
-    "template": {
-        "sign_block": "\u05e9\u05dc\u05d8 (blockdata)",
-        "sign_item": "\u05e9\u05dc\u05d8 (give)",
-        "subtitle": "\u05ea\u05ea \u05db\u05d5\u05ea\u05e8\u05ea",
-        "title": "\u05db\u05d5\u05ea\u05e8\u05ea",
-        "tellraw": "\u05d0\u05de\u05d9\u05e8\u05d4 \u05e0\u05e2\u05d4",
-        "book": "\u05e1\u05e4\u05e8",
-        "execute_tellraw": "\u05d1\u05e6\u05e2(execute)"
     },
     "output": {
         "nothing": "\u05d0\u05d9\u05df \u05e4\u05d4 \u05d3\u05d1\u05e8",

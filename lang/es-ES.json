@@ -1,4 +1,14 @@
 {
+    "template": {
+        "actionbar": "Action Bar",
+        "sign_block": "Cartel (\/blockdata)",
+        "sign_item": "Cartel (\/give)",
+        "subtitle": "Subt\u00edtulo",
+        "title": "Title",
+        "tellraw": "Tellraw",
+        "book": "Libro",
+        "execute_tellraw": "Execute"
+    },
     "report_issue": {
         "describe": "Por favor, explica tu problema",
         "translation_issue": "Problema con la traducci\u00f3n",
@@ -164,15 +174,6 @@
         "create-new-save": "Guarda este comando. Esto sobreescribir\u00e1 cualquier otro con el mismo nombre.",
         "delete-all-snippets": "Elimina este comando por completo. Las copias guardadas permanecer\u00e1n.",
         "show-saves": "Muestra el editor de las copias guradadas, permite guardar, cargar, y eliminar los comandos guardados."
-    },
-    "template": {
-        "sign_block": "Cartel (\/blockdata)",
-        "sign_item": "Cartel (\/give)",
-        "subtitle": "Subt\u00edtulo",
-        "title": "Title",
-        "tellraw": "Tellraw",
-        "book": "Libro",
-        "execute_tellraw": "Execute"
     },
     "output": {
         "nothing": "Nada por ahora",

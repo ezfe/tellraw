@@ -422,6 +422,12 @@ var templates =
 		"formatType": "standardjson",
 		"mouseActionOptions": []
 	},
+	"actionbar": {
+		"command": "/title @a actionbar %s",
+		"version": "1.11",
+		"formatType": "standardjson",
+		"mouseActionOptions": []
+	},
 	"sign_item": {
 		"command": "/give @p sign 1 0 {BlockEntityTag:{%s,id:\"Sign\"}}",
 		"version": "1.8",
@@ -1517,19 +1523,29 @@ function refreshLanguage(dropdownSelection) {
 		lsm.setItem('langCode','en-US')
 	}
 	$('*').each(function(){
-		//if ($(this).attr('version') != undefined && (lsm.getItem('versionIndicators') == "true" || lsm.getItem('versionIndicators') == undefined)) {
-			if (false) {
-				var labelLevel = 'success';
-				if ($(this).attr('version') == '1.9') {
-					labelLevel = 'danger';
-				}
+		if ($(this).attr('version') != undefined && (lsm.getItem('versionIndicators') == "true" || lsm.getItem('versionIndicators') == undefined)) {
+			var levels = {
+				"1.13": "danger",
+				"1.12": "danger",
+				"1.11": "warning",
+				"1.10": "success",
+				"1.9": "success",
+				"1.8": "success",
+				"1.7": "success"
+			};
+			var labelLevel = 'success';
+			if (levels[$(this).attr('version')]) {
+				labelLevel = levels[$(this).attr('version')];
+			}
+			if (labelLevel != "success") {
 				if ($(this).prop('tagName') == 'OPTION') {
 					$(this).prepend('('+$(this).attr('version')+') ');
 				} else {
 					$(this).append(' <span class="label label-'+labelLevel+'">'+$(this).attr('version')+'</span>');
 				}
 			}
-		});
+		}
+	});
 }
 
 function initialize() {

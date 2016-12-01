@@ -1,4 +1,14 @@
 {
+    "template": {
+        "actionbar": "Action Bar",
+        "sign_block": "Cartello (\/blockdata)",
+        "sign_item": "Cartello (\/give)",
+        "subtitle": "Sottotitolo",
+        "title": "Titolo",
+        "tellraw": "Tellraw",
+        "book": "Libro",
+        "execute_tellraw": "Execute"
+    },
     "report_issue": {
         "describe": "Please describe your issue",
         "translation_issue": "Translation Issue",
@@ -164,15 +174,6 @@
         "create-new-save": "Crea un nuovo salvataggio. Questo sovrascriver\u00e0 i salvataggi con lo stesso nome.",
         "delete-all-snippets": "Cancella il comando, ma lascia i salvataggi intatti.",
         "show-saves": "Visualizza l'editor del salvataggi, consente il salvataggio, il caricamento e l'eliminazione di salvataggi."
-    },
-    "template": {
-        "sign_block": "Cartello (\/blockdata)",
-        "sign_item": "Cartello (\/give)",
-        "subtitle": "Sottotitolo",
-        "title": "Titolo",
-        "tellraw": "Tellraw",
-        "book": "Libro",
-        "execute_tellraw": "Execute"
     },
     "output": {
         "nothing": "Non c'\u00e8 niente da vedere qui",

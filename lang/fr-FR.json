@@ -1,4 +1,14 @@
 {
+    "template": {
+        "actionbar": "Action Bar",
+        "sign_block": "Panneau (\/blockdata)",
+        "sign_item": "Panneau (\/give)",
+        "subtitle": "Sous-Titre",
+        "title": "Titre",
+        "tellraw": "Tellraw",
+        "book": "Livre",
+        "execute_tellraw": "Execute"
+    },
     "report_issue": {
         "describe": "Veuillez d\u00e9crire votre probl\u00e8me",
         "translation_issue": "Probl\u00e8me de traduction",
@@ -164,15 +174,6 @@
         "create-new-save": "Cr\u00e9e une nouvelle sauvegarde. Cela va \u00e9craser la sauvegarde existante qui porte le m\u00eame nom.",
         "delete-all-snippets": "Efface compl\u00e8tement votre commande, mais conserve vos sauvegardes.",
         "show-saves": "Montre votre \u00e9diteur de sauvegardes, vous permet de sauver, charger, et supprimer des sauvegardes"
-    },
-    "template": {
-        "sign_block": "Panneau (\/blockdata)",
-        "sign_item": "Panneau (\/give)",
-        "subtitle": "Sous-Titre",
-        "title": "Titre",
-        "tellraw": "Tellraw",
-        "book": "Livre",
-        "execute_tellraw": "Execute"
     },
     "output": {
         "nothing": "Rien \u00e0 voir par ici",

@@ -1,4 +1,14 @@
 {
+    "template": {
+        "actionbar": "Action Bar",
+        "sign_block": "Tabliczka (\/blockdata)",
+        "sign_item": "Tabliczka (\/give)",
+        "subtitle": "Podtytu\u0142",
+        "title": "Tytu\u0142",
+        "tellraw": "\/tellraw",
+        "book": "Ksi\u0105\u017cka",
+        "execute_tellraw": "Wykonaj"
+    },
     "report_issue": {
         "describe": "Please describe your issue",
         "translation_issue": "Translation Issue",
@@ -164,15 +174,6 @@
         "create-new-save": "Stw\u00f3rz nowy zapis. To nadpisze istniej\u0105cy zapis, je\u017celi zapiszesz go pod t\u0105 sam\u0105 nazw\u0105.",
         "delete-all-snippets": "Wyczy\u015b\u0107 swoj\u0105 komend\u0119 kompletnie, ale zostaw swoje zapisy.",
         "show-saves": "Poka\u017c edytor twoich zapis\u00f3w, pozwala na zapisywanie, za\u0142adowywanie i usuwanie zapis\u00f3w"
-    },
-    "template": {
-        "sign_block": "Tabliczka (\/blockdata)",
-        "sign_item": "Tabliczka (\/give)",
-        "subtitle": "Podtytu\u0142",
-        "title": "Tytu\u0142",
-        "tellraw": "\/tellraw",
-        "book": "Ksi\u0105\u017cka",
-        "execute_tellraw": "Wykonaj"
     },
     "output": {
         "nothing": "Nic tu nie ma do zobaczenia",

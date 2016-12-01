@@ -1,4 +1,14 @@
 {
+    "template": {
+        "actionbar": "Action Bar",
+        "sign_block": "Znak (\/blockdata)",
+        "sign_item": "Znak (\/give)",
+        "subtitle": "Podnaslov",
+        "title": "Naslov",
+        "tellraw": "Tellraw",
+        "book": "Knjiga",
+        "execute_tellraw": "Izvr\u0161i"
+    },
     "report_issue": {
         "describe": "Molimo vas, opi\u0161ite problem",
         "translation_issue": "Problem u Prijevodu",
@@ -164,15 +174,6 @@
         "create-new-save": "Napravi novo spremi\u0161te. Ovo \u0107e prebrisati postoje\u0107e spremi\u0161te pod istim imenom, ako to izabere\u0161.",
         "delete-all-snippets": "Izbri\u0161i svoju komandu u potpunosti, ali ostavi tvoje spremi\u0161te netaknuto.",
         "show-saves": "Prikazuje tvoje spremi\u0161te editor-a, omogu\u0107uje spremanje, u\u010ditavanje, i brisanje spremi\u0161ta."
-    },
-    "template": {
-        "sign_block": "Znak (\/blockdata)",
-        "sign_item": "Znak (\/give)",
-        "subtitle": "Podnaslov",
-        "title": "Naslov",
-        "tellraw": "Tellraw",
-        "book": "Knjiga",
-        "execute_tellraw": "Izvr\u0161i"
     },
     "output": {
         "nothing": "Ni\u0161ta za vidjeti ovdje",
