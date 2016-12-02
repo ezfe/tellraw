@@ -1,6 +1,6 @@
 {
     "template": {
-        "actionbar": "Action Bar",
+        "actionbar": "\u041f\u0430\u043d\u0435\u043b\u044c \u0414\u0435\u0439\u0441\u0442\u0432\u0438\u0439",
         "sign_block": "\u0422\u0430\u0431\u043b\u0438\u0447\u043a\u0430 (\/blockdata)",
         "sign_item": "\u0422\u0430\u0431\u043b\u0438\u0447\u043a\u0430 (\/give)",
         "subtitle": "Subtitle",
