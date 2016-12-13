@@ -143,7 +143,7 @@ if (!String.prototype.codePointAt) {
 /* SWAL Interface */
 /******************/
 
-function alert(message) { return swal(message); }
+// function alert(message) { return swal(message); }
 
 /*****************/
 /* Issue Reports */
@@ -262,6 +262,8 @@ function verify_jobject_format(jdata) {
 	//Tracks changes for "true" --> true
 	var booleanUpdateCount = 0;
 
+	var emptyTextHoverRemoved = 0;
+
 	for (var i = 0; i < jdata.length; i++) {
 
 		//Convert show_text to structured format
@@ -270,6 +272,10 @@ function verify_jobject_format(jdata) {
 				if (typeof jdata[i].hoverEvent.value == "object") {
 					if (jdata[i].hoverEvent.value.text != "") {
 						jdata[i].hoverEvent.value = {"text":"", "extra":[jdata[i].hoverEvent.value]};
+					}
+					if (jdata[i].hoverEvent.value.extra.length == 0) {
+						delete jdata[i].hoverEvent;
+						emptyTextHoverRemoved += 1;
 					}
 				} else if (typeof jdata[i].hoverEvent.value == "string") {
 					jdata[i].hoverEvent.value = {"text":"", "extra":[{"text":jdata[i].hoverEvent.value}]};
@@ -310,6 +316,10 @@ function verify_jobject_format(jdata) {
 	}
 	if (booleanUpdateCount > 0) {
 		swal({"title": "Udated!", "text": "All strings representing boolean values have been updated to true/false values (" + booleanUpdateCount + " change" + (booleanUpdateCount == 1 ? "" : "s") + ")", "type": "success"});
+	}
+
+	if (emptyTextHoverRemoved > 0) {
+		alert(emptyTextHoverRemoved + " empty text hoverevent(s) were removed because Minecraft cannot handle these");
 	}
 
 	return jdata;
