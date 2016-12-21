@@ -1,6 +1,6 @@
 {
     "template": {
-        "actionbar": "Action Bar",
+        "actionbar": "\u884c\u4e3a\u680f",
         "sign_block": "\u544a\u793a\u724c (\/blockdata)",
         "sign_item": "\u544a\u793a\u724c (\/give)",
         "subtitle": "\u5b50\u6807\u9898(\/title(subtitle))",
@@ -10,13 +10,13 @@
         "execute_tellraw": "Execute"
     },
     "report_issue": {
-        "describe": "Please describe your issue",
-        "translation_issue": "Translation Issue",
-        "output_issue": "Output Issue",
-        "other_issue": "Other Issue",
-        "other_language": "Other Language",
-        "too_many_quotes": "Too Many Quotes",
-        "cancel": "Cancel"
+        "describe": "\u8bf7\u63cf\u8ff0\u4f60\u9047\u5230\u7684\u95ee\u9898",
+        "translation_issue": "\u7ffb\u8bd1\u9519\u8bef",
+        "output_issue": "\u6307\u4ee4\u751f\u6210\u9519\u8bef",
+        "other_issue": "\u5176\u4ed6\u9519\u8bef",
+        "other_language": "\u5176\u4ed6\u8bed\u8a00",
+        "too_many_quotes": "\u592a\u591a\u5f15\u53f7",
+        "cancel": "\u53d6\u6d88"
     },
     "textsnippets": {
         "NEW_ITERATE_FLAG": {

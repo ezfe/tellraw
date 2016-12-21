@@ -1,6 +1,6 @@
 {
     "template": {
-        "actionbar": "Action Bar",
+        "actionbar": "Barra de a\u00e7\u00f5es",
         "sign_block": "Placa (\/blockdata)",
         "sign_item": "Placa (\/give)",
         "subtitle": "Subt\u00edtulo",
@@ -10,13 +10,13 @@
         "execute_tellraw": "Executar"
     },
     "report_issue": {
-        "describe": "Please describe your issue",
-        "translation_issue": "Translation Issue",
-        "output_issue": "Output Issue",
-        "other_issue": "Other Issue",
-        "other_language": "Other Language",
+        "describe": "Por favor descreva seu problema",
+        "translation_issue": "Problemas na tradu\u00e7\u00e3o",
+        "output_issue": "Sa\u00edda",
+        "other_issue": "Outro problema",
+        "other_language": "Outra l\u00edngua",
         "too_many_quotes": "Too Many Quotes",
-        "cancel": "Cancel"
+        "cancel": "Cancelar"
     },
     "textsnippets": {
         "NEW_ITERATE_FLAG": {
