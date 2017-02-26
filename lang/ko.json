@@ -1,6 +1,6 @@
 {
     "template": {
-        "actionbar": "Action Bar",
+        "actionbar": "\uc561\uc158 \ubc14",
         "sign_block": "\ud45c\uc9c0\ud310 (\/blockdata)",
         "sign_item": "\ud45c\uc9c0\ud310 (\/give)",
         "subtitle": "Subtitle",
@@ -8,6 +8,19 @@
         "tellraw": "Tellraw",
         "book": "\ucc45",
         "execute_tellraw": "Execute"
+    },
+    "headerbar": {
+        "dropdown": {
+            "uptime": "Uptime",
+            "translate_page_link": "\ubc88\uc5ed \uc0ac\uc774\ud2b8",
+            "hover": "Beta \ubc84\uc804\uc774 \uc788\uc2b5\ub2c8\ub2e4!",
+            "beta_link": "\ubca0\ud0c0 \ubc84\uc804",
+            "tweet": "Tweet",
+            "forum_thread": "\ud3ec\ub7fc \uc4f0\ub808\ub4dc",
+            "changelog": "\ubcc0\uacbd\uc0ac\ud56d"
+        },
+        "help": "\ub3c4\uc6c0\ub9d0",
+        "report_an_issue": "\uc774\uc288\ub97c \ub9ac\ud3ec\ud2b8\ud558\uae30"
     },
     "report_issue": {
         "describe": "\uc624\ub958\ub97c \uc124\uba85\ud574\uc8fc\uc138\uc694",
@@ -33,7 +46,7 @@
                 },
                 "secondary": {
                     "header": "\ucc45 \ub610\ub294 \ud45c\uc9c0\ud310?",
-                    "description": "\ub2f9\uc2e0\uc740 \ucc45 \ub610\ub294 \ud45c\uc9c0\ud310\uc744 \ub9cc\ub4e4\uae30 \uc6d0\ud569\ub2c8\uae4c? (\ub098\uc911\uc5d0 \ubcc0\uacbd\ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4.)",
+                    "description": "\ucc45 \ub610\ub294 \ud45c\uc9c0\ud310\uc744 \ub9cc\ub4e4\uae4c\uc694? (\ub098\uc911\uc5d0 \ubcc0\uacbd\ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4.)",
                     "book": "\ucc45",
                     "sign": "\ud45c\uc9c0\ud310"
                 },
@@ -105,18 +118,6 @@
         "warning": {
             "title": "\uacbd\uace0!"
         }
-    },
-    "headerbar": {
-        "dropdown": {
-            "translate_page_link": "\ubc88\uc5ed \uc0ac\uc774\ud2b8",
-            "hover": "Beta \ubc84\uc804\uc774 \uc788\uc2b5\ub2c8\ub2e4!",
-            "beta_link": "\ubca0\ud0c0 \ubc84\uc804",
-            "tweet": "Tweet",
-            "forum_thread": "\ud3ec\ub7fc \uc4f0\ub808\ub4dc",
-            "changelog": "\ubcc0\uacbd\uc0ac\ud56d"
-        },
-        "help": "\ub3c4\uc6c0\ub9d0",
-        "report_an_issue": "\uc774\uc288\ub97c \ub9ac\ud3ec\ud2b8\ud558\uae30"
     },
     "header_rev2": "\ub9c8\uc778\ud06c\ub798\ud504\ud2b8 Tellraw \uc0dd\uc131\uae30 ",
     "settings": {

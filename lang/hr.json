@@ -9,6 +9,19 @@
         "book": "Knjiga",
         "execute_tellraw": "Izvr\u0161i"
     },
+    "headerbar": {
+        "dropdown": {
+            "uptime": "Uptime",
+            "translate_page_link": "Stranica za Prevo\u0111enje",
+            "hover": "Probna Verzija Dostupna!",
+            "beta_link": "Probna Verzija",
+            "tweet": "Tweet",
+            "forum_thread": "Forum Post",
+            "changelog": "Lista Izmjena"
+        },
+        "help": "Pomo\u0107",
+        "report_an_issue": "Izvijesti problem"
+    },
     "report_issue": {
         "describe": "Molimo vas, opi\u0161ite problem",
         "translation_issue": "Problem u Prijevodu",
@@ -105,18 +118,6 @@
         "warning": {
             "title": "Oprez!"
         }
-    },
-    "headerbar": {
-        "dropdown": {
-            "translate_page_link": "Stranica za Prevo\u0111enje",
-            "hover": "Probna Verzija Dostupna!",
-            "beta_link": "Probna Verzija",
-            "tweet": "Tweet",
-            "forum_thread": "Forum Post",
-            "changelog": "Lista Izmjena"
-        },
-        "help": "Pomo\u0107",
-        "report_an_issue": "Izvijesti problem"
     },
     "header_rev2": "Tellraw Generator za Minecraft",
     "settings": {

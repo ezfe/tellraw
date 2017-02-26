@@ -9,6 +9,19 @@
         "book": "Libro",
         "execute_tellraw": "Execute"
     },
+    "headerbar": {
+        "dropdown": {
+            "uptime": "Uptime",
+            "translate_page_link": "P\u00e1gina de traducci\u00f3n",
+            "hover": "\u00a1Versi\u00f3n Beta disponible!",
+            "beta_link": "Versi\u00f3n Beta",
+            "tweet": "Tweet",
+            "forum_thread": "Tema en el Foro",
+            "changelog": "Historial de cambios"
+        },
+        "help": "Ayuda",
+        "report_an_issue": "Reportar un fallo\/error"
+    },
     "report_issue": {
         "describe": "Por favor, explica tu problema",
         "translation_issue": "Problema con la traducci\u00f3n",
@@ -105,18 +118,6 @@
         "warning": {
             "title": "\u00a1Precauci\u00f3n!"
         }
-    },
-    "headerbar": {
-        "dropdown": {
-            "translate_page_link": "P\u00e1gina de traducci\u00f3n",
-            "hover": "\u00a1Versi\u00f3n Beta disponible!",
-            "beta_link": "Versi\u00f3n Beta",
-            "tweet": "Tweet",
-            "forum_thread": "Tema en el Foro",
-            "changelog": "Historial de cambios"
-        },
-        "help": "Ayuda",
-        "report_an_issue": "Reportar un fallo\/error"
     },
     "header_rev2": "Generador de Tellraw para Minecraft ",
     "settings": {

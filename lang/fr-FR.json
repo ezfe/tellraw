@@ -9,6 +9,19 @@
         "book": "Livre",
         "execute_tellraw": "Execute"
     },
+    "headerbar": {
+        "dropdown": {
+            "uptime": "Uptime",
+            "translate_page_link": "Traduisez vous aussi !",
+            "hover": "Version B\u00eata disponible.",
+            "beta_link": "Version B\u00eata",
+            "tweet": "Tweet",
+            "forum_thread": "Topic Forum",
+            "changelog": "Changements"
+        },
+        "help": "AIde",
+        "report_an_issue": "Signaler un probl\u00e8me"
+    },
     "report_issue": {
         "describe": "Veuillez d\u00e9crire votre probl\u00e8me",
         "translation_issue": "Probl\u00e8me de traduction",
@@ -105,18 +118,6 @@
         "warning": {
             "title": "Attention !"
         }
-    },
-    "headerbar": {
-        "dropdown": {
-            "translate_page_link": "Traduisez vous aussi !",
-            "hover": "Version B\u00eata disponible.",
-            "beta_link": "Version B\u00eata",
-            "tweet": "Tweet",
-            "forum_thread": "Topic Forum",
-            "changelog": "Changements"
-        },
-        "help": "AIde",
-        "report_an_issue": "Signaler un probl\u00e8me"
     },
     "header_rev2": "Generateur de JSON pour Minecraft ",
     "settings": {

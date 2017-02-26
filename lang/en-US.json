@@ -9,6 +9,19 @@
         "book": "Book",
         "execute_tellraw": "Execute"
     },
+    "headerbar": {
+        "dropdown": {
+            "uptime": "Uptime",
+            "translate_page_link": "Translation Site",
+            "hover": "Beta Version Available!",
+            "beta_link": "Beta Version",
+            "tweet": "Tweet",
+            "forum_thread": "Forum Thread",
+            "changelog": "Changelog"
+        },
+        "help": "Help",
+        "report_an_issue": "Report an Issue"
+    },
     "report_issue": {
         "describe": "Please describe your issue",
         "translation_issue": "Translation Issue",
@@ -105,18 +118,6 @@
         "warning": {
             "title": "Warning!"
         }
-    },
-    "headerbar": {
-        "dropdown": {
-            "translate_page_link": "Translation Site",
-            "hover": "Beta Version Available!",
-            "beta_link": "Beta Version",
-            "tweet": "Tweet",
-            "forum_thread": "Forum Thread",
-            "changelog": "Changelog"
-        },
-        "help": "Help",
-        "report_an_issue": "Report an Issue"
     },
     "header_rev2": "Tellraw Generator for Minecraft ",
     "settings": {

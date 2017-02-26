@@ -9,6 +9,19 @@
         "book": "Libro",
         "execute_tellraw": "Execute"
     },
+    "headerbar": {
+        "dropdown": {
+            "uptime": "Uptime",
+            "translate_page_link": "Sito di traduzione",
+            "hover": "Versione in test disponibile!",
+            "beta_link": "Versione in test",
+            "tweet": "Tweetta",
+            "forum_thread": "Discussione nel forum",
+            "changelog": "Changelog"
+        },
+        "help": "Aiuto",
+        "report_an_issue": "Riporta un problema"
+    },
     "report_issue": {
         "describe": "Please describe your issue",
         "translation_issue": "Translation Issue",
@@ -105,18 +118,6 @@
         "warning": {
             "title": "Attenzione!"
         }
-    },
-    "headerbar": {
-        "dropdown": {
-            "translate_page_link": "Sito di traduzione",
-            "hover": "Versione in test disponibile!",
-            "beta_link": "Versione in test",
-            "tweet": "Tweetta",
-            "forum_thread": "Discussione nel forum",
-            "changelog": "Changelog"
-        },
-        "help": "Aiuto",
-        "report_an_issue": "Riporta un problema"
     },
     "header_rev2": "Generatore del Comando Tellraw per Minecraft ",
     "settings": {

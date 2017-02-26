@@ -9,6 +9,19 @@
         "book": "Kitap",
         "execute_tellraw": "Yapt\u0131rt"
     },
+    "headerbar": {
+        "dropdown": {
+            "uptime": "Uptime",
+            "translate_page_link": "\u00c7eviri Sitesi",
+            "hover": "Beta versiyonu mevcut",
+            "beta_link": "Versiyonu",
+            "tweet": "Tweet'le",
+            "forum_thread": "Forum Konusu",
+            "changelog": "De\u011fi\u015fim Kayd\u0131"
+        },
+        "help": "Yard\u0131m",
+        "report_an_issue": "Sorun Bildir"
+    },
     "report_issue": {
         "describe": "Please describe your issue",
         "translation_issue": "Translation Issue",
@@ -105,18 +118,6 @@
         "warning": {
             "title": "Uyar\u0131!"
         }
-    },
-    "headerbar": {
-        "dropdown": {
-            "translate_page_link": "\u00c7eviri Sitesi",
-            "hover": "Beta versiyonu mevcut",
-            "beta_link": "Versiyonu",
-            "tweet": "Tweet'le",
-            "forum_thread": "Forum Konusu",
-            "changelog": "De\u011fi\u015fim Kayd\u0131"
-        },
-        "help": "Yard\u0131m",
-        "report_an_issue": "Sorun Bildir"
     },
     "header_rev2": "Minecraft i\u00e7in TellRaw Jenerat\u00f6r\u00fc",
     "settings": {

@@ -9,6 +9,19 @@
         "book": "\u66f8[Book]",
         "execute_tellraw": "\u8f38\u51fa"
     },
+    "headerbar": {
+        "dropdown": {
+            "uptime": "Uptime",
+            "translate_page_link": "\u7ffb\u8b6f\u7db2\u7ad9",
+            "hover": "\u6709\u65b0\u7684 Beta \u7248\u672c\uff01",
+            "beta_link": "Beta \u7248\u672c",
+            "tweet": "\u5206\u4eab-Twitter",
+            "forum_thread": "\u8ad6\u58c7\u6587\u7ae0",
+            "changelog": "\u66f4\u65b0\u65e5\u8a8c"
+        },
+        "help": "\u5e6b\u52a9",
+        "report_an_issue": "\u56de\u5831\u554f\u984c"
+    },
     "report_issue": {
         "describe": "\u8acb\u63cf\u8ff0\u4f60\u9047\u5230\u7684\u932f\u8aa4",
         "translation_issue": "\u7ffb\u8b6f\u932f\u8aa4",
@@ -21,7 +34,7 @@
     "textsnippets": {
         "NEW_ITERATE_FLAG": {
             "add": {
-                "book": "\u66f8\u672c\u63db\u696d",
+                "book": "\u66f8\u672c\u63db\u9801",
                 "sign": "\u544a\u793a\u724c\u63db\u884c"
             },
             "incorrect_template": {
@@ -105,18 +118,6 @@
         "warning": {
             "title": "\u8b66\u544a!"
         }
-    },
-    "headerbar": {
-        "dropdown": {
-            "translate_page_link": "\u7ffb\u8b6f\u7db2\u7ad9",
-            "hover": "\u6709\u65b0\u7684 Beta \u7248\u672c\uff01",
-            "beta_link": "Beta \u7248\u672c",
-            "tweet": "\u5206\u4eab-Twitter",
-            "forum_thread": "\u8ad6\u58c7\u6587\u7ae0",
-            "changelog": "\u66f4\u65b0\u65e5\u8a8c"
-        },
-        "help": "\u5e6b\u52a9",
-        "report_an_issue": "\u56de\u5831\u554f\u984c"
     },
     "header_rev2": "Tellraw \u6307\u4ee4\u7522\u751f\u5668 ",
     "settings": {
