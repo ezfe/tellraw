@@ -19,7 +19,7 @@
 	};
 }(jQuery));
 
-function getLanguageString(queryString,currentLanguageCode) {
+function getLanguageString(queryString, currentLanguageCode) {
 	if (typeof currentLanguageCode !== "string") {
 		console.error('No language code sent');
 		return '%%NO LANGUAGE SET%%'; /* DONT RETURN FALSE HERE YOULL HAVE A BAD DAY */

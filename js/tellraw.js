@@ -170,13 +170,13 @@ function reportAnIssue(ptitle) {
 }
 
 function showIssue() {
-	swal(issueLog[issueLog.length - 1].name,issueLog[issueLog.length - 1].data,'error');
+	alert(issueLog[issueLog.length - 1].name + "\n" + issueLog[issueLog.length - 1].data);
 }
 
 function logIssue(name,data,critical) {
 	issueLog.push({"name":name,"data":data});
 	if (critical) {
-		swal(name,data,'error');
+		swal(name + "\n" + data);
 	}
 }
 
@@ -186,7 +186,7 @@ function logIssue(name,data,critical) {
 
 function getLanguageName(langCode) {
 	var name = lang[langCode].language.name;
-	if (name == "English" && langCode != defaultLanguage) {
+	if (name == "English" && langCode != 'en-US') {
 		return langCode
 	} else {
 		return name
@@ -1593,22 +1593,13 @@ function initialize() {
 	}
 
 	if (lsm.getItem('jformat') != version && lsm.getItem('jformat') != undefined) {
-		swal({
-			title: "Your cookie format is old!",
-			text: "This may cause issues. Would you like to reset them? You won't be asked again until the next time the format changes.",
-			showCancelButton: true,
-			confirmButtonText: "Reset Cookies",
-			cancelButtonText: "Don't Reset",
-			closeOnCancel: false
-		},function(isConfirm){
-			if (isConfirm) {
-				sessionStorage.setItem('nextTimeAlert',JSON.stringify({'title': 'All Done', 'text': 'Your cookies have successfully been reset.\n\nCookies are reset when the format changes drastically, or when a mistake causes the cookies to break the website.', 'type': 'success'}));
-				lsm.clear();
-				location.reload();
-			} else {
-				swal('Nothing was reset','You won\'t be asked again until the cookie format changes. If you experience an issue, please clear your coookies for this website', 'info');
-			}
-		});
+		if (confirm('Your cookie format is old!\nThis may cause issues. Would you like to reset them? You won\'t be asked again until next time the format changes')) {
+			sessionStorage.setItem('nextTimeAlert',"Your cookies have successfully been reset.\n\nCookies are reset when the format changes drastically, or when a mistake causes the cookies to break the website.");
+			lsm.clear();
+			location.reload();
+		} else {
+			alert('Nothing was reset\nYou won\'t be asked again until the cookie format changes. If you experience an issue, please clear your coookies for this website');
+		}
 	} else {
 		/*check if alert isn't correctly set. Do not show the alert is jformat isn't set – that means the user hasn't been here before*/
 		if (lsm.getItem('jalert') != notice.id && lsm.getItem('jformat') != undefined && notice.show) {
@@ -1619,11 +1610,11 @@ function initialize() {
 	lsm.setItem('jformat',version);
 
 	if (sessionStorage.getItem('nextTimeAlert')) {
-		swal(JSON.parse(sessionStorage.getItem('nextTimeAlert')));
+		alert(sessionStorage.getItem('nextTimeAlert'));
 		sessionStorage.removeItem('nextTimeAlert');
 	}
 	if (lsm.getItem('nextTimeAlert')) {
-		swal(JSON.parse(lsm.getItem('nextTimeAlert')));
+		alert(lsm.getItem('nextTimeAlert'));
 		lsm.removeItem('nextTimeAlert');
 	}
 
@@ -1785,7 +1776,7 @@ function initialize() {
 			}
 			$('#command').val(inpt['command']);
 
-			swal("Imported", "Your command has been imported", "success");
+			alert("Your command has been imported");
 			refreshOutput();
 		})
 	});
@@ -1887,7 +1878,7 @@ function initialize() {
 			showView('tellraw');
 		} else if (id == "output-quotes-issue-button") {
 			$('.templateButton[template=tellraw]').click();
-			swal('The issue should be fixed.','If it is not, please report as Output > Other, and note this event in your report..','info');
+			alswer('The issue should be fixed.\nIf it is not, please report as Output > Other, and note this event in your report..','info');
 			showView('tellraw');
 		} else if (id == "output-badpreview-issue-button") {
 			alert('I\'m currently not accepting complaints about the format of the book layout');
@@ -1909,7 +1900,7 @@ function initialize() {
 
 	if (lsm.getItem('savesDeprecatedAlertShown') !== "AlertShown1") {
 		if (getNumberSaves() > 0) {
-			swal("Saves are being deprecated.","You may access your saves at the bottom of the page, please retrieve them and export them to a safe location, as this feature will be completely removed in a future update.");
+			alert("Saves are being deprecated.\nYou may access your saves at the bottom of the page, please retrieve them and export them to a safe location, as this feature will be completely removed in a future update.");
 			lsm.setItem('savesDeprecatedAlertShown', "AlertShown1");
 		}
 	}
