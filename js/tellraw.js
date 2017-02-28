@@ -1365,7 +1365,7 @@ function refreshOutput(input) {
 	jsonParse();
 
 	/*COMMAND BLOCK WARNING*/
-	if ($('#outputtextfield').val().length > 90) {
+	if ($('#outputtextfield').val().length > 256) {
 		$('#commandblock').show();
 	} else {
 		$('#commandblock').hide();
