@@ -1,5 +1,5 @@
 {
-	"__note": "Commands and Statistics last updated for 15ww35b",
+	"__note": "Commands and Statistics last updated for 15w35b",
 	"commands": [
 		"/achievement <give|take> <stat_name|*> [player]",
 		"/blockdata <x> <y> <z> <dataTag>",
@@ -1932,7 +1932,8 @@
 		"trigger",
 		"xp"
 	],
-	"web_language_urls": [
+	"default_language": "en-US",
+	"available_language_codes": [
 		"zh-TW",
 		"zh-CN",
 		"tr",

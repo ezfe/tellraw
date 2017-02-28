@@ -28,6 +28,7 @@ var issueLog = [];
 var bookPage = 1;
 var topPage = 1;
 var embed = false;
+var defaultLanguage = 'en-US';
 
 /***************************/
 /* Local Storage Interface */
@@ -139,6 +140,14 @@ if (!String.prototype.codePointAt) {
     };
 }
 
+function hardFail(message) {
+	if (!message) {
+		message = "An unexpected erorr occurred which cannot be recovered. Please reload or try again later.";
+	}
+	alert(message);
+	document.getElementsByTagName('body')[0].innerHTML = message + "<br><br>If the issue persists, click <a href=\"https://github.com/ezfe/tellraw/issues\">here</a> to file an issue report";
+}
+
 /******************/
 /* SWAL Interface */
 /******************/
@@ -177,7 +186,7 @@ function logIssue(name,data,critical) {
 
 function getLanguageName(langCode) {
 	var name = lang[langCode].language.name;
-	if (name == "English" && langCode != "en-US") {
+	if (name == "English" && langCode != defaultLanguage) {
 		return langCode
 	} else {
 		return name
@@ -1053,11 +1062,6 @@ function refreshOutput(input) {
 
 	refreshSavesList();
 
-	/*LANGUAGE SELECTIONS*/
-
-	$('.langSelect').removeClass('label label-success');
-	$('.' + lsm.getItem('langCode')).addClass('label label-success');
-
 	/*EXTRA MODAL COLOR PREVIEW MANAGER*/
 	$('#colorPreviewColor').css({ 'background-color': getCSSHEXFromWord(getSelected('color_extra')) });
 
@@ -1527,11 +1531,22 @@ function jsonParse() {
 	}
 }
 function refreshLanguage(dropdownSelection) {
+	$('#language_keys').children().remove();
+	for (var i = 0; i < Object.keys(lang).length; i++) {
+		$('#language_keys').append('<li><a onclick="errorString = \''+ getLanguageName(Object.keys(lang)[i]) +'<br><br>\'; lsm.setItem(\'langCode\',\''+Object.keys(lang)[i]+'\'); refreshLanguage(true); refreshOutput();"><span class="' + Object.keys(lang)[i] + ' langSelect" id="language_select_'+Object.keys(lang)[i]+'">'+ getLanguageName(Object.keys(lang)[i]) +'</span></a></li>');
+	};
+	$('#language_keys').append('<li class="divider"></li>');
+	$('#language_keys').append('<li><a href="http://translate.minecraftjson.com"><span class="language_area" lang="language.translate"></span></a></li>');
+
+	$('.langSelect').removeClass('label label-success');
+	$('.' + lsm.getItem('langCode')).addClass('label label-success');
+
 	if (lang[lsm.getItem('langCode')]) {
 		$('*').refreshLanguage(lsm.getItem('langCode'));
 	} else {
-		lsm.setItem('langCode','en-US')
+		lsm.setItem('langCode', defaultLanguage)
 	}
+
 	$('*').each(function(){
 		if ($(this).attr('version') != undefined && (lsm.getItem('versionIndicators') == "true" || lsm.getItem('versionIndicators') == undefined)) {
 			var levels = {
@@ -1574,7 +1589,7 @@ function initialize() {
 	}
 
 	if (lsm.getItem('langCode') == undefined) {
-		lsm.setItem('langCode','en_US');
+		lsm.setItem('langCode', defaultLanguage);
 	}
 
 	if (lsm.getItem('jformat') != version && lsm.getItem('jformat') != undefined) {
@@ -1677,37 +1692,27 @@ function initialize() {
 					swal('Awe...','I won\'t bother you again, so long as you don\'t reset your cookies.\n\nI can\'t remember things if you do that.');
 				}
 			});
-lsm.setItem('donateAlert','shown');
-}
-}
-
-for (var i = 0; i < Object.keys(templates).length; i++) {
-	var key = Object.keys(templates)[i]
-	if (key == lsm.getItem('jtemplate')) {
-		var classString = 'btn-success';
-	} else {
-		var classString = 'btn-default';
+			lsm.setItem('donateAlert','shown');
+		}
 	}
-	$('#templateButtons').append('<button class="btn btn-xs ' + classString + ' templateButton" lang="template.' + key + '" version="' + templates[key]['version'] + '" template="'+ key +'"></button> ');
-}
-if (lsm.getItem('jtemplate') == undefined) {
-	lsm.setItem('jtemplate', 'tellraw');
-}
-if (lang[lsm.getItem('langCode')]) {
-	errorString = getLanguageName(lsm.getItem('langCode')) + '<br><br>';
-} else {
-	errorString = '&lt;language unknown&gt;<br><br>';
-}
-/*var enCount = JSON.stringify(lang['en_US']).length;*/
-for (var i = 0; i < Object.keys(lang).length; i++) {
-		/*var langKey = Object.keys(lang)[i];
-		var currentCount = JSON.stringify(lang[langKey]).length;
-		var currentPercentage = Math.round(currentCount/enCount*100);
-		console.log(currentPercentage);*/
-		$('#language_keys').append('<li><a onclick="errorString = \''+ getLanguageName(Object.keys(lang)[i]) +'<br><br>\'; lsm.setItem(\'langCode\',\''+Object.keys(lang)[i]+'\'); refreshLanguage(true); refreshOutput();"><span class="' + Object.keys(lang)[i] + ' langSelect" id="language_select_'+Object.keys(lang)[i]+'">'+ getLanguageName(Object.keys(lang)[i]) +'</span></a></li>');
-	};
-	$('#language_keys').append('<li class="divider"></li>');
-	$('#language_keys').append('<li><a href="http://translate.minecraftjson.com"><span class="language_area" lang="language.translate"></span></a></li>');
+
+	for (var i = 0; i < Object.keys(templates).length; i++) {
+		var key = Object.keys(templates)[i]
+		if (key == lsm.getItem('jtemplate')) {
+			var classString = 'btn-success';
+		} else {
+			var classString = 'btn-default';
+		}
+		$('#templateButtons').append('<button class="btn btn-xs ' + classString + ' templateButton" lang="template.' + key + '" version="' + templates[key]['version'] + '" template="'+ key +'"></button> ');
+	}
+	if (lsm.getItem('jtemplate') == undefined) {
+		lsm.setItem('jtemplate', 'tellraw');
+	}
+	if (lang[lsm.getItem('langCode')]) {
+		errorString = getLanguageName(lsm.getItem('langCode')) + '<br><br>';
+	} else {
+		errorString = '&lt;language unknown&gt;<br><br>';
+	}
 
 	$('.extraTranslationParameterRow').hide();
 
@@ -1884,6 +1889,12 @@ for (var i = 0; i < Object.keys(lang).length; i++) {
 			$('.templateButton[template=tellraw]').click();
 			swal('The issue should be fixed.','If it is not, please report as Output > Other, and note this event in your report..','info');
 			showView('tellraw');
+		} else if (id == "output-badpreview-issue-button") {
+			alert('I\'m currently not accepting complaints about the format of the book layout');
+			if (confirm('Would you still like to report an issue?')) {
+				reportAnIssue('Output Issue (Bad Preview)');
+			}
+			showView('tellraw');
 		} else if (id == "output-other-issue-button") {
 			reportAnIssue('Output Issue (Other)');
 			showView('tellraw');
@@ -1928,61 +1939,63 @@ $(document).ready(function(){
 
 	$('#loadingtxt').html('Loading Assets');
 	try {
-		data = getURL('resources.json');
-	} catch(err) {
-		swal({
-			"title": "Error!",
-			"text": "An error occured loading page assets. Please try again later.",
-			"type": "error"
-		},function(){
-			$('html').html('Please try again later');
-		});
-	}
-	if (typeof data == 'string') {
-		try {
-			data = JSON.parse(data);
-		} catch(err) {
-			swal({
-				"title": "Error!",
-				"text": "An error occured loading page assets. Please try again later.",
-				"type": "error"
-			},function(){
-				$('html').html('Please try again later');
-			});
-		}
-	}
-	if (location.hash == "#embed") {
-		$('.view-container[view="tellraw"]').children().filter('br').remove();
-		embed = true;
-	} else {
-		embed = false;
-	}
-	webLangRelations = data['web_language_relations'];
-	achievements = data['achievements'];
-	commands = data['commands'];
-	for (var i = 0; i < data['web_language_urls'].length; i++) {
-		try {
-			var urlFetch = getURL('lang/' + data['web_language_urls'][i] + '.json');
-		} catch(err) {
-			if (data['web_language_urls'][i] == 'en_US') {
-				var urlFetch = {"language":{"name":"English"}};
-			} else {
-				continue;
-			}
-		}
-		if (typeof urlFetch == 'string') {
-			try {
-				urlFetch = JSON.parse(urlFetch);
-			} catch(err) {
-				if (data['web_language_urls'][i] == 'en_US') {
-					var urlFetch = {"language":{"name":"English"}};
+		$.ajax({
+			url: 'resources.json',
+			type: 'GET',
+			dataType: 'json',
+			success: function(resourcesJSON) {
+				if (location.hash == "#embed") {
+					$('.view-container[view="tellraw"]').children().filter('br').remove();
+					embed = true;
 				} else {
-					continue;
+					embed = false;
 				}
+
+				webLangRelations = resourcesJSON['web_language_relations'];
+				achievements = resourcesJSON['achievements'];
+				commands = resourcesJSON['commands'];
+				defaultLanguage = resourcesJSON['default_language'];
+				if (resourcesJSON['available_language_codes'].indexOf(lsm.getItem('langCode')) != -1) {
+					defaultLanguage = lsm.getItem('langCode');
+				}
+
+				$.ajax({
+					url: "lang/" + defaultLanguage + ".json",
+					type: 'GET',
+					dataType: 'json',
+					success: function(defaultLanguageJSON) {
+						lang[defaultLanguage] = defaultLanguageJSON;
+						for (var i = 0; i < resourcesJSON['available_language_codes'].length; i++) {
+							let code = resourcesJSON['available_language_codes'][i];
+							if (code != defaultLanguage) {
+								$.ajax({
+									url: "lang/" + code + ".json",
+									type: 'GET',
+									dataType: 'json',
+									success: function(languageJSON) {
+										lang[code] = languageJSON;
+										refreshLanguage();
+									},
+									error: function(request, error) {
+										alert('Unable to load ' + code);
+									}
+								});
+							}
+						}
+						delete lang.status;
+						initialize();
+					},
+					error: function(request, error) {
+						hardFail("Unable to load the default langauge files");
+					}
+				});
+			},
+			error: function(request, error) {
+				hardFail("Request: "+JSON.stringify(request));
 			}
-		}
-		lang[data['web_language_urls'][i]] = urlFetch;
+		});
+	} catch(err) {
+		hardFail("An error occured loading page assets.");
+		return;
 	}
-	delete lang.status;
-	setTimeout(initialize,500);
 });
