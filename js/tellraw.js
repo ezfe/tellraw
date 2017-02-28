@@ -1,6 +1,6 @@
 var chars = [1,2,3,4,5,6,7,8,9,0,'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 var matchLength = 0;
-var version = 3;
+var version = 4;
 var tos_version = 1;
 var notice = {
 	"show": false,
@@ -146,6 +146,26 @@ function hardFail(message) {
 	}
 	alert(message);
 	document.getElementsByTagName('body')[0].innerHTML = message + "<br><br>If the issue persists, click <a href=\"https://github.com/ezfe/tellraw/issues\">here</a> to file an issue report";
+}
+
+function makeExportString() {
+	return JSON.stringify({"command":$('#command').val(),"jobject":jobject,"jtemplate":lsm.getItem('jtemplate')})
+}
+
+function importString(oinpt) {
+	var inpt = undefined;
+	try {
+		inpt = JSON.parse(oinpt);
+	} catch(err) {
+		logIssue(getLanguageString('settings.importtext.exported.failed.header',lsm.getItem('langCode')),getLanguageString('settings.importtext.exported.failed.description',lsm.getItem('langCode')) + ': ' + oinpt,true)
+		return false;
+	}
+	jobject = inpt['jobject'];
+	if (inpt['jtemplate']) {
+		lsm.setItem('jtemplate',inpt['jtemplate'])
+	}
+	$('#command').val(inpt['command']);
+	return true;
 }
 
 /******************/
@@ -1592,23 +1612,6 @@ function initialize() {
 		lsm.setItem('langCode', defaultLanguage);
 	}
 
-	if (lsm.getItem('jformat') != version && lsm.getItem('jformat') != undefined) {
-		if (confirm('Your cookie format is old!\nThis may cause issues. Would you like to reset them? You won\'t be asked again until next time the format changes')) {
-			sessionStorage.setItem('nextTimeAlert',"Your cookies have successfully been reset.\n\nCookies are reset when the format changes drastically, or when a mistake causes the cookies to break the website.");
-			lsm.clear();
-			location.reload();
-		} else {
-			alert('Nothing was reset\nYou won\'t be asked again until the cookie format changes. If you experience an issue, please clear your coookies for this website');
-		}
-	} else {
-		/*check if alert isn't correctly set. Do not show the alert is jformat isn't set – that means the user hasn't been here before*/
-		if (lsm.getItem('jalert') != notice.id && lsm.getItem('jformat') != undefined && notice.show) {
-			swal(notice.message);
-		}
-		lsm.setItem('jalert',notice.id);
-	}
-	lsm.setItem('jformat',version);
-
 	if (sessionStorage.getItem('nextTimeAlert')) {
 		alert(sessionStorage.getItem('nextTimeAlert'));
 		sessionStorage.removeItem('nextTimeAlert');
@@ -1716,12 +1719,31 @@ function initialize() {
 
 	jsonParse();
 
-	if (lsm.getItem('jobject') != undefined) {
+	if (sessionStorage.getItem('nextTimeImport')) {
+		importString(sessionStorage.getItem('nextTimeImport'));
+		sessionStorage.removeItem('nextTimeImport');
+	} else if (lsm.getItem('jobject') != undefined) {
 		jobject = verify_jobject_format(JSON.parse(lsm.getItem("jobject")));
 	}
 
+	if (lsm.getItem('jformat') != version && lsm.getItem('jformat') != undefined) {
+		var exported = makeExportString();
+		sessionStorage.setItem('nextTimeImport', exported);
+		sessionStorage.setItem('nextTimeAlert', 'Updated from ' + lsm.getItem('jformat') + ' to ' + version);
+		lsm.clear();
+		location.reload();
+		return;
+	} else {
+		/*check if alert isn't correctly set. Do not show the alert is jformat isn't set – that means the user hasn't been here before*/
+		if (lsm.getItem('jalert') != notice.id && lsm.getItem('jformat') != undefined && notice.show) {
+			swal(notice.message);
+		}
+		lsm.setItem('jalert', notice.id);
+	}
+	lsm.setItem('jformat', version);
+
 	if (lsm.getItem('nlOutput') == undefined) {
-		lsm.setItem('nlOutput','no');
+		lsm.setItem('nlOutput', 'no');
 	}
 
 	if (lsm.getItem('nlOutput') == 'no') {
@@ -1758,35 +1780,17 @@ function initialize() {
 	$('#command').change(function(){refreshOutput()});
 
 	$('#import').click(function() {
-		swal({
-			"title": "Import",
-			"text": getLanguageString('settings.importtext.exported.description',lsm.getItem('langCode')),
-			"type": "input",
-			"closeOnConfirm": false
-		},function(oinpt){
-			var inpt = undefined
-			try {
-				inpt = JSON.parse(oinpt);
-			} catch(err) {
-				logIssue(getLanguageString('settings.importtext.exported.failed.header',lsm.getItem('langCode')),getLanguageString('settings.importtext.exported.failed.description',lsm.getItem('langCode')) + ': ' + oinpt,true)
-			}
-			jobject = inpt['jobject'];
-			if (inpt['jtemplate']) {
-				lsm.setItem('jtemplate',inpt['jtemplate'])
-			}
-			$('#command').val(inpt['command']);
-
+		if (importString(prompt(getLanguageString('settings.importtext.exported.description',lsm.getItem('langCode'))))) {
 			alert("Your command has been imported");
-			refreshOutput();
-		})
+		}
+		refreshOutput();
+
 	});
 	$('#export').click(function(){
 		$('#exporter').remove();
-		$('.alerts').append('<div id="exporter" class="alert alert-info"><h4 lang="export.heading"></h4><p><textarea readonly id="exportText">' + JSON.stringify({"command":$('#command').val(),"jobject":jobject,"jtemplate":lsm.getItem('jtemplate')}) + '</textarea></p><p><button type="button" onclick="closeExport()" class="btn btn-default" lang="export.close"></button></p></div>');
+		$('.alerts').append('<div id="exporter" class="alert alert-info"><h4 lang="export.heading"></h4><p><textarea readonly id="exportText">' + makeExportString() + '</textarea></p><p><button type="button" onclick="closeExport()" class="btn btn-default" lang="export.close"></button></p></div>');
 		$exportText = $('#exportText');
 		$exportText.select();
-		$exportText.height('1px');
-		$exportText.height(exportText.scrollHeight + "px");
 		$exportText.click(function(){
 			this.select();
 		});
