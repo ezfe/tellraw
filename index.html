@@ -83,7 +83,7 @@
 		</div>
 		<![endif]-->
 		<noscript>Please enable JavaScript</noscript>
-		<div class="view-container" view="pageheader">
+		<div style="display:none;" class="view-container" view="pageheader">
 			<div class="row">
 				<div class="col-sm-3 col-xs-12">
 					<h4 lang="header_rev2"></h4>
@@ -125,13 +125,13 @@
 				</div>
 			</div>
 		</div>
-		<div class="view-container" view="loading" style="text-align:center;">
+		<div style="display:none;" class="view-container" view="loading" style="text-align:center;">
 			<h4 id="loadingtxt">Loading Javascript</h4>
 			<h5>
 				If this page does not go away, try clicking <a onclick="localStorage.clear();location.reload();" href="#">here</a>. If that doesn't work, please <button class="report-issue btn btn-xs btn-danger"><i class="fa fa-exclamation-triangle"></i> <span>Report an Issue</span></button>
 			</h5>
 		</div>
-		<div class="view-container" view="report-issue">
+		<div style="display:none;" class="view-container" view="report-issue">
 			<div class="row">
 				<div class="col-md-12" style="text-align:center;">
 					<h2 lang="report_issue.describe"></h2>
@@ -173,7 +173,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="view-container well" view="settings">
+		<div style="display:none;" class="view-container well" view="settings">
 			<div class="row">
 				<div class="col-md-12">
 					<h4 lang="settings.header"></h4>
@@ -209,7 +209,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="view-container well" view="add-extra">
+		<div style="display:none;" class="view-container well" view="add-extra">
 			<div class="row row-margin-top row-margin-bottom">
 				<div class="btn-group col-sm-10">
 					<button type="button" version="1.7" lang="textsnippets.raw" id="fmtExtraRaw" tellrawType="raw" class="fmtExtra active btn btn-default"></button>
@@ -474,7 +474,7 @@
 				</div>
 			</div>
 		</div>
-		<div view="tellraw" class="view-container">
+		<div style="display:none;" view="tellraw" class="view-container">
 			<div class="alerts"></div>
 			<br><br>
 			<div>
@@ -757,11 +757,5 @@
 			</span>
 		</div>
 	</div>
-	<script>
-		let views = documents.getElementsByClass('view-container');
-		for (var i = 0; i < views.length; i++) {
-			views[i].style.display = "none";
-		}
-	</script>
 </body>
 </html>
