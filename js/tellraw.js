@@ -20,7 +20,6 @@ let upButton;
 let extraTextFormat = 'raw';
 let lang = {};
 let currentEdit;
-let hasAlertedTranslationObjects = false;
 let defaultLanguage = 'en-US';
 let languageCodes = [defaultLanguage];
 let webLangRelations;
@@ -619,15 +618,20 @@ function clearExtra() {
 	$('#textsnippets_add').html(getLanguageString('textsnippets.addsnippet', lsm.getItem('langCode')));
 	$('#textsnippets-add-button').addClass('btn-default');
 	$('#textsnippets-add-button').removeClass('btn-danger');
+	$('#textsnippets-add-button').attr('lang', 'textsnippets.addsnippet');
 	$('#obj_player').val('');
 	$('#obj_score').val('');
 	$('#text_extra_container').removeClass('has-error');
+
 	refreshOutput();
 }
 function editExtra(index) {
 	editingIndex = index;
-
 	cobject = jobject[editingIndex];
+
+	/* Prep the editor for this object, and for editing */
+
+	$('#textsnippets-add-button').attr('lang', 'textsnippets.editsnippet');
 
 	if (cobject.text != undefined) {
 		$('#obj_extra_container').hide();
