@@ -209,6 +209,11 @@
 				<div class="col-sm-2 col-xs-12">
 					<button onclick="showView('tellraw')" class="btn btn-block btn-default" id="closeSettings"><span lang="settings.hide"></span> <i class="fa fa-gear"></i></button>
 				</div>
+				<div class="col-sm-2 col-sm-offset-8 col-xs-12">
+					<button onclick="if (confirm('Delete All Settings?')) {sessionStorage.setItem('nextTimeImport', makeExportString());lsm.clear();location.reload();}" class="btn btn-block btn-danger" id="reset-all-settings">
+						<span lang="settings.reset-all-settings"></span> <i class="fa fa-trash"></i>
+					</button>
+				</div>
 			</div>
 		</div>
 		<div style="display:none;" class="view-container well" view="add-extra">

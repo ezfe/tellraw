@@ -1360,8 +1360,7 @@ function initialize() {
 	}
 
 	if (lsm.getItem('jformat') != version && lsm.getItem('jformat') != undefined) {
-		let exported = makeExportString();
-		sessionStorage.setItem('nextTimeImport', exported);
+		sessionStorage.setItem('nextTimeImport', makeExportString());
 		sessionStorage.setItem('nextTimeAlert', 'Updated from ' + lsm.getItem('jformat') + ' to ' + version);
 		lsm.clear();
 		location.reload();
