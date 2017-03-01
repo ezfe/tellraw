@@ -169,12 +169,6 @@ function importString(oinpt) {
 	return true;
 }
 
-/******************/
-/* SWAL Interface */
-/******************/
-
-// function alert(message) { return swal(message); }
-
 /*****************/
 /* Issue Reports */
 /*****************/
@@ -197,7 +191,7 @@ function showIssue() {
 function logIssue(name,data,critical) {
 	issueLog.push({"name":name,"data":data});
 	if (critical) {
-		swal(name + "\n" + data);
+		alert(name + "\n" + data);
 	}
 }
 
@@ -365,7 +359,7 @@ function verify_jobject_format(jdata) {
 		}
 	}
 	if (booleanUpdateCount > 0) {
-		swal({"title": "Udated!", "text": "All strings representing boolean values have been updated to true/false values (" + booleanUpdateCount + " change" + (booleanUpdateCount == 1 ? "" : "s") + ")", "type": "success"});
+		alert("All strings representing boolean values have been updated to true/false values (" + booleanUpdateCount + " change" + (booleanUpdateCount == 1 ? "" : "s") + ")");
 	}
 
 	if (emptyTextHoverRemoved > 0) {
@@ -520,22 +514,14 @@ function setObfuscatedString(string) {
 	return output;
 }
 function deleteAll() {
-	swal({
-		"title": getLanguageString('settings.deleteall.heading',lsm.getItem('langCode')),
-		"text": getLanguageString('settings.deleteall.body',lsm.getItem('langCode')),
-		"cancelButtonText": getLanguageString('settings.deleteall.no',lsm.getItem('langCode')),
-		"confirmButtonText": getLanguageString('settings.deleteall.yes',lsm.getItem('langCode')),
-		"showCancelButton": true,
-		"closeOnConfirm": false,
-		"type": "warning"
-	},function(isConfirm){
-		if (isConfirm) {
-			jobject = [];
-			$('.templateButton[template=tellraw]').click();
-			refreshOutput();
-			swal('Deleted!','Your current thing was deleted', 'success');
-		}
-	});
+	let head = getLanguageString('settings.deleteall.heading',lsm.getItem('langCode'));
+	let body = getLanguageString('settings.deleteall.body',lsm.getItem('langCode'));
+	if (confirm(head + "\n" + body)) {
+		jobject = [];
+		$('.templateButton[template=tellraw]').click();
+		refreshOutput();
+		refreshLanguage();
+	}
 }
 
 function obfuscationPreviewHandler() {
@@ -643,7 +629,7 @@ function clearExtra() {
 	$('#hoverEventEntityName').val('');
 	$('#hoverEventEntityID').val('');
 	$('#hoverEventEntityType').val('');
-	$('#textsnippets_add').html(getLanguageString('textsnippets.addsnippet'),lsm.getItem('langCode'));
+	$('#textsnippets_add').html(getLanguageString('textsnippets.addsnippet', lsm.getItem('langCode')));
 	$('#textsnippets-add-button').addClass('btn-default');
 	$('#textsnippets-add-button').removeClass('btn-danger');
 	$('#obj_player').val('');
@@ -676,7 +662,7 @@ function editExtra(index) {
 		$('#selector_extra_container_edit').hide();
 		$('#translate_selector_container_edit').show();
 		if (!hasAlertedTranslationObjects) {
-			swal('Translation objects are currently broken and may crash your game.','Please test your translation before publishing it.','warning');
+			alert("Translation objects are currently broken and may crash your game.\nPlease test your translation before publishing it.");
 			hasAlertedTranslationObjects = true;
 		}
 	} else if (jobject[index].score != undefined) {
@@ -788,7 +774,7 @@ function saveExtraEdit() {
 			};
 		}
 	} else {
-		swal('An unexpected error occured.');
+		alert('An unexpected error occured.');
 	}
 
 	delete jobject[extraIndex].bold;
@@ -824,8 +810,8 @@ function saveExtraEdit() {
 		jobject[extraIndex].clickEvent.action = clickEventType_edit;
 		jobject[extraIndex].clickEvent.value = $('#clickEventText_edit').val();
 		if (clickEventType_edit == "run_command" || clickEventType_edit == "suggest_command") {
-			if ($('#clickEventText_edit').val().length > 90) {
-				swal('Commands cannot be longer than 90 characters!','You should edit the length of your command before using this in game.','error');
+			if ($('#clickEventText_edit').val().length > 256) {
+				alert('Commands cannot be longer than 256 characters!\nYou should edit the length of your command before using this in game.');
 			}
 		}
 	}
@@ -898,7 +884,7 @@ function addExtra() {
 		$('#textsnippets-add-button').addClass('btn-danger');
 		return false;
 	} else if ($("#hoverEvent").val() == 'show_text' && $('#hoverEventTextSnippet').val() != '') {
-		swal('You entered text, but never added it!');
+		alert('You entered text, but never added it!');
 		$('#hoverEventTextSnippet').focus();
 		$('#textsnippets-add-button').removeClass('btn-default');
 		$('#textsnippets-add-button').addClass('btn-danger');
@@ -961,8 +947,8 @@ function addExtra() {
 		jobject[extraIndex].clickEvent.action = clickEventType;
 		jobject[extraIndex].clickEvent.value = $('#clickEventText').val();
 		if (clickEventType == "run_command" || clickEventType == "suggest_command") {
-			if ($('#clickEventText').val().length > 90) {
-				swal('Commands cannot be longer than 90 characters!','You should edit the length of your command before using this in game.','error');
+			if ($('#clickEventText').val().length > 256) {
+				alert('Commands cannot be longer than 256 characters!\nYou should edit the length of your command before using this in game.');
 			}
 		}
 
@@ -1138,7 +1124,7 @@ function refreshOutput(input) {
 		$('#selector_extra_container').hide();
 		$('#translate_selector_container').show();
 		if (!hasAlertedTranslationObjects) {
-			swal('Translation objects are currently broken and may crash your game.','Please test your translation before publishing it.','warning');
+			alert('Translation objects are currently broken and may crash your game.\nPlease test your translation before publishing it.');
 			hasAlertedTranslationObjects = true;
 		}
 	} else if (extraTextFormat == "obj") {
@@ -1547,75 +1533,6 @@ function initialize() {
 		lsm.removeItem('nextTimeAlert');
 	}
 
-	if (lsm.getItem('donateAlert') != "shown" && lsm.getItem('donateAlert') != "not-shown") {
-		lsm.setItem('donateAlert','not-shown')
-	} else {
-		if (lsm.getItem('donateAlert') == 'not-shown' && false) {
-			swal({
-				"title": "Please Consider Donating",
-				"text": "Donations help support my developement of these programs!\n\nDonations can be done through a variety of services, it's up to you.",
-				"confirmButtonText": "I want to donate",
-				"cancelButtonText": "I have already or don't want to donate",
-				"showCancelButton": true,
-				"closeOnConfirm": false,
-				"closeOnCancel": false
-			}, function(want){
-				if (want) {
-					var swalCallback = function(amount){
-						if (amount > 25 && amount < 40) {
-							var swalMessage = {
-								"title": "Overcast Network",
-								"text": "That amount fits nicely with an upgrade to my <a href=\"http://oc.tc/ezfe\">Overcast Network</a> account",
-								"html": true,
-								"confirmButtonText": "Ok, show me the page",
-								"cancelButtonText": "I'd rather just send the money",
-								"showCancelButton": true,
-								"closeOnConfirm": false,
-								"closeOnCancel": false
-							};
-							var swalCallback = function(shouldGoToOvercast){
-								if (shouldGoToOvercast) {
-									swal({
-										"title": "Almost done...",
-										"text": "When you arrive, enter the username <i>ezfe</i>",
-										"html": true,
-									},function(){
-										lsm.setItem('nextTimeAlert',JSON.stringify({"title": "Thanks!", "text": "I'm assuming you donated, in which case thanks! Otherwise, perhaps later?", "type": "success"}));
-										location.href = "https://oc.tc/shop";
-									});
-								} else {
-									var swalMessage = {
-										"title": "Ok, that's fine",
-										"text": "Right now, I only offer PayPal, because my web payment system is broken.\n\nYou can find my email address at the bottom of the page!",
-										"status": "success"
-									};
-									swal(swalMessage);
-								}
-							}
-							swal(swalMessage,swalCallback);
-						} else {
-							var swalMessage = {
-								"title": "Great!",
-								"text": "Right now, I only offer PayPal, because my web payment system is broken.\n\nYou can find my email address at the bottom of the page!",
-								"status": "success"
-							};
-							swal(swalMessage);
-						}
-					}
-					swal({
-						"title": "Awesome",
-						"text": "How much do you want to donate?\n(Please enter a number, like 3 or 11. Don't enter the $ symbol)",
-						"type": "input",
-						"closeOnConfirm":  false
-					},swalCallback);
-				} else {
-					swal('Awe...','I won\'t bother you again, so long as you don\'t reset your cookies.\n\nI can\'t remember things if you do that.');
-				}
-			});
-			lsm.setItem('donateAlert','shown');
-		}
-	}
-
 	for (var i = 0; i < Object.keys(templates).length; i++) {
 		var key = Object.keys(templates)[i]
 		if (key == lsm.getItem('jtemplate')) {
@@ -1662,7 +1579,7 @@ function initialize() {
 	} else {
 		/*check if alert isn't correctly set. Do not show the alert is jformat isn't set – that means the user hasn't been here before*/
 		if (lsm.getItem('jalert') != notice.id && lsm.getItem('jformat') != undefined && notice.show) {
-			swal(notice.message);
+			alert(notice.message);
 		}
 		lsm.setItem('jalert', notice.id);
 	}
