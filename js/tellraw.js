@@ -1634,7 +1634,7 @@ function initialize() {
 
 	$('#command').change(refreshOutput());
 
-	$('#import').click(function() {
+	$('#import').click(() => {
 		if (importString(prompt(getLanguageString('settings.importtext.exported.description',lsm.getItem('langCode'))))) {
 			alert("Your command has been imported");
 		}
@@ -1642,7 +1642,7 @@ function initialize() {
 
 	});
 
-	refreshOutput();
+	refreshOutput(	);
 	refreshLanguage();
 
 	$('#export').click(function(){
@@ -1663,7 +1663,7 @@ function initialize() {
 		$(this).addClass('active');
 		refreshOutput();
 	});
-	$('#addHoverTextText').on('click',function(){
+	$('#addHoverTextText').on('click',()=>{
 		textobj = JSON.parse($('#hoverEventText').val());
 		snipobj = {"text":$('#hoverEventTextSnippet').val()};
 		if ($('#snippetcolor').val() != 'none') {
@@ -1673,20 +1673,20 @@ function initialize() {
 		textobj.extra.push(snipobj)
 		$('#hoverEventText').val(JSON.stringify(textobj));
 	});
-	$('#removeHoverTextText').on('click',function(){
+	$('#removeHoverTextText').on('click',()=>{
 		textobj = JSON.parse($('#hoverEventText').val());
 		textobj.extra.splice(-1,1)
 		$('#hoverEventText').val(JSON.stringify(textobj));
 	});
-	$('#addExtraButton').on('click',function(){
+	$('#addExtraButton').on('click',()=>{
 		showView('add-extra')
 		editing = true;
 	});
-	$('#lang_request').on('click',function(){
+	$('#lang_request').on('click',()=>{
 		showView('lang-request');
 		$('#lang-request-errorstring').html(errorString);
 	});
-	$('#helptoggle').click(function(){
+	$('#helptoggle').click(()=>{
 		$('.help-box').toggle();
 	});
 	$('#enable_dark_mode').on('click',function(){
@@ -1701,18 +1701,18 @@ function initialize() {
 		$(this).hide();
 		$('#enable_dark_mode').show();
 	});
-	$('.report-issue').on('click',function(){
+	$('.report-issue').on('click',()=>{
 		$('.view-container[view="report-issue"]').children().not('.cancel-issue-row').hide();
 		$('#issue-workflow-r1').show();
 		showView('report-issue');
 	});
 
-	$('#previewBack').click(function(){
+	$('#previewBack').click(()=>{
 		if (bookPage != 1) bookPage--;
 		refreshOutput();
 	});
 
-	$('#previewForwards').click(function(){
+	$('#previewForwards').click(()=>{
 		if (bookPage < topPage) bookPage++;
 		refreshOutput();
 	});
@@ -1766,7 +1766,7 @@ function initialize() {
 		$('#enable_dark_mode').click(); //Finish setting up dark mode after handlers exist
 	}
 }
-$(document).ready(function(){
+$(document).ready(()=>{
 	if (lsm.getItem('darkMode') && lsm.getItem('darkMode') == 'true') {
 		$('body').addClass('black-theme'); //Rest of "dark mode" is handled later, color scheme handled early for appearance
 	} else if (lsm.getItem('darkMode') == undefined) {
@@ -1798,6 +1798,8 @@ $(document).ready(function(){
 				
 				if (languageCodes.indexOf(lsm.getItem('langCode')) != -1) {
 					defaultLanguage = lsm.getItem('langCode');
+				} else {
+					lsm.setItem('langCode', defaultLanguage);
 				}
 
 				getLanguageData(defaultLanguage).then(data => {
