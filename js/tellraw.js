@@ -1016,7 +1016,9 @@ function refreshOutput(input) {
 	if (selectedHover == "show_text") {
 		$('.hovertext_default').hide();
 		$('.hovertext_text').show();
-		$('#hoverEventText').val(JSON.stringify({"text":"","extra":[]}));
+		if ($('#hoverEventText').val() == "") {
+			$('#hoverEventText').val(JSON.stringify({"text":"","extra":[]}));
+		}
 	} else {
 		$('.hovertext_text').hide();
 	}
