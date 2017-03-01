@@ -1329,7 +1329,8 @@ function jsonParse() {
 		$('#previewForwards').hide();
 		$('#previewPage').hide();
 	}
-	if (get_type(jobject) == "[object Array]") {
+	
+	if (jobject.length > 0) {
 		var pageHash = {};
 		var counter = 1;
 		for (var i = 0; i < jobject.length; i++) {
@@ -1560,8 +1561,6 @@ function initialize() {
 	}
 	$('#previewcolor').css('background-color','#'+$('#previewcolor').val());
 
-	jsonParse();
-
 	if (sessionStorage.getItem('nextTimeImport')) {
 		importString(sessionStorage.getItem('nextTimeImport'));
 		sessionStorage.removeItem('nextTimeImport');
@@ -1618,6 +1617,9 @@ function initialize() {
 		refreshOutput();
 	});
 
+	refreshOutput();
+	refreshLanguage();
+
 	$('#command').val(lsm.getItem('jcommand'));
 
 	$('#command').change(function(){refreshOutput()});
@@ -1641,9 +1643,6 @@ function initialize() {
 		goToByScroll('exporter');
 		refreshLanguage();
 	});
-
-	refreshOutput();
-	refreshLanguage();
 
 	$('.fmtExtra').on('click', function(){
 		extraTextFormat = $(this).attr('tellrawType');
@@ -1694,7 +1693,6 @@ function initialize() {
 		$('#issue-workflow-r1').show();
 		showView('report-issue');
 	});
-
 
 	$('#previewBack').click(function(){
 		if (bookPage != 1) bookPage--;
