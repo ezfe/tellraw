@@ -893,9 +893,6 @@ function refreshOutput(input) {
 					if (get_type(jobject[i].text) != "[object Undefined]") {
 						var tempJSON = '<input id="previewLine'+i+'" onkeyup="jobject['+i+'].text = $(\'#previewLine'+i+'\').val(); refreshOutput(\'previewLineChange\')" type="text" class="form-control previewLine" value="'+jobject[i].text+'">';
 						var saveButton = '';
-					} else if (get_type(jobject[i].translate) != "[object Undefined]") {
-						var tempJSON = '<input type="text" class="form-control previewLine" disabled value="'+jobject[i].translate+'">';
-						var saveButton = '';
 					} else if (get_type(jobject[i].score) != "[object Undefined]") {
 						var tempJSON = '<input type="text" class="form-control previewLine" disabled value="'+jobject[i].score.name+'\'s '+jobject[i].score.objective+' score">';
 						var saveButton = '';
@@ -977,31 +974,18 @@ function refreshOutput(input) {
 
 	/*EXTRA TRANSLATE STRING MANAGER*/
 
-	if (extraTextFormat == "trn") {
-		$('#obj_extra_container').hide();
+	if (extraTextFormat == "obj") {
 		$('#text_extra_container').hide();
-		$('#selector_extra_container').hide();
-		$('#translate_selector_container').show();
-		if (!hasAlertedTranslationObjects) {
-			alert('Translation objects are currently broken and may crash your game.\nPlease test your translation before publishing it.');
-			hasAlertedTranslationObjects = true;
-		}
-	} else if (extraTextFormat == "obj") {
-		$('#text_extra_container').hide();
-		$('#translate_selector_container').hide();
 		$('#selector_extra_container').hide();
 		$('#obj_extra_container').show();
 	} else if (extraTextFormat == "sel") {
 		$('#text_extra_container').hide();
-		$('#translate_selector_container').hide();
 		$('#selector_extra_container').show();
 		$('#obj_extra_container').hide();
 	} else if (extraTextFormat == "raw") {
 		$('#text_extra_container').show();
 		$('#obj_extra_container').hide();
-		$('#translate_selector_container').hide();
 		$('#selector_extra_container').hide();
-		$('.extraTranslationParameterRow').hide();
 	}
 
 	/*COMMAND MANAGER*/
@@ -1188,8 +1172,6 @@ function jsonParse() {
 					$('#jsonPreviewSpanElement'+i).html(jobject[i].text.replace(/\\\\n/g,'<br>').replace(/\\n/g,'<br>'));
 				} else if (jobject[i].score) {
 					$('#jsonPreviewSpanElement'+i).html('<span class="label label-info">' + jobject[i].score.name + ':' + jobject[i].score.objective + '</span>');
-				} else if (jobject[i].translate) {
-					$('#jsonPreviewSpanElement'+i).html('<span class="label label-warning">Translation</span>');
 				} else if (jobject[i].selector) {
 					$('#jsonPreviewSpanElement'+i).html('<span class="label label-primary">' + jobject[i].selector + '</span>');
 				} else {
@@ -1362,8 +1344,6 @@ function initialize() {
 	} else {
 		errorString = '&lt;language unknown&gt;<br><br>';
 	}
-
-	$('.extraTranslationParameterRow').hide();
 
 	if (lsm.getItem('color') != undefined) {
 		$('#previewcolor').val(lsm.getItem("color"));
