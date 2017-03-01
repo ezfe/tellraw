@@ -1,8 +1,8 @@
-var chars = [1,2,3,4,5,6,7,8,9,0,'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
-var matchLength = 0;
-var version = 4;
-var tos_version = 1;
-var notice = {
+const chars = [1,2,3,4,5,6,7,8,9,0,'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+let matchLength = 0;
+const version = 4;
+const tos_version = 1;
+const notice = {
 	"show": false,
 	"id": 8,
 	"message": {
@@ -11,69 +11,70 @@ var notice = {
 		"type": "info"
 	}
 };
-var jobject = [];
-var selectedHover;
-var selectedClick;
-var selectedHover_edit;
-var selectedClick_edit;
-var downButton;
-var upButton;
-var extraTextFormat = 'raw';
-var lang = {"status":"init"};
-var currentEdit;
-var hasAlertedTranslationObjects = false;
-var defaultLanguage = 'en-US';
-var languageCodes = [defaultLanguage];
-var webLangRelations;
-var editing = false;
-var issueLog = [];
-var bookPage = 1;
-var topPage = 1;
-var embed = false;
+let jobject = [];
+let selectedHover;
+let selectedClick;
+let selectedHover_edit;
+let selectedClick_edit;
+let downButton;
+let upButton;
+let extraTextFormat = 'raw';
+let lang = {};
+let currentEdit;
+let hasAlertedTranslationObjects = false;
+let defaultLanguage = 'en-US';
+let languageCodes = [defaultLanguage];
+let webLangRelations;
+let editing = false;
+let issueLog = [];
+let bookPage = 1;
+let topPage = 1;
+let embed = false;
 
 /***************************/
 /* Local Storage Interface */
 /***************************/
 
-var lsm = {};
-lsm.enabled = false;
-lsm.storage = {};
-lsm.setItem = function(key, value) {
-	try {
-		localStorage.setItem(key, value);
-	} catch(e) {
-		lsm.enabled = true;
-		lsm.storage[key] = value;
+let lsm = {
+	enabled: false,
+	storage: {},
+	setItem(key, value) {
+		try {
+			localStorage.setItem(key, value);
+		} catch(e) {
+			lsm.enabled = true;
+			lsm.storage[key] = value;
+		}
+	},
+	getItem(key) {
+		if (lsm.enabled) {
+			return lsm.storage[key];
+		} else {
+			return localStorage.getItem(key);
+		}
+	},
+	clear() {
+		if (lsm.enabled) {
+			lsm.storage = {};
+		} else {
+			localStorage.clear();
+		}
+	},
+	removeItem(key) {
+		if (lsm.enabled) {
+			delete lsm.storage[key];
+		} else {
+			localStorage.removeItem(key);
+		}
+	},
+	dictionary() {
+		if (lsm.enabled) {
+			return lsm.storage;
+		} else {
+			return localStorage;
+		}
 	}
-}
-lsm.getItem = function(key) {
-	if (lsm.enabled) {
-		return lsm.storage[key];
-	} else {
-		return localStorage.getItem(key);
-	}
-}
-lsm.clear = function() {
-	if (lsm.enabled) {
-		lsm.storage = {};
-	} else {
-		localStorage.clear();
-	}
-}
-lsm.removeItem = function(key) {
-	if (lsm.enabled) {
-		delete lsm.storage[key];
-	} else {
-		localStorage.removeItem(key);
-	}
-}
-lsm.dictionary = function() {
-	if (lsm.enabled) {
-		return lsm.storage;
-	} else {
-		return localStorage;
-	}
-}
+};
 
 /*********************/
 /* Utility Functions */
@@ -128,7 +129,7 @@ function getURL(url){
 MIT license
 */
 if (!String.prototype.codePointAt) {
-	String.prototype.codePointAt = function (pos) {
+	String.prototype.codePointAt = function(pos) {
 		pos = isNaN(pos) ? 0 : pos;
 		var str = String(this),
 		code = str.charCodeAt(pos),
@@ -141,10 +142,7 @@ if (!String.prototype.codePointAt) {
     };
 }
 
-function hardFail(message) {
-	if (!message) {
-		message = "An unexpected erorr occurred which cannot be recovered. Please reload or try again later.";
-	}
+function hardFail(message = "An unexpected erorr occurred which cannot be recovered. Please reload or try again later.") {
 	alert(message);
 	document.getElementsByTagName('body')[0].innerHTML = message + "<br><br>If the issue persists, click <a href=\"https://github.com/ezfe/tellraw/issues\">here</a> to file an issue report";
 }
@@ -177,7 +175,7 @@ function reportAnIssue(ptitle) {
 	var title = "";
 	var body = "";
 	if (ptitle != undefined) {
-		title = "Issue Report - " + ptitle;
+		title = `Issue Report - ${ptitle}`;
 		body = 'Please enter steps to reproduce the issue below, as well as any other information you want to include%0A%0A%0A%0A%0A%0A Provided Data - Do not modify below this line%0A%0A```%0A' + JSON.stringify(jobject) + '%0A```';
 	}
 	var win = window.open('http://github.com/ezfe/tellraw/issues/new?body=' + body + '&title=' + title, '_blank');
@@ -185,13 +183,13 @@ function reportAnIssue(ptitle) {
 }
 
 function showIssue() {
-	alert(issueLog[issueLog.length - 1].name + "\n" + issueLog[issueLog.length - 1].data);
+	alert(`${issueLog[issueLog.length - 1].name}\n${issueLog[issueLog.length - 1].data}`);
 }
 
 function logIssue(name,data,critical) {
-	issueLog.push({"name":name,"data":data});
+	issueLog.push({"name": name,"data": data});
 	if (critical) {
-		alert(name + "\n" + data);
+		alert(`${name}\n${data}`);
 	}
 }
 
@@ -208,23 +206,37 @@ function getLanguageName(langCode) {
 	}
 }
 
+function getLanguageData(langCode) {
+	if (lang[langCode] === undefined) {
+		return new Promise((resolve, reject) => {
+			$.ajax({
+				url: `lang/${langCode}.json`,
+				type: 'GET',
+				dataType: 'json',
+				success: languageJSON => {
+					resolve(languageJSON);
+				},
+				error: (request, error) => {
+					reject(error);
+				}
+			});
+		});
+	} else {
+		return new Promise((resolve, reject) => {
+			resolve(lang[langCode]);
+		});
+	}
+}
+
 function loadOtherLanguages() {
 	for (var i = 0; i < languageCodes.length; i++) {
 		let code = languageCodes[i];
-		if (lang[code] === undefined) {
-			$.ajax({
-				url: "lang/" + code + ".json",
-				type: 'GET',
-				dataType: 'json',
-				success: function(languageJSON) {
-					lang[code] = languageJSON;
-					refreshLanguage();
-				},
-				error: function(request, error) {
-					alert('Unable to load ' + code);
-				}
-			});
-		}
+		getLanguageData(code).then(data => {
+			lang[code] = data;
+			refreshLanguage();
+		}, err => {
+			alert(err);
+		});
 	}
 }
 
@@ -359,7 +371,7 @@ function verify_jobject_format(jdata) {
 		}
 	}
 	if (booleanUpdateCount > 0) {
-		alert("All strings representing boolean values have been updated to true/false values (" + booleanUpdateCount + " change" + (booleanUpdateCount == 1 ? "" : "s") + ")");
+		alert(`All strings representing boolean values have been updated to true/false values (${booleanUpdateCount} change${(booleanUpdateCount == 1 ? "" : "s")})`);
 	}
 
 	if (emptyTextHoverRemoved > 0) {
@@ -447,10 +459,10 @@ function goToByScroll(id){
 	}
 }
 
-var MOUSE_ACTION_HOVER = "MA_HOVER";
-var MOUSE_ACTION_CLICK = "MA_CLICK";
-var MOUSE_ACTION_INSERTION = "MA_INSERTION";
-var templates =
+const MOUSE_ACTION_HOVER = "MA_HOVER";
+const MOUSE_ACTION_CLICK = "MA_CLICK";
+const MOUSE_ACTION_INSERTION = "MA_INSERTION";
+let templates =
 {
 	"tellraw": {
 		"command": "/tellraw @p %s",
@@ -516,7 +528,7 @@ function setObfuscatedString(string) {
 function deleteAll() {
 	let head = getLanguageString('settings.deleteall.heading',lsm.getItem('langCode'));
 	let body = getLanguageString('settings.deleteall.body',lsm.getItem('langCode'));
-	if (confirm(head + "\n" + body)) {
+	if (confirm(`${head}\n${body}`)) {
 		jobject = [];
 		$('.templateButton[template=tellraw]').click();
 		refreshOutput();
@@ -986,7 +998,8 @@ function refreshOutput(input) {
 	/*VERIFY CONTENTS*/
 	jobject = verify_jobject_format(jobject);
 
-	if ($('#command').val().indexOf('%s') == -1) {
+	//TODO: What the fuck
+	if (!$('#command').val().includes('%s')) {
 		$('#command').val('/tellraw @p %s');
 		lsm.setItem('jtemplate','tellraw');
 	}
@@ -1329,10 +1342,10 @@ function jsonParse() {
 		$('#previewForwards').hide();
 		$('#previewPage').hide();
 	}
-	
+
 	if (jobject.length > 0) {
-		var pageHash = {};
-		var counter = 1;
+		let pageHash = {};
+		let counter = 1;
 		for (var i = 0; i < jobject.length; i++) {
 			if (jobject[i].NEW_ITERATE_FLAG) {
 				counter++;
@@ -1362,15 +1375,15 @@ function jsonParse() {
 					$('#jsonPreview').append('<span id="jsonPreviewSpanElement'+ i +'"><hr></span>');
 				}
 			} else if (pageHash['index.' + i] == bookPage || templates[lsm.getItem('jtemplate')].formatType != 'bookarray') {
-				var doClickEvent = false;
-				var doHoverEvent = false;
-				var popoverTitle = "";
-				var popoverContentClick = "";
-				var popoverContentHover = "";
-				var hoverEventType = "";
-				var hoverEventValue = "";
-				var clickEventType = "";
-				var clickEventValue = "";
+				let doClickEvent = false;
+				let doHoverEvent = false;
+				let popoverTitle = "";
+				let popoverContentClick = "";
+				let popoverContentHover = "";
+				let hoverEventType = "";
+				let hoverEventValue = "";
+				let clickEventType = "";
+				let clickEventValue = "";
 				$('#jsonPreview').append('<span id="jsonPreviewSpanElement'+ i +'"></span>');
 
 				if (jobject[i].text) {
@@ -1482,7 +1495,7 @@ function refreshLanguage(dropdownSelection) {
 
 	$('*').each(function(){
 		if ($(this).attr('version') != undefined && (lsm.getItem('versionIndicators') == "true" || lsm.getItem('versionIndicators') == undefined)) {
-			var levels = {
+			let levels = {
 				"1.13": "danger",
 				"1.12": "danger",
 				"1.11": "warning",
@@ -1491,7 +1504,7 @@ function refreshLanguage(dropdownSelection) {
 				"1.8": "success",
 				"1.7": "success"
 			};
-			var labelLevel = 'success';
+			let labelLevel = 'success';
 			if (levels[$(this).attr('version')]) {
 				labelLevel = levels[$(this).attr('version')];
 			}
@@ -1535,7 +1548,7 @@ function initialize() {
 	}
 
 	for (var i = 0; i < Object.keys(templates).length; i++) {
-		var key = Object.keys(templates)[i]
+		let key = Object.keys(templates)[i]
 		if (key == lsm.getItem('jtemplate')) {
 			var classString = 'btn-success';
 		} else {
@@ -1569,7 +1582,7 @@ function initialize() {
 	}
 
 	if (lsm.getItem('jformat') != version && lsm.getItem('jformat') != undefined) {
-		var exported = makeExportString();
+		let exported = makeExportString();
 		sessionStorage.setItem('nextTimeImport', exported);
 		sessionStorage.setItem('nextTimeAlert', 'Updated from ' + lsm.getItem('jformat') + ' to ' + version);
 		lsm.clear();
@@ -1597,7 +1610,7 @@ function initialize() {
 	showView('pageheader',true,false);
 	//JSON.stringify({"viewname":viewname,"suppressAnimation":suppressAnimation,"hideOthers":hideOthers,"hideMenubar":hideMenubar})
 	if (lsm.getItem('jview') != undefined/* && typeof JSON.stringify(lsm.getItem('jview')) != "string"*/) {
-		var viewObject = JSON.parse(lsm.getItem('jview'));
+		let viewObject = JSON.parse(lsm.getItem('jview'));
 		showView(viewObject.viewname,viewObject.suppressAnimation,viewObject.hideOthers,viewObject.hideMenubar);
 	} else {
 		showView('tellraw')
@@ -1609,7 +1622,7 @@ function initialize() {
 		$('.templateButton').removeClass('btn-success').removeClass('btn-default').addClass('btn-default');
 		$(this).addClass('btn-success').removeClass('btn-default');
 
-		var template = $(this).attr('template');
+		let template = $(this).attr('template');
 
 		lsm.setItem('jtemplate',template);
 		$('#command').val(templates[lsm.getItem('jtemplate')]['command']);
@@ -1617,12 +1630,9 @@ function initialize() {
 		refreshOutput();
 	});
 
-	refreshOutput();
-	refreshLanguage();
-
 	$('#command').val(lsm.getItem('jcommand'));
 
-	$('#command').change(function(){refreshOutput()});
+	$('#command').change(refreshOutput());
 
 	$('#import').click(function() {
 		if (importString(prompt(getLanguageString('settings.importtext.exported.description',lsm.getItem('langCode'))))) {
@@ -1631,6 +1641,9 @@ function initialize() {
 		refreshOutput();
 
 	});
+
+	refreshOutput();
+	refreshLanguage();
 
 	$('#export').click(function(){
 		$('#exporter').remove();
@@ -1705,9 +1718,9 @@ function initialize() {
 	});
 
 	$('.issue-button').click(function(){
-		var parentRow = $(this).parent().parent();
+		let parentRow = $(this).parent().parent();
 		parentRow.hide();
-		var id = $(this).attr('id');
+		let id = $(this).attr('id');
 		if (id == "translation-issue-button") {
 			$('#issue-workflow-r2-translation').fadeIn();
 		} else if (id == "output-issue-button") {
@@ -1769,7 +1782,7 @@ $(document).ready(function(){
 			url: 'resources.json',
 			type: 'GET',
 			dataType: 'json',
-			success: function(resourcesJSON) {
+			success: resourcesJSON => {
 				if (location.hash == "#embed") {
 					$('.view-container[view="tellraw"]').children().filter('br').remove();
 					embed = true;
@@ -1787,21 +1800,14 @@ $(document).ready(function(){
 					defaultLanguage = lsm.getItem('langCode');
 				}
 
-				$.ajax({
-					url: "lang/" + defaultLanguage + ".json",
-					type: 'GET',
-					dataType: 'json',
-					success: function(defaultLanguageJSON) {
-						lang[defaultLanguage] = defaultLanguageJSON;
-						delete lang.status;
-						initialize();
-					},
-					error: function(request, error) {
-						hardFail("Unable to load the default langauge files");
-					}
+				getLanguageData(defaultLanguage).then(data => {
+					lang[defaultLanguage] = data;
+					initialize();
+				}, err => {
+					hardFail(err);
 				});
 			},
-			error: function(request, error) {
+			error: (request, error) => {
 				hardFail("Request: "+JSON.stringify(request));
 			}
 		});
