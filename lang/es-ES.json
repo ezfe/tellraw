@@ -1,6 +1,6 @@
 {
     "report_issue": {
-        "badpreview": "Bad Preview",
+        "badpreview": "Mala previsualizaci\u00f3n",
         "describe": "Por favor, explica tu problema",
         "translation_issue": "Problema con la traducci\u00f3n",
         "output_issue": "Problema con el c\u00f3digo",
@@ -21,7 +21,7 @@
     },
     "headerbar": {
         "dropdown": {
-            "uptime": "Uptime",
+            "uptime": "Estado del Servicio",
             "translate_page_link": "P\u00e1gina de traducci\u00f3n",
             "hover": "\u00a1Versi\u00f3n Beta disponible!",
             "beta_link": "Versi\u00f3n Beta",
@@ -91,7 +91,6 @@
             "showtext": "Mostrar texto",
             "name": "Nombre"
         },
-        "trn": "Traducido",
         "parameter": "Par\u00e1metro",
         "editsnippet": "Editar Texto",
         "close": "Cerrar",
@@ -129,7 +128,7 @@
                     "header": "Error al importar",
                     "description": "Entrada"
                 },
-                "description": "Introduce aqu\u00ed el texto obtenido al exportar un comando"
+                "description": "Introduce aqu\u00ed el texto obtenido al exportar el comando"
             }
         },
         "nlOutput": "Muestra el comando estructurado",
@@ -160,7 +159,7 @@
         "report-an-issue": "Haz click para reportar un error. Si encuentras alg\u00fan fallo, comun\u00edcalo aqu\u00ed.",
         "dropdown-list": "Twitea esta p\u00e1gina, mira el historial de cambios, ve al tema en el foro de minecraft, o completa los idiomas a\u00fan por traducir.",
         "addsnippet": "A\u00f1ade este texto al comando tellraw.",
-        "delete-all-snippets": "Elimina este comando por completo. Las copias guardadas permanecer\u00e1n."
+        "delete-all-snippets": "Elimina este comando por completo. Si lo quieres conservar exp\u00f3rtalo previamente."
     },
     "output": {
         "nothing": "Nada por ahora",

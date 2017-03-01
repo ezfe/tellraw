@@ -1,16 +1,16 @@
 {
     "report_issue": {
-        "badpreview": "Bad Preview",
-        "describe": "Please describe your issue",
-        "translation_issue": "Translation Issue",
-        "output_issue": "Output Issue",
-        "other_issue": "Other Issue",
-        "other_language": "Other Language",
-        "too_many_quotes": "Too Many Quotes",
-        "cancel": "Cancel"
+        "badpreview": "K\u00f6t\u00fc \u00f6nizleme",
+        "describe": "L\u00fctfen sorununuzu a\u00e7\u0131klay\u0131n",
+        "translation_issue": "\u00c7eviri sorunu",
+        "output_issue": "\u00c7\u0131kt\u0131 sorunu",
+        "other_issue": "Ba\u015fka bir sorun",
+        "other_language": "Ba\u015fka bir dil",
+        "too_many_quotes": "\u00c7ok fazla al\u0131nt\u0131",
+        "cancel": "\u0130ptal"
     },
     "template": {
-        "actionbar": "Action Bar",
+        "actionbar": "Eylem \u00e7ubu\u011fu",
         "sign_block": "Tabela (\/blockdata)",
         "sign_item": "Tabela (\/give)",
         "subtitle": "Altyaz\u0131 (\/title)",
@@ -21,7 +21,7 @@
     },
     "headerbar": {
         "dropdown": {
-            "uptime": "Uptime",
+            "uptime": "\u00c7al\u0131\u015fma s\u00fcresi",
             "translate_page_link": "\u00c7eviri Sitesi",
             "hover": "Beta versiyonu mevcut",
             "beta_link": "Versiyonu",
@@ -35,12 +35,12 @@
     "textsnippets": {
         "NEW_ITERATE_FLAG": {
             "add": {
-                "book": "Add Book Page",
-                "sign": "Add Sign Line"
+                "book": "Kitap sayfas\u0131 ekle",
+                "sign": "Tabela sat\u0131r\u0131 ekle"
             },
             "incorrect_template": {
                 "primary": {
-                    "header": "You must be using the book or sign templates",
+                    "header": "Kitap ya da tabela \u015fablonunu kullan\u0131yor olmal\u0131s\u0131n\u0131z",
                     "description": "\u015eablonunuzu de\u011fi\u015ftirmek mi istiyorsunuz?",
                     "yes": "Evet",
                     "no": "Hay\u0131r"
@@ -91,7 +91,6 @@
             "showtext": "Yaz\u0131 G\u00f6ster",
             "name": "\u0130sim"
         },
-        "trn": "\u00c7evrilimi\u015f",
         "parameter": "Parametre",
         "editsnippet": "Yaz\u0131y\u0131 d\u00fczenle",
         "close": "Kapat",

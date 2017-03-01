@@ -1,6 +1,6 @@
 {
     "report_issue": {
-        "badpreview": "Bad Preview",
+        "badpreview": "Lo\u0161 Pregled",
         "describe": "Molimo vas, opi\u0161ite problem",
         "translation_issue": "Problem u Prijevodu",
         "output_issue": "Izlazni Problem",
@@ -46,7 +46,7 @@
                     "no": "Ne"
                 },
                 "secondary": {
-                    "header": "Knjiga ili Znak",
+                    "header": "Knjiga ili Znak?",
                     "description": "\u017deli\u0161 li napraviti knjigu ili znak? (Ovo mo\u017ee\u0161 promjeniti kasnije)",
                     "book": "Knjiga",
                     "sign": "Znak"
@@ -91,7 +91,6 @@
             "showtext": "Prika\u017ei Tekst",
             "name": "Ime"
         },
-        "trn": "Prevedeno",
         "parameter": "Parametar",
         "editsnippet": "Uredi Tekst",
         "close": "Zatvori",
