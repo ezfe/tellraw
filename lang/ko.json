@@ -9,6 +9,37 @@
         "too_many_quotes": "\ub108\ubb34 \ub9ce\uc740 \uae30\ud638",
         "cancel": "\ucde8\uc18c"
     },
+    "settings": {
+        "reset-all-settings": "Reset All Settings",
+        "importtext": {
+            "exported": {
+                "header": "\uac00\uc838\uc624\uae30",
+                "failed": {
+                    "header": "\uac00\uc838\uc624\uae30 \uc2e4\ud328",
+                    "description": "\uc785\ub825\ud55c \ubb38\uc790"
+                },
+                "description": "\ub2f9\uc2e0\uc774 \ub2f9\uc2e0\uc758 \uba85\ub839\uc744 \ub0b4\ubcf4\ub0bc \ub54c\uc774 \uc8fc\uc5b4\uc9c4 \ubb38\uc790\uc5f4\uc744 \uc785\ub825\ud558\uc138\uc694"
+            }
+        },
+        "nlOutput": "\uad6c\uc870\ud654 \ub41c \ucd9c\ub825\uc744\ubcf4\uae30",
+        "darkmode": {
+            "turn_on": "\uc5b4\ub450\uc6b4 \ud14c\ub9c8",
+            "turn_off": "\ubc1d\uc740 \ud14c\ub9c8"
+        },
+        "show": "\uc124\uc815 \uc5f4\uae30",
+        "hide": "\uc124\uc815 \ub2eb\uae30",
+        "fontSize": "\ud3f0\ud2b8 \ud06c\uae30 \ubbf8\ub9ac\ubcf4\uae30",
+        "previewcolor": "\ubc30\uacbd\uc0c9\uc0c1 \ubbf8\ub9ac \ubcf4\uae30:",
+        "export": "\ucd94\ucd9c",
+        "deleteall": {
+            "body": "\ubaa8\ub4e0 \ud14d\uc2a4\ud2b8\ub97c \uc81c\uac70\ud558\uace0 \ube48 \ubb38\uc790\uc5f4\ub85c \ucd08\uae30\ud654\ub429\ub2c8\ub2e4.",
+            "heading": "\ud655\uc2e4\ud569\ub2c8\uae4c!?!",
+            "yes": "\ubaa8\ub450 \uc0ad\uc81c",
+            "no": "\ucde8\uc18c"
+        },
+        "import": "\uac00\uc838\uc624\uae30",
+        "header": "\uc124\uc815:"
+    },
     "template": {
         "actionbar": "\uc561\uc158 \ubc14",
         "sign_block": "\ud45c\uc9c0\ud310 (\/blockdata)",
@@ -120,36 +151,6 @@
         }
     },
     "header_rev2": "\ub9c8\uc778\ud06c\ub798\ud504\ud2b8 Tellraw \uc0dd\uc131\uae30 ",
-    "settings": {
-        "importtext": {
-            "exported": {
-                "header": "\uac00\uc838\uc624\uae30",
-                "failed": {
-                    "header": "\uac00\uc838\uc624\uae30 \uc2e4\ud328",
-                    "description": "\uc785\ub825\ud55c \ubb38\uc790"
-                },
-                "description": "\ub2f9\uc2e0\uc774 \ub2f9\uc2e0\uc758 \uba85\ub839\uc744 \ub0b4\ubcf4\ub0bc \ub54c\uc774 \uc8fc\uc5b4\uc9c4 \ubb38\uc790\uc5f4\uc744 \uc785\ub825\ud558\uc138\uc694"
-            }
-        },
-        "nlOutput": "\uad6c\uc870\ud654 \ub41c \ucd9c\ub825\uc744\ubcf4\uae30",
-        "darkmode": {
-            "turn_on": "\uc5b4\ub450\uc6b4 \ud14c\ub9c8",
-            "turn_off": "\ubc1d\uc740 \ud14c\ub9c8"
-        },
-        "show": "\uc124\uc815 \uc5f4\uae30",
-        "hide": "\uc124\uc815 \ub2eb\uae30",
-        "fontSize": "\ud3f0\ud2b8 \ud06c\uae30 \ubbf8\ub9ac\ubcf4\uae30",
-        "previewcolor": "\ubc30\uacbd\uc0c9\uc0c1 \ubbf8\ub9ac \ubcf4\uae30:",
-        "export": "\ucd94\ucd9c",
-        "deleteall": {
-            "body": "\ubaa8\ub4e0 \ud14d\uc2a4\ud2b8\ub97c \uc81c\uac70\ud558\uace0 \ube48 \ubb38\uc790\uc5f4\ub85c \ucd08\uae30\ud654\ub429\ub2c8\ub2e4.",
-            "heading": "\ud655\uc2e4\ud569\ub2c8\uae4c!?!",
-            "yes": "\ubaa8\ub450 \uc0ad\uc81c",
-            "no": "\ucde8\uc18c"
-        },
-        "import": "\uac00\uc838\uc624\uae30",
-        "header": "\uc124\uc815:"
-    },
     "issues": {
         "go-home": "\ubb38\uc81c \ubb34\uc2dc\ud558\uae30"
     },

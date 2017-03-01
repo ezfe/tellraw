@@ -9,6 +9,37 @@
         "too_many_quotes": "Too Many Quotes",
         "cancel": "Cancel"
     },
+    "settings": {
+        "reset-all-settings": "Reset All Settings",
+        "importtext": {
+            "exported": {
+                "header": "Zaimportuj",
+                "failed": {
+                    "header": "Nie uda\u0142o si\u0119 zaimportowa\u0107",
+                    "description": "Dane wej\u015bciowe"
+                },
+                "description": "Prosz\u0119 wpisz tekst, kt\u00f3ry otrzyma\u0142e\u015b eksportuj\u0105c swoj\u0105 kom\u0119d\u0119"
+            }
+        },
+        "nlOutput": "Poka\u017c efekt ko\u0144cowy",
+        "darkmode": {
+            "turn_on": "Ciemny motyw",
+            "turn_off": "Jasny motyw"
+        },
+        "show": "Otw\u00f3rz ustawienia",
+        "hide": "Zamknij ustawienia",
+        "fontSize": "Podgl\u0105d rozmiaru czcionki",
+        "previewcolor": "Podgl\u0105d koloru t\u0142a:",
+        "export": "Eksportuj",
+        "deleteall": {
+            "body": "Naciskaj\u0105c \"Usu\u0144\", usuwasz ca\u0142y tw\u00f3j tekst i resetujesz go do pustej linii.",
+            "heading": "Jeste\u015b tego pewny?!",
+            "yes": "Usu\u0144 wszystko",
+            "no": "Anuluj"
+        },
+        "import": "Zaimportuj",
+        "header": "Ustawienia:"
+    },
     "template": {
         "actionbar": "Action Bar",
         "sign_block": "Tabliczka (\/blockdata)",
@@ -120,36 +151,6 @@
         }
     },
     "header_rev2": "Generator tekstu Tellraw dla gry Minecraft ",
-    "settings": {
-        "importtext": {
-            "exported": {
-                "header": "Zaimportuj",
-                "failed": {
-                    "header": "Nie uda\u0142o si\u0119 zaimportowa\u0107",
-                    "description": "Dane wej\u015bciowe"
-                },
-                "description": "Prosz\u0119 wpisz tekst, kt\u00f3ry otrzyma\u0142e\u015b eksportuj\u0105c swoj\u0105 kom\u0119d\u0119"
-            }
-        },
-        "nlOutput": "Poka\u017c efekt ko\u0144cowy",
-        "darkmode": {
-            "turn_on": "Ciemny motyw",
-            "turn_off": "Jasny motyw"
-        },
-        "show": "Otw\u00f3rz ustawienia",
-        "hide": "Zamknij ustawienia",
-        "fontSize": "Podgl\u0105d rozmiaru czcionki",
-        "previewcolor": "Podgl\u0105d koloru t\u0142a:",
-        "export": "Eksportuj",
-        "deleteall": {
-            "body": "Naciskaj\u0105c \"Usu\u0144\", usuwasz ca\u0142y tw\u00f3j tekst i resetujesz go do pustej linii.",
-            "heading": "Jeste\u015b tego pewny?!",
-            "yes": "Usu\u0144 wszystko",
-            "no": "Anuluj"
-        },
-        "import": "Zaimportuj",
-        "header": "Ustawienia:"
-    },
     "issues": {
         "go-home": "Ignoruj b\u0142\u0105d"
     },

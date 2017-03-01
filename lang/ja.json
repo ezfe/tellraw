@@ -9,6 +9,37 @@
         "too_many_quotes": "\u3042\u307e\u308a\u306b\u591a\u304f\u306e\u5f15\u7528",
         "cancel": "\u30ad\u30e3\u30f3\u30bb\u30eb"
     },
+    "settings": {
+        "reset-all-settings": "Reset All Settings",
+        "importtext": {
+            "exported": {
+                "header": "\u8aad\u307f\u8fbc\u307f",
+                "failed": {
+                    "header": "\u8aad\u307f\u8fbc\u307f\u306b\u5931\u6557\u3057\u307e\u3057\u305f",
+                    "description": "Provided input"
+                },
+                "description": "\u3042\u306a\u305f\u306e\u30b3\u30de\u30f3\u30c9\u3092\u30a8\u30af\u30b9\u30dd\u30fc\u30c8\u3057\u305f\u3068\u304d\u306b\u4e0e\u3048\u3089\u308c\u305f\u6587\u5b57\u5217\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044"
+            }
+        },
+        "nlOutput": "\u69cb\u9020\u5316\u51fa\u529b\u3092\u8868\u793a",
+        "darkmode": {
+            "turn_on": "\u6697\u3044\u30c6\u30fc\u30de",
+            "turn_off": "\u660e\u308b\u3044\u30c6\u30fc\u30de"
+        },
+        "show": "\u8a2d\u5b9a\u3092\u958b\u304f",
+        "hide": "\u8a2d\u5b9a\u3092\u9589\u3058\u308b",
+        "fontSize": "\u30d5\u30a9\u30f3\u30c8\u30b5\u30a4\u30ba\u3092\u30d7\u30ec\u30d3\u30e5\u30fc",
+        "previewcolor": "\u80cc\u666f\u8272\u3092\u30d7\u30ec\u30d3\u30e5\u30fc",
+        "export": "\u51fa\u529b",
+        "deleteall": {
+            "body": "\u524a\u9664\u3092\u30af\u30ea\u30c3\u30af\u3059\u308b\u3068\u3001\u3059\u3079\u3066\u306e\u30c6\u30ad\u30b9\u30c8\u304c\u524a\u9664\u3055\u308c\u3001\u7a7a\u306e\u6587\u5b57\u5217\u306b\u30ea\u30bb\u30c3\u30c8\u3055\u308c\u307e\u3059\u3002",
+            "heading": "\u672c\u5f53\u3067\u3059\u304b\uff01\uff1f\uff01",
+            "yes": "\u3059\u3079\u3066\u3092\u524a\u9664",
+            "no": "\u30ad\u30e3\u30f3\u30bb\u30eb"
+        },
+        "import": "\u5165\u529b",
+        "header": "\u8a2d\u5b9a:"
+    },
     "template": {
         "actionbar": "\u884c\u52d5\u30d0\u30fc",
         "sign_block": "\u770b\u677f(\/blockdata)",
@@ -120,36 +151,6 @@
         }
     },
     "header_rev2": "Minecraft tellraw\u30b8\u30a7\u30cd\u30ec\u30fc\u30bf",
-    "settings": {
-        "importtext": {
-            "exported": {
-                "header": "\u8aad\u307f\u8fbc\u307f",
-                "failed": {
-                    "header": "\u8aad\u307f\u8fbc\u307f\u306b\u5931\u6557\u3057\u307e\u3057\u305f",
-                    "description": "Provided input"
-                },
-                "description": "\u3042\u306a\u305f\u306e\u30b3\u30de\u30f3\u30c9\u3092\u30a8\u30af\u30b9\u30dd\u30fc\u30c8\u3057\u305f\u3068\u304d\u306b\u4e0e\u3048\u3089\u308c\u305f\u6587\u5b57\u5217\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044"
-            }
-        },
-        "nlOutput": "\u69cb\u9020\u5316\u51fa\u529b\u3092\u8868\u793a",
-        "darkmode": {
-            "turn_on": "\u6697\u3044\u30c6\u30fc\u30de",
-            "turn_off": "\u660e\u308b\u3044\u30c6\u30fc\u30de"
-        },
-        "show": "\u8a2d\u5b9a\u3092\u958b\u304f",
-        "hide": "\u8a2d\u5b9a\u3092\u9589\u3058\u308b",
-        "fontSize": "\u30d5\u30a9\u30f3\u30c8\u30b5\u30a4\u30ba\u3092\u30d7\u30ec\u30d3\u30e5\u30fc",
-        "previewcolor": "\u80cc\u666f\u8272\u3092\u30d7\u30ec\u30d3\u30e5\u30fc",
-        "export": "\u51fa\u529b",
-        "deleteall": {
-            "body": "\u524a\u9664\u3092\u30af\u30ea\u30c3\u30af\u3059\u308b\u3068\u3001\u3059\u3079\u3066\u306e\u30c6\u30ad\u30b9\u30c8\u304c\u524a\u9664\u3055\u308c\u3001\u7a7a\u306e\u6587\u5b57\u5217\u306b\u30ea\u30bb\u30c3\u30c8\u3055\u308c\u307e\u3059\u3002",
-            "heading": "\u672c\u5f53\u3067\u3059\u304b\uff01\uff1f\uff01",
-            "yes": "\u3059\u3079\u3066\u3092\u524a\u9664",
-            "no": "\u30ad\u30e3\u30f3\u30bb\u30eb"
-        },
-        "import": "\u5165\u529b",
-        "header": "\u8a2d\u5b9a:"
-    },
     "issues": {
         "go-home": "\u554f\u984c\u3092\u7121\u8996"
     },

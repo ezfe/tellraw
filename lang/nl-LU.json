@@ -9,6 +9,37 @@
         "too_many_quotes": "Te Veel Citaten",
         "cancel": "Annuleren"
     },
+    "settings": {
+        "reset-all-settings": "Reset All Settings",
+        "importtext": {
+            "exported": {
+                "header": "Importeer",
+                "failed": {
+                    "header": "Importeren gefaald",
+                    "description": "Gegeven input"
+                },
+                "description": "Voer alstublieft de tekst in die je gegeven is bij het ge\u00ebxporteerde command."
+            }
+        },
+        "nlOutput": "Toon Gestructureerde Output",
+        "darkmode": {
+            "turn_on": "Donker Thema",
+            "turn_off": "Licht thema"
+        },
+        "show": "Open instellingen",
+        "hide": "Sluit instellingen",
+        "fontSize": "Lettergrootte",
+        "previewcolor": "Achtergrondkleur:",
+        "export": "Exporteer",
+        "deleteall": {
+            "body": "Als je op 'Delete' klikt, verwijdert het al je huidige tekst.",
+            "heading": "Weet je het zeker!?!",
+            "yes": "Verwijder alles",
+            "no": "Annuleer"
+        },
+        "import": "Importeer",
+        "header": "Instellingen:"
+    },
     "template": {
         "actionbar": "Action Bar",
         "sign_block": "Bord (\/blockdata)",
@@ -120,36 +151,6 @@
         }
     },
     "header_rev2": "Tellraw Generator voor Minecraft ",
-    "settings": {
-        "importtext": {
-            "exported": {
-                "header": "Importeer",
-                "failed": {
-                    "header": "Importeren gefaald",
-                    "description": "Gegeven input"
-                },
-                "description": "Voer alstublieft de tekst in die je gegeven is bij het ge\u00ebxporteerde command."
-            }
-        },
-        "nlOutput": "Toon Gestructureerde Output",
-        "darkmode": {
-            "turn_on": "Donker Thema",
-            "turn_off": "Licht thema"
-        },
-        "show": "Open instellingen",
-        "hide": "Sluit instellingen",
-        "fontSize": "Lettergrootte",
-        "previewcolor": "Achtergrondkleur:",
-        "export": "Exporteer",
-        "deleteall": {
-            "body": "Als je op 'Delete' klikt, verwijdert het al je huidige tekst.",
-            "heading": "Weet je het zeker!?!",
-            "yes": "Verwijder alles",
-            "no": "Annuleer"
-        },
-        "import": "Importeer",
-        "header": "Instellingen:"
-    },
     "issues": {
         "go-home": "Negeer Probleem"
     },

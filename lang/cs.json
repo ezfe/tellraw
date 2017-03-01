@@ -9,6 +9,37 @@
         "too_many_quotes": "P\u0159\u00edli\u0161 mnoho uvozovek",
         "cancel": "Zru\u0161it"
     },
+    "settings": {
+        "reset-all-settings": "Reset All Settings",
+        "importtext": {
+            "exported": {
+                "header": "Importovat",
+                "failed": {
+                    "header": "Importov\u00e1n\u00ed selhalo",
+                    "description": "Dostupn\u00fd vstup"
+                },
+                "description": "Pros\u00edm zadej text kter\u00fd jsi z\u00edskal p\u0159i exportu"
+            }
+        },
+        "nlOutput": "Uk\u00e1zat Strukturovan\u00fd N\u00e1hled",
+        "darkmode": {
+            "turn_on": "Tmav\u00fd styl",
+            "turn_off": "Sv\u011btl\u00fd Styl"
+        },
+        "show": "Otev\u0159\u00edt Nastaven\u00ed",
+        "hide": "Zav\u0159\u00edt Nastaven\u00ed",
+        "fontSize": "N\u00e1hled Velikosti P\u00edsma",
+        "previewcolor": "Barva Pozad\u00ed N\u00e1hledu :",
+        "export": "Exportovat",
+        "deleteall": {
+            "body": "Vyma\u017ee v\u0161echen tv\u016fj text a resetuje ho na pr\u00e1zdnou hodnotu.",
+            "heading": "Jsi si jist\u00fd?!",
+            "yes": "Vymazat v\u0161e",
+            "no": "Zru\u0161it"
+        },
+        "import": "Importovat",
+        "header": "Nastaven\u00ed :"
+    },
     "template": {
         "actionbar": "Action Bar",
         "sign_block": "Cedulka (\/blockdata)",
@@ -120,36 +151,6 @@
         }
     },
     "header_rev2": "Tellraw Generator pro Minecraft ",
-    "settings": {
-        "importtext": {
-            "exported": {
-                "header": "Importovat",
-                "failed": {
-                    "header": "Importov\u00e1n\u00ed selhalo",
-                    "description": "Dostupn\u00fd vstup"
-                },
-                "description": "Pros\u00edm zadej text kter\u00fd jsi z\u00edskal p\u0159i exportu"
-            }
-        },
-        "nlOutput": "Uk\u00e1zat Strukturovan\u00fd N\u00e1hled",
-        "darkmode": {
-            "turn_on": "Tmav\u00fd styl",
-            "turn_off": "Sv\u011btl\u00fd Styl"
-        },
-        "show": "Otev\u0159\u00edt Nastaven\u00ed",
-        "hide": "Zav\u0159\u00edt Nastaven\u00ed",
-        "fontSize": "N\u00e1hled Velikosti P\u00edsma",
-        "previewcolor": "Barva Pozad\u00ed N\u00e1hledu :",
-        "export": "Exportovat",
-        "deleteall": {
-            "body": "Vyma\u017ee v\u0161echen tv\u016fj text a resetuje ho na pr\u00e1zdnou hodnotu.",
-            "heading": "Jsi si jist\u00fd?!",
-            "yes": "Vymazat v\u0161e",
-            "no": "Zru\u0161it"
-        },
-        "import": "Importovat",
-        "header": "Nastaven\u00ed :"
-    },
     "issues": {
         "go-home": "Ignorovat probl\u00e9m."
     },

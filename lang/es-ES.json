@@ -9,6 +9,37 @@
         "too_many_quotes": "Demasiadas comillas",
         "cancel": "Cancelar"
     },
+    "settings": {
+        "reset-all-settings": "Reset All Settings",
+        "importtext": {
+            "exported": {
+                "header": "Importar",
+                "failed": {
+                    "header": "Error al importar",
+                    "description": "Entrada"
+                },
+                "description": "Introduce aqu\u00ed el texto obtenido al exportar el comando"
+            }
+        },
+        "nlOutput": "Muestra el comando estructurado",
+        "darkmode": {
+            "turn_on": "Tema oscuro",
+            "turn_off": "Tema claro"
+        },
+        "show": "Configuraci\u00f3n",
+        "hide": "Cerrar",
+        "fontSize": "Tama\u00f1o de fuente",
+        "previewcolor": "Color de fondo de la previsualizaci\u00f3n:",
+        "export": "Exportar",
+        "deleteall": {
+            "body": "Pulsando en Eliminar todo borrar\u00e1 el comando actual y crear\u00e1 uno nuevo en blanco.",
+            "heading": "\u00a1\u00bf\u00a1SEGURO!?!",
+            "yes": "Eliminar todo",
+            "no": "Cancelar"
+        },
+        "import": "Importar",
+        "header": "Configuraci\u00f3n:"
+    },
     "template": {
         "actionbar": "Barra de acci\u00f3n",
         "sign_block": "Cartel (\/blockdata)",
@@ -120,36 +151,6 @@
         }
     },
     "header_rev2": "Generador de Tellraw para Minecraft ",
-    "settings": {
-        "importtext": {
-            "exported": {
-                "header": "Importar",
-                "failed": {
-                    "header": "Error al importar",
-                    "description": "Entrada"
-                },
-                "description": "Introduce aqu\u00ed el texto obtenido al exportar el comando"
-            }
-        },
-        "nlOutput": "Muestra el comando estructurado",
-        "darkmode": {
-            "turn_on": "Tema oscuro",
-            "turn_off": "Tema claro"
-        },
-        "show": "Configuraci\u00f3n",
-        "hide": "Cerrar",
-        "fontSize": "Tama\u00f1o de fuente",
-        "previewcolor": "Color de fondo de la previsualizaci\u00f3n:",
-        "export": "Exportar",
-        "deleteall": {
-            "body": "Pulsando en Eliminar todo borrar\u00e1 el comando actual y crear\u00e1 uno nuevo en blanco.",
-            "heading": "\u00a1\u00bf\u00a1SEGURO!?!",
-            "yes": "Eliminar todo",
-            "no": "Cancelar"
-        },
-        "import": "Importar",
-        "header": "Configuraci\u00f3n:"
-    },
     "issues": {
         "go-home": "Ignorar error"
     },

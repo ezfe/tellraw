@@ -9,6 +9,37 @@
         "too_many_quotes": "\u5f15\u865f\u6578\u91cf\u904e\u591a",
         "cancel": "\u53d6\u6d88"
     },
+    "settings": {
+        "reset-all-settings": "Reset All Settings",
+        "importtext": {
+            "exported": {
+                "header": "\u532f\u5165",
+                "failed": {
+                    "header": "\u532f\u5165\u5931\u6557",
+                    "description": "\u63d0\u4f9b\u7684\u8f38\u5165"
+                },
+                "description": "\u8acb\u8f38\u5165\u900f\u904e\u8f38\u51fa\u7684\u6307\u4ee4\u5167\u5bb9"
+            }
+        },
+        "nlOutput": "\u986f\u793a\u7d50\u69cb\u5316\u8f38\u51fa",
+        "darkmode": {
+            "turn_on": "\u591c\u665a\u4e3b\u984c",
+            "turn_off": "\u660e\u4eae\u4e3b\u984c"
+        },
+        "show": "\u958b\u555f\u8a2d\u5b9a",
+        "hide": "\u95dc\u9589\u8a2d\u5b9a",
+        "fontSize": "\u9810\u89bd\u5b57\u9ad4\u5927\u5c0f",
+        "previewcolor": "\u9810\u89bd\u8f38\u51fa\u80cc\u666f\u984f\u8272",
+        "export": "\u532f\u51fa",
+        "deleteall": {
+            "body": "\u522a\u9664\u6240\u6709\u7684\u6587\u5b57\u55ce\uff1f",
+            "heading": "\u78ba\u5b9a\u8981\u9019\u9ebc\u505a\u55ce\uff1f",
+            "yes": "\u522a\u9664\u5168\u90e8",
+            "no": "\u53d6\u6d88"
+        },
+        "import": "\u532f\u5165",
+        "header": "\u8a2d\u5b9a\uff1a"
+    },
     "template": {
         "actionbar": "\u884c\u70ba\u6b04",
         "sign_block": "\u544a\u793a\u724c[Sign](\/blockdata)",
@@ -120,36 +151,6 @@
         }
     },
     "header_rev2": "Tellraw \u6307\u4ee4\u7522\u751f\u5668 ",
-    "settings": {
-        "importtext": {
-            "exported": {
-                "header": "\u532f\u5165",
-                "failed": {
-                    "header": "\u532f\u5165\u5931\u6557",
-                    "description": "\u63d0\u4f9b\u7684\u8f38\u5165"
-                },
-                "description": "\u8acb\u8f38\u5165\u900f\u904e\u8f38\u51fa\u7684\u6307\u4ee4\u5167\u5bb9"
-            }
-        },
-        "nlOutput": "\u986f\u793a\u7d50\u69cb\u5316\u8f38\u51fa",
-        "darkmode": {
-            "turn_on": "\u591c\u665a\u4e3b\u984c",
-            "turn_off": "\u660e\u4eae\u4e3b\u984c"
-        },
-        "show": "\u958b\u555f\u8a2d\u5b9a",
-        "hide": "\u95dc\u9589\u8a2d\u5b9a",
-        "fontSize": "\u9810\u89bd\u5b57\u9ad4\u5927\u5c0f",
-        "previewcolor": "\u9810\u89bd\u8f38\u51fa\u80cc\u666f\u984f\u8272",
-        "export": "\u532f\u51fa",
-        "deleteall": {
-            "body": "\u522a\u9664\u6240\u6709\u7684\u6587\u5b57\u55ce\uff1f",
-            "heading": "\u78ba\u5b9a\u8981\u9019\u9ebc\u505a\u55ce\uff1f",
-            "yes": "\u522a\u9664\u5168\u90e8",
-            "no": "\u53d6\u6d88"
-        },
-        "import": "\u532f\u5165",
-        "header": "\u8a2d\u5b9a\uff1a"
-    },
     "issues": {
         "go-home": "\u5ffd\u7565\u554f\u984c"
     },

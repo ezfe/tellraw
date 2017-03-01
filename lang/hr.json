@@ -9,6 +9,37 @@
         "too_many_quotes": "Previ\u0161e Citata",
         "cancel": "Poni\u0161ti"
     },
+    "settings": {
+        "reset-all-settings": "Reset All Settings",
+        "importtext": {
+            "exported": {
+                "header": "Umetni",
+                "failed": {
+                    "header": "Umetanje nije uspjelo",
+                    "description": "Pru\u017eano umetanje"
+                },
+                "description": "Molimo da unesite niz koji ste dobili kada ste izvezli svoju komandu"
+            }
+        },
+        "nlOutput": "Prika\u017ei Strukturirani Izlazak",
+        "darkmode": {
+            "turn_on": "Tamna Tema",
+            "turn_off": "Svijetla Tema"
+        },
+        "show": "Otvori Postavke",
+        "hide": "Zatvori Postavke",
+        "fontSize": "Pregled Veli\u010dine Font-a",
+        "previewcolor": "Pregled boja teksta:",
+        "export": "Izvoz",
+        "deleteall": {
+            "body": "Klikanjem na Izbri\u0161i \u010dete izbrisati cijeli tekst i  ponovno \u0107ete pokrenuti prazan niz.",
+            "heading": "Jeste li sigurni!?!",
+            "yes": "Izbri\u0161i Sve",
+            "no": "Poni\u0161ti"
+        },
+        "import": "Umetni",
+        "header": "Postavke:"
+    },
     "template": {
         "actionbar": "Akcijski Bar",
         "sign_block": "Znak (\/blockdata)",
@@ -120,36 +151,6 @@
         }
     },
     "header_rev2": "Tellraw Generator za Minecraft",
-    "settings": {
-        "importtext": {
-            "exported": {
-                "header": "Umetni",
-                "failed": {
-                    "header": "Umetanje nije uspjelo",
-                    "description": "Pru\u017eano umetanje"
-                },
-                "description": "Molimo da unesite niz koji ste dobili kada ste izvezli svoju komandu"
-            }
-        },
-        "nlOutput": "Prika\u017ei Strukturirani Izlazak",
-        "darkmode": {
-            "turn_on": "Tamna Tema",
-            "turn_off": "Svijetla Tema"
-        },
-        "show": "Otvori Postavke",
-        "hide": "Zatvori Postavke",
-        "fontSize": "Pregled Veli\u010dine Font-a",
-        "previewcolor": "Pregled boja teksta:",
-        "export": "Izvoz",
-        "deleteall": {
-            "body": "Klikanjem na Izbri\u0161i \u010dete izbrisati cijeli tekst i  ponovno \u0107ete pokrenuti prazan niz.",
-            "heading": "Jeste li sigurni!?!",
-            "yes": "Izbri\u0161i Sve",
-            "no": "Poni\u0161ti"
-        },
-        "import": "Umetni",
-        "header": "Postavke:"
-    },
     "issues": {
         "go-home": "Ignoriraj problem"
     },

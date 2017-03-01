@@ -9,6 +9,37 @@
         "too_many_quotes": "Too Many Quotes",
         "cancel": "Cancel"
     },
+    "settings": {
+        "reset-all-settings": "Reset All Settings",
+        "importtext": {
+            "exported": {
+                "header": "\u05d9\u05d1\u05d5\u05d0",
+                "failed": {
+                    "header": "\u05d4\u05d9\u05d1\u05d5\u05d0 \u05e0\u05db\u05e9\u05dc",
+                    "description": "\u05e7\u05dc\u05d8 \u05de\u05e1\u05d5\u05e4\u05e7"
+                },
+                "description": "\u05d1\u05d1\u05e7\u05e9\u05d4 \u05d4\u05db\u05e0\u05e1 \u05d0\u05ea \u05d4\u05de\u05d7\u05e8\u05d5\u05d6\u05ea \u05e9\u05e0\u05d9\u05ea\u05e0\u05d4 \u05dc\u05da \u05db\u05e9\u05d9\u05d9\u05e6\u05d0\u05ea \u05d0\u05ea \u05d4\u05e4\u05e7\u05d5\u05d3\u05d4."
+            }
+        },
+        "nlOutput": "\u05d4\u05e8\u05d0\u05d4 \u05e4\u05dc\u05d8 \u05d1\u05e0\u05d5\u05d9",
+        "darkmode": {
+            "turn_on": "\u05e2\u05e8\u05db\u05d4 \u05d7\u05e9\u05d5\u05db\u05d4",
+            "turn_off": "\u05e2\u05e8\u05db\u05d4 \u05d1\u05d4\u05d9\u05e8\u05d4"
+        },
+        "show": "\u05e4\u05ea\u05d7 \u05d4\u05d2\u05d3\u05e8\u05d5\u05ea",
+        "hide": "\u05e1\u05d2\u05d5\u05e8 \u05d4\u05d2\u05d3\u05e8\u05d5\u05ea",
+        "fontSize": "\u05d4\u05e6\u05d2 \u05d2\u05d5\u05d3\u05dc \u05d2\u05d5\u05e4\u05df",
+        "previewcolor": "\u05e6\u05d1\u05e2 \u05d4\u05e8\u05e7\u05e2 \u05d1\u05ea\u05e6\u05d5\u05d2\u05d4 \u05de\u05e7\u05d3\u05d9\u05de\u05d4:",
+        "export": "\u05d9\u05e6\u05d0",
+        "deleteall": {
+            "body": "\u05dc\u05d7\u05d9\u05e6\u05d4 \u05e2\u05dc \u05de\u05d7\u05e7 \u05ea\u05e1\u05d9\u05e8 \u05d0\u05ea \u05db\u05dc \u05d4\u05d8\u05e7\u05e1\u05d8 \u05d5\u05ea\u05d2\u05d3\u05d9\u05e8 \u05d0\u05d5\u05ea\u05d5 \u05de\u05d7\u05d3\u05e9 \u05dc\u05d8\u05e7\u05e1\u05d8 \u05e8\u05d9\u05e7.",
+            "heading": "\u05d4\u05d0\u05dd \u05d0\u05ea\u05d4 \u05d1\u05d8\u05d5\u05d7?!?",
+            "yes": "\u05de\u05d7\u05e7 \u05d4\u05db\u05d5\u05dc",
+            "no": "\u05d1\u05d8\u05dc"
+        },
+        "import": "\u05d9\u05d1\u05d0",
+        "header": "\u05d4\u05d2\u05d3\u05e8\u05d5\u05ea:"
+    },
     "template": {
         "actionbar": "Action Bar",
         "sign_block": "\u05e9\u05dc\u05d8 (blockdata)",
@@ -120,36 +151,6 @@
         }
     },
     "header_rev2": "\u05d9\u05d5\u05e6\u05e8 \u05d0\u05de\u05d9\u05e8\u05d4 \u05e0\u05e2\u05d4 \u05e2\u05d1\u05d5\u05e8 Minecraft ",
-    "settings": {
-        "importtext": {
-            "exported": {
-                "header": "\u05d9\u05d1\u05d5\u05d0",
-                "failed": {
-                    "header": "\u05d4\u05d9\u05d1\u05d5\u05d0 \u05e0\u05db\u05e9\u05dc",
-                    "description": "\u05e7\u05dc\u05d8 \u05de\u05e1\u05d5\u05e4\u05e7"
-                },
-                "description": "\u05d1\u05d1\u05e7\u05e9\u05d4 \u05d4\u05db\u05e0\u05e1 \u05d0\u05ea \u05d4\u05de\u05d7\u05e8\u05d5\u05d6\u05ea \u05e9\u05e0\u05d9\u05ea\u05e0\u05d4 \u05dc\u05da \u05db\u05e9\u05d9\u05d9\u05e6\u05d0\u05ea \u05d0\u05ea \u05d4\u05e4\u05e7\u05d5\u05d3\u05d4."
-            }
-        },
-        "nlOutput": "\u05d4\u05e8\u05d0\u05d4 \u05e4\u05dc\u05d8 \u05d1\u05e0\u05d5\u05d9",
-        "darkmode": {
-            "turn_on": "\u05e2\u05e8\u05db\u05d4 \u05d7\u05e9\u05d5\u05db\u05d4",
-            "turn_off": "\u05e2\u05e8\u05db\u05d4 \u05d1\u05d4\u05d9\u05e8\u05d4"
-        },
-        "show": "\u05e4\u05ea\u05d7 \u05d4\u05d2\u05d3\u05e8\u05d5\u05ea",
-        "hide": "\u05e1\u05d2\u05d5\u05e8 \u05d4\u05d2\u05d3\u05e8\u05d5\u05ea",
-        "fontSize": "\u05d4\u05e6\u05d2 \u05d2\u05d5\u05d3\u05dc \u05d2\u05d5\u05e4\u05df",
-        "previewcolor": "\u05e6\u05d1\u05e2 \u05d4\u05e8\u05e7\u05e2 \u05d1\u05ea\u05e6\u05d5\u05d2\u05d4 \u05de\u05e7\u05d3\u05d9\u05de\u05d4:",
-        "export": "\u05d9\u05e6\u05d0",
-        "deleteall": {
-            "body": "\u05dc\u05d7\u05d9\u05e6\u05d4 \u05e2\u05dc \u05de\u05d7\u05e7 \u05ea\u05e1\u05d9\u05e8 \u05d0\u05ea \u05db\u05dc \u05d4\u05d8\u05e7\u05e1\u05d8 \u05d5\u05ea\u05d2\u05d3\u05d9\u05e8 \u05d0\u05d5\u05ea\u05d5 \u05de\u05d7\u05d3\u05e9 \u05dc\u05d8\u05e7\u05e1\u05d8 \u05e8\u05d9\u05e7.",
-            "heading": "\u05d4\u05d0\u05dd \u05d0\u05ea\u05d4 \u05d1\u05d8\u05d5\u05d7?!?",
-            "yes": "\u05de\u05d7\u05e7 \u05d4\u05db\u05d5\u05dc",
-            "no": "\u05d1\u05d8\u05dc"
-        },
-        "import": "\u05d9\u05d1\u05d0",
-        "header": "\u05d4\u05d2\u05d3\u05e8\u05d5\u05ea:"
-    },
     "issues": {
         "go-home": "\u05d4\u05ea\u05e2\u05dc\u05dd \u05de\u05d4\u05d1\u05e2\u05d9\u05d4"
     },

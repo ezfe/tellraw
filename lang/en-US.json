@@ -9,6 +9,37 @@
         "too_many_quotes": "Too Many Quotes",
         "cancel": "Cancel"
     },
+    "settings": {
+        "reset-all-settings": "Reset All Settings",
+        "importtext": {
+            "exported": {
+                "header": "Import",
+                "failed": {
+                    "header": "Import failed",
+                    "description": "Provided input"
+                },
+                "description": "Please enter the string you were given when you exported your command"
+            }
+        },
+        "nlOutput": "Show Structured Output",
+        "darkmode": {
+            "turn_on": "Dark Theme",
+            "turn_off": "Light Theme"
+        },
+        "show": "Open Settings",
+        "hide": "Close Settings",
+        "fontSize": "Preview Font Size",
+        "previewcolor": "Preview Background Color:",
+        "export": "Export",
+        "deleteall": {
+            "body": "Clicking Delete will remove all your text and reset it to an empty string.",
+            "heading": "Are you sure!?!",
+            "yes": "Delete All",
+            "no": "Cancel"
+        },
+        "import": "Import",
+        "header": "Settings:"
+    },
     "template": {
         "actionbar": "Action Bar",
         "sign_block": "Sign (\/blockdata)",
@@ -120,36 +151,6 @@
         }
     },
     "header_rev2": "Tellraw Generator for Minecraft ",
-    "settings": {
-        "importtext": {
-            "exported": {
-                "header": "Import",
-                "failed": {
-                    "header": "Import failed",
-                    "description": "Provided input"
-                },
-                "description": "Please enter the string you were given when you exported your command"
-            }
-        },
-        "nlOutput": "Show Structured Output",
-        "darkmode": {
-            "turn_on": "Dark Theme",
-            "turn_off": "Light Theme"
-        },
-        "show": "Open Settings",
-        "hide": "Close Settings",
-        "fontSize": "Preview Font Size",
-        "previewcolor": "Preview Background Color:",
-        "export": "Export",
-        "deleteall": {
-            "body": "Clicking Delete will remove all your text and reset it to an empty string.",
-            "heading": "Are you sure!?!",
-            "yes": "Delete All",
-            "no": "Cancel"
-        },
-        "import": "Import",
-        "header": "Settings:"
-    },
     "issues": {
         "go-home": "Ignore Issue"
     },

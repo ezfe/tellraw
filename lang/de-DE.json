@@ -9,6 +9,37 @@
         "too_many_quotes": "Too Many Quotes",
         "cancel": "Cancel"
     },
+    "settings": {
+        "reset-all-settings": "Reset All Settings",
+        "importtext": {
+            "exported": {
+                "header": "Importieren",
+                "failed": {
+                    "header": "Importieren fehlgeschlagen",
+                    "description": "Vorausgesetzte Eingabe"
+                },
+                "description": "Bitte gib den String ein, der dir gegeben wurde, als du den Befehl exportiert hast."
+            }
+        },
+        "nlOutput": "Zeige struktuierte Ausgabe",
+        "darkmode": {
+            "turn_on": "Dunkles Design",
+            "turn_off": "Helles Design"
+        },
+        "show": "Einstellungen \u00f6ffnen",
+        "hide": "Einstellungen schlie\u00dfen",
+        "fontSize": "Vorschau-Schriftgr\u00f6\u00dfe",
+        "previewcolor": "Hintergrundfarbe der Vorschau:",
+        "export": "Exportieren",
+        "deleteall": {
+            "body": "Das klicken von L\u00f6schen wird all deinen text l\u00f6schen und ihn zu einem leeren String zur\u00fccksetzen.",
+            "heading": "Bist du dir sicher!?!",
+            "yes": "Alles L\u00f6schen",
+            "no": "Abbrechen"
+        },
+        "import": "Importieren",
+        "header": "Einstellungen:"
+    },
     "template": {
         "actionbar": "Action Bar",
         "sign_block": "Schild (\/blockdata)",
@@ -120,36 +151,6 @@
         }
     },
     "header_rev2": "Tellraw Generator f\u00fcr Minecraft ",
-    "settings": {
-        "importtext": {
-            "exported": {
-                "header": "Importieren",
-                "failed": {
-                    "header": "Importieren fehlgeschlagen",
-                    "description": "Vorausgesetzte Eingabe"
-                },
-                "description": "Bitte gib den String ein, der dir gegeben wurde, als du den Befehl exportiert hast."
-            }
-        },
-        "nlOutput": "Zeige struktuierte Ausgabe",
-        "darkmode": {
-            "turn_on": "Dunkles Design",
-            "turn_off": "Helles Design"
-        },
-        "show": "Einstellungen \u00f6ffnen",
-        "hide": "Einstellungen schlie\u00dfen",
-        "fontSize": "Vorschau-Schriftgr\u00f6\u00dfe",
-        "previewcolor": "Hintergrundfarbe der Vorschau:",
-        "export": "Exportieren",
-        "deleteall": {
-            "body": "Das klicken von L\u00f6schen wird all deinen text l\u00f6schen und ihn zu einem leeren String zur\u00fccksetzen.",
-            "heading": "Bist du dir sicher!?!",
-            "yes": "Alles L\u00f6schen",
-            "no": "Abbrechen"
-        },
-        "import": "Importieren",
-        "header": "Einstellungen:"
-    },
     "issues": {
         "go-home": "Fehler ignorieren"
     },

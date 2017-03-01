@@ -9,6 +9,37 @@
         "too_many_quotes": "Too Many Quotes",
         "cancel": "Cancel"
     },
+    "settings": {
+        "reset-all-settings": "Reset All Settings",
+        "importtext": {
+            "exported": {
+                "header": "Importera",
+                "failed": {
+                    "header": "Importering misslyckades",
+                    "description": "Given inmatning"
+                },
+                "description": "Var v\u00e4nlig ange texten du fick n\u00e4r du exporterat ditt kommando"
+            }
+        },
+        "nlOutput": "Visa strukturerat resultat",
+        "darkmode": {
+            "turn_on": "M\u00f6rkt tema",
+            "turn_off": "Ljust tema"
+        },
+        "show": "\u00d6ppna inst\u00e4llningar",
+        "hide": "St\u00e4ng inst\u00e4llningar",
+        "fontSize": "F\u00f6rhansvisa typsnittsstorlek",
+        "previewcolor": "F\u00f6rhandsvisa bakgrundsf\u00e4rg:",
+        "export": "Exportera",
+        "deleteall": {
+            "body": "Att klicka Radera kommer att ta bort all din text och \u00e5terst\u00e4lla det till en tom.",
+            "heading": "\u00c4r du s\u00e4ker!?!",
+            "yes": "Radera allt",
+            "no": "Avbryt"
+        },
+        "import": "Importera",
+        "header": "Inst\u00e4llningar:"
+    },
     "template": {
         "actionbar": "Action Bar",
         "sign_block": "Skylt (\/blockdata)",
@@ -120,36 +151,6 @@
         }
     },
     "header_rev2": "Tellrawgenerator f\u00f6r Minecraft ",
-    "settings": {
-        "importtext": {
-            "exported": {
-                "header": "Importera",
-                "failed": {
-                    "header": "Importering misslyckades",
-                    "description": "Given inmatning"
-                },
-                "description": "Var v\u00e4nlig ange texten du fick n\u00e4r du exporterat ditt kommando"
-            }
-        },
-        "nlOutput": "Visa strukturerat resultat",
-        "darkmode": {
-            "turn_on": "M\u00f6rkt tema",
-            "turn_off": "Ljust tema"
-        },
-        "show": "\u00d6ppna inst\u00e4llningar",
-        "hide": "St\u00e4ng inst\u00e4llningar",
-        "fontSize": "F\u00f6rhansvisa typsnittsstorlek",
-        "previewcolor": "F\u00f6rhandsvisa bakgrundsf\u00e4rg:",
-        "export": "Exportera",
-        "deleteall": {
-            "body": "Att klicka Radera kommer att ta bort all din text och \u00e5terst\u00e4lla det till en tom.",
-            "heading": "\u00c4r du s\u00e4ker!?!",
-            "yes": "Radera allt",
-            "no": "Avbryt"
-        },
-        "import": "Importera",
-        "header": "Inst\u00e4llningar:"
-    },
     "issues": {
         "go-home": "Ignorera problem"
     },

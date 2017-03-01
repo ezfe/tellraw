@@ -9,6 +9,37 @@
         "too_many_quotes": "Trop de citations",
         "cancel": "Fermer"
     },
+    "settings": {
+        "reset-all-settings": "Reset All Settings",
+        "importtext": {
+            "exported": {
+                "header": "Importer",
+                "failed": {
+                    "header": "L'importation a \u00e9chou\u00e9",
+                    "description": "Entr\u00e9e fournie"
+                },
+                "description": "Merci d'entrer le texte donn\u00e9 \u00e0 l'export de la commande"
+            }
+        },
+        "nlOutput": "Voir le r\u00e9sultat structur\u00e9",
+        "darkmode": {
+            "turn_on": "Th\u00e8me fonc\u00e9",
+            "turn_off": "Th\u00e8me clair"
+        },
+        "show": "Ouvrir les param\u00e8tres",
+        "hide": "Fermer les param\u00e8tres",
+        "fontSize": "Aper\u00e7u de la taille de la police",
+        "previewcolor": "Aper\u00e7u de la couleur de fond :",
+        "export": "Exporter",
+        "deleteall": {
+            "body": "Cliquer sur \"Tout supprimer\" va supprimer votre texte et tout remettre \u00e0 z\u00e9ro.",
+            "heading": "Etes-vous s\u00fbr ?!",
+            "yes": "Tout supprimer",
+            "no": "Annuler"
+        },
+        "import": "Importer",
+        "header": "Param\u00e8tres :"
+    },
     "template": {
         "actionbar": "Barre d'action",
         "sign_block": "Panneau (\/blockdata)",
@@ -120,36 +151,6 @@
         }
     },
     "header_rev2": "Generateur de JSON pour Minecraft ",
-    "settings": {
-        "importtext": {
-            "exported": {
-                "header": "Importer",
-                "failed": {
-                    "header": "L'importation a \u00e9chou\u00e9",
-                    "description": "Entr\u00e9e fournie"
-                },
-                "description": "Merci d'entrer le texte donn\u00e9 \u00e0 l'export de la commande"
-            }
-        },
-        "nlOutput": "Voir le r\u00e9sultat structur\u00e9",
-        "darkmode": {
-            "turn_on": "Th\u00e8me fonc\u00e9",
-            "turn_off": "Th\u00e8me clair"
-        },
-        "show": "Ouvrir les param\u00e8tres",
-        "hide": "Fermer les param\u00e8tres",
-        "fontSize": "Aper\u00e7u de la taille de la police",
-        "previewcolor": "Aper\u00e7u de la couleur de fond :",
-        "export": "Exporter",
-        "deleteall": {
-            "body": "Cliquer sur \"Tout supprimer\" va supprimer votre texte et tout remettre \u00e0 z\u00e9ro.",
-            "heading": "Etes-vous s\u00fbr ?!",
-            "yes": "Tout supprimer",
-            "no": "Annuler"
-        },
-        "import": "Importer",
-        "header": "Param\u00e8tres :"
-    },
     "issues": {
         "go-home": "Ignorer le bug"
     },

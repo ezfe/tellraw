@@ -9,6 +9,37 @@
         "too_many_quotes": "\u592a\u591a\u5f15\u53f7",
         "cancel": "\u53d6\u6d88"
     },
+    "settings": {
+        "reset-all-settings": "Reset All Settings",
+        "importtext": {
+            "exported": {
+                "header": "\u5bfc\u5165",
+                "failed": {
+                    "header": "\u5bfc\u5165\u5931\u8d25",
+                    "description": "\u63d0\u4f9b\u8f93\u5165"
+                },
+                "description": "\u8bf7\u8f93\u5165\u901a\u8fc7\u5bfc\u51fa\u529f\u80fd\u5bfc\u51fa\u7684\u547d\u4ee4\u5185\u5bb9"
+            }
+        },
+        "nlOutput": "\u663e\u793a\u683c\u5f0f\u5316\u8f93\u51fa",
+        "darkmode": {
+            "turn_on": "\u6697\u8272\u4e3b\u9898",
+            "turn_off": "\u4eae\u8272\u4e3b\u9898"
+        },
+        "show": "\u6253\u5f00\u8bbe\u7f6e",
+        "hide": "\u5173\u95ed\u8bbe\u7f6e",
+        "fontSize": "\u9884\u89c8\u5b57\u4f53\u5927\u5c0f",
+        "previewcolor": "\u9884\u89c8\u80cc\u666f\u989c\u8272:",
+        "export": "\u5bfc\u51fa",
+        "deleteall": {
+            "body": "\u70b9\u51fb\u5220\u9664\u540e\u5c06\u4f1a\u6e05\u9664\u6240\u6709\u6587\u672c\u5e76\u6062\u590d\u5230\u539f\u5148\u72b6\u6001",
+            "heading": "\u8bf7\u4f60\u786e\u5b9a\uff01\uff1f\uff01",
+            "yes": "\u5220\u9664\u6240\u6709\u6587\u672c",
+            "no": "\u53d6\u6d88"
+        },
+        "import": "\u5bfc\u5165",
+        "header": "\u8bbe\u7f6e:"
+    },
     "template": {
         "actionbar": "\u5feb\u6377\u680f",
         "sign_block": "\u544a\u793a\u724c (\/blockdata)",
@@ -120,36 +151,6 @@
         }
     },
     "header_rev2": "\u6211\u7684\u4e16\u754cTellraw\u751f\u6210\u5668 ",
-    "settings": {
-        "importtext": {
-            "exported": {
-                "header": "\u5bfc\u5165",
-                "failed": {
-                    "header": "\u5bfc\u5165\u5931\u8d25",
-                    "description": "\u63d0\u4f9b\u8f93\u5165"
-                },
-                "description": "\u8bf7\u8f93\u5165\u901a\u8fc7\u5bfc\u51fa\u529f\u80fd\u5bfc\u51fa\u7684\u547d\u4ee4\u5185\u5bb9"
-            }
-        },
-        "nlOutput": "\u663e\u793a\u683c\u5f0f\u5316\u8f93\u51fa",
-        "darkmode": {
-            "turn_on": "\u6697\u8272\u4e3b\u9898",
-            "turn_off": "\u4eae\u8272\u4e3b\u9898"
-        },
-        "show": "\u6253\u5f00\u8bbe\u7f6e",
-        "hide": "\u5173\u95ed\u8bbe\u7f6e",
-        "fontSize": "\u9884\u89c8\u5b57\u4f53\u5927\u5c0f",
-        "previewcolor": "\u9884\u89c8\u80cc\u666f\u989c\u8272:",
-        "export": "\u5bfc\u51fa",
-        "deleteall": {
-            "body": "\u70b9\u51fb\u5220\u9664\u540e\u5c06\u4f1a\u6e05\u9664\u6240\u6709\u6587\u672c\u5e76\u6062\u590d\u5230\u539f\u5148\u72b6\u6001",
-            "heading": "\u8bf7\u4f60\u786e\u5b9a\uff01\uff1f\uff01",
-            "yes": "\u5220\u9664\u6240\u6709\u6587\u672c",
-            "no": "\u53d6\u6d88"
-        },
-        "import": "\u5bfc\u5165",
-        "header": "\u8bbe\u7f6e:"
-    },
     "issues": {
         "go-home": "\u5ffd\u7565\u9519\u8bef"
     },

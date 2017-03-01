@@ -9,6 +9,37 @@
         "too_many_quotes": "Too Many Quotes",
         "cancel": "Cancel"
     },
+    "settings": {
+        "reset-all-settings": "Reset All Settings",
+        "importtext": {
+            "exported": {
+                "header": "Importa",
+                "failed": {
+                    "header": "Importazione fallita",
+                    "description": "Input fornito"
+                },
+                "description": "Per favore inserisci la stringa che c'era quando hai esportato il comando"
+            }
+        },
+        "nlOutput": "Mostra l'output strutturato",
+        "darkmode": {
+            "turn_on": "Tema scuro",
+            "turn_off": "Tema chiaro"
+        },
+        "show": "Apri impostazioni",
+        "hide": "Chiudi impostazioni",
+        "fontSize": "Anteprima grandezza testo",
+        "previewcolor": "Anteprima del colore dello sfondo:",
+        "export": "Esporta",
+        "deleteall": {
+            "body": "Premendo Cancella rimuoverai tutto il tuo testo e verr\u00e0 resettata in una stringa vuota.",
+            "heading": "Sei sicuro!?!",
+            "yes": "Cancella tutto",
+            "no": "Annulla"
+        },
+        "import": "Importa",
+        "header": "Impostazioni:"
+    },
     "template": {
         "actionbar": "Action Bar",
         "sign_block": "Cartello (\/blockdata)",
@@ -120,36 +151,6 @@
         }
     },
     "header_rev2": "Generatore del Comando Tellraw per Minecraft ",
-    "settings": {
-        "importtext": {
-            "exported": {
-                "header": "Importa",
-                "failed": {
-                    "header": "Importazione fallita",
-                    "description": "Input fornito"
-                },
-                "description": "Per favore inserisci la stringa che c'era quando hai esportato il comando"
-            }
-        },
-        "nlOutput": "Mostra l'output strutturato",
-        "darkmode": {
-            "turn_on": "Tema scuro",
-            "turn_off": "Tema chiaro"
-        },
-        "show": "Apri impostazioni",
-        "hide": "Chiudi impostazioni",
-        "fontSize": "Anteprima grandezza testo",
-        "previewcolor": "Anteprima del colore dello sfondo:",
-        "export": "Esporta",
-        "deleteall": {
-            "body": "Premendo Cancella rimuoverai tutto il tuo testo e verr\u00e0 resettata in una stringa vuota.",
-            "heading": "Sei sicuro!?!",
-            "yes": "Cancella tutto",
-            "no": "Annulla"
-        },
-        "import": "Importa",
-        "header": "Impostazioni:"
-    },
     "issues": {
         "go-home": "Ignora segnalazione"
     },
