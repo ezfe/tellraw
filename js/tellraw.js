@@ -22,13 +22,14 @@ var extraTextFormat = 'raw';
 var lang = {"status":"init"};
 var currentEdit;
 var hasAlertedTranslationObjects = false;
+var defaultLanguage = 'en-US';
+var languageCodes = [defaultLanguage];
 var webLangRelations;
 var editing = false;
 var issueLog = [];
 var bookPage = 1;
 var topPage = 1;
 var embed = false;
-var defaultLanguage = 'en-US';
 
 /***************************/
 /* Local Storage Interface */
@@ -210,6 +211,26 @@ function getLanguageName(langCode) {
 		return langCode
 	} else {
 		return name
+	}
+}
+
+function loadOtherLanguages() {
+	for (var i = 0; i < languageCodes.length; i++) {
+		let code = languageCodes[i];
+		if (lang[code] === undefined) {
+			$.ajax({
+				url: "lang/" + code + ".json",
+				type: 'GET',
+				dataType: 'json',
+				success: function(languageJSON) {
+					lang[code] = languageJSON;
+					refreshLanguage();
+				},
+				error: function(request, error) {
+					alert('Unable to load ' + code);
+				}
+			});
+		}
 	}
 }
 
@@ -1457,6 +1478,9 @@ function refreshLanguage(dropdownSelection) {
 	for (var i = 0; i < Object.keys(lang).length; i++) {
 		$('#language_keys').append('<li><a onclick="errorString = \''+ getLanguageName(Object.keys(lang)[i]) +'<br><br>\'; lsm.setItem(\'langCode\',\''+Object.keys(lang)[i]+'\'); refreshLanguage(true); refreshOutput();"><span class="' + Object.keys(lang)[i] + ' langSelect" id="language_select_'+Object.keys(lang)[i]+'">'+ getLanguageName(Object.keys(lang)[i]) +'</span></a></li>');
 	};
+	if (Object.keys(lang).length != languageCodes.length) {
+		$('#language_keys').append('<li><a><i class="fa fa-spinner fa-pulse fa-fw" aria-hidden="true"></i></a></li>');
+	}
 	$('#language_keys').append('<li class="divider"></li>');
 	$('#language_keys').append('<li><a href="http://translate.minecraftjson.com"><span class="language_area" lang="language.translate"></span></a></li>');
 
@@ -1688,6 +1712,7 @@ function initialize() {
 		refreshOutput();
 
 	});
+
 	$('#export').click(function(){
 		$('#exporter').remove();
 		$('.alerts').append('<div id="exporter" class="alert alert-info"><h4 lang="export.heading"></h4><p><textarea readonly id="exportText">' + makeExportString() + '</textarea></p><p><button type="button" onclick="closeExport()" class="btn btn-default" lang="export.close"></button></p></div>');
@@ -1699,8 +1724,10 @@ function initialize() {
 		goToByScroll('exporter');
 		refreshLanguage();
 	});
-	refreshLanguage();
+
 	refreshOutput();
+	refreshLanguage();
+
 	$('.fmtExtra').on('click', function(){
 		extraTextFormat = $(this).attr('tellrawType');
 		$('.fmtExtra').removeClass('active');
@@ -1839,7 +1866,9 @@ $(document).ready(function(){
 				achievements = resourcesJSON['achievements'];
 				commands = resourcesJSON['commands'];
 				defaultLanguage = resourcesJSON['default_language'];
-				if (resourcesJSON['available_language_codes'].indexOf(lsm.getItem('langCode')) != -1) {
+				languageCodes = resourcesJSON['available_language_codes'];
+				
+				if (languageCodes.indexOf(lsm.getItem('langCode')) != -1) {
 					defaultLanguage = lsm.getItem('langCode');
 				}
 
@@ -1849,23 +1878,6 @@ $(document).ready(function(){
 					dataType: 'json',
 					success: function(defaultLanguageJSON) {
 						lang[defaultLanguage] = defaultLanguageJSON;
-						for (var i = 0; i < resourcesJSON['available_language_codes'].length; i++) {
-							let code = resourcesJSON['available_language_codes'][i];
-							if (code != defaultLanguage) {
-								$.ajax({
-									url: "lang/" + code + ".json",
-									type: 'GET',
-									dataType: 'json',
-									success: function(languageJSON) {
-										lang[code] = languageJSON;
-										refreshLanguage();
-									},
-									error: function(request, error) {
-										alert('Unable to load ' + code);
-									}
-								});
-							}
-						}
 						delete lang.status;
 						initialize();
 					},
