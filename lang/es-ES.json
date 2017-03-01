@@ -151,18 +151,6 @@
         "import": "Importar",
         "header": "Configuraci\u00f3n:"
     },
-    "donate": {
-        "patreon-button": "Patreon",
-        "support-header": "Por favor, apoya a esta p\u00e1gina",
-        "paypal-note": "No incluyo PayPal como opci\u00f3n debido a las tarifas (Stripe no las aplica a estudiantes).\nSin embargo, puedes enviarme dinero desde PayPal mediante funds@ezekielelin.com",
-        "patreon-text": "Si te comprometes a donar cierta cantidad cada mes, puedes confiar en que mejorar\u00e9 los servidores.",
-        "support-subheader": "No quiero poner anuncios en esta p\u00e1gina. Por favor, dona para apoyar los costes de mantenimiento de esta p\u00e1gina.",
-        "donate-button": "Donar",
-        "donate-text": "Haz una donaci\u00f3n del valor que elijas (Stripe).",
-        "overcast-text": "\u00bfQuieres comprarme un rango en Overcast Network? Haz clic en la imagen de abajo, y pon ezekielelin como mi nombre de usuario.",
-        "exit": "Salir",
-        "exit-text": "No volver\u00e1s a ver esto si mantienes tus cookies intactas. Por desgracia no tenemos ninguna manera de detectar si las has reseteado."
-    },
     "issues": {
         "go-home": "Ignorar error"
     },
@@ -172,28 +160,11 @@
         "report-an-issue": "Haz click para reportar un error. Si encuentras alg\u00fan fallo, comun\u00edcalo aqu\u00ed.",
         "dropdown-list": "Twitea esta p\u00e1gina, mira el historial de cambios, ve al tema en el foro de minecraft, o completa los idiomas a\u00fan por traducir.",
         "addsnippet": "A\u00f1ade este texto al comando tellraw.",
-        "delete-all-saves": "Elimina los comandos guardados, pero conservando el que est\u00e1s creando.",
-        "create-new-save": "Guarda este comando. Esto sobreescribir\u00e1 cualquier otro con el mismo nombre.",
-        "delete-all-snippets": "Elimina este comando por completo. Las copias guardadas permanecer\u00e1n.",
-        "show-saves": "Muestra el editor de las copias guradadas, permite guardar, cargar, y eliminar los comandos guardados."
+        "delete-all-snippets": "Elimina este comando por completo. Las copias guardadas permanecer\u00e1n."
     },
     "output": {
         "nothing": "Nada por ahora",
         "header": "Vista previa del comando:"
-    },
-    "saves": {
-        "header": "Guardados",
-        "hide": "Cerrar guardados",
-        "persistencenotice": "Las comandos guardados pueden ser eliminados en cualquier momento, ya que dependen de las Cookies del navegador. No conf\u00edes en que los almacenar\u00e1 durante mucho tiempo.",
-        "show": "Mostrar Guardados",
-        "deleteall": {
-            "body": "Eliminar todas las copias guardadas no modificar\u00e1 el texto actual",
-            "yes": "Elimina TODOS los comandos guardados",
-            "heading": "\u00a1\u00bf\u00a1SEGURO!?!",
-            "no": "Cancelar"
-        },
-        "nosaves": "No tienes nada guardado",
-        "new": "Guarda el comando actual"
     },
     "color": {
         "color_green": "Verde",

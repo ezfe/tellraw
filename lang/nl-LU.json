@@ -151,18 +151,6 @@
         "import": "Importeer",
         "header": "Instellingen:"
     },
-    "donate": {
-        "patreon-button": "Patreon",
-        "support-header": "Support (alstublieft) deze webstie",
-        "paypal-note": "Ik bied PayPal niet aan als een betaalmethode door de kosten die hier aan zijn verbonden. Stripe rekent geen kosten. Maar als je wel met paypal wil betalen kan dit door te betalen aan funds@ezekielelin.com",
-        "patreon-text": "Als je heel graag iedere maand een bepaald bedrag wil doneren, is dit mogelijk zodra ik de servers update.",
-        "support-subheader": "Zou u alstublieft willen doneren, Ik wil deze website advertentie vrij houden en daar heb ik u voor nodig om de webhost te betalen.",
-        "donate-button": "Doneer",
-        "donate-text": "Maak een donatie van een waarde die je zelf bepaalt (Stripe)",
-        "overcast-text": "Wilt u voor mij een rank op de Overcast Network kopen? Klik op de afbeelding hierboven en vul ezekielelin in als gebruikersnaam.",
-        "exit": "Sluiten",
-        "exit-text": "Je zal dit niet meer zien als je niks aan je cookies doet. Helaas kan ik niet checken of je je cookies reset."
-    },
     "issues": {
         "go-home": "Negeer Probleem"
     },
@@ -172,28 +160,11 @@
         "report-an-issue": "Klik hier om een probleem in te sturen. Als u een bug tegenkomt, meld hem hier.",
         "dropdown-list": "Tweet, bekijk de changelog, bekijk de minecraftforum thread of krijg resources voor vertaling",
         "addsnippet": "Voeg tekst toe aan je tellraw commando.",
-        "delete-all-saves": "Wis je saves, maar laat je huidige command in de editor",
-        "create-new-save": "Sla je command op, dit zal wel het gelijknamige command overschrijven, als je dat kiest.",
-        "delete-all-snippets": "Verwijder je command volledig maar hou je saves intact.",
-        "show-saves": "Show je saves editor, enables saving, laden en verwijdering van saves."
+        "delete-all-snippets": "Verwijder je command volledig maar hou je saves intact."
     },
     "output": {
         "nothing": "Niks te zien hier",
         "header": "Output Voorbeeld:"
-    },
-    "saves": {
-        "header": "Saves",
-        "hide": "Verberg Saves",
-        "persistencenotice": "Saves kun je altijd resetten, en zijn afhankelijk van de cookies in je browsers. Vertrouw er niet op voor een langdurige tijd.",
-        "show": "Laat Saves zien",
-        "deleteall": {
-            "body": "Als je op 'Delete' klikt, verwijdert het al je saves, maar het laat je huidige tekst staan",
-            "yes": "Verwijder alle Saves",
-            "heading": "Weet je het zeker!?!",
-            "no": "Annuleer"
-        },
-        "nosaves": "Je hebt niks opgeslagen",
-        "new": "Sla dit command op"
     },
     "color": {
         "color_green": "Groen",

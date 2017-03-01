@@ -151,18 +151,6 @@
         "import": "Importovat",
         "header": "Nastaven\u00ed :"
     },
-    "donate": {
-        "patreon-button": "Patreon",
-        "support-header": "(Pros\u00edm) Podpo\u0159te tuto webovou str\u00e1nku",
-        "paypal-note": "PayPal nechci pou\u017e\u00edvat jako hlavn\u00ed \u0159e\u0161en\u00ed kv\u016fli poplatk\u016fm. (Stripe ne\u00fa\u010dtuje poplatky pro Studenty). Ale pokud nem\u00e1te jinou mo\u017enost m\u016f\u017eete mi poslat PayPal dary na funds@ezekielelin.com",
-        "patreon-text": "Pokud se rozhodnete p\u0159isp\u011bt jakoukoliv \u010d\u00e1stkou ka\u017ed\u00fd m\u011bs\u00edc, tak v\u00e1m m\u016f\u017eu sl\u00edbit \u017ee bude vyu\u017eita pro vylep\u0161en\u00ed serveru.",
-        "support-subheader": "Nechci d\u00e1vat reklamy na tuto str\u00e1nku, proto m\u011b pros\u00edm podpo\u0159te n\u011bjakou finan\u010dn\u00ed \u010d\u00e1stkou na provoz webu.",
-        "donate-button": "Podpo\u0159it !",
-        "donate-text": "P\u0159isp\u011bjte kolik chcete! (Stripe)",
-        "overcast-text": "Chcete mi koupit rank na Overcast Network? Klikn\u011bte na obr\u00e1zek dole a zadejte ezekielelin jako moj\u00ed p\u0159ezd\u00edvku.",
-        "exit": "Odej\u00edt",
-        "exit-text": "Neuvid\u00edte to zase tak dlouho, dokud si neudr\u017e\u00edte sv\u00e9 cookie soubory neporu\u0161en\u00e9. Bohu\u017eel nem\u00e1m zp\u016fsob, jak detekovat, zda si obnov\u00edte soubory cookie."
-    },
     "issues": {
         "go-home": "Ignorovat probl\u00e9m."
     },
@@ -172,28 +160,11 @@
         "report-an-issue": "Zde m\u016f\u017eete nahl\u00e1sit jak\u00fdkoliv objeven\u00fd bug. pokud n\u011bjak\u00fd objev\u00edte, nahla\u0161te ho pros\u00edm.",
         "dropdown-list": "Tweet, zobraz\u00ed seznam zm\u011bn, zobraz Minecraft forum \u010dl\u00e1nek, nebo z\u00edskej dopl\u0148ky pro p\u0159eklad.",
         "addsnippet": "P\u0159idat text do va\u0161eho \"tellraw\" p\u0159\u00edkazu.",
-        "delete-all-saves": "Vy\u010dist\u00ed tv\u00e9 ulo\u017een\u00e9 texty ale zanech\u00e1 ji\u017e vytvo\u0159en\u00fd text v editoru.",
-        "create-new-save": "Vytvo\u0159it nov\u00fd ulo\u017een\u00fd text. Toto p\u0159ep\u00ed\u0161e text se stejn\u00fdm n\u00e1zvem, pokud se tak rozhodnete.",
-        "delete-all-snippets": "Vy\u010dist\u00ed kompletn\u011b tv\u016fj p\u0159\u00edkaz ale zanech\u00e1 tv\u00e9 ulo\u017een\u00e9 texty.",
-        "show-saves": "Uk\u00e1\u017ee tv\u016fj editor ulo\u017een\u00fdch text\u016f, umo\u017en\u00ed ulo\u017een\u00ed, na\u010dten\u00ed nebo smaz\u00e1n\u00ed ulo\u017een\u00fdch text\u016f."
+        "delete-all-snippets": "Vy\u010dist\u00ed kompletn\u011b tv\u016fj p\u0159\u00edkaz ale zanech\u00e1 tv\u00e9 ulo\u017een\u00e9 texty."
     },
     "output": {
         "nothing": "Zde nen\u00ed na co koukat ;)",
         "header": "\u017div\u00fd N\u00e1hled:"
-    },
-    "saves": {
-        "header": "Ulo\u017een\u00e9",
-        "hide": "Zav\u0159\u00edt Ulo\u017een\u00e9 Texty",
-        "persistencenotice": "Ulo\u017een\u00e9 texty se m\u016f\u017eou kdykoliv vyresetovat, a jsou z\u00e1visl\u00e9 na Cookies souborech. Nespol\u00e9hejte tedy na n\u011b po del\u0161\u00ed dobu.",
-        "show": "Otev\u0159\u00edt Ulo\u017een\u00e9",
-        "deleteall": {
-            "body": "Kliknut\u00edm na Smazat sma\u017eete v\u0161e ulo\u017een\u00e9, ale nic to neud\u011bl\u00e1 s aktu\u00e1ln\u00edm textem.",
-            "yes": "Smazat v\u0161echny Ulo\u017een\u00e9 texty",
-            "heading": "Jsi si jist\u00fd!?",
-            "no": "Zav\u0159\u00edt"
-        },
-        "nosaves": "Nem\u00e1\u0161 nic ulo\u017een\u00e9ho.",
-        "new": "Ulo\u017eit Aktu\u00e1ln\u00ed Text"
     },
     "color": {
         "color_green": "Zelen\u00e1",

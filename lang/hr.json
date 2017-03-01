@@ -151,18 +151,6 @@
         "import": "Umetni",
         "header": "Postavke:"
     },
-    "donate": {
-        "patreon-button": "Patreon",
-        "support-header": "(Molimo Vas) Podr\u017eajte Ovu Web-stranicu",
-        "paypal-note": "Ne nudim paypal kao opciju na listi zbog naknada (Stripe ne napla\u0107uje naknade za studente). Me\u0111utim, ako \u017eelite mo\u017eete mi poslati novac preko PayPal-a putem funds@ezekielelin.com",
-        "patreon-text": "Ako \u017eelite donirati odre\u0111enu koli\u010dinu svaki mjesec, mogu osloniti na nadogradnju servera.",
-        "support-subheader": "Ne \u017eelim stavljati reklame na ovu web-stranicu, molim Vas donirajte te podr\u017eite tro\u0161kove za odr\u017eavanje ove web-stranice.",
-        "donate-button": "Doniraj",
-        "donate-text": "Napravi donaciju od vrijednosti koju izabere\u0161 (Stripe).",
-        "overcast-text": "\u017deli\u0161 li mi kupiti rang na Overcast Network-u? Klikni sliku gore, i upi\u0161i ezekielelin kao moje korisni\u010dko ime.",
-        "exit": "Iza\u0111i",
-        "exit-text": "Ovo ne\u010de\u0161 vidjeti vi\u0161e sve dok ne dira\u0161 kola\u010di\u0107e. Na\u017ealost nemam na\u010dina da otkrijem jesi li resetiro kola\u010di\u0107e."
-    },
     "issues": {
         "go-home": "Ignoriraj problem"
     },
@@ -172,28 +160,11 @@
         "report-an-issue": "Klikni ovdje da bi izvjestio problem. Ako iskusi\u0161 bilo koju vrstu gre\u0161ke, trebao bi ju izvjestiti ovdje.",
         "dropdown-list": "Tweet, pogledaj listu promjena, pogledaj minecraft forum post, ili dobi sredstva za prijevod.",
         "addsnippet": "Dodaj tekst na tvoju tellraw komandu.",
-        "delete-all-saves": "Izbri\u0161i svoje spremi\u0161te, ali ostavi svoju trenutnu komandu u glavnom editor-u netaknutu.",
-        "create-new-save": "Napravi novo spremi\u0161te. Ovo \u0107e prebrisati postoje\u0107e spremi\u0161te pod istim imenom, ako to izabere\u0161.",
-        "delete-all-snippets": "Izbri\u0161i svoju komandu u potpunosti, ali ostavi tvoje spremi\u0161te netaknuto.",
-        "show-saves": "Prikazuje tvoje spremi\u0161te editor-a, omogu\u0107uje spremanje, u\u010ditavanje, i brisanje spremi\u0161ta."
+        "delete-all-snippets": "Izbri\u0161i svoju komandu u potpunosti, ali ostavi tvoje spremi\u0161te netaknuto."
     },
     "output": {
         "nothing": "Ni\u0161ta za vidjeti ovdje",
         "header": "Izlazni Pregled:"
-    },
-    "saves": {
-        "header": "Spremi\u0161ta",
-        "hide": "Zatvori Spremi\u0161ta",
-        "persistencenotice": "Spremi\u0161ta se mogu poni\u0161titi u bilo koje vrijeme, i zavisiti o kola\u010di\u0107ima na Va\u0161em pregledniku. Nemojte se oslanjati na njih za dulje koli\u010dine vremena.",
-        "show": "Otvori Spremi\u0161ta",
-        "deleteall": {
-            "body": "Klikanjem na Izbri\u0161i \u0107e izbrisati sva tvoja spremi\u0161ta, ali ne\u0107e utjecati na tvoj trenutni tekst.",
-            "yes": "Izbri\u0161i Sva Spremi\u0161ta",
-            "heading": "Jesi li siguran!?!",
-            "no": "Poni\u0161ti"
-        },
-        "nosaves": "Nema\u0161 ni\u0161ta spremljeno",
-        "new": "Spremi Trenutni String"
     },
     "color": {
         "color_green": "Zelena",

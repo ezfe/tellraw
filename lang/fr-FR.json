@@ -151,18 +151,6 @@
         "import": "Importer",
         "header": "Param\u00e8tres :"
     },
-    "donate": {
-        "patreon-button": "Patreon",
-        "support-header": "Merci de soutenir ce site.",
-        "paypal-note": "Je ne vous propose pas de donner via paypal en raison des frais (Stripe ne facture pas les frais aux \u00e9tudiants). Mais si vous voulez toutefois m'envoyer de l'argent par PayPal, voici mon adresse mail : funds@ezekielelin.com",
-        "patreon-text": "Si vous vous engagez \u00e0 donner un certain montant chaque mois, je pourrais am\u00e9liorer les serveurs.",
-        "support-subheader": "Je ne veux pas mettre des publicit\u00e9s sur ce site, s'il vous pla\u00eet, donnez pour m'aider \u00e0 payer les co\u00fbts de maintenance du site.",
-        "donate-button": "Donner",
-        "donate-text": "Faites une donation du montant de votre choix (Stripe).",
-        "overcast-text": "Vous voulez m'acheter un grade sur l'Overcast Network? Cliquez sur l'image au dessus, et entrez ezekielelin comme nom d'utilisateur.",
-        "exit": "Sortir",
-        "exit-text": "Vous ne verrez plus ceci tant que vous gardez vos cookies intacts. Malheureusement je n'ai pas de moyen de vous d\u00e9t\u00e9cter si vous r\u00e9initialisez vos cookies."
-    },
     "issues": {
         "go-home": "Ignorer le bug"
     },
@@ -172,28 +160,11 @@
         "report-an-issue": "Cliquez ici pour rapporter un bug. Si vous observez un bug, merci de le rapporter ici.",
         "dropdown-list": "Tweet, voir le changelog, voir le topic sur les forums de Minecraft, ou procurez vous des ressources pour la traduction.",
         "addsnippet": "Ajoutez du texte \u00e0 votre commande tellraw.",
-        "delete-all-saves": "Supprimez vos sauvegardes, mais conserve votre commande actuelle dans l'\u00e9diteur.",
-        "create-new-save": "Cr\u00e9e une nouvelle sauvegarde. Cela va \u00e9craser la sauvegarde existante qui porte le m\u00eame nom.",
-        "delete-all-snippets": "Efface compl\u00e8tement votre commande, mais conserve vos sauvegardes.",
-        "show-saves": "Montre votre \u00e9diteur de sauvegardes, vous permet de sauver, charger, et supprimer des sauvegardes"
+        "delete-all-snippets": "Efface compl\u00e8tement votre commande, mais conserve vos sauvegardes."
     },
     "output": {
         "nothing": "Rien \u00e0 voir par ici",
         "header": "Aper\u00e7u du r\u00e9sultat:"
-    },
-    "saves": {
-        "header": "Sauvegardes",
-        "hide": "Fermer les sauvegardes",
-        "persistencenotice": "Les sauvegardes peuvent \u00eatre supprim\u00e9es \u00e0 tout moment, et d\u00e9pendent des cookies de votre naviguateur. Ne les utilisez pas pendant longtemps.",
-        "show": "Ouvrir les sauvegardes",
-        "deleteall": {
-            "body": "En cliquant sur supprimer, vous allez supprimer toutes vos sauvegardes mais cela n'affectera pas votre texte actuel",
-            "yes": "Supprimer toutes les sauvegardes",
-            "heading": "Etes-vous s\u00fbrs?!?",
-            "no": "Annuler"
-        },
-        "nosaves": "Vous n'avez aucune sauvegardes",
-        "new": "Enregistrer la phrase actuelle"
     },
     "color": {
         "color_green": "Vert",

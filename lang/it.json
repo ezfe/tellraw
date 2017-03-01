@@ -151,18 +151,6 @@
         "import": "Importa",
         "header": "Impostazioni:"
     },
-    "donate": {
-        "patreon-button": "Patreon",
-        "support-header": "(Per favore) Supporta questo sito",
-        "paypal-note": "Io non ho messo l'opzione di pagamento PayPal per colpa delle tasse (Stripe non tassa gli Studenti). Comunque, se vuoi puoi inviarmi fondi usando PayPal attraverso la mail funds@ezekielelin.com",
-        "patreon-text": "Se ti impegnerai a donare una certa cifra ogni mese, io potr\u00f2 far affidamento su ci\u00f2 per potenziare i server.",
-        "support-subheader": "Io non voglio mettere pubblicit\u00e0 in questo sito, per favore dona per supportare i costi di mantenimento di questo sito.",
-        "donate-button": "Dona",
-        "donate-text": "Fai una donazione usando la valuta che vuoi (Stripe).",
-        "overcast-text": "Vorresti comprarmi un rango nell'Overcast Network? Clicca nella foto in basso ed inserisci ezekielelin come mio username.",
-        "exit": "Esci",
-        "exit-text": "Non vedrai pi\u00f9 questo affinch\u00e8 tieni i tuoi cookies inalterati. Purtroppo io non ho nessuna via per vedere se hai resettato i cookies."
-    },
     "issues": {
         "go-home": "Ignora segnalazione"
     },
@@ -172,28 +160,11 @@
         "report-an-issue": "Clicca qui per segnalare un problema. Se nella tua esperienza compare un bug, dovresti segnalarlo qui.",
         "dropdown-list": "Twitta, visualizza il changelog, visualizza il thread del forum di minecraft, o ottieni risorse per la traduzione.",
         "addsnippet": "Aggiungere il testo al comando tellraw",
-        "delete-all-saves": "Cancella i tuoi salvataggi, ma lascia il tuo comando corrente nell'editor intatto.",
-        "create-new-save": "Crea un nuovo salvataggio. Questo sovrascriver\u00e0 i salvataggi con lo stesso nome.",
-        "delete-all-snippets": "Cancella il comando, ma lascia i salvataggi intatti.",
-        "show-saves": "Visualizza l'editor del salvataggi, consente il salvataggio, il caricamento e l'eliminazione di salvataggi."
+        "delete-all-snippets": "Cancella il comando, ma lascia i salvataggi intatti."
     },
     "output": {
         "nothing": "Non c'\u00e8 niente da vedere qui",
         "header": "Anteprima:"
-    },
-    "saves": {
-        "header": "Salvataggi",
-        "hide": "Chiudi Salvataggi",
-        "persistencenotice": "I salvataggi possono essere resettati in qualunque momento, e dipendono dai cookie del tuo browser. Non farci affidamento per lunghi periodi di tempo.",
-        "show": "Mostra salvataggi",
-        "deleteall": {
-            "body": "Premendo Cancella rimuoverai tutti i tuoi salvataggi, ma non canceller\u00e0 il testo corrente",
-            "yes": "Elimina tutti i salvataggi",
-            "heading": "Sei sicuro!?!",
-            "no": "Annulla"
-        },
-        "nosaves": "Non hai niente salvato",
-        "new": "Salva la stringa corrente"
     },
     "color": {
         "color_green": "Verde",

@@ -498,31 +498,6 @@ function setObfuscatedString(string) {
 	};
 	return output;
 }
-
-function legacySavesNotice() {
-	swal("Saves are being phased out", "Please use the Export and Import options.");
-}
-
-function loadJObject(saveName) {
-	var saveItem = getJObject(saveName);
-	jobject = saveItem.jobject;
-	$('#command').val(saveItem.command);
-	swal('Loaded save `' + saveName + '`','','success');
-	refreshSavesList();
-	refreshOutput();
-}
-
-function doesJObjectExist(saveName) {
-	var saveSlot = 'saveSlot_' + saveName;
-	return lsm.getItem(saveSlot) != undefined;
-
-}
-
-function getJObject(saveName) {
-	var saveSlot = 'saveSlot_' + saveName;
-	return JSON.parse(lsm.getItem(saveSlot));
-}
-
 function deleteAll() {
 	swal({
 		"title": getLanguageString('settings.deleteall.heading',lsm.getItem('langCode')),
@@ -538,31 +513,6 @@ function deleteAll() {
 			$('.templateButton[template=tellraw]').click();
 			refreshOutput();
 			swal('Deleted!','Your current thing was deleted', 'success');
-		}
-	});
-}
-
-function clearJObjectSaves() {
-	swal({
-		"title": getLanguageString('saves.deleteall.heading',lsm.getItem('langCode')),
-		"text": getLanguageString('saves.deleteall.body',lsm.getItem('langCode')),
-		"cancelButtonText": getLanguageString('saves.deleteall.no',lsm.getItem('langCode')),
-		"confirmButtonText": getLanguageString('saves.deleteall.yes',lsm.getItem('langCode')),
-		"showCancelButton": true,
-		"closeOnConfirm": false,
-		"type": "warning"
-	},function(isConfirm){
-		if (isConfirm) {
-			for (var x = 0; x < Object.keys(lsm).length; x++) {
-				for (var i = 0; i < Object.keys(lsm).length; i++) {
-					var key = Object.keys(lsm)[i];
-					if (key.indexOf('saveSlot_') != -1) {
-						lsm.removeItem(key);
-					}
-				}
-			}
-			refreshSavesList();
-			swal('Deleted!','Your saves were deleted', 'success');
 		}
 	});
 }
@@ -1025,48 +975,6 @@ function addExtra() {
 	refreshOutput();
 
 }
-function getNumberSaves() {
-	var num = 0;
-	for (var i = 0; i < Object.keys(lsm.dictionary()).length; i++) {
-		var key = Object.keys(lsm.dictionary())[i];
-		if (key.indexOf('saveSlot_') != -1) {
-			num++;
-		}
-	}
-	return num;
-}
-function refreshSavesList() {
-	$('.savesContainer').html('');
-	for (var i = 0; i < Object.keys(lsm.dictionary()).length; i++) {
-		var key = Object.keys(lsm.dictionary())[i];
-		if (key.indexOf('saveSlot_') != -1) {
-			$('.savesContainer').append('<div class="row" saveKey="' + key.substring('9') + '"><div class="col-xs-3"><a href="#" onclick="loadJObject(\'' + key.substring('9') + '\')">Load ' + key.substring('9').replace('_', ' ') + '</a></div><div class="col-xs-6">' + lsm.getItem(key).substring(0,90) + ' ...</div><div class="div class="col-xs-3"><a href="#" onclick="deleteJObjectSave(\'' + key.substring('9') + '\')">Delete ' + key.substring('9') + '</a></div></div>')
-		}
-	};
-	if ($('.savesContainer').html() == '') {
-		$('.savesContainer').html('<div class="row"><div class="col-xs-12"><h4 lang="saves.nosaves"></h4></div></div>');
-	}
-	refreshLanguage();
-}
-function deleteJObjectSave(saveName) {
-	var saveSlot = 'saveSlot_' + saveName;
-	swal({
-		title: "Are you sure?",
-		text: "Are you sure you want to delete " + saveName + "?",
-		type: "warning",
-		showCancelButton: true,
-		confirmButtonText: "Yes, delete it!",
-		closeOnConfirm: false
-	}, function(){
-		lsm.removeItem(saveSlot);
-		refreshSavesList();
-		swal("Deleted!", saveName + ' was deleted.', "success");
-	});
-	refreshSavesList();
-}
-function showFixerView() {
-	showView('escaping-issue',true,false,true);
-}
 function refreshOutput(input) {
 	/*VERIFY CONTENTS*/
 	jobject = verify_jobject_format(jobject);
@@ -1075,12 +983,6 @@ function refreshOutput(input) {
 		$('#command').val('/tellraw @p %s');
 		lsm.setItem('jtemplate','tellraw');
 	}
-
-	if ($('#command').val().indexOf('/tellraw') != -1 && templates[lsm.getItem('jtemplate')].formatType != 'standardjson' && lsm.getItem('dontShowQuoteFixer') != "true" && jobject.length > 0) {
-		setTimeout(showFixerView,4000);
-	}
-
-	refreshSavesList();
 
 	/*EXTRA MODAL COLOR PREVIEW MANAGER*/
 	$('#colorPreviewColor').css({ 'background-color': getCSSHEXFromWord(getSelected('color_extra')) });
@@ -1824,12 +1726,6 @@ function initialize() {
 		showView('add-extra')
 		editing = true;
 	});
-	$('#show-saves').on('click',function(){
-		showView('saves');
-	});
-	$('#hide-saves').on('click',function(){
-		showView('tellraw');
-	});
 	$('#lang_request').on('click',function(){
 		showView('lang-request');
 		$('#lang-request-errorstring').html(errorString);
@@ -1901,13 +1797,6 @@ function initialize() {
 			reportAnIssue();
 		}
 	});
-
-	if (lsm.getItem('savesDeprecatedAlertShown') !== "AlertShown1") {
-		if (getNumberSaves() > 0) {
-			alert("Saves are being deprecated.\nYou may access your saves at the bottom of the page, please retrieve them and export them to a safe location, as this feature will be completely removed in a future update.");
-			lsm.setItem('savesDeprecatedAlertShown', "AlertShown1");
-		}
-	}
 
 	// Beta tooltip
 	// $('#dropdown-list-a').tooltip({"title":"<i style=\"color: #F8814C;\" class=\"fa fa-exclamation-circle\"></i> " + getLanguageString('headerbar.dropdown.hover',lsm.getItem('langCode')),"html":true,"placement":"bottom"});

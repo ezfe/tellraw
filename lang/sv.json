@@ -151,18 +151,6 @@
         "import": "Importera",
         "header": "Inst\u00e4llningar:"
     },
-    "donate": {
-        "patreon-button": "Patreon",
-        "support-header": "(Sn\u00e4lla) St\u00f6d den h\u00e4r webbsidan",
-        "paypal-note": "Jag erbjuder inte PayPal ett val i listan p\u00e5 grund av avgifter (Stripe drar inte ut avgifter f\u00f6r studenter). Men, om du vill kan du skicka pengar till mig med PayPal via funds@ezekielelin.com",
-        "patreon-text": "Om du donerar m\u00e5nadsvis, kan jag f\u00f6rlita mig p\u00e5 det f\u00f6r att uppgradera servrarna.",
-        "support-subheader": "Jag vill inte l\u00e4gga annonser p\u00e5 den h\u00e4r webbsidan, sn\u00e4lla donera f\u00f6r att st\u00f6dja kostnaderna att h\u00e5lla ig\u00e5ng den.",
-        "donate-button": "Donera",
-        "donate-text": "Donera ett v\u00e4rde du v\u00e4ljer (Stripe).",
-        "overcast-text": "Vill du k\u00f6pa en rank \u00e5t mig p\u00e5 Overcast Network? Klicka p\u00e5 bilden ovan, skriv sen in mitt anv\u00e4ndernamn ezekielelin.",
-        "exit": "St\u00e4ng",
-        "exit-text": "Du kommer inte se det h\u00e4r igen s\u00e5 l\u00e4nge du har dina cookies intakta. Tyv\u00e4rr har jag inget s\u00e4tt att kolla om du \u00e5terst\u00e4ller dem."
-    },
     "issues": {
         "go-home": "Ignorera problem"
     },
@@ -172,28 +160,11 @@
         "report-an-issue": "Klicka h\u00e4r f\u00f6r att rapportera ett problem. Om du hittar n\u00e5gon sorts bugg, rapportera den h\u00e4r.",
         "dropdown-list": "Tweeta, visa \u00e4ndringslogg, visa minecraftforumstr\u00e5den eller f\u00e5 resurser f\u00f6r \u00f6vers\u00e4ttning.",
         "addsnippet": "L\u00e4gg till text till ditt tellrawkommando.",
-        "delete-all-saves": "Rensa dina sparade kommandon, men l\u00e4mna det nuvarande kommandot i huvudredigeraren intakt.",
-        "create-new-save": "Spara ett nytt kommando. Om du vill kan du skriva \u00f6ver ett annat sparat kommando genom att anv\u00e4nda samma namn.",
-        "delete-all-snippets": "Rensa ditt nuvarande kommando helt, men bevara dina sparade kommandon.",
-        "show-saves": "Sparade kommandon-hanterare, till\u00e5ter dig att spara, ladda in och ta bort kommandon."
+        "delete-all-snippets": "Rensa ditt nuvarande kommando helt, men bevara dina sparade kommandon."
     },
     "output": {
         "nothing": "Inget att se h\u00e4r",
         "header": "Resultatsf\u00f6rhandsgranskning:"
-    },
-    "saves": {
-        "header": "Sparade kommandon",
-        "hide": "St\u00e4ng sparade kommandon",
-        "persistencenotice": "Sparade kommandon kan \u00e5terst\u00e4llas n\u00e4r som helst, och \u00e4r beroende av din webbl\u00e4sares cookies. F\u00f6rlita dig inte p\u00e5 dem under l\u00e5nga tidsperioder.",
-        "show": "\u00d6ppna sparade kommandon",
-        "deleteall": {
-            "body": "Att klicka p\u00e5 Radera kommer att ta bort alla dina sparade kommandon, men kommer inte att ber\u00f6ra din nuvarande text",
-            "yes": "Radera alla sparade kommandon",
-            "heading": "\u00c4r du s\u00e4ker!?!",
-            "no": "Avbryt"
-        },
-        "nosaves": "Du har inte n\u00e5got sparat",
-        "new": "Spara nuvarande text."
     },
     "color": {
         "color_green": "Gr\u00f6n",

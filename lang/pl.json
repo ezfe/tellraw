@@ -151,18 +151,6 @@
         "import": "Zaimportuj",
         "header": "Ustawienia:"
     },
-    "donate": {
-        "patreon-button": "Patreon",
-        "support-header": "(Prosimy) Wspom\u00f3\u017c t\u0105 stron\u0119!",
-        "paypal-note": "Je\u015bli masz ochot\u0119\u00a0nas wspom\u00f3c wy\u015blij troch\u0119 pieni\u0119dzy przez PayPal'a na maila funds@ezekielelin.com",
-        "patreon-text": "Je\u017celi zobowi\u0105\u017cesz si\u0119 do wp\u0142acania pewnej kwoty w ka\u017cdym miesi\u0105cu, mo\u017cesz liczy\u0107 na to \u017ce serwery zostan\u0105 ulepszone.",
-        "support-subheader": "Nie chce dodawa\u0107 reklam do tej strony, wi\u0119c prosz\u0119 o wspomo\u017cenie pieni\u0119\u017cne dla  tej strony",
-        "donate-button": "Wspom\u00f3\u017c",
-        "donate-text": "Wspom\u00f3\u017c stron\u0119 ilo\u015bci\u0105 pieni\u0119dzy kt\u00f3r\u0105 wybierzesz (Stripe)",
-        "overcast-text": "Chcia\u0142by\u015b kupi\u0107 rang\u0119 w Overcast Network? Kliknij obrazek, a nast\u0119pnie wpisz ezekielelin jako moja nazwa u\u017cytkownika.",
-        "exit": "Wyjd\u017a",
-        "exit-text": "B\u0119dziesz widzia\u0142 ten zapis dop\u00f3ki nie usuniesz ciasteczek (cookies) w przegl\u0105darce. Niestety ma mo\u017cliwo\u015bci wykrycia twojego zapisu je\u015bli zresetujesz ciasteczka (cookies)"
-    },
     "issues": {
         "go-home": "Ignoruj b\u0142\u0105d"
     },
@@ -172,28 +160,11 @@
         "report-an-issue": "Naci\u015bnij tutaj aby zg\u0142osi\u0107 problem. Je\u017celi zauwa\u017cy\u0142e\u015b jakikolwiek b\u0142\u0105d, powiniene\u015b go zg\u0142osi\u0107 tutaj.",
         "dropdown-list": "Tweetnij, zobacz zmiany, forum Minecrafta albo zdob\u0105d\u017a zasoby do t\u0142umaczenia.",
         "addsnippet": "Dodaj tekst do swojej komendy \/tellraw",
-        "delete-all-saves": "Usu\u0144 swoje zapisy, ale zostaw aktualn\u0105 komend\u0119 w g\u0142\u00f3wnym edytorze.",
-        "create-new-save": "Stw\u00f3rz nowy zapis. To nadpisze istniej\u0105cy zapis, je\u017celi zapiszesz go pod t\u0105 sam\u0105 nazw\u0105.",
-        "delete-all-snippets": "Wyczy\u015b\u0107 swoj\u0105 komend\u0119 kompletnie, ale zostaw swoje zapisy.",
-        "show-saves": "Poka\u017c edytor twoich zapis\u00f3w, pozwala na zapisywanie, za\u0142adowywanie i usuwanie zapis\u00f3w"
+        "delete-all-snippets": "Wyczy\u015b\u0107 swoj\u0105 komend\u0119 kompletnie, ale zostaw swoje zapisy."
     },
     "output": {
         "nothing": "Nic tu nie ma do zobaczenia",
         "header": "Efekt ko\u0144cowy:"
-    },
-    "saves": {
-        "header": "Zapisy",
-        "hide": "Zamknij Zapisy",
-        "persistencenotice": "Zapisy mo\u017ce zosta\u0107 zresetowane w ka\u017cdym momencie, a zale\u017cy to od twoich ciasteczek (cookies). Nie polegaj na nich przez d\u0142u\u017cszy okres czasu.",
-        "show": "Otw\u00f3rz Zapisy",
-        "deleteall": {
-            "body": "Po naci\u015bni\u0119ciu \"Usu\u0144\", twoje wszystkie zapisy zostan\u0105 usuni\u0119te, ale tw\u00f3j aktualny tekst nie zostanie usuni\u0119ty",
-            "yes": "Usu\u0144 wszystkie zapisy",
-            "heading": "Czy jeste\u015b pewny!?!",
-            "no": "Anuluj"
-        },
-        "nosaves": "Jeszcze nic nie zapisa\u0142e\u015b",
-        "new": "Zapisz aktualn\u0105 linijk\u0119"
     },
     "color": {
         "color_green": "Zielony",
