@@ -115,37 +115,14 @@ function clone(obj) {
     throw new Error("Unable to copy obj! Its type isn't supported.");
 }
 
-function getURL(url){
-	return $.ajax({
-		type: "GET",
-		url: url,
-		cache: false,
-		async: false
-	}).responseText;
-}
-
-/*
-(c) 2012 Steven Levithan <http://slevithan.com/>
-MIT license
-*/
-if (!String.prototype.codePointAt) {
-	String.prototype.codePointAt = function(pos) {
-		pos = isNaN(pos) ? 0 : pos;
-		var str = String(this),
-		code = str.charCodeAt(pos),
-		next = str.charCodeAt(pos + 1);
-        // If a surrogate pair
-        if (0xD800 <= code && code <= 0xDBFF && 0xDC00 <= next && next <= 0xDFFF) {
-        	return ((code - 0xD800) * 0x400) + (next - 0xDC00) + 0x10000;
-        }
-        return code;
-    };
-}
-
 function hardFail(message = "An unexpected erorr occurred which cannot be recovered. Please reload or try again later.") {
 	alert(message);
 	document.getElementsByTagName('body')[0].innerHTML = message + "<br><br>If the issue persists, click <a href=\"https://github.com/ezfe/tellraw/issues\">here</a> to file an issue report";
 }
+
+/*********************/
+/* Export and Import */
+/*********************/
 
 function makeExportString() {
 	return JSON.stringify({"command":$('#command').val(),"jobject":jobject,"jtemplate":lsm.getItem('jtemplate')})
@@ -186,8 +163,8 @@ function showIssue() {
 	alert(`${issueLog[issueLog.length - 1].name}\n${issueLog[issueLog.length - 1].data}`);
 }
 
-function logIssue(name,data,critical) {
-	issueLog.push({"name": name,"data": data});
+function logIssue(name, data = null, critical = false) {
+	issueLog.push({name, data});
 	if (critical) {
 		alert(`${name}\n${data}`);
 	}
@@ -244,7 +221,7 @@ function loadOtherLanguages() {
 /* View Controls */
 /*****************/
 
-function showView(viewname,suppressAnimation,hideOthers,hideMenubar) {
+function showView(viewname, suppressAnimation = false, hideOthers = true, hideMenubar = false) {
 	var hideMenubarOriginal = hideMenubar;
 	if (embed) {
 		hideMenubar = true;
@@ -1607,17 +1584,15 @@ function initialize() {
 		$('#showNiceLookingOutput').prop('checked', true);
 	}
 
-	showView('pageheader',true,false);
+	showView('pageheader', true, false);
 	//JSON.stringify({"viewname":viewname,"suppressAnimation":suppressAnimation,"hideOthers":hideOthers,"hideMenubar":hideMenubar})
 	if (lsm.getItem('jview') != undefined/* && typeof JSON.stringify(lsm.getItem('jview')) != "string"*/) {
 		let viewObject = JSON.parse(lsm.getItem('jview'));
-		showView(viewObject.viewname,viewObject.suppressAnimation,viewObject.hideOthers,viewObject.hideMenubar);
+		showView(viewObject.viewname, true, viewObject.hideOthers, viewObject.hideMenubar);
 	} else {
-		showView('tellraw')
+		showView('tellraw', true, true, false);
 	}
-	if (lsm.getItem('jtosaccept') == undefined || lsm.getItem('jtosaccept') != tos_version) {
-		//showView('tos-header',true,false,true);
-	}
+	
 	$('.templateButton').click(function(){
 		$('.templateButton').removeClass('btn-success').removeClass('btn-default').addClass('btn-default');
 		$(this).addClass('btn-success').removeClass('btn-default');
