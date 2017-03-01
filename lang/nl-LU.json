@@ -1,4 +1,14 @@
 {
+    "report_issue": {
+        "badpreview": "Bad Preview",
+        "describe": "Beschrijf alstublieft uw probleem",
+        "translation_issue": "Vertaling Probleem",
+        "output_issue": "Output Probleem",
+        "other_issue": "Ander Probleem",
+        "other_language": "Andere Taal",
+        "too_many_quotes": "Te Veel Citaten",
+        "cancel": "Annuleren"
+    },
     "template": {
         "actionbar": "Action Bar",
         "sign_block": "Bord (\/blockdata)",
@@ -21,15 +31,6 @@
         },
         "help": "Help",
         "report_an_issue": "Meld een Probleem"
-    },
-    "report_issue": {
-        "describe": "Beschrijf alstublieft uw probleem",
-        "translation_issue": "Vertaling Probleem",
-        "output_issue": "Output Probleem",
-        "other_issue": "Ander Probleem",
-        "other_language": "Andere Taal",
-        "too_many_quotes": "Te Veel Citaten",
-        "cancel": "Annuleren"
     },
     "textsnippets": {
         "NEW_ITERATE_FLAG": {

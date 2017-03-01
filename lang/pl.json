@@ -1,4 +1,14 @@
 {
+    "report_issue": {
+        "badpreview": "Bad Preview",
+        "describe": "Please describe your issue",
+        "translation_issue": "Translation Issue",
+        "output_issue": "Output Issue",
+        "other_issue": "Other Issue",
+        "other_language": "Other Language",
+        "too_many_quotes": "Too Many Quotes",
+        "cancel": "Cancel"
+    },
     "template": {
         "actionbar": "Action Bar",
         "sign_block": "Tabliczka (\/blockdata)",
@@ -21,15 +31,6 @@
         },
         "help": "Pomoc",
         "report_an_issue": "Zg\u0142o\u015b problem"
-    },
-    "report_issue": {
-        "describe": "Please describe your issue",
-        "translation_issue": "Translation Issue",
-        "output_issue": "Output Issue",
-        "other_issue": "Other Issue",
-        "other_language": "Other Language",
-        "too_many_quotes": "Too Many Quotes",
-        "cancel": "Cancel"
     },
     "textsnippets": {
         "NEW_ITERATE_FLAG": {

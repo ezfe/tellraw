@@ -1,4 +1,14 @@
 {
+    "report_issue": {
+        "badpreview": "Bad Preview",
+        "describe": "\u8acb\u63cf\u8ff0\u4f60\u9047\u5230\u7684\u932f\u8aa4",
+        "translation_issue": "\u7ffb\u8b6f\u932f\u8aa4",
+        "output_issue": "\u6307\u4ee4\u751f\u6210\u932f\u8aa4",
+        "other_issue": "\u5176\u4ed6\u932f\u8aa4",
+        "other_language": "\u5176\u4ed6\u8a9e\u8a00",
+        "too_many_quotes": "\u5f15\u865f\u6578\u91cf\u904e\u591a",
+        "cancel": "\u53d6\u6d88"
+    },
     "template": {
         "actionbar": "\u884c\u70ba\u6b04",
         "sign_block": "\u544a\u793a\u724c[Sign](\/blockdata)",
@@ -21,15 +31,6 @@
         },
         "help": "\u5e6b\u52a9",
         "report_an_issue": "\u56de\u5831\u554f\u984c"
-    },
-    "report_issue": {
-        "describe": "\u8acb\u63cf\u8ff0\u4f60\u9047\u5230\u7684\u932f\u8aa4",
-        "translation_issue": "\u7ffb\u8b6f\u932f\u8aa4",
-        "output_issue": "\u6307\u4ee4\u751f\u6210\u932f\u8aa4",
-        "other_issue": "\u5176\u4ed6\u932f\u8aa4",
-        "other_language": "\u5176\u4ed6\u8a9e\u8a00",
-        "too_many_quotes": "\u5f15\u865f\u6578\u91cf\u904e\u591a",
-        "cancel": "\u53d6\u6d88"
     },
     "textsnippets": {
         "NEW_ITERATE_FLAG": {

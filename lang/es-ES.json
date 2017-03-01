@@ -1,4 +1,14 @@
 {
+    "report_issue": {
+        "badpreview": "Bad Preview",
+        "describe": "Por favor, explica tu problema",
+        "translation_issue": "Problema con la traducci\u00f3n",
+        "output_issue": "Problema con el c\u00f3digo",
+        "other_issue": "Otro problema",
+        "other_language": "Otro idioma",
+        "too_many_quotes": "Demasiadas comillas",
+        "cancel": "Cancelar"
+    },
     "template": {
         "actionbar": "Barra de acci\u00f3n",
         "sign_block": "Cartel (\/blockdata)",
@@ -21,15 +31,6 @@
         },
         "help": "Ayuda",
         "report_an_issue": "Reportar un fallo\/error"
-    },
-    "report_issue": {
-        "describe": "Por favor, explica tu problema",
-        "translation_issue": "Problema con la traducci\u00f3n",
-        "output_issue": "Problema con el c\u00f3digo",
-        "other_issue": "Otro problema",
-        "other_language": "Otro idioma",
-        "too_many_quotes": "Demasiadas comillas",
-        "cancel": "Cancelar"
     },
     "textsnippets": {
         "NEW_ITERATE_FLAG": {

@@ -1,6 +1,16 @@
 {
+    "report_issue": {
+        "badpreview": "Bad Preview",
+        "describe": "Molimo vas, opi\u0161ite problem",
+        "translation_issue": "Problem u Prijevodu",
+        "output_issue": "Izlazni Problem",
+        "other_issue": "Drugi Problem",
+        "other_language": "Drugi Jezik",
+        "too_many_quotes": "Previ\u0161e Citata",
+        "cancel": "Poni\u0161ti"
+    },
     "template": {
-        "actionbar": "Akcija Bar",
+        "actionbar": "Akcijski Bar",
         "sign_block": "Znak (\/blockdata)",
         "sign_item": "Znak (\/give)",
         "subtitle": "Podnaslov",
@@ -11,7 +21,7 @@
     },
     "headerbar": {
         "dropdown": {
-            "uptime": "Uptime",
+            "uptime": "Vrijeme rada",
             "translate_page_link": "Stranica za Prevo\u0111enje",
             "hover": "Probna Verzija Dostupna!",
             "beta_link": "Probna Verzija",
@@ -21,15 +31,6 @@
         },
         "help": "Pomo\u0107",
         "report_an_issue": "Izvijesti problem"
-    },
-    "report_issue": {
-        "describe": "Molimo vas, opi\u0161ite problem",
-        "translation_issue": "Problem u Prijevodu",
-        "output_issue": "Izlazni Problem",
-        "other_issue": "Drugi Problem",
-        "other_language": "Drugi Jezik",
-        "too_many_quotes": "Previ\u0161e Citata",
-        "cancel": "Poni\u0161ti"
     },
     "textsnippets": {
         "NEW_ITERATE_FLAG": {

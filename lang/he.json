@@ -1,4 +1,14 @@
 {
+    "report_issue": {
+        "badpreview": "Bad Preview",
+        "describe": "Please describe your issue",
+        "translation_issue": "Translation Issue",
+        "output_issue": "Output Issue",
+        "other_issue": "Other Issue",
+        "other_language": "Other Language",
+        "too_many_quotes": "Too Many Quotes",
+        "cancel": "Cancel"
+    },
     "template": {
         "actionbar": "Action Bar",
         "sign_block": "\u05e9\u05dc\u05d8 (blockdata)",
@@ -21,15 +31,6 @@
         },
         "help": "\u05e2\u05d6\u05e8\u05d4",
         "report_an_issue": "\u05d3\u05d5\u05d5\u05d7 \u05e2\u05dc \u05d1\u05e2\u05d9\u05d4"
-    },
-    "report_issue": {
-        "describe": "Please describe your issue",
-        "translation_issue": "Translation Issue",
-        "output_issue": "Output Issue",
-        "other_issue": "Other Issue",
-        "other_language": "Other Language",
-        "too_many_quotes": "Too Many Quotes",
-        "cancel": "Cancel"
     },
     "textsnippets": {
         "NEW_ITERATE_FLAG": {

@@ -1,4 +1,14 @@
 {
+    "report_issue": {
+        "badpreview": "Bad Preview",
+        "describe": "Perfavore, descrivi il tuo problema",
+        "translation_issue": "Problema di traduzione",
+        "output_issue": "Problema con l'output",
+        "other_issue": "Altro problema",
+        "other_language": "Altra lingua",
+        "too_many_quotes": "Too Many Quotes",
+        "cancel": "Cancel"
+    },
     "template": {
         "actionbar": "Action Bar",
         "sign_block": "Cartello (\/blockdata)",
@@ -22,26 +32,17 @@
         "help": "Aiuto",
         "report_an_issue": "Riporta un problema"
     },
-    "report_issue": {
-        "describe": "Please describe your issue",
-        "translation_issue": "Translation Issue",
-        "output_issue": "Output Issue",
-        "other_issue": "Other Issue",
-        "other_language": "Other Language",
-        "too_many_quotes": "Too Many Quotes",
-        "cancel": "Cancel"
-    },
     "textsnippets": {
         "NEW_ITERATE_FLAG": {
             "add": {
-                "book": "Aggiungi pagina",
+                "book": "Aggiungi pagina del libro",
                 "sign": "Aggiungi linea di testo"
             },
             "incorrect_template": {
                 "primary": {
                     "header": "Devi usare il libro o i modelli del cartello",
                     "description": "Vorresti cambiare il tuo modello?",
-                    "yes": "Si",
+                    "yes": "S\u00ec",
                     "no": "No"
                 },
                 "secondary": {
@@ -52,7 +53,7 @@
                 },
                 "tertiary": {
                     "header": "Finito!",
-                    "description": "Il tuo modello \u00e8 stato cambiato a {%c}"
+                    "description": "Il tuo modello \u00e8 stato cambiato a %c"
                 }
             },
             "buttontext": "Pagina di un libro \/ Riga di un cartello"

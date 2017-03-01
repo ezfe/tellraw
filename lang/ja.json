@@ -1,4 +1,14 @@
 {
+    "report_issue": {
+        "badpreview": "Bad Preview",
+        "describe": "\u554f\u984c\u3092\u8aac\u660e\u3057\u3066\u304f\u3060\u3055\u3044",
+        "translation_issue": "\u7ffb\u8a33\u306e\u554f\u984c",
+        "output_issue": "\u51fa\u529b\u306e\u554f\u984c",
+        "other_issue": "\u305d\u306e\u4ed6\u306e\u554f\u984c",
+        "other_language": "\u305d\u306e\u4ed6\u306e\u8a00\u8a9e",
+        "too_many_quotes": "\u3042\u307e\u308a\u306b\u591a\u304f\u306e\u5f15\u7528",
+        "cancel": "\u30ad\u30e3\u30f3\u30bb\u30eb"
+    },
     "template": {
         "actionbar": "\u884c\u52d5\u30d0\u30fc",
         "sign_block": "\u770b\u677f(\/blockdata)",
@@ -21,15 +31,6 @@
         },
         "help": "\u30d8\u30eb\u30d7",
         "report_an_issue": "\u554f\u984c\u3092\u5831\u544a"
-    },
-    "report_issue": {
-        "describe": "\u554f\u984c\u3092\u8aac\u660e\u3057\u3066\u304f\u3060\u3055\u3044",
-        "translation_issue": "\u7ffb\u8a33\u306e\u554f\u984c",
-        "output_issue": "\u51fa\u529b\u306e\u554f\u984c",
-        "other_issue": "\u305d\u306e\u4ed6\u306e\u554f\u984c",
-        "other_language": "\u305d\u306e\u4ed6\u306e\u8a00\u8a9e",
-        "too_many_quotes": "\u3042\u307e\u308a\u306b\u591a\u304f\u306e\u5f15\u7528",
-        "cancel": "\u30ad\u30e3\u30f3\u30bb\u30eb"
     },
     "textsnippets": {
         "NEW_ITERATE_FLAG": {
@@ -215,7 +216,7 @@
     },
     "language": {
         "translate": "\u7ffb\u8a33",
-        "name": "English",
+        "name": "\u65e5\u672c\u8a9e",
         "header": "\u8a00\u8a9e"
     },
     "player": {

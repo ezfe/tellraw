@@ -1,4 +1,14 @@
 {
+    "report_issue": {
+        "badpreview": "Bad Preview",
+        "describe": "Popi\u0161te sv\u016fj probl\u00e9m.",
+        "translation_issue": "\u0160patn\u00fd p\u0159eklad",
+        "output_issue": "Chyba na v\u00fdstupu",
+        "other_issue": "Jin\u00fd probl\u00e9m",
+        "other_language": "Zm\u011bnit jazyk",
+        "too_many_quotes": "P\u0159\u00edli\u0161 mnoho uvozovek",
+        "cancel": "Zru\u0161it"
+    },
     "template": {
         "actionbar": "Action Bar",
         "sign_block": "Cedulka (\/blockdata)",
@@ -21,15 +31,6 @@
         },
         "help": "Pomoc",
         "report_an_issue": "Po\u0161li n\u00e1m n\u00e1pad"
-    },
-    "report_issue": {
-        "describe": "Popi\u0161te sv\u016fj probl\u00e9m.",
-        "translation_issue": "\u0160patn\u00fd p\u0159eklad",
-        "output_issue": "Chyba na v\u00fdstupu",
-        "other_issue": "Jin\u00fd probl\u00e9m",
-        "other_language": "Zm\u011bnit jazyk",
-        "too_many_quotes": "P\u0159\u00edli\u0161 mnoho uvozovek",
-        "cancel": "Zru\u0161it"
     },
     "textsnippets": {
         "NEW_ITERATE_FLAG": {
