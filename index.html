@@ -78,9 +78,6 @@
 		<!--[if lt IE 8]>
 		<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
-		<div class="view-container" style="margin-bottom:200%;" view="enable-js">
-			<noscript>Please enable JavaScript</noscript>
-		</div>
 		<div class="view-container" view="pageheader">
 			<div class="row">
 				<div class="col-sm-3 col-xs-12">
@@ -122,6 +119,15 @@
 					</div>
 				</div>
 			</div>
+		</div>
+		<div class="view-container" style="margin-bottom:200%;" view="enable-js">
+			<noscript>Please enable JavaScript</noscript>
+		</div>
+		<div class="view-container" view="loading" style="text-align:center;">
+			<h4 id="loadingtxt">Loading Javascript</h4>
+			<h5>
+				If this page does not go away, try clicking <a onclick="localStorage.clear();location.reload();" href="#">here</a>. If that doesn't work, please <button class="report-issue btn btn-xs btn-danger"><i class="fa fa-exclamation-triangle"></i> <span>Report an Issue</span></button>
+			</h5>
 		</div>
 		<div class="view-container" view="report-issue">
 			<div class="row">
@@ -200,12 +206,6 @@
 					<button onclick="showView('tellraw')" class="btn btn-block btn-default" id="closeSettings"><span lang="settings.hide"></span> <i class="fa fa-gear"></i></button>
 				</div>
 			</div>
-		</div>
-		<div class="view-container" view="loading" style="text-align:center;">
-			<h4 id="loadingtxt">Loading Javascript</h4>
-			<h5>
-				If this page does not go away, try clicking <a onclick="localStorage.clear();location.reload();" href="#">here</a>. If that doesn't work, please <button class="report-issue btn btn-xs btn-danger"><i class="fa fa-exclamation-triangle"></i> <span>Report an Issue</span></button>
-			</h5>
 		</div>
 		<div class="view-container well" view="add-extra">
 			<div class="row row-margin-top row-margin-bottom">
