@@ -634,22 +634,16 @@ function editExtra(index) {
 	$('#textsnippets-add-button').attr('lang', 'textsnippets.editsnippet');
 
 	if (cobject.text != undefined) {
-		$('#obj_extra_container').hide();
-		$('#selector_extra_container').hide();
+		$('#fmtExtraRaw').click();
 
-		$('#text_extra_container').show();
 		$('#text_extra').val(cobject.text);
 	} else if (cobject.selector != undefined) {
-		$('#obj_extra_container').hide();
-		$('#text_extra_container').hide();
+		$('#fmtExtraSel').click();
 
-		$('#selector_extra_container').show();
 		$('#selector').val(cobject.selector);
 	} else if (cobject.score != undefined) {
-		$('#text_extra_container').hide();
-		$('#selector_extra_container').hide();
+		$('#fmtExtraObj').click();
 
-		$('#obj_extra_container').show();
 		$('#obj_player').val(cobject.score.name);
 		$('#obj_score').val(cobject.score.objective);
 	}
