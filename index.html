@@ -133,6 +133,14 @@
 				If this page does not go away, try clicking <a onclick="localStorage.clear();location.reload();" href="#">here</a>. If that doesn't work, please <button class="report-issue btn btn-xs btn-danger"><i class="fa fa-exclamation-triangle"></i> <span>Report an Issue</span></button>
 			</h5>
 		</div>
+		<div style="display:none;" class="view-container" id="donate-view" view="donate">
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3 well" style="text-align:center;">
+					<a class="btn btn-success" onclick="lsm.setItem('donateStatus','probably-donated');$('#donate-view').hide();" href="donate.html" target="_"><i class="fa fa-dollar"></i> Donate</a>
+					<btn class="btn btn-danger" onclick="lsm.setItem('donateStatus','rejected');location.reload();"><i class="fa fa-times"></i> Close</btn>
+				</div>
+			</div>
+		</div>
 		<div style="display:none;" class="view-container" view="report-issue">
 			<div class="row">
 				<div class="col-md-12" style="text-align:center;">

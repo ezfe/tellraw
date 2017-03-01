@@ -223,17 +223,26 @@ function showView(viewname, suppressAnimation = false, hideOthers = true, hideMe
 	if (embed) {
 		hideMenubar = true;
 	}
+
 	var toHide = $('.view-container').not('.view-container[view="' + viewname + '"]');
 	if (!hideMenubar) {
 		toHide = toHide.not('.view-container[view="pageheader"]');
 	}
+
 	var toShow = $('.view-container[view="' + viewname + '"]');
 	if (!hideMenubar) {
 		$($('.view-container[view="pageheader"]')).show();
 	}
+
+	if (lsm.getItem('donateStatus') == 'accepted-initial') {
+		toHide = toHide.not('.view-container[view="donate"]')
+		$('.view-container[view="donate"]').show();
+	}
+
 	if (hideOthers === false) {
 		toHide = $('');
 	}
+
 	if (suppressAnimation) {
 		toHide.hide();
 		toShow.show();
@@ -241,9 +250,11 @@ function showView(viewname, suppressAnimation = false, hideOthers = true, hideMe
 		toHide.slideUp();
 		toShow.slideDown();
 	}
+
 	if (viewname != "loading" && viewname != "pageheader" && viewname != "issue") {
 		lsm.setItem('jview',JSON.stringify({"viewname":viewname,"suppressAnimation":suppressAnimation,"hideOthers":hideOthers,"hideMenubar":hideMenubar}));
 	}
+
 	if (toShow.length == 0) {
 		logIssue('Missing View',viewname,true);
 		showView('tellraw');
@@ -1303,6 +1314,28 @@ function initialize() {
 	if (lsm.getItem('initialTimestamp') == undefined) {
 		lsm.setItem('initialTimestamp',new Date().getTime())
 	}
+	
+	if (lsm.getItem('loadCount') == undefined) {
+		lsm.setItem('loadCount', 1);
+	} else {
+		lsm.setItem('loadCount', Number(lsm.getItem('loadCount')) + 1);
+	}
+
+	if (lsm.getItem('donateStatus') == undefined) {
+		lsm.setItem('donateStatus', 'unprompted');
+	}
+
+	let seconds = (new Date().getTime() - lsm.getItem('initialTimestamp'))/1000;
+	let hitcount = lsm.getItem('loadCount');
+
+	if (seconds > 60*60*24/* one day */*7 && hitcount > 3 && lsm.getItem('donateStatus') == "unprompted") {
+		if (confirm(`Hi, I see you've been using my tool for a while.\nI don't make any money off this project, and would appreciate any size donation.\nWould you like to give a small donation? Any amount is appreciated.`)) {
+			lsm.setItem('donateStatus', 'accepted-initial');
+		} else {
+			lsm.setItem('donateStatus', 'rejected');
+		}
+
+	}
 
 	if (lsm.getItem('langCode') == undefined) {
 		if (lang[navigator.language.toLowerCase()] != undefined) {
@@ -1386,7 +1419,7 @@ function initialize() {
 
 	showView('pageheader', true, false);
 	//JSON.stringify({"viewname":viewname,"suppressAnimation":suppressAnimation,"hideOthers":hideOthers,"hideMenubar":hideMenubar})
-	if (lsm.getItem('jview') != undefined/* && typeof JSON.stringify(lsm.getItem('jview')) != "string"*/) {
+	if (lsm.getItem('jview') != undefined) {
 		let viewObject = JSON.parse(lsm.getItem('jview'));
 		showView(viewObject.viewname, true, viewObject.hideOthers, viewObject.hideMenubar);
 	} else {
@@ -1423,6 +1456,7 @@ function initialize() {
 	$('#export').click(function(){
 		$('#exporter').remove();
 		$('.alerts').append('<div id="exporter" class="alert alert-info"><h4 lang="export.heading"></h4><p><textarea readonly id="exportText">' + makeExportString() + '</textarea></p><p><button type="button" onclick="closeExport()" class="btn btn-default" lang="export.close"></button></p></div>');
+		
 		$exportText = $('#exportText');
 		$exportText.select();
 		$exportText.click(function(){
