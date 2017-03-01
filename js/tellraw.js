@@ -12,6 +12,7 @@ const notice = {
 	}
 };
 let jobject = [];
+let editingIndex = null;
 let selectedHover;
 let selectedClick;
 let selectedHover_edit;
@@ -627,221 +628,97 @@ function clearExtra() {
 	refreshOutput();
 }
 function editExtra(index) {
-	editing = true;
-	$('#snippetsWell').hide();
-	$('#editModalData').show();
+	editingIndex = index;
 
-	currentEdit = index;
+	cobject = jobject[editingIndex];
 
-	if (jobject[index].text != undefined) {
-		$('#obj_extra_container_edit').hide();
-		$('#text_extra_container_edit').show();
-		$('#translate_selector_container_edit').hide();
-		$('#selector_extra_container_edit').hide();
-		$('#text_extra_edit').val(jobject[index].text);
-	} else if (jobject[index].selector != undefined) {
-		$('#obj_extra_container_edit').hide();
-		$('#selector_extra_container_edit').show();
-		$('#text_extra_container_edit').hide();
-		$('#translate_selector_container_edit').hide();
-		$('#selector_edit').val(jobject[index].selector);
-	} else if (jobject[index].translate != undefined) {
-		$('#obj_extra_container_edit').hide();
+	if (cobject.text != undefined) {
+		$('#obj_extra_container').hide();
+		$('#selector_extra_container').hide();
+
+		$('#text_extra_container').show();
+		$('#text_extra').val(cobject.text);
+	} else if (cobject.selector != undefined) {
+		$('#obj_extra_container').hide();
+		$('#text_extra_container').hide();
+
+		$('#selector_extra_container').show();
+		$('#selector').val(cobject.selector);
+	} else if (cobject.score != undefined) {
 		$('#text_extra_container_edit').hide();
 		$('#selector_extra_container_edit').hide();
-		$('#translate_selector_container_edit').show();
-		if (!hasAlertedTranslationObjects) {
-			alert("Translation objects are currently broken and may crash your game.\nPlease test your translation before publishing it.");
-			hasAlertedTranslationObjects = true;
-		}
-	} else if (jobject[index].score != undefined) {
+
 		$('#obj_extra_container_edit').show();
-		$('#text_extra_container_edit').hide();
-		$('#translate_selector_container_edit').hide();
-		$('#selector_extra_container_edit').hide();
-		$('#obj_player_edit').val(jobject[index].score.name);
-		$('#obj_score_edit').val(jobject[index].score.objective);
+		$('#obj_player').val(cobject.score.name);
+		$('#obj_score').val(cobject.score.objective);
 	}
 
-	refreshLanguage();
-
-	$('#colorPreviewColor_edit').css('background-color',getCSSHEXFromWord(jobject[index].color));
-	if (jobject[index].color != undefined) {
-		$("#color_extra_edit").val(jobject[index].color);
+	$('#colorPreviewColor').css('background-color', getCSSHEXFromWord(cobject.color));
+	if (cobject.color != undefined) {
+		$("#color_extra").val(cobject.color);
 	} else {
-		$("#color_extra_edit").val('none');
+		$("#color_extra").val('none');
 	}
 
-	if (jobject[index].bold != undefined) {
-		$('#bold_text_extra_edit').prop('checked',true);
+	if (cobject.bold != undefined) {
+		$('#bold_text_extra').prop('checked',true);
 	} else {
-		$('#bold_text_extra_edit').prop('checked',false);
+		$('#bold_text_extra').prop('checked',false);
 	}
-	if (jobject[index].italic != undefined) {
-		$('#italic_text_extra_edit').prop('checked',true);
+	if (cobject.italic != undefined) {
+		$('#italic_text_extra').prop('checked',true);
 	} else {
-		$('#italic_text_extra_edit').prop('checked',false);
+		$('#italic_text_extra').prop('checked',false);
 	}
-	if (jobject[index].underlined != undefined) {
-		$('#underlined_text_extra_edit').prop('checked',true);
+	if (cobject.underlined != undefined) {
+		$('#underlined_text_extra').prop('checked',true);
 	} else {
-		$('#underlined_text_extra_edit').prop('checked',false);
+		$('#underlined_text_extra').prop('checked',false);
 	}
-	if (jobject[index].strikethrough != undefined) {
-		$('#strikethrough_text_extra_edit').prop('checked',true);
+	if (cobject.strikethrough != undefined) {
+		$('#strikethrough_text_extra').prop('checked',true);
 	} else {
-		$('#strikethrough_text_extra_edit').prop('checked',false);
+		$('#strikethrough_text_extra').prop('checked',false);
 	}
-	if (jobject[index].obfuscated != undefined) {
-		$('#obfuscated_text_extra_edit').prop('checked',true);
+	if (cobject.obfuscated != undefined) {
+		$('#obfuscated_text_extra').prop('checked',true);
 	} else {
-		$('#obfuscated_text_extra_edit').prop('checked',false);
-	}
-
-	if (jobject[index].clickEvent != undefined) {
-		$('#clickEvent_edit').val(jobject[index].clickEvent.action);
-		$('#clickEventText_edit').val(jobject[index].clickEvent.value);
-	} else {
-		$('#clickEvent_edit').val('none');
-		$('#clickEventText_edit').val('');
+		$('#obfuscated_text_extra').prop('checked',false);
 	}
 
+	if (cobject.clickEvent != undefined) {
+		$('#clickEvent').val(cobject.clickEvent.action);
+		$('#clickEventText').val(cobject.clickEvent.value);
+	} else {
+		$('#clickEvent').val('none');
+		$('#clickEventText').val('');
+	}
 
-	if (jobject[index].hoverEvent != undefined) {
-		$('#hoverEvent_edit').val(jobject[index].hoverEvent.action);
-		if ($('#hoverEvent_edit').val() != 'show_entity') {
-			if (jobject[index].hoverEvent.action == 'show_text') {
-				$('#hoverEventText_edit').val(JSON.stringify(jobject[index].hoverEvent.value));
+	if (cobject.hoverEvent != undefined) {
+		$('#hoverEvent').val(cobject.hoverEvent.action);
+		if ($('#hoverEvent').val() != 'show_entity') {
+			if (cobject.hoverEvent.action == 'show_text') {
+				$('#hoverEventText').val(JSON.stringify(cobject.hoverEvent.value));
 			} else {
-				$('#hoverEventText_edit').val(jobject[index].hoverEvent.value);
+				$('#hoverEventText').val(cobject.hoverEvent.value);
 			}
 		} else {
-			$('#hoverEventEntityID_edit').val(jobject[index].hoverEvent.value.match(/id:([a-zA-Z0-9]+)/g )[0].replace('id:',''));
-			$('#hoverEventEntityName_edit').val(jobject[index].hoverEvent.value.match(/name:([a-zA-Z0-9]+)/g )[0].replace('name:',''));
-			$('#hoverEventEntityType_edit').val(jobject[index].hoverEvent.value.match(/type:([a-zA-Z0-9]+)/g )[0].replace('type:',''));
+			$('#hoverEventEntityID').val(cobject.hoverEvent.value.match(/id:([a-zA-Z0-9]+)/g )[0].replace('id:',''));
+			$('#hoverEventEntityName').val(cobject.hoverEvent.value.match(/name:([a-zA-Z0-9]+)/g )[0].replace('name:',''));
+			$('#hoverEventEntityType').val(cobject.hoverEvent.value.match(/type:([a-zA-Z0-9]+)/g )[0].replace('type:',''));
 		}
 	} else {
-		$('#hoverEvent_edit').val('none');
-		$('#hoverEventText_edit').val('');
+		$('#hoverEvent').val('none');
+		$('#hoverEventText').val('');
 	}
 
-	if (jobject[index].insertion != undefined) {
-		$('#insertion_text_edit').val(jobject[index].insertion);
+	if (cobject.insertion != undefined) {
+		$('#insertion_text').val(cobject.insertion);
 	}
 
-	refreshOutput();
-}
-function cancelExtraEdit() {
-	$('#editModalData').hide();
-	$('#snippetsWell').show();
-}
-function saveExtraEdit() {
-	editing = false;
-	extraIndex = currentEdit;
-	jobject[extraIndex].color = getSelected("color_extra_edit");
+	showView('add-extra');
+	editing = true;
 
-	if (jobject[extraIndex].color == 'none') {
-		delete jobject[extraIndex].color;
-	}
-
-	if ($('#obj_extra_container_edit').is(":visible")) {
-		jobject[extraIndex].score = new Object;
-		jobject[extraIndex].score.name = $('#obj_player_edit').val();
-		jobject[extraIndex].score.objective = $('#obj_score_edit').val();
-	} else if ($('#text_extra_container_edit').is(":visible")) {
-		jobject[extraIndex].text = $('#text_extra_edit').val();
-	} else if ($('#selector_extra_container_edit').is(":visible")) {
-		jobject[extraIndex].selector = $('#selector_edit').val();
-	} else if ($('#translate_selector_container_edit').is(":visible")) {
-		jobject[extraIndex].translate = $('#translate_input_edit').val();
-		if (matchLength != 0) {
-			if (get_type(jobject.with) != "[object Array]") {
-				jobject[extraIndex].with = new Array();
-			}
-			for (var i = 0; i < matchLength; i++) {
-				jobject[extraIndex].with[i] = $('#extraTranslationParameter'+i+'_edit').val();
-			};
-		}
-	} else {
-		alert('An unexpected error occured.');
-	}
-
-	delete jobject[extraIndex].bold;
-	delete jobject[extraIndex].italic;
-	delete jobject[extraIndex].underlined;
-	delete jobject[extraIndex].strikethrough;
-	delete jobject[extraIndex].obfuscated;
-
-	if (getChecked("bold_text_extra_edit")) {
-		jobject[extraIndex].bold = true;
-	}
-	if (getChecked("italic_text_extra_edit")) {
-		jobject[extraIndex].italic = true;
-	}
-	if (getChecked("underlined_text_extra_edit")) {
-		jobject[extraIndex].underlined = true;
-	}
-	if (getChecked("strikethrough_text_extra_edit")) {
-		jobject[extraIndex].strikethrough = true;
-	}
-	if (getChecked("obfuscated_text_extra_edit")) {
-		jobject[extraIndex].obfuscated = true;
-	}
-
-	delete jobject[extraIndex].clickEvent;
-	delete jobject[extraIndex].hoverEvent;
-
-	var clickEventType_edit = $("#clickEvent_edit").val();
-	var hoverEventType_edit = $("#hoverEvent_edit").val();
-
-	if (clickEventType_edit != "none") {
-		jobject[extraIndex].clickEvent = new Object();
-		jobject[extraIndex].clickEvent.action = clickEventType_edit;
-		jobject[extraIndex].clickEvent.value = $('#clickEventText_edit').val();
-		if (clickEventType_edit == "run_command" || clickEventType_edit == "suggest_command") {
-			if ($('#clickEventText_edit').val().length > 256) {
-				alert('Commands cannot be longer than 256 characters!\nYou should edit the length of your command before using this in game.');
-			}
-		}
-	}
-	if (hoverEventType_edit != "none") {
-		jobject[extraIndex].hoverEvent = new Object();
-		jobject[extraIndex].hoverEvent.action = hoverEventType_edit;
-		if (hoverEventType_edit == 'show_text') {
-			try {
-				jobject[extraIndex].hoverEvent.value = JSON.parse($('#hoverEventText_edit').val());
-			} catch(err) {
-				jobject[extraIndex].hoverEvent.value = {"text":"","extra":[{"text":$('#hoverEventText_edit').val()}]};
-			}
-		} else {
-			jobject[extraIndex].hoverEvent.value = $('#hoverEventText_edit').val();
-		}
-	}
-	if (hoverEventType_edit == "show_entity") {
-		if ($('#hoverEventEntityID_edit').val() == '') {
-			$('#hoverEventEntityID_edit').val('(ID)')
-		}
-		if ($('#hoverEventEntityName_edit').val() == '') {
-			$('#hoverEventEntityName_edit').val('(Name)')
-		}
-		if ($('#hoverEventEntityType_edit').val() == '') {
-			$('#hoverEventEntityType_edit').val('(Type)')
-		}
-		jobject[extraIndex].hoverEvent.value = '{id:'+removeWhiteSpace($('#hoverEventEntityID_edit').val())+',name:'+removeWhiteSpace($('#hoverEventEntityName_edit').val())+',type:'+removeWhiteSpace($('#hoverEventEntityType_edit').val())+'}';
-	}
-	if ($('#insertion_text_edit').val() != '') {
-		jobject[extraIndex].insertion = $('#insertion_text_edit').val();
-	} else {
-		delete jobject[extraIndex].insertion;
-	}
-
-	$('#editModalData').hide();
-	$('#snippetsWell').show();
-
-	refreshOutput();
-}
-function clearExtraText() {
-	delete jobject;
 	refreshOutput();
 }
 function get_type(thing){
@@ -887,54 +764,46 @@ function addExtra() {
 	var clickEventType = $("#clickEvent").val();
 	var hoverEventType = $("#hoverEvent").val();
 
-	jobject.push(new Object());
+	var cobject = {};
+
 	var extraIndex = jobject.length - 1;
-	if (extraTextFormat == 'trn') {
-		jobject[extraIndex].translate = $('#translate_input').val();
-		if (matchLength != 0) {
-			if (get_type(jobject.with) != "[object Array]") {
-				jobject[extraIndex].with = new Array();
-			}
-			for (var i = 0; i < matchLength; i++) {
-				jobject[extraIndex].with[i] = $('#extraTranslationParameter'+i).val();
-			};
-		}
-	} else if (extraTextFormat == 'raw') {
-		jobject[extraIndex].text = $('#text_extra').val();
+	if (extraTextFormat == 'raw') {
+		cobject.text = $('#text_extra').val();
 	} else if (extraTextFormat == 'obj') {
-		jobject[extraIndex].score = new Object;
-		jobject[extraIndex].score.name = $('#obj_player').val();
-		jobject[extraIndex].score.objective = $('#obj_score').val();
+		cobject.score = new Object;
+		cobject.score.name = $('#obj_player').val();
+		cobject.score.objective = $('#obj_score').val();
 	} else if (extraTextFormat == 'sel') {
-		jobject[extraIndex].selector = $('#selector').val();
+		cobject.selector = $('#selector').val();
 	}
 
 
-	jobject[extraIndex].color = getSelected("color_extra");
-	if (jobject[extraIndex].color == 'none') {
-		delete jobject[extraIndex].color;
+	const color = getSelected("color_extra");
+	if (color !== 'none') {
+		cobject.color = color;
 	}
 
 	if (getChecked("bold_text_extra")) {
-		jobject[extraIndex].bold = true;
+		cobject.bold = true;
 	}
 	if (getChecked("italic_text_extra")) {
-		jobject[extraIndex].italic = true;
+		cobject.italic = true;
 	}
 	if (getChecked("underlined_text_extra")) {
-		jobject[extraIndex].underlined = true;
+		cobject.underlined = true;
 	}
 	if (getChecked("strikethrough_text_extra")) {
-		jobject[extraIndex].strikethrough = true;
+		cobject.strikethrough = true;
 	}
 	if (getChecked("obfuscated_text_extra")) {
-		jobject[extraIndex].obfuscated = true;
+		cobject.obfuscated = true;
 	}
 
 	if (clickEventType != "none") {
-		jobject[extraIndex].clickEvent = new Object();
-		jobject[extraIndex].clickEvent.action = clickEventType;
-		jobject[extraIndex].clickEvent.value = $('#clickEventText').val();
+		cobject.clickEvent = {
+			action: clickEventType,
+			value: $('#clickEventText').val()
+		};
 		if (clickEventType == "run_command" || clickEventType == "suggest_command") {
 			if ($('#clickEventText').val().length > 256) {
 				alert('Commands cannot be longer than 256 characters!\nYou should edit the length of your command before using this in game.');
@@ -942,16 +811,18 @@ function addExtra() {
 		}
 
 	}
+
 	if (hoverEventType != "none") {
-		jobject[extraIndex].hoverEvent = new Object();
-		jobject[extraIndex].hoverEvent.action = hoverEventType;
+		cobject.hoverEvent = {
+			action: hoverEventType
+		};
 		if (hoverEventType == 'show_text') {
-			jobject[extraIndex].hoverEvent.value = JSON.parse($('#hoverEventText').val());
+			cobject.hoverEvent.value = JSON.parse($('#hoverEventText').val());
 			if ($('#color_hover').val() != 'none') {
-				jobject[extraIndex].hoverEvent.value.color = $('#color_hover').val();
+				cobject.hoverEvent.value.color = $('#color_hover').val();
 			}
 		} else {
-			jobject[extraIndex].hoverEvent.value = $('#hoverEventValue').val();
+			cobject.hoverEvent.value = $('#hoverEventValue').val();
 		}
 	}
 	if (hoverEventType == "show_entity") {
@@ -964,9 +835,18 @@ function addExtra() {
 		if ($('#hoverEventEntityType').val() == '') {
 			$('#hoverEventEntityType').val('(Type)')
 		}
-		jobject[extraIndex].hoverEvent.value = '{id:'+removeWhiteSpace($('#hoverEventEntityID').val())+',name:'+removeWhiteSpace($('#hoverEventEntityName').val())+',type:'+removeWhiteSpace($('#hoverEventEntityType').val())+'}';
+		cobject.hoverEvent.value = '{id:'+removeWhiteSpace($('#hoverEventEntityID').val())+',name:'+removeWhiteSpace($('#hoverEventEntityName').val())+',type:'+removeWhiteSpace($('#hoverEventEntityType').val())+'}';
 	}
-	if ($('#insertion_text').val() != '') jobject[extraIndex].insertion = $('#insertion_text').val();
+	if ($('#insertion_text').val() != '') cobject.insertion = $('#insertion_text').val();
+
+	if (editingIndex == null) {
+		jobject.push(cobject);
+	} else {
+		jobject[editingIndex] = cobject;
+		editingIndex = null;
+	}
+	
+
 	clearExtra();
 	refreshOutput();
 
@@ -1592,7 +1472,7 @@ function initialize() {
 	} else {
 		showView('tellraw', true, true, false);
 	}
-	
+
 	$('.templateButton').click(function(){
 		$('.templateButton').removeClass('btn-success').removeClass('btn-default').addClass('btn-default');
 		$(this).addClass('btn-success').removeClass('btn-default');
@@ -1617,7 +1497,7 @@ function initialize() {
 
 	});
 
-	refreshOutput(	);
+	refreshOutput();
 	refreshLanguage();
 
 	$('#export').click(function(){
@@ -1737,7 +1617,7 @@ function initialize() {
 
 	//Dark Mode
 
-	if (lsm.getItem('darkMode') && lsm.getItem('darkMode') == 'true') {
+	if (lsm.getItem('darkMode') === 'true') {
 		$('#enable_dark_mode').click(); //Finish setting up dark mode after handlers exist
 	}
 }
