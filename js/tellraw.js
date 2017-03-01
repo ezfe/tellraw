@@ -15,8 +15,6 @@ let jobject = [];
 let editingIndex = null;
 let selectedHover;
 let selectedClick;
-let selectedHover_edit;
-let selectedClick_edit;
 let downButton;
 let upButton;
 let extraTextFormat = 'raw';
@@ -26,7 +24,6 @@ let hasAlertedTranslationObjects = false;
 let defaultLanguage = 'en-US';
 let languageCodes = [defaultLanguage];
 let webLangRelations;
-let editing = false;
 let issueLog = [];
 let bookPage = 1;
 let topPage = 1;
@@ -645,10 +642,10 @@ function editExtra(index) {
 		$('#selector_extra_container').show();
 		$('#selector').val(cobject.selector);
 	} else if (cobject.score != undefined) {
-		$('#text_extra_container_edit').hide();
-		$('#selector_extra_container_edit').hide();
+		$('#text_extra_container').hide();
+		$('#selector_extra_container').hide();
 
-		$('#obj_extra_container_edit').show();
+		$('#obj_extra_container').show();
 		$('#obj_player').val(cobject.score.name);
 		$('#obj_score').val(cobject.score.objective);
 	}
@@ -717,7 +714,6 @@ function editExtra(index) {
 	}
 
 	showView('add-extra');
-	editing = true;
 
 	refreshOutput();
 }
@@ -742,7 +738,6 @@ function cancelAddExtra() {
 	clearExtra();
 }
 function addExtra() {
-	editing = false;
 	if (extraTextFormat == 'raw' && $('#text_extra').val() == '') {
 		$('#text_extra_container').addClass('has-error');
 		$('#text_extra').focus();
@@ -935,25 +930,21 @@ function refreshOutput(input) {
 	/* SHOW MOUSE ACTION OPTIONS FOR JSON TEMPLATES WITH THAT FLAG */
 	var mouseOptions = templates[lsm.getItem('jtemplate')].mouseActionOptions;
 	if (mouseOptions.indexOf(MOUSE_ACTION_HOVER) != -1) {
-		$('.hoverEventContainer_edit').show();
 		$('.hoverEventContainer').show();
 
 		$('.hoverEventDisabledSigns').hide();
 	} else {
-		$('.hoverEventContainer_edit').hide();
 		$('.hoverEventContainer').hide();
 
 		$('.hoverEventDisabledSigns').show();
 	}
 
 	if (mouseOptions.indexOf(MOUSE_ACTION_CLICK) != -1) {
-		$('.clickEventContainer_edit').show();
 		$('.clickEventContainer').show();
 
 		//Signs are stupid
 		$('.clickEventDisabledSigns').hide();
 	} else {
-		$('.clickEventContainer_edit').hide();
 		$('.clickEventContainer').hide();
 
 		//Signs are stupid
@@ -963,10 +954,8 @@ function refreshOutput(input) {
 	}
 
 	if (mouseOptions.indexOf(MOUSE_ACTION_INSERTION) != -1) {
-		$('.insertionContainer_edit').show();
 		$('.insertionContainer').show();
 	} else {
-		$('.insertionContainer_edit').hide();
 		$('.insertionContainer').hide();
 	}
 
@@ -1050,36 +1039,6 @@ function refreshOutput(input) {
 		$('.hovertext_text').hide();
 	}
 
-	/*HOVEREVENT EDIT SUGGESTION MANAGER*/
-	$('#hoverEventText_edit').removeAttr('disabled');
-	selectedHover_edit = getSelected('hoverEvent_edit');
-	if (selectedHover_edit == "show_achievement") {
-		$('#hoverEventText_edit').autocomplete({
-			source: achievements
-		});
-	} else if (selectedHover_edit == "show_item") {
-		$('#hoverEventText_edit').autocomplete({
-			source: []
-		});
-	} else if (selectedHover_edit == "show_entity") {
-		$('.hovertext_default_edit').hide();
-		$('.hovertext_entity_edit').show();
-	} else if (selectedHover_edit == "none") {
-		$('#hoverEventText_edit').attr('disabled','true');
-		$('#hoverEventText_edit').autocomplete({
-			source: []
-		});
-	}
-	if (selectedHover_edit != "show_entity") {
-		$('.hovertext_default_edit').show();
-		$('.hovertext_entity_edit').hide();
-	}
-	if (selectedHover_edit != "show_text") {
-		$('.hovertext_text_edit').hide();
-	} else {
-		$('.hovertext_text_edit').show();
-	}
-
 	/*CLICKEVENT SUGGESTION MANAGER*/
 	$('#clickEventText').removeAttr('disabled');
 	selectedClick = getSelected("clickEvent");
@@ -1094,24 +1053,6 @@ function refreshOutput(input) {
 	} else if (selectedClick == "none") {
 		$('#clickEventText').attr('disabled','true');
 		$('#clickEventText').autocomplete({
-			source: []
-		});
-	}
-
-	/*CLICKEVENT EDIT SUGGESTION MANAGER*/
-	$('#clickEventText_edit').removeAttr('disabled');
-	selectedClick_edit = getSelected('clickEvent_edit');
-	if (selectedClick_edit == "run_command" || selectedClick_edit == "suggest_command") {
-		$('#clickEventText_edit').autocomplete({
-			source: commands
-		});
-	} else if (selectedClick_edit == "open_url") {
-		$('#clickEventText_edit').autocomplete({
-			source: ["http://apple.com", "https://minecraft.net", "https://mojang.com", "http://ezekielelin.com", "https://", "https://reddit.com", "http://"]
-		});
-	} else if (selectedClick_edit == "none") {
-		$('#clickEventText_edit').attr('disabled','true');
-		$('#clickEventText_edit').autocomplete({
 			source: []
 		});
 	}
@@ -1535,7 +1476,6 @@ function initialize() {
 	});
 	$('#addExtraButton').on('click',()=>{
 		showView('add-extra')
-		editing = true;
 	});
 	$('#lang_request').on('click',()=>{
 		showView('lang-request');
