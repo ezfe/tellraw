@@ -1,6 +1,6 @@
 {
     "report_issue": {
-        "badpreview": "Bad Preview",
+        "badpreview": "\u9884\u89c8\u9519\u8bef",
         "describe": "\u8bf7\u63cf\u8ff0\u4f60\u9047\u5230\u7684\u95ee\u9898",
         "translation_issue": "\u7ffb\u8bd1\u95ee\u9898",
         "output_issue": "\u547d\u4ee4\u8f93\u51fa\u95ee\u9898",
@@ -10,7 +10,7 @@
         "cancel": "\u53d6\u6d88"
     },
     "settings": {
-        "reset-all-settings": "Reset All Settings",
+        "reset-all-settings": "\u91cd\u7f6e\u6240\u6709\u914d\u7f6e",
         "importtext": {
             "exported": {
                 "header": "\u5bfc\u5165",
@@ -52,7 +52,7 @@
     },
     "headerbar": {
         "dropdown": {
-            "uptime": "Uptime",
+            "uptime": "\u66f4\u65b0\u65f6\u95f4",
             "translate_page_link": "\u5e2e\u52a9\u7ffb\u8bd1\u672c\u7ad9",
             "hover": "\u6d4b\u8bd5\u7248\u5df2\u53ef\u7528\uff01",
             "beta_link": "\u6d4b\u8bd5\u7248",
