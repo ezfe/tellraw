@@ -183,16 +183,14 @@ function getLanguageName(langCode) {
 function getLanguageData(langCode) {
 	if (lang[langCode] === undefined) {
 		return new Promise((resolve, reject) => {
-			$.ajax({
-				url: `lang/${langCode}.json`,
-				type: 'GET',
-				dataType: 'json',
-				success: languageJSON => {
-					resolve(languageJSON);
-				},
-				error: (request, error) => {
-					reject(error);
-				}
+			fetch(`lang/${langCode}.json`, {
+				method: 'GET'
+			}).then(function(response) {
+				response.json().then(function(json) {
+					resolve(json);
+				});
+			}).catch(function(err) {
+				reject(err);
 			});
 		});
 	} else {
@@ -849,7 +847,7 @@ function addExtra() {
 		jobject[editingIndex] = cobject;
 		editingIndex = null;
 	}
-	
+
 
 	clearExtra();
 	refreshOutput();
@@ -1314,7 +1312,7 @@ function initialize() {
 	if (lsm.getItem('initialTimestamp') == undefined) {
 		lsm.setItem('initialTimestamp',new Date().getTime())
 	}
-	
+
 	if (lsm.getItem('loadCount') == undefined) {
 		lsm.setItem('loadCount', 1);
 	} else {
@@ -1456,7 +1454,7 @@ function initialize() {
 	$('#export').click(function(){
 		$('#exporter').remove();
 		$('.alerts').append('<div id="exporter" class="alert alert-info"><h4 lang="export.heading"></h4><p><textarea readonly id="exportText">' + makeExportString() + '</textarea></p><p><button type="button" onclick="closeExport()" class="btn btn-default" lang="export.close"></button></p></div>');
-		
+
 		$exportText = $('#exportText');
 		$exportText.select();
 		$exportText.click(function(){
@@ -1586,11 +1584,10 @@ $(document).ready(()=>{
 
 	$('#loadingtxt').html('Loading Assets');
 	try {
-		$.ajax({
-			url: 'resources.json',
-			type: 'GET',
-			dataType: 'json',
-			success: resourcesJSON => {
+		fetch("resources.json", {
+			method: 'GET'
+		}).then(function(response) {
+			response.json().then(function(resourcesJSON) {
 				if (location.hash == "#embed") {
 					$('.view-container[view="tellraw"]').children().filter('br').remove();
 					embed = true;
@@ -1603,7 +1600,7 @@ $(document).ready(()=>{
 				commands = resourcesJSON['commands'];
 				defaultLanguage = resourcesJSON['default_language'];
 				languageCodes = resourcesJSON['available_language_codes'];
-				
+
 				if (languageCodes.indexOf(lsm.getItem('langCode')) != -1) {
 					defaultLanguage = lsm.getItem('langCode');
 				} else {
@@ -1616,10 +1613,9 @@ $(document).ready(()=>{
 				}, err => {
 					hardFail(err);
 				});
-			},
-			error: (request, error) => {
-				hardFail("Request: "+JSON.stringify(request));
-			}
+			});
+		}).catch(function(err) {
+			hardFail(err);
 		});
 	} catch(err) {
 		hardFail("An error occured loading page assets.");
