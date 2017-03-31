@@ -114,6 +114,7 @@ function clone(obj) {
 
 function hardFail(message = "An unexpected erorr occurred which cannot be recovered. Please reload or try again later.") {
 	alert(message);
+	showView('js-broken-showdefault', true, true, true) {
 }
 
 /*********************/
@@ -1583,6 +1584,9 @@ $(document).ready(()=>{
 
 	$('#loadingtxt').html('Loading Assets');
 	try {
+		if (!fetch) {
+			hardFail("Fetch support is required. Please update your browser");
+		}
 		fetch("resources.json", {
 			method: 'GET'
 		}).then(function(response) {
@@ -1618,7 +1622,6 @@ $(document).ready(()=>{
 		});
 	} catch(err) {
 		hardFail("An error occured loading page assets.");
-		showView('js-broken-showdefault');
 		return;
 	}
 });
