@@ -1619,6 +1619,7 @@ $(document).ready(()=>{
 		});
 	} catch(err) {
 		hardFail("An error occured loading page assets.");
+		showView('js-broken-showdefault');
 		return;
 	}
 });
