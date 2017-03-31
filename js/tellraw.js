@@ -114,7 +114,6 @@ function clone(obj) {
 
 function hardFail(message = "An unexpected erorr occurred which cannot be recovered. Please reload or try again later.") {
 	alert(message);
-	document.getElementsByTagName('body')[0].innerHTML = message + "<br><br>If the issue persists, click <a href=\"https://github.com/ezfe/tellraw/issues\">here</a> to file an issue report";
 }
 
 /*********************/
