@@ -114,7 +114,7 @@ function clone(obj) {
 
 function hardFail(message = "An unexpected erorr occurred which cannot be recovered. Please reload or try again later.") {
 	alert(message);
-	showView('js-broken-showdefault', true, true, true) {
+	showView('js-broken-showdefault', true, true, true);
 }
 
 /*********************/
