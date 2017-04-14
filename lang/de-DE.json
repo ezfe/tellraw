@@ -1,9 +1,9 @@
 {
     "report_issue": {
-        "badpreview": "Schlechte vorschau",
+        "badpreview": "Schlechte Vorschau",
         "describe": "Bitte beschreibe dein Problem",
         "translation_issue": "\u00dcbersetzungsproblem",
-        "output_issue": "Anzeigproblem",
+        "output_issue": "Anzeigeproblem",
         "other_issue": "Sonstiges Problem",
         "other_language": "Andere Sprache",
         "too_many_quotes": "Zu viele Anf\u00fchrungszeichen",
@@ -41,7 +41,7 @@
         "header": "Einstellungen:"
     },
     "template": {
-        "actionbar": "Action Bar",
+        "actionbar": "Aktions-Leiste",
         "sign_block": "Schild (\/blockdata)",
         "sign_item": "Schild (\/give)",
         "subtitle": "Untertitel",
@@ -55,9 +55,9 @@
             "uptime": "Laufzeit",
             "translate_page_link": "\u00dcbersetzungsseite",
             "hover": "Beta-Version verf\u00fcgbar!",
-            "beta_link": "Beta Version",
-            "tweet": "Link twittern",
-            "forum_thread": "Forum Beitrag",
+            "beta_link": "Beta-Version",
+            "tweet": "Tweet",
+            "forum_thread": "Forum-Beitrag",
             "changelog": "Changelog"
         },
         "help": "Hilfe",
@@ -67,7 +67,7 @@
         "NEW_ITERATE_FLAG": {
             "add": {
                 "book": "Buchseite hinzuf\u00fcgen",
-                "sign": "Schildzeile hinzuf\u00fcgen"
+                "sign": "Zeile hinzuf\u00fcgen"
             },
             "incorrect_template": {
                 "primary": {
@@ -93,8 +93,8 @@
             "changepage": "Seite \u00e4ndern",
             "unavailable": {
                 "sign": {
-                    "header": "Ausf\u00fchrbare Schild Ereignisse sind nicht verf\u00fcgbar",
-                    "body": "Hier klicken um auf eine (nicht zu der Website geh\u00f6rende Seite) zu gehen, auf der man Schilder mit ausf\u00fchrbaren Ereignissen erstellen kann."
+                    "header": "Schild-Klick-Ereignisse sind nicht verf\u00fcgbar",
+                    "body": "Hier klicken um auf eine (nicht zu der Website geh\u00f6rende Seite) zu gehen, auf welcher man Schilder mit ausf\u00fchrbaren Ereignissen erstellen kann."
                 }
             },
             "runcommand": "Befehl ausf\u00fchren",
@@ -106,16 +106,16 @@
         "hoverevent": {
             "unavailable": {
                 "sign": {
-                    "header": "Maus\u00fcberfahr-Ereignisse sind f\u00fcr Schilder nicht verf\u00fcgbar",
-                    "body": "Das ist, weil Minecraft keine Hover-Events f\u00fcr Schilder unterst\u00fctzt."
+                    "header": "Maus\u00fcberfahr-Ereignisse sind nicht verf\u00fcgbar",
+                    "body": "Das ist so, weil Minecraft keine Maus\u00fcberfahr-Events f\u00fcr Schilder unterst\u00fctzt."
                 }
             },
             "addtext": "Text hinzuf\u00fcgen.",
             "removetext": "Letzten Text l\u00f6schen.",
-            "header": "Maus\u00fcberfahren Ereignis:",
+            "header": "Maus\u00fcberfahr-Ereignis:",
             "showachievement": "Zeige Errungenschaft",
             "id": "ID:",
-            "showentity": "Zeige Entity",
+            "showentity": "Zeige Entit\u00e4t",
             "showitem": "Zeige Item",
             "type": "Typ:",
             "none": "Keins",
@@ -141,7 +141,7 @@
         },
         "player": "Spieler",
         "obj2": "Objekt",
-        "obj": "Scoreboard Objekt",
+        "obj": "Punktetafel-Objekt",
         "nosnippets": "Noch kein Text",
         "header": "Textabschitte",
         "text": "Text",
