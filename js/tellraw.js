@@ -122,7 +122,8 @@ function hardFail(message = "An unexpected erorr occurred which cannot be recove
 /*********************/
 
 function makeExportString() {
-	return JSON.stringify({"command":$('#command').val(),"jobject":jobject,"jtemplate":lsm.getItem('jtemplate')})
+
+	return JSON.stringify({"command": document.getElementById("command").value, "jobject":jobject,"jtemplate":lsm.getItem('jtemplate')})
 }
 
 function importString(oinpt) {
@@ -137,7 +138,7 @@ function importString(oinpt) {
 	if (inpt['jtemplate']) {
 		lsm.setItem('jtemplate',inpt['jtemplate'])
 	}
-	$('#command').val(inpt['command']);
+	document.getElementById("command").value = inpt["command"];
 	return true;
 }
 
