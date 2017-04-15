@@ -1,67 +1,5 @@
-const chars = [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    0,
-    "a",
-    "b",
-    "c",
-    "d",
-    "e",
-    "f",
-    "g",
-    "h",
-    "i",
-    "j",
-    "k",
-    "l",
-    "m",
-    "n",
-    "o",
-    "p",
-    "q",
-    "r",
-    "s",
-    "t",
-    "u",
-    "v",
-    "w",
-    "x",
-    "y",
-    "z",
-    "A",
-    "B",
-    "C",
-    "D",
-    "E",
-    "F",
-    "G",
-    "H",
-    "I",
-    "J",
-    "K",
-    "L",
-    "M",
-    "N",
-    "O",
-    "P",
-    "Q",
-    "R",
-    "S",
-    "T",
-    "U",
-    "V",
-    "W",
-    "X",
-    "Y",
-    "Z"
-];
+// prettier-ignore
+const chars = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 let matchLength = 0;
 const version = 4;
 const tos_version = 1;
@@ -231,7 +169,8 @@ function reportAnIssue(ptitle) {
     var body = "";
     if (ptitle != undefined) {
         title = `Issue Report - ${ptitle}`;
-        body = "Please enter steps to reproduce the issue below, as well as any other information you want to include%0A%0A%0A%0A%0A%0A Provided Data - Do not modify below this line%0A%0A```%0A" +
+        body =
+            "Please enter steps to reproduce the issue below, as well as any other information you want to include%0A%0A%0A%0A%0A%0A Provided Data - Do not modify below this line%0A%0A```%0A" +
             JSON.stringify(jobject) +
             "%0A```";
     }
@@ -348,8 +287,8 @@ function showView(
         toHide.hide();
         toShow.show();
     } else {
-        toHide.slideUp();
-        toShow.slideDown();
+        toHide.hide();
+        toShow.fadeIn();
     }
 
     if (toShow.length == 0) {
@@ -633,6 +572,21 @@ let templates = {
     }
 };
 
+function loadTemplate(templateName) {
+    let buttons = $(".templateButton")
+        .removeClass("btn-success btn-default")
+        .addClass("btn-default");
+
+    let target = $(".templateButton[template=" + templateName + "]");
+
+    target.addClass("btn-success").removeClass("btn-default");
+
+    lsm.setItem("jtemplate", templateName);
+    $("#command").val(templates[templateName]["command"]);
+
+    refreshOutput();
+}
+
 function setObfuscatedString(string) {
     var output = "";
     for (var i = string.length - 1; i >= 0; i--) {
@@ -655,8 +609,7 @@ function deleteAll() {
     );
     if (confirm(`${head}\n${body}`)) {
         jobject = [];
-        $(".templateButton[template=tellraw]").click();
-        refreshOutput();
+        loadTemplate("tellraw");
         refreshLanguage();
     }
 }
@@ -688,11 +641,16 @@ function noneHex() {
 function noneName() {
     return "none";
     /* I think none is the proper name */
-    // if (currentTemplate().formatType == 'bookarray' || currentTemplate().formatType == 'signset') {
-    // 	return 'black';
-    // } else {
-    // 	return 'white'
-    // }
+    /*
+    if (
+        currentTemplate().formatType == "bookarray" ||
+        currentTemplate().formatType == "signset"
+    ) {
+        return "black";
+    } else {
+        return "white";
+    }
+	*/
 }
 
 function getCSSHEXFromWord(w) {
@@ -1009,7 +967,8 @@ function addExtra() {
         if ($("#hoverEventEntityType").val() == "") {
             $("#hoverEventEntityType").val("(Type)");
         }
-        cobject.hoverEvent.value = "{id:" +
+        cobject.hoverEvent.value =
+            "{id:" +
             removeWhiteSpace($("#hoverEventEntityID").val()) +
             ",name:" +
             removeWhiteSpace($("#hoverEventEntityName").val()) +
@@ -1056,21 +1015,22 @@ function refreshOutput(input) {
             $(".extraContainer").html("");
             for (var i = 0; i <= jobject.length - 1; i++) {
                 if (lsm.getItem("flyEnabled") == "yes") {
-                    flyButton = '<i onclick="fly(' +
-                        i +
-                        ')" class="fa fa-plane"></i>';
+                    flyButton =
+                        '<i onclick="fly(' + i + ')" class="fa fa-plane"></i>';
                 } else {
                     flyButton = "";
                 }
                 if (jobject.length - 1 > i) {
-                    downButton = '<i onclick="moveUp(' +
+                    downButton =
+                        '<i onclick="moveUp(' +
                         i +
                         ')" class="fa fa-arrow-circle-down"></i> ';
                 } else {
                     downButton = "";
                 }
                 if (i > 0) {
-                    upButton = '<i onclick="moveUp(' +
+                    upButton =
+                        '<i onclick="moveUp(' +
                         (i - 1) +
                         ')" class="fa fa-arrow-circle-up"></i> ';
                 } else {
@@ -1083,14 +1043,17 @@ function refreshOutput(input) {
                         templates[lsm.getItem("jtemplate")].formatType !=
                             "signset"
                     ) {
-                        var tempJSON = '<span style="color:gray;text-decoration:line-through;" lang="textsnippets.NEW_ITERATE_FLAG.buttontext"></span>';
+                        var tempJSON =
+                            '<span style="color:gray;text-decoration:line-through;" lang="textsnippets.NEW_ITERATE_FLAG.buttontext"></span>';
                     } else {
-                        var tempJSON = '<span lang="textsnippets.NEW_ITERATE_FLAG.buttontext"></span>';
+                        var tempJSON =
+                            '<span lang="textsnippets.NEW_ITERATE_FLAG.buttontext"></span>';
                     }
                     var saveButton = "";
                 } else {
                     if (get_type(jobject[i].text) != "[object Undefined]") {
-                        var tempJSON = '<input id="previewLine' +
+                        var tempJSON =
+                            '<input id="previewLine' +
                             i +
                             '" onkeyup="jobject[' +
                             i +
@@ -1103,7 +1066,8 @@ function refreshOutput(input) {
                     } else if (
                         get_type(jobject[i].score) != "[object Undefined]"
                     ) {
-                        var tempJSON = '<input type="text" class="form-control previewLine" disabled value="' +
+                        var tempJSON =
+                            '<input type="text" class="form-control previewLine" disabled value="' +
                             jobject[i].score.name +
                             "'s " +
                             jobject[i].score.objective +
@@ -1112,7 +1076,8 @@ function refreshOutput(input) {
                     } else if (
                         get_type(jobject[i].selector) != "[object Undefined]"
                     ) {
-                        var tempJSON = '<input type="text" class="form-control previewLine" disabled value="Selector: ' +
+                        var tempJSON =
+                            '<input type="text" class="form-control previewLine" disabled value="Selector: ' +
                             jobject[i].selector +
                             '">';
                         var saveButton = "";
@@ -1123,14 +1088,16 @@ function refreshOutput(input) {
                     ) {
                         var blah = "blah"; /* wtf */
                     } else {
-                        tempJSON = '<div class="row"><div class="col-xs-10 col-md-11">' +
+                        tempJSON =
+                            '<div class="row"><div class="col-xs-10 col-md-11">' +
                             tempJSON +
                             '</div><div class="col-xs-2 col-md-1"><div class="colorPreview"><div class="colorPreviewColor" style="background-color:' +
                             getCSSHEXFromWord(jobject[i].color) +
                             '"></div></div></div></div>';
                     }
                 }
-                var deleteButton = '<i id="' +
+                var deleteButton =
+                    '<i id="' +
                     i +
                     'RowEditButton" onclick="editExtra(' +
                     i +
@@ -1138,7 +1105,8 @@ function refreshOutput(input) {
                     i +
                     ');" class="fa fa-times-circle"></i> ';
                 if (jobject[i].NEW_ITERATE_FLAG) {
-                    deleteButton = '<i style="color:gray;" class="fa fa-pencil"></i> <i onclick="deleteIndex(' +
+                    deleteButton =
+                        '<i style="color:gray;" class="fa fa-pencil"></i> <i onclick="deleteIndex(' +
                         i +
                         ');" class="fa fa-times-circle"></i> ';
                 }
@@ -1255,21 +1223,15 @@ function refreshOutput(input) {
     $("#hoverEventValue").removeAttr("disabled");
     selectedHover = getSelected("hoverEvent");
     if (selectedHover == "show_achievement") {
-        $("#hoverEventValue").autocomplete({
-            source: achievements
-        });
+        /* no autocomplete */
     } else if (selectedHover == "show_item") {
-        $("#hoverEventValue").autocomplete({
-            source: []
-        });
+        /* no autocomplete */
     } else if (selectedHover == "show_entity") {
         $(".hovertext_default").hide();
         $(".hovertext_entity").show();
     } else if (selectedHover == "none") {
         $("#hoverEventValue").attr("disabled", "true");
-        $("#hoverEventValue").autocomplete({
-            source: []
-        });
+        /* no autocomplete */
     }
     if (selectedHover != "show_entity") {
         $(".hovertext_default").show();
@@ -1289,26 +1251,12 @@ function refreshOutput(input) {
     $("#clickEventText").removeAttr("disabled");
     selectedClick = getSelected("clickEvent");
     if (selectedClick == "run_command" || selectedClick == "suggest_command") {
-        $("#clickEventText").autocomplete({
-            source: commands
-        });
+        /* no autocomplete */
     } else if (selectedClick == "open_url") {
-        $("#clickEventText").autocomplete({
-            source: [
-                "https://",
-                "http://",
-                "http://apple.com",
-                "https://minecraft.net",
-                "https://mojang.com",
-                "http://ezekielelin.com",
-                "https://reddit.com"
-            ]
-        });
+        /* no autocomplete */
     } else if (selectedClick == "none") {
         $("#clickEventText").attr("disabled", "true");
-        $("#clickEventText").autocomplete({
-            source: []
-        });
+        /* no autocomplete */
     }
 
     /*PREPARING OUTPUT*/
@@ -1346,16 +1294,16 @@ function refreshOutput(input) {
         ) {
             JSONOutputString = "Text1:" + JSON.stringify(formattedJObject[0]);
             if (formattedJObject.length > 1) {
-                JSONOutputString += ",Text2:" +
-                    JSON.stringify(formattedJObject[1]);
+                JSONOutputString +=
+                    ",Text2:" + JSON.stringify(formattedJObject[1]);
             }
             if (formattedJObject.length > 2) {
-                JSONOutputString += ",Text3:" +
-                    JSON.stringify(formattedJObject[2]);
+                JSONOutputString +=
+                    ",Text3:" + JSON.stringify(formattedJObject[2]);
             }
             if (formattedJObject.length > 3) {
-                JSONOutputString += ",Text4:" +
-                    JSON.stringify(formattedJObject[3]);
+                JSONOutputString +=
+                    ",Text4:" + JSON.stringify(formattedJObject[3]);
             }
             JSONOutputString = JSONOutputString.replace(
                 newLineExpressions.signset,
@@ -1545,10 +1493,11 @@ function jsonParse() {
                     if (get_type(jobject[i].hoverEvent) != "[object Undefined]")
                         doHoverEvent = true;
                     if (doHoverEvent && doClickEvent) {
-                        popoverTitle = getLanguageString(
-                            "textsnippets.hoverevent.header",
-                            lsm.getItem("langCode")
-                        ) +
+                        popoverTitle =
+                            getLanguageString(
+                                "textsnippets.hoverevent.header",
+                                lsm.getItem("langCode")
+                            ) +
                             " and " +
                             getLanguageString(
                                 "textsnippets.clickevent.header",
@@ -1577,25 +1526,24 @@ function jsonParse() {
                     }
                     if (doClickEvent) {
                         if (clickEventType == "open_url") {
-                            popoverContentClick = clickEventType +
+                            popoverContentClick =
+                                clickEventType +
                                 ':<a href="' +
                                 clickEventValue +
                                 '">' +
                                 clickEventValue +
                                 "</a>";
                         } else {
-                            popoverContentClick = clickEventType +
-                                ":" +
-                                clickEventValue;
+                            popoverContentClick =
+                                clickEventType + ":" + clickEventValue;
                         }
                     }
                     if (doHoverEvent) {
                         if (hoverEventType == "show_text") {
                             hoverEventValue = JSON.stringify(hoverEventValue);
                         }
-                        popoverContentHover = hoverEventType +
-                            ":" +
-                            hoverEventValue;
+                        popoverContentHover =
+                            hoverEventType + ":" + hoverEventValue;
                     }
                     if (doHoverEvent && doClickEvent) {
                         popoverContentClick = popoverContentClick + "<br>";
@@ -1706,8 +1654,8 @@ function initialize() {
         lsm.setItem("donateStatus", "unprompted");
     }
 
-    let seconds = (new Date().getTime() - lsm.getItem("initialTimestamp")) /
-        1000;
+    let seconds =
+        (new Date().getTime() - lsm.getItem("initialTimestamp")) / 1000;
     let hitcount = lsm.getItem("loadCount");
 
     if (
@@ -1831,21 +1779,11 @@ function initialize() {
     }
 
     showView("pageheader", true, false);
-    showView("tellraw", true, true, false);
+    showView("tellraw", false, true, false);
 
     $(".templateButton").click(function() {
-        $(".templateButton")
-            .removeClass("btn-success")
-            .removeClass("btn-default")
-            .addClass("btn-default");
-        $(this).addClass("btn-success").removeClass("btn-default");
-
         let template = $(this).attr("template");
-
-        lsm.setItem("jtemplate", template);
-        $("#command").val(templates[lsm.getItem("jtemplate")]["command"]);
-
-        refreshOutput();
+        loadTemplate(template);
     });
 
     $("#command").val(lsm.getItem("jcommand"));

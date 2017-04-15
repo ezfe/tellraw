@@ -48,11 +48,11 @@
 }
 @font-face {
 	font-family: 'minecraftiaregular';
-	src: url('../minecraftia/minecraftia-webfont.eot');
-	src: url('../minecraftia/minecraftia-webfont.eot?#iefix') format('embedded-opentype'),
-	url('../minecraftia/minecraftia-webfont.woff') format('woff'),
-	url('../minecraftia/minecraftia-webfont.ttf') format('truetype'),
-	url('../minecraftia/minecraftia-webfont.svg#minecraftiaregular') format('svg');
+	src: url('../fonts/minecraftia/minecraftia-webfont.eot');
+	src: url('../fonts/minecraftia/minecraftia-webfont.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/minecraftia/minecraftia-webfont.woff') format('woff'),
+	url('../fonts/minecraftia/minecraftia-webfont.ttf') format('truetype'),
+	url('../fonts/minecraftia/minecraftia-webfont.svg#minecraftiaregular') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
