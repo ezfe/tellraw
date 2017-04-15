@@ -195,7 +195,7 @@ div[class*='col-xs-'] {
 	background-color: transparent !important;
 	border: none !important;
 	/*word-break: break-word;*/
-	white-space: pre-wrap; 
+	white-space: pre-wrap;
 }
 #previewBack {
 	background-image: url(../page-images/back.png);
@@ -232,4 +232,7 @@ div[class*='col-xs-'] {
 	top: 25px;
 	left: 131px;
 	color: black;
+}
+#snippet-container {
+	list-style-type:none;
 }

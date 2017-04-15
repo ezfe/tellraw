@@ -66,6 +66,7 @@
 	<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="js/EzLanguage.jquery.js"></script>
 	<script src="js/jscolor.min.js"></script>
+	<script src="node_modules/sortablejs/Sortable.min.js"></script>
 
 	<script src="js/tellraw.js"></script>
 
@@ -469,9 +470,9 @@
 					</div>
 				</div>
 				<div class="well row-margin-top" id="snippetsWell">
-					<div class="extraContainer">
-						<br><br>
-					</div>
+					<ol id="snippet-container">
+
+					</ol>
 					<div class="row row-margin-top row-margin-bottom">
 						<div class="col-sm-3 col-sm-offset-2">
 							<button id="addExtraButton" class="btn btn-primary btn-block">

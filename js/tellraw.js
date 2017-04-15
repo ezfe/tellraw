@@ -29,9 +29,9 @@ let bookPage = 1;
 let topPage = 1;
 let embed = false;
 
-/***************************/
-/* Local Storage Interface */
-/***************************/
+/***************************
+ * Local Storage Interface *
+ ***************************/
 
 let lsm = {
     enabled: false,
@@ -74,9 +74,9 @@ let lsm = {
     }
 };
 
-/*********************/
-/* Utility Functions */
-/*********************/
+/*********************
+ * Utility Functions *
+ *********************/
 
 /* http://stackoverflow.com/a/728694/2059595 */
 function clone(obj) {
@@ -120,9 +120,9 @@ function hardFail(
     showView("js-broken-showdefault", true, true, true);
 }
 
-/*********************/
-/* Export and Import */
-/*********************/
+/*********************
+ * Export and Import *
+ *********************/
 
 function makeExportString() {
     return JSON.stringify({
@@ -160,9 +160,9 @@ function importString(oinpt) {
     return true;
 }
 
-/*****************/
-/* Issue Reports */
-/*****************/
+/*****************
+ * Issue Reports *
+ *****************/
 
 function reportAnIssue(ptitle) {
     var title = "";
@@ -197,9 +197,9 @@ function logIssue(name, data = null, critical = false) {
     }
 }
 
-/**********************/
-/* Language Utilities */
-/**********************/
+/**********************
+ * Language Utilities *
+ **********************/
 
 function getLanguageName(langCode) {
     var name = lang[langCode].language.name;
@@ -247,9 +247,9 @@ function loadOtherLanguages() {
     }
 }
 
-/*****************/
-/* View Controls */
-/*****************/
+/*****************
+ * View Controls *
+ *****************/
 
 function showView(
     viewname,
@@ -677,20 +677,30 @@ function removeWhiteSpace(s) {
     return s;
     //BROKEN return s.replace(/ /g, '');
 }
+function getRowDescription(index) {
+    let obj = jobject[index];
+    if (obj.NEW_ITERATE_FLAG) {
+        return getLanguageString(
+            "textsnippets.NEW_ITERATE_FLAG.buttontext",
+            lsm.getItem("langCode")
+        );
+    } else if (get_type(obj.text) != "[object Undefined]") {
+        return obj.text;
+    } else if (get_type(obj.score) != "[object Undefined]") {
+        return `${obj.score.name}'s ${obj.score.objective} score`;
+    } else if (get_type(obj.selector) != "[object Undefined]") {
+        return `Selector: ${obj.selector}`;
+    }
+    return `Row #${index + 1}`;
+}
 function deleteIndex(index) {
-    jobject.splice(index, 1);
+    if (confirm("Confirm deleting\n\n" + getRowDescription(index))) {
+        jobject.splice(index, 1);
+    }
     refreshOutput();
 }
 function moveUp(index) {
     jobject.splice(index + 1, 0, jobject.splice(index, 1)[0]);
-    refreshOutput();
-}
-function fly(index) {
-    var moveTo = prompt("Enter new location (0-" + jobject.length + ")");
-    if (moveTo > jobject.length) {
-        moveTo = jobject.length;
-    }
-    jobject.splice(moveTo, 0, jobject.splice(index, 1)[0]);
     refreshOutput();
 }
 function getSelected(object) {
@@ -1009,33 +1019,11 @@ function refreshOutput(input) {
         getLanguageString("textsnippets.header", lsm.getItem("langCode"))
     );
     if (input != "previewLineChange") {
-        if (get_type(jobject) == "[object Array]") {
+        if (get_type(jobject) == "[object Array]" && jobject.length > 0) {
             var extraOutputPreview = "";
-            $(".extraContainer div.extraRow").remove();
-            $(".extraContainer").html("");
+            $("#snippet-container").children().remove();
             for (var i = 0; i <= jobject.length - 1; i++) {
-                if (lsm.getItem("flyEnabled") == "yes") {
-                    flyButton =
-                        '<i onclick="fly(' + i + ')" class="fa fa-plane"></i>';
-                } else {
-                    flyButton = "";
-                }
-                if (jobject.length - 1 > i) {
-                    downButton =
-                        '<i onclick="moveUp(' +
-                        i +
-                        ')" class="fa fa-arrow-circle-down"></i> ';
-                } else {
-                    downButton = "";
-                }
-                if (i > 0) {
-                    upButton =
-                        '<i onclick="moveUp(' +
-                        (i - 1) +
-                        ')" class="fa fa-arrow-circle-up"></i> ';
-                } else {
-                    upButton = "";
-                }
+                dragButton = '<i class="drag-handle fa fa-sort fa-2x"></i> ';
                 if (jobject[i].NEW_ITERATE_FLAG) {
                     if (
                         templates[lsm.getItem("jtemplate")].formatType !=
@@ -1089,49 +1077,32 @@ function refreshOutput(input) {
                         var blah = "blah"; /* wtf */
                     } else {
                         tempJSON =
-                            '<div class="row"><div class="col-xs-10 col-md-11">' +
-                            tempJSON +
-                            '</div><div class="col-xs-2 col-md-1"><div class="colorPreview"><div class="colorPreviewColor" style="background-color:' +
-                            getCSSHEXFromWord(jobject[i].color) +
-                            '"></div></div></div></div>';
+                            `<div class="row">` +
+                            `<div class="col-xs-10 col-md-11">${tempJSON}</div>` +
+                            `<div class="col-xs-2 col-md-1">` +
+                            `<div class="colorPreview">` +
+                            `<div class="colorPreviewColor" style="background-color:${getCSSHEXFromWord(jobject[i].color)}"></div>` +
+                            `</div>` +
+                            `</div>` +
+                            `</div>`;
                     }
                 }
-                var deleteButton =
-                    '<i id="' +
-                    i +
-                    'RowEditButton" onclick="editExtra(' +
-                    i +
-                    ');" class="fa fa-pencil"></i> <i onclick="deleteIndex(' +
-                    i +
-                    ');" class="fa fa-times-circle"></i> ';
+                var editButton = `<i id="${i}RowEditButton" onclick="editExtra(${i});" class="fa fa-pencil fa-2x"></i>`;
                 if (jobject[i].NEW_ITERATE_FLAG) {
-                    deleteButton =
-                        '<i style="color:gray;" class="fa fa-pencil"></i> <i onclick="deleteIndex(' +
-                        i +
-                        ');" class="fa fa-times-circle"></i> ';
+                    editButton = `<i style="color:gray;" class="fa fa-pencil fa-2x"></i>`;
                 }
-                $(".extraContainer").append(
-                    '<div class="row extraRow row-margin-top row-margin-bottom mover-row RowIndex' +
-                        i +
-                        '"><div class="col-xs-4 col-sm-2 col-lg-1">' +
-                        deleteButton +
-                        downButton +
-                        upButton +
-                        flyButton +
-                        '</div><div class="col-xs-8 col-sm-10 col-lg-11" style="padding:none;">' +
-                        tempJSON +
-                        "</div></div>"
+                var deleteButton = `<i onclick="deleteIndex(${i});" class="fa fa-times-circle fa-2x"></i>`;
+                $("#snippet-container").append(
+                    `<li class="row extraRow row-margin-top row-margin-bottom mover-row RowIndex${i}">` +
+                        `<div class="col-xs-4 col-sm-2 col-lg-2" style="display:flex;flex;justify-content:space-around;">${deleteButton}${editButton}${dragButton}</div>` +
+                        `<div class="col-xs-8 col-sm-10 col-lg-10" style="padding:none;">${tempJSON}</div>` +
+                        `</li>`
                 );
             }
-            if (jobject.length == 0) {
-                jobject = [];
-                $(".extraContainer").html("<br><br>");
-                refreshLanguage();
-            }
         } else {
-            $(".extraContainer div.extraRow").remove();
-            $(".extraContainer").html(
-                '<div class="row"><div class="col-xs-12"><h4>' +
+            $("#snippet-container").children().remove();
+            $("#snippet-container").html(
+                '<ul class="row"><div class="col-xs-12"><h4>' +
                     getLanguageString(
                         "textsnippets.nosnippets",
                         lsm.getItem("langCode")
@@ -1780,6 +1751,19 @@ function initialize() {
 
     showView("pageheader", true, false);
     showView("tellraw", false, true, false);
+
+    let snippetContainer = document.getElementById("snippet-container");
+    let sortable = Sortable.create(snippetContainer, {
+        handle: ".drag-handle",
+        onEnd: function(/*Event*/ evt) {
+            jobject.splice(evt.newIndex, 0, jobject.splice(evt.oldIndex, 1)[0]);
+            refreshOutput();
+        }
+    });
+
+    /*************
+     * Listeners *
+     *************/
 
     $(".templateButton").click(function() {
         let template = $(this).attr("template");
