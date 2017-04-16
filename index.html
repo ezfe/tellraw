@@ -124,10 +124,10 @@
 				<div class="col-md-12">
 					You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
 					<br><br>
-					This website has been tested against:
+					This website is currently being developed for compatibility with:
 					<ul>
 						<li>Safari <u>10.1.1</u></li>
-						<li>Chrome <u>56.0.2924.87</u></li>
+						<li>Chrome <u>57.0.2987.133</u></li>
 						<li>Firefox <u>52.0.2</u></li>
 					</ul>
 
@@ -261,7 +261,7 @@
 				<div class="col-sm-4">
 					<div class="row">
 						<div class="col-sm-10">
-							<select class="form-control" onchange="$('#colorPreviewColor').css('background-color',getCSSHEXFromWord($('#color_extra').val()));" id="color_extra">
+							<select class="form-control" onchange="$('#colorPreview').css('background-color',getCSSHEXFromWord($('#color_extra').val()));" id="color_extra">
 								<option lang="color.color_black" value="black">color_black</option>
 								<option lang="color.color_dark_blue" value="dark_blue">color_dark_blue</option>
 								<option lang="color.color_dark_green" value="dark_green">color_dark_green</option>
@@ -282,10 +282,7 @@
 							</select>
 						</div>
 						<div class="col-sm-2">
-							<div id="colorPreview" class="colorPreview">
-								<div id="colorPreviewColor" class="colorPreviewColor">
-								</div>
-							</div>
+							<div id="colorPreview" class="colorPreview"></div>
 						</div>
 					</div>
 					<label><input type="checkbox" id="bold_text_extra"> <span lang="textsnippets.format.bold"></span></label>
@@ -378,7 +375,7 @@
 							</div>
 							<div class="row">
 								<div class="col-sm-10">
-									<select class="form-control" onchange="$('#colorSnippetColorPreview').css('background-color',getCSSHEXFromWord($('#snippetcolor').val()));" id="snippetcolor">
+									<select class="form-control" onchange="$('#colorSnippetColor').css('background-color',getCSSHEXFromWord($('#snippetcolor').val()));" id="snippetcolor">
 										<option lang="color.color_black" value="black">color_black</option>
 										<option lang="color.color_dark_blue" value="dark_blue">color_dark_blue</option>
 										<option lang="color.color_dark_green" value="dark_green">color_dark_green</option>
@@ -400,8 +397,6 @@
 								</div>
 								<div class="col-sm-1">
 									<div id="colorSnippetColor" class="colorPreview">
-										<div id="colorSnippetColorPreview" class="colorPreviewColor">
-										</div>
 									</div>
 								</div>
 							</div>

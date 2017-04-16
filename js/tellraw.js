@@ -1010,7 +1010,7 @@ function refreshOutput(input) {
     }
 
     /*EXTRA MODAL COLOR PREVIEW MANAGER*/
-    $("#colorPreviewColor").css({
+    $("#colorPreview").css({
         "background-color": getCSSHEXFromWord(getSelected("color_extra"))
     });
 
@@ -1080,9 +1080,7 @@ function refreshOutput(input) {
                             `<div class="row">` +
                             `<div class="col-xs-10 col-md-11">${tempJSON}</div>` +
                             `<div class="col-xs-2 col-md-1">` +
-                            `<div class="colorPreview">` +
-                            `<div class="colorPreviewColor" style="background-color:${getCSSHEXFromWord(jobject[i].color)}"></div>` +
-                            `</div>` +
+                            `<div class="colorPreview" style="background-color:${getCSSHEXFromWord(jobject[i].color)}"></div>` +
                             `</div>` +
                             `</div>`;
                     }
@@ -1094,7 +1092,7 @@ function refreshOutput(input) {
                 var deleteButton = `<i onclick="deleteIndex(${i});" class="fa fa-times-circle fa-2x"></i>`;
                 $("#snippet-container").append(
                     `<li class="row extraRow row-margin-top row-margin-bottom mover-row RowIndex${i}">` +
-                        `<div class="col-xs-4 col-sm-2 col-lg-2" style="display:flex;flex;justify-content:space-around;">${deleteButton}${editButton}${dragButton}</div>` +
+                        `<div class="col-xs-4 col-sm-2 col-lg-2 snippet-manipulation-area">${deleteButton}${editButton}${dragButton}</div>` +
                         `<div class="col-xs-8 col-sm-10 col-lg-10" style="padding:none;">${tempJSON}</div>` +
                         `</li>`
                 );

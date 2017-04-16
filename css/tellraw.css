@@ -10,13 +10,10 @@
 	width: 32px;
 	height: 32px;
 	margin-left:auto;
+
+	background-color: #FFF;
 }
-.colorPreviewColor {
-	border-radius: 4px;
-	background-color:#FFFFFF;
-	height:100%;
-	width:100%;
-}
+
 .bold {
 	font-weight: bold;
 }
@@ -235,4 +232,13 @@ div[class*='col-xs-'] {
 }
 #snippet-container {
 	list-style-type:none;
+}
+
+.drag-handle {
+	cursor: move;
+}
+
+.snippet-manipulation-area {
+	display:flex;
+	justify-content:space-around;
 }
