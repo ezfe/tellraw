@@ -75,44 +75,32 @@
 <body class="black-theme">
 	<div class="container">
 		<div style="display:none;" class="view-container" view="pageheader">
-			<div class="row">
-				<div class="col-sm-3 col-xs-12">
-					<h4 lang="header_rev2"></h4>
-				</div>
-				<div class="col-sm-2 col-sm-offset-1">
-					<button class="btn btn-block btn-xs btn-info" id="helptoggle">
-						<i class="fa fa-question-circle"></i> <span lang="headerbar.help"></span>
+			<div id="header_row">
+				<h4 class="header_row_item " id="main_page_header_text" lang="header_rev2"></h4>
+				<button class="header_row_item btn btn-xs btn-info" id="helptoggle">
+					<i class="fa fa-question-circle"></i> <span lang="headerbar.help"></span>
+				</button>
+				<button id="main_report_issue" class="header_row_item report-issue btn btn-xs btn-danger">
+					<i class="fa fa-exclamation-triangle"></i> <span lang="headerbar.report_an_issue"></span>
+				</button>
+				<div class="header_row_item btn-group" id="dropdown-list-a">
+					<button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">
+						<i class="fa fa-list"></i> <span class="caret"></span>
 					</button>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Fezekielelin.com%2Ftellraw%2F&amp;text=%2Ftellraw%20generator%20for%20minecraft&amp;tw_p=tweetbutton&amp;url=http%3A%2F%2Fezekielelin.com%2Ftellraw%2F&amp;via=ezekielfe" lang="headerbar.dropdown.tweet"></a></li>
+						<li><a href="changelog.html" lang="headerbar.dropdown.changelog"></a></li>
+						<li><a href="http://www.minecraftforum.net/topic/1980545-" lang="headerbar.dropdown.forum_thread"></a></li>
+						<li><a href="http://translate.minecraftjson.com" lang="headerbar.dropdown.translate_page_link"></a></li>
+						<li><a href="http://status.minecraftjson.com" lang="headerbar.dropdown.uptime"></a></li>
+					</ul>
 				</div>
-				<div class="col-sm-3">
-					<button class="report-issue btn btn-block btn-xs btn-danger">
-						<i class="fa fa-exclamation-triangle"></i> <span lang="headerbar.report_an_issue"></span>
+				<div class="header_row_item btn-group">
+					<button onclick="loadOtherLanguages()" type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">
+						<span lang="language.header"></span> <span class="caret"></span>
 					</button>
-					<div class="help-box" lang="help.report-an-issue"></div>
-				</div>
-				<div class="col-sm-1 col-xs-12 row-margin-top row-margin-bottom">
-					<div class="btn-group btn-block" id="dropdown-list-a">
-						<button type="button" class="btn btn-block btn-xs btn-default dropdown-toggle" data-toggle="dropdown">
-							<i class="fa fa-list"></i> <span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu" role="menu">
-							<li><a href="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Fezekielelin.com%2Ftellraw%2F&amp;text=%2Ftellraw%20generator%20for%20minecraft&amp;tw_p=tweetbutton&amp;url=http%3A%2F%2Fezekielelin.com%2Ftellraw%2F&amp;via=ezekielfe" lang="headerbar.dropdown.tweet"></a></li>
-							<li><a href="changelog.html" lang="headerbar.dropdown.changelog"></a></li>
-							<li><a href="http://www.minecraftforum.net/topic/1980545-" lang="headerbar.dropdown.forum_thread"></a></li>
-							<li><a href="http://translate.minecraftjson.com" lang="headerbar.dropdown.translate_page_link"></a></li>
-							<li><a href="http://status.minecraftjson.com" lang="headerbar.dropdown.uptime"></a></li>
-						</ul>
-					</div>
-					<div class="help-box" lang="help.dropdown-list"></div>
-				</div>
-				<div class="col-sm-2 col-xs-12 row-margin-top row-margin-bottom">
-					<div class="btn-group btn-block">
-						<button onclick="loadOtherLanguages()" type="button" class="btn btn-block btn-xs btn-default dropdown-toggle" data-toggle="dropdown">
-							<span lang="language.header"></span> <span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu" role="menu" id="language_keys">
-						</ul>
-					</div>
+					<ul class="dropdown-menu" role="menu" id="language_keys">
+					</ul>
 				</div>
 			</div>
 		</div>

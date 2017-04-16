@@ -239,6 +239,27 @@ div[class*='col-xs-'] {
 }
 
 .snippet-manipulation-area {
+	display: flex;
+	justify-content: space-around;
+}
+
+#header_row {
 	display:flex;
-	justify-content:space-around;
+	margin: 0 -5px;
+}
+
+#header_row > .header_row_item  {
+	margin: 0 5px;
+}
+
+#main_page_header_text {
+	flex-grow: 1;
+}
+
+#helptoggle {
+
+}
+
+#main_report_issue {
+
 }
