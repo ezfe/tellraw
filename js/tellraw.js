@@ -1839,17 +1839,17 @@ function initialize() {
     $("#helptoggle").click(() => {
         $(".help-box").toggle();
     });
-    $("#enable_dark_mode").on("click", function() {
-        lsm.setItem("darkMode", "true");
-        $("body").addClass("black-theme");
-        $(this).hide();
-        $("#disable_dark_mode").show();
-    });
-    $("#disable_dark_mode").on("click", function() {
-        lsm.setItem("darkMode", "false");
+    $("#enable_light_mode").on("click", function() {
+        lsm.setItem("lightMode", "true");
         $("body").removeClass("black-theme");
         $(this).hide();
-        $("#enable_dark_mode").show();
+        $("#disable_light_mode").show();
+    });
+    $("#disable_light_mode").on("click", function() {
+        lsm.setItem("lightMode", "false");
+        $("body").addClass("black-theme");
+        $(this).hide();
+        $("#enable_light_mode").show();
     });
     $(".report-issue").on("click", () => {
         $('.view-container[view="report-issue"]')
@@ -1922,16 +1922,15 @@ function initialize() {
 
     //Dark Mode
 
-    if (lsm.getItem("darkMode") === "true") {
-        $("#enable_dark_mode").click(); //Finish setting up dark mode after handlers exist
+    if (lsm.getItem("lightMode") === "true") {
+        $("#enable_light_mode").click(); //Finish setting up dark mode after handlers exist
     }
 }
 $(document).ready(() => {
-    if (lsm.getItem("darkMode") && lsm.getItem("darkMode") == "true") {
-        $("body").addClass("black-theme"); //Rest of "dark mode" is handled later, color scheme handled early for appearance
-    } else if (lsm.getItem("darkMode") == undefined) {
-        $("body").addClass("black-theme");
-        lsm.setItem("darkMode", "true");
+    if (lsm.getItem("lightMode") && lsm.getItem("lightMode") == "true") {
+        $("body").removeClass("black-theme"); //Rest of "dark mode" is handled later, color scheme handled early for appearance
+    } else if (lsm.getItem("lightMode") == undefined) {
+        lsm.setItem("lightMode", "false");
     }
     $(".view-container").hide();
     showView("loading", true, true, true);
@@ -1952,8 +1951,6 @@ $(document).ready(() => {
                             .filter("br")
                             .remove();
                         embed = true;
-                    } else {
-                        embed = false;
                     }
 
                     webLangRelations = resourcesJSON["web_language_relations"];
