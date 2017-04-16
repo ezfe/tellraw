@@ -28,6 +28,9 @@ let issueLog = [];
 let bookPage = 1;
 let topPage = 1;
 let embed = false;
+let quickMake = false;
+var quickMakeReceiving = false;
+let quickMakeWindow = null;
 
 /***************************
  * Local Storage Interface *
@@ -35,16 +38,31 @@ let embed = false;
 
 let lsm = {
     enabled: false,
+    hasTriedLocalStorage: false,
     storage: {},
-    setItem(key, value) {
-        try {
-            localStorage.setItem(key, value);
-        } catch (e) {
+    checkEnable() {
+        if (quickMake) {
             lsm.enabled = true;
+        }
+        if (!lsm.hasTriedLocalStorage) {
+            try {
+                localStorage.setItem("dummy", "dummy");
+                localStorage.removeItem("dummy");
+            } catch (e) {
+                lsm.enabled = true;
+            }
+        }
+    },
+    setItem(key, value) {
+        lsm.checkEnable();
+        if (lsm.enabled) {
             lsm.storage[key] = value;
+        } else {
+            localStorage.setItem(key, value);
         }
     },
     getItem(key) {
+        lsm.checkEnable();
         if (lsm.enabled) {
             return lsm.storage[key];
         } else {
@@ -52,6 +70,7 @@ let lsm = {
         }
     },
     clear() {
+        lsm.checkEnable();
         if (lsm.enabled) {
             lsm.storage = {};
         } else {
@@ -59,6 +78,7 @@ let lsm = {
         }
     },
     removeItem(key) {
+        lsm.checkEnable();
         if (lsm.enabled) {
             delete lsm.storage[key];
         } else {
@@ -66,6 +86,7 @@ let lsm = {
         }
     },
     dictionary() {
+        lsm.checkEnable();
         if (lsm.enabled) {
             return lsm.storage;
         } else {
@@ -175,19 +196,14 @@ function reportAnIssue(ptitle) {
             "%0A```";
     }
     var win = window.open(
-        "http://github.com/ezfe/tellraw/issues/new?body=" +
-            body +
-            "&title=" +
-            title,
+        "http://github.com/ezfe/tellraw/issues/new?body=" + body + "&title=" + title,
         "_blank"
     );
     win.focus();
 }
 
 function showIssue() {
-    alert(
-        `${issueLog[issueLog.length - 1].name}\n${issueLog[issueLog.length - 1].data}`
-    );
+    alert(`${issueLog[issueLog.length - 1].name}\n${issueLog[issueLog.length - 1].data}`);
 }
 
 function logIssue(name, data = null, critical = false) {
@@ -251,20 +267,13 @@ function loadOtherLanguages() {
  * View Controls *
  *****************/
 
-function showView(
-    viewname,
-    suppressAnimation = false,
-    hideOthers = true,
-    hideMenubar = false
-) {
+function showView(viewname, suppressAnimation = false, hideOthers = true, hideMenubar = false) {
     var hideMenubarOriginal = hideMenubar;
     if (embed) {
         hideMenubar = true;
     }
 
-    var toHide = $(".view-container").not(
-        '.view-container[view="' + viewname + '"]'
-    );
+    var toHide = $(".view-container").not('.view-container[view="' + viewname + '"]');
     if (!hideMenubar) {
         toHide = toHide.not('.view-container[view="pageheader"]');
     }
@@ -418,11 +427,7 @@ function verify_jobject_format(jdata) {
 
 function strictifyItem(job, index) {
     var joi = job[index];
-    if (
-        index == 0 ||
-        job[index - 1].NEW_ITERATE_FLAG ||
-        job[index].NEW_ITERATE_FLAG
-    ) {
+    if (index == 0 || job[index - 1].NEW_ITERATE_FLAG || job[index].NEW_ITERATE_FLAG) {
         return joi;
     }
     var prejoi = job[index - 1];
@@ -514,21 +519,13 @@ let templates = {
         command: "/tellraw @p %s",
         version: "1.7",
         formatType: "standardjson",
-        mouseActionOptions: [
-            MOUSE_ACTION_HOVER,
-            MOUSE_ACTION_CLICK,
-            MOUSE_ACTION_INSERTION
-        ]
+        mouseActionOptions: [MOUSE_ACTION_HOVER, MOUSE_ACTION_CLICK, MOUSE_ACTION_INSERTION]
     },
     execute_tellraw: {
         command: "/execute @a ~ ~ ~ tellraw @p %s",
         version: "1.8",
         formatType: "standardjson",
-        mouseActionOptions: [
-            MOUSE_ACTION_HOVER,
-            MOUSE_ACTION_CLICK,
-            MOUSE_ACTION_INSERTION
-        ]
+        mouseActionOptions: [MOUSE_ACTION_HOVER, MOUSE_ACTION_CLICK, MOUSE_ACTION_INSERTION]
     },
     title: {
         command: "/title @a title %s",
@@ -564,11 +561,7 @@ let templates = {
         command: "/give @p written_book 1 0 {pages:%s,title:Book,author:TellrawGenerator}",
         version: "1.8",
         formatType: "bookarray",
-        mouseActionOptions: [
-            MOUSE_ACTION_HOVER,
-            MOUSE_ACTION_CLICK,
-            MOUSE_ACTION_INSERTION
-        ]
+        mouseActionOptions: [MOUSE_ACTION_HOVER, MOUSE_ACTION_CLICK, MOUSE_ACTION_INSERTION]
     }
 };
 
@@ -599,14 +592,8 @@ function setObfuscatedString(string) {
     return output;
 }
 function deleteAll() {
-    let head = getLanguageString(
-        "settings.deleteall.heading",
-        lsm.getItem("langCode")
-    );
-    let body = getLanguageString(
-        "settings.deleteall.body",
-        lsm.getItem("langCode")
-    );
+    let head = getLanguageString("settings.deleteall.heading", lsm.getItem("langCode"));
+    let body = getLanguageString("settings.deleteall.body", lsm.getItem("langCode"));
     if (confirm(`${head}\n${body}`)) {
         jobject = [];
         loadTemplate("tellraw");
@@ -615,9 +602,7 @@ function deleteAll() {
 }
 
 function obfuscationPreviewHandler() {
-    $(".jsonPreviewObfuscated").html(
-        setObfuscatedString($(".jsonPreviewObfuscated").html())
-    );
+    $(".jsonPreviewObfuscated").html(setObfuscatedString($(".jsonPreviewObfuscated").html()));
     if ($(".jsonPreviewObfuscated").length > 0) {
         setTimeout(obfuscationPreviewHandler, 20);
     }
@@ -628,10 +613,7 @@ function currentTemplate() {
 }
 
 function noneHex() {
-    if (
-        currentTemplate().formatType == "bookarray" ||
-        currentTemplate().formatType == "signset"
-    ) {
+    if (currentTemplate().formatType == "bookarray" || currentTemplate().formatType == "signset") {
         return "#000000";
     } else {
         return "#FFFFFF";
@@ -774,10 +756,7 @@ function editExtra(index) {
         $("#obj_score").val(cobject.score.objective);
     }
 
-    $("#colorPreviewColor").css(
-        "background-color",
-        getCSSHEXFromWord(cobject.color)
-    );
+    $("#colorPreviewColor").css("background-color", getCSSHEXFromWord(cobject.color));
     if (cobject.color != undefined) {
         $("#color_extra").val(cobject.color);
     } else {
@@ -822,27 +801,19 @@ function editExtra(index) {
         $("#hoverEvent").val(cobject.hoverEvent.action);
         if ($("#hoverEvent").val() != "show_entity") {
             if (cobject.hoverEvent.action == "show_text") {
-                $("#hoverEventText").val(
-                    JSON.stringify(cobject.hoverEvent.value)
-                );
+                $("#hoverEventText").val(JSON.stringify(cobject.hoverEvent.value));
             } else {
                 $("#hoverEventText").val(cobject.hoverEvent.value);
             }
         } else {
             $("#hoverEventEntityID").val(
-                cobject.hoverEvent.value
-                    .match(/id:([a-zA-Z0-9]+)/g)[0]
-                    .replace("id:", "")
+                cobject.hoverEvent.value.match(/id:([a-zA-Z0-9]+)/g)[0].replace("id:", "")
             );
             $("#hoverEventEntityName").val(
-                cobject.hoverEvent.value
-                    .match(/name:([a-zA-Z0-9]+)/g)[0]
-                    .replace("name:", "")
+                cobject.hoverEvent.value.match(/name:([a-zA-Z0-9]+)/g)[0].replace("name:", "")
             );
             $("#hoverEventEntityType").val(
-                cobject.hoverEvent.value
-                    .match(/type:([a-zA-Z0-9]+)/g)[0]
-                    .replace("type:", "")
+                cobject.hoverEvent.value.match(/type:([a-zA-Z0-9]+)/g)[0].replace("type:", "")
             );
         }
     } else {
@@ -885,10 +856,7 @@ function addExtra() {
         $("#textsnippets-add-button").removeClass("btn-default");
         $("#textsnippets-add-button").addClass("btn-danger");
         return false;
-    } else if (
-        $("#hoverEvent").val() == "show_text" &&
-        $("#hoverEventTextSnippet").val() != ""
-    ) {
+    } else if ($("#hoverEvent").val() == "show_text" && $("#hoverEventTextSnippet").val() != "") {
         alert("You entered text, but never added it!");
         $("#hoverEventTextSnippet").focus();
         $("#textsnippets-add-button").removeClass("btn-default");
@@ -942,10 +910,7 @@ function addExtra() {
             action: clickEventType,
             value: $("#clickEventText").val()
         };
-        if (
-            clickEventType == "run_command" ||
-            clickEventType == "suggest_command"
-        ) {
+        if (clickEventType == "run_command" || clickEventType == "suggest_command") {
             if ($("#clickEventText").val().length > 256) {
                 alert(
                     "Commands cannot be longer than 256 characters!\nYou should edit the length of your command before using this in game."
@@ -986,8 +951,7 @@ function addExtra() {
             removeWhiteSpace($("#hoverEventEntityType").val()) +
             "}";
     }
-    if ($("#insertion_text").val() != "")
-        cobject.insertion = $("#insertion_text").val();
+    if ($("#insertion_text").val() != "") cobject.insertion = $("#insertion_text").val();
 
     if (editingIndex == null) {
         jobject.push(cobject);
@@ -1026,10 +990,8 @@ function refreshOutput(input) {
                 dragButton = '<i class="drag-handle fa fa-sort fa-2x"></i> ';
                 if (jobject[i].NEW_ITERATE_FLAG) {
                     if (
-                        templates[lsm.getItem("jtemplate")].formatType !=
-                            "bookarray" &&
-                        templates[lsm.getItem("jtemplate")].formatType !=
-                            "signset"
+                        templates[lsm.getItem("jtemplate")].formatType != "bookarray" &&
+                        templates[lsm.getItem("jtemplate")].formatType != "signset"
                     ) {
                         var tempJSON =
                             '<span style="color:gray;text-decoration:line-through;" lang="textsnippets.NEW_ITERATE_FLAG.buttontext"></span>';
@@ -1051,9 +1013,7 @@ function refreshOutput(input) {
                             jobject[i].text +
                             '">';
                         var saveButton = "";
-                    } else if (
-                        get_type(jobject[i].score) != "[object Undefined]"
-                    ) {
+                    } else if (get_type(jobject[i].score) != "[object Undefined]") {
                         var tempJSON =
                             '<input type="text" class="form-control previewLine" disabled value="' +
                             jobject[i].score.name +
@@ -1061,9 +1021,7 @@ function refreshOutput(input) {
                             jobject[i].score.objective +
                             ' score">';
                         var saveButton = "";
-                    } else if (
-                        get_type(jobject[i].selector) != "[object Undefined]"
-                    ) {
+                    } else if (get_type(jobject[i].selector) != "[object Undefined]") {
                         var tempJSON =
                             '<input type="text" class="form-control previewLine" disabled value="Selector: ' +
                             jobject[i].selector +
@@ -1101,10 +1059,7 @@ function refreshOutput(input) {
             $("#snippet-container").children().remove();
             $("#snippet-container").html(
                 '<ul class="row"><div class="col-xs-12"><h4>' +
-                    getLanguageString(
-                        "textsnippets.nosnippets",
-                        lsm.getItem("langCode")
-                    ) +
+                    getLanguageString("textsnippets.nosnippets", lsm.getItem("langCode")) +
                     "</h4></div></div>"
             );
         }
@@ -1147,21 +1102,12 @@ function refreshOutput(input) {
 
     var templateItem = templates[lsm.getItem("jtemplate")];
 
-    if (
-        templateItem.formatType == "bookarray" ||
-        templateItem.formatType == "signset"
-    ) {
+    if (templateItem.formatType == "bookarray" || templateItem.formatType == "signset") {
         $("#add-ITERATE-FLAG").fadeIn();
         if (templateItem.formatType == "bookarray") {
-            $("#add-ITERATE-FLAG-label").attr(
-                "lang",
-                "textsnippets.NEW_ITERATE_FLAG.add.book"
-            );
+            $("#add-ITERATE-FLAG-label").attr("lang", "textsnippets.NEW_ITERATE_FLAG.add.book");
         } else if (templateItem.formatType == "signset") {
-            $("#add-ITERATE-FLAG-label").attr(
-                "lang",
-                "textsnippets.NEW_ITERATE_FLAG.add.sign"
-            );
+            $("#add-ITERATE-FLAG-label").attr("lang", "textsnippets.NEW_ITERATE_FLAG.add.sign");
         }
         refreshLanguage();
     } else {
@@ -1246,38 +1192,22 @@ function refreshOutput(input) {
     } else {
         if (templates[lsm.getItem("jtemplate")].formatType == "bookarray") {
             JSONOutputString = JSON.stringify(formattedJObject);
-            JSONOutputString = JSONOutputString.replace(
-                newLineExpressions.bookarray,
-                "\\n"
-            );
-        } else if (
-            templates[lsm.getItem("jtemplate")].formatType == "standardjson"
-        ) {
+            JSONOutputString = JSONOutputString.replace(newLineExpressions.bookarray, "\\n");
+        } else if (templates[lsm.getItem("jtemplate")].formatType == "standardjson") {
             JSONOutputString = formattedJObject[0];
-            JSONOutputString = JSONOutputString.replace(
-                newLineExpressions.standardjson,
-                "\\n"
-            );
-        } else if (
-            templates[lsm.getItem("jtemplate")].formatType == "signset"
-        ) {
+            JSONOutputString = JSONOutputString.replace(newLineExpressions.standardjson, "\\n");
+        } else if (templates[lsm.getItem("jtemplate")].formatType == "signset") {
             JSONOutputString = "Text1:" + JSON.stringify(formattedJObject[0]);
             if (formattedJObject.length > 1) {
-                JSONOutputString +=
-                    ",Text2:" + JSON.stringify(formattedJObject[1]);
+                JSONOutputString += ",Text2:" + JSON.stringify(formattedJObject[1]);
             }
             if (formattedJObject.length > 2) {
-                JSONOutputString +=
-                    ",Text3:" + JSON.stringify(formattedJObject[2]);
+                JSONOutputString += ",Text3:" + JSON.stringify(formattedJObject[2]);
             }
             if (formattedJObject.length > 3) {
-                JSONOutputString +=
-                    ",Text4:" + JSON.stringify(formattedJObject[3]);
+                JSONOutputString += ",Text4:" + JSON.stringify(formattedJObject[3]);
             }
-            JSONOutputString = JSONOutputString.replace(
-                newLineExpressions.signset,
-                "\\n"
-            );
+            JSONOutputString = JSONOutputString.replace(newLineExpressions.signset, "\\n");
         }
     }
 
@@ -1290,12 +1220,7 @@ function refreshOutput(input) {
         lsm.setItem("nlOutput", "yes");
         $("#nicelookingoutput")
             .show()
-            .html(
-                JSON.stringify(jobject, null, 4).replace(
-                    newLineExpressions.standardjson,
-                    "\\n"
-                )
-            );
+            .html(JSON.stringify(jobject, null, 4).replace(newLineExpressions.standardjson, "\\n"));
     } else {
         lsm.setItem("nlOutput", "no");
         $("#nicelookingoutput").hide();
@@ -1316,6 +1241,21 @@ function refreshOutput(input) {
     /*RERUN*/
     if (input != "noLoop" && input != "previewLineChange") {
         refreshOutput("noLoop");
+    }
+
+    if (quickMake) {
+        $("#command-row").hide();
+
+        if (window.opener && window.opener.quickMakeReceiving) {
+            window.opener.document.getElementById("hoverEventText").value = document.getElementById(
+                "outputtextfield"
+            ).value;
+        } else {
+            alert(
+                "This session is no longer attached and will close now.\n\nTo avoid this in the future, don't close the original window before closing this one.\n\nIf you are receiving this error and you don't think you should be, please report an issue on the normal page"
+            );
+            window.close();
+        }
     }
 }
 function jsonParse() {
@@ -1384,15 +1324,11 @@ function jsonParse() {
                 let hoverEventValue = "";
                 let clickEventType = "";
                 let clickEventValue = "";
-                $("#jsonPreview").append(
-                    '<span id="jsonPreviewSpanElement' + i + '"></span>'
-                );
+                $("#jsonPreview").append('<span id="jsonPreviewSpanElement' + i + '"></span>');
 
                 if (jobject[i].text) {
                     $("#jsonPreviewSpanElement" + i).html(
-                        jobject[i].text
-                            .replace(/\\\\n/g, "<br>")
-                            .replace(/\\n/g, "<br>")
+                        jobject[i].text.replace(/\\\\n/g, "<br>").replace(/\\n/g, "<br>")
                     );
                 } else if (jobject[i].score) {
                     $("#jsonPreviewSpanElement" + i).html(
@@ -1404,9 +1340,7 @@ function jsonParse() {
                     );
                 } else if (jobject[i].selector) {
                     $("#jsonPreviewSpanElement" + i).html(
-                        '<span class="label label-primary">' +
-                            jobject[i].selector +
-                            "</span>"
+                        '<span class="label label-primary">' + jobject[i].selector + "</span>"
                     );
                 } else {
                     $("#jsonPreviewSpanElement" + i).html(
@@ -1424,32 +1358,19 @@ function jsonParse() {
                     $("#jsonPreviewSpanElement" + i).addClass("underlined");
                 }
                 if (jobject[i].strikethrough == true) {
-                    if (
-                        $("#jsonPreviewSpanElement" + i).hasClass("underlined")
-                    ) {
-                        $("#jsonPreviewSpanElement" + i).removeClass(
-                            "underlined"
-                        );
-                        $("#jsonPreviewSpanElement" + i).addClass(
-                            "strikethroughunderlined"
-                        );
+                    if ($("#jsonPreviewSpanElement" + i).hasClass("underlined")) {
+                        $("#jsonPreviewSpanElement" + i).removeClass("underlined");
+                        $("#jsonPreviewSpanElement" + i).addClass("strikethroughunderlined");
                     } else {
-                        $("#jsonPreviewSpanElement" + i).addClass(
-                            "strikethrough"
-                        );
+                        $("#jsonPreviewSpanElement" + i).addClass("strikethrough");
                     }
                 }
                 if (jobject[i].obfuscated == true) {
-                    $("#jsonPreviewSpanElement" + i).addClass(
-                        "jsonPreviewObfuscated"
-                    );
+                    $("#jsonPreviewSpanElement" + i).addClass("jsonPreviewObfuscated");
                 }
 
                 /*COLORS*/
-                $("#jsonPreviewSpanElement" + i).css(
-                    "color",
-                    getCSSHEXFromWord(jobject[i].color)
-                );
+                $("#jsonPreviewSpanElement" + i).css("color", getCSSHEXFromWord(jobject[i].color));
 
                 /*CLICK & HOVER EVENTS*/
 
@@ -1503,16 +1424,14 @@ function jsonParse() {
                                 clickEventValue +
                                 "</a>";
                         } else {
-                            popoverContentClick =
-                                clickEventType + ":" + clickEventValue;
+                            popoverContentClick = clickEventType + ":" + clickEventValue;
                         }
                     }
                     if (doHoverEvent) {
                         if (hoverEventType == "show_text") {
                             hoverEventValue = JSON.stringify(hoverEventValue);
                         }
-                        popoverContentHover =
-                            hoverEventType + ":" + hoverEventValue;
+                        popoverContentHover = hoverEventType + ":" + hoverEventValue;
                     }
                     if (doHoverEvent && doClickEvent) {
                         popoverContentClick = popoverContentClick + "<br>";
@@ -1527,9 +1446,7 @@ function jsonParse() {
             }
         }
     } else {
-        $("#jsonPreview").html(
-            getLanguageString("output.nothing", lsm.getItem("langCode"))
-        );
+        $("#jsonPreview").html(getLanguageString("output.nothing", lsm.getItem("langCode")));
         $("#jsonPreview").css("color", "white");
     }
     if ($(".jsonPreviewObfuscated").length > 0) {
@@ -1608,6 +1525,10 @@ function refreshLanguage(dropdownSelection) {
     });
 }
 
+function quickMakeDone() {
+    alert("Finished!");
+}
+
 function initialize() {
     if (lsm.getItem("initialTimestamp") == undefined) {
         lsm.setItem("initialTimestamp", new Date().getTime());
@@ -1623,8 +1544,7 @@ function initialize() {
         lsm.setItem("donateStatus", "unprompted");
     }
 
-    let seconds =
-        (new Date().getTime() - lsm.getItem("initialTimestamp")) / 1000;
+    let seconds = (new Date().getTime() - lsm.getItem("initialTimestamp")) / 1000;
     let hitcount = lsm.getItem("loadCount");
 
     if (
@@ -1647,13 +1567,8 @@ function initialize() {
         if (lang[navigator.language.toLowerCase()] != undefined) {
             lsm.setItem("langCode", navigator.language.toLowerCase());
         } else {
-            if (
-                webLangRelations[navigator.language.toLowerCase()] != undefined
-            ) {
-                lsm.setItem(
-                    "langCode",
-                    webLangRelations[navigator.language.toLowerCase()]
-                );
+            if (webLangRelations[navigator.language.toLowerCase()] != undefined) {
+                lsm.setItem("langCode", webLangRelations[navigator.language.toLowerCase()]);
             }
         }
     }
@@ -1690,6 +1605,7 @@ function initialize() {
                 '"></button> '
         );
     }
+
     if (lsm.getItem("jtemplate") == undefined) {
         lsm.setItem("jtemplate", "tellraw");
     }
@@ -1713,9 +1629,7 @@ function initialize() {
         jobject = verify_jobject_format(JSON.parse(lsm.getItem("jobject")));
     }
 
-    if (
-        lsm.getItem("jformat") != version && lsm.getItem("jformat") != undefined
-    ) {
+    if (lsm.getItem("jformat") != version && lsm.getItem("jformat") != undefined) {
         sessionStorage.setItem("nextTimeImport", makeExportString());
         sessionStorage.setItem(
             "nextTimeAlert",
@@ -1727,9 +1641,7 @@ function initialize() {
     } else {
         /*check if alert isn't correctly set. Do not show the alert is jformat isn't set – that means the user hasn't been here before*/
         if (
-            lsm.getItem("jalert") != notice.id &&
-            lsm.getItem("jformat") != undefined &&
-            notice.show
+            lsm.getItem("jalert") != notice.id && lsm.getItem("jformat") != undefined && notice.show
         ) {
             alert(notice.message);
         }
@@ -1762,6 +1674,24 @@ function initialize() {
     /*************
      * Listeners *
      *************/
+
+    $("#createAndImport").click(function() {
+        if (
+            confirm(
+                "This feature is experimental.\n\nNote: It cannot load from the existing hover-text, so you must create it over again."
+            )
+        ) {
+            quickMakeWindow = window.open("index.html#quickmake");
+            quickMakeReceiving = true;
+            showView("quickmaking");
+        }
+    });
+
+    $("#finish-quickmake").click(function() {
+        quickMakeWindow.close();
+        quickMakeReceiving = false;
+        showView("add-extra");
+    });
 
     $(".templateButton").click(function() {
         let template = $(this).attr("template");
@@ -1852,10 +1782,7 @@ function initialize() {
         $("#enable_light_mode").show();
     });
     $(".report-issue").on("click", () => {
-        $('.view-container[view="report-issue"]')
-            .children()
-            .not(".cancel-issue-row")
-            .hide();
+        $('.view-container[view="report-issue"]').children().not(".cancel-issue-row").hide();
         $("#issue-workflow-r1").show();
         showView("report-issue");
     });
@@ -1879,9 +1806,7 @@ function initialize() {
         } else if (id == "output-issue-button") {
             $("#issue-workflow-r2-output").fadeIn();
         } else if (id == "translation-current-issue-button") {
-            reportAnIssue(
-                "Translation Issue (" + lsm.getItem("langCode") + ")"
-            );
+            reportAnIssue("Translation Issue (" + lsm.getItem("langCode") + ")");
             showView("tellraw");
         } else if (id == "translation-other-issue-button") {
             reportAnIssue("Translation Issue (Other)");
@@ -1894,9 +1819,7 @@ function initialize() {
             );
             showView("tellraw");
         } else if (id == "output-badpreview-issue-button") {
-            alert(
-                "I'm currently not accepting complaints about the format of the book layout"
-            );
+            alert("I'm currently not accepting complaints about the format of the book layout");
             if (confirm("Would you still like to report an issue?")) {
                 reportAnIssue("Output Issue (Bad Preview)");
             }
@@ -1927,6 +1850,16 @@ function initialize() {
     }
 }
 $(document).ready(() => {
+    if (location.hash == "#quickmake") {
+        if (window.opener != null) {
+            /* Quick Make */
+            quickMake = true;
+            lsm.setItem("jcommand", "%s");
+        } else {
+            location.hash = "";
+        }
+    }
+
     if (lsm.getItem("lightMode") && lsm.getItem("lightMode") == "true") {
         $("body").removeClass("black-theme"); //Rest of "dark mode" is handled later, color scheme handled early for appearance
     } else if (lsm.getItem("lightMode") == undefined) {
@@ -1946,10 +1879,7 @@ $(document).ready(() => {
             .then(function(response) {
                 response.json().then(function(resourcesJSON) {
                     if (location.hash == "#embed") {
-                        $('.view-container[view="tellraw"]')
-                            .children()
-                            .filter("br")
-                            .remove();
+                        $('.view-container[view="tellraw"]').children().filter("br").remove();
                         embed = true;
                     }
 
