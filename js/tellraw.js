@@ -632,7 +632,7 @@ function noneName() {
     } else {
         return "white";
     }
-	*/
+    */
 }
 
 function getCSSHEXFromWord(w) {
@@ -1259,20 +1259,22 @@ function refreshOutput(input) {
     }
 }
 function jsonParse() {
-    $("#jsonPreview").css("background-color", "#" + $("#previewcolor").val());
-    $("#jsonPreview").css("font-size", $("#previewFontSize").val() + "px");
-    lsm.setItem("color", $("#previewcolor").val());
-    $("#jsonPreview").html("");
+    let jsonPreview = document.getElementById("jsonPreview");
+    let previewColor = document.getElementById("previewcolor").value;
+    lsm.setItem("color", previewColor);
+    jsonPreview.style.backgroundColor = `#${previewColor}`;
+    jsonPreview.style.fontSize = `${document.getElementById("previewFontSize").value}px`;
+    jsonPreview.innerHTML = "";
     if (templates[lsm.getItem("jtemplate")].formatType == "bookarray") {
-        $("#jsonPreview").addClass("bookPreview");
-        $("#previewBack").show();
-        $("#previewForwards").show();
-        $("#previewPage").show();
+        jsonPreview.classList.add("bookPreview");
+        document.getElementById("previewBack").style.display = "block";
+        document.getElementById("previewForwards").style.display = "block";
+        document.getElementById("previewPage").style.display = "block";
     } else {
-        $("#jsonPreview").removeClass("bookPreview");
-        $("#previewBack").hide();
-        $("#previewForwards").hide();
-        $("#previewPage").hide();
+        jsonPreview.classList.remove("bookPreview");
+        document.getElementById("previewBack").style.display = "none";
+        document.getElementById("previewForwards").style.display = "none";
+        document.getElementById("previewPage").style.display = "none";
     }
 
     if (jobject.length > 0) {
@@ -1296,9 +1298,7 @@ function jsonParse() {
             bookPage = topPage;
         }
 
-        //console.log(pageHash);
-
-        $("#previewPage").html("Page " + bookPage + " of " + topPage);
+        document.getElementById("previewPage").innerHTML = `Page ${bookPage} of ${topPage}`;
 
         for (var i = 0; i < jobject.length; i++) {
             if (jobject[i].NEW_ITERATE_FLAG) {
@@ -1489,11 +1489,13 @@ function refreshLanguage(dropdownSelection) {
         lsm.setItem("langCode", defaultLanguage);
     }
 
-    $("*").each(function() {
+    let allElements = document.getElementsByTagName("*");
+    for (var i = 0; i < allElements.length; i++) {
+        let element = allElements[i];
+        let version = element.getAttribute("version");
         if (
-            $(this).attr("version") != undefined &&
-            (lsm.getItem("versionIndicators") == "true" ||
-                lsm.getItem("versionIndicators") == undefined)
+            (version != undefined && lsm.getItem("versionIndicators") == "true") ||
+            lsm.getItem("versionIndicators") == undefined
         ) {
             let levels = {
                 "1.13": "danger",
@@ -1505,24 +1507,18 @@ function refreshLanguage(dropdownSelection) {
                 "1.7": "success"
             };
             let labelLevel = "success";
-            if (levels[$(this).attr("version")]) {
-                labelLevel = levels[$(this).attr("version")];
+            if (levels[version]) {
+                labelLevel = levels[version];
             }
             if (labelLevel != "success") {
-                if ($(this).prop("tagName") == "OPTION") {
-                    $(this).prepend("(" + $(this).attr("version") + ") ");
+                if (element.tagName.toLowerCase() == "option") {
+                    element.innerText = `(${version}) ${element.innerText}`;
                 } else {
-                    $(this).append(
-                        ' <span class="label label-' +
-                            labelLevel +
-                            '">' +
-                            $(this).attr("version") +
-                            "</span>"
-                    );
+                    element.innerHTML = `${element.innerText} <span class="label label-${labelLevel}">${version}</span>`;
                 }
             }
         }
-    });
+    }
 }
 
 function quickMakeDone() {
