@@ -1903,7 +1903,7 @@ $(document).ready(() => {
 				});
 			})
 			.catch(function(err) {
-				hardFail(err);
+				hardFail("An error occurred loading resources.");
 			});
 	} catch (err) {
 		hardFail("An error occured loading page assets.");

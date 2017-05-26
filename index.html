@@ -121,18 +121,32 @@
 			<br>
 			<div class="row" style="margin-bottom:200%;">
 				<div class="col-md-12">
-					You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
+					An unrecoverable error occurred loading this page. If you are accessing this page as a <u>developer or as a downloaded file</u>, please skip to the bottom.<br><br>
+
+					You could be using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
 					<br><br>
-					This website is currently being developed for compatibility with:
+					This website is currently being developed for compatibility with (although earlier versions may work):
 					<ul>
 						<li>Safari <u>10.1.1</u></li>
-						<li>Chrome <u>57.0.2987.133</u></li>
+						<li>Chrome <u>58.0.3029.110</u></li>
 						<li>Firefox <u>52.0.2</u></li>
 					</ul>
 
 					<br><br>
 
 					If you believe your browser is supported, try clicking <a onclick="localStorage.clear();location.reload();" href="#">here</a> to reset your local data.
+					<br>
+
+					<hr>
+
+					<u>Developers/Downloaded File</u>: If you are accessing this page locally (you downloaded a copy or you're a developer), you may need to disable Cross-Origin request enforcement.
+						<ul>
+						<li>Safari: Open Safari preferences -> Advanced -> Check "Show Develop menu". Use the Develop menu and "Disable Cross-Origin Requets".</li>
+						</ul>
+						You can also use Python 3 and http.server. <code>cd /path/to/tellraw</code> then <code>python -m http.server 8000</code>. Navigate to <a href="http://localhost:8000/index.html">localhost:8000</a>.
+						<br>
+						<br>
+						If you do not have Python 3, Python 2 supports: <code>python -m SimpleHTTPServer 8000</code>.
 				</div>
 			</div>
 		</div>
