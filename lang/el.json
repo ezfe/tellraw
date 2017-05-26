@@ -1,4 +1,18 @@
 {
+    "headerbar": {
+        "dropdown": {
+            "download": "Download Website",
+            "uptime": "Uptime",
+            "translate_page_link": "\u0399\u03c3\u03c4\u03bf\u03c3\u03b5\u03bb\u03af\u03b4\u03b1 \u039c\u03b5\u03c4\u03ac\u03c6\u03c1\u03b1\u03c3\u03b7\u03c2",
+            "hover": "\u03a5\u03c0\u03ac\u03c1\u03c7\u03b5\u03b9 \u03b4\u03b9\u03b1\u03b8\u03ad\u03c3\u03b9\u03bc\u03bf beta version!",
+            "beta_link": "Beta \u0388\u03ba\u03b4\u03bf\u03c3\u03b7",
+            "tweet": "Tweet",
+            "forum_thread": "Forum Thread",
+            "changelog": "Changelog"
+        },
+        "help": "Help",
+        "report_an_issue": "Report an Issue"
+    },
     "report_issue": {
         "badpreview": "Bad Preview",
         "describe": "Please describe your issue",
@@ -49,19 +63,6 @@
         "tellraw": "Tellraw",
         "book": "\u0392\u03b9\u03b2\u03bb\u03af\u03bf",
         "execute_tellraw": "Execute"
-    },
-    "headerbar": {
-        "dropdown": {
-            "uptime": "Uptime",
-            "translate_page_link": "\u0399\u03c3\u03c4\u03bf\u03c3\u03b5\u03bb\u03af\u03b4\u03b1 \u039c\u03b5\u03c4\u03ac\u03c6\u03c1\u03b1\u03c3\u03b7\u03c2",
-            "hover": "\u03a5\u03c0\u03ac\u03c1\u03c7\u03b5\u03b9 \u03b4\u03b9\u03b1\u03b8\u03ad\u03c3\u03b9\u03bc\u03bf beta version!",
-            "beta_link": "Beta \u0388\u03ba\u03b4\u03bf\u03c3\u03b7",
-            "tweet": "Tweet",
-            "forum_thread": "Forum Thread",
-            "changelog": "Changelog"
-        },
-        "help": "Help",
-        "report_an_issue": "Report an Issue"
     },
     "textsnippets": {
         "NEW_ITERATE_FLAG": {

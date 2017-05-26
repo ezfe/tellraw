@@ -1,4 +1,18 @@
 {
+    "headerbar": {
+        "dropdown": {
+            "download": "Download Website",
+            "uptime": "Uptime",
+            "translate_page_link": "\u05d0\u05ea\u05e8 \u05ea\u05e8\u05d2\u05d5\u05de\u05d9\u05dd",
+            "hover": "\u05d2\u05e8\u05e1\u05ea \u05d1\u05d8\u05d0 \u05d6\u05de\u05d9\u05e0\u05d4!",
+            "beta_link": "\u05d2\u05e8\u05e1\u05ea \u05d1\u05d8\u05d0",
+            "tweet": "Tweet",
+            "forum_thread": "\u05d0\u05e9\u05db\u05d5\u05dc \u05e4\u05d5\u05e8\u05d5\u05dd",
+            "changelog": "\u05d3\u05d5\u05d7 \u05e9\u05d9\u05e0\u05d5\u05d9\u05d9\u05dd"
+        },
+        "help": "\u05e2\u05d6\u05e8\u05d4",
+        "report_an_issue": "\u05d3\u05d5\u05d5\u05d7 \u05e2\u05dc \u05d1\u05e2\u05d9\u05d4"
+    },
     "report_issue": {
         "badpreview": "Bad Preview",
         "describe": "Please describe your issue",
@@ -49,19 +63,6 @@
         "tellraw": "\u05d0\u05de\u05d9\u05e8\u05d4 \u05e0\u05e2\u05d4",
         "book": "\u05e1\u05e4\u05e8",
         "execute_tellraw": "\u05d1\u05e6\u05e2(execute)"
-    },
-    "headerbar": {
-        "dropdown": {
-            "uptime": "Uptime",
-            "translate_page_link": "\u05d0\u05ea\u05e8 \u05ea\u05e8\u05d2\u05d5\u05de\u05d9\u05dd",
-            "hover": "\u05d2\u05e8\u05e1\u05ea \u05d1\u05d8\u05d0 \u05d6\u05de\u05d9\u05e0\u05d4!",
-            "beta_link": "\u05d2\u05e8\u05e1\u05ea \u05d1\u05d8\u05d0",
-            "tweet": "Tweet",
-            "forum_thread": "\u05d0\u05e9\u05db\u05d5\u05dc \u05e4\u05d5\u05e8\u05d5\u05dd",
-            "changelog": "\u05d3\u05d5\u05d7 \u05e9\u05d9\u05e0\u05d5\u05d9\u05d9\u05dd"
-        },
-        "help": "\u05e2\u05d6\u05e8\u05d4",
-        "report_an_issue": "\u05d3\u05d5\u05d5\u05d7 \u05e2\u05dc \u05d1\u05e2\u05d9\u05d4"
     },
     "textsnippets": {
         "NEW_ITERATE_FLAG": {

@@ -1,4 +1,18 @@
 {
+    "headerbar": {
+        "dropdown": {
+            "download": "Download Website",
+            "uptime": "Uptime",
+            "translate_page_link": "T\u0142umaczenie strony",
+            "hover": "Wersja BETA ju\u017c dost\u0119pna!",
+            "beta_link": "Wersja BETA",
+            "tweet": "Tweetnij",
+            "forum_thread": "Forum",
+            "changelog": "Lista Zmian"
+        },
+        "help": "Pomoc",
+        "report_an_issue": "Zg\u0142o\u015b problem"
+    },
     "report_issue": {
         "badpreview": "Bad Preview",
         "describe": "Please describe your issue",
@@ -49,19 +63,6 @@
         "tellraw": "\/tellraw",
         "book": "Ksi\u0105\u017cka",
         "execute_tellraw": "Wykonaj"
-    },
-    "headerbar": {
-        "dropdown": {
-            "uptime": "Uptime",
-            "translate_page_link": "T\u0142umaczenie strony",
-            "hover": "Wersja BETA ju\u017c dost\u0119pna!",
-            "beta_link": "Wersja BETA",
-            "tweet": "Tweetnij",
-            "forum_thread": "Forum",
-            "changelog": "Lista Zmian"
-        },
-        "help": "Pomoc",
-        "report_an_issue": "Zg\u0142o\u015b problem"
     },
     "textsnippets": {
         "NEW_ITERATE_FLAG": {

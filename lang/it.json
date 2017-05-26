@@ -1,4 +1,18 @@
 {
+    "headerbar": {
+        "dropdown": {
+            "download": "Download Website",
+            "uptime": "Uptime",
+            "translate_page_link": "Sito di traduzione",
+            "hover": "Versione in test disponibile!",
+            "beta_link": "Versione in test",
+            "tweet": "Tweetta",
+            "forum_thread": "Discussione nel forum",
+            "changelog": "Changelog"
+        },
+        "help": "Aiuto",
+        "report_an_issue": "Riporta un problema"
+    },
     "report_issue": {
         "badpreview": "Bad Preview",
         "describe": "Perfavore, descrivi il tuo problema",
@@ -49,19 +63,6 @@
         "tellraw": "Tellraw",
         "book": "Libro",
         "execute_tellraw": "Execute"
-    },
-    "headerbar": {
-        "dropdown": {
-            "uptime": "Uptime",
-            "translate_page_link": "Sito di traduzione",
-            "hover": "Versione in test disponibile!",
-            "beta_link": "Versione in test",
-            "tweet": "Tweetta",
-            "forum_thread": "Discussione nel forum",
-            "changelog": "Changelog"
-        },
-        "help": "Aiuto",
-        "report_an_issue": "Riporta un problema"
     },
     "textsnippets": {
         "NEW_ITERATE_FLAG": {

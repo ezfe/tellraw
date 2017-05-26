@@ -1,4 +1,18 @@
 {
+    "headerbar": {
+        "dropdown": {
+            "download": "Download Website",
+            "uptime": "Vrijeme rada",
+            "translate_page_link": "Stranica za Prevo\u0111enje",
+            "hover": "Probna Verzija Dostupna!",
+            "beta_link": "Probna Verzija",
+            "tweet": "Tweet",
+            "forum_thread": "Forum Post",
+            "changelog": "Lista Izmjena"
+        },
+        "help": "Pomo\u0107",
+        "report_an_issue": "Izvijesti problem"
+    },
     "report_issue": {
         "badpreview": "Lo\u0161 Pregled",
         "describe": "Molimo vas, opi\u0161ite problem",
@@ -49,19 +63,6 @@
         "tellraw": "Tellraw",
         "book": "Knjiga",
         "execute_tellraw": "Izvr\u0161i"
-    },
-    "headerbar": {
-        "dropdown": {
-            "uptime": "Vrijeme rada",
-            "translate_page_link": "Stranica za Prevo\u0111enje",
-            "hover": "Probna Verzija Dostupna!",
-            "beta_link": "Probna Verzija",
-            "tweet": "Tweet",
-            "forum_thread": "Forum Post",
-            "changelog": "Lista Izmjena"
-        },
-        "help": "Pomo\u0107",
-        "report_an_issue": "Izvijesti problem"
     },
     "textsnippets": {
         "NEW_ITERATE_FLAG": {

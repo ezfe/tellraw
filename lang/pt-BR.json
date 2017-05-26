@@ -1,4 +1,18 @@
 {
+    "headerbar": {
+        "dropdown": {
+            "download": "Download Website",
+            "uptime": "Uptime",
+            "translate_page_link": "Site de tradu\u00e7\u00f5es",
+            "hover": "Vers\u00e3o beta dispon\u00edvel!",
+            "beta_link": "Vers\u00e3o beta",
+            "tweet": "Tweetar",
+            "forum_thread": "T\u00f3pico no f\u00f3rum",
+            "changelog": "Registro de atualiza\u00e7\u00f5es"
+        },
+        "help": "Ajuda",
+        "report_an_issue": "Reportar um erro"
+    },
     "report_issue": {
         "badpreview": "Bad Preview",
         "describe": "Por favor descreva seu problema",
@@ -49,19 +63,6 @@
         "tellraw": "Tellraw",
         "book": "Livro",
         "execute_tellraw": "Executar"
-    },
-    "headerbar": {
-        "dropdown": {
-            "uptime": "Uptime",
-            "translate_page_link": "Site de tradu\u00e7\u00f5es",
-            "hover": "Vers\u00e3o beta dispon\u00edvel!",
-            "beta_link": "Vers\u00e3o beta",
-            "tweet": "Tweetar",
-            "forum_thread": "T\u00f3pico no f\u00f3rum",
-            "changelog": "Registro de atualiza\u00e7\u00f5es"
-        },
-        "help": "Ajuda",
-        "report_an_issue": "Reportar um erro"
     },
     "textsnippets": {
         "NEW_ITERATE_FLAG": {

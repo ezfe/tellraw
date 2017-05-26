@@ -1,4 +1,18 @@
 {
+    "headerbar": {
+        "dropdown": {
+            "download": "Download Website",
+            "uptime": "\u66f4\u65b0\u65f6\u95f4",
+            "translate_page_link": "\u5e2e\u52a9\u7ffb\u8bd1\u672c\u7ad9",
+            "hover": "\u6d4b\u8bd5\u7248\u5df2\u53ef\u7528\uff01",
+            "beta_link": "\u6d4b\u8bd5\u7248",
+            "tweet": "\u5206\u4eab\u5230\u63a8\u7279\uff08\u4e2d\u56fd\u5730\u533a\u4e0d\u53ef\u7528\uff09",
+            "forum_thread": "\u8bba\u575b\u539f\u5e16",
+            "changelog": "\u66f4\u65b0\u65e5\u5fd7"
+        },
+        "help": "\u5e2e\u52a9",
+        "report_an_issue": "\u62a5\u544a\u95ee\u9898"
+    },
     "report_issue": {
         "badpreview": "\u9884\u89c8\u9519\u8bef",
         "describe": "\u8bf7\u63cf\u8ff0\u4f60\u9047\u5230\u7684\u95ee\u9898",
@@ -49,19 +63,6 @@
         "tellraw": "Tellraw",
         "book": "\u6210\u4e66",
         "execute_tellraw": "Execute"
-    },
-    "headerbar": {
-        "dropdown": {
-            "uptime": "\u66f4\u65b0\u65f6\u95f4",
-            "translate_page_link": "\u5e2e\u52a9\u7ffb\u8bd1\u672c\u7ad9",
-            "hover": "\u6d4b\u8bd5\u7248\u5df2\u53ef\u7528\uff01",
-            "beta_link": "\u6d4b\u8bd5\u7248",
-            "tweet": "\u5206\u4eab\u5230\u63a8\u7279\uff08\u4e2d\u56fd\u5730\u533a\u4e0d\u53ef\u7528\uff09",
-            "forum_thread": "\u8bba\u575b\u539f\u5e16",
-            "changelog": "\u66f4\u65b0\u65e5\u5fd7"
-        },
-        "help": "\u5e2e\u52a9",
-        "report_an_issue": "\u62a5\u544a\u95ee\u9898"
     },
     "textsnippets": {
         "NEW_ITERATE_FLAG": {

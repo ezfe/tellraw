@@ -1,4 +1,18 @@
 {
+    "headerbar": {
+        "dropdown": {
+            "download": "Download Website",
+            "uptime": "Uptime",
+            "translate_page_link": "P\u0159eklad Str\u00e1nky",
+            "hover": "Beta Verze je Dostupn\u00e1 !",
+            "beta_link": "Beta verze",
+            "tweet": "Tweet",
+            "forum_thread": "F\u00f3rum \u010cl\u00e1nek",
+            "changelog": "Seznam Zm\u011bn"
+        },
+        "help": "Pomoc",
+        "report_an_issue": "Po\u0161li n\u00e1m n\u00e1pad"
+    },
     "report_issue": {
         "badpreview": "Bad Preview",
         "describe": "Popi\u0161te sv\u016fj probl\u00e9m.",
@@ -49,19 +63,6 @@
         "tellraw": "TellRaw",
         "book": "Kniha",
         "execute_tellraw": "P\u0159\u00edkaz \/Execute"
-    },
-    "headerbar": {
-        "dropdown": {
-            "uptime": "Uptime",
-            "translate_page_link": "P\u0159eklad Str\u00e1nky",
-            "hover": "Beta Verze je Dostupn\u00e1 !",
-            "beta_link": "Beta verze",
-            "tweet": "Tweet",
-            "forum_thread": "F\u00f3rum \u010cl\u00e1nek",
-            "changelog": "Seznam Zm\u011bn"
-        },
-        "help": "Pomoc",
-        "report_an_issue": "Po\u0161li n\u00e1m n\u00e1pad"
     },
     "textsnippets": {
         "NEW_ITERATE_FLAG": {

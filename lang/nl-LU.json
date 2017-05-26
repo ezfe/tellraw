@@ -1,4 +1,18 @@
 {
+    "headerbar": {
+        "dropdown": {
+            "download": "Download Website",
+            "uptime": "Uptime",
+            "translate_page_link": "Vertaal site",
+            "hover": "Beta Versie beschikbaar!",
+            "beta_link": "Betaversie",
+            "tweet": "Tweet",
+            "forum_thread": "Forum Link",
+            "changelog": "Changelog"
+        },
+        "help": "Help",
+        "report_an_issue": "Meld een Probleem"
+    },
     "report_issue": {
         "badpreview": "Slecht voorbeeld",
         "describe": "Beschrijf alstublieft uw probleem",
@@ -49,19 +63,6 @@
         "tellraw": "Tellraw",
         "book": "Boek",
         "execute_tellraw": "Execute"
-    },
-    "headerbar": {
-        "dropdown": {
-            "uptime": "Uptime",
-            "translate_page_link": "Vertaal site",
-            "hover": "Beta Versie beschikbaar!",
-            "beta_link": "Betaversie",
-            "tweet": "Tweet",
-            "forum_thread": "Forum Link",
-            "changelog": "Changelog"
-        },
-        "help": "Help",
-        "report_an_issue": "Meld een Probleem"
     },
     "textsnippets": {
         "NEW_ITERATE_FLAG": {

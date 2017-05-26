@@ -1,4 +1,18 @@
 {
+    "headerbar": {
+        "dropdown": {
+            "download": "Download Website",
+            "uptime": "Uptime",
+            "translate_page_link": "\u00d6vers\u00e4ttningssida",
+            "hover": "Betaversion tillg\u00e4nglig!",
+            "beta_link": "Betaversion",
+            "tweet": "Tweeta",
+            "forum_thread": "Forumtr\u00e5d",
+            "changelog": "\u00c4ndringslogg"
+        },
+        "help": "Hj\u00e4lp",
+        "report_an_issue": "Rapportera ett problem"
+    },
     "report_issue": {
         "badpreview": "Bad Preview",
         "describe": "Please describe your issue",
@@ -49,19 +63,6 @@
         "tellraw": "Tellraw",
         "book": "Bok",
         "execute_tellraw": "Utf\u00f6r"
-    },
-    "headerbar": {
-        "dropdown": {
-            "uptime": "Uptime",
-            "translate_page_link": "\u00d6vers\u00e4ttningssida",
-            "hover": "Betaversion tillg\u00e4nglig!",
-            "beta_link": "Betaversion",
-            "tweet": "Tweeta",
-            "forum_thread": "Forumtr\u00e5d",
-            "changelog": "\u00c4ndringslogg"
-        },
-        "help": "Hj\u00e4lp",
-        "report_an_issue": "Rapportera ett problem"
     },
     "textsnippets": {
         "NEW_ITERATE_FLAG": {
