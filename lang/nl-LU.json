@@ -1,6 +1,6 @@
 {
     "report_issue": {
-        "badpreview": "Bad Preview",
+        "badpreview": "Slecht voorbeeld",
         "describe": "Beschrijf alstublieft uw probleem",
         "translation_issue": "Vertaling Probleem",
         "output_issue": "Output Probleem",
@@ -10,7 +10,7 @@
         "cancel": "Annuleren"
     },
     "settings": {
-        "reset-all-settings": "Reset All Settings",
+        "reset-all-settings": "Verwijder veranderde instellingen",
         "importtext": {
             "exported": {
                 "header": "Importeer",
@@ -41,7 +41,7 @@
         "header": "Instellingen:"
     },
     "template": {
-        "actionbar": "Action Bar",
+        "actionbar": "Actie Balk",
         "sign_block": "Bord (\/blockdata)",
         "sign_item": "Bord (\/give)",
         "subtitle": "Subtitel",
@@ -67,7 +67,7 @@
         "NEW_ITERATE_FLAG": {
             "add": {
                 "book": "Voeg boek-pagina toe.",
-                "sign": "Voeg regel toe."
+                "sign": "Voeg Bord regel toe."
             },
             "incorrect_template": {
                 "primary": {
@@ -111,7 +111,7 @@
                 }
             },
             "addtext": "Voeg Tekst Toe",
-            "removetext": "Verwijder Nieuwste Tekst",
+            "removetext": "Verwijder Laatste Tekst",
             "header": "Hover gebeurtenis:",
             "showachievement": "Laat archievement zien",
             "id": "ID:",

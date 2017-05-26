@@ -160,7 +160,7 @@
         "report-an-issue": "Cliquez ici pour rapporter un bug. Si vous observez un bug, merci de le rapporter ici.",
         "dropdown-list": "Tweet, voir le changelog, voir le topic sur les forums de Minecraft, ou procurez vous des ressources pour la traduction.",
         "addsnippet": "Ajoutez du texte \u00e0 votre commande tellraw.",
-        "delete-all-snippets": "Efface compl\u00e8tement votre commande, mais conserve vos sauvegardes."
+        "delete-all-snippets": "Effacez compl\u00e8tement votre commande. Cela supprime tout, utilisez le bouton Exporter pour conserver."
     },
     "output": {
         "nothing": "Rien \u00e0 voir par ici",
