@@ -1185,18 +1185,17 @@ function refreshOutput(input) {
 	var newLineExpressions = {
 		bookarray: /\\\\\\\\n/g,
 		standardjson: /\\\\n/g,
-		signset: /\\\\\\\\n/g
 	};
 	if (!formattedJObject.length > 0) {
 		JSONOutputString = "[]";
 	} else {
-		if (templates[lsm.getItem("jtemplate")].formatType == "bookarray") {
+		if (currentTemplate().formatType == "bookarray") {
 			JSONOutputString = JSON.stringify(formattedJObject);
-			JSONOutputString = JSONOutputString.replace(newLineExpressions.bookarray, "\\n");
-		} else if (templates[lsm.getItem("jtemplate")].formatType == "standardjson") {
+			JSONOutputString = JSONOutputString.replace(newLineExpressions.bookarray, "\\\\n");
+		} else if (currentTemplate().formatType == "standardjson") {
 			JSONOutputString = formattedJObject[0];
 			JSONOutputString = JSONOutputString.replace(newLineExpressions.standardjson, "\\n");
-		} else if (templates[lsm.getItem("jtemplate")].formatType == "signset") {
+		} else if (currentTemplate().formatType == "signset") {
 			JSONOutputString = "Text1:" + JSON.stringify(formattedJObject[0]);
 			if (formattedJObject.length > 1) {
 				JSONOutputString += ",Text2:" + JSON.stringify(formattedJObject[1]);
@@ -1207,7 +1206,6 @@ function refreshOutput(input) {
 			if (formattedJObject.length > 3) {
 				JSONOutputString += ",Text4:" + JSON.stringify(formattedJObject[3]);
 			}
-			JSONOutputString = JSONOutputString.replace(newLineExpressions.signset, "\\n");
 		}
 	}
 
