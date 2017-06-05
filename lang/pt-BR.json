@@ -1,36 +1,13 @@
 {
-    "headerbar": {
-        "dropdown": {
-            "download": "Download Website",
-            "uptime": "Uptime",
-            "translate_page_link": "Site de tradu\u00e7\u00f5es",
-            "hover": "Vers\u00e3o beta dispon\u00edvel!",
-            "beta_link": "Vers\u00e3o beta",
-            "tweet": "Tweetar",
-            "forum_thread": "T\u00f3pico no f\u00f3rum",
-            "changelog": "Registro de atualiza\u00e7\u00f5es"
-        },
-        "help": "Ajuda",
-        "report_an_issue": "Reportar um erro"
-    },
-    "report_issue": {
-        "badpreview": "Bad Preview",
-        "describe": "Por favor descreva seu problema",
-        "translation_issue": "Problemas na tradu\u00e7\u00e3o",
-        "output_issue": "Sa\u00edda",
-        "other_issue": "Outro problema",
-        "other_language": "Outra l\u00edngua",
-        "too_many_quotes": "Too Many Quotes",
-        "cancel": "Cancelar"
-    },
     "settings": {
-        "reset-all-settings": "Reset All Settings",
+        "confirmDelete": "Confirm Text Deletion",
+        "reset-all-settings": "Redefinir configura\u00e7\u00f5es",
         "importtext": {
             "exported": {
                 "header": "Importar",
                 "failed": {
                     "header": "Falha na Importa\u00e7\u00e3o",
-                    "description": "Provided input"
+                    "description": "Entrada inserida"
                 },
                 "description": "Por favor insira o texto que voc\u00ea recebeu quando exportou seu comando"
             }
@@ -40,8 +17,8 @@
             "turn_on": "Tema escuro",
             "turn_off": "Tema claro"
         },
-        "show": "Abrir op\u00e7\u00f5es",
-        "hide": "Fechar op\u00e7\u00f5es",
+        "show": "Abrir configura\u00e7\u00f5es",
+        "hide": "Fechar configura\u00e7\u00f5es",
         "fontSize": "Tamanho da fonte",
         "previewcolor": "Cor do plano de fundo:",
         "export": "Exportar",
@@ -54,21 +31,45 @@
         "import": "Importar",
         "header": "Op\u00e7\u00f5es:"
     },
+    "headerbar": {
+        "dropdown": {
+            "download": "Baixar Site",
+            "uptime": "Tempo no ar",
+            "translate_page_link": "Site de tradu\u00e7\u00f5es",
+            "hover": "Vers\u00e3o beta dispon\u00edvel!",
+            "beta_link": "Vers\u00e3o beta",
+            "tweet": "Tweetar",
+            "forum_thread": "T\u00f3pico no f\u00f3rum",
+            "changelog": "Registro de atualiza\u00e7\u00f5es"
+        },
+        "help": "Ajuda",
+        "report_an_issue": "Reportar um erro"
+    },
+    "report_issue": {
+        "badpreview": "M\u00e1 pr\u00e9-visualiza\u00e7\u00e3o",
+        "describe": "Por favor descreva seu problema",
+        "translation_issue": "Problemas na tradu\u00e7\u00e3o",
+        "output_issue": "Problema no comando",
+        "other_issue": "Outro problema",
+        "other_language": "Outra l\u00edngua",
+        "too_many_quotes": "Muitas aspas",
+        "cancel": "Cancelar"
+    },
     "template": {
-        "actionbar": "Barra de a\u00e7\u00f5es",
+        "actionbar": "Barra de a\u00e7\u00e3o",
         "sign_block": "Placa (\/blockdata)",
         "sign_item": "Placa (\/give)",
         "subtitle": "Subt\u00edtulo",
         "title": "T\u00edtulo",
         "tellraw": "Tellraw",
         "book": "Livro",
-        "execute_tellraw": "Executar"
+        "execute_tellraw": "Execute"
     },
     "textsnippets": {
         "NEW_ITERATE_FLAG": {
             "add": {
-                "book": "Adicionar p\u00e1gina do livro",
-                "sign": "P\u00e1gina do livro\/Linha da placa"
+                "book": "Adicionar p\u00e1gina ao livro",
+                "sign": "Adicionar linha \u00e0 placa"
             },
             "incorrect_template": {
                 "primary": {
@@ -88,7 +89,7 @@
                     "description": "Seu modelo foi alterado para %c"
                 }
             },
-            "buttontext": "Pagina do livro \/ Linha da placa"
+            "buttontext": "P\u00e1gina do livro \/ Linha da placa"
         },
         "clickevent": {
             "changepage": "Alterar p\u00e1gina",
@@ -146,7 +147,7 @@
         "nosnippets": "Sem texto",
         "header": "Partes do texto",
         "text": "Texto",
-        "raw": "Bruto",
+        "raw": "Raw",
         "warning": {
             "title": "Aviso!"
         }
@@ -161,7 +162,7 @@
         "report-an-issue": "Clique aqui para reportar um problema. Se perceber qualquer tipo de bug, voc\u00ea deve report\u00e1-lo aqui.",
         "dropdown-list": "Compartilhe no Twitter, veja o registro de atualiza\u00e7\u00f5es, veja o t\u00f3pico no Minecraft Forums ou obtenha recursos para tradu\u00e7\u00e3o.",
         "addsnippet": "Adiciona texto ao comando.",
-        "delete-all-snippets": "Limpa completamente seu comando atual, mas mant\u00e9m seus comandos salvos intactos."
+        "delete-all-snippets": "Limpa completamente o comando atual, mas mant\u00e9m seus comandos salvos."
     },
     "output": {
         "nothing": "Nada aqui.",
@@ -183,7 +184,7 @@
         "color_blue": "Azul",
         "color_black": "Preto",
         "color_gray": "Cinza",
-        "color_light_purple": "Rosa",
+        "color_light_purple": "Lil\u00e1s",
         "color_yellow": "Amarelo"
     },
     "language": {

@@ -1,29 +1,6 @@
 {
-    "headerbar": {
-        "dropdown": {
-            "download": "Download Website",
-            "uptime": "Uptime",
-            "translate_page_link": "P\u0159eklad Str\u00e1nky",
-            "hover": "Beta Verze je Dostupn\u00e1 !",
-            "beta_link": "Beta verze",
-            "tweet": "Tweet",
-            "forum_thread": "F\u00f3rum \u010cl\u00e1nek",
-            "changelog": "Seznam Zm\u011bn"
-        },
-        "help": "Pomoc",
-        "report_an_issue": "Po\u0161li n\u00e1m n\u00e1pad"
-    },
-    "report_issue": {
-        "badpreview": "Bad Preview",
-        "describe": "Popi\u0161te sv\u016fj probl\u00e9m.",
-        "translation_issue": "\u0160patn\u00fd p\u0159eklad",
-        "output_issue": "Chyba na v\u00fdstupu",
-        "other_issue": "Jin\u00fd probl\u00e9m",
-        "other_language": "Zm\u011bnit jazyk",
-        "too_many_quotes": "P\u0159\u00edli\u0161 mnoho uvozovek",
-        "cancel": "Zru\u0161it"
-    },
     "settings": {
+        "confirmDelete": "Confirm Text Deletion",
         "reset-all-settings": "Reset All Settings",
         "importtext": {
             "exported": {
@@ -53,6 +30,30 @@
         },
         "import": "Importovat",
         "header": "Nastaven\u00ed :"
+    },
+    "headerbar": {
+        "dropdown": {
+            "download": "Download Website",
+            "uptime": "Uptime",
+            "translate_page_link": "P\u0159eklad Str\u00e1nky",
+            "hover": "Beta Verze je Dostupn\u00e1 !",
+            "beta_link": "Beta verze",
+            "tweet": "Tweet",
+            "forum_thread": "F\u00f3rum \u010cl\u00e1nek",
+            "changelog": "Seznam Zm\u011bn"
+        },
+        "help": "Pomoc",
+        "report_an_issue": "Po\u0161li n\u00e1m n\u00e1pad"
+    },
+    "report_issue": {
+        "badpreview": "Bad Preview",
+        "describe": "Popi\u0161te sv\u016fj probl\u00e9m.",
+        "translation_issue": "\u0160patn\u00fd p\u0159eklad",
+        "output_issue": "Chyba na v\u00fdstupu",
+        "other_issue": "Jin\u00fd probl\u00e9m",
+        "other_language": "Zm\u011bnit jazyk",
+        "too_many_quotes": "P\u0159\u00edli\u0161 mnoho uvozovek",
+        "cancel": "Zru\u0161it"
     },
     "template": {
         "actionbar": "Action Bar",

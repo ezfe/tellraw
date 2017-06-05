@@ -1,30 +1,7 @@
 {
-    "headerbar": {
-        "dropdown": {
-            "download": "Download Website",
-            "uptime": "Uptime",
-            "translate_page_link": "\u05d0\u05ea\u05e8 \u05ea\u05e8\u05d2\u05d5\u05de\u05d9\u05dd",
-            "hover": "\u05d2\u05e8\u05e1\u05ea \u05d1\u05d8\u05d0 \u05d6\u05de\u05d9\u05e0\u05d4!",
-            "beta_link": "\u05d2\u05e8\u05e1\u05ea \u05d1\u05d8\u05d0",
-            "tweet": "Tweet",
-            "forum_thread": "\u05d0\u05e9\u05db\u05d5\u05dc \u05e4\u05d5\u05e8\u05d5\u05dd",
-            "changelog": "\u05d3\u05d5\u05d7 \u05e9\u05d9\u05e0\u05d5\u05d9\u05d9\u05dd"
-        },
-        "help": "\u05e2\u05d6\u05e8\u05d4",
-        "report_an_issue": "\u05d3\u05d5\u05d5\u05d7 \u05e2\u05dc \u05d1\u05e2\u05d9\u05d4"
-    },
-    "report_issue": {
-        "badpreview": "Bad Preview",
-        "describe": "Please describe your issue",
-        "translation_issue": "Translation Issue",
-        "output_issue": "Output Issue",
-        "other_issue": "Other Issue",
-        "other_language": "Other Language",
-        "too_many_quotes": "Too Many Quotes",
-        "cancel": "Cancel"
-    },
     "settings": {
-        "reset-all-settings": "Reset All Settings",
+        "confirmDelete": "Confirm Text Deletion",
+        "reset-all-settings": "\u05d0\u05ea\u05d7\u05d5\u05dc \u05db\u05dc \u05d4\u05d4\u05d2\u05d3\u05e8\u05d5\u05ea",
         "importtext": {
             "exported": {
                 "header": "\u05d9\u05d1\u05d5\u05d0",
@@ -54,6 +31,30 @@
         "import": "\u05d9\u05d1\u05d0",
         "header": "\u05d4\u05d2\u05d3\u05e8\u05d5\u05ea:"
     },
+    "headerbar": {
+        "dropdown": {
+            "download": "\u05d4\u05d5\u05e8\u05d3\u05ea \u05d0\u05ea\u05e8",
+            "uptime": "Uptime",
+            "translate_page_link": "\u05d0\u05ea\u05e8 \u05ea\u05e8\u05d2\u05d5\u05de\u05d9\u05dd",
+            "hover": "\u05d2\u05e8\u05e1\u05ea \u05d1\u05d8\u05d0 \u05d6\u05de\u05d9\u05e0\u05d4!",
+            "beta_link": "\u05d2\u05e8\u05e1\u05ea \u05d1\u05d8\u05d0",
+            "tweet": "Tweet",
+            "forum_thread": "\u05d0\u05e9\u05db\u05d5\u05dc \u05e4\u05d5\u05e8\u05d5\u05dd",
+            "changelog": "\u05d3\u05d5\u05d7 \u05e9\u05d9\u05e0\u05d5\u05d9\u05d9\u05dd"
+        },
+        "help": "\u05e2\u05d6\u05e8\u05d4",
+        "report_an_issue": "\u05d3\u05d5\u05d5\u05d7 \u05e2\u05dc \u05d1\u05e2\u05d9\u05d4"
+    },
+    "report_issue": {
+        "badpreview": "\u05ea\u05e6\u05d5\u05d2\u05d4 \u05de\u05e7\u05d3\u05d9\u05de\u05d4 \u05dc\u05d0 \u05d8\u05d5\u05d1\u05d4",
+        "describe": "\u05e0\u05d0 \u05d4\u05e1\u05d1\u05e8 \u05e2\u05dc \u05d4\u05d1\u05e2\u05d9\u05d4 \u05e9\u05dc\u05da",
+        "translation_issue": "Translation Issue",
+        "output_issue": "Output Issue",
+        "other_issue": "\u05d1\u05e2\u05d9\u05d4 \u05d0\u05d7\u05e8\u05ea",
+        "other_language": "\u05e9\u05e4\u05d4 \u05d0\u05d7\u05e8\u05ea",
+        "too_many_quotes": "\u05d9\u05d5\u05ea\u05e8 \u05de\u05d3\u05d9 \u05e6\u05d9\u05d8\u05d5\u05d8\u05d9\u05dd",
+        "cancel": "\u05d1\u05d9\u05d8\u05d5\u05dc"
+    },
     "template": {
         "actionbar": "Action Bar",
         "sign_block": "\u05e9\u05dc\u05d8 (blockdata)",
@@ -67,8 +68,8 @@
     "textsnippets": {
         "NEW_ITERATE_FLAG": {
             "add": {
-                "book": "Add Book Page",
-                "sign": "Add Sign Line"
+                "book": "\u05d4\u05d5\u05e1\u05e4\u05ea \u05e2\u05de\u05d5\u05d3 \u05e1\u05e4\u05e8",
+                "sign": "\u05d4\u05d5\u05e1\u05e4\u05ea \u05e9\u05d5\u05e8\u05d4 \u05dc\u05e9\u05dc\u05d8"
             },
             "incorrect_template": {
                 "primary": {

@@ -1,29 +1,6 @@
 {
-    "headerbar": {
-        "dropdown": {
-            "download": "Download Website",
-            "uptime": "Uptime",
-            "translate_page_link": "\ubc88\uc5ed \uc0ac\uc774\ud2b8",
-            "hover": "Beta \ubc84\uc804\uc774 \uc788\uc2b5\ub2c8\ub2e4!",
-            "beta_link": "\ubca0\ud0c0 \ubc84\uc804",
-            "tweet": "Tweet",
-            "forum_thread": "\ud3ec\ub7fc \uc4f0\ub808\ub4dc",
-            "changelog": "\ubcc0\uacbd\uc0ac\ud56d"
-        },
-        "help": "\ub3c4\uc6c0\ub9d0",
-        "report_an_issue": "\uc774\uc288\ub97c \ub9ac\ud3ec\ud2b8\ud558\uae30"
-    },
-    "report_issue": {
-        "badpreview": "Bad Preview",
-        "describe": "\uc624\ub958\ub97c \uc124\uba85\ud574\uc8fc\uc138\uc694",
-        "translation_issue": "\ubc88\uc5ed \uc624\ub958",
-        "output_issue": "\ucd9c\ub825 \uc624\ub958",
-        "other_issue": "\uae30\ud0c0 \uc624\ub958",
-        "other_language": "\ub2e4\ub978 \uc5b8\uc5b4",
-        "too_many_quotes": "\ub108\ubb34 \ub9ce\uc740 \uae30\ud638",
-        "cancel": "\ucde8\uc18c"
-    },
     "settings": {
+        "confirmDelete": "Confirm Text Deletion",
         "reset-all-settings": "Reset All Settings",
         "importtext": {
             "exported": {
@@ -53,6 +30,30 @@
         },
         "import": "\uac00\uc838\uc624\uae30",
         "header": "\uc124\uc815:"
+    },
+    "headerbar": {
+        "dropdown": {
+            "download": "Download Website",
+            "uptime": "Uptime",
+            "translate_page_link": "\ubc88\uc5ed \uc0ac\uc774\ud2b8",
+            "hover": "Beta \ubc84\uc804\uc774 \uc788\uc2b5\ub2c8\ub2e4!",
+            "beta_link": "\ubca0\ud0c0 \ubc84\uc804",
+            "tweet": "Tweet",
+            "forum_thread": "\ud3ec\ub7fc \uc4f0\ub808\ub4dc",
+            "changelog": "\ubcc0\uacbd\uc0ac\ud56d"
+        },
+        "help": "\ub3c4\uc6c0\ub9d0",
+        "report_an_issue": "\uc774\uc288\ub97c \ub9ac\ud3ec\ud2b8\ud558\uae30"
+    },
+    "report_issue": {
+        "badpreview": "Bad Preview",
+        "describe": "\uc624\ub958\ub97c \uc124\uba85\ud574\uc8fc\uc138\uc694",
+        "translation_issue": "\ubc88\uc5ed \uc624\ub958",
+        "output_issue": "\ucd9c\ub825 \uc624\ub958",
+        "other_issue": "\uae30\ud0c0 \uc624\ub958",
+        "other_language": "\ub2e4\ub978 \uc5b8\uc5b4",
+        "too_many_quotes": "\ub108\ubb34 \ub9ce\uc740 \uae30\ud638",
+        "cancel": "\ucde8\uc18c"
     },
     "template": {
         "actionbar": "\uc561\uc158 \ubc14",

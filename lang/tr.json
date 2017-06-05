@@ -1,29 +1,6 @@
 {
-    "headerbar": {
-        "dropdown": {
-            "download": "Download Website",
-            "uptime": "\u00c7al\u0131\u015fma s\u00fcresi",
-            "translate_page_link": "\u00c7eviri Sitesi",
-            "hover": "Beta versiyonu mevcut",
-            "beta_link": "Versiyonu",
-            "tweet": "Tweet'le",
-            "forum_thread": "Forum Konusu",
-            "changelog": "De\u011fi\u015fim Kayd\u0131"
-        },
-        "help": "Yard\u0131m",
-        "report_an_issue": "Sorun Bildir"
-    },
-    "report_issue": {
-        "badpreview": "K\u00f6t\u00fc \u00f6nizleme",
-        "describe": "L\u00fctfen sorununuzu a\u00e7\u0131klay\u0131n",
-        "translation_issue": "\u00c7eviri sorunu",
-        "output_issue": "\u00c7\u0131kt\u0131 sorunu",
-        "other_issue": "Ba\u015fka bir sorun",
-        "other_language": "Ba\u015fka bir dil",
-        "too_many_quotes": "\u00c7ok fazla al\u0131nt\u0131",
-        "cancel": "\u0130ptal"
-    },
     "settings": {
+        "confirmDelete": "Confirm Text Deletion",
         "reset-all-settings": "Reset All Settings",
         "importtext": {
             "exported": {
@@ -53,6 +30,30 @@
         },
         "import": "\u0130\u00e7e aktar",
         "header": "Ayarlar:"
+    },
+    "headerbar": {
+        "dropdown": {
+            "download": "Download Website",
+            "uptime": "\u00c7al\u0131\u015fma s\u00fcresi",
+            "translate_page_link": "\u00c7eviri Sitesi",
+            "hover": "Beta versiyonu mevcut",
+            "beta_link": "Versiyonu",
+            "tweet": "Tweet'le",
+            "forum_thread": "Forum Konusu",
+            "changelog": "De\u011fi\u015fim Kayd\u0131"
+        },
+        "help": "Yard\u0131m",
+        "report_an_issue": "Sorun Bildir"
+    },
+    "report_issue": {
+        "badpreview": "K\u00f6t\u00fc \u00f6nizleme",
+        "describe": "L\u00fctfen sorununuzu a\u00e7\u0131klay\u0131n",
+        "translation_issue": "\u00c7eviri sorunu",
+        "output_issue": "\u00c7\u0131kt\u0131 sorunu",
+        "other_issue": "Ba\u015fka bir sorun",
+        "other_language": "Ba\u015fka bir dil",
+        "too_many_quotes": "\u00c7ok fazla al\u0131nt\u0131",
+        "cancel": "\u0130ptal"
     },
     "template": {
         "actionbar": "Eylem \u00e7ubu\u011fu",

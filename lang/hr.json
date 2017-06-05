@@ -1,29 +1,6 @@
 {
-    "headerbar": {
-        "dropdown": {
-            "download": "Download Website",
-            "uptime": "Vrijeme rada",
-            "translate_page_link": "Stranica za Prevo\u0111enje",
-            "hover": "Probna Verzija Dostupna!",
-            "beta_link": "Probna Verzija",
-            "tweet": "Tweet",
-            "forum_thread": "Forum Post",
-            "changelog": "Lista Izmjena"
-        },
-        "help": "Pomo\u0107",
-        "report_an_issue": "Izvijesti problem"
-    },
-    "report_issue": {
-        "badpreview": "Lo\u0161 Pregled",
-        "describe": "Molimo vas, opi\u0161ite problem",
-        "translation_issue": "Problem u Prijevodu",
-        "output_issue": "Izlazni Problem",
-        "other_issue": "Drugi Problem",
-        "other_language": "Drugi Jezik",
-        "too_many_quotes": "Previ\u0161e Citata",
-        "cancel": "Poni\u0161ti"
-    },
     "settings": {
+        "confirmDelete": "Confirm Text Deletion",
         "reset-all-settings": "Restartaj Sve Postavke",
         "importtext": {
             "exported": {
@@ -53,6 +30,30 @@
         },
         "import": "Umetni",
         "header": "Postavke:"
+    },
+    "headerbar": {
+        "dropdown": {
+            "download": "Download Website",
+            "uptime": "Vrijeme rada",
+            "translate_page_link": "Stranica za Prevo\u0111enje",
+            "hover": "Probna Verzija Dostupna!",
+            "beta_link": "Probna Verzija",
+            "tweet": "Tweet",
+            "forum_thread": "Forum Post",
+            "changelog": "Lista Izmjena"
+        },
+        "help": "Pomo\u0107",
+        "report_an_issue": "Izvijesti problem"
+    },
+    "report_issue": {
+        "badpreview": "Lo\u0161 Pregled",
+        "describe": "Molimo vas, opi\u0161ite problem",
+        "translation_issue": "Problem u Prijevodu",
+        "output_issue": "Izlazni Problem",
+        "other_issue": "Drugi Problem",
+        "other_language": "Drugi Jezik",
+        "too_many_quotes": "Previ\u0161e Citata",
+        "cancel": "Poni\u0161ti"
     },
     "template": {
         "actionbar": "Akcijski Bar",

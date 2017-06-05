@@ -676,7 +676,7 @@ function getRowDescription(index) {
 	return `Row #${index + 1}`;
 }
 function deleteIndex(index) {
-	if (confirm("Confirm deleting\n\n" + getRowDescription(index))) {
+	if (lsm.getItem("confirmDelete") == "false" || confirm("Confirm deleting\n\n" + getRowDescription(index))) {
 		jobject.splice(index, 1);
 	}
 	refreshOutput();
@@ -1790,6 +1790,11 @@ function initialize() {
 		if (bookPage < topPage) bookPage++;
 		refreshOutput();
 	});
+
+	document.getElementById("confirmDeleteCheckbox").checked = (lsm.getItem("confirmDelete") == "false") ? false : true;
+	$("#confirmDeleteCheckbox").on("change",function() {
+		lsm.setItem("confirmDelete", getChecked("confirmDeleteCheckbox") ? "true" : "false");
+	})
 
 	$(".issue-button").click(function() {
 		let parentRow = $(this).parent().parent();

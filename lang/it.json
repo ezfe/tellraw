@@ -1,29 +1,6 @@
 {
-    "headerbar": {
-        "dropdown": {
-            "download": "Download Website",
-            "uptime": "Uptime",
-            "translate_page_link": "Sito di traduzione",
-            "hover": "Versione in test disponibile!",
-            "beta_link": "Versione in test",
-            "tweet": "Tweetta",
-            "forum_thread": "Discussione nel forum",
-            "changelog": "Changelog"
-        },
-        "help": "Aiuto",
-        "report_an_issue": "Riporta un problema"
-    },
-    "report_issue": {
-        "badpreview": "Bad Preview",
-        "describe": "Perfavore, descrivi il tuo problema",
-        "translation_issue": "Problema di traduzione",
-        "output_issue": "Problema con l'output",
-        "other_issue": "Altro problema",
-        "other_language": "Altra lingua",
-        "too_many_quotes": "Too Many Quotes",
-        "cancel": "Cancel"
-    },
     "settings": {
+        "confirmDelete": "Confirm Text Deletion",
         "reset-all-settings": "Reset All Settings",
         "importtext": {
             "exported": {
@@ -53,6 +30,30 @@
         },
         "import": "Importa",
         "header": "Impostazioni:"
+    },
+    "headerbar": {
+        "dropdown": {
+            "download": "Download Website",
+            "uptime": "Uptime",
+            "translate_page_link": "Sito di traduzione",
+            "hover": "Versione in test disponibile!",
+            "beta_link": "Versione in test",
+            "tweet": "Tweetta",
+            "forum_thread": "Discussione nel forum",
+            "changelog": "Changelog"
+        },
+        "help": "Aiuto",
+        "report_an_issue": "Riporta un problema"
+    },
+    "report_issue": {
+        "badpreview": "Bad Preview",
+        "describe": "Perfavore, descrivi il tuo problema",
+        "translation_issue": "Problema di traduzione",
+        "output_issue": "Problema con l'output",
+        "other_issue": "Altro problema",
+        "other_language": "Altra lingua",
+        "too_many_quotes": "Too Many Quotes",
+        "cancel": "Cancel"
     },
     "template": {
         "actionbar": "Action Bar",

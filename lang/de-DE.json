@@ -1,29 +1,6 @@
 {
-    "headerbar": {
-        "dropdown": {
-            "download": "Download Website",
-            "uptime": "Laufzeit",
-            "translate_page_link": "\u00dcbersetzungsseite",
-            "hover": "Beta-Version verf\u00fcgbar!",
-            "beta_link": "Beta-Version",
-            "tweet": "Tweet",
-            "forum_thread": "Forum-Beitrag",
-            "changelog": "Changelog"
-        },
-        "help": "Hilfe",
-        "report_an_issue": "Melde einen Fehler"
-    },
-    "report_issue": {
-        "badpreview": "Schlechte Vorschau",
-        "describe": "Bitte beschreibe dein Problem",
-        "translation_issue": "\u00dcbersetzungsproblem",
-        "output_issue": "Anzeigeproblem",
-        "other_issue": "Sonstiges Problem",
-        "other_language": "Andere Sprache",
-        "too_many_quotes": "Zu viele Anf\u00fchrungszeichen",
-        "cancel": "Abbrechen"
-    },
     "settings": {
+        "confirmDelete": "Confirm Text Deletion",
         "reset-all-settings": "Alle Einstellungen zur\u00fccksetzen",
         "importtext": {
             "exported": {
@@ -53,6 +30,30 @@
         },
         "import": "Importieren",
         "header": "Einstellungen:"
+    },
+    "headerbar": {
+        "dropdown": {
+            "download": "Download Website",
+            "uptime": "Laufzeit",
+            "translate_page_link": "\u00dcbersetzungsseite",
+            "hover": "Beta-Version verf\u00fcgbar!",
+            "beta_link": "Beta-Version",
+            "tweet": "Tweet",
+            "forum_thread": "Forum-Beitrag",
+            "changelog": "Changelog"
+        },
+        "help": "Hilfe",
+        "report_an_issue": "Melde einen Fehler"
+    },
+    "report_issue": {
+        "badpreview": "Schlechte Vorschau",
+        "describe": "Bitte beschreibe dein Problem",
+        "translation_issue": "\u00dcbersetzungsproblem",
+        "output_issue": "Anzeigeproblem",
+        "other_issue": "Sonstiges Problem",
+        "other_language": "Andere Sprache",
+        "too_many_quotes": "Zu viele Anf\u00fchrungszeichen",
+        "cancel": "Abbrechen"
     },
     "template": {
         "actionbar": "Aktions-Leiste",

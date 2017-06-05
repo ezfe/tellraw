@@ -1,29 +1,6 @@
 {
-    "headerbar": {
-        "dropdown": {
-            "download": "Download Website",
-            "uptime": "\u66f4\u65b0\u6642\u9593",
-            "translate_page_link": "\u7ffb\u8b6f\u7db2\u7ad9",
-            "hover": "\u6709\u65b0\u7684 Beta \u7248\u672c\uff01",
-            "beta_link": "Beta \u7248\u672c",
-            "tweet": "\u5206\u4eab-Twitter",
-            "forum_thread": "\u8ad6\u58c7\u6587\u7ae0",
-            "changelog": "\u66f4\u65b0\u65e5\u8a8c"
-        },
-        "help": "\u5e6b\u52a9",
-        "report_an_issue": "\u56de\u5831\u554f\u984c"
-    },
-    "report_issue": {
-        "badpreview": "\u9810\u89bd\u932f\u8aa4",
-        "describe": "\u8acb\u63cf\u8ff0\u4f60\u9047\u5230\u7684\u932f\u8aa4",
-        "translation_issue": "\u7ffb\u8b6f\u932f\u8aa4",
-        "output_issue": "\u6307\u4ee4\u751f\u6210\u932f\u8aa4",
-        "other_issue": "\u5176\u4ed6\u932f\u8aa4",
-        "other_language": "\u5176\u4ed6\u8a9e\u8a00",
-        "too_many_quotes": "\u5f15\u865f\u6578\u91cf\u904e\u591a",
-        "cancel": "\u53d6\u6d88"
-    },
     "settings": {
+        "confirmDelete": "Confirm Text Deletion",
         "reset-all-settings": "\u91cd\u7f6e\u6240\u6709\u914d\u7f6e",
         "importtext": {
             "exported": {
@@ -53,6 +30,30 @@
         },
         "import": "\u532f\u5165",
         "header": "\u8a2d\u5b9a\uff1a"
+    },
+    "headerbar": {
+        "dropdown": {
+            "download": "\u4e0b\u8f09\u672c\u7ad9",
+            "uptime": "\u66f4\u65b0\u6642\u9593",
+            "translate_page_link": "\u7ffb\u8b6f\u7db2\u7ad9",
+            "hover": "\u6709\u65b0\u7684 Beta \u7248\u672c\uff01",
+            "beta_link": "Beta \u7248\u672c",
+            "tweet": "\u5206\u4eab-Twitter",
+            "forum_thread": "\u8ad6\u58c7\u6587\u7ae0",
+            "changelog": "\u66f4\u65b0\u65e5\u8a8c"
+        },
+        "help": "\u5e6b\u52a9",
+        "report_an_issue": "\u56de\u5831\u554f\u984c"
+    },
+    "report_issue": {
+        "badpreview": "\u9810\u89bd\u932f\u8aa4",
+        "describe": "\u8acb\u63cf\u8ff0\u4f60\u9047\u5230\u7684\u932f\u8aa4",
+        "translation_issue": "\u7ffb\u8b6f\u932f\u8aa4",
+        "output_issue": "\u6307\u4ee4\u751f\u6210\u932f\u8aa4",
+        "other_issue": "\u5176\u4ed6\u932f\u8aa4",
+        "other_language": "\u5176\u4ed6\u8a9e\u8a00",
+        "too_many_quotes": "\u5f15\u865f\u6578\u91cf\u904e\u591a",
+        "cancel": "\u53d6\u6d88"
     },
     "template": {
         "actionbar": "\u884c\u70ba\u6b04",
@@ -161,7 +162,7 @@
         "report-an-issue": "\u9ede\u64ca\u6b64\u8655\u56de\u5831\u554f\u984c\u3002\u5982\u679c\u60a8\u5728\u4f7f\u7528\u904e\u7a0b\u4e2d\u767c\u73fe\u4e86\u6f0f\u6d1e\uff0c\u8acb\u5728\u9019\u88e1\u56de\u5831\u932f\u8aa4\u3002",
         "dropdown-list": "\u5206\u4eab\u5230 Twitter\uff0c\u6aa2\u8996\u66f4\u65b0\u7d00\u9304\uff0c\u8ad6\u58c7\u539f\u6587\uff0c\u8207\u7ffb\u8b6f\u5217\u8868\u3002",
         "addsnippet": "\u65b0\u589e\u6587\u5b57\u81f3\u60a8\u7684 tellraw \u6307\u4ee4",
-        "delete-all-snippets": "\u6e05\u9664\u7576\u524d\u7684Tellraw\u6307\u4ee4\uff0c\u4f46\u6703\u4fdd\u7559\u5b58\u6a94\u3002"
+        "delete-all-snippets": "\u6e05\u9664\u7576\u524d\u7684\u6240\u6709\u6307\u4ee4\u3002\u5982\u679c\u60a8\u9700\u8981\u4fdd\u5b58\u7576\u524d\u7684\u6307\u4ee4\uff0c\u8acb\u9ede\u64ca\u5c0e\u51fa\u6309\u9215\u3002"
     },
     "output": {
         "nothing": "\u9084\u6c92\u6709\u6307\u4ee4",

@@ -1,29 +1,6 @@
 {
-    "headerbar": {
-        "dropdown": {
-            "download": "Download Website",
-            "uptime": "Disponibilit\u00e9 du R\u00e9seau",
-            "translate_page_link": "Traduisez vous aussi !",
-            "hover": "Version B\u00eata disponible.",
-            "beta_link": "Version B\u00eata",
-            "tweet": "Tweet",
-            "forum_thread": "Topic Forum",
-            "changelog": "Changements"
-        },
-        "help": "AIde",
-        "report_an_issue": "Signaler un probl\u00e8me"
-    },
-    "report_issue": {
-        "badpreview": "Mauvaise visualisation",
-        "describe": "Veuillez d\u00e9crire votre probl\u00e8me",
-        "translation_issue": "Probl\u00e8me de traduction",
-        "output_issue": "Probl\u00e8me de r\u00e9sultat",
-        "other_issue": "Autre probl\u00e8me",
-        "other_language": "Autre langue",
-        "too_many_quotes": "Trop de citations",
-        "cancel": "Annuler"
-    },
     "settings": {
+        "confirmDelete": "Confirm Text Deletion",
         "reset-all-settings": "R\u00e9initialiser tous les r\u00e9glages",
         "importtext": {
             "exported": {
@@ -53,6 +30,30 @@
         },
         "import": "Importer",
         "header": "Param\u00e8tres :"
+    },
+    "headerbar": {
+        "dropdown": {
+            "download": "T\u00e9l\u00e9charger le site",
+            "uptime": "Disponibilit\u00e9 du R\u00e9seau",
+            "translate_page_link": "Traduisez vous aussi !",
+            "hover": "Version B\u00eata disponible.",
+            "beta_link": "Version B\u00eata",
+            "tweet": "Tweet",
+            "forum_thread": "Topic Forum",
+            "changelog": "Changements"
+        },
+        "help": "AIde",
+        "report_an_issue": "Signaler un probl\u00e8me"
+    },
+    "report_issue": {
+        "badpreview": "Mauvaise visualisation",
+        "describe": "Veuillez d\u00e9crire votre probl\u00e8me",
+        "translation_issue": "Probl\u00e8me de traduction",
+        "output_issue": "Probl\u00e8me de r\u00e9sultat",
+        "other_issue": "Autre probl\u00e8me",
+        "other_language": "Autre langue",
+        "too_many_quotes": "Trop de citations",
+        "cancel": "Annuler"
     },
     "template": {
         "actionbar": "Barre d'action",

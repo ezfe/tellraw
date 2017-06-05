@@ -1,29 +1,6 @@
 {
-    "headerbar": {
-        "dropdown": {
-            "download": "Download Website",
-            "uptime": "Estado del Servicio",
-            "translate_page_link": "P\u00e1gina de traducci\u00f3n",
-            "hover": "\u00a1Versi\u00f3n Beta disponible!",
-            "beta_link": "Versi\u00f3n Beta",
-            "tweet": "Tweet",
-            "forum_thread": "Tema en el Foro",
-            "changelog": "Historial de cambios"
-        },
-        "help": "Ayuda",
-        "report_an_issue": "Reportar un fallo\/error"
-    },
-    "report_issue": {
-        "badpreview": "Mala previsualizaci\u00f3n",
-        "describe": "Por favor, explica tu problema",
-        "translation_issue": "Problema con la traducci\u00f3n",
-        "output_issue": "Problema con el c\u00f3digo",
-        "other_issue": "Otro problema",
-        "other_language": "Otro idioma",
-        "too_many_quotes": "Demasiadas comillas",
-        "cancel": "Cancelar"
-    },
     "settings": {
+        "confirmDelete": "Confirm Text Deletion",
         "reset-all-settings": "Restaurar la configuraci\u00f3n",
         "importtext": {
             "exported": {
@@ -53,6 +30,30 @@
         },
         "import": "Importar",
         "header": "Configuraci\u00f3n:"
+    },
+    "headerbar": {
+        "dropdown": {
+            "download": "Descarga la Web",
+            "uptime": "Estado del Servicio",
+            "translate_page_link": "P\u00e1gina de traducci\u00f3n",
+            "hover": "\u00a1Versi\u00f3n Beta disponible!",
+            "beta_link": "Versi\u00f3n Beta",
+            "tweet": "Tweet",
+            "forum_thread": "Tema en el Foro",
+            "changelog": "Historial de cambios"
+        },
+        "help": "Ayuda",
+        "report_an_issue": "Reportar un fallo\/error"
+    },
+    "report_issue": {
+        "badpreview": "Mala previsualizaci\u00f3n",
+        "describe": "Por favor, explica tu problema",
+        "translation_issue": "Problema con la traducci\u00f3n",
+        "output_issue": "Problema con el c\u00f3digo",
+        "other_issue": "Otro problema",
+        "other_language": "Otro idioma",
+        "too_many_quotes": "Demasiadas comillas",
+        "cancel": "Cancelar"
     },
     "template": {
         "actionbar": "Barra de acci\u00f3n",
