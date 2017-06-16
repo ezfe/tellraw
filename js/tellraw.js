@@ -676,7 +676,10 @@ function getRowDescription(index) {
 	return `Row #${index + 1}`;
 }
 function deleteIndex(index) {
-	if (lsm.getItem("confirmDelete") == "false" || confirm("Confirm deleting\n\n" + getRowDescription(index))) {
+	if (
+		lsm.getItem("confirmDelete") == "false" ||
+		confirm("Confirm deleting\n\n" + getRowDescription(index))
+	) {
 		jobject.splice(index, 1);
 	}
 	refreshOutput();
@@ -1184,7 +1187,7 @@ function refreshOutput(input) {
 
 	var newLineExpressions = {
 		bookarray: /\\\\\\\\n/g,
-		standardjson: /\\\\n/g,
+		standardjson: /\\\\n/g
 	};
 	if (!formattedJObject.length > 0) {
 		JSONOutputString = "[]";
@@ -1665,6 +1668,10 @@ function initialize() {
 		}
 	});
 
+	if (lsm.getItem("macos-bedrock-votequery") == "voted") {
+		$("#macos-bedrock-votequery").hide();
+	}
+
 	/*************
      * Listeners *
      *************/
@@ -1791,10 +1798,13 @@ function initialize() {
 		refreshOutput();
 	});
 
-	document.getElementById("confirmDeleteCheckbox").checked = (lsm.getItem("confirmDelete") == "false") ? false : true;
-	$("#confirmDeleteCheckbox").on("change",function() {
+	document.getElementById("confirmDeleteCheckbox").checked = lsm.getItem("confirmDelete") ==
+		"false"
+		? false
+		: true;
+	$("#confirmDeleteCheckbox").on("change", function() {
 		lsm.setItem("confirmDelete", getChecked("confirmDeleteCheckbox") ? "true" : "false");
-	})
+	});
 
 	$(".issue-button").click(function() {
 		let parentRow = $(this).parent().parent();
