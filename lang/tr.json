@@ -1,49 +1,49 @@
 {
     "settings": {
-        "confirmDelete": "Confirm Text Deletion",
-        "reset-all-settings": "Reset All Settings",
+        "confirmDelete": "Yaz\u0131 Silimini Onayla",
+        "reset-all-settings": "T\u00fcm Ayarlar\u0131 S\u0131f\u0131rla",
         "importtext": {
             "exported": {
-                "header": "\u0130\u00e7eri aktar.",
+                "header": "\u0130\u00e7e Aktar",
                 "failed": {
-                    "header": "Aktar\u0131m ba\u015far\u0131s\u0131z.",
-                    "description": "Provided input"
+                    "header": "\u0130\u00e7e Aktar\u0131m ba\u015far\u0131s\u0131z",
+                    "description": "Sa\u011flanan giri\u015f"
                 },
-                "description": "L\u00fctfen komutu ald\u0131\u011f\u0131n\u0131zda verilen sat\u0131r\u0131 yaz\u0131n."
+                "description": "L\u00fctfen komutunuzu aktard\u0131\u011f\u0131n\u0131zda size verilen dizini girin"
             }
         },
-        "nlOutput": "Yap\u0131land\u0131r\u0131lm\u0131\u015f \u00c7\u0131k\u0131\u015f\u0131 G\u00f6ster",
+        "nlOutput": "Yap\u0131land\u0131r\u0131lm\u0131\u015f \u00c7\u0131kt\u0131y\u0131 G\u00f6ster",
         "darkmode": {
             "turn_on": "Koyu Tema",
-            "turn_off": "A\u00e7\u0131k Tema"
+            "turn_off": "Parlak Tema"
         },
         "show": "Ayarlar\u0131 A\u00e7",
         "hide": "Ayarlar\u0131 Kapat",
-        "fontSize": "Yaz\u0131 B\u00fcy\u00fckl\u00fc\u011f\u00fcn\u00fc \u00d6nizle",
-        "previewcolor": "Arkaplan rengini \u00f6nizle:",
-        "export": "Al",
+        "fontSize": "Yaz\u0131 Tipini \u00d6n \u0130zle",
+        "previewcolor": "Arka Plan Rengini \u00d6n \u0130zle:",
+        "export": "Aktar",
         "deleteall": {
-            "body": "Sil'e t\u0131klamak t\u00fcm yaz\u0131n\u0131z\u0131 silip bo\u015f bir sat\u0131r getirecektir.",
+            "body": "Sil e t\u0131klamak b\u00fct\u00fcn yaz\u0131n\u0131z\u0131 silip onu bo\u015f bir dizine s\u0131f\u0131rlayacakt\u0131r.",
             "heading": "Emin misiniz!?!",
-            "yes": "T\u00fcm\u00fcn\u00fc sil",
+            "yes": "T\u00fcm\u00fcn\u00fc Sil",
             "no": "\u0130ptal"
         },
-        "import": "\u0130\u00e7e aktar",
+        "import": "\u0130\u00e7e Aktar",
         "header": "Ayarlar:"
     },
     "headerbar": {
         "dropdown": {
-            "download": "Download Website",
-            "uptime": "\u00c7al\u0131\u015fma s\u00fcresi",
+            "download": "Siteyi \u0130ndir",
+            "uptime": "A\u00e7\u0131k S\u00fcresi",
             "translate_page_link": "\u00c7eviri Sitesi",
-            "hover": "Beta versiyonu mevcut",
-            "beta_link": "Versiyonu",
+            "hover": "Beta Versiyonu Mevcut!",
+            "beta_link": "Beta Versiyonu",
             "tweet": "Tweet'le",
             "forum_thread": "Forum Konusu",
             "changelog": "De\u011fi\u015fim Kayd\u0131"
         },
         "help": "Yard\u0131m",
-        "report_an_issue": "Sorun Bildir"
+        "report_an_issue": "Bir Sorun Bildir"
     },
     "report_issue": {
         "badpreview": "K\u00f6t\u00fc \u00f6nizleme",
@@ -52,41 +52,41 @@
         "output_issue": "\u00c7\u0131kt\u0131 sorunu",
         "other_issue": "Ba\u015fka bir sorun",
         "other_language": "Ba\u015fka bir dil",
-        "too_many_quotes": "\u00c7ok fazla al\u0131nt\u0131",
+        "too_many_quotes": "\u00c7ok Fazla Al\u0131nt\u0131",
         "cancel": "\u0130ptal"
     },
     "template": {
         "actionbar": "Eylem \u00e7ubu\u011fu",
         "sign_block": "Tabela (\/blockdata)",
         "sign_item": "Tabela (\/give)",
-        "subtitle": "Altyaz\u0131 (\/title)",
+        "subtitle": "Altyaz\u0131",
         "title": "Ba\u015fl\u0131k",
         "tellraw": "Tellraw",
         "book": "Kitap",
-        "execute_tellraw": "Yapt\u0131rt"
+        "execute_tellraw": "Y\u00fcr\u00fctme"
     },
     "textsnippets": {
         "NEW_ITERATE_FLAG": {
             "add": {
-                "book": "Kitap sayfas\u0131 ekle",
-                "sign": "Tabela sat\u0131r\u0131 ekle"
+                "book": "Kitap Sayfas\u0131 Ekle",
+                "sign": "Tabela Sat\u0131r\u0131 Ekle"
             },
             "incorrect_template": {
                 "primary": {
-                    "header": "Kitap ya da tabela \u015fablonunu kullan\u0131yor olmal\u0131s\u0131n\u0131z",
-                    "description": "\u015eablonunuzu de\u011fi\u015ftirmek mi istiyorsunuz?",
+                    "header": "Kitap ya da tabela \u015fablonlar\u0131 kullan\u0131yor olmal\u0131s\u0131n\u0131z",
+                    "description": "\u015eablonunuzu de\u011fi\u015ftirmek istiyormusunuz?",
                     "yes": "Evet",
                     "no": "Hay\u0131r"
                 },
                 "secondary": {
-                    "header": "Kitap m\u0131 Tabela m\u0131?",
-                    "description": "Bir tabela m\u0131 kitap m\u0131 yapmak istiyorsunuz? (Bunu sonra de\u011fi\u015ftirebilirsiniz)",
+                    "header": "Kitap ve ya Tabela?",
+                    "description": "Bir kitap m\u0131 tabela m\u0131 yapmak istiyorsunuz? (Bunu sonra de\u011fi\u015ftirebilirsiniz)",
                     "book": "Kitap",
                     "sign": "Tabela"
                 },
                 "tertiary": {
                     "header": "Bitti!",
-                    "description": "\u015eablonunuz de\u011fi\u015ftirildi: %c"
+                    "description": "\u015eablonunuz %c olarak de\u011fi\u015ftirildi"
                 }
             },
             "buttontext": "Kitap Sayfas\u0131 \/ Tabela Sat\u0131r\u0131"
@@ -95,83 +95,83 @@
             "changepage": "Sayfay\u0131 de\u011fi\u015ftir",
             "unavailable": {
                 "sign": {
-                    "header": "Tabela t\u0131klamalar\u0131 etkin de\u011fil",
-                    "body": "T\u0131klanabilir olan tabelalar yapmak i\u00e7in ba\u015fka bir siteye git"
+                    "header": "Tabela t\u0131klama etkinlikleri mevcut de\u011fil",
+                    "body": "Buraya t\u0131klayarak t\u0131klama etkinlikli tabelalar yapmak i\u00e7in bir siteye gidin."
                 }
             },
-            "runcommand": "Komutu \u00e7al\u0131\u015ft\u0131r",
+            "runcommand": "Komut \u00c7al\u0131\u015ft\u0131r",
             "openurl": "URL a\u00e7",
-            "suggestcommand": "Komut \u00f6ner",
-            "header": "Bas\u0131nca:",
+            "suggestcommand": "Komut \u00d6ner",
+            "header": "T\u0131klama Etkinli\u011fi:",
             "none": "Yok"
         },
         "hoverevent": {
             "unavailable": {
                 "sign": {
-                    "header": "Tabelalarda \u00fcst\u00fcnde tutma etkin de\u011fil",
-                    "body": "\u00c7\u00fcnk\u00fc Minecraft bunu desteklemiyor"
+                    "header": "Tabelalarda bas\u0131l\u0131 tutma mevcut de\u011fil",
+                    "body": "Bu Minecraft\u0131n tabelalarda bas\u0131l\u0131 tutma etkinliklerini desteklememesi y\u00fcz\u00fcnden."
                 }
             },
-            "addtext": "Yaz\u0131 ekle",
-            "removetext": "\u00d6nceki Yaz\u0131y\u0131 Kald\u0131r",
-            "header": "\u00dcst\u00fcnde Bekletince:",
+            "addtext": "Yaz\u0131 Ekle",
+            "removetext": "Son Yaz\u0131y\u0131 Kald\u0131r",
+            "header": "Bas\u0131l\u0131 Tutma Etkinli\u011fi:",
             "showachievement": "Ba\u015far\u0131m G\u00f6ster:",
             "id": "Kimlik:",
             "showentity": "Canl\u0131 G\u00f6ster",
-            "showitem": "\u0130tem G\u00f6ster",
+            "showitem": "E\u015fya G\u00f6ster",
             "type": "T\u00fcr:",
             "none": "Yok",
             "showtext": "Yaz\u0131 G\u00f6ster",
             "name": "\u0130sim"
         },
-        "parameter": "Parametre",
+        "parameter": "De\u011fi\u015fken",
         "editsnippet": "Yaz\u0131y\u0131 d\u00fczenle",
         "close": "Kapat",
-        "notext": "Yaz\u0131 yok :(",
+        "notext": "Yaz\u0131 Yok",
         "insert": "Ekle",
-        "addsnippet": "Yaz\u0131 ekle",
+        "addsnippet": "Yaz\u0131 Ekle",
         "insertion": {
-            "header": "Eklenen"
+            "header": "Ekleme"
         },
         "sel": "Se\u00e7ici",
         "format": {
             "bold": "Kal\u0131n",
-            "underlined": "Alt\u0131 \u00e7izili",
+            "underlined": "Alt\u0131 \u00c7izilmi\u015f",
             "obfuscated": "Karmakar\u0131\u015f\u0131k",
             "italic": "\u0130talik",
-            "strikethrough": "\u00dcst\u00fc \u00e7izili"
+            "strikethrough": "\u00dcst\u00fc \u00c7izili"
         },
         "player": "Oyuncu",
         "obj2": "Objektif (Puan)",
-        "obj": "Scoreboard Puan\u0131",
-        "nosnippets": "Yaz\u0131 yok :(",
-        "header": "Yaz\u0131 pasaj\u0131",
+        "obj": "Puan Tablosu Puan\u0131",
+        "nosnippets": "Hen\u00fcz yaz\u0131 yok",
+        "header": "Yaz\u0131 Par\u00e7ac\u0131klar\u0131",
         "text": "Yaz\u0131",
         "raw": "Normal",
         "warning": {
             "title": "Uyar\u0131!"
         }
     },
-    "header_rev2": "Minecraft i\u00e7in TellRaw Jenerat\u00f6r\u00fc",
+    "header_rev2": "Minecraft i\u00e7in Tellraw \u00dcretici",
     "issues": {
         "go-home": "Sorunu G\u00f6rmezden Gel"
     },
     "help": {
-        "textfield": "Kullan\u0131n: %n yeni bir yaz\u0131 yapmak i\u00e7in.",
-        "raw-text-tab": "Bir se\u00e7im yap\u0131n. \"Normal\", bildi\u011finiz yaz\u0131d\u0131r. \"Scoreboard\", scoreboard'dan bir de\u011fer al\u0131r. \"Se\u00e7ici\" bir canl\u0131n\u0131n ad\u0131n\u0131 al\u0131r.",
-        "report-an-issue": "Bir sorun bildirmek i\u00e7in t\u0131klay\u0131n. E\u011fer hata oldu\u011funu g\u00f6r\u00fcrseniz, buraya bildirmelisiniz.",
-        "dropdown-list": "Tweet'le, de\u011fi\u015fim kayd\u0131n\u0131 g\u00f6ster, MC Forum konusunu a\u00e7, ya da \u00e7eviri i\u00e7in kaynak al.",
-        "addsnippet": "Tellraw Komutuna Yaz\u0131 Ekle",
-        "delete-all-snippets": "Komutu tamamen silin ama kaydedilenleri b\u0131rak\u0131n."
+        "textfield": "%n kullanarak yeni bir sat\u0131r olu\u015ftur",
+        "raw-text-tab": "Yaz\u0131 se\u00e7iminizi se\u00e7in. Raw normal yaz\u0131. Scoreboard puan tahtas\u0131ndan bir yaz\u0131 al\u0131r. Selector bir varl\u0131\u011f\u0131n ismini al\u0131r.",
+        "report-an-issue": "Buraya t\u0131klayarak bir sorun bildirin. E\u011fer ba\u015f\u0131n\u0131za bir bug t\u00fcr\u00fc geldiyse, onu buradan bildirmelisiniz.",
+        "dropdown-list": "Tweet'le, de\u011fi\u015fim kayd\u0131n\u0131 g\u00f6ster, minecraft forumlar\u0131 konusu, ya da \u00e7eviri i\u00e7in kaynak al.",
+        "addsnippet": "Tellraw komutunuza yaz\u0131 ekleyin.",
+        "delete-all-snippets": "Komutunuzu tamamen silin. Bu her \u015feyi silecektir, ilk Aktar butonunu kullanarak bunu kaydedin."
     },
     "output": {
-        "nothing": "Burada g\u00f6r\u00fclecek bir \u015fey yok!",
+        "nothing": "Burada g\u00f6r\u00fclecek bir \u015fey yok",
         "header": "\u00c7\u0131k\u0131\u015f \u00d6nizlemesi:"
     },
     "color": {
         "color_green": "Ye\u015fil",
         "color_red": "K\u0131rm\u0131z\u0131",
-        "color_none": "Olmas\u0131n",
+        "color_none": "Yok",
         "color_dark_aqua": "Turkuaz",
         "color_dark_purple": "Koyu Mor",
         "color_dark_blue": "Koyu Mavi",
@@ -188,24 +188,24 @@
         "color_yellow": "Sar\u0131"
     },
     "language": {
-        "translate": "\u00c7evir...",
+        "translate": "\u00c7evir",
         "name": "T\u00fcrk\u00e7e",
         "header": "Dil"
     },
     "player": {
         "header": "Oyuncu ve Komut",
-        "description": "Ba\u015fkalar\u0131na yapt\u0131rmak i\u00e7in kullan\u0131l\u0131r"
+        "description": "Se\u00e7mek ve farkl\u0131 bir oyuncuya yapt\u0131rmak i\u00e7in kullan\u0131l\u0131r"
     },
-    "commandblock": "Bunu bir sunucu konsolunda ya da komut blo\u011funda ba\u015flatmal\u0131s\u0131n\u0131z.",
+    "commandblock": "Bunu bir sunucu konsolunda ya da komut blo\u011funda \u00e7al\u0131\u015ft\u0131rmal\u0131s\u0131n\u0131z.",
     "alert": {
         "report": "Sorun Bildir",
-        "changed": "Bu sayfa yak\u0131n zamanda g\u00fcncellendi, bu y\u00fczden sorunlat olabilir. E\u011fer bir \u015fey \u00e7al\u0131\u015fmazsa sayfay\u0131 yeniden y\u00fckleyin.",
-        "receiveupdates": "G\u00fcncellemeleri buradan al (Takip edin)"
+        "changed": "Bu sayfa yak\u0131n zamanda d\u00fczenlendi, bu y\u00fczden sorunlar olabilir. E\u011fer bir \u015fey \u00e7al\u0131\u015fm\u0131yor g\u00f6z\u00fck\u00fcyorsa sayfay\u0131 yenileyin.",
+        "receiveupdates": "G\u00fcncellemeleri buradan al (G\u00fcndemi \"takip edin\")"
     },
     "command": "Komut:",
     "export": {
-        "heading": "Komutunuz:",
+        "heading": "Aktard\u0131\u011f\u0131n\u0131z Komut",
         "close": "Kapat"
     },
-    "attribution": "Bunu kullanmak i\u00e7in bir \u015fey gerekmese de, bu sayfay\u0131 bir Minecraft Forum konusuna ya da bir web sayfas\u0131na ba\u011flarsan\u0131z \u00e7ok mutlu olurum :)"
+    "attribution": "Bunu kullanmak i\u00e7in bir \u015fey gerekmese de, bunu bir siteye veya MCF(Minecraft Forum) konusuna linklediyseniz her zaman mutlu eder."
 }

@@ -1,6 +1,6 @@
 {
     "settings": {
-        "confirmDelete": "Confirm Text Deletion",
+        "confirmDelete": "Confirmar al eliminar texto",
         "reset-all-settings": "Restaurar la configuraci\u00f3n",
         "importtext": {
             "exported": {
@@ -24,7 +24,7 @@
         "export": "Exportar",
         "deleteall": {
             "body": "Pulsando en Eliminar todo borrar\u00e1 el comando actual y crear\u00e1 uno nuevo en blanco.",
-            "heading": "\u00a1\u00bf\u00a1SEGURO!?!",
+            "heading": "\u00a1\u00bf\u00a1ESTAS SEGURO!?!",
             "yes": "Eliminar todo",
             "no": "Cancelar"
         },
@@ -33,7 +33,7 @@
     },
     "headerbar": {
         "dropdown": {
-            "download": "Descarga la Web",
+            "download": "Descarga La  P\u00e1gina Web",
             "uptime": "Estado del Servicio",
             "translate_page_link": "P\u00e1gina de traducci\u00f3n",
             "hover": "\u00a1Versi\u00f3n Beta disponible!",
@@ -60,9 +60,9 @@
         "sign_block": "Cartel (\/blockdata)",
         "sign_item": "Cartel (\/give)",
         "subtitle": "Subt\u00edtulo",
-        "title": "Title",
-        "tellraw": "Tellraw",
-        "book": "Libro",
+        "title": "\/Title",
+        "tellraw": "\/Tellraw",
+        "book": "Libro (\/give)",
         "execute_tellraw": "Execute"
     },
     "textsnippets": {
@@ -85,7 +85,7 @@
                     "sign": "Cartel"
                 },
                 "tertiary": {
-                    "header": "\u00a1Hecho!",
+                    "header": "\u00a1Acabado!",
                     "description": "Tu plantilla ha sido cambiada a %c"
                 }
             },
@@ -101,7 +101,7 @@
             },
             "runcommand": "Ejecutar comando",
             "openurl": "Abrir una URL",
-            "suggestcommand": "Introducir comando en el chat",
+            "suggestcommand": "Sugerir comando sin ejecutarlo",
             "header": "Al hacer clic:",
             "none": "Nada"
         },
@@ -137,11 +137,11 @@
         "format": {
             "bold": "Negrita",
             "underlined": "Subrayado",
-            "obfuscated": "Confuso",
+            "obfuscated": "cambiante",
             "italic": "Cursiva",
             "strikethrough": "Tachado"
         },
-        "player": "Selector",
+        "player": "jugador",
         "obj2": "Objetivo",
         "obj": "Objetivo del scoreboard",
         "nosnippets": "A\u00fan Sin texto",
@@ -157,7 +157,7 @@
         "go-home": "Ignorar error"
     },
     "help": {
-        "textfield": "Emplea %n para hacer un salto de l\u00ednea",
+        "textfield": "usa %n para hacer una linea",
         "raw-text-tab": "Escoge el tipo de texto. \"Raw\" es texto normal. Scoreboard emplea un valor de un scoreboard. Selector selecciona una entidad.",
         "report-an-issue": "Haz click para reportar un error. Si encuentras alg\u00fan fallo, comun\u00edcalo aqu\u00ed.",
         "dropdown-list": "Twitea esta p\u00e1gina, mira el historial de cambios, ve al tema en el foro de minecraft, o completa los idiomas a\u00fan por traducir.",
@@ -173,7 +173,7 @@
         "color_red": "Rojo",
         "color_none": "Nada",
         "color_dark_aqua": "Aguamarina Oscura",
-        "color_dark_purple": "Morado Oscuro",
+        "color_dark_purple": "purpura Oscuro",
         "color_dark_blue": "Azul Oscuro",
         "color_aqua": "Aguamarina",
         "color_white": "Blanco",

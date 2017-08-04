@@ -1,7 +1,7 @@
 {
     "settings": {
-        "confirmDelete": "Confirm Text Deletion",
-        "reset-all-settings": "Reset All Settings",
+        "confirmDelete": "Conferma l'eliminazione del testo",
+        "reset-all-settings": "Ripristina tutte le impostazioni",
         "importtext": {
             "exported": {
                 "header": "Importa",
@@ -33,7 +33,7 @@
     },
     "headerbar": {
         "dropdown": {
-            "download": "Download Website",
+            "download": "Scarica il sito web",
             "uptime": "Uptime",
             "translate_page_link": "Sito di traduzione",
             "hover": "Versione in test disponibile!",
@@ -85,7 +85,7 @@
                     "sign": "Cartello"
                 },
                 "tertiary": {
-                    "header": "Finito!",
+                    "header": "Fatto!",
                     "description": "Il tuo modello \u00e8 stato cambiato a %c"
                 }
             },

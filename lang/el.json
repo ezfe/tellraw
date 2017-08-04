@@ -1,7 +1,7 @@
 {
     "settings": {
-        "confirmDelete": "Confirm Text Deletion",
-        "reset-all-settings": "Reset All Settings",
+        "confirmDelete": "\u0395\u03c0\u03b9\u03b2\u03b5\u03b2\u03b1\u03af\u03c9\u03c3\u03b7 \u03b4\u03b9\u03b1\u03b3\u03c1\u03b1\u03c6\u03ae\u03c2 \u03ba\u03b5\u03b9\u03bc\u03ad\u03bd\u03bf\u03c5",
+        "reset-all-settings": "\u0395\u03c0\u03b1\u03bd\u03b1\u03c6\u03bf\u03c1\u03ac \u03cc\u03bb\u03c9\u03bd \u03c4\u03c9\u03bd \u03c1\u03c5\u03b8\u03bc\u03af\u03c3\u03b5\u03c9\u03bd",
         "importtext": {
             "exported": {
                 "header": "\u0395\u03b9\u03c3\u03ae\u03b3\u03b1\u03b3\u03b5",
@@ -33,27 +33,27 @@
     },
     "headerbar": {
         "dropdown": {
-            "download": "Download Website",
-            "uptime": "Uptime",
+            "download": "\u039b\u03ae\u03c8\u03b7 \u03b9\u03c3\u03c4\u03bf\u03c4\u03cc\u03c0\u03bf\u03c5",
+            "uptime": "uptime",
             "translate_page_link": "\u0399\u03c3\u03c4\u03bf\u03c3\u03b5\u03bb\u03af\u03b4\u03b1 \u039c\u03b5\u03c4\u03ac\u03c6\u03c1\u03b1\u03c3\u03b7\u03c2",
             "hover": "\u03a5\u03c0\u03ac\u03c1\u03c7\u03b5\u03b9 \u03b4\u03b9\u03b1\u03b8\u03ad\u03c3\u03b9\u03bc\u03bf beta version!",
             "beta_link": "Beta \u0388\u03ba\u03b4\u03bf\u03c3\u03b7",
-            "tweet": "Tweet",
-            "forum_thread": "Forum Thread",
-            "changelog": "Changelog"
+            "tweet": "\u03a4\u03b9\u03c4\u03af\u03b2\u03b9\u03c3\u03bc\u03b1",
+            "forum_thread": "Forum \u039d\u03ae\u03bc\u03b1",
+            "changelog": "\u03b1\u03bb\u03bb\u03b1\u03b3\u03ce\u03bd"
         },
-        "help": "Help",
-        "report_an_issue": "Report an Issue"
+        "help": "\u0392\u03bf\u03ae\u03b8\u03b5\u03b9\u03b1",
+        "report_an_issue": "\u0391\u03bd\u03b1\u03c6\u03bf\u03c1\u03ac \u03c0\u03c1\u03bf\u03b2\u03bb\u03ae\u03bc\u03b1\u03c4\u03bf\u03c2"
     },
     "report_issue": {
-        "badpreview": "Bad Preview",
-        "describe": "Please describe your issue",
-        "translation_issue": "Translation Issue",
-        "output_issue": "Output Issue",
-        "other_issue": "Other Issue",
-        "other_language": "Other Language",
+        "badpreview": "Bad \u03a0\u03c1\u03bf\u03b5\u03c0\u03b9\u03c3\u03ba\u03cc\u03c0\u03b7\u03c3\u03b7",
+        "describe": "\u03a0\u03b5\u03c1\u03b9\u03b3\u03c1\u03ac\u03c8\u03c4\u03b5 \u03c4\u03bf \u03c0\u03c1\u03cc\u03b2\u03bb\u03b7\u03bc\u03ac \u03c3\u03b1\u03c2",
+        "translation_issue": "\u039c\u03b5\u03c4\u03ac\u03c6\u03c1\u03b1\u03c3\u03b7 \u0388\u03ba\u03b4\u03bf\u03c3\u03b7",
+        "output_issue": "\u0396\u03ae\u03c4\u03b7\u03bc\u03b1 \u03b5\u03be\u03cc\u03b4\u03bf\u03c5",
+        "other_issue": "\u0386\u03bb\u03bb\u03b5\u03c2 \u0388\u03ba\u03b4\u03bf\u03c3\u03b7",
+        "other_language": "\u0386\u03bb\u03bb\u03b5\u03c2 \u0393\u03bb\u03ce\u03c3\u03c3\u03b1",
         "too_many_quotes": "Too Many Quotes",
-        "cancel": "Cancel"
+        "cancel": "\u039c\u03b1\u03c4\u03b1\u03af\u03c9\u03c3\u03b7"
     },
     "template": {
         "actionbar": "Action Bar",
@@ -188,24 +188,24 @@
         "color_yellow": "\u039a\u03af\u03c4\u03c1\u03b9\u03bd\u03bf"
     },
     "language": {
-        "translate": "Translate",
+        "translate": "\u039c\u03b5\u03c4\u03b1\u03c6\u03c1\u03ac\u03b6\u03c9",
         "name": "\u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac",
-        "header": "Language"
+        "header": "\u0393\u03bb\u03ce\u03c3\u03c3\u03b1"
     },
     "player": {
-        "header": "Player and Command",
-        "description": "Used to select and execute different players"
+        "header": "Player \u03ba\u03b1\u03b9 \u0394\u03b9\u03bf\u03af\u03ba\u03b7\u03c3\u03b7",
+        "description": "\u03a7\u03c1\u03b7\u03c3\u03b9\u03bc\u03bf\u03c0\u03bf\u03b9\u03b5\u03af\u03c4\u03b1\u03b9 \u03b3\u03b9\u03b1 \u03c4\u03b7\u03bd \u03b5\u03c0\u03b9\u03bb\u03bf\u03b3\u03ae \u03ba\u03b1\u03b9 \u03c4\u03b7\u03bd \u03b5\u03ba\u03c4\u03ad\u03bb\u03b5\u03c3\u03b7 \u03b4\u03b9\u03b1\u03c6\u03cc\u03c1\u03c9\u03bd \u03c6\u03bf\u03c1\u03ad\u03c9\u03bd"
     },
-    "commandblock": "You must run this in the server console or in a command block.",
+    "commandblock": "\u03a0\u03c1\u03ad\u03c0\u03b5\u03b9 \u03bd\u03b1 \u03b5\u03ba\u03c4\u03b5\u03bb\u03ad\u03c3\u03b5\u03c4\u03b5 \u03b1\u03c5\u03c4\u03cc \u03c3\u03c4\u03b7\u03bd \u03ba\u03bf\u03bd\u03c3\u03cc\u03bb\u03b1 \u03b4\u03b9\u03b1\u03ba\u03bf\u03bc\u03b9\u03c3\u03c4\u03ae \u03ae \u03c3\u03b5 \u03ad\u03bd\u03b1 \u03bc\u03c0\u03bb\u03bf\u03ba \u03b5\u03bd\u03c4\u03bf\u03bb\u03ce\u03bd.",
     "alert": {
-        "report": "Report Problem",
-        "changed": "This page was recently modified, so there might be problems. Reload the page if something doesn't seem to work.",
-        "receiveupdates": "Receive updates here (\"Follow\" the topic)"
+        "report": "\u0391\u03bd\u03b1\u03c6\u03bf\u03c1\u03ac \u03c0\u03c1\u03bf\u03b2\u03bb\u03ae\u03bc\u03b1\u03c4\u03bf\u03c2",
+        "changed": "\u0397 \u03c3\u03b5\u03bb\u03af\u03b4\u03b1 \u03b1\u03c5\u03c4\u03ae \u03c4\u03c1\u03bf\u03c0\u03bf\u03c0\u03bf\u03b9\u03ae\u03b8\u03b7\u03ba\u03b5 \u03c0\u03c1\u03cc\u03c3\u03c6\u03b1\u03c4\u03b1, \u03bf\u03c0\u03cc\u03c4\u03b5 \u03bc\u03c0\u03bf\u03c1\u03b5\u03af \u03bd\u03b1 \u03c5\u03c0\u03ac\u03c1\u03c7\u03bf\u03c5\u03bd \u03c0\u03c1\u03bf\u03b2\u03bb\u03ae\u03bc\u03b1\u03c4\u03b1. \u0391\u03bd\u03b1\u03bd\u03ad\u03c9\u03c3\u03b7 \u03c4\u03b7\u03c2 \u03c3\u03b5\u03bb\u03af\u03b4\u03b1\u03c2 \u03b1\u03bd \u03ba\u03ac\u03c4\u03b9 \u03b4\u03b5\u03bd \u03c6\u03b1\u03af\u03bd\u03b5\u03c4\u03b1\u03b9 \u03bd\u03b1 \u03bb\u03b5\u03b9\u03c4\u03bf\u03c5\u03c1\u03b3\u03b5\u03af.",
+        "receiveupdates": "\u039b\u03ac\u03b2\u03b5\u03c4\u03b5 \u03b5\u03bd\u03b7\u03bc\u03b5\u03c1\u03ce\u03c3\u03b5\u03b9\u03c2 \u03b5\u03b4\u03ce ( \u00abFollow\u00bb \u03c4\u03bf \u03b8\u03ad\u03bc\u03b1)"
     },
-    "command": "Command:",
+    "command": "\u0395\u03bd\u03c4\u03bf\u03bb\u03ae:",
     "export": {
-        "heading": "Your Exported Command",
-        "close": "Close"
+        "heading": "\u0395\u03be\u03ac\u03b3\u03bf\u03bd\u03c4\u03b1\u03b9 \u03b5\u03bd\u03c4\u03bf\u03bb\u03ce\u03bd \u03c3\u03b1\u03c2",
+        "close": "\u039a\u03bf\u03bd\u03c4\u03ac"
     },
-    "attribution": "While nothing is required to use this, it would always be appreciated if you linked to this webpage or the MCF thread."
+    "attribution": "\u0395\u03bd\u03ce \u03c4\u03af\u03c0\u03bf\u03c4\u03b1 \u03b4\u03b5\u03bd \u03b5\u03af\u03bd\u03b1\u03b9 \u03c5\u03c0\u03bf\u03c7\u03c1\u03b5\u03c9\u03bc\u03ad\u03bd\u03bf\u03b9 \u03bd\u03b1 \u03c7\u03c1\u03b7\u03c3\u03b9\u03bc\u03bf\u03c0\u03bf\u03b9\u03bf\u03cd\u03bd \u03b1\u03c5\u03c4\u03cc, \u03b8\u03b1 \u03ae\u03c4\u03b1\u03bd \u03c0\u03ac\u03bd\u03c4\u03b1 \u03bd\u03b1 \u03b5\u03ba\u03c4\u03b9\u03bc\u03b7\u03b8\u03b5\u03af \u03b1\u03bd \u03c3\u03c5\u03bd\u03b4\u03ad\u03bf\u03bd\u03c4\u03b1\u03b9 \u03bc\u03b5 \u03b1\u03c5\u03c4\u03ae \u03c4\u03b7\u03bd \u03b9\u03c3\u03c4\u03bf\u03c3\u03b5\u03bb\u03af\u03b4\u03b1 \u03ae \u03c4\u03bf \u03bd\u03ae\u03bc\u03b1 MCF."
 }
