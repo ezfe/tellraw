@@ -134,6 +134,17 @@ function clone(obj) {
 	throw new Error("Unable to copy obj! Its type isn't supported.");
 }
 
+/* https://stackoverflow.com/q/32733070/2059595 */
+String.prototype.escape = function() {
+    var tagsToReplace = {
+        '<': '&lt;',
+        '>': '&gt;'
+    };
+    return this.replace(/[&<>"]/g, function(tag) {
+        return tagsToReplace[tag] || tag;
+    });
+};
+
 function hardFail(
 	message = "An unexpected erorr occurred which cannot be recovered. Please reload or try again later."
 ) {
@@ -1326,19 +1337,19 @@ function jsonParse() {
 
 				if (jobject[i].text) {
 					$("#jsonPreviewSpanElement" + i).html(
-						jobject[i].text.replace(/\\\\n/g, "<br>").replace(/\\n/g, "<br>")
+						jobject[i].text.replace(/\\\\n/g, "<br>").replace(/\\n/g, "<br>").escape()
 					);
 				} else if (jobject[i].score) {
 					$("#jsonPreviewSpanElement" + i).html(
 						'<span class="label label-info">' +
-							jobject[i].score.name +
+							jobject[i].score.name.escape() +
 							":" +
-							jobject[i].score.objective +
+							jobject[i].score.objective.escape() +
 							"</span>"
 					);
 				} else if (jobject[i].selector) {
 					$("#jsonPreviewSpanElement" + i).html(
-						'<span class="label label-primary">' + jobject[i].selector + "</span>"
+						'<span class="label label-primary">' + jobject[i].selector.escape() + "</span>"
 					);
 				} else {
 					$("#jsonPreviewSpanElement" + i).html(
