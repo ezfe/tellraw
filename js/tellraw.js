@@ -138,9 +138,10 @@ function clone(obj) {
 String.prototype.escape = function() {
     var tagsToReplace = {
         "<": "&lt;",
-        ">": "&gt;"
+        ">": "&gt;",
+        " ": "&nbsp;"
     };
-    return this.replace(/[&<>"]/g, function(tag) {
+    return this.replace(/[&<>"\ ]/g, function(tag) {
         return tagsToReplace[tag] || tag;
     });
 };
