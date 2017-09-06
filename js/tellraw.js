@@ -1009,76 +1009,141 @@ function refreshOutput(input) {
             $("#snippet-container")
                 .children()
                 .remove();
+
+            let snippetItemsContainer = document.createDocumentFragment();
             for (var i = 0; i <= jobject.length - 1; i++) {
-                function makeButton(classString, iconString) {
-                    return `<i class="${classString} fa fa-${iconString} fa-2x"></i>`;
+                function makeButton(
+                    iconString,
+                    classString = "",
+                    idString = "",
+                    onClickString = ""
+                ) {
+                    return `<i id=${idString} onclick="${onClickString}" class="${classString} fa fa-${iconString} fa-2x"></i>`;
                 }
-                dragButton = makeButton("drag-handle", "sort");
+
+                let rowContentsOuterContainer = document.createDocumentFragment();
+                let rowContentsInnerContainer = document.createDocumentFragment();
+
+                let dragButton = makeButton("sort", "drag-handle");
+                let editButton = makeButton("pencil", "", `${i}RowEditButton`, `editExtra(${i});`);
+                let deleteButton = `<i onclick="deleteIndex(${i});" class="fa fa-times-circle fa-2x"></i>`;
+
                 if (jobject[i].NEW_ITERATE_FLAG) {
+                    // Disable the edit button
+                    editButton = `<i style="color:gray;" class="fa fa-pencil fa-2x"></i>`;
+
                     if (
-                        templates[lsm.getItem("jtemplate")].formatType != "bookarray" &&
-                        templates[lsm.getItem("jtemplate")].formatType != "signset"
+                        ["bookarray", "signset"].indexOf(
+                            templates[lsm.getItem("jtemplate")].formatType
+                        ) == -1
                     ) {
-                        var tempJSON =
-                            '<span style="color:gray;text-decoration:line-through;" lang="textsnippets.NEW_ITERATE_FLAG.buttontext"></span>';
+                        // Disabled iterate_flag label
+                        let disabledLabel = document.createElement("span");
+                        disabledLabel.color = "gray";
+                        disabledLabel.textDecoration = "line-through";
+                        disabledLabel.setAttribute(
+                            "lang",
+                            "textsnippets.NEW_ITERATE_FLAG.buttontext"
+                        );
+
+                        rowContentsInnerContainer.appendChild(disabledLabel);
                     } else {
-                        var tempJSON =
-                            '<span lang="textsnippets.NEW_ITERATE_FLAG.buttontext"></span>';
+                        //enabled iterate_flag label
+                        let enabledLabel = document.createElement("span");
+                        enabledLabel.setAttribute(
+                            "lang",
+                            "textsnippets.NEW_ITERATE_FLAG.buttontext"
+                        );
+
+                        rowContentsInnerContainer.appendChild(enabledLabel);
                     }
+
+                    rowContentsOuterContainer.appendChild(rowContentsInnerContainer);
                 } else {
                     if (get_type(jobject[i].text) != "[object Undefined]") {
-                        var tempJSON =
-                            '<input id="previewLine' +
-                            i +
-                            '" onkeyup="jobject[' +
-                            i +
-                            "].text = $('#previewLine" +
-                            i +
-                            '\').val(); refreshOutput(\'previewLineChange\')" type="text" class="form-control previewLine" value="' +
-                            jobject[i].text +
-                            '">';
+                        var textInput = document.createElement("input");
+                        textInput.id = `previewLine${i}`;
+                        textInput.setAttribute(
+                            "onkeyup",
+                            `jobject[${i}].text = $('#previewLine${i}').val(); refreshOutput('previewLineChange')`
+                        );
+                        textInput.setAttribute("type", "text");
+                        textInput.className = "form-control previewLine";
+                        textInput.value = jobject[i].text;
+
+                        rowContentsInnerContainer.appendChild(textInput);
                     } else if (get_type(jobject[i].score) != "[object Undefined]") {
-                        var tempJSON =
-                            '<input type="text" class="form-control previewLine" disabled value="' +
-                            jobject[i].score.name +
-                            "'s " +
-                            jobject[i].score.objective +
-                            ' score">';
+                        var scoreText = document.createElement("input");
+                        scoreText.setAttribute("disabled", "true");
+                        scoreText.setAttribute("type", "text");
+                        scoreText.className = "form-control previewLine";
+                        scoreText.value = `${jobject[i].score.name}'s ${jobject[i].score
+                            .objective}`;
+
+                        rowContentsInnerContainer.appendChild(scoreText);
                     } else if (get_type(jobject[i].selector) != "[object Undefined]") {
-                        var tempJSON =
-                            '<input type="text" class="form-control previewLine" disabled value="Selector: ' +
-                            jobject[i].selector +
-                            '">';
+                        var scoreText = document.createElement("input");
+                        scoreText.setAttribute("disabled", "true");
+                        scoreText.setAttribute("type", "text");
+                        scoreText.className = "form-control previewLine";
+                        scoreText.value = `Selector: ${jobject[i].selector}`;
+
+                        rowContentsInnerContainer.appendChild(scoreText);
                     }
+
                     if (
                         input == "noEditIfMatches" &&
                         jobject[i].text != $("#previewLine" + matchTo).val()
                     ) {
                         var blah = "blah"; /* wtf */
                     } else {
-                        tempJSON =
-                            `<div class="row">` +
-                            `<div class="col-xs-10 col-md-11">${tempJSON}</div>` +
-                            `<div class="col-xs-2 col-md-1">` +
-                            `<div class="colorPreview" style="background-color:${getCSSHEXFromWord(
-                                jobject[i].color
-                            )}"></div>` +
-                            `</div>` +
-                            `</div>`;
+                        let rowEl = document.createElement("div");
+                        rowEl.className = "row";
+                        rowContentsOuterContainer.appendChild(rowEl);
+
+                        /* Contents Column */
+                        let contentsColumn = document.createElement("div");
+                        contentsColumn.className = "col-xs-10 col-md-11";
+                        contentsColumn.appendChild(rowContentsInnerContainer);
+
+                        rowEl.appendChild(contentsColumn);
+
+                        /* Color Column */
+                        let colorColumn = document.createElement("div");
+                        colorColumn.className = "col-xs-2 col-md-1";
+
+                        let colorPreview = document.createElement("div");
+                        colorPreview.className = "colorPreview";
+                        colorPreview.backgroundColor = getCSSHEXFromWord(jobject[i].color);
+
+                        colorColumn.appendChild(colorPreview);
+
+                        rowEl.appendChild(colorColumn);
                     }
                 }
-                var editButton = `<i id="${i}RowEditButton" onclick="editExtra(${i});" class="fa fa-pencil fa-2x"></i>`;
-                if (jobject[i].NEW_ITERATE_FLAG) {
-                    editButton = `<i style="color:gray;" class="fa fa-pencil fa-2x"></i>`;
-                }
-                var deleteButton = `<i onclick="deleteIndex(${i});" class="fa fa-times-circle fa-2x"></i>`;
-                $("#snippet-container").append(
-                    `<li class="row extraRow row-margin-top row-margin-bottom mover-row RowIndex${i}">` +
-                        `<div class="col-xs-4 col-sm-2 col-lg-2 snippet-manipulation-area">${deleteButton}${editButton}${dragButton}</div>` +
-                        `<div class="col-xs-8 col-sm-10 col-lg-10" style="padding:none;">${tempJSON}</div>` +
-                        `</li>`
-                );
+
+                /* Controls */
+                let snippetManipulationArea = document.createElement("div");
+                snippetManipulationArea.className =
+                    "col-xs-4 col-sm-2 col-lg-2 snippet-manipulation-area";
+                snippetManipulationArea.innerHTML = `${deleteButton}${editButton}${dragButton}`;
+
+                /* Contents (right of controls) */
+                let snippetContents = document.createElement("div");
+                snippetContents.className = "col-xs-8 col-sm-10 col-lg-10";
+                snippetContents.padding = "none";
+                snippetContents.appendChild(rowContentsOuterContainer);
+
+                /* Overall container */
+                let snippetListItem = document.createElement("li");
+                snippetListItem.className = `row extraRow row-margin-top row-margin-bottom mover-row RowIndex${i}`;
+                snippetListItem.appendChild(snippetManipulationArea);
+                snippetListItem.appendChild(snippetContents);
+
+                snippetItemsContainer.appendChild(snippetListItem);
             }
+
+            document.getElementById("snippet-container").appendChild(snippetItemsContainer);
         } else {
             $("#snippet-container")
                 .children()
