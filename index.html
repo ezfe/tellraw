@@ -514,34 +514,38 @@
 				</div>
 
 				<style>
-					#snippetsWell, #nicelookingoutput {
-						margin-bottom: 0px;
+					#snippet-container {
+						padding-left: unset;
+					}
+					#snippet-container li {
+						display: grid;
+						grid-row-gap: 10px;
+						grid-template-columns: [divider] 1fr 1fr [divider] repeat(10, 1fr) [divider];
+					}
+				</style>
+				<ol class="grid-fullwidth" id="snippet-container">
+
+				</ol>
+				<style>
+					#snippets-controls-row {
+						display: grid;
+						grid-template-columns: 2fr 2fr 2fr 4fr;
 					}
 				</style>
 
-					<ol class="grid-fullwidth" id="snippet-container">
+				<div class="grid-content" id="snippets-controls-row">
+						<button class="btn btn-primary btn-block" id="addExtraButton"><span lang="textsnippets.addsnippet"></span> <i class="fa fa-plus-circle"></i></span></button>
+						<div class="help-box" lang="help.addsnippet"></div>
 
-					</ol>
-					<style>
-						#snippets-controls-row {
-							display: grid;
-							grid-template-columns: 2fr 2fr 2fr 4fr;
-						}
-					</style>
+						<button class="btn btn-danger btn-block" id="deleteAllBtn" onclick="deleteAll()">
+							<span lang="settings.deleteall.yes"></span> <i class="fa fa-times-circle"></i></span>
+						</button>
+						<div class="help-box" lang="help.delete-all-snippets"></div>
 
-					<div class="grid-content" id="snippets-controls-row">
-							<button id="addExtraButton"><span lang="textsnippets.addsnippet"></span> <i class="fa fa-plus-circle"></i></span></button>
-							<div class="help-box" lang="help.addsnippet"></div>
-
-							<button class="btn btn-danger btn-block" id="deleteAllBtn" onclick="deleteAll()">
-								<span lang="settings.deleteall.yes"></span> <i class="fa fa-times-circle"></i></span>
-							</button>
-							<div class="help-box" lang="help.delete-all-snippets"></div>
-
-							<button style="display:none;" class="btn btn-info btn-block" onclick="addNewIterateFlag();" id="add-ITERATE-FLAG">
-								<span id="add-ITERATE-FLAG-label"></span> <i class="fa fa-eye"></i></span>
-							</button>
-					</div>
+						<button style="display:none;" class="btn btn-info btn-block" onclick="addNewIterateFlag();" id="add-ITERATE-FLAG">
+							<span id="add-ITERATE-FLAG-label"></span> <i class="fa fa-eye"></i></span>
+						</button>
+				</div>
 
 				<div class="grid-label" id="output_label">
 					<span lang="command"></span> <i onclick="refreshOutput(); $('#refreshButton').addClass('fa-spin');setTimeout(function(){$('#refreshButton').removeClass('fa-spin')},2000);" id="refreshButton" class="fa fa-refresh"></i><br>
@@ -549,6 +553,11 @@
 				</div>
 				<textarea class="grid-content" onkeyup="refreshOutput()" id="outputtextfield" class="form-control"></textarea>
 
+				<style>
+					#nicelookingoutput {
+						margin-bottom: 0px;
+					}
+				</style>
 				<pre class="grid-content" id="nicelookingoutput" style="display:none;"></pre>
 
 				<style>
