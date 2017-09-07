@@ -479,7 +479,7 @@
 			<style>
 				#main-view-grid-container {
 					display: grid;
-					grid-row-gap: 10px;
+					grid-row-gap: 20px;
 					grid-template-columns: [divider] 1fr 1fr [divider] repeat(10, 1fr) [divider];
 				}
 
@@ -516,10 +516,14 @@
 				<style>
 					#snippet-container {
 						padding-left: unset;
+						margin-bottom: unset;
+						display: grid;
+						grid-row-gap: 10px;
 					}
 					#snippet-container li {
 						display: grid;
-						grid-row-gap: 10px;
+						grid-row-gap: 0px;
+						grid-template-rows: 34px;
 						grid-template-columns: [divider] 1fr 1fr [divider] repeat(10, 1fr) [divider];
 					}
 				</style>
@@ -555,7 +559,7 @@
 
 				<style>
 					#nicelookingoutput {
-						margin-bottom: 0px;
+						margin-bottom: unset;
 					}
 				</style>
 				<pre class="grid-content" id="nicelookingoutput" style="display:none;"></pre>
@@ -567,9 +571,9 @@
 					}
 				</style>
 				<div class="grid-content" id="controls-row">
-					<button id="import"><span lang="settings.import"></span> <i class="fa fa-cloud-upload"></i></button>
-					<button id="export"><span lang="settings.export"></span> <i class="fa fa-cloud-download"></i></button>
-					<button onclick="showView('settings')" id="openSettings"><span lang="settings.show"></span> <i class="fa fa-gear"></i></button>
+					<button class="btn btn-default btn-block" id="import"><span lang="settings.import"></span> <i class="fa fa-cloud-upload"></i></button>
+					<button class="btn btn-default btn-block" id="export"><span lang="settings.export"></span> <i class="fa fa-cloud-download"></i></button>
+					<button class="btn btn-default btn-block" onclick="showView('settings')" id="openSettings"><span lang="settings.show"></span> <i class="fa fa-gear"></i></button>
 				</div>
 
 				<span class="grid-label" id="output_header" lang="output.header"></span>
