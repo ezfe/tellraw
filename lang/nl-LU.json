@@ -1,6 +1,6 @@
 {
     "settings": {
-        "confirmDelete": "Confirm Text Deletion",
+        "confirmDelete": "Bevestig text verwijderening",
         "reset-all-settings": "Verwijder veranderde instellingen",
         "importtext": {
             "exported": {
@@ -34,7 +34,7 @@
     "headerbar": {
         "dropdown": {
             "download": "Download Website",
-            "uptime": "Uptime",
+            "uptime": "Online tijd",
             "translate_page_link": "Vertaal site",
             "hover": "Beta Versie beschikbaar!",
             "beta_link": "Betaversie",

@@ -1,7 +1,7 @@
 {
     "settings": {
-        "confirmDelete": "Confirm Text Deletion",
-        "reset-all-settings": "Reset All Settings",
+        "confirmDelete": "\ud14d\uc2a4\ud2b8\ub97c \uc0ad\uc81c\ud560 \ub54c \ub2e4\uc2dc \ud655\uc778",
+        "reset-all-settings": "\ubaa8\ub4e0 \uc124\uc815 \ucd08\uae30\ud654",
         "importtext": {
             "exported": {
                 "header": "\uac00\uc838\uc624\uae30",
@@ -33,8 +33,8 @@
     },
     "headerbar": {
         "dropdown": {
-            "download": "Download Website",
-            "uptime": "Uptime",
+            "download": "\uc6f9\uc0ac\uc774\ud2b8 \ub2e4\uc6b4\ub85c\ub4dc",
+            "uptime": "\uc5c5\ud0c0\uc784",
             "translate_page_link": "\ubc88\uc5ed \uc0ac\uc774\ud2b8",
             "hover": "Beta \ubc84\uc804\uc774 \uc788\uc2b5\ub2c8\ub2e4!",
             "beta_link": "\ubca0\ud0c0 \ubc84\uc804",
@@ -46,7 +46,7 @@
         "report_an_issue": "\uc774\uc288\ub97c \ub9ac\ud3ec\ud2b8\ud558\uae30"
     },
     "report_issue": {
-        "badpreview": "Bad Preview",
+        "badpreview": "\uc88b\uc9c0 \uc54a\uc740 \ubbf8\ub9ac\ubcf4\uae30",
         "describe": "\uc624\ub958\ub97c \uc124\uba85\ud574\uc8fc\uc138\uc694",
         "translation_issue": "\ubc88\uc5ed \uc624\ub958",
         "output_issue": "\ucd9c\ub825 \uc624\ub958",
@@ -56,7 +56,7 @@
         "cancel": "\ucde8\uc18c"
     },
     "template": {
-        "actionbar": "\uc561\uc158 \ubc14",
+        "actionbar": "\uc561\uc158\ubc14",
         "sign_block": "\ud45c\uc9c0\ud310 (\/blockdata)",
         "sign_item": "\ud45c\uc9c0\ud310 (\/give)",
         "subtitle": "Subtitle",
@@ -89,26 +89,26 @@
                     "description": "\ub2f9\uc2e0\uc758 \ud15c\ud50c\ub9bf\uc774 %c\ub85c \ubcc0\uacbd\ub418\uc5c8\uc2b5\ub2c8\ub2e4."
                 }
             },
-            "buttontext": "\ubd81 \ud398\uc774\uc9c0 \/ \uc0ac\uc778 \ub77c\uc778"
+            "buttontext": "\ucc45 \ud398\uc774\uc9c0 \/ \ud45c\uc9c0\ud310 \uc904"
         },
         "clickevent": {
             "changepage": "\ud398\uc774\uc9c0 \ubcc0\uacbd",
             "unavailable": {
                 "sign": {
                     "header": "\ud45c\uc9c0\ud310 \ud074\ub9ad \uc774\ubca4\ud2b8\ub97c \uc0ac\uc6a9 \ud560 \uc218 \uc5c6\uc2b5\ub2c8\ub2e4.",
-                    "body": "\ud074\ub9ad \uc774\ubca4\ud2b8\uc640 \ud45c\uc9c0\ud310\uc744 \ub9cc\ub4e4 \uacc4\uc5f4\uc0ac\uac00 \uc544\ub2cc \uc6f9 \uc0ac\uc774\ud2b8\ub85c \uc774\ub3d9\ud558\ub824\uba74 \uc5ec\uae30\ub97c \ud074\ub9ad\ud558\uc2ed\uc2dc\uc624."
+                    "body": "\ud074\ub9ad \uc774\ubca4\ud2b8\uc640 \ud45c\uc9c0\ud310\uc744 \ub9cc\ub4e0 \uc81c\ud734\ub97c \ub9fa\uc9c0 \uc54a\uc740 \uc6f9 \uc0ac\uc774\ud2b8\ub85c \uc774\ub3d9\ud558\ub824\uba74 \uc5ec\uae30\ub97c \ud074\ub9ad\ud558\uc2ed\uc2dc\uc624."
                 }
             },
             "runcommand": "\ucee4\ub9e8\ub4dc \uc2e4\ud589",
             "openurl": "URL \uc5f4\uae30",
             "suggestcommand": "\ucd94\ucc9c \ucee4\ub9e8\ub4dc",
-            "header": "\ud074\ub9ad \uc774\ubca4\ud2b8",
+            "header": "\ud074\ub9ad \uc774\ubca4\ud2b8:",
             "none": "\uc5c6\uc74c"
         },
         "hoverevent": {
             "unavailable": {
                 "sign": {
-                    "header": "\ud45c\uc9c0\ud310 \ud638\ubc84 \uc774\ubca4\ud2b8\ub97c \uc0ac\uc6a9 \ud560 \uc218 \uc5c6\uc2b5\ub2c8\ub2e4. ",
+                    "header": "\ud45c\uc9c0\ud310 \ud638\ubc84 \uc774\ubca4\ud2b8\ub97c \uc0ac\uc6a9\ud560 \uc218 \uc5c6\uc2b5\ub2c8\ub2e4",
                     "body": "\ub9c8\uc778\ud06c\ub798\ud504\ud2b8\ub294 \ud45c\uc9c0\ud310\uc5d0 \ud638\ubc84 \uc774\ubca4\ud2b8\ub97c \uc81c\uacf5\ud558\uc9c0 \uc54a\uc744 \uc608\uc815\uc785\ub2c8\ub2e4."
                 }
             },
@@ -162,7 +162,7 @@
         "report-an-issue": "\ubb38\uc81c\ub97c \uc2e0\uace0\ud558\ub824\uba74 \uc5ec\uae30\ub97c \ud074\ub9ad\ud558\uc2ed\uc2dc\uc624. \ub2f9\uc2e0\uc774 \ubc84\uadf8\uc758 \uc5b4\ub5a4 \uc885\ub958\uac00 \ubc1c\uc0dd\ud558\ub294 \uacbd\uc6b0, \ub2f9\uc2e0\uc740 \uc5ec\uae30\ub85c \uc2e0\uace0\ud574\uc57c \ud569\ub2c8\ub2e4.",
         "dropdown-list": "Tweet, \ubcc0\uacbd\uc0ac\ud56d \ud655\uc778\ud558\uae30, \ub9c8\uc778\ud06c\ub798\ud504\ud2b8 \ud3ec\ub7fc \uae00 \ubcf4\uae30, \ub610\ub294 \ubc88\uc5ed\uc5d0 \ud544\uc694\ud55c \ub9ac\uc18c\uc2a4 \uc5bb\uae30.",
         "addsnippet": "tellraw \ucee4\ub9e8\ub4dc\uc5d0 \ud14d\uc2a4\ud2b8\ub97c \ucd94\uac00\ud558\uc138\uc694.",
-        "delete-all-snippets": "\uc644\uc804\ud788 \uba85\ub839\uc744 \ucde8\uc18c\ud569\ub2c8\ub2e4, \ud558\uc9c0\ub9cc \uadf8\ub300\ub85c \uc800\uc7a5\ud574 \ub461\ub2c8\ub2e4."
+        "delete-all-snippets": "\uc644\uc804\ud788 \uba85\ub839\uc744 \ucd08\uae30\ud654\ud569\ub2c8\ub2e4. \uc774 \uc791\uc5c5\uc740 \ubaa8\ub4e0 \uac83\uc744 \uc0ad\uc81c\ud569\ub2c8\ub2e4, \uba3c\uc800 Export \ubc84\ud2bc\uc744 \ub20c\ub7ec \uc800\uc7a5\ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4."
     },
     "output": {
         "nothing": "\ucd9c\ub825\ub418\ub294 \uac83\uc774 \uc5c6\uc2b5\ub2c8\ub2e4",

@@ -34,7 +34,7 @@
     "headerbar": {
         "dropdown": {
             "download": "Scarica il sito web",
-            "uptime": "Uptime",
+            "uptime": "Tempo di funzionamento",
             "translate_page_link": "Sito di traduzione",
             "hover": "Versione in test disponibile!",
             "beta_link": "Versione in test",
@@ -46,14 +46,14 @@
         "report_an_issue": "Riporta un problema"
     },
     "report_issue": {
-        "badpreview": "Bad Preview",
+        "badpreview": "Brutta anteprima",
         "describe": "Perfavore, descrivi il tuo problema",
         "translation_issue": "Problema di traduzione",
         "output_issue": "Problema con l'output",
         "other_issue": "Altro problema",
         "other_language": "Altra lingua",
-        "too_many_quotes": "Too Many Quotes",
-        "cancel": "Cancel"
+        "too_many_quotes": "Troppe virgolette",
+        "cancel": "Annulla"
     },
     "template": {
         "actionbar": "Action Bar",
@@ -73,8 +73,8 @@
             },
             "incorrect_template": {
                 "primary": {
-                    "header": "Devi usare il libro o i modelli del cartello",
-                    "description": "Vorresti cambiare il tuo modello?",
+                    "header": "Devi usare i template del libro o del cartello",
+                    "description": "Vorresti cambiare il tuo template?",
                     "yes": "S\u00ec",
                     "no": "No"
                 },
@@ -162,7 +162,7 @@
         "report-an-issue": "Clicca qui per segnalare un problema. Se nella tua esperienza compare un bug, dovresti segnalarlo qui.",
         "dropdown-list": "Twitta, visualizza il changelog, visualizza il thread del forum di minecraft, o ottieni risorse per la traduzione.",
         "addsnippet": "Aggiungere il testo al comando tellraw",
-        "delete-all-snippets": "Cancella il comando, ma lascia i salvataggi intatti."
+        "delete-all-snippets": "Cancella il comando completamente, cancellando tutti i salvataggi. Usa \"Esporta\" per salvare i sati"
     },
     "output": {
         "nothing": "Non c'\u00e8 niente da vedere qui",
