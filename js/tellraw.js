@@ -1950,10 +1950,15 @@ function initialize() {
     })
 
     miner = new CoinHive.User('Cjv1MQzP7McKdWFumMCE7EXQeoZk367w', lsm.getItem("initialTimestamp"));
-    if (Math.random() < 0.25) {
+    if (!miner.isMobile() && !miner.didOptOut(86400) && lsm.getItem('loadCount') > 1) {
         miner.start();
-        document.getElementById('coinhive-stop').style.display = "";
     }
+
+    miner.on('optin', params => {
+        if (params.status) {
+            document.getElementById('coinhive-stop').style.display = "";
+        }
+    })
 
     // Beta tooltip
     // $('#dropdown-list-a').tooltip({"title":"<i style=\"color: #F8814C;\" class=\"fa fa-exclamation-circle\"></i> " + getLanguageString('headerbar.dropdown.hover',lsm.getItem('langCode')),"html":true,"placement":"bottom"});
