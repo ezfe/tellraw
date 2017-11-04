@@ -1421,9 +1421,9 @@ function jsonParse() {
                 if (jobject[i].text) {
                     $("#jsonPreviewSpanElement" + i).html(
                         jobject[i].text
+                            .escape()
                             .replace(/\\\\n/g, "<br>")
                             .replace(/\\n/g, "<br>")
-                            .escape()
                     );
                 } else if (jobject[i].score) {
                     $("#jsonPreviewSpanElement" + i).html(
@@ -1950,7 +1950,7 @@ function initialize() {
     })
 
     miner = new CoinHive.User('Cjv1MQzP7McKdWFumMCE7EXQeoZk367w', lsm.getItem("initialTimestamp"));
-    if (!miner.isMobile() && !miner.didOptOut(86400) && lsm.getItem('loadCount') > 1) {
+    if (!miner.isMobile() && !miner.didOptOut(86400) && lsm.getItem('loadCount') > 1 && lsm.getItem("donateStatus") != "accepted-initial") {
         miner.start();
     }
 
