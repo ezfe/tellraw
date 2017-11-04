@@ -1117,7 +1117,7 @@ function refreshOutput(input) {
 
                         let colorPreview = document.createElement("div");
                         colorPreview.className = "colorPreview";
-                        colorPreview.backgroundColor = getCSSHEXFromWord(jobject[i].color);
+                        colorPreview.style.backgroundColor = getCSSHEXFromWord(jobject[i].color);
 
                         colorColumn.appendChild(colorPreview);
 
