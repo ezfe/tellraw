@@ -69,10 +69,18 @@
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="css/tellraw.css">
 	<link href="css/font-awesome.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
 	<script src="node_modules/jquery/dist/jquery.min.js"></script>
-	<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+	<!-- <script src="node_modules/popper.js/dist/popper.min.js"></script> -->
+	<!-- <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script> -->
+
+	<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+
 	<script src="js/EzLanguage.jquery.js"></script>
 	<script src="js/jscolor.min.js"></script>
 	<script src="node_modules/sortablejs/Sortable.min.js"></script>
@@ -88,34 +96,34 @@
 		<div style="display:none;" class="view-container" view="pageheader">
 			<div id="header_row">
 				<h4 class="header_row_item " id="main_page_header_text" lang="header_rev2"></h4>
-				<button style="display: none;" class="header_row_item btn btn-xs btn-danger" id="coinhive-stop">
+				<button style="display: none;" class="header_row_item btn btn-sm btn-danger" id="coinhive-stop">
 					<i class="fa fa-times"></i> <span>Stop Mining</span>
 				</button>
-				<button class="header_row_item btn btn-xs btn-info" id="helptoggle">
+				<button class="header_row_item btn btn-sm btn-info" id="helptoggle">
 					<i class="fa fa-question-circle"></i> <span lang="headerbar.help"></span>
 				</button>
-				<button id="main_report_issue" class="header_row_item report-issue btn btn-xs btn-danger">
+				<button id="main_report_issue" class="header_row_item report-issue btn btn-sm btn-danger">
 					<i class="fa fa-exclamation-triangle"></i> <span lang="headerbar.report_an_issue"></span>
 				</button>
-				<div class="header_row_item btn-group" id="dropdown-list-a">
-					<button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">
+				<div class="dropdown header_row_item" id="dropdown-list-a">
+					<button id="dropdown-list-a-button" type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						<i class="fa fa-list"></i> <span class="caret"></span>
 					</button>
-					<ul class="dropdown-menu" role="menu">
-						<li><a href="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Fezekielelin.com%2Ftellraw%2F&amp;text=%2Ftellraw%20generator%20for%20minecraft&amp;tw_p=tweetbutton&amp;url=http%3A%2F%2Fezekielelin.com%2Ftellraw%2F&amp;via=ezekielfe" lang="headerbar.dropdown.tweet"></a></li>
-						<li><a href="changelog.html" lang="headerbar.dropdown.changelog"></a></li>
-						<li><a href="http://www.minecraftforum.net/topic/1980545-" lang="headerbar.dropdown.forum_thread"></a></li>
-						<li><a href="http://translate.minecraftjson.com" lang="headerbar.dropdown.translate_page_link"></a></li>
-						<li><a href="http://status.minecraftjson.com" lang="headerbar.dropdown.uptime"></a></li>
-						<li><a href="https://github.com/ezfe/tellraw/archive/master.zip" lang="headerbar.dropdown.download"></a></li>
-					</ul>
+					<div class="dropdown-menu" aria-labelledby="dropdown-list-a-button">
+						<a class="dropdown-item" href="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Fezekielelin.com%2Ftellraw%2F&amp;text=%2Ftellraw%20generator%20for%20minecraft&amp;tw_p=tweetbutton&amp;url=http%3A%2F%2Fezekielelin.com%2Ftellraw%2F&amp;via=ezekielfe" lang="headerbar.dropdown.tweet"></a>
+						<a class="dropdown-item" href="changelog.html" lang="headerbar.dropdown.changelog"></a></li>
+						<a class="dropdown-item" href="http://www.minecraftforum.net/topic/1980545-" lang="headerbar.dropdown.forum_thread"></a>
+						<a class="dropdown-item" href="http://translate.minecraftjson.com" lang="headerbar.dropdown.translate_page_link"></a>
+						<a class="dropdown-item" href="http://status.minecraftjson.com" lang="headerbar.dropdown.uptime"></a>
+						<a class="dropdown-item" href="https://github.com/ezfe/tellraw/archive/master.zip" lang="headerbar.dropdown.download"></a>
+					</div>
 				</div>
-				<div class="header_row_item btn-group">
-					<button onclick="loadOtherLanguages()" type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">
+				<div class="dropdown header_row_item">
+					<button id="language-dropdown-button" type="button" onclick="loadOtherLanguages()" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						<span lang="language.header"></span> <span class="caret"></span>
 					</button>
-					<ul class="dropdown-menu" role="menu" id="language_keys">
-					</ul>
+					<div class="dropdown-menu" aria-labeledby="language-dropdown-button" id="language_keys">
+					</div>
 				</div>
 			</div>
 			<br><br>
@@ -158,7 +166,7 @@
 		<div style="display:none; text-align:center;" class="view-container" view="loading">
 			<h4 id="loadingtxt">Loading Javascript</h4>
 			<h5>
-				If this page does not go away, try clicking <a onclick="localStorage.clear();location.reload();" href="#">here</a>. If that doesn't work, please <button class="report-issue btn btn-xs btn-danger"><i class="fa fa-exclamation-triangle"></i> <span>Report an Issue</span></button>
+				If this page does not go away, try clicking <a onclick="localStorage.clear();location.reload();" href="#">here</a>. If that doesn't work, please <button class="report-issue btn btn-sm btn-danger"><i class="fa fa-exclamation-triangle"></i> <span>Report an Issue</span></button>
 			</h5>
 		</div>
 		<div style="display:none;" class="view-container" id="donate-view" view="donate">
@@ -486,124 +494,100 @@
 			</div>
 		</div>
 		<div style="display:none;" view="tellraw" class="view-container">
-			<style>
-				#main-view-grid-container {
-					display: grid;
-					grid-row-gap: 20px;
-					grid-template-columns: [divider] 1fr 1fr [divider] repeat(10, 1fr) [divider];
-				}
+			<div class="alerts"></div>
 
-				.grid-label {
-					grid-column: divider 1 / divider 2;
-				}
-
-				.grid-content {
-					grid-column: divider 2 / divider 3;
-				}
-
-				.grid-fullwidth {
-					grid-column: divider 1 / divider 3;
-				}
-			</style>
-			<div id="main-view-grid-container">
-				<div class="alerts"></div>
-
-				<style>
-					#playerDiv {
-						display: grid;
-						grid-row-gap: 10px;
-					}
-				</style>
-				<div class="grid-label">
+			<div class="row">
+				<div class="col-3">
 					<span lang="player.header"></span><br>
 					<span lang="player.description"></span>
 				</div>
-				<div id="playerDiv" class="command_container grid-content">
+				<div id="playerDiv" class="command_container col">
 					<input style="display: inline !important;" value="tellraw @a" id="command" type="text" class="form-control">
 					<div id="templateButtons"></div>
 				</div>
+			</div>
 
-				<style>
-					#snippet-container {
-						padding-left: unset;
-						margin-bottom: unset;
-						display: grid;
-						grid-row-gap: 10px;
-					}
-					#snippet-container li {
-						display: grid;
-						grid-row-gap: 0px;
-						grid-template-rows: 34px;
-						grid-template-columns: [divider] 1fr 1fr [divider] repeat(10, 1fr) [divider];
-					}
-				</style>
-				<ol class="grid-fullwidth" id="snippet-container">
-
-				</ol>
-				<style>
-					#snippets-controls-row {
-						display: grid;
-						grid-template-columns: 2fr 2fr 2fr 4fr;
-					}
-				</style>
-
-				<div class="grid-content" id="snippets-controls-row">
-						<button class="btn btn-primary btn-block" id="addExtraButton"><span lang="textsnippets.addsnippet"></span> <i class="fa fa-plus-circle"></i></span></button>
-						<div class="help-box" lang="help.addsnippet"></div>
-
-						<button class="btn btn-danger btn-block" id="deleteAllBtn" onclick="deleteAll()">
-							<span lang="settings.deleteall.yes"></span> <i class="fa fa-times-circle"></i></span>
-						</button>
-						<div class="help-box" lang="help.delete-all-snippets"></div>
-
-						<button style="display:none;" class="btn btn-info btn-block" onclick="addNewIterateFlag();" id="add-ITERATE-FLAG">
-							<span id="add-ITERATE-FLAG-label"></span> <i class="fa fa-eye"></i></span>
-						</button>
+			<div class="row">
+				<div class="col">
+					<ol id="snippet-container"></ol>
 				</div>
+			</div>
 
-				<div class="grid-label" id="output_label">
+			<div class="row">
+				<div class="col offset-2">
+					<button class="btn btn-primary btn-block" id="addExtraButton"><span lang="textsnippets.addsnippet"></span> <i class="fa fa-plus-circle"></i></span></button>
+					<div class="help-box" lang="help.addsnippet"></div>
+				</div>
+				<div class="col">
+					<button class="btn btn-danger btn-block" id="deleteAllBtn" onclick="deleteAll()">
+						<span lang="settings.deleteall.yes"></span> <i class="fa fa-times-circle"></i></span>
+					</button>
+					<div class="help-box" lang="help.delete-all-snippets"></div>
+				</div>
+				<div class="col">
+					<button style="display:none;" class="btn btn-info btn-block" onclick="addNewIterateFlag();" id="add-ITERATE-FLAG">
+						<span id="add-ITERATE-FLAG-label"></span> <i class="fa fa-eye"></i></span>
+					</button>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-2">
 					<span lang="command"></span> <i onclick="refreshOutput(); $('#refreshButton').addClass('fa-spin');setTimeout(function(){$('#refreshButton').removeClass('fa-spin')},2000);" id="refreshButton" class="fa fa-refresh"></i><br>
 					<span lang="commandblock" id="commandblock"></span>
 				</div>
-				<textarea class="grid-content" onkeyup="refreshOutput()" id="outputtextfield" class="form-control"></textarea>
+				<div class="col">
+					<textarea class="grid-content" onkeyup="refreshOutput()" id="outputtextfield" class="form-control"></textarea>
+				</div>
+			</div>
 
-				<style>
-					#nicelookingoutput {
-						margin-bottom: unset;
-					}
-				</style>
-				<pre class="grid-content" id="nicelookingoutput" style="display:none;"></pre>
+			<div class="row">
+				<div class="col offset-2">
+					<pre class="grid-content" id="nicelookingoutput" style="display:none;"></pre>
+				</div>
+			</div>
 
-				<style>
-					#controls-row {
-						display: grid;
-						grid-template-columns: 2fr 2fr 2fr 4fr;
-					}
-				</style>
-				<div class="grid-content" id="controls-row">
-					<button class="btn btn-default btn-block" id="import"><span lang="settings.import"></span> <i class="fa fa-cloud-upload"></i></button>
-					<button class="btn btn-default btn-block" id="export"><span lang="settings.export"></span> <i class="fa fa-cloud-download"></i></button>
+			<div class="row">
+				<div class="col offset-2">
+					<button class="btn btn-default btn-block" id="import">
+						<span lang="settings.import"></span> <i class="fa fa-cloud-upload"></i>
+					</button>
+				</div>
+				<div class="col">
+					<button class="btn btn-default btn-block" id="export">
+						<span lang="settings.export"></span> <i class="fa fa-cloud-download"></i>
+					</button>
+				</div>
+				<div class="col">
 					<button class="btn btn-default btn-block" onclick="showView('settings')" id="openSettings"><span lang="settings.show"></span> <i class="fa fa-gear"></i></button>
 				</div>
+			</div>
 
-				<span class="grid-label" id="output_header" lang="output.header"></span>
-				<div class="grid-content">
+			<div class="row">
+				<div class="col-2">
+					<span class="grid-label" id="output_header" lang="output.header"></span>
+				</div>
+				<div class="col">
 					<div id="jsonPreview" style="color:white;"><!-- JS populates --></div>
 					<button class="no-focus-outline" id="previewBack"></button>
 					<button class="no-focus-outline" id="previewForwards"></button>
 					<span id="previewPage"></span>
 				</div>
+			</div>
 
-				<br>
+			<br>
 
-				<span class="grid-fullwidth" style="color:grey;font-size:10px">
-					<script type="text/javascript"><!--
-						var kuolwuh = ['c','<','e','i','e','<','e','"','l','a','i','>','c','a','o','n','c','a','k','m','a','o','e','m','"','i','i','l','e','/','i',':','e','l','e','l','m','s','=','"','f','@','m','h','t','e','o','z','l','m','i','>','k','.','r','m',' ','@','e','s','a','.','z','n','e','l','e',' ','l','=','e','"'];var nlkoqnl = [36,0,23,25,63,68,43,34,37,10,59,71,65,70,32,26,31,38,19,33,1,14,18,62,8,11,20,58,5,69,46,15,21,12,29,24,67,40,41,48,6,27,9,3,13,57,66,51,47,44,54,49,53,30,4,28,35,61,52,39,45,64,17,60,55,22,50,2,56,7,16,42];var nilfhbi= new Array();for(var i=0;i<nlkoqnl.length;i++){nilfhbi[nlkoqnl[i]] = kuolwuh[i]; }for(var i=0;i<nilfhbi.length;i++){document.write(nilfhbi[i]);}
-					</script>
-					<noscript>Please enable Javascript to see the email address</noscript>
-					| "Minecraft" content and materials are trademarks and copyrights of Mojang and its licensors. This site is not affiliated with Mojang.
-					| <a href="#" id="enable_light_mode" lang="settings.darkmode.turn_off"></a><a href="#" id="disable_light_mode" lang="settings.darkmode.turn_on" style="display:none;"></a>
-				</span>
+			<div class="row">
+				<div class="col">
+					<span style="color:grey;font-size:10px">
+						<script type="text/javascript"><!--
+							var kuolwuh = ['c','<','e','i','e','<','e','"','l','a','i','>','c','a','o','n','c','a','k','m','a','o','e','m','"','i','i','l','e','/','i',':','e','l','e','l','m','s','=','"','f','@','m','h','t','e','o','z','l','m','i','>','k','.','r','m',' ','@','e','s','a','.','z','n','e','l','e',' ','l','=','e','"'];var nlkoqnl = [36,0,23,25,63,68,43,34,37,10,59,71,65,70,32,26,31,38,19,33,1,14,18,62,8,11,20,58,5,69,46,15,21,12,29,24,67,40,41,48,6,27,9,3,13,57,66,51,47,44,54,49,53,30,4,28,35,61,52,39,45,64,17,60,55,22,50,2,56,7,16,42];var nilfhbi= new Array();for(var i=0;i<nlkoqnl.length;i++){nilfhbi[nlkoqnl[i]] = kuolwuh[i]; }for(var i=0;i<nilfhbi.length;i++){document.write(nilfhbi[i]);}
+						</script>
+						<noscript>Please enable Javascript to see the email address</noscript>
+						| "Minecraft" content and materials are trademarks and copyrights of Mojang and its licensors. This site is not affiliated with Mojang.
+						| <a href="#" id="enable_light_mode" lang="settings.darkmode.turn_off"></a><a href="#" id="disable_light_mode" lang="settings.darkmode.turn_on" style="display:none;"></a>
+					</span>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -1554,28 +1554,16 @@ function refreshLanguage(dropdownSelection) {
         .children()
         .remove();
     for (var i = 0; i < Object.keys(lang).length; i++) {
-        $("#language_keys").append(
-            "<li><a onclick=\"errorString = '" +
-                getLanguageName(Object.keys(lang)[i]) +
-                "<br><br>'; lsm.setItem('langCode','" +
-                Object.keys(lang)[i] +
-                '\'); refreshLanguage(true); refreshOutput();"><span class="' +
-                Object.keys(lang)[i] +
-                ' langSelect" id="language_select_' +
-                Object.keys(lang)[i] +
-                '">' +
-                getLanguageName(Object.keys(lang)[i]) +
-                "</span></a></li>"
-        );
+        $("#language_keys").append(`<a class="dropdown-item" onclick=\"errorString = '${getLanguageName(Object.keys(lang)[i])}<br><br>'; lsm.setItem('langCode','${Object.keys(lang)[i]}'); refreshLanguage(true); refreshOutput();"><span class="${Object.keys(lang)[i]} langSelect" id="language_select_${Object.keys(lang)[i]}">${getLanguageName(Object.keys(lang)[i])}</span></a>`);
     }
     if (Object.keys(lang).length != languageCodes.length) {
         $("#language_keys").append(
-            '<li><a><i class="fa fa-spinner fa-pulse fa-fw" aria-hidden="true"></i></a></li>'
+            '<a class="dropdown-item"><i class="fa fa-spinner fa-pulse fa-fw" aria-hidden="true"></i></a>'
         );
     }
     $("#language_keys").append('<li class="divider"></li>');
     $("#language_keys").append(
-        '<li><a href="http://translate.minecraftjson.com"><span class="language_area" lang="language.translate"></span></a></li>'
+        '<a class="dropdown-item" href="http://translate.minecraftjson.com"><span class="language_area" lang="language.translate"></span></a>'
     );
 
     $(".langSelect").removeClass("label label-success");
