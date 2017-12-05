@@ -1687,17 +1687,7 @@ function initialize() {
         } else {
             var classString = "btn-default";
         }
-        $("#templateButtons").append(
-            '<button class="btn btn-xs ' +
-                classString +
-                ' templateButton" lang="template.' +
-                key +
-                '" version="' +
-                templates[key]["version"] +
-                '" template="' +
-                key +
-                '"></button> '
-        );
+        $("#templateButtons").append(`<button type="button" class="btn btn-sm ${classString} templateButton" lang="template.${key}" version="${templates[key]["version"]}" template="${key}"></button>`);
     }
 
     if (lsm.getItem("jtemplate") == undefined) {
