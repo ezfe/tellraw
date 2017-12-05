@@ -1125,19 +1125,18 @@ function refreshOutput(input) {
 
                 /* Controls */
                 let snippetManipulationArea = document.createElement("div");
-                snippetManipulationArea.className =
-                    "col-xs-4 col-sm-2 col-lg-2 snippet-manipulation-area";
+                snippetManipulationArea.className = "grid-label snippet-manipulation-area";
                 snippetManipulationArea.innerHTML = `${deleteButton}${editButton}${dragButton}`;
 
                 /* Contents (right of controls) */
                 let snippetContents = document.createElement("div");
-                snippetContents.className = "col-xs-8 col-sm-10 col-lg-10";
+                snippetContents.className = "grid-content";
                 snippetContents.padding = "none";
                 snippetContents.appendChild(rowContentsOuterContainer);
 
                 /* Overall container */
                 let snippetListItem = document.createElement("li");
-                snippetListItem.className = `row extraRow row-margin-top row-margin-bottom mover-row RowIndex${i}`;
+                snippetListItem.className = `extraRow mover-row RowIndex${i}`;
                 snippetListItem.appendChild(snippetManipulationArea);
                 snippetListItem.appendChild(snippetContents);
 

@@ -77,22 +77,6 @@ div.popover {
 h3.popover-title {
 	font-size: 12px;
 }
-div[class*='col-lg-'] {
-	margin-bottom: 5px;
-	margin-top: 5px;
-}
-div[class*='col-md-'] {
-	margin-bottom: 5px;
-	margin-top: 5px;
-}
-div[class*='col-sm-'] {
-	margin-bottom: 5px;
-	margin-top: 5px;
-}
-div[class*='col-xs-'] {
-	margin-bottom: 5px;
-	margin-top: 5px;
-}
 .container {
 	min-height:100%;
 	position:relative;
@@ -246,11 +230,6 @@ div[class*='col-xs-'] {
 #header_row {
 	display:flex;
 	flex-direction: column;
-	margin: -5px 0;
-}
-
-#header_row > .header_row_item  {
-	margin: 5px 0;
 }
 
 @media only screen and (min-width: 650px) {
