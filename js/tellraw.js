@@ -1019,21 +1019,29 @@ function refreshOutput(input) {
                     iconString,
                     classString = "",
                     idString = "",
-                    onClickString = ""
+                    onClick = function(){}
                 ) {
-                    return `<i id=${idString} onclick="${onClickString}" class="${classString} fa fa-${iconString} fa-2x"></i>`;
+                    let button = document.createElement('i');
+                    button.id = idString;
+                    button.onclick = onClick;
+                    if (classString.length > 0) {
+                        button.classList.add(classString);
+                    }
+                    button.classList.add('fa');
+                    button.classList.add(`fa-${iconString}`);
+                    return button;
                 }
 
                 let rowContentsOuterContainer = document.createDocumentFragment();
                 let rowContentsInnerContainer = document.createDocumentFragment();
 
                 let dragButton = makeButton("sort", "drag-handle");
-                let editButton = makeButton("pencil", "", `${i}RowEditButton`, `editExtra(${i});`);
-                let deleteButton = `<i onclick="deleteIndex(${i});" class="fa fa-times-circle fa-2x"></i>`;
+                let editButton = makeButton("pencil", "", `${i}RowEditButton`, function(){ editExtra(i); });
+                let deleteButton = makeButton("times-circle", "", "", function(){deleteIndex(i);});
 
                 if (jobject[i].NEW_ITERATE_FLAG) {
                     // Disable the edit button
-                    editButton = `<i style="color:gray;" class="fa fa-pencil fa-2x"></i>`;
+                    editButton.style.color = 'gray';
 
                     if (
                         ["bookarray", "signset"].indexOf(
@@ -1127,18 +1135,21 @@ function refreshOutput(input) {
 
                 /* Controls */
                 let snippetManipulationArea = document.createElement("div");
-                snippetManipulationArea.className = "grid-label snippet-manipulation-area";
-                snippetManipulationArea.innerHTML = `${deleteButton}${editButton}${dragButton}`;
+                snippetManipulationArea.className = "col-2";
+                snippetManipulationArea.appendChild(deleteButton);
+                snippetManipulationArea.appendChild(editButton);
+                snippetManipulationArea.appendChild(dragButton);
+                // snippetManipulationArea.innerHTML = `${deleteButton}${editButton}${dragButton}`;
 
                 /* Contents (right of controls) */
                 let snippetContents = document.createElement("div");
-                snippetContents.className = "grid-content";
+                snippetContents.className = "col";
                 snippetContents.padding = "none";
                 snippetContents.appendChild(rowContentsOuterContainer);
 
                 /* Overall container */
                 let snippetListItem = document.createElement("li");
-                snippetListItem.className = `extraRow mover-row RowIndex${i}`;
+                snippetListItem.className = `row extraRow mover-row RowIndex${i}`;
                 snippetListItem.appendChild(snippetManipulationArea);
                 snippetListItem.appendChild(snippetContents);
 
@@ -1561,7 +1572,7 @@ function refreshLanguage(dropdownSelection) {
             '<a class="dropdown-item"><i class="fa fa-spinner fa-pulse fa-fw" aria-hidden="true"></i></a>'
         );
     }
-    $("#language_keys").append('<li class="divider"></li>');
+    $("#language_keys").append('<div class="dropdown-divider"></div>');
     $("#language_keys").append(
         '<a class="dropdown-item" href="http://translate.minecraftjson.com"><span class="language_area" lang="language.translate"></span></a>'
     );
