@@ -265,3 +265,16 @@ h3.popover-title {
 .templateButton {
 	margin-right: 5px;
 }
+
+.row-margin-top {
+	margin-top: 10px;
+}
+
+.row-margin-bottom {
+	margin-bottom: 10px;
+}
+
+.row-margin {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}

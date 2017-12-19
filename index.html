@@ -496,19 +496,18 @@
 		<div style="display:none;" view="tellraw" class="view-container">
 			<div class="alerts"></div>
 
-			<div class="row">
+			<div class="row row-margin-bottom">
 				<div class="col-3">
 					<span lang="player.header"></span><br>
 					<span lang="player.description"></span>
 				</div>
 				<div id="playerDiv" class="command_container col">
-					<input style="display: inline !important;" value="tellraw @a" id="command" type="text" class="form-control">
+					<input style="display: inline !important; margin-bottom: 5px;" value="tellraw @a" id="command" type="text" class="form-control">
 					<div id="templateButtons"></div>
 				</div>
 			</div>
 
-
-			<div class="row">
+			<div class="row row-margin">
 				<div class="col">
 					<div class="card">
 						<div class="card-block">
@@ -518,7 +517,7 @@
 				</div>
 			</div>
 
-			<div class="row">
+			<div class="row row-margin">
 				<div class="col offset-2">
 					<button class="btn btn-primary btn-block" id="addExtraButton"><span lang="textsnippets.addsnippet"></span> <i class="fa fa-plus-circle"></i></span></button>
 					<div class="help-box" lang="help.addsnippet"></div>
@@ -536,7 +535,7 @@
 				</div>
 			</div>
 
-			<div class="row">
+			<div class="row row-margin">
 				<div class="col-2">
 					<span lang="command"></span> <i onclick="refreshOutput(); $('#refreshButton').addClass('fa-spin');setTimeout(function(){$('#refreshButton').removeClass('fa-spin')},2000);" id="refreshButton" class="fa fa-refresh"></i><br>
 					<span lang="commandblock" id="commandblock"></span>
@@ -546,13 +545,13 @@
 				</div>
 			</div>
 
-			<div class="row">
+			<div class="row row-margin">
 				<div class="col offset-2">
 					<pre class="grid-content" id="nicelookingoutput" style="display:none;"></pre>
 				</div>
 			</div>
 
-			<div class="row">
+			<div class="row row-margin">
 				<div class="col offset-2">
 					<button class="btn btn-default btn-block" id="import">
 						<span lang="settings.import"></span> <i class="fa fa-cloud-upload"></i>
@@ -568,7 +567,7 @@
 				</div>
 			</div>
 
-			<div class="row">
+			<div class="row row-margin-top">
 				<div class="col-2">
 					<span class="grid-label" id="output_header" lang="output.header"></span>
 				</div>
