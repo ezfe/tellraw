@@ -1,6 +1,6 @@
 {
     "settings": {
-        "confirmDelete": "Confirm Text Deletion",
+        "confirmDelete": "Textl\u00f6schen Best\u00e4tigen",
         "reset-all-settings": "Alle Einstellungen zur\u00fccksetzen",
         "importtext": {
             "exported": {
@@ -33,7 +33,7 @@
     },
     "headerbar": {
         "dropdown": {
-            "download": "Download Website",
+            "download": "Webseite Herrunterladen",
             "uptime": "Laufzeit",
             "translate_page_link": "\u00dcbersetzungsseite",
             "hover": "Beta-Version verf\u00fcgbar!",
@@ -46,10 +46,10 @@
         "report_an_issue": "Melde einen Fehler"
     },
     "report_issue": {
-        "badpreview": "Schlechte Vorschau",
+        "badpreview": "Falsche Vorschau",
         "describe": "Bitte beschreibe dein Problem",
         "translation_issue": "\u00dcbersetzungsproblem",
-        "output_issue": "Anzeigeproblem",
+        "output_issue": "Problem mit der Ausgabe",
         "other_issue": "Sonstiges Problem",
         "other_language": "Andere Sprache",
         "too_many_quotes": "Zu viele Anf\u00fchrungszeichen",

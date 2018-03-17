@@ -34,7 +34,7 @@
 	height:200px;
 	overflow-y: scroll;
 }
-.card {
+.well {
 	color: black;
 }
 .modal {
@@ -77,6 +77,22 @@ div.popover {
 h3.popover-title {
 	font-size: 12px;
 }
+div[class*='col-lg-'] {
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+div[class*='col-md-'] {
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+div[class*='col-sm-'] {
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+div[class*='col-xs-'] {
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
 .container {
 	min-height:100%;
 	position:relative;
@@ -89,7 +105,7 @@ h3.popover-title {
 .sweet-alert {
 	color: black;
 }
-.black-theme .card {
+.black-theme .well {
 	color: black;
 }
 
@@ -230,6 +246,11 @@ h3.popover-title {
 #header_row {
 	display:flex;
 	flex-direction: column;
+	margin: -5px 0;
+}
+
+#header_row > .header_row_item  {
+	margin: 5px 0;
 }
 
 @media only screen and (min-width: 650px) {
@@ -260,21 +281,4 @@ h3.popover-title {
 
 #main_report_issue {
 
-}
-
-.templateButton {
-	margin-right: 5px;
-}
-
-.row-margin-top {
-	margin-top: 10px;
-}
-
-.row-margin-bottom {
-	margin-bottom: 10px;
-}
-
-.row-margin {
-	margin-top: 10px;
-	margin-bottom: 10px;
 }
