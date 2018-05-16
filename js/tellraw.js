@@ -1654,7 +1654,9 @@ function initialize() {
         hitcount > 3 &&
         lsm.getItem("donateStatus") == "unprompted"
     ) {
-        if (
+        //Disabled donations prompts
+        false
+        if (false && 
             confirm(
                 `Hi, I see you've been using my tool for a while.\nI don't make any money off this project, and would appreciate any size donation.\nWould you like to give a small donation? Any amount is appreciated.`
             )
