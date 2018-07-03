@@ -52,7 +52,7 @@
         "output_issue": "\u547d\u4ee4\u8f93\u51fa\u95ee\u9898",
         "other_issue": "\u5176\u4ed6\u95ee\u9898",
         "other_language": "\u5176\u4ed6\u8bed\u8a00",
-        "too_many_quotes": "\u592a\u591a\u5f15\u53f7",
+        "too_many_quotes": "\u592a\u591a\u5f15\u53f7\u4e86",
         "cancel": "\u53d6\u6d88"
     },
     "template": {
@@ -68,7 +68,7 @@
     "textsnippets": {
         "NEW_ITERATE_FLAG": {
             "add": {
-                "book": "\u6dfb\u52a0\u4e66\u9875",
+                "book": "\u6dfb\u52a0\u9875\u9762",
                 "sign": "\u6dfb\u52a0\u544a\u793a\u724c\u884c\u6570"
             },
             "incorrect_template": {
@@ -108,7 +108,7 @@
         "hoverevent": {
             "unavailable": {
                 "sign": {
-                    "header": "\u6307\u9488\u60ac\u6d6e\u544a\u793a\u724c\u7684\u4e8b\u4ef6\u529f\u80fd\u672a\u88ab\u52a0\u5165",
+                    "header": "\u5149\u6807\u60ac\u505c\u544a\u793a\u724c\u7684\u4e8b\u4ef6\u6682\u672a\u88ab\u52a0\u5165",
                     "body": "\u8fd9\u662f\u56e0\u4e3aMinecraft\u6682\u4e0d\u652f\u6301\u6307\u9488\u60ac\u6d6e\u544a\u793a\u724c\u7684\u4e8b\u4ef6\u3002"
                 }
             },

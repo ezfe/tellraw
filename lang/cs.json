@@ -1,7 +1,7 @@
 {
     "settings": {
-        "confirmDelete": "Confirm Text Deletion",
-        "reset-all-settings": "Reset All Settings",
+        "confirmDelete": "Potvr\u010fte smaz\u00e1n\u00ed textu",
+        "reset-all-settings": "Resetovat v\u0161echna nastaven\u00ed",
         "importtext": {
             "exported": {
                 "header": "Importovat",
@@ -33,7 +33,7 @@
     },
     "headerbar": {
         "dropdown": {
-            "download": "Download Website",
+            "download": "St\u00e1hnout str\u00e1nku",
             "uptime": "Uptime",
             "translate_page_link": "P\u0159eklad Str\u00e1nky",
             "hover": "Beta Verze je Dostupn\u00e1 !",
@@ -43,10 +43,10 @@
             "changelog": "Seznam Zm\u011bn"
         },
         "help": "Pomoc",
-        "report_an_issue": "Po\u0161li n\u00e1m n\u00e1pad"
+        "report_an_issue": "Nahl\u00e1sit probl\u00e9m"
     },
     "report_issue": {
-        "badpreview": "Bad Preview",
+        "badpreview": "\u0160patn\u00fd n\u00e1hled",
         "describe": "Popi\u0161te sv\u016fj probl\u00e9m.",
         "translation_issue": "\u0160patn\u00fd p\u0159eklad",
         "output_issue": "Chyba na v\u00fdstupu",
@@ -56,7 +56,7 @@
         "cancel": "Zru\u0161it"
     },
     "template": {
-        "actionbar": "Action Bar",
+        "actionbar": "Action Bar (ta v\u011bc nad hotbarem)",
         "sign_block": "Cedulka (\/blockdata)",
         "sign_item": "Cedulka (\/give)",
         "subtitle": "Podtitulek",
@@ -162,7 +162,7 @@
         "report-an-issue": "Zde m\u016f\u017eete nahl\u00e1sit jak\u00fdkoliv objeven\u00fd bug. pokud n\u011bjak\u00fd objev\u00edte, nahla\u0161te ho pros\u00edm.",
         "dropdown-list": "Tweet, zobraz\u00ed seznam zm\u011bn, zobraz Minecraft forum \u010dl\u00e1nek, nebo z\u00edskej dopl\u0148ky pro p\u0159eklad.",
         "addsnippet": "P\u0159idat text do va\u0161eho \"tellraw\" p\u0159\u00edkazu.",
-        "delete-all-snippets": "Vy\u010dist\u00ed kompletn\u011b tv\u016fj p\u0159\u00edkaz ale zanech\u00e1 tv\u00e9 ulo\u017een\u00e9 texty."
+        "delete-all-snippets": "Vy\u010dist\u00ed kompletn\u011b tv\u016fj p\u0159\u00edkaz. Sma\u017ee v\u0161e, Exportuj si to pro ulo\u017een\u00ed."
     },
     "output": {
         "nothing": "Zde nen\u00ed na co koukat ;)",

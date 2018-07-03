@@ -1,7 +1,7 @@
 {
     "settings": {
-        "confirmDelete": "Confirm Text Deletion",
-        "reset-all-settings": "Reset All Settings",
+        "confirmDelete": "Bekr\u00e4fta text bortagning",
+        "reset-all-settings": "\u00c5terst\u00e4ll alla inst\u00e4llningar",
         "importtext": {
             "exported": {
                 "header": "Importera",
@@ -33,8 +33,8 @@
     },
     "headerbar": {
         "dropdown": {
-            "download": "Download Website",
-            "uptime": "Uptime",
+            "download": "Ladda ner hemsidan",
+            "uptime": "drifttid",
             "translate_page_link": "\u00d6vers\u00e4ttningssida",
             "hover": "Betaversion tillg\u00e4nglig!",
             "beta_link": "Betaversion",
@@ -46,14 +46,14 @@
         "report_an_issue": "Rapportera ett problem"
     },
     "report_issue": {
-        "badpreview": "Bad Preview",
-        "describe": "Please describe your issue",
-        "translation_issue": "Translation Issue",
-        "output_issue": "Output Issue",
-        "other_issue": "Other Issue",
-        "other_language": "Other Language",
-        "too_many_quotes": "Too Many Quotes",
-        "cancel": "Cancel"
+        "badpreview": "D\u00e5lig f\u00f6rhandsvisning",
+        "describe": "Var v\u00e4nlig och beskriv ditt problem",
+        "translation_issue": "\u00d6vers\u00e4ttnings fel",
+        "output_issue": "Utdata fel",
+        "other_issue": "Annat fel",
+        "other_language": "Annat Spr\u00e5k",
+        "too_many_quotes": "F\u00f6r m\u00e5nga citattecken",
+        "cancel": "Avbryt"
     },
     "template": {
         "actionbar": "Action Bar",
@@ -68,8 +68,8 @@
     "textsnippets": {
         "NEW_ITERATE_FLAG": {
             "add": {
-                "book": "Add Book Page",
-                "sign": "Add Sign Line"
+                "book": "L\u00e4gg till boksida",
+                "sign": "L\u00e4gg till ny skylt rad"
             },
             "incorrect_template": {
                 "primary": {
@@ -85,7 +85,7 @@
                     "sign": "Skylt"
                 },
                 "tertiary": {
-                    "header": "Klar!",
+                    "header": "Klart!",
                     "description": "Din mall har blivit \u00e4ndrad till %c"
                 }
             },
@@ -162,7 +162,7 @@
         "report-an-issue": "Klicka h\u00e4r f\u00f6r att rapportera ett problem. Om du hittar n\u00e5gon sorts bugg, rapportera den h\u00e4r.",
         "dropdown-list": "Tweeta, visa \u00e4ndringslogg, visa minecraftforumstr\u00e5den eller f\u00e5 resurser f\u00f6r \u00f6vers\u00e4ttning.",
         "addsnippet": "L\u00e4gg till text till ditt tellrawkommando.",
-        "delete-all-snippets": "Rensa ditt nuvarande kommando helt, men bevara dina sparade kommandon."
+        "delete-all-snippets": "Rensa ditt nuvarande kommando helt. Detta kommer att ta bort allt, anv\u00e4nda exportera knappen f\u00f6r att spara det f\u00f6rst."
     },
     "output": {
         "nothing": "Inget att se h\u00e4r",
