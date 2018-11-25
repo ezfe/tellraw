@@ -1708,6 +1708,11 @@ function initialize() {
     if (lsm.getItem("jtemplate") == undefined) {
         lsm.setItem("jtemplate", "tellraw");
     }
+
+    if (lsm.getItem("jtemplate") == "book13") {
+        lsm.setItem("jtemplate", "book");
+    }
+
     if (lang[lsm.getItem("langCode")]) {
         errorString = getLanguageName(lsm.getItem("langCode")) + "<br><br>";
     } else {
