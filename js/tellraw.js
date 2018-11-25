@@ -575,12 +575,6 @@ let templates = {
         mouseActionOptions: []
     },
     book: {
-        command: "/give @p written_book 1 0 {pages:%s,title:Book,author:TellrawGenerator}",
-        version: "1.8",
-        formatType: "bookarray",
-        mouseActionOptions: [MOUSE_ACTION_HOVER, MOUSE_ACTION_CLICK, MOUSE_ACTION_INSERTION]
-    },
-    book13: {
         command: "/give @p written_book{pages:%s,title:CustomBook,author:Player}",
         version: "1.13",
         formatType: "bookarray",
@@ -1603,9 +1597,10 @@ function refreshLanguage(dropdownSelection) {
             lsm.getItem("versionIndicators") == undefined
         ) {
             let levels = {
+                "1.15": "danger",
                 "1.14": "danger",
-                "1.13": "danger",
-                "1.12": "warning",
+                "1.13": "warning",
+                "1.12": "success",
                 "1.11": "success",
                 "1.10": "success",
                 "1.9": "success",
