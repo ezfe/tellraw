@@ -3,6 +3,7 @@ import { Snippet, SnippetType } from "../classes/Snippet";
 import { InlineSnippetController } from "./InlineSnippetController";
 import { CommandTemplatesController } from "./CommandTemplatesController";
 import { compile } from "../helpers";
+import { SnippetDetailController } from "./SnippetDetailController";
 
 export interface TellrawProps {
 
@@ -10,6 +11,7 @@ export interface TellrawProps {
 
 interface TellrawState {
     snippets: Array<Snippet>
+    editing: Snippet
     compiled: string
 }
 
@@ -21,14 +23,55 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
 
         this.state = {
             snippets: new Array<Snippet>(),
+            editing: null,
             compiled: ""
         }
 
+        this.startEditing = this.startEditing.bind(this)
+        this.updateEditing = this.updateEditing.bind(this)
+        this.stopEditing = this.stopEditing.bind(this)
+        
         this.addTextSnippet = this.addTextSnippet.bind(this)
         this.addLineBreak = this.addLineBreak.bind(this)
         this.addSnippet = this.addSnippet.bind(this)
         this.updateSnippet = this.updateSnippet.bind(this)
         this.recompile = this.recompile.bind(this)
+
+        this.editor = this.editor.bind(this)
+        this.listView = this.listView.bind(this)
+        this.mainView = this.mainView.bind(this)
+    }
+
+    /**
+     * Start editing a snippet.
+     * 
+     * @param snippet The snippet to start editing
+     */
+    startEditing(snippet: Snippet) {
+        this.setState({ editing: snippet })
+    }
+
+    /**
+     * Update the snippet being edited without propagating it to the
+     * main snippet list.
+     * 
+     * @param snippet The new snippet state
+     */
+    updateEditing(snippet: Snippet) {
+        this.setState({ editing: snippet })
+    }
+
+    /**
+     * Stop editing a snippet.
+     * 
+     * @param save Whether to save the new snippet state back to the main snippet list.
+     */
+    stopEditing(save: boolean) {
+        if (save && this.state.editing !== null) {
+            this.updateSnippet(this.state.editing)
+        }
+
+        this.setState({ editing: null })
     }
 
     addTextSnippet() {
@@ -72,6 +115,35 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
         this.setState({ compiled: compile(snippets) })
     }
 
+    editor() {
+        return <SnippetDetailController snippet={this.state.editing} updateSnippet={this.updateEditing} stopEditing={this.stopEditing}/>
+    }
+
+    listView() {
+        return (
+            <div>
+                {
+                    this.state.snippets.map((s: Snippet) => {
+                        return <InlineSnippetController key={s.id}
+                                                        snippet={s}
+                                                        updateSnippet={this.updateSnippet}
+                                                        editSnippet={this.startEditing} />
+                    })
+                }
+                <button onClick={this.addTextSnippet}>Add</button>
+                <button onClick={this.addLineBreak}>New Line</button>
+            </div>
+        )
+    }
+
+    mainView() {
+        if (this.state.editing === null) {
+            return this.listView()
+        } else {
+            return this.editor()
+        }
+    }
+
     render() {
         return (
             <div>
@@ -86,15 +158,9 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
                 <hr />
                 <br />
                 <br />
-                {
-                    this.state.snippets.map((s: Snippet) => {
-                        return <InlineSnippetController key={s.id} snippet={s} updateSnippet={this.updateSnippet} />
-                    })
-                }
                 
-                <button onClick={this.addTextSnippet}>Add</button>
-                <button onClick={this.addLineBreak}>New Line</button>
-
+                { this.mainView() }
+                
                 <br />
                 <br />
                 <span>{this.state.compiled}</span>

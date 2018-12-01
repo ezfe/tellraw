@@ -4,6 +4,7 @@ import { Snippet, Color, SnippetType } from "../classes/Snippet"
 export interface InlineSnippetControllerProps {
     snippet: Snippet
     updateSnippet: (Snippet) => void
+    editSnippet: (Snippet) => void
 }
 
 interface InlineSnippetControllerState {
@@ -23,7 +24,6 @@ export class InlineSnippetController extends React.Component<InlineSnippetContro
 
         this.changeText = this.changeText.bind(this)
         this.updateField = this.updateField.bind(this)
-        this.toggleEdit = this.toggleEdit.bind(this)
         this.handleQuickActions = this.handleQuickActions.bind(this)
     }
 
@@ -35,10 +35,6 @@ export class InlineSnippetController extends React.Component<InlineSnippetContro
         let newSnippet = this.props.snippet.copy()
         newSnippet[field] = value
         this.props.updateSnippet(newSnippet)
-    }
-
-    toggleEdit() {
-        // this.setState({ editing: !this.state.editing })
     }
 
     handleQuickActions(event) {
@@ -56,7 +52,7 @@ export class InlineSnippetController extends React.Component<InlineSnippetContro
                 return [
                     <div>
                         <input value={this.props.snippet.text} onChange={this.changeText} />
-                        <button onClick={this.toggleEdit}>✏️</button>
+                        <button onClick={() => { this.props.editSnippet(this.props.snippet) }}>✏️</button>
                         <br />
                         <select name="quick-actions" value={this.state.quickAction} onChange={this.handleQuickActions}>
                             <option value="*">Quick Actions...</option>
@@ -71,7 +67,7 @@ export class InlineSnippetController extends React.Component<InlineSnippetContro
             case SnippetType.lineBreak:
                 return <span>⏎<br /></span>
             default:
-                return <span>error</span>
+                return <span>error <button onClick={() => { this.props.editSnippet(this.props.snippet) }}>✏️</button></span>
         }
     }
 }

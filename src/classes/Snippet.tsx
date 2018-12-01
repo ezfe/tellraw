@@ -21,14 +21,19 @@ export enum Color {
 }
 
 export enum SnippetType {
-    text, lineBreak
+    text, selector, lineBreak
 }
 
 export class Snippet {
     id: string
 
     type: SnippetType
+    
+    // Regular Text
     text: string
+
+    // Selector
+    selector: string
 
     bold: boolean = false
     italic: boolean = false
@@ -50,7 +55,10 @@ export class Snippet {
         let newValue = new Snippet(this.id)
         
         newValue.type = this.type
+
         newValue.text = this.text
+
+        newValue.selector = this.selector
 
         newValue.bold = this.bold
         newValue.italic = this.italic

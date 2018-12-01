@@ -1,4 +1,4 @@
-import { Snippet, SnippetType, Color } from "../Classes/Snippet";
+import { Snippet, SnippetType, Color } from "../classes/Snippet";
 
 export function compile(snippets: Array<Snippet>): string {
 
@@ -9,6 +9,10 @@ export function compile(snippets: Array<Snippet>): string {
 
         if (snippet.type == SnippetType.text || snippet.type == SnippetType.lineBreak) {
             pending["text"] = snippet.text
+        }
+
+        if (snippet.type == SnippetType.selector) {
+            pending["selector"] = snippet.selector
         }
 
         /* Style Transfer */

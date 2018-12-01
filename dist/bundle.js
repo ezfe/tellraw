@@ -206,77 +206,6 @@ module.exports = v4;
 
 /***/ }),
 
-/***/ "./src/Classes/Snippet.tsx":
-/*!*********************************!*\
-  !*** ./src/Classes/Snippet.tsx ***!
-  \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var uuid = __webpack_require__(/*! uuid/v4 */ "./node_modules/uuid/v4.js");
-var Color;
-(function (Color) {
-    Color[Color["black"] = 0] = "black";
-    Color[Color["dark_blue"] = 1] = "dark_blue";
-    Color[Color["dark_green"] = 2] = "dark_green";
-    Color[Color["dark_aqua"] = 3] = "dark_aqua";
-    Color[Color["dark_red"] = 4] = "dark_red";
-    Color[Color["dark_purple"] = 5] = "dark_purple";
-    Color[Color["gold"] = 6] = "gold";
-    Color[Color["gray"] = 7] = "gray";
-    Color[Color["dark_gray"] = 8] = "dark_gray";
-    Color[Color["blue"] = 9] = "blue";
-    Color[Color["green"] = 10] = "green";
-    Color[Color["aqua"] = 11] = "aqua";
-    Color[Color["red"] = 12] = "red";
-    Color[Color["light_purple"] = 13] = "light_purple";
-    Color[Color["yellow"] = 14] = "yellow";
-    Color[Color["white"] = 15] = "white";
-    Color[Color["none"] = 16] = "none";
-})(Color = exports.Color || (exports.Color = {}));
-var SnippetType;
-(function (SnippetType) {
-    SnippetType[SnippetType["text"] = 0] = "text";
-    SnippetType[SnippetType["lineBreak"] = 1] = "lineBreak";
-})(SnippetType = exports.SnippetType || (exports.SnippetType = {}));
-var Snippet = /** @class */ (function () {
-    function Snippet(id) {
-        if (id === void 0) { id = null; }
-        this.bold = false;
-        this.italic = false;
-        this.underlined = false;
-        this.strikethrough = false;
-        this.obfuscated = false;
-        this.color = Color.none;
-        if (id !== null) {
-            this.id = id;
-        }
-        else {
-            this.id = uuid();
-        }
-    }
-    Snippet.prototype.copy = function () {
-        var newValue = new Snippet(this.id);
-        newValue.type = this.type;
-        newValue.text = this.text;
-        newValue.bold = this.bold;
-        newValue.italic = this.italic;
-        newValue.underlined = this.underlined;
-        newValue.strikethrough = this.strikethrough;
-        newValue.obfuscated = this.obfuscated;
-        newValue.color = this.color;
-        return newValue;
-    };
-    return Snippet;
-}());
-exports.Snippet = Snippet;
-
-
-/***/ }),
-
 /***/ "./src/classes/Snippet.tsx":
 /*!*********************************!*\
   !*** ./src/classes/Snippet.tsx ***!
@@ -311,7 +240,8 @@ var Color;
 var SnippetType;
 (function (SnippetType) {
     SnippetType[SnippetType["text"] = 0] = "text";
-    SnippetType[SnippetType["lineBreak"] = 1] = "lineBreak";
+    SnippetType[SnippetType["selector"] = 1] = "selector";
+    SnippetType[SnippetType["lineBreak"] = 2] = "lineBreak";
 })(SnippetType = exports.SnippetType || (exports.SnippetType = {}));
 var Snippet = /** @class */ (function () {
     function Snippet(id) {
@@ -333,6 +263,7 @@ var Snippet = /** @class */ (function () {
         var newValue = new Snippet(this.id);
         newValue.type = this.type;
         newValue.text = this.text;
+        newValue.selector = this.selector;
         newValue.bold = this.bold;
         newValue.italic = this.italic;
         newValue.underlined = this.underlined;
@@ -432,7 +363,6 @@ var InlineSnippetController = /** @class */ (function (_super) {
         };
         _this.changeText = _this.changeText.bind(_this);
         _this.updateField = _this.updateField.bind(_this);
-        _this.toggleEdit = _this.toggleEdit.bind(_this);
         _this.handleQuickActions = _this.handleQuickActions.bind(_this);
         return _this;
     }
@@ -444,9 +374,6 @@ var InlineSnippetController = /** @class */ (function (_super) {
         newSnippet[field] = value;
         this.props.updateSnippet(newSnippet);
     };
-    InlineSnippetController.prototype.toggleEdit = function () {
-        // this.setState({ editing: !this.state.editing })
-    };
     InlineSnippetController.prototype.handleQuickActions = function (event) {
         var target = event.target;
         var value = target.value;
@@ -455,12 +382,13 @@ var InlineSnippetController = /** @class */ (function (_super) {
         }
     };
     InlineSnippetController.prototype.render = function () {
+        var _this = this;
         switch (+this.props.snippet.type) {
             case Snippet_1.SnippetType.text:
                 return [
                     React.createElement("div", null,
                         React.createElement("input", { value: this.props.snippet.text, onChange: this.changeText }),
-                        React.createElement("button", { onClick: this.toggleEdit }, "\u270F\uFE0F"),
+                        React.createElement("button", { onClick: function () { _this.props.editSnippet(_this.props.snippet); } }, "\u270F\uFE0F"),
                         React.createElement("br", null),
                         React.createElement("select", { name: "quick-actions", value: this.state.quickAction, onChange: this.handleQuickActions },
                             React.createElement("option", { value: "*" }, "Quick Actions..."),
@@ -475,12 +403,78 @@ var InlineSnippetController = /** @class */ (function (_super) {
                     "\u23CE",
                     React.createElement("br", null));
             default:
-                return React.createElement("span", null, "error");
+                return React.createElement("span", null,
+                    "error ",
+                    React.createElement("button", { onClick: function () { _this.props.editSnippet(_this.props.snippet); } }, "\u270F\uFE0F"));
         }
     };
     return InlineSnippetController;
 }(React.Component));
 exports.InlineSnippetController = InlineSnippetController;
+
+
+/***/ }),
+
+/***/ "./src/components/SnippetDetailController.tsx":
+/*!****************************************************!*\
+  !*** ./src/components/SnippetDetailController.tsx ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __webpack_require__(/*! react */ "react");
+var Snippet_1 = __webpack_require__(/*! ../classes/Snippet */ "./src/classes/Snippet.tsx");
+// 'HelloProps' describes the shape of props.
+// State is never set so we use the '{}' type.
+var SnippetDetailController = /** @class */ (function (_super) {
+    __extends(SnippetDetailController, _super);
+    function SnippetDetailController(props) {
+        var _this = _super.call(this, props) || this;
+        _this.state = {};
+        _this.changeText = _this.changeText.bind(_this);
+        _this.changeSnippetType = _this.changeSnippetType.bind(_this);
+        return _this;
+    }
+    SnippetDetailController.prototype.changeText = function (event) {
+        var newSnippet = this.props.snippet.copy();
+        newSnippet.text = event.target.value;
+        this.props.updateSnippet(newSnippet);
+    };
+    SnippetDetailController.prototype.changeSnippetType = function (event) {
+        var value = event.target.value;
+        var newSnippet = this.props.snippet.copy();
+        newSnippet.type = value;
+        this.props.updateSnippet(newSnippet);
+    };
+    SnippetDetailController.prototype.render = function () {
+        var _this = this;
+        return (React.createElement("div", null,
+            React.createElement("select", { onChange: this.changeSnippetType, value: this.props.snippet.type },
+                React.createElement("option", { value: Snippet_1.SnippetType.text }, "Plain Text"),
+                React.createElement("option", { value: Snippet_1.SnippetType.selector }, "Selector")),
+            React.createElement("input", { value: this.props.snippet.text, onChange: this.changeText }),
+            React.createElement("button", { onClick: function () { _this.props.stopEditing(false); } }, "Cancel"),
+            React.createElement("button", { onClick: function () { _this.props.stopEditing(true); } }, "Save")));
+    };
+    return SnippetDetailController;
+}(React.Component));
+exports.SnippetDetailController = SnippetDetailController;
 
 
 /***/ }),
@@ -513,6 +507,7 @@ var Snippet_1 = __webpack_require__(/*! ../classes/Snippet */ "./src/classes/Sni
 var InlineSnippetController_1 = __webpack_require__(/*! ./InlineSnippetController */ "./src/components/InlineSnippetController.tsx");
 var CommandTemplatesController_1 = __webpack_require__(/*! ./CommandTemplatesController */ "./src/components/CommandTemplatesController.tsx");
 var helpers_1 = __webpack_require__(/*! ../helpers */ "./src/helpers/index.ts");
+var SnippetDetailController_1 = __webpack_require__(/*! ./SnippetDetailController */ "./src/components/SnippetDetailController.tsx");
 // 'HelloProps' describes the shape of props.
 // State is never set so we use the '{}' type.
 var Tellraw = /** @class */ (function (_super) {
@@ -521,15 +516,50 @@ var Tellraw = /** @class */ (function (_super) {
         var _this = _super.call(this, props) || this;
         _this.state = {
             snippets: new Array(),
+            editing: null,
             compiled: ""
         };
+        _this.startEditing = _this.startEditing.bind(_this);
+        _this.updateEditing = _this.updateEditing.bind(_this);
+        _this.stopEditing = _this.stopEditing.bind(_this);
         _this.addTextSnippet = _this.addTextSnippet.bind(_this);
         _this.addLineBreak = _this.addLineBreak.bind(_this);
         _this.addSnippet = _this.addSnippet.bind(_this);
         _this.updateSnippet = _this.updateSnippet.bind(_this);
         _this.recompile = _this.recompile.bind(_this);
+        _this.editor = _this.editor.bind(_this);
+        _this.listView = _this.listView.bind(_this);
+        _this.mainView = _this.mainView.bind(_this);
         return _this;
     }
+    /**
+     * Start editing a snippet.
+     *
+     * @param snippet The snippet to start editing
+     */
+    Tellraw.prototype.startEditing = function (snippet) {
+        this.setState({ editing: snippet });
+    };
+    /**
+     * Update the snippet being edited without propagating it to the
+     * main snippet list.
+     *
+     * @param snippet The new snippet state
+     */
+    Tellraw.prototype.updateEditing = function (snippet) {
+        this.setState({ editing: snippet });
+    };
+    /**
+     * Stop editing a snippet.
+     *
+     * @param save Whether to save the new snippet state back to the main snippet list.
+     */
+    Tellraw.prototype.stopEditing = function (save) {
+        if (save && this.state.editing !== null) {
+            this.updateSnippet(this.state.editing);
+        }
+        this.setState({ editing: null });
+    };
     Tellraw.prototype.addTextSnippet = function () {
         var snip = new Snippet_1.Snippet(null);
         snip.type = Snippet_1.SnippetType.text;
@@ -565,8 +595,27 @@ var Tellraw = /** @class */ (function (_super) {
             snippets = this.state.snippets;
         this.setState({ compiled: helpers_1.compile(snippets) });
     };
-    Tellraw.prototype.render = function () {
+    Tellraw.prototype.editor = function () {
+        return React.createElement(SnippetDetailController_1.SnippetDetailController, { snippet: this.state.editing, updateSnippet: this.updateEditing, stopEditing: this.stopEditing });
+    };
+    Tellraw.prototype.listView = function () {
         var _this = this;
+        return (React.createElement("div", null,
+            this.state.snippets.map(function (s) {
+                return React.createElement(InlineSnippetController_1.InlineSnippetController, { key: s.id, snippet: s, updateSnippet: _this.updateSnippet, editSnippet: _this.startEditing });
+            }),
+            React.createElement("button", { onClick: this.addTextSnippet }, "Add"),
+            React.createElement("button", { onClick: this.addLineBreak }, "New Line")));
+    };
+    Tellraw.prototype.mainView = function () {
+        if (this.state.editing === null) {
+            return this.listView();
+        }
+        else {
+            return this.editor();
+        }
+    };
+    Tellraw.prototype.render = function () {
         return (React.createElement("div", null,
             React.createElement("label", null,
                 "Player and Command",
@@ -578,11 +627,7 @@ var Tellraw = /** @class */ (function (_super) {
             React.createElement("hr", null),
             React.createElement("br", null),
             React.createElement("br", null),
-            this.state.snippets.map(function (s) {
-                return React.createElement(InlineSnippetController_1.InlineSnippetController, { key: s.id, snippet: s, updateSnippet: _this.updateSnippet });
-            }),
-            React.createElement("button", { onClick: this.addTextSnippet }, "Add"),
-            React.createElement("button", { onClick: this.addLineBreak }, "New Line"),
+            this.mainView(),
             React.createElement("br", null),
             React.createElement("br", null),
             React.createElement("span", null, this.state.compiled)));
@@ -679,7 +724,7 @@ exports.templates = [
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var Snippet_1 = __webpack_require__(/*! ../Classes/Snippet */ "./src/Classes/Snippet.tsx");
+var Snippet_1 = __webpack_require__(/*! ../classes/Snippet */ "./src/classes/Snippet.tsx");
 function compile(snippets) {
     var results = Array();
     results.push("");
@@ -688,6 +733,9 @@ function compile(snippets) {
         var pending = {};
         if (snippet.type == Snippet_1.SnippetType.text || snippet.type == Snippet_1.SnippetType.lineBreak) {
             pending["text"] = snippet.text;
+        }
+        if (snippet.type == Snippet_1.SnippetType.selector) {
+            pending["selector"] = snippet.selector;
         }
         /* Style Transfer */
         if (snippet.bold)
