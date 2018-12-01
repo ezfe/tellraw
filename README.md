@@ -1,4 +1,0 @@
-Tellraw
-=======
-
-Tellraw Generator
