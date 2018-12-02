@@ -1,15 +1,5 @@
 .DS_Store
 
-.idea
-
-node_modules/bootstrap/fonts/
-
-node_modules/bootstrap/grunt/
-
-node_modules/bootstrap/js/
-
-node_modules/bootstrap/less/
-
-node_modules/jquery/external/
-
-node_modules/jquery/src/
+/dist
+/node_modules
+/.vscode
