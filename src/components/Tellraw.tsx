@@ -146,11 +146,17 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
 
     render() {
         return (
-            <div>
-                <label>
-                    Player and Command
-                    <input />
-                </label>
+            <div className="container">
+                <div className="row">
+                    <div className="col-sm-2 col-xs-12 row-margin-top row-margin-bottom">
+                        <span lang="player.header">Player and Command</span>
+                        <br />
+                        <span lang="player.description">Used to select and execute different players</span>
+					</div>
+                    <div id="playerDiv" className="col-sm-10 col-xs-12 row-margin-top row-margin-bottom command_container">
+                        <input value="tellraw @a" id="command" type="text" className="form-control" />
+					</div>
+				</div>
                 <br />
                 <CommandTemplatesController />
                 <br />
