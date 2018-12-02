@@ -1,5 +1,6 @@
 import * as React from "react";
-import { Snippet, Color, SnippetType } from "../classes/Snippet"
+import { Snippet, SnippetType } from "../classes/Snippet"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export interface InlineSnippetControllerProps {
     snippet: Snippet
@@ -54,11 +55,13 @@ export class InlineSnippetController extends React.Component<InlineSnippetContro
     textRender() {
         return (
             <>
-                <div className="col-11">
-                    <input value={this.props.snippet.text} onChange={this.changeText} />
-                </div>,
                 <div className="col-1">
-                    <button onClick={() => { this.props.editSnippet(this.props.snippet) }}>✏️</button>
+                    <button className="btn" onClick={() => { this.props.editSnippet(this.props.snippet) }}>
+                        <FontAwesomeIcon icon="edit" /> Edit
+                    </button>
+                </div>
+                <div className="col">
+                    <input className="form-control" value={this.props.snippet.text} onChange={this.changeText} />
                 </div>
             </>
         )
