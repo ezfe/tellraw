@@ -158,7 +158,7 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
         <div className="row">
           <div className="offset-1 col-2">
             <div className="dropdown">
-              <button className="btn btn-secondary dropdown-toggle"
+              <button className="btn btn-primary dropdown-toggle"
                       type="button"
                       id="add-snippet-dropdown-button"
                       data-toggle="dropdown"

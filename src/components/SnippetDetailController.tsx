@@ -60,18 +60,35 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
     mainSnippetFields() {
         switch (this.props.snippet.type) {
             case SnippetType.text:
-                return <input placeholder="Text" value={this.props.snippet.text} onChange={this.changeText} />
+                return (
+                    <div className="row margin-below">
+                        <div className="col">
+                            <input className="form-control" placeholder="Text" value={this.props.snippet.text} onChange={this.changeText} />   
+                        </div>
+                    </div>
+                )
             case SnippetType.selector:
                 return (
-                    <input placeholder="Selector" value={this.props.snippet.selector} onChange={this.changeSelector} />
+                    <div className="row margin-below">
+                        <div className="col">
+                            <input className="form-control" placeholder="Selector" value={this.props.snippet.selector} onChange={this.changeSelector} />
+                        </div>
+                    </div>
                 )
             case SnippetType.scoreboardObjective:
                 return (
-                    <div>
-                        <input placeholder="Player" value={this.props.snippet.score_name} onChange={this.changeScoreName} />
-                        <br />
-                        <input placeholder="Objective" value={this.props.snippet.score_objective} onChange={this.changeScoreObjective} />
-                    </div>
+                    <>
+                        <div className="row margin-below">
+                            <div className="col">
+                                <input className="form-control" placeholder="Player" value={this.props.snippet.score_name} onChange={this.changeScoreName} />
+                            </div>
+                        </div>
+                        <div className="row margin-below">
+                            <div className="col">
+                                <input className="form-control" placeholder="Objective" value={this.props.snippet.score_objective} onChange={this.changeScoreObjective} />
+                            </div>
+                        </div>
+                    </>
                 )
             default:
                 return <span>Editing unsupported for <pre>{this.props.snippet.type}</pre> type</span>
@@ -80,18 +97,28 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
 
     render() {
         return (
-            <div>
-                <select onChange={this.changeSnippetType} value={this.props.snippet.type}>
-                    <option value={SnippetType.text}>Plain Text</option>
-                    <option value={SnippetType.selector}>Selector</option>
-                    <option value={SnippetType.scoreboardObjective}>Scoreboard Objective</option>
-                </select>
-
+            <>
+                <div className="row margin-below">
+                    <div className="col">
+                        <select className="form-control" onChange={this.changeSnippetType} value={this.props.snippet.type}>
+                            <option value={SnippetType.text}>Plain Text</option>
+                            <option value={SnippetType.selector}>Selector</option>
+                            <option value={SnippetType.scoreboardObjective}>Scoreboard Objective</option>
+                        </select>
+                    </div>
+                </div>
+                
                 { this.mainSnippetFields() }
 
-                <button onClick={() => { this.props.stopEditing(false) }}>Cancel</button>
-                <button onClick={() => { this.props.stopEditing(true) }}>Save</button>
-            </div>
+                <div className="row">
+                    <div className="offset-1 col-2">
+                        <button className="btn btn-secondary btn-block" onClick={() => { this.props.stopEditing(false) }}>Cancel</button>
+                    </div>
+                    <div className="col-2">
+                        <button className="btn btn-primary btn-block" onClick={() => { this.props.stopEditing(true) }}>Save</button>
+                    </div>
+                </div>
+            </>
         )
     }
 }
