@@ -121,18 +121,16 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
 
     listView() {
         return (
-            <div>
-                {
-                    this.state.snippets.map((s: Snippet) => {
-                        return <InlineSnippetController key={s.id}
-                                                        snippet={s}
-                                                        updateSnippet={this.updateSnippet}
-                                                        editSnippet={this.startEditing} />
-                    })
-                }
-                <button onClick={this.addTextSnippet}>Add</button>
+            [
+                this.state.snippets.map((s: Snippet) => {
+                    return <InlineSnippetController key={s.id}
+                                                    snippet={s}
+                                                    updateSnippet={this.updateSnippet}
+                                                    editSnippet={this.startEditing} />
+                }),
+                <button onClick={this.addTextSnippet}>Add</button>,
                 <button onClick={this.addLineBreak}>New Line</button>
-            </div>
+            ]
         )
     }
 

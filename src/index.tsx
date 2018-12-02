@@ -4,7 +4,7 @@ import * as ReactDOM from "react-dom";
 import Tellraw from "./components/Tellraw";
 
 import 'bootstrap';
-import './styles.scss';
+import './styles/styles.scss';
 
 ReactDOM.render(
     <Tellraw />,
