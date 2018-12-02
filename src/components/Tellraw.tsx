@@ -33,8 +33,11 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
     this.stopEditing = this.stopEditing.bind(this)
     
     this.addTextSnippet = this.addTextSnippet.bind(this)
+    this.addSelectorSnippet = this.addSelectorSnippet.bind(this)
+    this.addScoreboardObjectiveSnippet = this.addScoreboardObjectiveSnippet.bind(this)
     this.addLineBreak = this.addLineBreak.bind(this)
     this.addSnippet = this.addSnippet.bind(this)
+
     this.updateSnippet = this.updateSnippet.bind(this)
     this.recompile = this.recompile.bind(this)
 
@@ -77,8 +80,28 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
 
   addTextSnippet() {
     const snip = new Snippet(null)
+    
     snip.type = SnippetType.text
     snip.text = prompt("Enter text:")
+
+    this.addSnippet(snip)
+  }
+
+  addSelectorSnippet() {
+    const snip = new Snippet(null)
+    
+    snip.type = SnippetType.selector
+    snip.selector = prompt("Enter selector:")
+
+    this.addSnippet(snip)
+  }
+
+  addScoreboardObjectiveSnippet() {
+    const snip = new Snippet(null)
+
+    snip.type = SnippetType.scoreboardObjective
+    snip.score_name = prompt("Enter player name:")
+    snip.score_objective = prompt("Enter objective:")
 
     this.addSnippet(snip)
   }
@@ -134,12 +157,23 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
 
         <div className="row">
           <div className="offset-1 col-2">
-            <button className="btn btn-success btn-block" onClick={this.addTextSnippet}>
-              <FontAwesomeIcon icon="plus-circle" /> Add
-            </button>
-          </div>
-          <div className="col-2">
-            <button className="btn btn-info btn-block" onClick={this.addLineBreak}>New Line</button>
+            <div className="dropdown">
+              <button className="btn btn-secondary dropdown-toggle"
+                      type="button"
+                      id="add-snippet-dropdown-button"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false">
+
+                <FontAwesomeIcon icon="plus-circle" /> Add Snippet
+              </button>
+              <div className="dropdown-menu" aria-labelledby="add-snippet-dropdown-button">
+                <button className="dropdown-item" onClick={this.addTextSnippet}>Text</button>
+                <button className="dropdown-item" onClick={this.addSelectorSnippet}>Selector</button>
+                <button className="dropdown-item" onClick={this.addScoreboardObjectiveSnippet}>Scoreboard Objective</button>
+                <button className="dropdown-item" onClick={this.addLineBreak}>Line Break ⏎</button>
+              </div>
+            </div>
           </div>
         </div>
       </>

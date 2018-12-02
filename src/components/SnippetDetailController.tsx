@@ -38,17 +38,11 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
     }
 
     changeScoreName(event: any) {
-        let newSnippet = this.props.snippet.copy()
-        console.log(newSnippet)
-        newSnippet.score.name = event.target.value
-        console.log(newSnippet)
-        this.props.updateSnippet(newSnippet)
+        this.updateField("score_name", event.target.value)
     }
 
     changeScoreObjective(event: any) {
-        let newSnippet = this.props.snippet.copy()
-        newSnippet.score.objective = event.target.value
-        this.props.updateSnippet(newSnippet)
+        this.updateField("score_objective", event.target.value)
     }
 
     updateField(field: string, value: any) {
@@ -74,9 +68,9 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
             case SnippetType.scoreboardObjective:
                 return (
                     <div>
-                        <input placeholder="Player" value={this.props.snippet.score.name} onChange={this.changeScoreName} />
+                        <input placeholder="Player" value={this.props.snippet.score_name} onChange={this.changeScoreName} />
                         <br />
-                        <input placeholder="Objective" value={this.props.snippet.score.objective} onChange={this.changeScoreObjective} />
+                        <input placeholder="Objective" value={this.props.snippet.score_objective} onChange={this.changeScoreObjective} />
                     </div>
                 )
             default:

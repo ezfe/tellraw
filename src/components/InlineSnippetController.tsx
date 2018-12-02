@@ -24,6 +24,10 @@ export class InlineSnippetController extends React.Component<InlineSnippetContro
         }
 
         this.changeText = this.changeText.bind(this)
+        this.changeSelector = this.changeSelector.bind(this)
+        this.changeScoreName = this.changeScoreName.bind(this)
+        this.changeScoreObjective = this.changeScoreObjective.bind(this)
+
         this.updateField = this.updateField.bind(this)
         this.handleQuickActions = this.handleQuickActions.bind(this)
 
@@ -35,6 +39,18 @@ export class InlineSnippetController extends React.Component<InlineSnippetContro
 
     changeText(event: any) {
         this.updateField("text", event.target.value)
+    }
+
+    changeSelector(event: any) {
+        this.updateField("selector", event.target.value)
+    }
+
+    changeScoreName(event: any) {
+        this.updateField("score_name", event.target.value)
+    }
+
+    changeScoreObjective(event: any) {
+        this.updateField("score_objective", event.target.value)
     }
 
     updateField(field: string, value: any) {
@@ -61,29 +77,42 @@ export class InlineSnippetController extends React.Component<InlineSnippetContro
                     </button>
                 </div>
                 <div className="col">
-                    <input className="form-control" value={this.props.snippet.text} onChange={this.changeText} />
+                    <input className="form-control" placeholder="Text..." value={this.props.snippet.text} onChange={this.changeText} />
                 </div>
             </>
         )
-        /* <select name="quick-actions" value={this.state.quickAction} onChange={this.handleQuickActions}>
-                    <option value="*">Quick Actions...</option>
-                    <option value="bold">{this.props.snippet.bold ? "Remove Bold" : "Add Bold"}</option>
-                    <option value="italic">{this.props.snippet.italic ? "Remove Italic" : "Add Italic"}</option>
-                    <option value="underlined">{this.props.snippet.underlined ? "Remove Underline" : "Add Underline"}</option>
-                    <option value="strikethrough">{this.props.snippet.strikethrough ? "Remove Strikethrough" : "Add Strikethrough"}</option>
-                    <option value="obfuscated">{this.props.snippet.obfuscated ? "Remove Obfuscation" : "Add Obfuscation"}</option>
-                </select> */
     }
 
     selectorRenderer() {
         return (
-            <></>
+            <>
+                <div className="col-1">
+                    <button className="btn" onClick={() => { this.props.editSnippet(this.props.snippet) }}>
+                        <FontAwesomeIcon icon="edit" /> Edit
+                    </button>
+                </div>
+                <div className="col">
+                    <input className="form-control" placeholder="Selector..." value={this.props.snippet.selector} onChange={this.changeSelector} />
+                </div>
+            </>
         )
     }
 
     scoreboardRenderer() {
         return (
-            <></>
+            <>
+                <div className="col-1">
+                    <button className="btn" onClick={() => { this.props.editSnippet(this.props.snippet) }}>
+                        <FontAwesomeIcon icon="edit" /> Edit
+                    </button>
+                </div>
+                <div className="col">
+                    <input className="form-control" placeholder="Player" value={this.props.snippet.score_name} onChange={this.changeScoreName} />
+                </div>
+                <div className="col">
+                    <input className="form-control" placeholder="Objective" value={this.props.snippet.score_objective} onChange={this.changeScoreObjective} />
+                </div>
+            </>
         )
     }
 
@@ -105,14 +134,14 @@ export class InlineSnippetController extends React.Component<InlineSnippetContro
             renderer = this.scoreboardRenderer
         } else if (this.props.snippet.type == SnippetType.lineBreak) {
             renderer = () => {
-                return <span>⏎<br /></span>
+                return <div className="col">⏎</div>
             }
         } else {
             console.error(`Unsupported renderer ${this.props.snippet.type}`)
         }
 
         return (
-            <div className="row">
+            <div className="row margin-below">
                 { renderer() }
             </div>
         )

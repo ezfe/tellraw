@@ -19,8 +19,8 @@ export function compile(snippets: Array<Snippet>): string {
 
         if (snippet.type == SnippetType.scoreboardObjective) {
             pending["score"] = {
-                "name": snippet.score.name,
-                "objective": snippet.score.objective
+                "name": snippet.score_name,
+                "objective": snippet.score_objective
             }
         }
 

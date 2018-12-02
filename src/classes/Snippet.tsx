@@ -27,11 +27,6 @@ export enum SnippetType {
     lineBreak = 'lineBreak'
 }
 
-export class ScoreboardObjective {
-    name: string = ""
-    objective: string = ""
-}
-
 export class Snippet {
     id: string
 
@@ -44,7 +39,8 @@ export class Snippet {
     selector: string = ""
 
     // Scoreboard Objective
-    score: ScoreboardObjective = new ScoreboardObjective()
+    score_name: string = ""
+    score_objective: string = ""
 
     bold: boolean = false
     italic: boolean = false
@@ -71,9 +67,8 @@ export class Snippet {
 
         newValue.selector = this.selector
 
-        newValue.score = new ScoreboardObjective()
-        newValue.score.name = this.score.name
-        newValue.score.objective = this.score.objective
+        newValue.score_name = this.score_name
+        newValue.score_objective = this.score_objective
 
         newValue.bold = this.bold
         newValue.italic = this.italic
