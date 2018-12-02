@@ -34,7 +34,7 @@
     "headerbar": {
         "dropdown": {
             "download": "Pobierz witryn\u0119",
-            "uptime": "Uptime",
+            "uptime": "Stan",
             "translate_page_link": "T\u0142umaczenie strony",
             "hover": "Wersja BETA ju\u017c dost\u0119pna!",
             "beta_link": "Wersja BETA",
@@ -46,9 +46,9 @@
         "report_an_issue": "Zg\u0142o\u015b problem"
     },
     "report_issue": {
-        "badpreview": "Bad Preview",
+        "badpreview": "Nieprawid\u0142owy podgl\u0105d",
         "describe": "Opisz sw\u00f3j problem",
-        "translation_issue": "Translation Issue",
+        "translation_issue": "B\u0142\u0105d w t\u0142umaczeniu",
         "output_issue": "Output Issue",
         "other_issue": "Inny problem",
         "other_language": "Inny j\u0119zyk",
@@ -56,7 +56,7 @@
         "cancel": "Anuluj"
     },
     "template": {
-        "actionbar": "Action Bar",
+        "actionbar": "Tekst centralny",
         "sign_block": "Tabliczka (\/blockdata)",
         "sign_item": "Tabliczka (\/give)",
         "subtitle": "Podtytu\u0142",
