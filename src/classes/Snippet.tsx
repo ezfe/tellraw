@@ -21,19 +21,30 @@ export enum Color {
 }
 
 export enum SnippetType {
-    text, selector, lineBreak
+    text = 'text',
+    selector = 'selector',
+    scoreboardObjective = 'scoreboardObjective',
+    lineBreak = 'lineBreak'
+}
+
+export class ScoreboardObjective {
+    name: string = ""
+    objective: string = ""
 }
 
 export class Snippet {
     id: string
 
-    type: SnippetType
+    type: SnippetType = SnippetType.text
     
     // Regular Text
-    text: string
+    text: string = ""
 
     // Selector
-    selector: string
+    selector: string = ""
+
+    // Scoreboard Objective
+    score: ScoreboardObjective = new ScoreboardObjective()
 
     bold: boolean = false
     italic: boolean = false
@@ -59,6 +70,10 @@ export class Snippet {
         newValue.text = this.text
 
         newValue.selector = this.selector
+
+        newValue.score = new ScoreboardObjective()
+        newValue.score.name = this.score.name
+        newValue.score.objective = this.score.objective
 
         newValue.bold = this.bold
         newValue.italic = this.italic

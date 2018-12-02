@@ -239,13 +239,29 @@ var Color;
 })(Color = exports.Color || (exports.Color = {}));
 var SnippetType;
 (function (SnippetType) {
-    SnippetType[SnippetType["text"] = 0] = "text";
-    SnippetType[SnippetType["selector"] = 1] = "selector";
-    SnippetType[SnippetType["lineBreak"] = 2] = "lineBreak";
+    SnippetType["text"] = "text";
+    SnippetType["selector"] = "selector";
+    SnippetType["scoreboardObjective"] = "scoreboardObjective";
+    SnippetType["lineBreak"] = "lineBreak";
 })(SnippetType = exports.SnippetType || (exports.SnippetType = {}));
+var ScoreboardObjective = /** @class */ (function () {
+    function ScoreboardObjective() {
+        this.name = "";
+        this.objective = "";
+    }
+    return ScoreboardObjective;
+}());
+exports.ScoreboardObjective = ScoreboardObjective;
 var Snippet = /** @class */ (function () {
     function Snippet(id) {
         if (id === void 0) { id = null; }
+        this.type = SnippetType.text;
+        // Regular Text
+        this.text = "";
+        // Selector
+        this.selector = "";
+        // Scoreboard Objective
+        this.score = new ScoreboardObjective();
         this.bold = false;
         this.italic = false;
         this.underlined = false;
@@ -264,6 +280,9 @@ var Snippet = /** @class */ (function () {
         newValue.type = this.type;
         newValue.text = this.text;
         newValue.selector = this.selector;
+        newValue.score = new ScoreboardObjective();
+        newValue.score.name = this.score.name;
+        newValue.score.objective = this.score.objective;
         newValue.bold = this.bold;
         newValue.italic = this.italic;
         newValue.underlined = this.underlined;
@@ -383,8 +402,8 @@ var InlineSnippetController = /** @class */ (function (_super) {
     };
     InlineSnippetController.prototype.render = function () {
         var _this = this;
-        switch (+this.props.snippet.type) {
-            case Snippet_1.SnippetType.text:
+        switch (this.props.snippet.type) {
+            case Snippet_1.SnippetType[Snippet_1.SnippetType.text]:
                 return [
                     React.createElement("div", null,
                         React.createElement("input", { value: this.props.snippet.text, onChange: this.changeText }),
@@ -398,7 +417,7 @@ var InlineSnippetController = /** @class */ (function (_super) {
                             React.createElement("option", { value: "strikethrough" }, this.props.snippet.strikethrough ? "Remove Strikethrough" : "Add Strikethrough"),
                             React.createElement("option", { value: "obfuscated" }, this.props.snippet.obfuscated ? "Remove Obfuscation" : "Add Obfuscation")))
                 ];
-            case Snippet_1.SnippetType.lineBreak:
+            case Snippet_1.SnippetType[Snippet_1.SnippetType.lineBreak]:
                 return React.createElement("span", null,
                     "\u23CE",
                     React.createElement("br", null));
@@ -448,27 +467,68 @@ var SnippetDetailController = /** @class */ (function (_super) {
         var _this = _super.call(this, props) || this;
         _this.state = {};
         _this.changeText = _this.changeText.bind(_this);
+        _this.changeSelector = _this.changeSelector.bind(_this);
+        _this.changeScoreName = _this.changeScoreName.bind(_this);
+        _this.changeScoreObjective = _this.changeScoreObjective.bind(_this);
+        _this.updateField = _this.updateField.bind(_this);
         _this.changeSnippetType = _this.changeSnippetType.bind(_this);
+        _this.mainSnippetFields = _this.mainSnippetFields.bind(_this);
         return _this;
     }
     SnippetDetailController.prototype.changeText = function (event) {
+        this.updateField("text", event.target.value);
+    };
+    SnippetDetailController.prototype.changeSelector = function (event) {
+        this.updateField("selector", event.target.value);
+    };
+    SnippetDetailController.prototype.changeScoreName = function (event) {
         var newSnippet = this.props.snippet.copy();
-        newSnippet.text = event.target.value;
+        console.log(newSnippet);
+        newSnippet.score.name = event.target.value;
+        console.log(newSnippet);
+        this.props.updateSnippet(newSnippet);
+    };
+    SnippetDetailController.prototype.changeScoreObjective = function (event) {
+        var newSnippet = this.props.snippet.copy();
+        newSnippet.score.objective = event.target.value;
+        this.props.updateSnippet(newSnippet);
+    };
+    SnippetDetailController.prototype.updateField = function (field, value) {
+        var newSnippet = this.props.snippet.copy();
+        newSnippet[field] = value;
         this.props.updateSnippet(newSnippet);
     };
     SnippetDetailController.prototype.changeSnippetType = function (event) {
-        var value = event.target.value;
         var newSnippet = this.props.snippet.copy();
-        newSnippet.type = value;
+        newSnippet.type = event.target.value;
         this.props.updateSnippet(newSnippet);
+    };
+    SnippetDetailController.prototype.mainSnippetFields = function () {
+        switch (this.props.snippet.type) {
+            case Snippet_1.SnippetType.text:
+                return React.createElement("input", { placeholder: "Text", value: this.props.snippet.text, onChange: this.changeText });
+            case Snippet_1.SnippetType.selector:
+                return (React.createElement("input", { placeholder: "Selector", value: this.props.snippet.selector, onChange: this.changeSelector }));
+            case Snippet_1.SnippetType.scoreboardObjective:
+                return (React.createElement("div", null,
+                    React.createElement("input", { placeholder: "Player", value: this.props.snippet.score.name, onChange: this.changeScoreName }),
+                    React.createElement("br", null),
+                    React.createElement("input", { placeholder: "Objective", value: this.props.snippet.score.objective, onChange: this.changeScoreObjective })));
+            default:
+                return React.createElement("span", null,
+                    "Editing unsupported for ",
+                    React.createElement("pre", null, this.props.snippet.type),
+                    " type");
+        }
     };
     SnippetDetailController.prototype.render = function () {
         var _this = this;
         return (React.createElement("div", null,
             React.createElement("select", { onChange: this.changeSnippetType, value: this.props.snippet.type },
                 React.createElement("option", { value: Snippet_1.SnippetType.text }, "Plain Text"),
-                React.createElement("option", { value: Snippet_1.SnippetType.selector }, "Selector")),
-            React.createElement("input", { value: this.props.snippet.text, onChange: this.changeText }),
+                React.createElement("option", { value: Snippet_1.SnippetType.selector }, "Selector"),
+                React.createElement("option", { value: Snippet_1.SnippetType.scoreboardObjective }, "Scoreboard Objective")),
+            this.mainSnippetFields(),
             React.createElement("button", { onClick: function () { _this.props.stopEditing(false); } }, "Cancel"),
             React.createElement("button", { onClick: function () { _this.props.stopEditing(true); } }, "Save")));
     };
@@ -731,11 +791,18 @@ function compile(snippets) {
     for (var _i = 0, snippets_1 = snippets; _i < snippets_1.length; _i++) {
         var snippet = snippets_1[_i];
         var pending = {};
+        console.log(snippet);
         if (snippet.type == Snippet_1.SnippetType.text || snippet.type == Snippet_1.SnippetType.lineBreak) {
             pending["text"] = snippet.text;
         }
         if (snippet.type == Snippet_1.SnippetType.selector) {
             pending["selector"] = snippet.selector;
+        }
+        if (snippet.type == Snippet_1.SnippetType.scoreboardObjective) {
+            pending["score"] = {
+                "name": snippet.score.name,
+                "objective": snippet.score.objective
+            };
         }
         /* Style Transfer */
         if (snippet.bold)

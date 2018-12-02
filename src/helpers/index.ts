@@ -7,12 +7,21 @@ export function compile(snippets: Array<Snippet>): string {
     for (const snippet of snippets) {
         let pending = {}
 
+        console.log(snippet)
+
         if (snippet.type == SnippetType.text || snippet.type == SnippetType.lineBreak) {
             pending["text"] = snippet.text
         }
 
         if (snippet.type == SnippetType.selector) {
             pending["selector"] = snippet.selector
+        }
+
+        if (snippet.type == SnippetType.scoreboardObjective) {
+            pending["score"] = {
+                "name": snippet.score.name,
+                "objective": snippet.score.objective
+            }
         }
 
         /* Style Transfer */

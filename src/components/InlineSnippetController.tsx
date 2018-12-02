@@ -47,8 +47,8 @@ export class InlineSnippetController extends React.Component<InlineSnippetContro
     }
 
     render() {
-        switch (+this.props.snippet.type) {
-            case SnippetType.text:
+        switch (this.props.snippet.type) {
+            case SnippetType[SnippetType.text]:
                 return [
                     <div>
                         <input value={this.props.snippet.text} onChange={this.changeText} />
@@ -64,7 +64,7 @@ export class InlineSnippetController extends React.Component<InlineSnippetContro
                         </select>
                     </div>
                 ]
-            case SnippetType.lineBreak:
+            case SnippetType[SnippetType.lineBreak]:
                 return <span>⏎<br /></span>
             default:
                 return <span>error <button onClick={() => { this.props.editSnippet(this.props.snippet) }}>✏️</button></span>

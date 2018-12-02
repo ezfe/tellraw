@@ -21,21 +21,67 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
         this.state = {}
         
         this.changeText = this.changeText.bind(this)
+        this.changeSelector = this.changeSelector.bind(this)
+        this.changeScoreName = this.changeScoreName.bind(this)
+        this.changeScoreObjective = this.changeScoreObjective.bind(this)
+        this.updateField = this.updateField.bind(this)
         this.changeSnippetType = this.changeSnippetType.bind(this)
+        this.mainSnippetFields = this.mainSnippetFields.bind(this)
     }
 
     changeText(event: any) {
+        this.updateField("text", event.target.value)
+    }
+
+    changeSelector(event: any) {
+        this.updateField("selector", event.target.value)
+    }
+
+    changeScoreName(event: any) {
         let newSnippet = this.props.snippet.copy()
-        newSnippet.text = event.target.value
+        console.log(newSnippet)
+        newSnippet.score.name = event.target.value
+        console.log(newSnippet)
+        this.props.updateSnippet(newSnippet)
+    }
+
+    changeScoreObjective(event: any) {
+        let newSnippet = this.props.snippet.copy()
+        newSnippet.score.objective = event.target.value
+        this.props.updateSnippet(newSnippet)
+    }
+
+    updateField(field: string, value: any) {
+        let newSnippet = this.props.snippet.copy()
+        newSnippet[field] = value
         this.props.updateSnippet(newSnippet)
     }
 
     changeSnippetType(event) {
-        const value = event.target.value
-
         let newSnippet = this.props.snippet.copy()
-        newSnippet.type = value
+        newSnippet.type = event.target.value
         this.props.updateSnippet(newSnippet)
+    }
+
+    mainSnippetFields() {
+        switch (this.props.snippet.type) {
+            case SnippetType.text:
+                return <input placeholder="Text" value={this.props.snippet.text} onChange={this.changeText} />
+            case SnippetType.selector:
+                return (
+                    <input placeholder="Selector" value={this.props.snippet.selector} onChange={this.changeSelector} />
+                )
+            case SnippetType.scoreboardObjective:
+                return (
+                    <div>
+                        <input placeholder="Player" value={this.props.snippet.score.name} onChange={this.changeScoreName} />
+                        <br />
+                        <input placeholder="Objective" value={this.props.snippet.score.objective} onChange={this.changeScoreObjective} />
+                    </div>
+                )
+            default:
+                return <span>Editing unsupported for <pre>{this.props.snippet.type}</pre> type</span>
+        }
     }
 
     render() {
@@ -44,10 +90,10 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
                 <select onChange={this.changeSnippetType} value={this.props.snippet.type}>
                     <option value={SnippetType.text}>Plain Text</option>
                     <option value={SnippetType.selector}>Selector</option>
+                    <option value={SnippetType.scoreboardObjective}>Scoreboard Objective</option>
                 </select>
 
-
-                <input value={this.props.snippet.text} onChange={this.changeText} />
+                { this.mainSnippetFields() }
 
                 <button onClick={() => { this.props.stopEditing(false) }}>Cancel</button>
                 <button onClick={() => { this.props.stopEditing(true) }}>Save</button>
