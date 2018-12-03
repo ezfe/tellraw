@@ -1,6 +1,6 @@
 import { Snippet, SnippetType, Color } from "../classes/Snippet";
 
-export function compile(snippets: Array<Snippet>): string {
+export function compile(snippets: Array<Snippet>, command: string): string {
 
     let results = Array<Object>()
     results.push("")
@@ -39,7 +39,14 @@ export function compile(snippets: Array<Snippet>): string {
         results.push(pending)
     }
 
-    return `tellraw @a ${JSON.stringify(results)}`
+    const encoded = JSON.stringify(results)
+    if (command.indexOf("%s") === -1) {
+        // error
+        console.error("No %s to replace")
+        return encoded
+    } else {
+        return command.replace("%s", encoded);
+    }
 }
 
 export function load_legacy(): Array<Snippet> {

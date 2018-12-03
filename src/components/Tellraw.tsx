@@ -14,6 +14,7 @@ export interface TellrawProps {
 interface TellrawState {
   snippets: Array<Snippet>
   editing: Snippet
+  command: string,
   compiled: string
 }
 
@@ -47,6 +48,7 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
     this.state = {
       snippets: loaded_snippets,
       editing: null,
+      command: "/tellraw @a %s",
       compiled: ""
     }
 
@@ -143,9 +145,10 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
     this.recompile(updatedSnippets)
   }
 
-  recompile(snippets: Array<Snippet> = null) {
+  recompile(snippets: Array<Snippet> = null, command: string = null) {
     if (snippets === null) snippets = this.state.snippets
-    this.setState({ compiled: compile(snippets) })
+    if (command === null) command = this.state.command
+    this.setState({ compiled: compile(snippets, command) })
   }
 
   editor() {
@@ -207,7 +210,10 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
             <span lang="player.description">Used to select and execute different players</span>
           </div>
           <div id="playerDiv" className="col-sm-10 col-xs-12 row-margin-top row-margin-bottom command_container">
-            <input value="tellraw @a" id="command" type="text" className="form-control" />
+            <input value={this.state.command}
+                   onChange={(event) => { this.setState({ command: event.target.value }); this.recompile(null, event.target.value); }}
+                   type="text"
+                   className="form-control" />
           </div>
         </div>
         <br />
