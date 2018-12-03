@@ -5,6 +5,7 @@ import { CommandTemplatesController } from "./CommandTemplatesController";
 import { compile, load_legacy } from "../helpers";
 import { SnippetDetailController } from "./SnippetDetailController";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { VERSION } from "../constants";
 
 export interface TellrawProps {
 
@@ -24,22 +25,25 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
 
     // *** Snippet Loading ***
     let loaded_snippets = new Array<Snippet>()
-    if (localStorage["jformat"] !== null && localStorage["jformat"] < 5) {
+    const lsformat = parseInt(localStorage.getItem("jformat") || "5")
+    if (lsformat <= 3) {
+      localStorage.clear()
+      location.reload()
+    } else if (lsformat === 4) {
       console.log("Processing legacy localStorage")
       loaded_snippets = load_legacy()
-    } else {
+    } else if (lsformat === 5) {
       const loaded_snippets_temp = JSON.parse(localStorage.getItem('jobject') || "[]") as Array<object>
       loaded_snippets = loaded_snippets_temp.map((s): Snippet => {
         return (Object as any).assign(new Snippet(), s)
       })
+    } else {
+      console.error(`Unexpected version ${lsformat}`)
     }
 
     // Set format
-    localStorage.setItem("jformat", "5")
+    localStorage.setItem("jformat", VERSION.toString())
     
-    // Increment load count
-    localStorage.setItem("loadCount", (1 + parseInt(localStorage.getItem("loadCount") || "0")).toString())
-
     this.state = {
       snippets: loaded_snippets,
       editing: null,

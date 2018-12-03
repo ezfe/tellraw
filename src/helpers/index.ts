@@ -32,6 +32,10 @@ export function compile(snippets: Array<Snippet>): string {
         if (snippet.obfuscated) pending["obfuscated"] = true
         if (snippet.color != Color.none) pending["color"] = snippet.color
 
+        if (snippet.insertion.length > 0) {
+            pending["insertion"] = snippet.insertion
+        }
+
         results.push(pending)
     }
 
@@ -95,6 +99,10 @@ function legacy_apply_common_formatting(snippet: Snippet, sf: object): Snippet {
     }
 
     snippet.color = <Color>sf["color"]
+    
+    if ("insertion" in sf) {
+        snippet.insertion = sf["insertion"]
+    }
 
     return snippet
 }

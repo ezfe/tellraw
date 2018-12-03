@@ -50,6 +50,8 @@ export class Snippet {
 
     color: Color = Color.none
 
+    insertion: string = ""
+
     constructor(id: string = null) {
         if (id !== null) {
             this.id = id
@@ -77,6 +79,8 @@ export class Snippet {
         newValue.obfuscated = this.obfuscated
 
         newValue.color = this.color
+
+        newValue.insertion = this.insertion
 
         return newValue
     }
