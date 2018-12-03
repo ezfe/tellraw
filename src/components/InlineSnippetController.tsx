@@ -55,6 +55,7 @@ export class InlineSnippetController extends React.Component<InlineSnippetContro
 
     updateField(field: string, value: any) {
         let newSnippet = this.props.snippet.copy()
+        console.log(newSnippet)
         newSnippet[field] = value
         this.props.updateSnippet(newSnippet)
     }

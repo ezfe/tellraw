@@ -2,7 +2,7 @@ import * as React from "react";
 import { Snippet, SnippetType } from "../classes/Snippet";
 import { InlineSnippetController } from "./InlineSnippetController";
 import { CommandTemplatesController } from "./CommandTemplatesController";
-import { compile } from "../helpers";
+import { compile, load_legacy } from "../helpers";
 import { SnippetDetailController } from "./SnippetDetailController";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -20,10 +20,22 @@ interface TellrawState {
 // State is never set so we use the '{}' type.
 class Tellraw extends React.Component<TellrawProps, TellrawState> {
   constructor(props: TellrawProps) {
-    super(props);
+    super(props)
+
+    let loaded_snippets = new Array<Snippet>()
+
+    if (localStorage["jformat"] !== null && localStorage["jformat"] < 5) {
+      console.log("Processing legacy localStorage")
+      loaded_snippets = load_legacy()
+    } else {
+      const loaded_snippets_temp = JSON.parse(localStorage.getItem('jobject') || "[]") as Array<object>
+      loaded_snippets = loaded_snippets_temp.map((s): Snippet => {
+        return (Object as any).assign(new Snippet(), s)
+      })
+    }
 
     this.state = {
-      snippets: new Array<Snippet>(),
+      snippets: loaded_snippets,
       editing: null,
       compiled: ""
     }
@@ -44,6 +56,15 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
     this.editor = this.editor.bind(this)
     this.listView = this.listView.bind(this)
     this.mainView = this.mainView.bind(this)
+  }
+
+  componentDidUpdate(previousProps: TellrawProps, previousState: TellrawState) {
+    const serialized_jobject = JSON.stringify(this.state.snippets)
+    localStorage.setItem('jobject', serialized_jobject)
+  }
+
+  componentDidMount() {
+    this.recompile()
   }
 
   /**
