@@ -55,7 +55,6 @@ export class InlineSnippetController extends React.Component<InlineSnippetContro
 
     updateField(field: string, value: any) {
         let newSnippet = this.props.snippet.copy()
-        console.log(newSnippet)
         newSnippet[field] = value
         this.props.updateSnippet(newSnippet)
     }
@@ -123,9 +122,6 @@ export class InlineSnippetController extends React.Component<InlineSnippetContro
 
     render() {
         let renderer = this.unsupportedRenderer
-
-        console.log(this.props.snippet.type)
-        console.log(SnippetType[SnippetType.text])
 
         if (this.props.snippet.type == SnippetType.text) {
             renderer = this.textRender

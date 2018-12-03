@@ -22,8 +22,8 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
   constructor(props: TellrawProps) {
     super(props)
 
+    // *** Snippet Loading ***
     let loaded_snippets = new Array<Snippet>()
-
     if (localStorage["jformat"] !== null && localStorage["jformat"] < 5) {
       console.log("Processing legacy localStorage")
       loaded_snippets = load_legacy()
@@ -33,6 +33,12 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
         return (Object as any).assign(new Snippet(), s)
       })
     }
+
+    // Set format
+    localStorage.setItem("jformat", "5")
+    
+    // Increment load count
+    localStorage.setItem("loadCount", (1 + parseInt(localStorage.getItem("loadCount") || "0")).toString())
 
     this.state = {
       snippets: loaded_snippets,
