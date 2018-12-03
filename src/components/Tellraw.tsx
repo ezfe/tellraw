@@ -54,11 +54,8 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
     this.updateEditing = this.updateEditing.bind(this)
     this.stopEditing = this.stopEditing.bind(this)
     
-    this.addTextSnippet = this.addTextSnippet.bind(this)
-    this.addSelectorSnippet = this.addSelectorSnippet.bind(this)
-    this.addScoreboardObjectiveSnippet = this.addScoreboardObjectiveSnippet.bind(this)
+    this.createAndEdit = this.createAndEdit.bind(this)
     this.addLineBreak = this.addLineBreak.bind(this)
-    this.addSnippet = this.addSnippet.bind(this)
 
     this.updateSnippet = this.updateSnippet.bind(this)
     this.recompile = this.recompile.bind(this)
@@ -109,32 +106,11 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
     this.setState({ editing: null })
   }
 
-  addTextSnippet() {
+  createAndEdit(type: SnippetType) {
     const snip = new Snippet(null)
-    
-    snip.type = SnippetType.text
-    snip.text = prompt("Enter text:")
+    snip.type = type
 
-    this.addSnippet(snip)
-  }
-
-  addSelectorSnippet() {
-    const snip = new Snippet(null)
-    
-    snip.type = SnippetType.selector
-    snip.selector = prompt("Enter selector:")
-
-    this.addSnippet(snip)
-  }
-
-  addScoreboardObjectiveSnippet() {
-    const snip = new Snippet(null)
-
-    snip.type = SnippetType.scoreboardObjective
-    snip.score_name = prompt("Enter player name:")
-    snip.score_objective = prompt("Enter objective:")
-
-    this.addSnippet(snip)
+    this.startEditing(snip)
   }
 
   addLineBreak() {
@@ -142,24 +118,26 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
     snip.type = SnippetType.lineBreak
     snip.text = "\n"
     
-    this.addSnippet(snip)
-  }
-
-  addSnippet(newSnippet: Snippet) {
-    const updated = [...this.state.snippets, newSnippet]
+    const updated = [...this.state.snippets, snip]
     this.setState({ snippets: updated })
 
     this.recompile(updated)
   }
 
   updateSnippet(newSnippet: Snippet) {
-    const updatedSnippets = this.state.snippets.map(currentSnippet => {
+    let isNewSnippet = true
+    let updatedSnippets = this.state.snippets.map(currentSnippet => {
       if (currentSnippet.id === newSnippet.id) {
-         return newSnippet
+        isNewSnippet = false
+        return newSnippet
       } else {
         return currentSnippet
       }
     })
+
+    if (isNewSnippet) {
+      updatedSnippets = [...this.state.snippets, newSnippet]
+    }
 
     this.setState({snippets: updatedSnippets})
     this.recompile(updatedSnippets)
@@ -199,9 +177,9 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
                 <FontAwesomeIcon icon="plus-circle" /> Add Snippet
               </button>
               <div className="dropdown-menu" aria-labelledby="add-snippet-dropdown-button">
-                <button className="dropdown-item" onClick={this.addTextSnippet}>Text</button>
-                <button className="dropdown-item" onClick={this.addSelectorSnippet}>Selector</button>
-                <button className="dropdown-item" onClick={this.addScoreboardObjectiveSnippet}>Scoreboard Objective</button>
+                <button className="dropdown-item" onClick={() => { this.createAndEdit(SnippetType.text) }}>Text</button>
+                <button className="dropdown-item" onClick={() => { this.createAndEdit(SnippetType.selector) }}>Selector</button>
+                <button className="dropdown-item" onClick={() => { this.createAndEdit(SnippetType.scoreboardObjective) }}>Scoreboard Objective</button>
                 <button className="dropdown-item" onClick={this.addLineBreak}>Line Break ⏎</button>
               </div>
             </div>
