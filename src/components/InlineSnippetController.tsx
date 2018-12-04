@@ -72,7 +72,7 @@ export class InlineSnippetController extends React.Component<InlineSnippetContro
         return (
             <>
                 <div className="col-1">
-                    <button className="btn" onClick={() => { this.props.editSnippet(this.props.snippet) }}>
+                    <button className="btn btn-secondary" onClick={() => { this.props.editSnippet(this.props.snippet) }}>
                         <FontAwesomeIcon icon="edit" /> Edit
                     </button>
                 </div>

@@ -6,6 +6,7 @@ import { compile, load_legacy } from "../helpers";
 import { SnippetDetailController } from "./SnippetDetailController";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { VERSION } from "../constants";
+import { CommandFormat, command_template } from "../data/templates";
 
 export interface TellrawProps {
 
@@ -13,7 +14,9 @@ export interface TellrawProps {
 
 interface TellrawState {
   snippets: Array<Snippet>
-  editing: Snippet
+  editing: Snippet,
+  command_format: CommandFormat,
+  custom_command: boolean,
   command: string,
   compiled: string
 }
@@ -24,34 +27,38 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
   constructor(props: TellrawProps) {
     super(props)
 
-    // *** Snippet Loading ***
-    let loaded_snippets = new Array<Snippet>()
+    /// *** Snippet Loading ***
     const lsformat = parseInt(localStorage.getItem("jformat") || "5")
+    let instantialized_state = false
+    let legacy_snippets = new Array<Snippet>()
     if (lsformat <= 3) {
       localStorage.clear()
       location.reload()
     } else if (lsformat === 4) {
       console.log("Processing legacy localStorage")
-      loaded_snippets = load_legacy()
+      legacy_snippets = load_legacy()
     } else if (lsformat === 5) {
-      const loaded_snippets_temp = JSON.parse(localStorage.getItem('jobject') || "[]") as Array<object>
-      loaded_snippets = loaded_snippets_temp.map((s): Snippet => {
-        return (Object as any).assign(new Snippet(), s)
-      })
+      const found_serialized = localStorage.getItem("v5_serialized_state")
+      this.state = JSON.parse(found_serialized) as TellrawState
+      instantialized_state = true
     } else {
       console.error(`Unexpected version ${lsformat}`)
+    }
+
+    if (!instantialized_state) {
+      this.state = {
+        snippets: legacy_snippets,
+        editing: null,
+        command_format: CommandFormat.tellraw,
+        custom_command: true,
+        command: "/tellraw @a %s <state>",
+        compiled: ""
+      }
     }
 
     // Set format
     localStorage.setItem("jformat", VERSION.toString())
     
-    this.state = {
-      snippets: loaded_snippets,
-      editing: null,
-      command: "/tellraw @a %s",
-      compiled: ""
-    }
-
     this.startEditing = this.startEditing.bind(this)
     this.updateEditing = this.updateEditing.bind(this)
     this.stopEditing = this.stopEditing.bind(this)
@@ -62,14 +69,17 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
     this.updateSnippet = this.updateSnippet.bind(this)
     this.recompile = this.recompile.bind(this)
 
+    this.updateCustomCommand = this.updateCustomCommand.bind(this)
+    this.toggleCustomCommand = this.toggleCustomCommand.bind(this)
+
     this.editor = this.editor.bind(this)
     this.listView = this.listView.bind(this)
     this.mainView = this.mainView.bind(this)
   }
 
   componentDidUpdate(previousProps: TellrawProps, previousState: TellrawState) {
-    const serialized_jobject = JSON.stringify(this.state.snippets)
-    localStorage.setItem('jobject', serialized_jobject)
+    const serialized_jobject = JSON.stringify(this.state)
+    localStorage.setItem('v5_serialized_state', serialized_jobject)
   }
 
   componentDidMount() {
@@ -147,8 +157,18 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
 
   recompile(snippets: Array<Snippet> = null, command: string = null) {
     if (snippets === null) snippets = this.state.snippets
-    if (command === null) command = this.state.command
+    if (command === null) command = this.state.custom_command ? (this.state.command) : (command_template(this.state.command_format))
     this.setState({ compiled: compile(snippets, command) })
+  }
+
+  updateCustomCommand(event: any) {
+    this.setState({ command: event.target.value })
+    this.recompile(null, event.target.value)
+  }
+  
+  toggleCustomCommand(event: any) {
+    this.setState({ custom_command: event.target.checked })
+    this.recompile(null, event.target.checked ? (this.state.command) : (command_template(this.state.command_format)))
   }
 
   editor() {
@@ -203,20 +223,30 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
   render() {
     return (
       <div className="container">
-        <div className="row">
-          <div className="col-sm-2 col-xs-12 row-margin-top row-margin-bottom">
+        <div className="row margin-below">
+          <div className="col-2">
             <span lang="player.header">Player and Command</span>
             <br />
             <span lang="player.description">Used to select and execute different players</span>
           </div>
-          <div id="playerDiv" className="col-sm-10 col-xs-12 row-margin-top row-margin-bottom command_container">
-            <input value={this.state.command}
-                   onChange={(event) => { this.setState({ command: event.target.value }); this.recompile(null, event.target.value); }}
+          <div className="col-3">
+            <div className="custom-control custom-checkbox">
+              <input checked={this.state.custom_command}
+                onChange={this.toggleCustomCommand}
+                type="checkbox"
+                className="custom-control-input"
+                id="custom_command_checkbox" />
+              <label className="custom-control-label" htmlFor="custom_command_checkbox">Custom Command</label>
+            </div>
+          </div>
+          <div className="col">
+            <input value={this.state.custom_command ? (this.state.command) : (command_template(this.state.command_format))}
+                   onChange={this.updateCustomCommand}
                    type="text"
-                   className="form-control" />
+                   className="form-control"
+                   disabled={!this.state.custom_command}/>
           </div>
         </div>
-        <br />
         <CommandTemplatesController />
         <br />
         <br />
