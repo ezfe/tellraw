@@ -30,7 +30,7 @@ export function compile(snippets: Array<Snippet>, command: string): string {
         if (snippet.underlined) pending["underlined"] = true
         if (snippet.strikethrough) pending["strikethrough"] = true
         if (snippet.obfuscated) pending["obfuscated"] = true
-        if (snippet.color != Color.none) pending["color"] = snippet.color
+        if (snippet.color != Color.none) pending["color"] = Color[snippet.color]
 
         if (snippet.insertion.length > 0) {
             pending["insertion"] = snippet.insertion

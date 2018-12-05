@@ -29,31 +29,37 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
 
     /// *** Snippet Loading ***
     const lsformat = parseInt(localStorage.getItem("jformat") || "5")
-    let instantialized_state = false
-    let legacy_snippets = new Array<Snippet>()
+    
+    let loaded_snippets = new Array<Snippet>()
+    let loaded_command = "/tellraw @a %s"
+
     if (lsformat <= 3) {
       localStorage.clear()
       location.reload()
     } else if (lsformat === 4) {
       console.log("Processing legacy localStorage")
-      legacy_snippets = load_legacy()
+      loaded_snippets = load_legacy()
     } else if (lsformat === 5) {
-      const found_serialized = localStorage.getItem("v5_serialized_state")
-      this.state = JSON.parse(found_serialized) as TellrawState
-      instantialized_state = true
+      const loaded_snippets_temp = JSON.parse(localStorage.getItem('jobject') || "[]") as Array<object>
+      loaded_snippets = loaded_snippets_temp.map((s): Snippet => {
+        return (Object as any).assign(new Snippet(), s)
+      })
     } else {
       console.error(`Unexpected version ${lsformat}`)
     }
 
-    if (!instantialized_state) {
-      this.state = {
-        snippets: legacy_snippets,
-        editing: null,
-        command_format: CommandFormat.tellraw,
-        custom_command: true,
-        command: "/tellraw @a %s <state>",
-        compiled: ""
-      }
+    const loaded_command_temp = localStorage.getItem('jcommand')
+    if (loaded_command_temp !== null) {
+      loaded_command = loaded_command_temp
+    }
+
+    this.state = {
+      snippets: loaded_snippets,
+      editing: null,
+      command_format: CommandFormat.tellraw,
+      custom_command: true,
+      command: loaded_command,
+      compiled: ""
     }
 
     // Set format
@@ -78,8 +84,9 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
   }
 
   componentDidUpdate(previousProps: TellrawProps, previousState: TellrawState) {
-    const serialized_jobject = JSON.stringify(this.state)
-    localStorage.setItem('v5_serialized_state', serialized_jobject)
+    const serialized_jobject = JSON.stringify(this.state.snippets)
+    localStorage.setItem('jobject', serialized_jobject)
+    localStorage.setItem('jcommand', this.state.command)
   }
 
   componentDidMount() {

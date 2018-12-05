@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Snippet, SnippetType } from "../classes/Snippet"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { InlineEditButton } from "./InlineEditButton";
 
 export interface InlineSnippetControllerProps {
     snippet: Snippet
@@ -54,6 +55,7 @@ export class InlineSnippetController extends React.Component<InlineSnippetContro
     }
 
     updateField(field: string, value: any) {
+        console.log(this.props)
         let newSnippet = this.props.snippet.copy()
         newSnippet[field] = value
         this.props.updateSnippet(newSnippet)
@@ -72,9 +74,7 @@ export class InlineSnippetController extends React.Component<InlineSnippetContro
         return (
             <>
                 <div className="col-1">
-                    <button className="btn btn-secondary" onClick={() => { this.props.editSnippet(this.props.snippet) }}>
-                        <FontAwesomeIcon icon="edit" /> Edit
-                    </button>
+                    <InlineEditButton onClick={() => { this.props.editSnippet(this.props.snippet) }} />
                 </div>
                 <div className="col">
                     <input className="form-control" placeholder="Text..." value={this.props.snippet.text} onChange={this.changeText} />
@@ -87,9 +87,7 @@ export class InlineSnippetController extends React.Component<InlineSnippetContro
         return (
             <>
                 <div className="col-1">
-                    <button className="btn" onClick={() => { this.props.editSnippet(this.props.snippet) }}>
-                        <FontAwesomeIcon icon="edit" /> Edit
-                    </button>
+                    <InlineEditButton onClick={() => { this.props.editSnippet(this.props.snippet) }} />
                 </div>
                 <div className="col">
                     <input className="form-control" placeholder="Selector..." value={this.props.snippet.selector} onChange={this.changeSelector} />
@@ -102,9 +100,7 @@ export class InlineSnippetController extends React.Component<InlineSnippetContro
         return (
             <>
                 <div className="col-1">
-                    <button className="btn" onClick={() => { this.props.editSnippet(this.props.snippet) }}>
-                        <FontAwesomeIcon icon="edit" /> Edit
-                    </button>
+                    <InlineEditButton onClick={() => { this.props.editSnippet(this.props.snippet) }} />
                 </div>
                 <div className="col">
                     <input className="form-control" placeholder="Player" value={this.props.snippet.score_name} onChange={this.changeScoreName} />

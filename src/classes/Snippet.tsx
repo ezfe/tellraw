@@ -1,23 +1,23 @@
 import * as uuid from "uuid/v4"
 
 export enum Color {
-    black = "black",
-    dark_blue = "dark_blue",
-    dark_green = "dark_green",
-    dark_aqua = "dark_aqua",
-    dark_red = "dark_red",
-    dark_purple = "dark_purple",
-    gold = "gold",
-    gray = "gray",
-    dark_gray = "dark_gray",
-    blue = "blue",
-    green = "green",
-    aqua = "aqua",
-    red = "red",
-    light_purple = "light_purple",
-    yellow = "yellow",
-    white = "white",
-    none = "none"
+    black,
+    dark_blue,
+    dark_green,
+    dark_aqua,
+    dark_red,
+    dark_purple,
+    gold,
+    gray,
+    dark_gray,
+    blue,
+    green,
+    aqua,
+    red,
+    light_purple,
+    yellow,
+    white,
+    none
 }
 
 export enum SnippetType {

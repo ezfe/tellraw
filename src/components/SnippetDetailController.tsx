@@ -119,23 +119,12 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
                     </div>
                     <div className="col-4">
                         <select className="form-control" onChange={this.changeColor} value={this.props.snippet.color}>
-                            <option value={Color.black}>Black</option>
-                            <option value={Color.dark_blue}>Dark Blue</option>
-                            <option value={Color.dark_green}>Dark Green</option>
-                            <option value={Color.dark_aqua}>Dark Aqua</option>
-                            <option value={Color.dark_red}>Dark Red</option>
-                            <option value={Color.dark_purple}>Dark Purple</option>
-                            <option value={Color.gold}>Gold</option>
-                            <option value={Color.gray}>Gray</option>
-                            <option value={Color.dark_gray}>Dark Gray</option>
-                            <option value={Color.blue}>Blue</option>
-                            <option value={Color.green}>Green</option>
-                            <option value={Color.aqua}>Aqua</option>
-                            <option value={Color.red}>Red</option>
-                            <option value={Color.light_purple}>Light Purple</option>
-                            <option value={Color.yellow}>Yellow</option>
-                            <option value={Color.white}>White</option>
-                            <option value={Color.none} selected={true}>None</option>
+                            {
+                                Object.keys(Color).filter(key => !isNaN(Number(Color[key])))
+                                    .map(key => {
+                                        return <option key={Color[key]} value={Color[key]}>{key.split('_').map((s) => s.charAt(0).toUpperCase() + s.substring(1)).join(' ')}</option>
+                                    })
+                            }
                         </select>
                     </div>
                 </div>
