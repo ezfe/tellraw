@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Snippet, TextSnippet } from "../classes/Snippet";
+import { Snippet } from "../classes/Snippets/Snippet";
 import { InlineSnippetController } from "./InlineSnippetController";
 import { CommandTemplatesController } from "./CommandTemplatesController";
 import { load_legacy } from "../helpers";
@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { VERSION } from "../constants";
 import { CommandFormat, command_template } from "../data/templates";
 import { compile } from "../helpers/compile";
+import { TextSnippet } from "../classes/Snippets/TextSnippet";
 
 export interface TellrawProps {
 

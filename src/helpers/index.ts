@@ -1,4 +1,8 @@
-import { Snippet, Color, TextSnippet, SelectorSnippet } from "../classes/Snippet";
+import { Snippet } from "../classes/Snippets/Snippet";
+import { Color } from "../classes/Color";
+import { TextSnippet } from "../classes/Snippets/TextSnippet";
+import { SelectorSnippet } from "../classes/Snippets/SelectorSnippet";
+import { ScoreboardObjectiveSnippet } from "../classes/Snippets/ScoreboardObjectiveSnippet";
 
 export function load_legacy(): Array<Snippet> {
     const snippets_found = JSON.parse(localStorage.getItem("jobject") || "[]")
@@ -22,16 +26,14 @@ export function load_legacy(): Array<Snippet> {
 
             snippet = legacy_apply_common_formatting(snippet, sf)
             snippets_built.push(snippet)
-        }
-        // } else if ("score" in sf) {
-        //     let snippet = new Snippet(null)
-        //     snippet.type = SnippetType.scoreboardObjective
-        //     snippet.score_name = sf["score"]["name"]
-        //     snippet.score_objective = sf["score"]["objective"]
+        } else if ("score" in sf) {
+            let snippet = new ScoreboardObjectiveSnippet(null)
+            snippet.score_name = sf["score"]["name"]
+            snippet.score_objective = sf["score"]["objective"]
 
-        //     snippet = legacy_apply_common_formatting(snippet, sf)
-        //     snippets_built.push(snippet)
-        // }
+            snippet = legacy_apply_common_formatting(snippet, sf)
+            snippets_built.push(snippet)
+        }
     });
 
     return snippets_built

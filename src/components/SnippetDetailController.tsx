@@ -1,5 +1,9 @@
 import * as React from "react";
-import { Snippet, Color, TextSnippet, SelectorSnippet } from "../classes/Snippet"
+import { Color } from "../classes/Color";
+import { ScoreboardObjectiveSnippet } from "../classes/Snippets/ScoreboardObjectiveSnippet";
+import { SelectorSnippet } from "../classes/Snippets/SelectorSnippet";
+import { Snippet } from "../classes/Snippets/Snippet";
+import { TextSnippet } from "../classes/Snippets/TextSnippet";
 
 export interface SnippetDetailControllerProps {
     snippet: Snippet
@@ -56,12 +60,6 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
         this.props.updateSnippet(newSnippet)
     }
 
-    // changeSnippetType(event) {
-    //     let newSnippet = this.props.snippet.copy()
-    //     newSnippet.type = event.target.value
-    //     this.props.updateSnippet(newSnippet)
-    // }
-
     mainSnippetFields() {
         if (this.props.snippet instanceof TextSnippet) {
             return (
@@ -79,21 +77,21 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
                     </div>
                 </div>
             )
-            // case SnippetType.scoreboardObjective:
-            //     return (
-            //         <>
-            //             <div className="row margin-below">
-            //                 <div className="col">
-            //                     <input className="form-control" placeholder="Player" value={this.props.snippet.score_name} onChange={this.changeScoreName} />
-            //                 </div>
-            //             </div>
-            //             <div className="row margin-below">
-            //                 <div className="col">
-            //                     <input className="form-control" placeholder="Objective" value={this.props.snippet.score_objective} onChange={this.changeScoreObjective} />
-            //                 </div>
-            //             </div>
-            //         </>
-            //     )
+        } else if (this.props.snippet instanceof ScoreboardObjectiveSnippet) {
+            return (
+                <>
+                    <div className="row margin-below">
+                        <div className="col">
+                            <input className="form-control" placeholder="Player" value={this.props.snippet.score_name} onChange={this.changeScoreName} />
+                        </div>
+                    </div>
+                    <div className="row margin-below">
+                        <div className="col">
+                            <input className="form-control" placeholder="Objective" value={this.props.snippet.score_objective} onChange={this.changeScoreObjective} />
+                        </div>
+                    </div>
+                </>
+            )
         } else {
             return <span>Editing unsupported for <pre>{typeof this.props.snippet}</pre> type</span>
         }
@@ -111,7 +109,7 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
                         </select>
                     </div>
                 </div> */}
-                
+
                 <div className="row">
                     <div className="col">
                         { this.mainSnippetFields() }

@@ -1,6 +1,9 @@
 import * as React from "react";
-import { Snippet, TextSnippet, SelectorSnippet } from "../classes/Snippet"
+import { Snippet } from "../classes/Snippets/Snippet"
 import { InlineEditButton } from "./InlineEditButton";
+import { TextSnippet } from "../classes/Snippets/TextSnippet";
+import { SelectorSnippet } from "../classes/Snippets/SelectorSnippet";
+import { ScoreboardObjectiveSnippet } from "../classes/Snippets/ScoreboardObjectiveSnippet";
 
 export interface InlineSnippetControllerProps {
     snippet: Snippet
@@ -33,7 +36,7 @@ export class InlineSnippetController extends React.Component<InlineSnippetContro
 
         this.textRender = this.textRender.bind(this)
         this.selectorRenderer = this.selectorRenderer.bind(this)
-        // this.scoreboardRenderer = this.scoreboardRenderer.bind(this)
+        this.scoreboardRenderer = this.scoreboardRenderer.bind(this)
         this.unsupportedRenderer = this.unsupportedRenderer.bind(this)
     }
 
@@ -103,21 +106,25 @@ export class InlineSnippetController extends React.Component<InlineSnippetContro
         }
     }
 
-    // scoreboardRenderer() {
-    //     return (
-    //         <>
-    //             <div className="col-1">
-    //                 <InlineEditButton onClick={() => { this.props.editSnippet(this.props.snippet) }} />
-    //             </div>
-    //             <div className="col">
-    //                 <input className="form-control" placeholder="Player" value={this.props.snippet.score_name} onChange={this.changeScoreName} />
-    //             </div>
-    //             <div className="col">
-    //                 <input className="form-control" placeholder="Objective" value={this.props.snippet.score_objective} onChange={this.changeScoreObjective} />
-    //             </div>
-    //         </>
-    //     )
-    // }
+    scoreboardRenderer() {
+        if (this.props.snippet instanceof ScoreboardObjectiveSnippet) {
+            return (
+                <>
+                    <div className="col-1">
+                        <InlineEditButton onClick={() => { this.props.editSnippet(this.props.snippet) }} />
+                    </div>
+                    <div className="col">
+                        <input className="form-control" placeholder="Player" value={this.props.snippet.score_name} onChange={this.changeScoreName} />
+                    </div>
+                    <div className="col">
+                        <input className="form-control" placeholder="Objective" value={this.props.snippet.score_objective} onChange={this.changeScoreObjective} />
+                    </div>
+                </>
+            )
+        } else {
+            return <span>Error in selectorRenderer!</span>   
+        }
+    }
 
     unsupportedRenderer() {
         return <span>Unsupported Format <button onClick={() => { this.props.editSnippet(this.props.snippet) }}>✏️</button></span>
@@ -130,8 +137,8 @@ export class InlineSnippetController extends React.Component<InlineSnippetContro
             renderer = this.textRender
         } else if (this.props.snippet instanceof SelectorSnippet) {
             renderer = this.selectorRenderer
-        // } else if (this.props.snippet.type == SnippetType.scoreboardObjective) {
-        //     renderer = this.scoreboardRenderer
+        } else if (this.props.snippet instanceof ScoreboardObjectiveSnippet) {
+            renderer = this.scoreboardRenderer
         // } else if (this.props.snippet.type == SnippetType.lineBreak) {
         //     renderer = () => {
         //         return <div className="col">⏎</div>

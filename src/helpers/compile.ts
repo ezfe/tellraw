@@ -1,4 +1,8 @@
-import { Snippet, Color, TextSnippet, SelectorSnippet } from "../classes/Snippet";
+import { Snippet } from "../classes/Snippets/Snippet";
+import { Color } from "../classes/Color";
+import { TextSnippet } from "../classes/Snippets/TextSnippet";
+import { SelectorSnippet } from "../classes/Snippets/SelectorSnippet";
+import { ScoreboardObjectiveSnippet } from "../classes/Snippets/ScoreboardObjectiveSnippet";
 
 export function compile(snippets: Array<Snippet>, command: string): string {
 
@@ -17,12 +21,12 @@ export function compile(snippets: Array<Snippet>, command: string): string {
           pending["selector"] = snippet.selector
       }
 
-      // if (snippet.type == SnippetType.scoreboardObjective) {
-      //     pending["score"] = {
-      //         "name": snippet.score_name,
-      //         "objective": snippet.score_objective
-      //     }
-      // }
+      if (snippet instanceof ScoreboardObjectiveSnippet) {
+          pending["score"] = {
+              "name": snippet.score_name,
+              "objective": snippet.score_objective
+          }
+      }
 
       /* Style Transfer */
       if (snippet.bold) pending["bold"] = true
