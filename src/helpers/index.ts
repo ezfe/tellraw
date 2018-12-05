@@ -15,23 +15,13 @@ export function load_legacy(): Array<Snippet> {
             snippet.text = "!!Book Page Breaks Are Unimplemented!!"
             snippets_built.push(snippet)
         } else if ("text" in sf) {
-            let snippet = new TextSnippet(null)
-            snippet.text = sf["text"]
-
-            snippet = legacy_apply_common_formatting(snippet, sf)
+            const snippet = TextSnippet.load_legacy(sf)
             snippets_built.push(snippet)
         } else if ("selector" in sf) {
-            let snippet = new SelectorSnippet(null)
-            snippet.selector = sf["selector"]
-
-            snippet = legacy_apply_common_formatting(snippet, sf)
+            const snippet = SelectorSnippet.load_legacy(sf)
             snippets_built.push(snippet)
         } else if ("score" in sf) {
-            let snippet = new ScoreboardObjectiveSnippet(null)
-            snippet.score_name = sf["score"]["name"]
-            snippet.score_objective = sf["score"]["objective"]
-
-            snippet = legacy_apply_common_formatting(snippet, sf)
+            const snippet = ScoreboardObjectiveSnippet.load_legacy(sf)
             snippets_built.push(snippet)
         }
     });
@@ -39,7 +29,7 @@ export function load_legacy(): Array<Snippet> {
     return snippets_built
 }
 
-function legacy_apply_common_formatting<T extends Snippet>(snippet: T, sf: object): T {
+export function legacy_apply_common_formatting<T extends Snippet>(snippet: T, sf: object): T {
     if (sf["bold"] === true) {
         snippet.bold = true
     }

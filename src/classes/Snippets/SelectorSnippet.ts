@@ -1,4 +1,5 @@
 import { Snippet } from "./Snippet";
+import { legacy_apply_common_formatting } from "../../helpers";
 
 export class SelectorSnippet extends Snippet {
   selector: string = ""
@@ -9,5 +10,14 @@ export class SelectorSnippet extends Snippet {
       newValue.selector = this.selector
 
       return newValue
+  }
+
+  static load_legacy(sf: any): SelectorSnippet {
+    let snippet = new SelectorSnippet(null)
+
+    snippet.selector = sf["selector"]
+    snippet = legacy_apply_common_formatting(snippet, sf)
+
+    return snippet
   }
 }

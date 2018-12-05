@@ -1,4 +1,5 @@
 import { Snippet } from "./Snippet";
+import { legacy_apply_common_formatting } from "../../helpers";
 
 export class ScoreboardObjectiveSnippet extends Snippet {
   score_name: string = ""
@@ -12,4 +13,15 @@ export class ScoreboardObjectiveSnippet extends Snippet {
 
       return newValue
   }
+
+  static load_legacy(sf: any): ScoreboardObjectiveSnippet {
+    let snippet = new ScoreboardObjectiveSnippet(null)
+
+    snippet.score_name = sf["score"]["name"]
+    snippet.score_objective = sf["score"]["objective"]
+    snippet = legacy_apply_common_formatting(snippet, sf)
+
+    return snippet
+  }
+
 }
