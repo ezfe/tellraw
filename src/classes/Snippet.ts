@@ -20,27 +20,8 @@ export enum Color {
     none
 }
 
-export enum SnippetType {
-    text = 'text',
-    selector = 'selector',
-    scoreboardObjective = 'scoreboardObjective',
-    lineBreak = 'lineBreak'
-}
-
 export class Snippet {
     id: string
-
-    type: SnippetType = SnippetType.text
-    
-    // Regular Text
-    text: string = ""
-
-    // Selector
-    selector: string = ""
-
-    // Scoreboard Objective
-    score_name: string = ""
-    score_objective: string = ""
 
     bold: boolean = false
     italic: boolean = false
@@ -63,15 +44,6 @@ export class Snippet {
     copy(): Snippet {
         let newValue = new Snippet(this.id)
         
-        newValue.type = this.type
-
-        newValue.text = this.text
-
-        newValue.selector = this.selector
-
-        newValue.score_name = this.score_name
-        newValue.score_objective = this.score_objective
-
         newValue.bold = this.bold
         newValue.italic = this.italic
         newValue.underlined = this.underlined
@@ -81,6 +53,44 @@ export class Snippet {
         newValue.color = this.color
 
         newValue.insertion = this.insertion
+
+        return newValue
+    }
+}
+
+export class TextSnippet extends Snippet {
+    text: string = ""
+
+    copy(): TextSnippet {
+        let newValue = (Object as any).assign(new TextSnippet(), super.copy())
+
+        newValue.text = this.text
+
+        return newValue
+    }
+}
+
+export class SelectorSnippet extends Snippet {
+    selector: string = ""
+
+    copy(): SelectorSnippet {
+        let newValue = (Object as any).assign(new SelectorSnippet(), super.copy())
+
+        newValue.selector = this.selector
+
+        return newValue
+    }
+}
+
+export class ScoreboardObjectiveSnippet extends Snippet {
+    score_name: string = ""
+    score_objective: string = ""
+
+    copyFile() : ScoreboardObjectiveSnippet {
+        let newValue = (Object as any).assign(new SelectorSnippet(), super.copy())
+
+        newValue.score_name = this.score_name
+        newValue.score_objective = this.score_objective
 
         return newValue
     }

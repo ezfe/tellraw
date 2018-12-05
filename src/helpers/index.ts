@@ -1,53 +1,4 @@
-import { Snippet, SnippetType, Color } from "../classes/Snippet";
-
-export function compile(snippets: Array<Snippet>, command: string): string {
-
-    let results = Array<Object>()
-    results.push("")
-    for (const snippet of snippets) {
-        let pending = {}
-
-        console.log(snippet)
-
-        if (snippet.type == SnippetType.text || snippet.type == SnippetType.lineBreak) {
-            pending["text"] = snippet.text
-        }
-
-        if (snippet.type == SnippetType.selector) {
-            pending["selector"] = snippet.selector
-        }
-
-        if (snippet.type == SnippetType.scoreboardObjective) {
-            pending["score"] = {
-                "name": snippet.score_name,
-                "objective": snippet.score_objective
-            }
-        }
-
-        /* Style Transfer */
-        if (snippet.bold) pending["bold"] = true
-        if (snippet.italic) pending["italic"] = true
-        if (snippet.underlined) pending["underlined"] = true
-        if (snippet.strikethrough) pending["strikethrough"] = true
-        if (snippet.obfuscated) pending["obfuscated"] = true
-        if (snippet.color != Color.none) pending["color"] = Color[snippet.color]
-
-        if (snippet.insertion.length > 0) {
-            pending["insertion"] = snippet.insertion
-        }
-
-        results.push(pending)
-    }
-
-    const encoded = JSON.stringify(results)
-    if (command.indexOf("%s") === -1) {
-        // error
-        console.error("No %s to replace")
-        return encoded
-    } else {
-        return command.replace("%s", encoded);
-    }
-}
+import { Snippet, Color, TextSnippet, SelectorSnippet } from "../classes/Snippet";
 
 export function load_legacy(): Array<Snippet> {
     const snippets_found = JSON.parse(localStorage.getItem("jobject") || "[]")
@@ -56,39 +7,37 @@ export function load_legacy(): Array<Snippet> {
     snippets_found.forEach(sf => {
         if (sf["NEW_ITERATE_FLAG"]) {
             console.error("Unimplemented: convert new book page")
-            let snippet = new Snippet(null)
-            snippet.type = SnippetType.text
+            let snippet = new TextSnippet(null)
             snippet.text = "!!Book Page Breaks Are Unimplemented!!"
             snippets_built.push(snippet)
         } else if ("text" in sf) {
-            let snippet = new Snippet(null)
-            snippet.type = SnippetType.text
+            let snippet = new TextSnippet(null)
             snippet.text = sf["text"]
 
             snippet = legacy_apply_common_formatting(snippet, sf)
             snippets_built.push(snippet)
         } else if ("selector" in sf) {
-            let snippet = new Snippet(null)
-            snippet.type = SnippetType.selector
+            let snippet = new SelectorSnippet(null)
             snippet.selector = sf["selector"]
 
             snippet = legacy_apply_common_formatting(snippet, sf)
             snippets_built.push(snippet)
-        } else if ("score" in sf) {
-            let snippet = new Snippet(null)
-            snippet.type = SnippetType.scoreboardObjective
-            snippet.score_name = sf["score"]["name"]
-            snippet.score_objective = sf["score"]["objective"]
-
-            snippet = legacy_apply_common_formatting(snippet, sf)
-            snippets_built.push(snippet)
         }
+        // } else if ("score" in sf) {
+        //     let snippet = new Snippet(null)
+        //     snippet.type = SnippetType.scoreboardObjective
+        //     snippet.score_name = sf["score"]["name"]
+        //     snippet.score_objective = sf["score"]["objective"]
+
+        //     snippet = legacy_apply_common_formatting(snippet, sf)
+        //     snippets_built.push(snippet)
+        // }
     });
 
     return snippets_built
 }
 
-function legacy_apply_common_formatting(snippet: Snippet, sf: object): Snippet {
+function legacy_apply_common_formatting<T extends Snippet>(snippet: T, sf: object): T {
     if (sf["bold"] === true) {
         snippet.bold = true
     }

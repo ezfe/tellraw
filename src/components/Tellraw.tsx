@@ -1,12 +1,13 @@
 import * as React from "react";
-import { Snippet, SnippetType } from "../classes/Snippet";
+import { Snippet, TextSnippet } from "../classes/Snippet";
 import { InlineSnippetController } from "./InlineSnippetController";
 import { CommandTemplatesController } from "./CommandTemplatesController";
-import { compile, load_legacy } from "../helpers";
+import { load_legacy } from "../helpers";
 import { SnippetDetailController } from "./SnippetDetailController";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { VERSION } from "../constants";
 import { CommandFormat, command_template } from "../data/templates";
+import { compile } from "../helpers/compile";
 
 export interface TellrawProps {
 
@@ -125,22 +126,22 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
     this.setState({ editing: null })
   }
 
-  createAndEdit(type: SnippetType) {
-    const snip = new Snippet(null)
-    snip.type = type
+  createAndEdit() {
+    const snip = new TextSnippet(null)
+    // snip.type = type
 
     this.startEditing(snip)
   }
 
   addLineBreak() {
-    const snip = new Snippet(null)
-    snip.type = SnippetType.lineBreak
-    snip.text = "\n"
+    // const snip = new Snippet(null)
+    // snip.type = SnippetType.lineBreak
+    // snip.text = "\n"
     
-    const updated = [...this.state.snippets, snip]
-    this.setState({ snippets: updated })
+    // const updated = [...this.state.snippets, snip]
+    // this.setState({ snippets: updated })
 
-    this.recompile(updated)
+    // this.recompile(updated)
   }
 
   updateSnippet(newSnippet: Snippet) {
@@ -207,9 +208,9 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
                 <FontAwesomeIcon icon="plus-circle" /> Add Snippet
               </button>
               <div className="dropdown-menu" aria-labelledby="add-snippet-dropdown-button">
-                <button className="dropdown-item" onClick={() => { this.createAndEdit(SnippetType.text) }}>Text</button>
-                <button className="dropdown-item" onClick={() => { this.createAndEdit(SnippetType.selector) }}>Selector</button>
-                <button className="dropdown-item" onClick={() => { this.createAndEdit(SnippetType.scoreboardObjective) }}>Scoreboard Objective</button>
+                <button className="dropdown-item" onClick={() => { this.createAndEdit() }}>Text</button>
+                <button className="dropdown-item" onClick={() => { this.createAndEdit() }}>Selector</button>
+                <button className="dropdown-item" onClick={() => { this.createAndEdit() }}>Scoreboard Objective</button>
                 <button className="dropdown-item" onClick={this.addLineBreak}>Line Break ⏎</button>
               </div>
             </div>
