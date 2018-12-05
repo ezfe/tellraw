@@ -1,6 +1,5 @@
 import * as uuid from "uuid/v4"
 import { Color } from "../Color";
-import { legacy_apply_common_formatting } from "../../helpers";
 
 export class Snippet {
     id: string
@@ -37,13 +36,5 @@ export class Snippet {
         newValue.insertion = this.insertion
 
         return newValue
-    }
-
-    static load_legacy(sf: any): Snippet {
-        let snippet = new Snippet(null)
-
-        snippet = legacy_apply_common_formatting(snippet, sf)
-        
-        return snippet
     }
 }

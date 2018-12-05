@@ -1,5 +1,5 @@
 import { Snippet } from "./Snippet";
-import { legacy_apply_common_formatting } from "../../helpers";
+import { legacy_apply_common_formatting } from "../../helpers/legacy_apply_styles";
 
 export class TextSnippet extends Snippet {
   text: string = ""

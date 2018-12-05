@@ -9,6 +9,9 @@ import { VERSION } from "../constants";
 import { CommandFormat, command_template } from "../data/templates";
 import { compile } from "../helpers/compile";
 import { TextSnippet } from "../classes/Snippets/TextSnippet";
+import { SelectorSnippet } from "../classes/Snippets/SelectorSnippet";
+import { ScoreboardObjectiveSnippet } from "../classes/Snippets/ScoreboardObjectiveSnippet";
+import { LinebreakSnippet } from "../classes/Snippets/LinebreakSnippet";
 
 export interface TellrawProps {
 
@@ -35,20 +38,20 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
     let loaded_snippets = new Array<Snippet>()
     let loaded_command = "/tellraw @a %s"
 
-    if (lsformat <= 3) {
-      localStorage.clear()
-      location.reload()
-    } else if (lsformat === 4) {
-      console.log("Processing legacy localStorage")
-      loaded_snippets = load_legacy()
-    } else if (lsformat === 5) {
-      const loaded_snippets_temp = JSON.parse(localStorage.getItem('jobject') || "[]") as Array<object>
-      loaded_snippets = loaded_snippets_temp.map((s): Snippet => {
-        return (Object as any).assign(new Snippet(), s)
-      })
-    } else {
-      console.error(`Unexpected version ${lsformat}`)
-    }
+    // if (lsformat <= 3) {
+    //   localStorage.clear()
+    //   location.reload()
+    // } else if (lsformat === 4) {
+    //   console.log("Processing legacy localStorage")
+    //   loaded_snippets = load_legacy()
+    // } else if (lsformat === 5) {
+    //   const loaded_snippets_temp = JSON.parse(localStorage.getItem('jobject') || "[]") as Array<object>
+    //   loaded_snippets = loaded_snippets_temp.map((s): Snippet => {
+    //     return (Object as any).assign(new Snippet(), s)
+    //   })
+    // } else {
+    //   console.error(`Unexpected version ${lsformat}`)
+    // }
 
     const loaded_command_temp = localStorage.getItem('jcommand')
     if (loaded_command_temp !== null) {
@@ -71,7 +74,6 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
     this.updateEditing = this.updateEditing.bind(this)
     this.stopEditing = this.stopEditing.bind(this)
     
-    this.createAndEdit = this.createAndEdit.bind(this)
     this.addLineBreak = this.addLineBreak.bind(this)
 
     this.updateSnippet = this.updateSnippet.bind(this)
@@ -127,22 +129,13 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
     this.setState({ editing: null })
   }
 
-  createAndEdit() {
-    const snip = new TextSnippet(null)
-    // snip.type = type
-
-    this.startEditing(snip)
-  }
-
   addLineBreak() {
-    // const snip = new Snippet(null)
-    // snip.type = SnippetType.lineBreak
-    // snip.text = "\n"
-    
-    // const updated = [...this.state.snippets, snip]
-    // this.setState({ snippets: updated })
+    const snip = new LinebreakSnippet(null)
 
-    // this.recompile(updated)
+    const updated = [...this.state.snippets, snip]
+    this.setState({ snippets: updated })
+
+    this.recompile(updated)
   }
 
   updateSnippet(newSnippet: Snippet) {
@@ -209,9 +202,9 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
                 <FontAwesomeIcon icon="plus-circle" /> Add Snippet
               </button>
               <div className="dropdown-menu" aria-labelledby="add-snippet-dropdown-button">
-                <button className="dropdown-item" onClick={() => { this.createAndEdit() }}>Text</button>
-                <button className="dropdown-item" onClick={() => { this.createAndEdit() }}>Selector</button>
-                <button className="dropdown-item" onClick={() => { this.createAndEdit() }}>Scoreboard Objective</button>
+                <button className="dropdown-item" onClick={() => { this.startEditing(new TextSnippet(null)) }}>Text</button>
+                <button className="dropdown-item" onClick={() => { this.startEditing(new SelectorSnippet(null)) }}>Selector</button>
+                <button className="dropdown-item" onClick={() => { this.startEditing(new ScoreboardObjectiveSnippet(null)) }}>Scoreboard Objective</button>
                 <button className="dropdown-item" onClick={this.addLineBreak}>Line Break ⏎</button>
               </div>
             </div>
