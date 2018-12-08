@@ -1,6 +1,5 @@
 import * as React from "react";
 import { Snippet } from "../classes/Snippets/Snippet";
-import { InlineSnippetController } from "./InlineSnippetController";
 import { CommandTemplatesController } from "./CommandTemplatesController";
 import { load_legacy } from "../helpers";
 import { SnippetDetailController } from "./SnippetDetailController";
@@ -12,6 +11,7 @@ import { TextSnippet } from "../classes/Snippets/TextSnippet";
 import { SelectorSnippet } from "../classes/Snippets/SelectorSnippet";
 import { ScoreboardObjectiveSnippet } from "../classes/Snippets/ScoreboardObjectiveSnippet";
 import { LinebreakSnippet } from "../classes/Snippets/LinebreakSnippet";
+import { InlineTextSnippetController } from "./InlineSnippetController/InlineTextSnippetController";
 
 export interface TellrawProps {
 
@@ -26,8 +26,6 @@ interface TellrawState {
   compiled: string
 }
 
-// 'HelloProps' describes the shape of props.
-// State is never set so we use the '{}' type.
 class Tellraw extends React.Component<TellrawProps, TellrawState> {
   constructor(props: TellrawProps) {
     super(props)
@@ -182,10 +180,10 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
       <>
         {
           this.state.snippets.map((s: Snippet) => {
-            return <InlineSnippetController key={s.id}
-                            snippet={s}
-                            updateSnippet={this.updateSnippet}
-                            editSnippet={this.startEditing} />
+            return <InlineTextSnippetController key={s.id}
+                                                snippet={s as TextSnippet}
+                                                updateSnippet={this.updateSnippet}
+                                                startEditingSnippet={this.startEditing} />
             })
         }
 
