@@ -23,6 +23,7 @@ export class Snippet {
     }
 
     copy(): Snippet {
+        console.log("Copying Regular Snippet")
         let newValue = new Snippet(this.id)
         
         newValue.bold = this.bold

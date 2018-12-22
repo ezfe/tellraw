@@ -6,12 +6,13 @@ export class ScoreboardObjectiveSnippet extends Snippet {
   score_objective: string = ""
 
   copyFile() : ScoreboardObjectiveSnippet {
-      let newValue = (Object as any).assign(new ScoreboardObjectiveSnippet(), super.copy())
+    console.log("Copying Scoreboard Objective Snippet")
+    let newValue = (Object as any).assign(new ScoreboardObjectiveSnippet(), super.copy())
 
-      newValue.score_name = this.score_name
-      newValue.score_objective = this.score_objective
+    newValue.score_name = this.score_name
+    newValue.score_objective = this.score_objective
 
-      return newValue
+    return newValue
   }
 
   static load_legacy(sf: any): ScoreboardObjectiveSnippet {

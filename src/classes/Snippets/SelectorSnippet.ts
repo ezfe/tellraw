@@ -5,6 +5,7 @@ export class SelectorSnippet extends Snippet {
   selector: string = ""
 
   copy(): SelectorSnippet {
+    console.log("Copying SelectorSnippet")
       let newValue = (Object as any).assign(new SelectorSnippet(), super.copy())
 
       newValue.selector = this.selector

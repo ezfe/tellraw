@@ -9,6 +9,7 @@ export class LinebreakSnippet extends TextSnippet {
   }
 
   copy(): LinebreakSnippet {
+    console.log("Copying Linebreak Snippet")
     return (Object as any).assign(new LinebreakSnippet(), super.copy())
   }
 }

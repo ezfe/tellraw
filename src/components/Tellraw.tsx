@@ -172,6 +172,7 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
   }
 
   editor() {
+    console.log(this.state)
     return <SnippetDetailController snippet={this.state.editing} updateSnippet={this.updateEditing} stopEditing={this.stopEditing}/>
   }
 
