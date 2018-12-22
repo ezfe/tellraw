@@ -2,7 +2,7 @@ import * as React from "react";
 import { Snippet } from "../classes/Snippets/Snippet";
 import { CommandTemplatesController } from "./CommandTemplatesController";
 import { load_legacy } from "../helpers";
-import { SnippetDetailController } from "./SnippetDetailController";
+import { SnippetDetailController } from "./SnippetDetailController/SnippetDetailController";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { VERSION } from "../constants";
 import { CommandFormat, command_template } from "../data/templates";
