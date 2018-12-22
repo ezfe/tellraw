@@ -29,7 +29,7 @@ export class SelectorSnippet implements Snippet {
 
   copy(): SelectorSnippet {
     console.log("Copying SelectorSnippet")
-      let newValue = new SelectorSnippet()
+      let newValue = new SelectorSnippet(this.id)
 
       newValue.selector = this.selector
 

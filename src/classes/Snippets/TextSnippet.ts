@@ -29,7 +29,7 @@ export class TextSnippet implements Snippet {
 
   copy(): TextSnippet {
     console.log("Copying Text Snippet")
-      let newValue = new TextSnippet()
+      let newValue = new TextSnippet(this.id)
 
       newValue.text = this.text
 

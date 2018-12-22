@@ -30,7 +30,7 @@ export class ScoreboardObjectiveSnippet implements Snippet {
 
   copy(): ScoreboardObjectiveSnippet {
     console.log("Copying Scoreboard Objective Snippet")
-    let newValue = new ScoreboardObjectiveSnippet()
+    let newValue = new ScoreboardObjectiveSnippet(this.id)
 
     newValue.score_name = this.score_name
     newValue.score_objective = this.score_objective

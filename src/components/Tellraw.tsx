@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Snippet } from "../classes/Snippets/Snippet";
 import { CommandTemplatesController } from "./CommandTemplatesController";
-import { load_legacy } from "../helpers";
 import { SnippetDetailController } from "./SnippetDetailController/SnippetDetailController";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { VERSION } from "../constants";
@@ -11,7 +10,7 @@ import { TextSnippet } from "../classes/Snippets/TextSnippet";
 import { SelectorSnippet } from "../classes/Snippets/SelectorSnippet";
 import { ScoreboardObjectiveSnippet } from "../classes/Snippets/ScoreboardObjectiveSnippet";
 import { LinebreakSnippet } from "../classes/Snippets/LinebreakSnippet";
-import { InlineTextSnippetController } from "./InlineSnippetController/InlineTextSnippetController";
+import { InlineSnippetController } from "./InlineSnippetController/InlineSnippetController";
 
 export interface TellrawProps {
 
@@ -159,6 +158,8 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
     if (snippets === null) snippets = this.state.snippets
     if (command === null) command = this.state.custom_command ? (this.state.command) : (command_template(this.state.command_format))
     this.setState({ compiled: compile(snippets, command) })
+
+    console.log("State Snippets", this.state.snippets)
   }
 
   updateCustomCommand(event: any) {
@@ -181,8 +182,8 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
       <>
         {
           this.state.snippets.map((s: Snippet) => {
-            return <InlineTextSnippetController key={s.id}
-                                                snippet={s as TextSnippet}
+            return <InlineSnippetController key={s.id}
+                                                snippet={s}
                                                 updateSnippet={this.updateSnippet}
                                                 startEditingSnippet={this.startEditing} />
             })
