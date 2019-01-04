@@ -1312,7 +1312,7 @@ function refreshOutput(input) {
         lsm.setItem("nlOutput", "yes");
         $("#nicelookingoutput")
             .show()
-            .html(JSON.stringify(jobject, null, 4).replace(newLineExpressions.standardjson, "\\n"));
+            .text(JSON.stringify(jobject, null, 4).replace(newLineExpressions.standardjson, "\\n"));
     } else {
         lsm.setItem("nlOutput", "no");
         $("#nicelookingoutput").hide();
