@@ -13,8 +13,8 @@ import { copy } from "../../helpers/copy_snippet";
 
 export interface SnippetDetailControllerProps {
   snippet: Snippet
-  updateSnippet: (Snippet) => void
-  stopEditing: (boolean) => void
+  updateSnippet: (snippet: Snippet) => void
+  stopEditing: (save: boolean) => void
 }
 
 export interface SnippetDetailControllerState {

@@ -3,7 +3,7 @@ import { TextSnippet } from "../../classes/Snippets/TextSnippet";
 
 export interface TextSnippetDetailControllerProps {
   snippet: TextSnippet
-  updateSnippet: (Snippet) => void
+  updateSnippet: (snippet: TextSnippet) => void
 }
 
 export class TextSnippetDetailController extends React.Component<TextSnippetDetailControllerProps, {}> {

@@ -3,7 +3,7 @@ import { KeybindSnippet } from "../../classes/Snippets/KeybindSnippet";
 
 export interface KeybindSnippetDetailControllerProps {
   snippet: KeybindSnippet
-  updateSnippet: (Snippet) => void
+  updateSnippet: (snippet: KeybindSnippet) => void
 }
 
 export class KeybindSnippetDetailController extends React.Component<KeybindSnippetDetailControllerProps, {}> {

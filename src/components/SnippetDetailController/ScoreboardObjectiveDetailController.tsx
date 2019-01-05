@@ -3,7 +3,7 @@ import { ScoreboardObjectiveSnippet } from "../../classes/Snippets/ScoreboardObj
 
 export interface ScoreboardObjectiveSnippetDetailControllerProps {
   snippet: ScoreboardObjectiveSnippet
-  updateSnippet: (Snippet) => void
+  updateSnippet: (snippet: ScoreboardObjectiveSnippet) => void
 }
 
 export class ScoreboardObjectiveSnippetDetailController extends React.Component<ScoreboardObjectiveSnippetDetailControllerProps, {}> {

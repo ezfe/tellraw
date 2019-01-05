@@ -3,7 +3,7 @@ import { SelectorSnippet } from "../../classes/Snippets/SelectorSnippet";
 
 export interface SelectorSnippetDetailControllerProps {
   snippet: SelectorSnippet
-  updateSnippet: (Snippet) => void
+  updateSnippet: (snippet: SelectorSnippet) => void
 }
 
 export class SelectorSnippetDetailController extends React.Component<SelectorSnippetDetailControllerProps, {}> {
