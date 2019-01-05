@@ -1,5 +1,6 @@
 import { Snippet } from "../classes/Snippets/Snippet";
 import { Color } from "../classes/Color";
+import { ClickEventType } from "../classes/Snippets/ClickEvent";
 
 export function legacy_apply_common_formatting<T extends Snippet>(snippet: T, sf: object): T {
   if (sf["bold"] === true) {
@@ -18,10 +19,16 @@ export function legacy_apply_common_formatting<T extends Snippet>(snippet: T, sf
       snippet.obfuscated = true
   }
 
-  snippet.color = <Color>sf["color"]
+  snippet.color = sf["color"] as Color
   
   if ("insertion" in sf) {
       snippet.insertion = sf["insertion"]
+  }
+
+  if ("clickEvent" in sf) {
+    //TODO: Test this!
+    snippet.click_event_type = sf["clickEvent"]["action"] as ClickEventType
+    snippet.click_event_value = sf["clickEvent"]["value"]
   }
 
   return snippet

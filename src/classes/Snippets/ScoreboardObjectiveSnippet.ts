@@ -49,6 +49,9 @@ export class ScoreboardObjectiveSnippet extends Snippet {
 
     newValue.insertion = this.insertion
 
+    newValue.click_event_type = this.click_event_type
+    newValue.click_event_value = this.click_event_value
+
     return newValue
   }
 

@@ -1,6 +1,6 @@
 import { Color } from "../Color";
 import uuid = require("uuid");
-import { TextSnippet } from "./TextSnippet";
+import { ClickEventType } from "./ClickEvent";
 
 export abstract class Snippet {
     id: string
@@ -14,6 +14,9 @@ export abstract class Snippet {
     color: Color = Color.none
   
     insertion: string = ""
+
+    click_event_type: ClickEventType = ClickEventType.none
+    click_event_value: string = ""
 
     constructor(id: string = null) {
         if (id !== null) {

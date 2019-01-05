@@ -27,6 +27,9 @@ export class SelectorSnippet extends Snippet {
       newValue.color = this.color
 
       newValue.insertion = this.insertion
+
+      newValue.click_event_type = this.click_event_type
+      newValue.click_event_value = this.click_event_value
       
       return newValue
   }

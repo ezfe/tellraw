@@ -10,6 +10,7 @@ import { ScoreboardObjectiveSnippetDetailController } from "./ScoreboardObjectiv
 import { KeybindSnippet } from "../../classes/Snippets/KeybindSnippet";
 import { KeybindSnippetDetailController } from "./KeybindSnippetDetailController";
 import { copy } from "../../helpers/copy_snippet";
+import { ClickEventType } from "../../classes/Snippets/ClickEvent";
 
 export interface SnippetDetailControllerProps {
   snippet: Snippet
@@ -31,12 +32,27 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
     this.state = {}
 
     this.changeColor = this.changeColor.bind(this)
+    this.changeClickEventType = this.changeClickEventType.bind(this)
+    this.changeClickEventValue = this.changeClickEventValue.bind(this)
+    this.updateToggle = this.updateToggle.bind(this)
     this.updateField = this.updateField.bind(this)
     this.customAreaRender = this.customAreaRender.bind(this)
   }
 
   changeColor(event: any) {
     this.updateField("color", event.target.value)
+  }
+
+  changeClickEventType(event: any) {
+    this.updateField("click_event_type", event.target.value)
+  }
+
+  changeClickEventValue(event: any) {
+    this.updateField("click_event_value", event.target.value)
+  }
+
+  updateToggle(field: string, event: any) {
+    this.updateField(field, event.target.checked)
   }
 
   updateField(field: string, value: any) {
@@ -72,20 +88,77 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
           </div>
         </div> */}
 
-        <div className="row">
+        <div className="row margin-below">
           <div className="col">
             { this.customAreaRender() }
           </div>
           <div className="col-4">
-            <select className="form-control" onChange={this.changeColor} value={this.props.snippet.color}>
-              {
-                Object.keys(Color).filter(key => !isNaN(Number(Color[key])))
-                  .map(key => {
-                    return <option key={Color[key]} value={Color[key]}>{key.split('_').map((s) => s.charAt(0).toUpperCase() + s.substring(1)).join(' ')}</option>
-                  })
-              }
-            </select>
+            <div className="row margin-below">
+              <div className="col">
+                <select className="form-control" onChange={this.changeColor} value={this.props.snippet.color}>
+                  {
+                    Object.keys(Color).filter(key => !isNaN(Number(Color[key])))
+                      .map(key => {
+                        return <option key={Color[key]} value={Color[key]}>{key.split('_').map((s) => s.charAt(0).toUpperCase() + s.substring(1)).join(' ')}</option>
+                      })
+                  }
+                </select>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col">
+                <div className="custom-control custom-checkbox">
+                  <input checked={this.props.snippet.bold} onChange={event => this.updateToggle("bold", event)} type="checkbox" className="custom-control-input" id="bold_checkbox" />
+                  <label className="custom-control-label" htmlFor="bold_checkbox">Bold</label>
+                </div>
+
+                <div className="custom-control custom-checkbox">
+                  <input checked={this.props.snippet.italic} onChange={event => this.updateToggle("italic", event)} type="checkbox" className="custom-control-input" id="italic_checkbox" />
+                  <label className="custom-control-label" htmlFor="italic_checkbox">Italic</label>
+                </div>
+
+                <div className="custom-control custom-checkbox">
+                  <input checked={this.props.snippet.underlined} onChange={event => this.updateToggle("underlined", event)} type="checkbox" className="custom-control-input" id="underlined_checkbox" />
+                  <label className="custom-control-label" htmlFor="underlined_checkbox">Underlined</label>
+                </div>
+
+                <div className="custom-control custom-checkbox">
+                  <input checked={this.props.snippet.strikethrough} onChange={event => this.updateToggle("strikethrough", event)} type="checkbox" className="custom-control-input" id="strikethrough_checkbox" />
+                  <label className="custom-control-label" htmlFor="strikethrough_checkbox">Strikethrough</label>
+                </div>
+                
+                <div className="custom-control custom-checkbox">
+                  <input checked={this.props.snippet.obfuscated} onChange={event => this.updateToggle("obfuscated", event)} type="checkbox" className="custom-control-input" id="obfuscated_checkbox" />
+                  <label className="custom-control-label" htmlFor="obfuscated_checkbox">Obfuscated</label>
+                </div>
+              </div>
+            </div>
           </div>
+        </div>
+
+        <div className="row margin-below">
+          <div className="col">
+            <h4>Click Event:</h4>
+          </div>
+        </div>
+
+        <div className="row margin-below">
+          <div className="col-4">
+            <select className="form-control" value={this.props.snippet.click_event_type} onChange={this.changeClickEventType}>
+              <option key={ClickEventType.none} value={ClickEventType.none}>None</option>
+              <option key={ClickEventType.open_url} value={ClickEventType.open_url}>Open URL</option>
+              <option key={ClickEventType.run_command} value={ClickEventType.run_command}>Run Command</option>
+              <option key={ClickEventType.suggest_command} value={ClickEventType.suggest_command}>Suggest Command</option>
+              <option key={ClickEventType.change_page} value={ClickEventType.change_page}>Change Page (Books Only)</option>
+						</select>
+          </div>
+          {
+            this.props.snippet.click_event_type !== ClickEventType.none ? (
+              <div className="col">
+                <input type="text" className="form-control" value={this.props.snippet.click_event_value} onChange={this.changeClickEventValue}/>
+              </div>  
+            ) : null
+          }
         </div>
 
         <div className="row">
