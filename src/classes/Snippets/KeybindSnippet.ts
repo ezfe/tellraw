@@ -1,22 +1,20 @@
 import { Snippet } from "./Snippet";
 import { legacy_apply_common_formatting } from "../../helpers/legacy_apply_styles";
-import { Color } from "../Color";
-import uuid = require("uuid");
 
-export class SelectorSnippet extends Snippet {
+export class KeybindSnippet extends Snippet {
   id: string
 
-  selector: string = ""
+  keybind: string = ""
 
   constructor(id: string = null) {
     super(id)
   }
 
-  copy(): SelectorSnippet {
+  copy(): KeybindSnippet {
     console.log("Copying SelectorSnippet")
-      let newValue = new SelectorSnippet(this.id)
+      let newValue = new KeybindSnippet(this.id)
 
-      newValue.selector = this.selector
+      newValue.keybind = this.keybind
 
       newValue.bold = this.bold
       newValue.italic = this.italic
@@ -31,10 +29,10 @@ export class SelectorSnippet extends Snippet {
       return newValue
   }
 
-  static load_legacy(sf: any): SelectorSnippet {
-    let snippet = new SelectorSnippet(null)
+  static load_legacy(sf: any): KeybindSnippet {
+    let snippet = new KeybindSnippet(null)
 
-    snippet.selector = sf["selector"]
+    // There is no legacy equivalant 
     snippet = legacy_apply_common_formatting(snippet, sf)
 
     return snippet

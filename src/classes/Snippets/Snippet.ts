@@ -1,17 +1,24 @@
 import { Color } from "../Color";
+import uuid = require("uuid");
 
-export interface Snippet {
+export abstract class Snippet {
     id: string
 
-    bold: boolean
-    italic: boolean
-    underlined: boolean
-    strikethrough: boolean
-    obfuscated: boolean
+    bold: boolean = false
+    italic: boolean = false
+    underlined: boolean = false
+    strikethrough: boolean = false
+    obfuscated: boolean = false
+  
+    color: Color = Color.none
+  
+    insertion: string = ""
 
-    color: Color
-
-    insertion: string
-
-    copy(): Snippet
+    constructor(id: string = null) {
+        if (id !== null) {
+            this.id = id
+        } else {
+            this.id = uuid()
+        }
+    }
 }

@@ -3,11 +3,12 @@ import { legacy_apply_common_formatting } from "../../helpers/legacy_apply_style
 import { Color } from "../Color";
 import uuid = require("uuid");
 
-export class ScoreboardObjectiveSnippet implements Snippet {
+export class ScoreboardObjectiveSnippet extends Snippet {
   id: string
 
   score_name: string = ""
   score_objective: string = ""
+  score_value: string = null
 
   // Shared Formatting
   bold: boolean = false
@@ -21,6 +22,8 @@ export class ScoreboardObjectiveSnippet implements Snippet {
   insertion: string = ""
   
   constructor(id: string = null) {
+    super()
+
     if (id !== null) {
       this.id = id
     } else {
@@ -34,6 +37,7 @@ export class ScoreboardObjectiveSnippet implements Snippet {
 
     newValue.score_name = this.score_name
     newValue.score_objective = this.score_objective
+    newValue.score_value = this.score_value
 
     newValue.bold = this.bold
     newValue.italic = this.italic
@@ -53,6 +57,7 @@ export class ScoreboardObjectiveSnippet implements Snippet {
 
     snippet.score_name = sf["score"]["name"]
     snippet.score_objective = sf["score"]["objective"]
+    // There is no legacy support for score_value
     snippet = legacy_apply_common_formatting(snippet, sf)
 
     return snippet
