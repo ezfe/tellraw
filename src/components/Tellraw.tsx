@@ -11,6 +11,7 @@ import { SelectorSnippet } from "../classes/Snippets/SelectorSnippet";
 import { ScoreboardObjectiveSnippet } from "../classes/Snippets/ScoreboardObjectiveSnippet";
 import { LinebreakSnippet } from "../classes/Snippets/LinebreakSnippet";
 import { InlineSnippetController } from "./InlineSnippetController/InlineSnippetController";
+import { KeybindSnippet } from "../classes/Snippets/KeybindSnippet";
 
 export interface TellrawProps {
 
@@ -205,6 +206,7 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
                 <button className="dropdown-item" onClick={() => { this.startEditing(new TextSnippet(null)) }}>Text</button>
                 <button className="dropdown-item" onClick={() => { this.startEditing(new SelectorSnippet(null)) }}>Selector</button>
                 <button className="dropdown-item" onClick={() => { this.startEditing(new ScoreboardObjectiveSnippet(null)) }}>Scoreboard Objective</button>
+                <button className="dropdown-item" onClick={() => { this.startEditing(new KeybindSnippet(null)) }}>Keybind</button>
                 <button className="dropdown-item" onClick={this.addLineBreak}>Line Break ⏎</button>
               </div>
             </div>

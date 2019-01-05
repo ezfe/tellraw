@@ -7,6 +7,8 @@ import { TextSnippet } from "../../classes/Snippets/TextSnippet";
 import { TextSnippetDetailController } from "./TextSnippetDetailController";
 import { SelectorSnippetDetailController } from "./SelectorSnippetDetailController";
 import { ScoreboardObjectiveSnippetDetailController } from "./ScoreboardObjectiveDetailController";
+import { KeybindSnippet } from "../../classes/Snippets/KeybindSnippet";
+import { KeybindSnippetDetailController } from "./KeybindSnippetDetailController";
 
 export interface SnippetDetailControllerProps {
   snippet: Snippet
@@ -34,6 +36,8 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
       return <SelectorSnippetDetailController snippet={this.props.snippet} updateSnippet={this.props.updateSnippet} stopEditing={this.props.stopEditing} />
     } else if (this.props.snippet instanceof ScoreboardObjectiveSnippet) {
       return <ScoreboardObjectiveSnippetDetailController snippet={this.props.snippet} updateSnippet={this.props.updateSnippet} stopEditing={this.props.stopEditing} />
+    } else if (this.props.snippet instanceof KeybindSnippet) {
+      return <KeybindSnippetDetailController snippet={this.props.snippet} updateSnippet={this.props.updateSnippet} stopEditing={this.props.stopEditing} />
     } else {
       return <span>{typeof this.props.snippet} isn't implemented supported renderer</span>
     }
