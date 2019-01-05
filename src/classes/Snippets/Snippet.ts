@@ -1,5 +1,6 @@
 import { Color } from "../Color";
 import uuid = require("uuid");
+import { TextSnippet } from "./TextSnippet";
 
 export abstract class Snippet {
     id: string
