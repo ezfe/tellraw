@@ -1,7 +1,7 @@
-import { Color } from "../Color";
+import { Color } from "../../Color";
+import { ClickEventType } from "../ClickEvent";
+import { HoverEventType } from "../HoverEvent";
 import uuid = require("uuid");
-import { ClickEventType } from "./ClickEvent";
-import { HoverEventType } from "./HoverEvent";
 
 export abstract class Snippet {
     id: string

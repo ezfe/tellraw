@@ -1,7 +1,7 @@
-import { Snippet } from "../classes/Snippets/Snippet";
 import { Color } from "../classes/Color";
 import { ClickEventType } from "../classes/Snippets/ClickEvent";
 import { HoverEventType } from "../classes/Snippets/HoverEvent";
+import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
 
 export function legacy_apply_common_formatting<T extends Snippet>(snippet: T, sf: object): T {
   if (sf["bold"] === true) {

@@ -1,7 +1,7 @@
-import { Snippet } from "../classes/Snippets/Snippet";
-import { TextSnippet } from "../classes/Snippets/TextSnippet";
-import { SelectorSnippet } from "../classes/Snippets/SelectorSnippet";
-import { ScoreboardObjectiveSnippet } from "../classes/Snippets/ScoreboardObjectiveSnippet";
+import { ScoreboardObjectiveSnippet } from "../classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet";
+import { SelectorSnippet } from "../classes/Snippets/SnippetTypes/SelectorSnippet";
+import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
+import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
 
 export function load_legacy(): Array<Snippet> {
     const snippets_found = JSON.parse(localStorage.getItem("jobject") || "[]")

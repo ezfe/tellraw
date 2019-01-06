@@ -1,19 +1,19 @@
 import * as React from "react";
 import { Color } from "../../classes/Color";
-import { ScoreboardObjectiveSnippet } from "../../classes/Snippets/ScoreboardObjectiveSnippet";
-import { SelectorSnippet } from "../../classes/Snippets/SelectorSnippet";
-import { Snippet } from "../../classes/Snippets/Snippet";
-import { TextSnippet } from "../../classes/Snippets/TextSnippet";
-import { TextSnippetDetailController } from "./TextSnippetDetailController";
-import { SelectorSnippetDetailController } from "./SelectorSnippetDetailController";
-import { ScoreboardObjectiveSnippetDetailController } from "./ScoreboardObjectiveDetailController";
-import { KeybindSnippet } from "../../classes/Snippets/KeybindSnippet";
-import { KeybindSnippetDetailController } from "./KeybindSnippetDetailController";
-import { copy } from "../../helpers/copy_snippet";
 import { ClickEventType } from "../../classes/Snippets/ClickEvent";
-import { SnippetCollection } from "../SnippetCollection";
 import { HoverEventType } from "../../classes/Snippets/HoverEvent";
+import { KeybindSnippet } from "../../classes/Snippets/SnippetTypes/KeybindSnippet";
+import { ScoreboardObjectiveSnippet } from "../../classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet";
+import { SelectorSnippet } from "../../classes/Snippets/SnippetTypes/SelectorSnippet";
+import { Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
+import { TextSnippet } from "../../classes/Snippets/SnippetTypes/TextSnippet";
+import { duplicate_snippet } from "../../helpers/copy_snippet";
 import { Checkbox } from "../Forms/Checkbox";
+import { SnippetCollection } from "../SnippetCollection";
+import { KeybindSnippetDetailController } from "./KeybindSnippetDetailController";
+import { ScoreboardObjectiveSnippetDetailController } from "./ScoreboardObjectiveDetailController";
+import { SelectorSnippetDetailController } from "./SelectorSnippetDetailController";
+import { TextSnippetDetailController } from "./TextSnippetDetailController";
 
 export interface SnippetDetailControllerProps {
   snippet: Snippet
@@ -71,7 +71,7 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
   }
 
   changeHoverEventChildren(snippets: Array<Snippet>) {
-    let newSnippet = copy(this.props.snippet)
+    let newSnippet = duplicate_snippet(this.props.snippet)
     newSnippet.hover_event_children = snippets
     this.props.updateSnippet(newSnippet)
   }
@@ -81,7 +81,7 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
   }
 
   updateField(field: string, value: any) {
-    let newSnippet = copy(this.props.snippet)
+    let newSnippet = duplicate_snippet(this.props.snippet)
     newSnippet[field] = value
     this.props.updateSnippet(newSnippet)
   }

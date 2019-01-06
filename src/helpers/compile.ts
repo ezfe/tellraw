@@ -1,11 +1,11 @@
-import { Snippet } from "../classes/Snippets/Snippet";
 import { Color } from "../classes/Color";
-import { TextSnippet } from "../classes/Snippets/TextSnippet";
-import { SelectorSnippet } from "../classes/Snippets/SelectorSnippet";
-import { ScoreboardObjectiveSnippet } from "../classes/Snippets/ScoreboardObjectiveSnippet";
-import { KeybindSnippet } from "../classes/Snippets/KeybindSnippet";
 import { ClickEventType } from "../classes/Snippets/ClickEvent";
 import { HoverEventType } from "../classes/Snippets/HoverEvent";
+import { KeybindSnippet } from "../classes/Snippets/SnippetTypes/KeybindSnippet";
+import { ScoreboardObjectiveSnippet } from "../classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet";
+import { SelectorSnippet } from "../classes/Snippets/SnippetTypes/SelectorSnippet";
+import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
+import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
 
 export function object_compile(snippets: Array<Snippet>): Array<Object> {
   let results = Array<Object>()

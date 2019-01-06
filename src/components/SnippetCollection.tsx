@@ -1,13 +1,13 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as React from "react";
-import { Snippet } from "../classes/Snippets/Snippet";
+import { KeybindSnippet } from "../classes/Snippets/SnippetTypes/KeybindSnippet";
+import { LinebreakSnippet } from "../classes/Snippets/SnippetTypes/LinebreakSnippet";
+import { ScoreboardObjectiveSnippet } from "../classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet";
+import { SelectorSnippet } from "../classes/Snippets/SnippetTypes/SelectorSnippet";
+import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
+import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
 import { InlineSnippetController } from "./InlineSnippetController/InlineSnippetController";
 import { SnippetDetailController } from "./SnippetDetailController/SnippetDetailController";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { TextSnippet } from "../classes/Snippets/TextSnippet";
-import { SelectorSnippet } from "../classes/Snippets/SelectorSnippet";
-import { ScoreboardObjectiveSnippet } from "../classes/Snippets/ScoreboardObjectiveSnippet";
-import { KeybindSnippet } from "../classes/Snippets/KeybindSnippet";
-import { LinebreakSnippet } from "../classes/Snippets/LinebreakSnippet";
 
 export interface SnippetCollectionProps {
   snippets: Array<Snippet>

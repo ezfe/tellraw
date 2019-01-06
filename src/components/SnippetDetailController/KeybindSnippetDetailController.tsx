@@ -1,5 +1,5 @@
 import * as React from "react";
-import { KeybindSnippet } from "../../classes/Snippets/KeybindSnippet";
+import { KeybindSnippet } from "../../classes/Snippets/SnippetTypes/KeybindSnippet";
 
 export interface KeybindSnippetDetailControllerProps {
   snippet: KeybindSnippet

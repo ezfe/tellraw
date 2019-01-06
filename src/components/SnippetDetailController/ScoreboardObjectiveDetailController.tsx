@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ScoreboardObjectiveSnippet } from "../../classes/Snippets/ScoreboardObjectiveSnippet";
+import { ScoreboardObjectiveSnippet } from "../../classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet";
 
 export interface ScoreboardObjectiveSnippetDetailControllerProps {
   snippet: ScoreboardObjectiveSnippet

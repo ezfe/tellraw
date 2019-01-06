@@ -1,5 +1,5 @@
 import * as React from "react";
-import { TextSnippet } from "../../classes/Snippets/TextSnippet";
+import { TextSnippet } from "../../classes/Snippets/SnippetTypes/TextSnippet";
 
 export interface TextSnippetDetailControllerProps {
   snippet: TextSnippet

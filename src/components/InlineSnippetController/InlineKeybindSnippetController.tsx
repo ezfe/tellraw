@@ -1,7 +1,7 @@
 import * as React from "react";
+import { KeybindSnippet } from "../../classes/Snippets/SnippetTypes/KeybindSnippet";
 import { InlineEditButton } from "../InlineEditButton";
 import { InlineSnippetControllerProps } from "./InlineSnippetController";
-import { KeybindSnippet } from "../../classes/Snippets/KeybindSnippet";
 
 export interface InlineKeybindSnippetControllerProps extends InlineSnippetControllerProps {
   snippet: KeybindSnippet

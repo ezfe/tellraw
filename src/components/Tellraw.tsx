@@ -1,17 +1,9 @@
 import * as React from "react";
-import { Snippet } from "../classes/Snippets/Snippet";
-import { CommandTemplatesController } from "./CommandTemplatesController";
-import { SnippetDetailController } from "./SnippetDetailController/SnippetDetailController";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
 import { VERSION } from "../constants";
 import { CommandFormat, command_template } from "../data/templates";
 import { compile } from "../helpers/compile";
-import { TextSnippet } from "../classes/Snippets/TextSnippet";
-import { SelectorSnippet } from "../classes/Snippets/SelectorSnippet";
-import { ScoreboardObjectiveSnippet } from "../classes/Snippets/ScoreboardObjectiveSnippet";
-import { LinebreakSnippet } from "../classes/Snippets/LinebreakSnippet";
-import { InlineSnippetController } from "./InlineSnippetController/InlineSnippetController";
-import { KeybindSnippet } from "../classes/Snippets/KeybindSnippet";
+import { CommandTemplatesController } from "./CommandTemplatesController";
 import { SnippetCollection } from "./SnippetCollection";
 
 export interface TellrawProps {

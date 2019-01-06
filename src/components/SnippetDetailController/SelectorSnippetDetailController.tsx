@@ -1,5 +1,5 @@
 import * as React from "react";
-import { SelectorSnippet } from "../../classes/Snippets/SelectorSnippet";
+import { SelectorSnippet } from "../../classes/Snippets/SnippetTypes/SelectorSnippet";
 
 export interface SelectorSnippetDetailControllerProps {
   snippet: SelectorSnippet
