@@ -52,6 +52,10 @@ export class ScoreboardObjectiveSnippet extends Snippet {
     newValue.click_event_type = this.click_event_type
     newValue.click_event_value = this.click_event_value
 
+    newValue.hover_event_type = this.hover_event_type
+    newValue.hover_event_value = this.hover_event_value
+    newValue.hover_event_children = this.hover_event_children
+
     return newValue
   }
 

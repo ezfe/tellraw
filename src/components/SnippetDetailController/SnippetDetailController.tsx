@@ -11,6 +11,9 @@ import { KeybindSnippet } from "../../classes/Snippets/KeybindSnippet";
 import { KeybindSnippetDetailController } from "./KeybindSnippetDetailController";
 import { copy } from "../../helpers/copy_snippet";
 import { ClickEventType } from "../../classes/Snippets/ClickEvent";
+import Tellraw from "../Tellraw";
+import { SnippetCollection } from "../SnippetCollection";
+import { HoverEventType } from "../../classes/Snippets/HoverEvent";
 
 export interface SnippetDetailControllerProps {
   snippet: Snippet
@@ -32,11 +35,19 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
     this.state = {}
 
     this.changeColor = this.changeColor.bind(this)
+    
     this.changeClickEventType = this.changeClickEventType.bind(this)
     this.changeClickEventValue = this.changeClickEventValue.bind(this)
+    
+    this.changeHoverEventType = this.changeHoverEventType.bind(this)
+    this.changeHoverEventValue = this.changeHoverEventValue.bind(this)
+    this.changeHoverEventChildren = this.changeHoverEventChildren.bind(this)
+    
     this.updateToggle = this.updateToggle.bind(this)
     this.updateField = this.updateField.bind(this)
+    
     this.customAreaRender = this.customAreaRender.bind(this)
+    this.hoverEventValueRender = this.hoverEventValueRender.bind(this)
   }
 
   changeColor(event: any) {
@@ -49,6 +60,20 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
 
   changeClickEventValue(event: any) {
     this.updateField("click_event_value", event.target.value)
+  }
+
+  changeHoverEventType(event: any) {
+    this.updateField("hover_event_type", event.target.value)
+  }
+
+  changeHoverEventValue(event: any) {
+    this.updateField("hover_event_value", event.target.value)
+  }
+
+  changeHoverEventChildren(snippets: Array<Snippet>) {
+    let newSnippet = copy(this.props.snippet)
+    newSnippet.hover_event_children = snippets
+    this.props.updateSnippet(newSnippet)
   }
 
   updateToggle(field: string, event: any) {
@@ -73,6 +98,30 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
     } else {
       return <span>{typeof this.props.snippet} isn't implemented supported renderer</span>
     } 
+  }
+
+  hoverEventValueRender() {
+    if (this.props.snippet.hover_event_type == HoverEventType.show_text) {
+      return (
+        <div className="col">
+          <div className="row inline-snippet-collection-label">
+            The area below is a seperate editor for the hover text. It allows for more advanced features than can be used in hover text. 
+            For example, you may not use hover text in a hover text box. It will not do anything.
+          </div>
+          <div className="row">
+            <div className="col inline-snippet-collection">
+              <SnippetCollection snippets={this.props.snippet.hover_event_children} updateSnippets={this.changeHoverEventChildren} />
+            </div>
+          </div>
+        </div>
+      )
+    } else if (this.props.snippet.hover_event_type != HoverEventType.none) {
+      return (
+        <div className="col">
+          <input type="text" className="form-control" value={this.props.snippet.hover_event_value} onChange={this.changeHoverEventValue}/>
+        </div>
+      )
+    }
   }
 
   render() {
@@ -161,8 +210,30 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
           }
         </div>
 
+        {/* Hover Events */}
+
+        <div className="row margin-below">
+          <div className="col">
+            <h4>Hover Event:</h4>
+          </div>
+        </div>
+
+        <div className="row margin-below">
+          <div className="col-4">
+            <select className="form-control" value={this.props.snippet.hover_event_type} onChange={this.changeHoverEventType}>
+            <option key={HoverEventType.none} value={HoverEventType.none}>None</option>
+            <option key={HoverEventType.show_entity} value={HoverEventType.show_entity}>Show Entity</option>
+            <option key={HoverEventType.show_item} value={HoverEventType.show_item}>Show Item</option>
+            <option key={HoverEventType.show_text} value={HoverEventType.show_text}>Show Text</option>
+						</select>
+          </div>
+          { this.hoverEventValueRender() }
+        </div>
+
+        {/* Exit Controls */}
+        
         <div className="row">
-          <div className="offset-1 col-2">
+          <div className="offset-8 col-2">
             <button className="btn btn-secondary btn-block" onClick={() => { this.props.stopEditing(false) }}>Cancel</button>
           </div>
           <div className="col-2">

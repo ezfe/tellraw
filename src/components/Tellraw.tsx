@@ -12,6 +12,7 @@ import { ScoreboardObjectiveSnippet } from "../classes/Snippets/ScoreboardObject
 import { LinebreakSnippet } from "../classes/Snippets/LinebreakSnippet";
 import { InlineSnippetController } from "./InlineSnippetController/InlineSnippetController";
 import { KeybindSnippet } from "../classes/Snippets/KeybindSnippet";
+import { SnippetCollection } from "./SnippetCollection";
 
 export interface TellrawProps {
 
@@ -19,7 +20,6 @@ export interface TellrawProps {
 
 interface TellrawState {
   snippets: Array<Snippet>
-  editing: Snippet,
   command_format: CommandFormat,
   custom_command: boolean,
   command: string,
@@ -58,7 +58,6 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
 
     this.state = {
       snippets: loaded_snippets,
-      editing: null,
       command_format: CommandFormat.tellraw,
       custom_command: true,
       command: loaded_command,
@@ -67,22 +66,11 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
 
     // Set format
     localStorage.setItem("jformat", VERSION.toString())
-    
-    this.startEditing = this.startEditing.bind(this)
-    this.updateEditing = this.updateEditing.bind(this)
-    this.stopEditing = this.stopEditing.bind(this)
-    
-    this.addLineBreak = this.addLineBreak.bind(this)
 
-    this.updateSnippet = this.updateSnippet.bind(this)
     this.recompile = this.recompile.bind(this)
 
     this.updateCustomCommand = this.updateCustomCommand.bind(this)
     this.toggleCustomCommand = this.toggleCustomCommand.bind(this)
-
-    this.editor = this.editor.bind(this)
-    this.listView = this.listView.bind(this)
-    this.mainView = this.mainView.bind(this)
   }
 
   componentDidUpdate(previousProps: TellrawProps, previousState: TellrawState) {
@@ -93,66 +81,6 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
 
   componentDidMount() {
     this.recompile()
-  }
-
-  /**
-   * Start editing a snippet.
-   * 
-   * @param snippet The snippet to start editing
-   */
-  startEditing(snippet: Snippet) {
-    this.setState({ editing: snippet })
-  }
-
-  /**
-   * Update the snippet being edited without propagating it to the
-   * main snippet list.
-   * 
-   * @param snippet The new snippet state
-   */
-  updateEditing(snippet: Snippet) {
-    this.setState({ editing: snippet })
-  }
-
-  /**
-   * Stop editing a snippet.
-   * 
-   * @param save Whether to save the new snippet state back to the main snippet list.
-   */
-  stopEditing(save: boolean) {
-    if (save && this.state.editing !== null) {
-      this.updateSnippet(this.state.editing)
-    }
-
-    this.setState({ editing: null })
-  }
-
-  addLineBreak() {
-    const snip = new LinebreakSnippet(null)
-
-    const updated = [...this.state.snippets, snip]
-    this.setState({ snippets: updated })
-
-    this.recompile(updated)
-  }
-
-  updateSnippet(newSnippet: Snippet) {
-    let isNewSnippet = true
-    let updatedSnippets = this.state.snippets.map(currentSnippet => {
-      if (currentSnippet.id === newSnippet.id) {
-        isNewSnippet = false
-        return newSnippet
-      } else {
-        return currentSnippet
-      }
-    })
-
-    if (isNewSnippet) {
-      updatedSnippets = [...this.state.snippets, newSnippet]
-    }
-
-    this.setState({snippets: updatedSnippets})
-    this.recompile(updatedSnippets)
   }
 
   recompile(snippets: Array<Snippet> = null, command: string = null) {
@@ -171,57 +99,6 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
   toggleCustomCommand(event: any) {
     this.setState({ custom_command: event.target.checked })
     this.recompile(null, event.target.checked ? (this.state.command) : (command_template(this.state.command_format)))
-  }
-
-  editor() {
-    console.log(this.state)
-    return <SnippetDetailController snippet={this.state.editing} updateSnippet={this.updateEditing} stopEditing={this.stopEditing}/>
-  }
-
-  listView() {
-    return (
-      <>
-        {
-          this.state.snippets.map((s: Snippet) => {
-            return <InlineSnippetController key={s.id}
-                                                snippet={s}
-                                                updateSnippet={this.updateSnippet}
-                                                startEditingSnippet={this.startEditing} />
-            })
-        }
-
-        <div className="row">
-          <div className="offset-1 col-2">
-            <div className="dropdown">
-              <button className="btn btn-primary dropdown-toggle"
-                      type="button"
-                      id="add-snippet-dropdown-button"
-                      data-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false">
-
-                <FontAwesomeIcon icon="plus-circle" /> Add Snippet
-              </button>
-              <div className="dropdown-menu" aria-labelledby="add-snippet-dropdown-button">
-                <button className="dropdown-item" onClick={() => { this.startEditing(new TextSnippet(null)) }}>Text</button>
-                <button className="dropdown-item" onClick={() => { this.startEditing(new SelectorSnippet(null)) }}>Selector</button>
-                <button className="dropdown-item" onClick={() => { this.startEditing(new ScoreboardObjectiveSnippet(null)) }}>Scoreboard Objective</button>
-                <button className="dropdown-item" onClick={() => { this.startEditing(new KeybindSnippet(null)) }}>Keybind</button>
-                <button className="dropdown-item" onClick={this.addLineBreak}>Line Break ⏎</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </>
-    )
-  }
-
-  mainView() {
-    if (this.state.editing === null) {
-      return this.listView()
-    } else {
-      return this.editor()
-    }
   }
 
   render() {
@@ -258,7 +135,7 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
         <br />
         <br />
         
-        { this.mainView() }
+        <SnippetCollection snippets={this.state.snippets} updateSnippets={(snippets: Array<Snippet>) => { this.setState({snippets: snippets}); this.recompile(snippets) }}/>
         
         <br />
         <br />

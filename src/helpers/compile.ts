@@ -5,6 +5,7 @@ import { SelectorSnippet } from "../classes/Snippets/SelectorSnippet";
 import { ScoreboardObjectiveSnippet } from "../classes/Snippets/ScoreboardObjectiveSnippet";
 import { KeybindSnippet } from "../classes/Snippets/KeybindSnippet";
 import { ClickEventType } from "../classes/Snippets/ClickEvent";
+import { HoverEventType } from "../classes/Snippets/HoverEvent";
 
 export function compile(snippets: Array<Snippet>, command: string): string {
 
@@ -48,6 +49,15 @@ export function compile(snippets: Array<Snippet>, command: string): string {
       pending["clickEvent"] = {
         "action": ClickEventType[snippet.click_event_type],
         "value": snippet.click_event_value
+      }
+    }
+
+    if (snippet.hover_event_type === HoverEventType.show_text) {
+      //
+    } else if (snippet.hover_event_type !== HoverEventType.none) {
+      pending["hoverEvent"] = {
+        "action": HoverEventType[snippet.hover_event_type],
+        "value": snippet.hover_event_value
       }
     }
 

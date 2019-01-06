@@ -12,7 +12,7 @@ interface InlineEditButtonProps {
 export class InlineEditButton extends React.Component<InlineEditButtonProps, {}> {
   render() {
     return (
-      <button className={`btn btn-${this.props.style || "secondary"}`} onClick={this.props.onClick}>
+      <button className={`btn btn-${this.props.style || "secondary"} btn-block`} onClick={this.props.onClick}>
         <FontAwesomeIcon icon={this.props.icon || "edit"} /> {this.props.text || "Edit"}
       </button>
     )

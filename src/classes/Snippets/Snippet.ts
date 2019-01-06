@@ -1,6 +1,7 @@
 import { Color } from "../Color";
 import uuid = require("uuid");
 import { ClickEventType } from "./ClickEvent";
+import { HoverEventType } from "./HoverEvent";
 
 export abstract class Snippet {
     id: string
@@ -17,6 +18,10 @@ export abstract class Snippet {
 
     click_event_type: ClickEventType = ClickEventType.none
     click_event_value: string = ""
+
+    hover_event_type: HoverEventType = HoverEventType.none
+    hover_event_value: string = ""
+    hover_event_children: Array<Snippet> = []
 
     constructor(id: string = null) {
         if (id !== null) {
