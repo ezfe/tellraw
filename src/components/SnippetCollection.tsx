@@ -112,7 +112,7 @@ export class SnippetCollection extends React.Component<SnippetCollectionProps, S
         }
 
         <div className="row">
-          <div className="offset-1 col-2">
+          <div className="col">
             <div className="dropdown">
               <button className="btn btn-primary dropdown-toggle"
                       type="button"

@@ -11,9 +11,9 @@ import { KeybindSnippet } from "../../classes/Snippets/KeybindSnippet";
 import { KeybindSnippetDetailController } from "./KeybindSnippetDetailController";
 import { copy } from "../../helpers/copy_snippet";
 import { ClickEventType } from "../../classes/Snippets/ClickEvent";
-import Tellraw from "../Tellraw";
 import { SnippetCollection } from "../SnippetCollection";
 import { HoverEventType } from "../../classes/Snippets/HoverEvent";
+import { Checkbox } from "../Forms/Checkbox";
 
 export interface SnippetDetailControllerProps {
   snippet: Snippet
@@ -156,30 +156,11 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
             </div>
             <div className="row">
               <div className="col">
-                <div className="custom-control custom-checkbox">
-                  <input checked={this.props.snippet.bold} onChange={event => this.updateToggle("bold", event)} type="checkbox" className="custom-control-input" id="bold_checkbox" />
-                  <label className="custom-control-label" htmlFor="bold_checkbox">Bold</label>
-                </div>
-
-                <div className="custom-control custom-checkbox">
-                  <input checked={this.props.snippet.italic} onChange={event => this.updateToggle("italic", event)} type="checkbox" className="custom-control-input" id="italic_checkbox" />
-                  <label className="custom-control-label" htmlFor="italic_checkbox">Italic</label>
-                </div>
-
-                <div className="custom-control custom-checkbox">
-                  <input checked={this.props.snippet.underlined} onChange={event => this.updateToggle("underlined", event)} type="checkbox" className="custom-control-input" id="underlined_checkbox" />
-                  <label className="custom-control-label" htmlFor="underlined_checkbox">Underlined</label>
-                </div>
-
-                <div className="custom-control custom-checkbox">
-                  <input checked={this.props.snippet.strikethrough} onChange={event => this.updateToggle("strikethrough", event)} type="checkbox" className="custom-control-input" id="strikethrough_checkbox" />
-                  <label className="custom-control-label" htmlFor="strikethrough_checkbox">Strikethrough</label>
-                </div>
-                
-                <div className="custom-control custom-checkbox">
-                  <input checked={this.props.snippet.obfuscated} onChange={event => this.updateToggle("obfuscated", event)} type="checkbox" className="custom-control-input" id="obfuscated_checkbox" />
-                  <label className="custom-control-label" htmlFor="obfuscated_checkbox">Obfuscated</label>
-                </div>
+                <Checkbox label="Bold" checked={this.props.snippet.bold} onChange={newValue => this.updateField("bold", newValue)} />
+                <Checkbox label="Italic" checked={this.props.snippet.italic} onChange={newValue => this.updateField("italic", newValue)} />
+                <Checkbox label="Underlined" checked={this.props.snippet.underlined} onChange={newValue => this.updateField("underlined", newValue)} />
+                <Checkbox label="Strikethrough" checked={this.props.snippet.strikethrough} onChange={newValue => this.updateField("strikethrough", newValue)} />
+                <Checkbox label="Obfuscated" checked={this.props.snippet.obfuscated} onChange={newValue => this.updateField("obfuscated", newValue)} />
               </div>
             </div>
           </div>

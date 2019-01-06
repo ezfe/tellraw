@@ -7,8 +7,7 @@ import { KeybindSnippet } from "../classes/Snippets/KeybindSnippet";
 import { ClickEventType } from "../classes/Snippets/ClickEvent";
 import { HoverEventType } from "../classes/Snippets/HoverEvent";
 
-export function compile(snippets: Array<Snippet>, command: string): string {
-
+export function object_compile(snippets: Array<Snippet>): Array<Object> {
   let results = Array<Object>()
   results.push("")
   for (const snippet of snippets) {
@@ -45,16 +44,22 @@ export function compile(snippets: Array<Snippet>, command: string): string {
       pending["insertion"] = snippet.insertion
     }
 
-    if (snippet.click_event_type !== ClickEventType.none) {
+    if (snippet.click_event_type != ClickEventType.none) {
       pending["clickEvent"] = {
         "action": ClickEventType[snippet.click_event_type],
         "value": snippet.click_event_value
       }
     }
 
-    if (snippet.hover_event_type === HoverEventType.show_text) {
-      //
-    } else if (snippet.hover_event_type !== HoverEventType.none) {
+    if (snippet.hover_event_type == HoverEventType.show_text) {
+      console.log("Compiling list of children", snippet.hover_event_children)
+      const recursive_result = object_compile(snippet.hover_event_children)
+      console.log("Compile finished", recursive_result)
+      pending["hoverEvent"] = {
+        "action": HoverEventType[snippet.hover_event_type],
+        "value": recursive_result
+      }
+    } else if (snippet.hover_event_type != HoverEventType.none) {
       pending["hoverEvent"] = {
         "action": HoverEventType[snippet.hover_event_type],
         "value": snippet.hover_event_value
@@ -63,6 +68,12 @@ export function compile(snippets: Array<Snippet>, command: string): string {
 
     results.push(pending)
   }
+
+  return results
+}
+
+export function compile(snippets: Array<Snippet>, command: string): string {
+  const results = object_compile(snippets)
 
   const encoded = JSON.stringify(results)
   if (command.indexOf("%s") === -1) {
