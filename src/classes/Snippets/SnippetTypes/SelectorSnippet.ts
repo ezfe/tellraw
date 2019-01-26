@@ -1,7 +1,6 @@
-import { duplicate_standard_attributes } from "../../../helpers/copy_snippet";
+import { copy_standard_attributes } from "../../../helpers/copy_snippet";
 import { legacy_apply_common_formatting } from "../../../helpers/legacy_apply_styles";
 import { Snippet } from "./Snippet";
-import uuid = require("uuid");
 
 export class SelectorSnippet extends Snippet {
   id: string
@@ -17,7 +16,7 @@ export class SelectorSnippet extends Snippet {
 
     newValue.selector = this.selector
 
-    duplicate_standard_attributes(this, newValue)
+    copy_standard_attributes(this, newValue)
     
     return newValue
   }

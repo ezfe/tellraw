@@ -1,8 +1,7 @@
-import { duplicate_standard_attributes } from "../../../helpers/copy_snippet";
+import { copy_standard_attributes } from "../../../helpers/copy_snippet";
 import { legacy_apply_common_formatting } from "../../../helpers/legacy_apply_styles";
 import { Color } from "../../Color";
 import { Snippet } from "./Snippet";
-import uuid = require("uuid");
 
 export class ScoreboardObjectiveSnippet extends Snippet {
   id: string
@@ -21,16 +20,6 @@ export class ScoreboardObjectiveSnippet extends Snippet {
   color: Color = Color.none
 
   insertion: string = ""
-  
-  constructor(id: string = null) {
-    super()
-
-    if (id !== null) {
-      this.id = id
-    } else {
-      this.id = uuid()
-    }
-  }
 
   copy(): ScoreboardObjectiveSnippet {
     let newValue = new ScoreboardObjectiveSnippet(this.id)
@@ -39,7 +28,7 @@ export class ScoreboardObjectiveSnippet extends Snippet {
     newValue.score_objective = this.score_objective
     newValue.score_value = this.score_value
 
-    duplicate_standard_attributes(this, newValue)
+    copy_standard_attributes(this, newValue)
 
     return newValue
   }

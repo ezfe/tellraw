@@ -23,7 +23,7 @@ export function duplicate_snippet(snippet: Snippet) {
   }
 }
 
-export function duplicate_standard_attributes(source: Snippet, destination: Snippet) {
+export function copy_standard_attributes(source: Snippet, destination: Snippet) {
   destination.bold = source.bold
   destination.italic = source.italic
   destination.underlined = source.underlined
