@@ -27,16 +27,6 @@ export class KeybindSnippetDetailController extends React.Component<KeybindSnipp
   }
 
   render() {
-    return (
-      <>
-        <input className="form-control" placeholder="Keybind" value={this.props.snippet.keybind} onChange={this.changeKeybind} />
-        <br />
-        <p>
-          There is a list of valid values in the Options.txt specification on the wiki, <a href="https://minecraft.gamepedia.com/Options.txt" target="_">here</a>. Scroll
-          down to the Controls section, and find the keybind you want to use. Remove the <code>key_</code> part. For example,
-          to enter in the key to attack, use <code>key.attack</code>.
-        </p>
-      </>
-    )
+    return <input list="keybinds" className="form-control" placeholder="Keybind" value={this.props.snippet.keybind} onChange={this.changeKeybind} />
   }
 }
