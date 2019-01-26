@@ -14,6 +14,7 @@ import { KeybindSnippetDetailController } from "./KeybindSnippetDetailController
 import { ScoreboardObjectiveSnippetDetailController } from "./ScoreboardObjectiveDetailController";
 import { SelectorSnippetDetailController } from "./SelectorSnippetDetailController";
 import { TextSnippetDetailController } from "./TextSnippetDetailController";
+import { format_snippet } from "../../helpers/formatter";
 
 export interface SnippetDetailControllerProps {
   hoverRestrictions: boolean
@@ -229,9 +230,25 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
         { this.clickEventRenderer() }
 
         { this.hoverEventRenderer() }
+        
+        {/* Preview */}
+
+        <div className="row margin-below">
+          <div className="col">
+            <h4>Preview:</h4>
+          </div>
+        </div>
+
+        <div className="row margin-below">
+          <div className="col">
+            <p>
+              { format_snippet(this.props.snippet) }
+            </p>
+          </div>
+        </div>
 
         {/* Exit Controls */}
-        
+
         <div className="row">
           <div className="offset-8 col-2">
             <button className="btn btn-secondary btn-block" onClick={() => { this.props.stopEditing(false) }}>Cancel</button>
