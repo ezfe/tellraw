@@ -16,6 +16,7 @@ import { SelectorSnippetDetailController } from "./SelectorSnippetDetailControll
 import { TextSnippetDetailController } from "./TextSnippetDetailController";
 
 export interface SnippetDetailControllerProps {
+  hoverRestrictions: boolean
   snippet: Snippet
   updateSnippet: (snippet: Snippet) => void
   stopEditing: (save: boolean) => void
@@ -47,6 +48,10 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
     this.updateField = this.updateField.bind(this)
     
     this.customAreaRender = this.customAreaRender.bind(this)
+    
+    this.clickEventRenderer = this.clickEventRenderer.bind(this)
+
+    this.hoverEventRenderer = this.hoverEventRenderer.bind(this)
     this.hoverEventValueRender = this.hoverEventValueRender.bind(this)
   }
 
@@ -100,17 +105,72 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
     } 
   }
 
+  clickEventRenderer() {
+    if (this.props.hoverRestrictions) return null
+    
+    return (
+      <>
+        <div className="row margin-below">
+          <div className="col">
+            <h4>Click Event:</h4>
+          </div>
+        </div>
+
+        <div className="row margin-below">
+          <div className="col-4">
+            <select className="form-control" value={this.props.snippet.click_event_type} onChange={this.changeClickEventType}>
+              <option key={ClickEventType.none} value={ClickEventType.none}>None</option>
+              <option key={ClickEventType.open_url} value={ClickEventType.open_url}>Open URL</option>
+              <option key={ClickEventType.run_command} value={ClickEventType.run_command}>Run Command</option>
+              <option key={ClickEventType.suggest_command} value={ClickEventType.suggest_command}>Suggest Command</option>
+              <option key={ClickEventType.change_page} value={ClickEventType.change_page}>Change Page (Books Only)</option>
+						</select>
+          </div>
+          {
+            this.props.snippet.click_event_type !== ClickEventType.none ? (
+              <div className="col">
+                <input type="text" className="form-control" value={this.props.snippet.click_event_value} onChange={this.changeClickEventValue}/>
+              </div>  
+            ) : null
+          }
+        </div>
+      </>
+    )
+  }
+
+  hoverEventRenderer() {
+    if (this.props.hoverRestrictions) return null
+
+    return (
+      <>
+        <div className="row margin-below">
+          <div className="col">
+            <h4>Hover Event:</h4>
+          </div>
+        </div>
+
+        <div className="row margin-below">
+          <div className="col-4">
+            <select className="form-control" value={this.props.snippet.hover_event_type} onChange={this.changeHoverEventType}>
+            <option key={HoverEventType.none} value={HoverEventType.none}>None</option>
+            <option key={HoverEventType.show_entity} value={HoverEventType.show_entity}>Show Entity</option>
+            <option key={HoverEventType.show_item} value={HoverEventType.show_item}>Show Item</option>
+            <option key={HoverEventType.show_text} value={HoverEventType.show_text}>Show Text</option>
+						</select>
+          </div>
+          { this.hoverEventValueRender() }
+        </div>
+      </>
+    )
+  }
+
   hoverEventValueRender() {
     if (this.props.snippet.hover_event_type == HoverEventType.show_text) {
       return (
         <div className="col">
-          <div className="row inline-snippet-collection-label">
-            The area below is a seperate editor for the hover text. It allows for more advanced features than can be used in hover text. 
-            For example, you may not use hover text in a hover text box. It will not do anything.
-          </div>
           <div className="row">
             <div className="col inline-snippet-collection">
-              <SnippetCollection snippets={this.props.snippet.hover_event_children} updateSnippets={this.changeHoverEventChildren} />
+              <SnippetCollection hoverRestrictions={true} snippets={this.props.snippet.hover_event_children} updateSnippets={this.changeHoverEventChildren} />
             </div>
           </div>
         </div>
@@ -166,50 +226,9 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
           </div>
         </div>
 
-        <div className="row margin-below">
-          <div className="col">
-            <h4>Click Event:</h4>
-          </div>
-        </div>
+        { this.clickEventRenderer() }
 
-        <div className="row margin-below">
-          <div className="col-4">
-            <select className="form-control" value={this.props.snippet.click_event_type} onChange={this.changeClickEventType}>
-              <option key={ClickEventType.none} value={ClickEventType.none}>None</option>
-              <option key={ClickEventType.open_url} value={ClickEventType.open_url}>Open URL</option>
-              <option key={ClickEventType.run_command} value={ClickEventType.run_command}>Run Command</option>
-              <option key={ClickEventType.suggest_command} value={ClickEventType.suggest_command}>Suggest Command</option>
-              <option key={ClickEventType.change_page} value={ClickEventType.change_page}>Change Page (Books Only)</option>
-						</select>
-          </div>
-          {
-            this.props.snippet.click_event_type !== ClickEventType.none ? (
-              <div className="col">
-                <input type="text" className="form-control" value={this.props.snippet.click_event_value} onChange={this.changeClickEventValue}/>
-              </div>  
-            ) : null
-          }
-        </div>
-
-        {/* Hover Events */}
-
-        <div className="row margin-below">
-          <div className="col">
-            <h4>Hover Event:</h4>
-          </div>
-        </div>
-
-        <div className="row margin-below">
-          <div className="col-4">
-            <select className="form-control" value={this.props.snippet.hover_event_type} onChange={this.changeHoverEventType}>
-            <option key={HoverEventType.none} value={HoverEventType.none}>None</option>
-            <option key={HoverEventType.show_entity} value={HoverEventType.show_entity}>Show Entity</option>
-            <option key={HoverEventType.show_item} value={HoverEventType.show_item}>Show Item</option>
-            <option key={HoverEventType.show_text} value={HoverEventType.show_text}>Show Text</option>
-						</select>
-          </div>
-          { this.hoverEventValueRender() }
-        </div>
+        { this.hoverEventRenderer() }
 
         {/* Exit Controls */}
         

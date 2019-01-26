@@ -127,7 +127,7 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
         <br />
         <br />
         
-        <SnippetCollection snippets={this.state.snippets} updateSnippets={(snippets: Array<Snippet>) => { this.setState({snippets: snippets}); this.recompile(snippets) }}/>
+        <SnippetCollection hoverRestrictions={false} snippets={this.state.snippets} updateSnippets={(snippets: Array<Snippet>) => { this.setState({snippets: snippets}); this.recompile(snippets) }}/>
         
         <br />
         <br />
