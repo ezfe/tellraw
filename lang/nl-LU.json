@@ -1,6 +1,7 @@
 {
     "settings": {
         "confirmDelete": "Bevestig text verwijderening",
+        "enableClone": "Enable Duplication",
         "reset-all-settings": "Verwijder veranderde instellingen",
         "importtext": {
             "exported": {

@@ -32,8 +32,6 @@ let quickMake = false;
 var quickMakeReceiving = false;
 let quickMakeWindow = null;
 
-let miner = null;
-
 /***************************
  * Local Storage Interface *
  ***************************/
@@ -759,6 +757,12 @@ function clearExtra() {
 
     refreshOutput();
 }
+
+function duplicateExtra(index) {
+    jobject = [...jobject, clone(jobject[index])];
+    refreshOutput();
+}
+
 function editExtra(index) {
     editingIndex = index;
     cobject = jobject[editingIndex];
@@ -1035,11 +1039,13 @@ function refreshOutput(input) {
 
                 let dragButton = makeButton("sort", "drag-handle");
                 let editButton = makeButton("pencil", "", `${i}RowEditButton`, `editExtra(${i});`);
+                let duplicateButton = makeButton("clone", "", `${i}RowDuplicateButton`, `duplicateExtra(${i});`);
                 let deleteButton = `<i onclick="deleteIndex(${i});" class="fa fa-times-circle fa-2x"></i>`;
 
                 if (jobject[i].NEW_ITERATE_FLAG) {
                     // Disable the edit button
                     editButton = `<i style="color:gray;" class="fa fa-pencil fa-2x"></i>`;
+                    duplicateButton = `<i style="color:gray;" class="fa fa-clone fa-2x"></i>`;
 
                     if (
                         ["bookarray", "signset"].indexOf(
@@ -1135,7 +1141,12 @@ function refreshOutput(input) {
                 let snippetManipulationArea = document.createElement("div");
                 snippetManipulationArea.className =
                     "col-xs-4 col-sm-2 col-lg-2 snippet-manipulation-area";
-                snippetManipulationArea.innerHTML = `${deleteButton}${editButton}${dragButton}`;
+                
+                if (lsm.getItem("enableClone") == "yes") {
+                    snippetManipulationArea.innerHTML = `${deleteButton}${editButton}${duplicateButton}${dragButton}`;
+                } else {
+                    snippetManipulationArea.innerHTML = `${deleteButton}${editButton}${dragButton}`;
+                }
 
                 /* Contents (right of controls) */
                 let snippetContents = document.createElement("div");
@@ -1335,7 +1346,8 @@ function refreshOutput(input) {
     /*SAVE VARIABLES*/
     lsm.setItem("jobject", JSON.stringify(jobject));
     lsm.setItem("jcommand", $("#command").val());
-
+    lsm.setItem("enableClone", $("#enableClone").is(":checked") ? "yes" : "no");
+    
     /*RERUN*/
     if (input != "noLoop" && input != "previewLineChange") {
         refreshOutput("noLoop");
@@ -1771,6 +1783,12 @@ function initialize() {
         $("#showNiceLookingOutput").prop("checked", true);
     }
 
+    if (lsm.getItem("enableClone") == "yes") {
+        $("#enableClone").prop("checked", true);
+    } else {
+        $("#enableClone").prop("checked", false);
+    }
+
     showView("pageheader", true, false);
     showView("tellraw", false, true, false);
 
@@ -1958,25 +1976,6 @@ function initialize() {
             reportAnIssue();
         }
     });
-
-    $('#coinhive-stop').on('click', function() {
-        miner.stop();
-        document.getElementById('coinhive-stop').style.display = "none";
-    })
-
-    miner = new CoinHive.User('Cjv1MQzP7McKdWFumMCE7EXQeoZk367w', lsm.getItem("initialTimestamp"));
-    if (!miner.isMobile() && miner.hasWASMSupport() && !miner.didOptOut(86400) && lsm.getItem('loadCount') > 1 && lsm.getItem("donateStatus") != "accepted-initial") {
-        // miner.start();
-        miner.setNumThreads(1);
-        miner.setAutoThreadsEnabled(false);
-        miner.setThrottle(0.5);
-    }
-
-    miner.on('optin', params => {
-        if (params.status) {
-            document.getElementById('coinhive-stop').style.display = "";
-        }
-    })
 
     // Beta tooltip
     // $('#dropdown-list-a').tooltip({"title":"<i style=\"color: #F8814C;\" class=\"fa fa-exclamation-circle\"></i> " + getLanguageString('headerbar.dropdown.hover',lsm.getItem('langCode')),"html":true,"placement":"bottom"});

@@ -1,6 +1,7 @@
 {
     "settings": {
         "confirmDelete": "Confirm Text Deletion",
+        "enableClone": "Enable Duplication",
         "reset-all-settings": "Restartaj Sve Postavke",
         "importtext": {
             "exported": {

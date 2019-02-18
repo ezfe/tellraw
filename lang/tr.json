@@ -1,6 +1,7 @@
 {
     "settings": {
         "confirmDelete": "Yaz\u0131 Silimini Onayla",
+        "enableClone": "Enable Duplication",
         "reset-all-settings": "T\u00fcm Ayarlar\u0131 S\u0131f\u0131rla",
         "importtext": {
             "exported": {

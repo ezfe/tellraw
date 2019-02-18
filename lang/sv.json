@@ -1,6 +1,7 @@
 {
     "settings": {
         "confirmDelete": "Bekr\u00e4fta text bortagning",
+        "enableClone": "Enable Duplication",
         "reset-all-settings": "\u00c5terst\u00e4ll alla inst\u00e4llningar",
         "importtext": {
             "exported": {

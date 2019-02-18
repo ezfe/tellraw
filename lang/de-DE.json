@@ -1,6 +1,7 @@
 {
     "settings": {
         "confirmDelete": "Textl\u00f6schen Best\u00e4tigen",
+        "enableClone": "Enable Duplication",
         "reset-all-settings": "Alle Einstellungen zur\u00fccksetzen",
         "importtext": {
             "exported": {

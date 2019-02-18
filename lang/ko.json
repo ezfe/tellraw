@@ -1,6 +1,7 @@
 {
     "settings": {
         "confirmDelete": "\ud14d\uc2a4\ud2b8\ub97c \uc0ad\uc81c\ud560 \ub54c \ub2e4\uc2dc \ud655\uc778",
+        "enableClone": "Enable Duplication",
         "reset-all-settings": "\ubaa8\ub4e0 \uc124\uc815 \ucd08\uae30\ud654",
         "importtext": {
             "exported": {
