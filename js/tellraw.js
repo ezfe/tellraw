@@ -759,7 +759,7 @@ function clearExtra() {
 }
 
 function duplicateExtra(index) {
-    jobject = [...jobject, clone(jobject[index])];
+    jobject.splice(index, 0, clone(jobject[index]));
     refreshOutput();
 }
 
