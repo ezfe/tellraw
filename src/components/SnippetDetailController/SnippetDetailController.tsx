@@ -108,7 +108,7 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
 
   clickEventRenderer() {
     if (this.props.hoverRestrictions) return null
-    
+
     return (
       <>
         <div className="row margin-below">
