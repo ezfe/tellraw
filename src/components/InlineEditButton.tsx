@@ -9,11 +9,19 @@ interface InlineEditButtonProps {
   style?: string
 }
 
+function getIcon(providedIcon: IconProp, defaultIcon: IconProp): IconProp {
+  if (providedIcon) {
+    return providedIcon
+  } else {
+    return defaultIcon
+  }
+}
+
 export class InlineEditButton extends React.Component<InlineEditButtonProps, {}> {
   render() {
     return (
       <button className={`btn btn-${this.props.style || "secondary"} btn-block`} onClick={this.props.onClick}>
-        <FontAwesomeIcon icon={this.props.icon || "edit"} /> {this.props.text || "Edit"}
+        <FontAwesomeIcon icon={getIcon(this.props.icon, "edit")} /> {this.props.text || "Edit"}
       </button>
     )
   }
