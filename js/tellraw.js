@@ -1738,9 +1738,13 @@ function initialize() {
     }
 
     if (lsm.getItem("color") != undefined) {
-        $("#previewcolor").val(lsm.getItem("color"));
+        let lsmFound = lsm.getItem("color");
+        if (!lsmFound.startsWith("#")) {
+            lsmFound = `#${lsmFound}`
+        }
+        $("#previewcolor").val(lsmFound);
     } else {
-        $("#previewcolor").val("617A80");
+        $("#previewcolor").val("#f5774a");
     }
     $("#previewcolor").css("background-color", "#" + $("#previewcolor").val());
 
