@@ -1859,9 +1859,11 @@ function initialize() {
         $("#exporter").remove();
         $(".alerts").append(
             '<div id="exporter" class="alert alert-info"><h4 lang="export.heading"></h4><p><textarea readonly id="exportText">' +
-                makeExportString() +
-                '</textarea></p><p><button type="button" onclick="closeExport()" class="btn btn-default" lang="export.close"></button></p></div>'
+            makeExportString() +
+            '</textarea></p><p><button type="button" onclick="closeExport()" class="btn btn-warning" lang="export.close"></button> <button class="btn btn-default" id="export-copy-button" data-clipboard-target="#exportText">Copy to Clipboard</button></p></div>'
         );
+
+        new ClipboardJS('#export-copy-button')
 
         $exportText = $("#exportText");
         $exportText.select();
