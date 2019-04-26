@@ -34,7 +34,7 @@
     },
     "template": {
         "book12": "Books (1.12 and earlier)",
-        "sign_block13": "Sign (\/blockdata)",
+        "sign_block13": "Sign (\/data merge)",
         "actionbar": "Action Bar",
         "sign_block": "\u03a0\u03b9\u03bd\u03b1\u03ba\u03af\u03b4\u03b1 (\/blockdata)",
         "sign_item": "\u03a0\u03b9\u03bd\u03b1\u03ba\u03af\u03b4\u03b1 (\/give)",
