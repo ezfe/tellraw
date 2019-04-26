@@ -32,6 +32,18 @@
         "import": "\u0395\u03b9\u03c3\u03b1\u03b3\u03c9\u03b3\u03ae",
         "header": "\u03a1\u03c5\u03b8\u03bc\u03af\u03c3\u03b5\u03b9\u03c2:"
     },
+    "template": {
+        "book12": "Books (1.12 and earlier)",
+        "sign_block13": "Sign (\/blockdata)",
+        "actionbar": "Action Bar",
+        "sign_block": "\u03a0\u03b9\u03bd\u03b1\u03ba\u03af\u03b4\u03b1 (\/blockdata)",
+        "sign_item": "\u03a0\u03b9\u03bd\u03b1\u03ba\u03af\u03b4\u03b1 (\/give)",
+        "subtitle": "\u03a5\u03c0\u03cc\u03c4\u03b9\u03c4\u03bb\u03bf\u03c2",
+        "title": "\u03a4\u03af\u03c4\u03bb\u03bf\u03c2",
+        "tellraw": "Tellraw",
+        "book": "\u0392\u03b9\u03b2\u03bb\u03af\u03bf",
+        "execute_tellraw": "Execute"
+    },
     "headerbar": {
         "dropdown": {
             "download": "\u039b\u03ae\u03c8\u03b7 \u03b9\u03c3\u03c4\u03bf\u03c4\u03cc\u03c0\u03bf\u03c5",
@@ -55,16 +67,6 @@
         "other_language": "\u0386\u03bb\u03bb\u03b5\u03c2 \u0393\u03bb\u03ce\u03c3\u03c3\u03b1",
         "too_many_quotes": "Too Many Quotes",
         "cancel": "\u039c\u03b1\u03c4\u03b1\u03af\u03c9\u03c3\u03b7"
-    },
-    "template": {
-        "actionbar": "Action Bar",
-        "sign_block": "\u03a0\u03b9\u03bd\u03b1\u03ba\u03af\u03b4\u03b1 (\/blockdata)",
-        "sign_item": "\u03a0\u03b9\u03bd\u03b1\u03ba\u03af\u03b4\u03b1 (\/give)",
-        "subtitle": "\u03a5\u03c0\u03cc\u03c4\u03b9\u03c4\u03bb\u03bf\u03c2",
-        "title": "\u03a4\u03af\u03c4\u03bb\u03bf\u03c2",
-        "tellraw": "Tellraw",
-        "book": "\u0392\u03b9\u03b2\u03bb\u03af\u03bf",
-        "execute_tellraw": "Execute"
     },
     "textsnippets": {
         "NEW_ITERATE_FLAG": {

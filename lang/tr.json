@@ -32,6 +32,18 @@
         "import": "\u0130\u00e7e Aktar",
         "header": "Ayarlar:"
     },
+    "template": {
+        "book12": "Books (1.12 and earlier)",
+        "sign_block13": "Sign (\/blockdata)",
+        "actionbar": "Eylem \u00e7ubu\u011fu",
+        "sign_block": "Tabela (\/blockdata)",
+        "sign_item": "Tabela (\/give)",
+        "subtitle": "Altyaz\u0131",
+        "title": "Ba\u015fl\u0131k",
+        "tellraw": "Tellraw",
+        "book": "Kitap",
+        "execute_tellraw": "Y\u00fcr\u00fctme"
+    },
     "headerbar": {
         "dropdown": {
             "download": "Siteyi \u0130ndir",
@@ -55,16 +67,6 @@
         "other_language": "Ba\u015fka bir dil",
         "too_many_quotes": "\u00c7ok Fazla Al\u0131nt\u0131",
         "cancel": "\u0130ptal"
-    },
-    "template": {
-        "actionbar": "Eylem \u00e7ubu\u011fu",
-        "sign_block": "Tabela (\/blockdata)",
-        "sign_item": "Tabela (\/give)",
-        "subtitle": "Altyaz\u0131",
-        "title": "Ba\u015fl\u0131k",
-        "tellraw": "Tellraw",
-        "book": "Kitap",
-        "execute_tellraw": "Y\u00fcr\u00fctme"
     },
     "textsnippets": {
         "NEW_ITERATE_FLAG": {

@@ -32,6 +32,18 @@
         "import": "Importer",
         "header": "Param\u00e8tres :"
     },
+    "template": {
+        "book12": "Books (1.12 and earlier)",
+        "sign_block13": "Sign (\/blockdata)",
+        "actionbar": "Barre d'action",
+        "sign_block": "Panneau (\/blockdata)",
+        "sign_item": "Panneau (\/give)",
+        "subtitle": "Sous-Titre",
+        "title": "Titre",
+        "tellraw": "Tellraw",
+        "book": "Livre",
+        "execute_tellraw": "Execute"
+    },
     "headerbar": {
         "dropdown": {
             "download": "T\u00e9l\u00e9charger le site",
@@ -55,16 +67,6 @@
         "other_language": "Autre langue",
         "too_many_quotes": "Trop de citations",
         "cancel": "Annuler"
-    },
-    "template": {
-        "actionbar": "Barre d'action",
-        "sign_block": "Panneau (\/blockdata)",
-        "sign_item": "Panneau (\/give)",
-        "subtitle": "Sous-Titre",
-        "title": "Titre",
-        "tellraw": "Tellraw",
-        "book": "Livre",
-        "execute_tellraw": "Execute"
     },
     "textsnippets": {
         "NEW_ITERATE_FLAG": {

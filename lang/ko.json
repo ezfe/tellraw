@@ -32,6 +32,18 @@
         "import": "\uac00\uc838\uc624\uae30",
         "header": "\uc124\uc815:"
     },
+    "template": {
+        "book12": "Books (1.12 and earlier)",
+        "sign_block13": "Sign (\/blockdata)",
+        "actionbar": "\uc561\uc158\ubc14",
+        "sign_block": "\ud45c\uc9c0\ud310 (\/blockdata)",
+        "sign_item": "\ud45c\uc9c0\ud310 (\/give)",
+        "subtitle": "Subtitle",
+        "title": "Title",
+        "tellraw": "Tellraw",
+        "book": "\ucc45",
+        "execute_tellraw": "Execute"
+    },
     "headerbar": {
         "dropdown": {
             "download": "\uc6f9\uc0ac\uc774\ud2b8 \ub2e4\uc6b4\ub85c\ub4dc",
@@ -55,16 +67,6 @@
         "other_language": "\ub2e4\ub978 \uc5b8\uc5b4",
         "too_many_quotes": "\ub108\ubb34 \ub9ce\uc740 \uae30\ud638",
         "cancel": "\ucde8\uc18c"
-    },
-    "template": {
-        "actionbar": "\uc561\uc158\ubc14",
-        "sign_block": "\ud45c\uc9c0\ud310 (\/blockdata)",
-        "sign_item": "\ud45c\uc9c0\ud310 (\/give)",
-        "subtitle": "Subtitle",
-        "title": "Title",
-        "tellraw": "Tellraw",
-        "book": "\ucc45",
-        "execute_tellraw": "Execute"
     },
     "textsnippets": {
         "NEW_ITERATE_FLAG": {

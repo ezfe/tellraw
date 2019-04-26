@@ -32,6 +32,18 @@
         "import": "Importeer",
         "header": "Instellingen:"
     },
+    "template": {
+        "book12": "Books (1.12 and earlier)",
+        "sign_block13": "Sign (\/blockdata)",
+        "actionbar": "Actie Balk",
+        "sign_block": "Bord (\/blockdata)",
+        "sign_item": "Bord (\/give)",
+        "subtitle": "Subtitel",
+        "title": "Titel",
+        "tellraw": "Tellraw",
+        "book": "Boek",
+        "execute_tellraw": "Execute"
+    },
     "headerbar": {
         "dropdown": {
             "download": "Download Website",
@@ -55,16 +67,6 @@
         "other_language": "Andere Taal",
         "too_many_quotes": "Te Veel Citaten",
         "cancel": "Annuleren"
-    },
-    "template": {
-        "actionbar": "Actie Balk",
-        "sign_block": "Bord (\/blockdata)",
-        "sign_item": "Bord (\/give)",
-        "subtitle": "Subtitel",
-        "title": "Titel",
-        "tellraw": "Tellraw",
-        "book": "Boek",
-        "execute_tellraw": "Execute"
     },
     "textsnippets": {
         "NEW_ITERATE_FLAG": {

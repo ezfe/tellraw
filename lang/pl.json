@@ -32,6 +32,18 @@
         "import": "Zaimportuj",
         "header": "Ustawienia:"
     },
+    "template": {
+        "book12": "Books (1.12 and earlier)",
+        "sign_block13": "Sign (\/blockdata)",
+        "actionbar": "Tekst centralny",
+        "sign_block": "Tabliczka (\/blockdata)",
+        "sign_item": "Tabliczka (\/give)",
+        "subtitle": "Podtytu\u0142",
+        "title": "Tytu\u0142",
+        "tellraw": "\/tellraw",
+        "book": "Ksi\u0105\u017cka",
+        "execute_tellraw": "Wykonaj"
+    },
     "headerbar": {
         "dropdown": {
             "download": "Pobierz witryn\u0119",
@@ -55,16 +67,6 @@
         "other_language": "Inny j\u0119zyk",
         "too_many_quotes": "Zbyt wiele tekst\u00f3w",
         "cancel": "Anuluj"
-    },
-    "template": {
-        "actionbar": "Tekst centralny",
-        "sign_block": "Tabliczka (\/blockdata)",
-        "sign_item": "Tabliczka (\/give)",
-        "subtitle": "Podtytu\u0142",
-        "title": "Tytu\u0142",
-        "tellraw": "\/tellraw",
-        "book": "Ksi\u0105\u017cka",
-        "execute_tellraw": "Wykonaj"
     },
     "textsnippets": {
         "NEW_ITERATE_FLAG": {

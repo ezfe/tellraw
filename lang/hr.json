@@ -1,8 +1,8 @@
 {
     "settings": {
-        "confirmDelete": "Confirm Text Deletion",
-        "enableClone": "Enable Duplication",
-        "reset-all-settings": "Restartaj Sve Postavke",
+        "confirmDelete": "Potvrdi Brisanje Teksta",
+        "enableClone": "Omogu\u0107i Kopiranje",
+        "reset-all-settings": "Poni\u0161ti Sve Postavke",
         "importtext": {
             "exported": {
                 "header": "Umetni",
@@ -32,9 +32,21 @@
         "import": "Umetni",
         "header": "Postavke:"
     },
+    "template": {
+        "book12": "Books (1.12 and earlier)",
+        "sign_block13": "Sign (\/blockdata)",
+        "actionbar": "Akcijski Bar",
+        "sign_block": "Znak (\/blockdata)",
+        "sign_item": "Znak (\/give)",
+        "subtitle": "Podnaslov",
+        "title": "Naslov",
+        "tellraw": "Tellraw",
+        "book": "Knjiga",
+        "execute_tellraw": "Izvr\u0161i"
+    },
     "headerbar": {
         "dropdown": {
-            "download": "Download Website",
+            "download": "Preuzmi Web-stranicu",
             "uptime": "Vrijeme rada",
             "translate_page_link": "Stranica za Prevo\u0111enje",
             "hover": "Probna Verzija Dostupna!",
@@ -55,16 +67,6 @@
         "other_language": "Drugi Jezik",
         "too_many_quotes": "Previ\u0161e Citata",
         "cancel": "Poni\u0161ti"
-    },
-    "template": {
-        "actionbar": "Akcijski Bar",
-        "sign_block": "Znak (\/blockdata)",
-        "sign_item": "Znak (\/give)",
-        "subtitle": "Podnaslov",
-        "title": "Naslov",
-        "tellraw": "Tellraw",
-        "book": "Knjiga",
-        "execute_tellraw": "Izvr\u0161i"
     },
     "textsnippets": {
         "NEW_ITERATE_FLAG": {
@@ -163,7 +165,7 @@
         "report-an-issue": "Klikni ovdje da bi izvjestio problem. Ako iskusi\u0161 bilo koju vrstu gre\u0161ke, trebao bi ju izvjestiti ovdje.",
         "dropdown-list": "Tweet, pogledaj listu promjena, pogledaj minecraft forum post, ili dobi sredstva za prijevod.",
         "addsnippet": "Dodaj tekst na tvoju tellraw komandu.",
-        "delete-all-snippets": "Izbri\u0161i svoju komandu u potpunosti, ali ostavi tvoje spremi\u0161te netaknuto."
+        "delete-all-snippets": "Izbri\u0161i svoju komandu u potpunosti. To \u0107e izbrisati sve, koristi gumb Izvoz da prvo spremi\u0161 to."
     },
     "output": {
         "nothing": "Ni\u0161ta za vidjeti ovdje",
@@ -194,8 +196,8 @@
         "header": "Jezik"
     },
     "player": {
-        "header": "Igrac:",
-        "description": "(@a, @p, @r, ili specifi\u010dan igra\u010d)"
+        "header": "Igra\u010d i Komanda",
+        "description": "Koristi se za ozna\u010davanje i izvr\u0161avanje razli\u010ditih igra\u010da"
     },
     "commandblock": "To morate pokrenuti u konzoli ili naredbenom bloku.",
     "alert": {

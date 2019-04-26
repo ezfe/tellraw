@@ -572,12 +572,18 @@ let templates = {
         formatType: "signset",
         mouseActionOptions: []
     },
-    // book12: {
-    //     command: "/give @p written_book 1 0 {pages:%s,title:Book,author:TellrawGenerator}",
-    //     version: "1.8",
-    //     formatType: "bookarray",
-    //     mouseActionOptions: [MOUSE_ACTION_HOVER, MOUSE_ACTION_CLICK, MOUSE_ACTION_INSERTION]
-    // },
+    sign_block13: {
+        command: '/data merge block [x] [y] [z] {%s}',
+        version: "1.13",
+        formatType: "signset",
+        mouseActionOptions: []
+    },
+    book12: {
+        command: "/give @p written_book 1 0 {pages:%s,title:Book,author:TellrawGenerator}",
+        version: "1.8",
+        formatType: "bookarray",
+        mouseActionOptions: [MOUSE_ACTION_HOVER, MOUSE_ACTION_CLICK, MOUSE_ACTION_INSERTION]
+    },
     book: {
         command: "/give @p written_book{pages:%s,title:CustomBook,author:Player}",
         version: "1.13",

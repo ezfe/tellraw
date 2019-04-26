@@ -32,6 +32,18 @@
         "import": "Importovat",
         "header": "Nastaven\u00ed :"
     },
+    "template": {
+        "book12": "Books (1.12 and earlier)",
+        "sign_block13": "Sign (\/blockdata)",
+        "actionbar": "Action Bar (ta v\u011bc nad hotbarem)",
+        "sign_block": "Cedulka (\/blockdata)",
+        "sign_item": "Cedulka (\/give)",
+        "subtitle": "Podtitulek",
+        "title": "Titulek",
+        "tellraw": "TellRaw",
+        "book": "Kniha",
+        "execute_tellraw": "P\u0159\u00edkaz \/Execute"
+    },
     "headerbar": {
         "dropdown": {
             "download": "St\u00e1hnout str\u00e1nku",
@@ -55,16 +67,6 @@
         "other_language": "Zm\u011bnit jazyk",
         "too_many_quotes": "P\u0159\u00edli\u0161 mnoho uvozovek",
         "cancel": "Zru\u0161it"
-    },
-    "template": {
-        "actionbar": "Action Bar (ta v\u011bc nad hotbarem)",
-        "sign_block": "Cedulka (\/blockdata)",
-        "sign_item": "Cedulka (\/give)",
-        "subtitle": "Podtitulek",
-        "title": "Titulek",
-        "tellraw": "TellRaw",
-        "book": "Kniha",
-        "execute_tellraw": "P\u0159\u00edkaz \/Execute"
     },
     "textsnippets": {
         "NEW_ITERATE_FLAG": {

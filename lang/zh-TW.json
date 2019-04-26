@@ -32,6 +32,18 @@
         "import": "\u532f\u5165",
         "header": "\u8a2d\u5b9a\uff1a"
     },
+    "template": {
+        "book12": "Books (1.12 and earlier)",
+        "sign_block13": "Sign (\/blockdata)",
+        "actionbar": "\u884c\u70ba\u6b04",
+        "sign_block": "\u544a\u793a\u724c[Sign](\/blockdata)",
+        "sign_item": "\u544a\u793a\u724c[Sign](\/give)",
+        "subtitle": "\u526f\u6a19\u984c[Subtitle]",
+        "title": "\u4e3b\u6a19\u984c[Title]",
+        "tellraw": "Tellraw",
+        "book": "\u66f8[Book]",
+        "execute_tellraw": "\u8f38\u51fa"
+    },
     "headerbar": {
         "dropdown": {
             "download": "\u4e0b\u8f09\u672c\u7ad9",
@@ -55,16 +67,6 @@
         "other_language": "\u5176\u4ed6\u8a9e\u8a00",
         "too_many_quotes": "\u5f15\u865f\u6578\u91cf\u904e\u591a",
         "cancel": "\u53d6\u6d88"
-    },
-    "template": {
-        "actionbar": "\u884c\u70ba\u6b04",
-        "sign_block": "\u544a\u793a\u724c[Sign](\/blockdata)",
-        "sign_item": "\u544a\u793a\u724c[Sign](\/give)",
-        "subtitle": "\u526f\u6a19\u984c[Subtitle]",
-        "title": "\u4e3b\u6a19\u984c[Title]",
-        "tellraw": "Tellraw",
-        "book": "\u66f8[Book]",
-        "execute_tellraw": "\u8f38\u51fa"
     },
     "textsnippets": {
         "NEW_ITERATE_FLAG": {

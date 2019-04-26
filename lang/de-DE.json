@@ -1,7 +1,7 @@
 {
     "settings": {
         "confirmDelete": "Textl\u00f6schen Best\u00e4tigen",
-        "enableClone": "Enable Duplication",
+        "enableClone": "Verdopplung aktivieren",
         "reset-all-settings": "Alle Einstellungen zur\u00fccksetzen",
         "importtext": {
             "exported": {
@@ -32,6 +32,18 @@
         "import": "Importieren",
         "header": "Einstellungen:"
     },
+    "template": {
+        "book12": "Books (1.12 and earlier)",
+        "sign_block13": "Sign (\/blockdata)",
+        "actionbar": "Aktions-Leiste",
+        "sign_block": "Schild (\/blockdata)",
+        "sign_item": "Schild (\/give)",
+        "subtitle": "Untertitel",
+        "title": "Titel",
+        "tellraw": "Tellraw",
+        "book": "Buch",
+        "execute_tellraw": "Ausf\u00fchren"
+    },
     "headerbar": {
         "dropdown": {
             "download": "Webseite Herrunterladen",
@@ -55,16 +67,6 @@
         "other_language": "Andere Sprache",
         "too_many_quotes": "Zu viele Anf\u00fchrungszeichen",
         "cancel": "Abbrechen"
-    },
-    "template": {
-        "actionbar": "Aktions-Leiste",
-        "sign_block": "Schild (\/blockdata)",
-        "sign_item": "Schild (\/give)",
-        "subtitle": "Untertitel",
-        "title": "Titel",
-        "tellraw": "Tellraw",
-        "book": "Buch",
-        "execute_tellraw": "Ausf\u00fchren"
     },
     "textsnippets": {
         "NEW_ITERATE_FLAG": {

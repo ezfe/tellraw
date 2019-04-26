@@ -32,6 +32,18 @@
         "import": "Importera",
         "header": "Inst\u00e4llningar:"
     },
+    "template": {
+        "book12": "Books (1.12 and earlier)",
+        "sign_block13": "Sign (\/blockdata)",
+        "actionbar": "Action Bar",
+        "sign_block": "Skylt (\/blockdata)",
+        "sign_item": "Skylt (\/give)",
+        "subtitle": "Underrubrik",
+        "title": "Rubrik",
+        "tellraw": "Tellraw",
+        "book": "Bok",
+        "execute_tellraw": "Utf\u00f6r"
+    },
     "headerbar": {
         "dropdown": {
             "download": "Ladda ner hemsidan",
@@ -55,16 +67,6 @@
         "other_language": "Annat Spr\u00e5k",
         "too_many_quotes": "F\u00f6r m\u00e5nga citattecken",
         "cancel": "Avbryt"
-    },
-    "template": {
-        "actionbar": "Action Bar",
-        "sign_block": "Skylt (\/blockdata)",
-        "sign_item": "Skylt (\/give)",
-        "subtitle": "Underrubrik",
-        "title": "Rubrik",
-        "tellraw": "Tellraw",
-        "book": "Bok",
-        "execute_tellraw": "Utf\u00f6r"
     },
     "textsnippets": {
         "NEW_ITERATE_FLAG": {
