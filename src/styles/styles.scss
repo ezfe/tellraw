@@ -24,3 +24,11 @@ body {
   padding: 15px;
   border-color: grey;
 }
+
+.bordered-formatter-preview {
+  border-style: dashed;
+  border-width: 3px;
+  border-radius: 3px;
+  padding: 5px;
+  border-color: $info;
+}

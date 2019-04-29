@@ -1,11 +1,9 @@
 export enum CommandType {
     tellraw = "tellraw",
-    title = "title",
-    subtitle = "subtitle",
-    actionbar = "actionbar",
+    overlay = "overlay",
     sign = "sign",
     book = "book",
-    hovertext = "hover-text"
+    hovertext = "hovertext"
 }
 
 export enum FeatureType {

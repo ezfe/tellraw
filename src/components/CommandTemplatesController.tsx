@@ -1,6 +1,25 @@
 import * as React from "react";
 import { CommandType } from "../data/templates"
 
+const selectableStates = [
+  {
+    type: CommandType.tellraw,
+    name: "Basic Tellraw"
+  },
+  {
+    type: CommandType.overlay,
+    name: "Screen Overlay"
+  },
+  {
+    type: CommandType.sign,
+    name: "Sign"
+  },
+  {
+    type: CommandType.book,
+    name: "Book"
+  }
+]
+
 export interface CommandTemplatesControllerProps {
   commandType: CommandType
   updateCommandType: (CommandType) => void
@@ -26,19 +45,16 @@ export class CommandTemplatesController extends React.Component<CommandTemplates
     return (
       <div>
         {
-          Object
-            .keys(CommandType)
-            // .filter(key => { !isNaN(Number(CommandType[key])) })
-            .map(type => {
+          selectableStates.map(typeInfo => {
               return (
-                <label key={`command-template-${type}`}>
+                <label key={`command-template-${typeInfo.type}`}>
                   <input 
                     type="radio"
                     name="mcj-type"
-                    value={type}
-                    checked={this.props.commandType === type}
+                    value={typeInfo.type}
+                    checked={this.props.commandType === typeInfo.type}
                     onChange={this.updateCommandType} />
-                  {type}
+                  {typeInfo.name}
                 </label>
               )
             })

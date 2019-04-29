@@ -6,7 +6,7 @@ import { KeybindSnippet } from "../classes/Snippets/SnippetTypes/KeybindSnippet"
 import { LinebreakSnippet } from "../classes/Snippets/SnippetTypes/LinebreakSnippet";
 import { ScoreboardObjectiveSnippet } from "../classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet";
 import { SelectorSnippet } from "../classes/Snippets/SnippetTypes/SelectorSnippet";
-import { getCSSHEX } from "../classes/Color";
+import { getCSSHEX, Color } from "../classes/Color";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
@@ -22,19 +22,16 @@ export function format_snippet(snippet: Snippet) {
     textDecorationValue = 'underline line-through'
   }
 
-  let icon: IconProp = null
   let className = ""
+  let icon: IconProp = null
   if (snippet instanceof KeybindSnippet) {
-    className = "badge badge-info"
     icon = "keyboard"
   } else if (snippet instanceof ScoreboardObjectiveSnippet) {
-    className = "badge badge-info"
     icon = "trophy"
   } else if (snippet instanceof SelectorSnippet) {
-    className = "badge badge-info"
     icon = "user-tag"
   }
-
+  if (icon !== null) className = "bordered-formatter-preview"
 
   const formatting: React.CSSProperties = {
     fontWeight: snippet.bold ? 'bold' : 'normal',
@@ -59,7 +56,7 @@ export function format_snippet(snippet: Snippet) {
       {
         icon !== null ? (
           <>
-            <FontAwesomeIcon icon={icon} />
+            <FontAwesomeIcon icon={icon} style={{color: "black"}}/>
             {'\u00A0' /* Unicode Non Blocking Space */}
           </>
         ) : null

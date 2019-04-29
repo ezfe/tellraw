@@ -60,6 +60,7 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
     this.recompile = this.recompile.bind(this)
 
     this.updateCustomCommand = this.updateCustomCommand.bind(this)
+    this.updateCommandType = this.updateCommandType.bind(this)
   }
 
   componentDidUpdate(previousProps: TellrawProps, previousState: TellrawState) {
