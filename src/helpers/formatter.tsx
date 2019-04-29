@@ -7,6 +7,8 @@ import { LinebreakSnippet } from "../classes/Snippets/SnippetTypes/LinebreakSnip
 import { ScoreboardObjectiveSnippet } from "../classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet";
 import { SelectorSnippet } from "../classes/Snippets/SnippetTypes/SelectorSnippet";
 import { getCSSHEX } from "../classes/Color";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 export function format_snippet(snippet: Snippet) {
   if (snippet instanceof LinebreakSnippet) return <br />
@@ -20,6 +22,20 @@ export function format_snippet(snippet: Snippet) {
     textDecorationValue = 'underline line-through'
   }
 
+  let icon: IconProp = null
+  let className = ""
+  if (snippet instanceof KeybindSnippet) {
+    className = "badge badge-info"
+    icon = "keyboard"
+  } else if (snippet instanceof ScoreboardObjectiveSnippet) {
+    className = "badge badge-info"
+    icon = "trophy"
+  } else if (snippet instanceof SelectorSnippet) {
+    className = "badge badge-info"
+    icon = "user-tag"
+  }
+
+
   const formatting: React.CSSProperties = {
     fontWeight: snippet.bold ? 'bold' : 'normal',
     fontStyle: snippet.italic ? 'italic' : 'normal',
@@ -32,16 +48,23 @@ export function format_snippet(snippet: Snippet) {
     text = snippet.text
   } else if (snippet instanceof KeybindSnippet) {
     text = snippet.keybind
-    //
   } else if (snippet instanceof ScoreboardObjectiveSnippet) {
     text = `${snippet.score_objective}@${snippet.score_name}`
-    //
   } else if (snippet instanceof SelectorSnippet) {
     text = snippet.selector
-    //
   }
 
   return (
-    <span style={formatting}>{text}</span>
+    <span className={className} style={formatting}>
+      {
+        icon !== null ? (
+          <>
+            <FontAwesomeIcon icon={icon} />
+            {'\u00A0' /* Unicode Non Blocking Space */}
+          </>
+        ) : null
+      }
+      {text}
+    </span>
   )
 }

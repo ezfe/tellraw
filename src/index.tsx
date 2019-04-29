@@ -7,8 +7,8 @@ import 'bootstrap';
 import './styles/styles.scss';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faEdit, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
-library.add(faEdit, faPlusCircle)
+import { faEdit, faPlusCircle, faKeyboard, faTrophy, faUserTag } from '@fortawesome/free-solid-svg-icons';
+library.add(faEdit, faPlusCircle, faKeyboard, faTrophy, faUserTag)
 
 // Increment load count
 localStorage.setItem("loadCount", (1 + parseInt(localStorage.getItem("loadCount") || "0")).toString())
