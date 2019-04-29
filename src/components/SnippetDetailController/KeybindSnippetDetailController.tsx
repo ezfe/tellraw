@@ -27,6 +27,6 @@ export class KeybindSnippetDetailController extends React.Component<KeybindSnipp
   }
 
   render() {
-    return <input list="keybinds" className="form-control" placeholder="Keybind" value={this.props.snippet.keybind} onChange={this.changeKeybind} />
+    return <input list="datalist-keybinds" className="form-control" placeholder="Keybind" value={this.props.snippet.keybind} onChange={this.changeKeybind} />
   }
 }
