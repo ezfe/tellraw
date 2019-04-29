@@ -8,9 +8,10 @@ import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
 import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
 import { InlineSnippetController } from "./InlineSnippetController/InlineSnippetController";
 import { SnippetDetailController } from "./SnippetDetailController/SnippetDetailController";
+import { CommandType } from "../data/templates";
 
 export interface SnippetCollectionProps {
-  hoverRestrictions: boolean
+  commandType: CommandType
   snippets: Array<Snippet>
   updateSnippets: (snippets: Array<Snippet>) => void
 }
@@ -97,7 +98,7 @@ export class SnippetCollection extends React.Component<SnippetCollectionProps, S
 
   editor() {
     console.log(this.state)
-    return <SnippetDetailController hoverRestrictions={this.props.hoverRestrictions} snippet={this.state.editing} updateSnippet={this.updateEditing} stopEditing={this.stopEditing}/>
+    return <SnippetDetailController commandType={this.props.commandType} snippet={this.state.editing} updateSnippet={this.updateEditing} stopEditing={this.stopEditing}/>
   }
 
   listView() {

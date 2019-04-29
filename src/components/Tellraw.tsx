@@ -1,10 +1,10 @@
 import * as React from "react";
 import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
 import { VERSION } from "../constants";
-import { CommandFormat, command_template } from "../data/templates";
 import { compile } from "../helpers/compile";
 import { CommandTemplatesController } from "./CommandTemplatesController";
 import { SnippetCollection } from "./SnippetCollection";
+import { CommandType } from "../data/templates";
 
 export interface TellrawProps {
 
@@ -12,8 +12,7 @@ export interface TellrawProps {
 
 interface TellrawState {
   snippets: Array<Snippet>
-  command_format: CommandFormat,
-  custom_command: boolean,
+  commandType: CommandType,
   command: string,
   compiled: string
 }
@@ -50,19 +49,17 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
 
     this.state = {
       snippets: loaded_snippets,
-      command_format: CommandFormat.tellraw,
-      custom_command: true,
+      commandType: CommandType.tellraw,
       command: loaded_command,
       compiled: ""
     }
 
-    // Set format
+    // Set format version
     localStorage.setItem("jformat", VERSION.toString())
 
     this.recompile = this.recompile.bind(this)
 
     this.updateCustomCommand = this.updateCustomCommand.bind(this)
-    this.toggleCustomCommand = this.toggleCustomCommand.bind(this)
   }
 
   componentDidUpdate(previousProps: TellrawProps, previousState: TellrawState) {
@@ -75,9 +72,13 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
     this.recompile()
   }
 
-  recompile(snippets: Array<Snippet> = null, command: string = null) {
+  recompile(snippets: Array<Snippet> = null,
+            command: string = null,
+            type: CommandType = null) {
     if (snippets === null) snippets = this.state.snippets
-    if (command === null) command = this.state.custom_command ? (this.state.command) : (command_template(this.state.command_format))
+    if (command === null) command = this.state.command
+    if (type === null) type = this.state.commandType
+
     this.setState({ compiled: compile(snippets, command) })
 
     console.log("State Snippets", this.state.snippets)
@@ -87,10 +88,10 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
     this.setState({ command: event.target.value })
     this.recompile(null, event.target.value)
   }
-  
-  toggleCustomCommand(event: any) {
-    this.setState({ custom_command: event.target.checked })
-    this.recompile(null, event.target.checked ? (this.state.command) : (command_template(this.state.command_format)))
+
+  updateCommandType(type: CommandType) {
+    this.setState({ commandType: type })
+    this.recompile(null, null, type)
   }
 
   render() {
@@ -102,32 +103,23 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
             <br />
             <span lang="player.description">Used to select and execute different players</span>
           </div>
-          <div className="col-3">
-            <div className="custom-control custom-checkbox">
-              <input checked={this.state.custom_command}
-                onChange={this.toggleCustomCommand}
-                type="checkbox"
-                className="custom-control-input"
-                id="custom_command_checkbox" />
-              <label className="custom-control-label" htmlFor="custom_command_checkbox">Custom Command</label>
-            </div>
-          </div>
           <div className="col">
-            <input value={this.state.custom_command ? (this.state.command) : (command_template(this.state.command_format))}
+            <input value={this.state.command}
                    onChange={this.updateCustomCommand}
                    type="text"
-                   className="form-control"
-                   disabled={!this.state.custom_command}/>
+                   className="form-control" />
           </div>
         </div>
-        <CommandTemplatesController />
+        <CommandTemplatesController commandType={this.state.commandType} updateCommandType={this.updateCommandType} />
         <br />
         <br />
         <hr />
         <br />
         <br />
         
-        <SnippetCollection hoverRestrictions={false} snippets={this.state.snippets} updateSnippets={(snippets: Array<Snippet>) => { this.setState({snippets: snippets}); this.recompile(snippets) }}/>
+        <SnippetCollection commandType={this.state.commandType}
+          snippets={this.state.snippets} 
+          updateSnippets={(snippets: Array<Snippet>) => { this.setState({snippets: snippets}); this.recompile(snippets) }} />
         
         <br />
         <br />

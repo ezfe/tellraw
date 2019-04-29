@@ -29,7 +29,7 @@ export class InlineKeybindSnippetController extends React.Component<InlineKeybin
   render() {
     return (
       <div className="row margin-below">
-        <div className="col-1">
+        <div className="col-1 col-sm-2">
           <InlineEditButton onClick={() => { this.props.startEditingSnippet(this.props.snippet) }} />
         </div>
         <div className="col">

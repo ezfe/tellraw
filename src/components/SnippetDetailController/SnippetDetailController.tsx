@@ -15,9 +15,10 @@ import { ScoreboardObjectiveSnippetDetailController } from "./ScoreboardObjectiv
 import { SelectorSnippetDetailController } from "./SelectorSnippetDetailController";
 import { TextSnippetDetailController } from "./TextSnippetDetailController";
 import { format_snippet } from "../../helpers/formatter";
+import { CommandType, isFeatureAvailable, FeatureType } from "../../data/templates";
 
 export interface SnippetDetailControllerProps {
-  hoverRestrictions: boolean
+  commandType: CommandType
   snippet: Snippet
   updateSnippet: (snippet: Snippet) => void
   stopEditing: (save: boolean) => void
@@ -107,7 +108,9 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
   }
 
   clickEventRenderer() {
-    if (this.props.hoverRestrictions) return null
+    if (!isFeatureAvailable(this.props.commandType, FeatureType.clicking)) {
+      return null
+    }
 
     return (
       <>
@@ -140,7 +143,9 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
   }
 
   hoverEventRenderer() {
-    if (this.props.hoverRestrictions) return null
+    if (!isFeatureAvailable(this.props.commandType, FeatureType.hovering)) {
+      return null
+    }
 
     return (
       <>
@@ -171,7 +176,7 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
         <div className="col">
           <div className="row">
             <div className="col inline-snippet-collection">
-              <SnippetCollection hoverRestrictions={true} snippets={this.props.snippet.hover_event_children} updateSnippets={this.changeHoverEventChildren} />
+              <SnippetCollection commandType={CommandType.hovertext} snippets={this.props.snippet.hover_event_children} updateSnippets={this.changeHoverEventChildren} />
             </div>
           </div>
         </div>
