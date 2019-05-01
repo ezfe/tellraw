@@ -147,6 +147,18 @@
 				</div>
 			</div>
 		</div>
+		<div style="display:none;" class="view-container" view="import">
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3 well" style="text-align:center;">
+					<span lang="settings.importtext.exported.description"></span><br /><br />
+					<input class="form-control" id="hotfix-input-cell" />
+					<br /><br />
+					<button onclick="document.getElementById('hotfix-input-cell').value='';showView('tellraw')" class="btn btn-danger">Cancel</button>
+					&nbsp;&nbsp;
+					<button id="import2" class="btn btn-success">Import</button>
+				</div>
+			</div>
+		</div>
 		<div style="display:none;" class="view-container" view="quickmaking">
 			<p>Please use the new window to enter your hovertext. When you are finished, press "Done."</p>
 			<button class="btn btn-success" id="finish-quickmake">Done</button>

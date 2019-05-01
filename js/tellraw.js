@@ -1843,19 +1843,15 @@ function initialize() {
     $("#command").change(refreshOutput());
 
     $("#import").click(() => {
-        if (
-            importString(
-                prompt(
-                    getLanguageString(
-                        "settings.importtext.exported.description",
-                        lsm.getItem("langCode")
-                    )
-                )
-            )
-        ) {
+        showView('import');
+    });
+
+    $("#import2").click(() => {
+        if (importString(document.getElementById('hotfix-input-cell').value)) {
             alert("Your command has been imported");
         }
         refreshOutput();
+        showView('tellraw');
     });
 
     refreshOutput();
