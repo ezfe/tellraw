@@ -45,16 +45,16 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
     this.changeHoverEventType = this.changeHoverEventType.bind(this)
     this.changeHoverEventValue = this.changeHoverEventValue.bind(this)
     this.changeHoverEventChildren = this.changeHoverEventChildren.bind(this)
-    
+    this.changeInsertion = this.changeInsertion.bind(this)
+
     this.updateToggle = this.updateToggle.bind(this)
     this.updateField = this.updateField.bind(this)
     
     this.customAreaRender = this.customAreaRender.bind(this)
-    
     this.clickEventRenderer = this.clickEventRenderer.bind(this)
-
     this.hoverEventRenderer = this.hoverEventRenderer.bind(this)
     this.hoverEventValueRender = this.hoverEventValueRender.bind(this)
+    this.insertionRenderer = this.insertionRenderer.bind(this)
   }
 
   changeColor(event: any) {
@@ -81,6 +81,10 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
     let newSnippet = duplicate_snippet(this.props.snippet)
     newSnippet.hover_event_children = snippets
     this.props.updateSnippet(newSnippet)
+  }
+
+  changeInsertion(event: any) {
+    this.updateField("insertion", event.target.value)
   }
 
   updateToggle(field: string, event: any) {
@@ -190,6 +194,28 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
     }
   }
 
+  insertionRenderer() {
+    if (!isFeatureAvailable(this.props.commandType, FeatureType.insertion)) {
+      return null
+    }
+
+    return (
+      <>
+        <div className="row margin-below">
+          <div className="col">
+            <h4>Insertion:</h4>
+          </div>
+          <div className="col">
+            <input className="form-control"
+                   value={this.props.snippet.insertion}
+                   onChange={this.changeInsertion} />
+          </div>
+          { this.hoverEventValueRender() }
+        </div>
+      </>
+    )
+  }
+
   render() {
     return (
       <>
@@ -236,6 +262,10 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
 
         { this.hoverEventRenderer() }
         
+        { this.insertionRenderer() }
+
+        <br />
+
         {/* Preview */}
 
         <div className="row margin-below">

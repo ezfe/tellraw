@@ -140,10 +140,17 @@ export class SnippetCollection extends React.Component<SnippetCollectionProps, S
   }
 
   render() {
+    let view: JSX.Element
     if (this.state.editing === null) {
-      return this.listView()
+      view = this.listView()
     } else {
-      return this.editor()
+      view = this.editor()
     }
+
+    return (
+      <div className="light-well">
+        {view}
+      </div>
+    )
   }
 }

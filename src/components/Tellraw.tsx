@@ -99,6 +99,11 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
     return (
       <div className="container">
         <div className="row margin-below">
+          <div className="col">
+            <h4>Tellraw Generator for Minecraft</h4>
+          </div>
+        </div>
+        <div className="row margin-below">
           <div className="col-2">
             <span lang="player.header">Player and Command</span>
             <br />
