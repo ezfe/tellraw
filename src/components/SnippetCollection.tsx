@@ -9,6 +9,8 @@ import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
 import { InlineSnippetController } from "./InlineSnippetController/InlineSnippetController";
 import { SnippetDetailController } from "./SnippetDetailController/SnippetDetailController";
 import { CommandType } from "../data/templates";
+import { duplicate_snippet } from "../helpers/copy_snippet";
+import uuid = require("uuid");
 
 export interface SnippetCollectionProps {
   commandType: CommandType
@@ -33,6 +35,8 @@ export class SnippetCollection extends React.Component<SnippetCollectionProps, S
     this.stopEditing = this.stopEditing.bind(this)
     
     this.updateSnippet = this.updateSnippet.bind(this)
+    this.removeSnippet = this.removeSnippet.bind(this)
+    this.duplicateSnippet = this.duplicateSnippet.bind(this)
 
     this.addLineBreak = this.addLineBreak.bind(this)
     
@@ -89,7 +93,26 @@ export class SnippetCollection extends React.Component<SnippetCollectionProps, S
 
     this.props.updateSnippets(updatedSnippets)
   }
+
+  removeSnippet(snippet: Snippet) {
+    let filtered = this.props.snippets.filter(currentSnippet => {
+      return currentSnippet.id !== snippet.id
+    })
+
+    this.props.updateSnippets(filtered)
+  }
   
+  duplicateSnippet(snippet: Snippet) {
+    let now = this.props.snippets
+    let newSnippet = duplicate_snippet(snippet)
+    newSnippet.id = uuid()
+
+    let i = now.indexOf(snippet);
+    now.splice(i, 0, newSnippet);
+
+    this.props.updateSnippets(now);
+  }
+
   addLineBreak() {
     const snip = new LinebreakSnippet(null)
 
@@ -109,7 +132,9 @@ export class SnippetCollection extends React.Component<SnippetCollectionProps, S
             return <InlineSnippetController key={s.id}
                                                 snippet={s}
                                                 updateSnippet={this.updateSnippet}
-                                                startEditingSnippet={this.startEditing} />
+                                                startEditingSnippet={this.startEditing}
+                                                removeSnippet={this.removeSnippet}
+                                                duplicateSnippet={this.duplicateSnippet} />
             })
         }
 

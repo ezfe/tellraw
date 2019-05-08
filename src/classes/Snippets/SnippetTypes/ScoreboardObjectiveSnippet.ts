@@ -43,5 +43,4 @@ export class ScoreboardObjectiveSnippet extends Snippet {
 
     return snippet
   }
-
 }

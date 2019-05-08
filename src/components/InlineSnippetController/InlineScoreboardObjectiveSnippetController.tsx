@@ -3,8 +3,9 @@ import { ScoreboardObjectiveSnippet } from "../../classes/Snippets/SnippetTypes/
 import { InlineEditButton } from "../InlineEditButton";
 import { InlineSnippetControllerProps } from "./InlineSnippetController";
 
-export interface InlineScoreboardObjectiveSnippetControllerProps extends InlineSnippetControllerProps {
+export interface InlineScoreboardObjectiveSnippetControllerProps {
   snippet: ScoreboardObjectiveSnippet
+  updateSnippet: (Snippet) => void
 }
 
 export class InlineScoreboardObjectiveSnippetController extends React.Component<InlineScoreboardObjectiveSnippetControllerProps, {}> {
@@ -34,9 +35,6 @@ export class InlineScoreboardObjectiveSnippetController extends React.Component<
   render() {
     return (
       <div className="row margin-below">
-        <div className="col-1 col-sm-2">
-          <InlineEditButton onClick={() => { this.props.startEditingSnippet(this.props.snippet) }} />
-        </div>
         <div className="col">
           <input className="form-control" placeholder="Player" value={this.props.snippet.score_name} onChange={this.changeScoreName} />
         </div>

@@ -9,33 +9,82 @@ import { InlineKeybindSnippetController } from "./InlineKeybindSnippetController
 import { InlineScoreboardObjectiveSnippetController } from "./InlineScoreboardObjectiveSnippetController";
 import { InlineSelectorSnippetController } from "./InlineSelectorSnippetController";
 import { InlineTextSnippetController } from "./InlineTextSnippetController";
+import { InlineEditButton, InlineEditButtonAction } from "../InlineEditButton";
 
 export interface InlineSnippetControllerProps {
-    snippet: Snippet
-    updateSnippet: (Snippet) => void
-    startEditingSnippet: (Snippet) => void
+  snippet: Snippet
+  updateSnippet: (Snippet) => void
+  startEditingSnippet: (Snippet) => void
+  removeSnippet: (Snippet) => void
+  duplicateSnippet: (Snippet) => void
 }
 
 export class InlineSnippetController extends React.Component<InlineSnippetControllerProps, {}> {
-
-    constructor(props: InlineSnippetControllerProps) {
-        super(props)
+  
+  constructor(props: InlineSnippetControllerProps) {
+    super(props)
+    
+    this.editButtonClick = this.editButtonClick.bind(this)
+    this.customController = this.customController.bind(this)
+  }
+  
+  editButtonClick(action: string) {
+    if (action == "start-editing") {
+      this.props.startEditingSnippet(this.props.snippet)
+    } else if (action == "delete") {
+      this.props.removeSnippet(this.props.snippet)
+    } else if (action == "duplicate") {
+      this.props.duplicateSnippet(this.props.snippet)
+    } else {
+      alert(`Failed to catch ${action}`)
+    }
+  }
+  
+  customController() {
+    if (this.props.snippet instanceof TextSnippet) {
+      return <InlineTextSnippetController snippet={this.props.snippet as TextSnippet} updateSnippet={this.props.updateSnippet} />
+    } else if (this.props.snippet instanceof SelectorSnippet) {
+      return <InlineSelectorSnippetController snippet={this.props.snippet as SelectorSnippet} updateSnippet={this.props.updateSnippet} />
+    } else if (this.props.snippet instanceof ScoreboardObjectiveSnippet) {
+      return <InlineScoreboardObjectiveSnippetController snippet={this.props.snippet as ScoreboardObjectiveSnippet} updateSnippet={this.props.updateSnippet} />
+    } else if (this.props.snippet instanceof KeybindSnippet) {
+      return <InlineKeybindSnippetController snippet={this.props.snippet as KeybindSnippet} updateSnippet={this.props.updateSnippet} />
+    } else {
+      return <span>{typeof this.props.snippet} isn't implemented</span>
+    }
+  }
+  
+  render() {
+    let startEditingAction: InlineEditButtonAction = {
+      id: "start-editing",
+      text: "Edit"
     }
 
-    render() {
-        if (this.props.snippet instanceof LinebreakSnippet) {
-            // This has to come before TextSnippet since LinebreakSnippet isa TextSnippet
-            return <span>Line Break ⏎</span>
-        } else if (this.props.snippet instanceof TextSnippet) {
-            return <InlineTextSnippetController snippet={this.props.snippet as TextSnippet} updateSnippet={this.props.updateSnippet} startEditingSnippet={this.props.startEditingSnippet} />
-        } else if (this.props.snippet instanceof SelectorSnippet) {
-            return <InlineSelectorSnippetController snippet={this.props.snippet as SelectorSnippet} updateSnippet={this.props.updateSnippet} startEditingSnippet={this.props.startEditingSnippet} />
-        } else if (this.props.snippet instanceof ScoreboardObjectiveSnippet) {
-            return <InlineScoreboardObjectiveSnippetController snippet={this.props.snippet as ScoreboardObjectiveSnippet} updateSnippet={this.props.updateSnippet} startEditingSnippet={this.props.startEditingSnippet} />
-        } else if (this.props.snippet instanceof KeybindSnippet) {
-            return <InlineKeybindSnippetController snippet={this.props.snippet as KeybindSnippet} updateSnippet={this.props.updateSnippet} startEditingSnippet={this.props.startEditingSnippet} />
-        } else {
-            return <span>{typeof this.props.snippet} isn't implemented supported renderer</span>
-        }
+    let deleteAction: InlineEditButtonAction = {
+      id: "delete",
+      text: "Delete",
+      icon: "trash-alt"
     }
+
+    let duplicateAction: InlineEditButtonAction = {
+      id: "duplicate",
+      text: "Duplicate"
+    }
+    
+    if (this.props.snippet instanceof LinebreakSnippet) {
+      // This has to come before TextSnippet since LinebreakSnippet isa TextSnippet
+      return <span>Line Break ⏎</span>
+    } else {
+      return (
+        <div className="row margin-below">
+          <div className="col-1 col-sm-2">
+            <InlineEditButton onClick={this.editButtonClick} mainAction={startEditingAction} dropdownActions={[deleteAction, duplicateAction]} />
+          </div>
+          <div className="col">
+            { this.customController() }
+          </div>
+        </div>
+      )
+    }
+  }
 }

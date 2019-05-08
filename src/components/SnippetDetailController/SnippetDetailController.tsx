@@ -202,7 +202,7 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
     return (
       <>
         <div className="row margin-below">
-          <div className="col">
+          <div className="col-4">
             <h4>Insertion:</h4>
           </div>
           <div className="col">
@@ -210,7 +210,6 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
                    value={this.props.snippet.insertion}
                    onChange={this.changeInsertion} />
           </div>
-          { this.hoverEventValueRender() }
         </div>
       </>
     )

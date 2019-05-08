@@ -1,10 +1,10 @@
 import * as React from "react";
 import { KeybindSnippet } from "../../classes/Snippets/SnippetTypes/KeybindSnippet";
-import { InlineEditButton } from "../InlineEditButton";
 import { InlineSnippetControllerProps } from "./InlineSnippetController";
 
-export interface InlineKeybindSnippetControllerProps extends InlineSnippetControllerProps {
+export interface InlineKeybindSnippetControllerProps {
   snippet: KeybindSnippet
+  updateSnippet: (Snippet) => void
 }
 
 export class InlineKeybindSnippetController extends React.Component<InlineKeybindSnippetControllerProps, {}> {
@@ -27,15 +27,9 @@ export class InlineKeybindSnippetController extends React.Component<InlineKeybin
   }
 
   render() {
-    return (
-      <div className="row margin-below">
-        <div className="col-1 col-sm-2">
-          <InlineEditButton onClick={() => { this.props.startEditingSnippet(this.props.snippet) }} />
-        </div>
-        <div className="col">
-          <input className="form-control" placeholder="Selector..." value={this.props.snippet.keybind} onChange={this.changeKeybind} />
-        </div>
-      </div>
-    )
+    return <input className="form-control"
+                  placeholder="Selector..."
+                  value={this.props.snippet.keybind}
+                  onChange={this.changeKeybind} />
   }
 }

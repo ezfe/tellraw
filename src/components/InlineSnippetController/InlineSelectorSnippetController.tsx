@@ -3,8 +3,9 @@ import { SelectorSnippet } from "../../classes/Snippets/SnippetTypes/SelectorSni
 import { InlineEditButton } from "../InlineEditButton";
 import { InlineSnippetControllerProps } from "./InlineSnippetController";
 
-export interface InlineSelectorSnippetControllerProps extends InlineSnippetControllerProps {
+export interface InlineSelectorSnippetControllerProps {
   snippet: SelectorSnippet
+  updateSnippet: (Snippet) => void
 }
 
 export class InlineSelectorSnippetController extends React.Component<InlineSelectorSnippetControllerProps, {}> {
@@ -28,14 +29,7 @@ export class InlineSelectorSnippetController extends React.Component<InlineSelec
 
   render() {
     return (
-      <div className="row margin-below">
-        <div className="col-1 col-sm-2">
-          <InlineEditButton onClick={() => { this.props.startEditingSnippet(this.props.snippet) }} />
-        </div>
-        <div className="col">
-          <input className="form-control" placeholder="Selector..." value={this.props.snippet.selector} onChange={this.changeSelector} />
-        </div>
-      </div>
+      <input className="form-control" placeholder="Selector..." value={this.props.snippet.selector} onChange={this.changeSelector} />
     )
   }
 }

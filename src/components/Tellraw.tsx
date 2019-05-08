@@ -5,6 +5,7 @@ import { compile } from "../helpers/compile";
 import { CommandTemplatesController } from "./CommandTemplatesController";
 import { SnippetCollection } from "./SnippetCollection";
 import { CommandType } from "../data/templates";
+import { loadState } from "../helpers/persistence";
 
 export interface TellrawProps {
 
@@ -20,27 +21,9 @@ interface TellrawState {
 class Tellraw extends React.Component<TellrawProps, TellrawState> {
   constructor(props: TellrawProps) {
     super(props)
-
-    /// *** Snippet Loading ***
-    const lsformat = parseInt(localStorage.getItem("jformat") || "5")
     
-    let loaded_snippets = new Array<Snippet>()
+    let loaded_snippets = loadState()
     let loaded_command = "/tellraw @a %s"
-
-    // if (lsformat <= 3) {
-    //   localStorage.clear()
-    //   location.reload()
-    // } else if (lsformat === 4) {
-    //   console.log("Processing legacy localStorage")
-    //   loaded_snippets = load_legacy()
-    // } else if (lsformat === 5) {
-    //   const loaded_snippets_temp = JSON.parse(localStorage.getItem('jobject') || "[]") as Array<object>
-    //   loaded_snippets = loaded_snippets_temp.map((s): Snippet => {
-    //     return (Object as any).assign(new Snippet(), s)
-    //   })
-    // } else {
-    //   console.error(`Unexpected version ${lsformat}`)
-    // }
 
     const loaded_command_temp = localStorage.getItem('jcommand')
     if (loaded_command_temp !== null) {
@@ -117,9 +100,6 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
           </div>
         </div>
         <CommandTemplatesController commandType={this.state.commandType} updateCommandType={this.updateCommandType} />
-        <br />
-        <br />
-        <hr />
         <br />
         <br />
         

@@ -3,8 +3,9 @@ import { TextSnippet } from "../../classes/Snippets/SnippetTypes/TextSnippet";
 import { InlineEditButton } from "../InlineEditButton";
 import { InlineSnippetControllerProps } from "./InlineSnippetController";
 
-export interface InlineTextSnippetControllerProps extends InlineSnippetControllerProps {
+export interface InlineTextSnippetControllerProps {
   snippet: TextSnippet
+  updateSnippet: (Snippet) => void
 }
 
 export class InlineTextSnippetController extends React.Component<InlineTextSnippetControllerProps, {}> {
@@ -28,14 +29,7 @@ export class InlineTextSnippetController extends React.Component<InlineTextSnipp
 
   render() {
     return (
-      <div className="row margin-below">
-        <div className="col-1 col-sm-2">
-          <InlineEditButton onClick={() => { this.props.startEditingSnippet(this.props.snippet) }} />
-        </div>
-        <div className="col">
-          <input className="form-control" placeholder="Text..." value={this.props.snippet.text} onChange={this.changeText} />
-        </div>
-      </div>
+      <input className="form-control" placeholder="Text..." value={this.props.snippet.text} onChange={this.changeText} />
     )
   }
 }
