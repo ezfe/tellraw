@@ -5,6 +5,7 @@ import { isNullOrUndefined } from "util";
 
 export interface InlineEditButtonAction {
   text: string
+  enabled: boolean
   id: string
   icon?: IconProp
 }
@@ -35,7 +36,14 @@ export class InlineEditButton extends React.Component<InlineEditButtonProps, {}>
 
     return (
       <div className="btn-group">
-        <button type="button" className={`btn btn-${this.props.style || "secondary"}`} onClick={() => { this.props.onClick(this.props.mainAction.id) }}>
+        <button type="button"
+                className={`btn btn-${this.props.style || "secondary"}`}
+                disabled={!this.props.mainAction.enabled}
+                onClick={() => {
+                  if (this.props.mainAction.enabled) {
+                    this.props.onClick(this.props.mainAction.id)
+                  }
+                }}>
           <FontAwesomeIcon icon={getIcon(this.props.icon, "edit")} /> {this.props.mainAction.text}
         </button>
         <button type="button" className={`btn btn-${this.props.style || "secondary"} dropdown-toggle dropdown-toggle-split`} data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -44,10 +52,18 @@ export class InlineEditButton extends React.Component<InlineEditButtonProps, {}>
         <div className="dropdown-menu">
           {
             this.props.dropdownActions.map(action => {
+              // Skip disabled actions
+              if (!action.enabled) {
+                return null
+              }
+              
               return (
                 <a key={action.id} className="dropdown-item" href="#" onClick={() => { this.props.onClick(action.id) }}>
                   { action.icon ? (
-                      <FontAwesomeIcon icon={action.icon} /> 
+                      <>
+                        <FontAwesomeIcon icon={action.icon} />
+                        &nbsp;
+                      </>
                     ) : null }
                   { action.text }</a>
               )

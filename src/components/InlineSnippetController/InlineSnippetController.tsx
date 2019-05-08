@@ -10,6 +10,7 @@ import { InlineScoreboardObjectiveSnippetController } from "./InlineScoreboardOb
 import { InlineSelectorSnippetController } from "./InlineSelectorSnippetController";
 import { InlineTextSnippetController } from "./InlineTextSnippetController";
 import { InlineEditButton, InlineEditButtonAction } from "../InlineEditButton";
+import { MinecraftColorWell } from "../MinecraftColorWell";
 
 export interface InlineSnippetControllerProps {
   snippet: Snippet
@@ -41,7 +42,9 @@ export class InlineSnippetController extends React.Component<InlineSnippetContro
   }
   
   customController() {
-    if (this.props.snippet instanceof TextSnippet) {
+    if (this.props.snippet instanceof LinebreakSnippet) {
+      return <span>Line Break ⏎</span>
+    } else if (this.props.snippet instanceof TextSnippet) {
       return <InlineTextSnippetController snippet={this.props.snippet as TextSnippet} updateSnippet={this.props.updateSnippet} />
     } else if (this.props.snippet instanceof SelectorSnippet) {
       return <InlineSelectorSnippetController snippet={this.props.snippet as SelectorSnippet} updateSnippet={this.props.updateSnippet} />
@@ -57,34 +60,41 @@ export class InlineSnippetController extends React.Component<InlineSnippetContro
   render() {
     let startEditingAction: InlineEditButtonAction = {
       id: "start-editing",
-      text: "Edit"
+      text: "Edit",
+      enabled: !(this.props.snippet instanceof LinebreakSnippet)
     }
 
     let deleteAction: InlineEditButtonAction = {
       id: "delete",
       text: "Delete",
-      icon: "trash-alt"
+      icon: "trash-alt",
+      enabled: true
     }
 
     let duplicateAction: InlineEditButtonAction = {
       id: "duplicate",
-      text: "Duplicate"
+      text: "Duplicate",
+      icon: "clone",
+      enabled: true
     }
     
-    if (this.props.snippet instanceof LinebreakSnippet) {
-      // This has to come before TextSnippet since LinebreakSnippet isa TextSnippet
-      return <span>Line Break ⏎</span>
-    } else {
-      return (
-        <div className="row margin-below">
-          <div className="col-1 col-sm-2">
-            <InlineEditButton onClick={this.editButtonClick} mainAction={startEditingAction} dropdownActions={[deleteAction, duplicateAction]} />
-          </div>
-          <div className="col">
-            { this.customController() }
-          </div>
+    return (
+      <div className="row margin-below">
+        <div className="col-1 col-sm-2">
+          <InlineEditButton onClick={this.editButtonClick}
+                            mainAction={startEditingAction}
+                            dropdownActions={[
+                              deleteAction,
+                              duplicateAction
+                            ]} />
         </div>
-      )
-    }
+        <div className="col">
+          { this.customController() }
+        </div>
+        <div className="col-1">
+          <MinecraftColorWell color={this.props.snippet.color} />
+        </div>
+      </div>
+    )
   }
 }

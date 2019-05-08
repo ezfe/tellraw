@@ -19,6 +19,8 @@ interface TellrawState {
 }
 
 class Tellraw extends React.Component<TellrawProps, TellrawState> {
+  outputFieldRef: React.RefObject<HTMLTextAreaElement>;
+  
   constructor(props: TellrawProps) {
     super(props)
     
@@ -44,6 +46,8 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
 
     this.updateCustomCommand = this.updateCustomCommand.bind(this)
     this.updateCommandType = this.updateCommandType.bind(this)
+
+    this.outputFieldRef = React.createRef();
   }
 
   componentDidUpdate(previousProps: TellrawProps, previousState: TellrawState) {
@@ -109,7 +113,31 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
         
         <br />
         <br />
-        <span>{this.state.compiled}</span>
+        <div className="row margin-below">
+          <div className="col">
+          <textarea readOnly={true}
+                    className="form-control"
+                    style={{
+                      borderStyle: "none",
+                      
+                    }}
+                    onClick={() => {
+                      this.outputFieldRef.current.select()
+                    }}
+                    ref={this.outputFieldRef}
+                    value={this.state.compiled} />
+          </div>
+        </div>
+        <br />
+        <br />
+        <div className="row">
+          <button onClick={() => {
+            let string = prompt("Enter exported string!")
+            let obj = JSON.parse(string)
+            localStorage.setItem("jobject", JSON.stringify(obj["jobject"]));
+            location.reload();
+          }}>Import</button>
+        </div>
       </div>
     )
   }
