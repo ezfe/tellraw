@@ -9,20 +9,37 @@ export enum CommandType {
 export enum FeatureType {
     clicking,
     hovering,
-    insertion
+    insertion,
+    pages
 }
 
+/**
+ * Indicates true or false, whether a given feature is
+ * available for a specific type of command
+ * 
+ * For example, hovering over text is not available
+ * in sign commands
+ * 
+ * @param commandType The command type
+ * @param feature  The feature being queried
+ */
 export function isFeatureAvailable(commandType: CommandType, feature: FeatureType): boolean {
     if (feature == FeatureType.clicking ||
         feature == FeatureType.hovering ||
         feature == FeatureType.insertion) {
-            
+          
+        // Clicking, hovering, and inserting are all the same
+        // They are supported by tellraw and books
+        // but nothing else
         if (commandType == CommandType.tellraw ||
             commandType == CommandType.book) {
                 return true
         } else {
             return false
         }
+    } else if (feature == FeatureType.pages) {
+        // Pages are supported by books only
+        return commandType == CommandType.book
     } else {
         return true
     }

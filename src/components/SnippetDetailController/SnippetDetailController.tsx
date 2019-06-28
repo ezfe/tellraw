@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Color } from "../../classes/Color";
+import { Color, getCSSHEX } from "../../classes/Color";
 import { ClickEventType } from "../../classes/Snippets/ClickEvent";
 import { HoverEventType } from "../../classes/Snippets/HoverEvent";
 import { KeybindSnippet } from "../../classes/Snippets/SnippetTypes/KeybindSnippet";
@@ -16,6 +16,7 @@ import { SelectorSnippetDetailController } from "./SelectorSnippetDetailControll
 import { TextSnippetDetailController } from "./TextSnippetDetailController";
 import { format_snippet } from "../../helpers/formatter";
 import { CommandType, isFeatureAvailable, FeatureType } from "../../data/templates";
+import { MinecraftColorWell } from "../MinecraftColorWell";
 
 export interface SnippetDetailControllerProps {
   commandType: CommandType
@@ -244,6 +245,9 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
                   }
                 </select>
               </div>
+              <div className="col-3" style={{ display: "flex", flexDirection: "row-reverse" }}>
+                <MinecraftColorWell color={this.props.snippet.color} />
+              </div>
             </div>
             <div className="row">
               <div className="col">
@@ -265,6 +269,9 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
 
         <br />
 
+
+        <hr />
+        
         {/* Preview */}
 
         <div className="row margin-below">

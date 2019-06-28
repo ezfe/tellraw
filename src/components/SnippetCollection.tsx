@@ -8,9 +8,10 @@ import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
 import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
 import { InlineSnippetController } from "./InlineSnippetController/InlineSnippetController";
 import { SnippetDetailController } from "./SnippetDetailController/SnippetDetailController";
-import { CommandType } from "../data/templates";
+import { CommandType, isFeatureAvailable, FeatureType } from "../data/templates";
 import { duplicate_snippet } from "../helpers/copy_snippet";
 import uuid = require("uuid");
+import { PagebreakSnippet } from "../classes/Snippets/SnippetTypes/PagebreakSnippet";
 
 export interface SnippetCollectionProps {
   commandType: CommandType
@@ -39,7 +40,10 @@ export class SnippetCollection extends React.Component<SnippetCollectionProps, S
     this.duplicateSnippet = this.duplicateSnippet.bind(this)
 
     this.addLineBreak = this.addLineBreak.bind(this)
-    
+    this.addPageBreak = this.addPageBreak.bind(this)
+
+    this.clearAllSnippets = this.clearAllSnippets.bind(this)
+
     this.editor = this.editor.bind(this)
     this.listView = this.listView.bind(this)
   }
@@ -119,6 +123,20 @@ export class SnippetCollection extends React.Component<SnippetCollectionProps, S
     this.props.updateSnippets([...this.props.snippets, snip])
   }
 
+  addPageBreak() {
+    const snip = new PagebreakSnippet(null)
+
+    this.props.updateSnippets([...this.props.snippets, snip])
+  }
+
+  clearAllSnippets() {
+    const titleString = "Are you sure!?!"
+    const bodyString = "Clicking Delete will remove all your text and reset it to an empty string."
+    if (confirm(`${titleString}\n${bodyString}`)) {
+      this.props.updateSnippets([]);
+    }
+  }
+
   editor() {
     console.log(this.state)
     return <SnippetDetailController commandType={this.props.commandType} snippet={this.state.editing} updateSnippet={this.updateEditing} stopEditing={this.stopEditing}/>
@@ -156,8 +174,19 @@ export class SnippetCollection extends React.Component<SnippetCollectionProps, S
                 <button className="dropdown-item" onClick={() => { this.startEditing(new ScoreboardObjectiveSnippet(null)) }}>Scoreboard Objective</button>
                 <button className="dropdown-item" onClick={() => { this.startEditing(new KeybindSnippet(null)) }}>Keybind</button>
                 <button className="dropdown-item" onClick={this.addLineBreak}>Line Break ⏎</button>
+                {
+                  isFeatureAvailable(this.props.commandType, FeatureType.pages) ? (
+                    <button className="dropdown-item" onClick={this.addPageBreak}>New Page <FontAwesomeIcon icon="file-alt" /></button>
+                  ) : null
+                }
               </div>
             </div>
+          </div>
+          <div className="col">
+            <button className="btn btn-danger"
+                    onClick={this.clearAllSnippets}>
+              <FontAwesomeIcon icon="times-circle" /> Delete All
+            </button>
           </div>
         </div>
       </>

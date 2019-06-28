@@ -5,6 +5,7 @@ import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
 import { KeybindSnippet } from "../classes/Snippets/SnippetTypes/KeybindSnippet";
 import { ScoreboardObjectiveSnippet } from "../classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet";
 import { SelectorSnippet } from "../classes/Snippets/SnippetTypes/SelectorSnippet";
+import { PagebreakSnippet } from "../classes/Snippets/SnippetTypes/PagebreakSnippet";
 // import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
 // import { KeybindSnippet } from "../classes/Snippets/SnippetTypes/KeybindSnippet";
 // import { LinebreakSnippet } from "../classes/Snippets/SnippetTypes/LinebreakSnippet";
@@ -40,6 +41,8 @@ export function loadState(): Snippet[] {
         return (Object as any).assign(new ScoreboardObjectiveSnippet(), s)
       } else if (s.hasOwnProperty("selector")) {
         return (Object as any).assign(new SelectorSnippet(), s)
+      } else if (s.hasOwnProperty("isPagebreak")) {
+        return (Object as any).assign(new PagebreakSnippet, s)
       } else {
         let x = new TextSnippet()
         x.text = `Failed to claim ${JSON.stringify(s)}`

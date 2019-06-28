@@ -6,9 +6,32 @@ import Tellraw from "./components/Tellraw";
 import 'bootstrap';
 import './styles/styles.scss';
 
+// To use FA, we need to import the library object
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faEdit, faPlusCircle, faKeyboard, faTrophy, faUserTag, faTrashAlt, faClone } from '@fortawesome/free-solid-svg-icons';
-library.add(faEdit, faPlusCircle, faKeyboard, faTrophy, faUserTag, faTrashAlt, faClone)
+// As well as each icon we want to use
+import {
+  faEdit,
+  faPlusCircle,
+  faKeyboard,
+  faTrophy,
+  faUserTag,
+  faTrashAlt,
+  faClone,
+  faTimesCircle,
+  faFileAlt
+} from '@fortawesome/free-solid-svg-icons';
+// Then we add the icons to the library object
+library.add(
+  faEdit,
+  faPlusCircle,
+  faKeyboard,
+  faTrophy,
+  faUserTag,
+  faTrashAlt,
+  faClone,
+  faTimesCircle,
+  faFileAlt
+)
 
 // Increment load count
 localStorage.setItem("loadCount", (1 + parseInt(localStorage.getItem("loadCount") || "0")).toString())
