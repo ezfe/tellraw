@@ -12,7 +12,7 @@ export interface TellrawProps {
 }
 
 interface TellrawState {
-  snippets: Array<Snippet>
+  snippets: Array<Array<Snippet>>
   commandType: CommandType,
   command: string,
   compiled: string
@@ -60,7 +60,7 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
     this.recompile()
   }
 
-  recompile(snippets: Array<Snippet> = null,
+  recompile(snippets: Array<Array<Snippet>> = null,
             command: string = null,
             type: CommandType = null) {
     if (snippets === null) snippets = this.state.snippets
@@ -109,7 +109,7 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
         
         <SnippetCollection commandType={this.state.commandType}
           snippets={this.state.snippets} 
-          updateSnippets={(snippets: Array<Snippet>) => { this.setState({snippets: snippets}); this.recompile(snippets) }} />
+          updateSnippets={(snippets: Array<Array<Snippet>>) => { this.setState({snippets: snippets}); this.recompile(snippets) }} />
         
         <br />
         <br />

@@ -78,7 +78,7 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
     this.updateField("hover_event_value", event.target.value)
   }
 
-  changeHoverEventChildren(snippets: Array<Snippet>) {
+  changeHoverEventChildren(snippets: Array<Array<Snippet>>) {
     let newSnippet = duplicate_snippet(this.props.snippet)
     newSnippet.hover_event_children = snippets
     this.props.updateSnippet(newSnippet)

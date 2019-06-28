@@ -11,7 +11,6 @@ import { InlineSelectorSnippetController } from "./InlineSelectorSnippetControll
 import { InlineTextSnippetController } from "./InlineTextSnippetController";
 import { InlineEditButton, InlineEditButtonAction } from "../InlineEditButton";
 import { MinecraftColorWell } from "../MinecraftColorWell";
-import { PagebreakSnippet } from "../../classes/Snippets/SnippetTypes/PagebreakSnippet";
 
 export interface InlineSnippetControllerProps {
   snippet: Snippet
@@ -59,10 +58,6 @@ export class InlineSnippetController extends React.Component<InlineSnippetContro
   }
   
   render() {
-    if (this.props.snippet instanceof PagebreakSnippet) {
-      return <hr />
-    }
-
     let startEditingAction: InlineEditButtonAction = {
       id: "start-editing",
       text: "Edit",
