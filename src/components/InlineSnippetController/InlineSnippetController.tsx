@@ -62,10 +62,12 @@ export class InlineSnippetController extends React.Component<InlineSnippetContro
   }
   
   render() {
+    const editingEnabled = !(this.props.snippet instanceof LinebreakSnippet
+      || this.props.snippet instanceof PagebreakSnippet)
     let startEditingAction: InlineEditButtonAction = {
       id: "start-editing",
       text: "Edit",
-      enabled: !(this.props.snippet instanceof LinebreakSnippet)
+      enabled: editingEnabled
     }
 
     let deleteAction: InlineEditButtonAction = {
