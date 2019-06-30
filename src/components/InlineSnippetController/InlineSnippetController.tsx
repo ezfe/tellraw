@@ -12,6 +12,7 @@ import { InlineTextSnippetController } from "./InlineTextSnippetController";
 import { InlineEditButton, InlineEditButtonAction } from "../InlineEditButton";
 import { MinecraftColorWell } from "../MinecraftColorWell";
 import { PagebreakSnippet } from "../../classes/Snippets/SnippetTypes/PagebreakSnippet";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export interface InlineSnippetControllerProps {
   snippet: Snippet
@@ -45,6 +46,8 @@ export class InlineSnippetController extends React.Component<InlineSnippetContro
   customController() {
     if (this.props.snippet instanceof LinebreakSnippet) {
       return <span>Line Break ⏎</span>
+    } else if (this.props.snippet instanceof PagebreakSnippet) {
+      return <span>Page Break <FontAwesomeIcon icon="file-alt" /></span>
     } else if (this.props.snippet instanceof TextSnippet) {
       return <InlineTextSnippetController snippet={this.props.snippet as TextSnippet} updateSnippet={this.props.updateSnippet} />
     } else if (this.props.snippet instanceof SelectorSnippet) {
@@ -59,10 +62,6 @@ export class InlineSnippetController extends React.Component<InlineSnippetContro
   }
   
   render() {
-    if (this.props.snippet instanceof PagebreakSnippet) {
-      return <hr />
-    }
-
     let startEditingAction: InlineEditButtonAction = {
       id: "start-editing",
       text: "Edit",
@@ -93,9 +92,20 @@ export class InlineSnippetController extends React.Component<InlineSnippetContro
                               duplicateAction
                             ]} />
         </div>
-        <div className="col">
+        
+        {/*
+        Flex justification is for text fields
+        which are used for page and linebreaks
+        */}
+        <div className="col"
+             style={{
+               display: "flex",
+               flexDirection: "column",
+               justifyContent: "center"
+             }}>
           { this.customController() }
         </div>
+        
         <div className="col-1">
           <MinecraftColorWell color={this.props.snippet.color} />
         </div>
