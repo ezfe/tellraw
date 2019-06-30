@@ -7,12 +7,10 @@ import { SelectorSnippet } from "../classes/Snippets/SnippetTypes/SelectorSnippe
 import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
 import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
 
-export function object_compile(snippets: Array<Array<Snippet>>): Array<Object> {
+export function object_compile(snippets: Array<Snippet>): Array<Object> {
   let results = Array<Object>()
   results.push("")
-  //temporary
-  const flattened = ([] as Snippet[]).concat(...snippets)
-  for (const snippet of flattened) {
+  for (const snippet of snippets) {
     let pending = {}
 
     console.log(snippet)
@@ -74,7 +72,7 @@ export function object_compile(snippets: Array<Array<Snippet>>): Array<Object> {
   return results
 }
 
-export function compile(snippets: Array<Array<Snippet>>, command: string): string {
+export function compile(snippets: Array<Snippet>, command: string): string {
   const results = object_compile(snippets)
 
   const encoded = JSON.stringify(results)

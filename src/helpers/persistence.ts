@@ -5,6 +5,7 @@ import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
 import { KeybindSnippet } from "../classes/Snippets/SnippetTypes/KeybindSnippet";
 import { ScoreboardObjectiveSnippet } from "../classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet";
 import { SelectorSnippet } from "../classes/Snippets/SnippetTypes/SelectorSnippet";
+import { PagebreakSnippet } from "../classes/Snippets/SnippetTypes/PagebreakSnippet";
 // import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
 // import { KeybindSnippet } from "../classes/Snippets/SnippetTypes/KeybindSnippet";
 // import { LinebreakSnippet } from "../classes/Snippets/SnippetTypes/LinebreakSnippet";
@@ -15,7 +16,7 @@ export function currentTimeStamp(): number {
   return new Date().getTime()
 }
 
-export function loadState(): Array<Array<Snippet>> {
+export function loadState(): Snippet[] {
   
   const lsformat = parseInt(localStorage.getItem("jformat") || "5")
 
@@ -27,26 +28,26 @@ export function loadState(): Array<Array<Snippet>> {
     return load_legacy()
   } else if (lsformat === 5) {
     const loaded_snippets_temp = JSON.parse(localStorage.getItem('jobject') || "[]") as Array<object>
-    return loaded_snippets_temp.map((s2: Array<Snippet>) => {
-      return s2.map((s): Snippet => {
-        if (s.hasOwnProperty("text")) {
-          if (s["text"] === "\n") {
-            return (Object as any).assign(new LinebreakSnippet(), s)
-          } else {
-            return (Object as any).assign(new TextSnippet(), s)
-          }
-        } else if (s.hasOwnProperty("keybind")) {
-          return (Object as any).assign(new KeybindSnippet(), s)
-        } else if (s.hasOwnProperty("score")) {
-          return (Object as any).assign(new ScoreboardObjectiveSnippet(), s)
-        } else if (s.hasOwnProperty("selector")) {
-          return (Object as any).assign(new SelectorSnippet(), s)
+    return loaded_snippets_temp.map((s): Snippet => {
+      if (s.hasOwnProperty("text")) {
+        if (s["text"] === "\n") {
+          return (Object as any).assign(new LinebreakSnippet(), s)
         } else {
-          let x = new TextSnippet()
-          x.text = `Failed to claim ${JSON.stringify(s)}`
-          return x
+          return (Object as any).assign(new TextSnippet(), s)
         }
-      })
+      } else if (s.hasOwnProperty("keybind")) {
+        return (Object as any).assign(new KeybindSnippet(), s)
+      } else if (s.hasOwnProperty("score")) {
+        return (Object as any).assign(new ScoreboardObjectiveSnippet(), s)
+      } else if (s.hasOwnProperty("selector")) {
+        return (Object as any).assign(new SelectorSnippet(), s)
+      } else if (s.hasOwnProperty("isPagebreak")) {
+        return (Object as any).assign(new PagebreakSnippet, s)
+      } else {
+        let x = new TextSnippet()
+        x.text = `Failed to claim ${JSON.stringify(s)}`
+        return x
+      }
     })
   } else {
     console.error(`Unexpected version ${lsformat}`)

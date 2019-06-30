@@ -11,11 +11,12 @@ import { SnippetDetailController } from "./SnippetDetailController/SnippetDetail
 import { CommandType, isFeatureAvailable, FeatureType } from "../data/templates";
 import { duplicate_snippet } from "../helpers/copy_snippet";
 import uuid = require("uuid");
+import { PagebreakSnippet } from "../classes/Snippets/SnippetTypes/PagebreakSnippet";
 
 export interface SnippetCollectionProps {
   commandType: CommandType
-  snippets: Array<Array<Snippet>>
-  updateSnippets: (snippets: Array<Array<Snippet>>) => void
+  snippets: Array<Snippet>
+  updateSnippets: (snippets: Array<Snippet>) => void
 }
 
 interface SnippetCollectionState {
@@ -81,71 +82,51 @@ export class SnippetCollection extends React.Component<SnippetCollectionProps, S
 
   updateSnippet(newSnippet: Snippet) {
     let isNewSnippet = true
-    let updatedSnippets = this.props.snippets.map(snippetSet => {
-      return snippetSet.map(currentSnippet => {
-        if (currentSnippet.id === newSnippet.id) {
-          isNewSnippet = false
-          return newSnippet
-        } else {
-          return currentSnippet
-        }
-      })
+    let updatedSnippets = this.props.snippets.map(currentSnippet => {
+      if (currentSnippet.id === newSnippet.id) {
+        isNewSnippet = false
+        return newSnippet
+      } else {
+        return currentSnippet
+      }
     })
 
     if (isNewSnippet) {
-      let snippetSetCount = this.props.snippets.length
-      if (snippetSetCount == 0) {
-        updatedSnippets = [[newSnippet]]
-      } else {
-        let trailingSet = this.props.snippets[snippetSetCount - 1]
-        let newTrailingSet = [...trailingSet, newSnippet]
-        
-        let precedingCollections = this.props.snippets.slice(0, snippetSetCount - 1) 
-
-        updatedSnippets = [...precedingCollections, newTrailingSet]
-      }
+      updatedSnippets = [...this.props.snippets, newSnippet]
     }
-    
+
     this.props.updateSnippets(updatedSnippets)
   }
 
   removeSnippet(snippet: Snippet) {
-    let filtered = this.props.snippets.map(snippetSet => {
-      return snippetSet.filter(currentSnippet => {
-        return currentSnippet.id !== snippet.id
-      })
+    let filtered = this.props.snippets.filter(currentSnippet => {
+      return currentSnippet.id !== snippet.id
     })
 
     this.props.updateSnippets(filtered)
   }
   
   duplicateSnippet(snippet: Snippet) {
-    const duplicated = this.props.snippets.map(snippetSet => {
-      let newSnippet = duplicate_snippet(snippet)
-      newSnippet.id = uuid()
+    let now = this.props.snippets
+    let newSnippet = duplicate_snippet(snippet)
+    newSnippet.id = uuid()
 
-      let now = snippetSet
-      let i = now.indexOf(snippet);
-      now.splice(i, 0, newSnippet);  
+    let i = now.indexOf(snippet);
     now.splice(i, 0, newSnippet);
-      now.splice(i, 0, newSnippet);  
 
-      return now
-    })
-
-    this.props.updateSnippets(duplicated);
+    this.props.updateSnippets(now);
   }
 
   addLineBreak() {
     const snip = new LinebreakSnippet(null)
 
-    this.updateSnippet(snip)
+    this.props.updateSnippets([...this.props.snippets, snip])
   }
 
   addPageBreak() {
-    // const snip = new PagebreakSnippet(null)
+    const snip = new PagebreakSnippet(null)
 
-    // this.updateSnippet(snip)
+    this.props.updateSnippets([...this.props.snippets, snip])
   }
 
   clearAllSnippets() {
@@ -165,20 +146,14 @@ export class SnippetCollection extends React.Component<SnippetCollectionProps, S
     return (
       <>
         {
-          this.props.snippets.map((snippetSet: [Snippet]) => {
-            const mappedSnippets = snippetSet.map((s: Snippet) => {
-              return <InlineSnippetController key={s.id}
-                                                  snippet={s}
-                                                  updateSnippet={this.updateSnippet}
-                                                  startEditingSnippet={this.startEditing}
-                                                  removeSnippet={this.removeSnippet}
-                                                  duplicateSnippet={this.duplicateSnippet} />
+          this.props.snippets.map((s: Snippet) => {
+            return <InlineSnippetController key={s.id}
+                                                snippet={s}
+                                                updateSnippet={this.updateSnippet}
+                                                startEditingSnippet={this.startEditing}
+                                                removeSnippet={this.removeSnippet}
+                                                duplicateSnippet={this.duplicateSnippet} />
             })
-
-            const pageBreakController = <div>Pagebreak Here!</div>
-            
-            return [...mappedSnippets, pageBreakController]
-          })
         }
 
         <div className="row">

@@ -21,7 +21,7 @@ export abstract class Snippet {
 
     hover_event_type: HoverEventType = HoverEventType.none
     hover_event_value: string = ""
-    hover_event_children: Array<Array<Snippet>> = []
+    hover_event_children: Array<Snippet> = []
 
     constructor(id: string = null) {
         if (id !== null) {
