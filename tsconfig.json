@@ -4,7 +4,7 @@
         "sourceMap": true,
         "noImplicitAny": false,
         "module": "commonjs",
-        "target": "es5",
+        "target": "es2016",
         "jsx": "react"
     },
     "include": [
