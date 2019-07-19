@@ -14,7 +14,7 @@ import { KeybindSnippetDetailController } from "./KeybindSnippetDetailController
 import { ScoreboardObjectiveSnippetDetailController } from "./ScoreboardObjectiveDetailController";
 import { SelectorSnippetDetailController } from "./SelectorSnippetDetailController";
 import { TextSnippetDetailController } from "./TextSnippetDetailController";
-import { format_snippet } from "../../helpers/formatter";
+import { formatSnippet } from "../../helpers/formatter";
 import { CommandType, isFeatureAvailable, FeatureType } from "../../data/templates";
 import { MinecraftColorWell } from "../MinecraftColorWell";
 
@@ -283,7 +283,7 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
         <div className="row margin-below">
           <div className="col">
             <p>
-              { format_snippet(this.props.snippet) }
+              { formatSnippet(this.props.snippet) }
             </p>
           </div>
         </div>

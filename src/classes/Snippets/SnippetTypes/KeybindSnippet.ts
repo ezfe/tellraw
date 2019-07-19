@@ -1,6 +1,7 @@
 import { copy_standard_attributes } from "../../../helpers/copy_snippet";
 import { legacy_apply_common_formatting } from "../../../helpers/legacy_apply_styles";
 import { Snippet } from "./Snippet";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 export class KeybindSnippet extends Snippet {
   id: string

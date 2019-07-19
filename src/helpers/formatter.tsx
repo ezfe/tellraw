@@ -9,8 +9,20 @@ import { SelectorSnippet } from "../classes/Snippets/SnippetTypes/SelectorSnippe
 import { getCSSHEX, Color } from "../classes/Color";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { iconForSnippet } from "./snippet_icon";
+import { PagebreakSnippet } from "../classes/Snippets/SnippetTypes/PagebreakSnippet";
 
-export function format_snippet(snippet: Snippet) {
+export function formatSnippets(snippets: Array<Snippet>): JSX.Element {
+  const mapped = snippets.map(formatSnippet)
+  
+  return <>{ mapped }</>
+}
+
+function wrapText(text: string): JSX.Element {
+  return <span>{ text }</span>
+}
+
+export function formatSnippet(snippet: Snippet): JSX.Element {
   if (snippet instanceof LinebreakSnippet) return <br />
 
   let textDecorationValue: TextDecorationProperty = 'none'
@@ -23,14 +35,7 @@ export function format_snippet(snippet: Snippet) {
   }
 
   let className = ""
-  let icon: IconProp = null
-  if (snippet instanceof KeybindSnippet) {
-    icon = "keyboard"
-  } else if (snippet instanceof ScoreboardObjectiveSnippet) {
-    icon = "trophy"
-  } else if (snippet instanceof SelectorSnippet) {
-    icon = "user-tag"
-  }
+  let icon = iconForSnippet(snippet)
   if (icon !== null) className = "bordered-formatter-preview"
 
   const formatting: React.CSSProperties = {
@@ -40,28 +45,32 @@ export function format_snippet(snippet: Snippet) {
     color: getCSSHEX(snippet.color)
   }
 
-  let text = "@unknown-type"
+  let text: JSX.Element = wrapText("@unknown-type")
   if (snippet instanceof TextSnippet) {
-    text = snippet.text
+    text = wrapText(snippet.text)
   } else if (snippet instanceof KeybindSnippet) {
-    text = snippet.keybind
+    text = wrapText(snippet.keybind)
   } else if (snippet instanceof ScoreboardObjectiveSnippet) {
-    text = `${snippet.score_objective}@${snippet.score_name}`
+    text = wrapText(`${snippet.score_objective}@${snippet.score_name}`)
   } else if (snippet instanceof SelectorSnippet) {
-    text = snippet.selector
+    text = wrapText(snippet.selector)
+  } else if (snippet instanceof LinebreakSnippet) {
+    text = <br />
+  } else if (snippet instanceof PagebreakSnippet) {
+    text = <><br />-- page --<br /></>
   }
 
   return (
-    <span className={className} style={formatting}>
+    <span className={className} style={formatting} key={snippet.id}>
       {
         icon !== null ? (
           <>
-            <FontAwesomeIcon icon={icon} style={{color: "black"}}/>
+            { icon }
             {'\u00A0' /* Unicode Non Blocking Space */}
           </>
         ) : null
       }
-      {text}
+      { text }
     </span>
   )
 }

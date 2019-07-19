@@ -7,6 +7,7 @@ import { SnippetCollection } from "./SnippetCollection";
 import { CommandType } from "../data/templates";
 import { loadLocalStorageState } from "../helpers/persistence";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { formatSnippets } from "../helpers/formatter";
 
 export interface TellrawProps {
 
@@ -148,7 +149,7 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
           </div>
         </div>
         <div className="row margin-below">
-        <div className="col-sm-2 offset-sm-2">
+          <div className="col-sm-2 offset-sm-2">
             <button className="btn btn-light btn-block"
                     onClick={this.importCommand}>
               <FontAwesomeIcon icon="file-import" /> Import
@@ -159,6 +160,11 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
                     onClick={this.exportCommand}>
               <FontAwesomeIcon icon="file-export" /> Export
             </button>
+          </div>
+        </div>
+        <div className="row margin-below" style={{ backgroundColor: "white" }}>
+          <div className="col offset-sm-2">
+            { formatSnippets(this.state.snippets) }
           </div>
         </div>
       </div>
