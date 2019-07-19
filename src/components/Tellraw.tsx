@@ -6,6 +6,7 @@ import { CommandTemplatesController } from "./CommandTemplatesController";
 import { SnippetCollection } from "./SnippetCollection";
 import { CommandType } from "../data/templates";
 import { loadState } from "../helpers/persistence";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export interface TellrawProps {
 
@@ -47,6 +48,9 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
     this.updateCustomCommand = this.updateCustomCommand.bind(this)
     this.updateCommandType = this.updateCommandType.bind(this)
 
+    this.importCommand = this.importCommand.bind(this)
+    this.exportCommand = this.exportCommand.bind(this)
+    
     this.outputFieldRef = React.createRef();
   }
 
@@ -82,6 +86,18 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
     this.recompile(null, null, type)
   }
 
+  importCommand() {
+    const string = prompt("Enter exported string!")
+    const obj = JSON.parse(string)
+    // Temporary
+    localStorage.setItem("jobject", JSON.stringify(obj["jobject"]));
+    location.reload();
+  }
+
+  exportCommand() {
+    
+  }
+
   render() {
     return (
       <div className="container">
@@ -92,9 +108,9 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
         </div>
         <div className="row margin-below">
           <div className="col-2">
-            <span lang="player.header">Player and Command</span>
+            <span style={{ fontWeight: "bold" }}>Player and Command</span>
             <br />
-            <span lang="player.description">Used to select and execute different players</span>
+            <span>Used to select and execute different players</span>
           </div>
           <div className="col">
             <input value={this.state.command}
@@ -103,40 +119,47 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
                    className="form-control" />
           </div>
         </div>
-        <CommandTemplatesController commandType={this.state.commandType} updateCommandType={this.updateCommandType} />
+        <CommandTemplatesController commandType={this.state.commandType}
+                                    updateCommandType={this.updateCommandType} />
+        
         <br />
         <br />
         
         <SnippetCollection commandType={this.state.commandType}
-          snippets={this.state.snippets} 
-          updateSnippets={(snippets: Array<Snippet>) => { this.setState({snippets: snippets}); this.recompile(snippets) }} />
+                           snippets={this.state.snippets} 
+                           updateSnippets={(snippets: Array<Snippet>) => {
+                             this.setState({snippets: snippets}); this.recompile(snippets)
+                           }} />
         
         <br />
         <br />
         <div className="row margin-below">
+          <div className="col-2">
+            <span style={{}}>Command</span>
+          </div>
           <div className="col">
-          <textarea readOnly={true}
-                    className="form-control"
-                    style={{
-                      borderStyle: "none",
-                      
-                    }}
-                    onClick={() => {
-                      this.outputFieldRef.current.select()
-                    }}
-                    ref={this.outputFieldRef}
-                    value={this.state.compiled} />
+            <textarea readOnly={true}
+                      className="form-control"
+                      onClick={() => {
+                        this.outputFieldRef.current.select()
+                      }}
+                      ref={this.outputFieldRef}
+                      value={this.state.compiled} />
           </div>
         </div>
-        <br />
-        <br />
-        <div className="row">
-          <button onClick={() => {
-            let string = prompt("Enter exported string!")
-            let obj = JSON.parse(string)
-            localStorage.setItem("jobject", JSON.stringify(obj["jobject"]));
-            location.reload();
-          }}>Import</button>
+        <div className="row margin-below">
+        <div className="col-sm-2 offset-sm-2">
+            <button className="btn btn-light btn-block"
+                    onClick={this.importCommand}>
+              <FontAwesomeIcon icon="file-import" /> Import
+            </button>
+          </div>
+          <div className="col-sm-2">
+            <button className="btn btn-light btn-block"
+                    onClick={this.exportCommand}>
+              <FontAwesomeIcon icon="file-export" /> Export
+            </button>
+          </div>
         </div>
       </div>
     )

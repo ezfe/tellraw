@@ -1,6 +1,6 @@
 import * as React from "react";
 import { TextSnippet } from "../../classes/Snippets/SnippetTypes/TextSnippet";
-import { InlineEditButton } from "../InlineEditButton";
+import { InlineEditButton } from "./InlineEditButton";
 import { InlineSnippetControllerProps } from "./InlineSnippetController";
 
 export interface InlineTextSnippetControllerProps {

@@ -157,16 +157,16 @@ export class SnippetCollection extends React.Component<SnippetCollectionProps, S
         }
 
         <div className="row">
-          <div className="col">
+          <div className="col-sm-3 offset-sm-2">
             <div className="dropdown">
-              <button className="btn btn-primary dropdown-toggle"
+              <button className="btn btn-primary btn-block dropdown-toggle"
                       type="button"
                       id="add-snippet-dropdown-button"
                       data-toggle="dropdown"
                       aria-haspopup="true"
                       aria-expanded="false">
 
-                <FontAwesomeIcon icon="plus-circle" /> Add Snippet
+                <FontAwesomeIcon icon="plus-circle" /> Add Text
               </button>
               <div className="dropdown-menu" aria-labelledby="add-snippet-dropdown-button">
                 <button className="dropdown-item" onClick={() => { this.startEditing(new TextSnippet(null)) }}>Text</button>
@@ -182,8 +182,8 @@ export class SnippetCollection extends React.Component<SnippetCollectionProps, S
               </div>
             </div>
           </div>
-          <div className="col">
-            <button className="btn btn-danger"
+          <div className="col-sm-3">
+            <button className="btn btn-danger btn-block"
                     onClick={this.clearAllSnippets}>
               <FontAwesomeIcon icon="times-circle" /> Delete All
             </button>

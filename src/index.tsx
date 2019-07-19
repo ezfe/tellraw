@@ -18,7 +18,9 @@ import {
   faTrashAlt,
   faClone,
   faTimesCircle,
-  faFileAlt
+  faFileAlt,
+  faFileImport,
+  faFileExport
 } from '@fortawesome/free-solid-svg-icons';
 // Then we add the icons to the library object
 library.add(
@@ -30,7 +32,9 @@ library.add(
   faTrashAlt,
   faClone,
   faTimesCircle,
-  faFileAlt
+  faFileAlt,
+  faFileImport,
+  faFileExport
 )
 
 // Increment load count

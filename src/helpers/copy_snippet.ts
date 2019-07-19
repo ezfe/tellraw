@@ -4,9 +4,12 @@ import { ScoreboardObjectiveSnippet } from "../classes/Snippets/SnippetTypes/Sco
 import { SelectorSnippet } from "../classes/Snippets/SnippetTypes/SelectorSnippet";
 import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
 import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
+import { PagebreakSnippet } from "../classes/Snippets/SnippetTypes/PagebreakSnippet";
 
 export function duplicate_snippet(snippet: Snippet) {
   if (snippet instanceof LinebreakSnippet) {
+    return snippet.copy()
+  } else if (snippet instanceof PagebreakSnippet) {
     return snippet.copy()
   } else if (snippet instanceof TextSnippet) {
     return snippet.copy()

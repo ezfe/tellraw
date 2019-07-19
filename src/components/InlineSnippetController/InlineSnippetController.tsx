@@ -9,7 +9,7 @@ import { InlineKeybindSnippetController } from "./InlineKeybindSnippetController
 import { InlineScoreboardObjectiveSnippetController } from "./InlineScoreboardObjectiveSnippetController";
 import { InlineSelectorSnippetController } from "./InlineSelectorSnippetController";
 import { InlineTextSnippetController } from "./InlineTextSnippetController";
-import { InlineEditButton, InlineEditButtonAction } from "../InlineEditButton";
+import { InlineEditButton, InlineEditButtonAction } from "./InlineEditButton";
 import { MinecraftColorWell } from "../MinecraftColorWell";
 import { PagebreakSnippet } from "../../classes/Snippets/SnippetTypes/PagebreakSnippet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
