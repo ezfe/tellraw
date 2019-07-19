@@ -39,8 +39,7 @@ export function getCSSHEX(color: Color): string {
   
   if (color == Color.none) return "#000000"
 
-  console.log("Whoops", color)
-  //TODO: Fix this
+  console.error("Invalid color", color)
   return "#00000"
 }
 
