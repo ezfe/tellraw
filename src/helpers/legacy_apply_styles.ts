@@ -20,7 +20,12 @@ export function legacy_apply_common_formatting<T extends Snippet>(snippet: T, sf
       snippet.obfuscated = true
   }
 
-  snippet.color = sf["color"] as Color
+  const unknownColor: Color | undefined = (<any>Color)[sf["color"]]
+  if (unknownColor !== undefined) {
+      snippet.color = unknownColor
+  } else {
+      snippet.color = Color.none
+  }
   
   if ("insertion" in sf) {
       snippet.insertion = sf["insertion"]

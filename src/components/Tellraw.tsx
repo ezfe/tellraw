@@ -5,7 +5,7 @@ import { compile } from "../helpers/compile";
 import { CommandTemplatesController } from "./CommandTemplatesController";
 import { SnippetCollection } from "./SnippetCollection";
 import { CommandType } from "../data/templates";
-import { loadState } from "../helpers/persistence";
+import { loadLocalStorageState } from "../helpers/persistence";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export interface TellrawProps {
@@ -25,7 +25,7 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
   constructor(props: TellrawProps) {
     super(props)
     
-    let loaded_snippets = loadState()
+    let loaded_snippets = loadLocalStorageState()
     let loaded_command = "/tellraw @a %s"
 
     const loaded_command_temp = localStorage.getItem('jcommand')

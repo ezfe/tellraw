@@ -36,7 +36,10 @@ export function getCSSHEX(color: Color): string {
   if (color == Color.light_purple) return "#FD4DFF"
   if (color == Color.yellow) return "#FFFF00"
   if (color == Color.white) return "#FFFFFF"
-    
+  
+  if (color == Color.none) return "#000000"
+
+  console.log("Whoops", color)
   //TODO: Fix this
   return "#00000"
 }
