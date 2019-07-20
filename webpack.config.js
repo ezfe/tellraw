@@ -1,4 +1,6 @@
-const path = require('path')
+const path = require("path")
+const precss = require("precss")
+const autoprefixer = require("autoprefixer")
 
 module.exports = {
   entry: "./src/index.tsx",
@@ -9,44 +11,46 @@ module.exports = {
   
   mode: "development",
 
-  // Enable sourcemaps for debugging webpack's output.
+  // Enable sourcemaps for debugging webpack"s output.
   devtool: "source-map",
 
   resolve: {
-    // Add '.ts' and '.tsx' as resolvable extensions.
+    // Add ".ts" and ".tsx" as resolvable extensions.
     extensions: [".ts", ".tsx", ".js", ".json"]
   },
 
   module: {
     rules: [
-      // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
+      // All files with a ".ts" or ".tsx" extension will be handled by "awesome-typescript-loader".
       {
         test: /\.tsx?$/,
-        loader: 'ts-loader'
+        loader: "ts-loader"
       },
       
-      // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
+      // All output ".js" files will have any sourcemaps re-processed by "source-map-loader".
       { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
 
       {
         test: /\.(scss)$/,
         use: [
-          { loader: 'style-loader' }, // inject CSS to page
-          { loader: 'css-loader' }, // translates CSS into CommonJS modules
+          { loader: "style-loader" }, // inject CSS to page
+          { loader: "css-loader" }, // translates CSS into CommonJS modules
           {
-            loader: 'postcss-loader', // Run post css actions
+            loader: "postcss-loader", // Run post css actions
             options: {
               plugins: function () { // post css plugins, can be exported to postcss.config.js
                 return [
-                  require('precss'),
-                  require('autoprefixer')
+                  precss,
+                  autoprefixer
                 ];
               }
             }
           },
-          { loader: 'sass-loader' } // compiles Sass to CSS
+          { loader: "sass-loader" } // compiles Sass to CSS
         ]
-      }
+      },
+
+      { test: /\.png$/, loader: "url-loader" }
 
     ]
   },

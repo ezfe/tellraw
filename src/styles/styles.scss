@@ -33,10 +33,6 @@ body {
   padding: 20px;
 }
 
-.margin-below {
-  margin-bottom: 20px;
-}
-
 .inline-snippet-collection {
   border-style: solid;
   border-width: 3px;
@@ -51,4 +47,18 @@ body {
   border-radius: 3px;
   padding: 5px;
   border-color: $info;
+}
+
+.book-preview {
+  padding-top: 60px;
+  padding-left: 30px;
+  padding-right: 70px;
+  max-width: 292px;
+  height: 360px;
+  background-image: url(../images/book.png);
+  background-size: 100%;
+  background-color: transparent !important;
+  border: none !important;
+  word-break: keep-all;
+  white-space: pre;
 }

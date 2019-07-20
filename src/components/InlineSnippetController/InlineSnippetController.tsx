@@ -85,7 +85,7 @@ export class InlineSnippetController extends React.Component<InlineSnippetContro
     }
     
     return (
-      <div className="row margin-below">
+      <div className="row mb-2">
         <div className="col-1 col-sm-2">
           <InlineEditButton onClick={this.editButtonClick}
                             mainAction={startEditingAction}

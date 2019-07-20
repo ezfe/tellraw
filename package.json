@@ -9,6 +9,9 @@
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
+    "@types/react": "^16.8.23",
+    "@types/react-dom": "^16.0.4",
+    "@types/uuid": "^3.4.5",
     "babel-loader": "^8.0.4",
     "css-loader": "^3.1.0",
     "node-sass": "^4.10.0",
@@ -21,10 +24,7 @@
     "tslint": "^5.18.0",
     "typescript": "^3.5.3",
     "webpack": "^4.36.1",
-    "webpack-cli": "^3.3.6",
-    "@types/react": "^16.8.23",
-    "@types/react-dom": "^16.0.4",
-    "@types/uuid": "^3.4.5"
+    "webpack-cli": "^3.3.6"
   },
   "scripts": {
     "build": "webpack"
@@ -39,6 +39,7 @@
     "popper.js": "^1.14.6",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "url-loader": "^2.1.0",
     "uuid": "^3.3.2"
   }
 }

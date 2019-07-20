@@ -20,8 +20,15 @@ import {
   faTimesCircle,
   faFileAlt,
   faFileImport,
-  faFileExport
-} from '@fortawesome/free-solid-svg-icons';
+  faFileExport,
+  faExclamationTriangle,
+  faList,
+  faWifi,
+  faFileDownload
+} from '@fortawesome/free-solid-svg-icons'
+import {
+  faTwitter
+} from '@fortawesome/free-brands-svg-icons'
 // Then we add the icons to the library object
 library.add(
   faEdit,
@@ -34,7 +41,12 @@ library.add(
   faTimesCircle,
   faFileAlt,
   faFileImport,
-  faFileExport
+  faFileExport,
+  faExclamationTriangle,
+  faList,
+  faTwitter,
+  faWifi,
+  faFileDownload
 )
 
 // Increment load count

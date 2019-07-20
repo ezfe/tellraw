@@ -119,13 +119,13 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
 
     return (
       <>
-        <div className="row margin-below">
+        <div className="row mb-2">
           <div className="col">
             <h4>Click Event:</h4>
           </div>
         </div>
 
-        <div className="row margin-below">
+        <div className="row mb-2">
           <div className="col-4">
             <select className="form-control" value={this.props.snippet.click_event_type} onChange={this.changeClickEventType}>
               <option key={ClickEventType.none} value={ClickEventType.none}>None</option>
@@ -154,13 +154,13 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
 
     return (
       <>
-        <div className="row margin-below">
+        <div className="row mb-2">
           <div className="col">
             <h4>Hover Event:</h4>
           </div>
         </div>
 
-        <div className="row margin-below">
+        <div className="row mb-2">
           <div className="col-4">
             <select className="form-control" value={this.props.snippet.hover_event_type} onChange={this.changeHoverEventType}>
             <option key={HoverEventType.none} value={HoverEventType.none}>None</option>
@@ -202,7 +202,7 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
 
     return (
       <>
-        <div className="row margin-below">
+        <div className="row mb-2">
           <div className="col-4">
             <h4>Insertion:</h4>
           </div>
@@ -219,7 +219,7 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
   render() {
     return (
       <>
-        {/* <div className="row margin-below">
+        {/* <div className="row mb-2">
           <div className="col">
             <select className="form-control" onChange={this.changeSnippetType} value={this.props.snippet.type}>
               <option value={SnippetType.text}>Plain Text</option>
@@ -229,12 +229,12 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
           </div>
         </div> */}
 
-        <div className="row margin-below">
+        <div className="row mb-2">
           <div className="col">
             { this.customAreaRender() }
           </div>
           <div className="col-4">
-            <div className="row margin-below">
+            <div className="row mb-2">
               <div className="col">
                 <select className="form-control" onChange={this.changeColor} value={this.props.snippet.color}>
                   {
@@ -274,13 +274,13 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
         
         {/* Preview */}
 
-        <div className="row margin-below">
+        <div className="row mb-2">
           <div className="col">
             <h4>Preview:</h4>
           </div>
         </div>
 
-        <div className="row margin-below">
+        <div className="row mb-2">
           <div className="col">
             <p>
               { formatSnippet(this.props.snippet) }

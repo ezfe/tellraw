@@ -8,6 +8,7 @@ import { CommandType } from "../data/templates";
 import { loadLocalStorageState } from "../helpers/persistence";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { formatSnippets } from "../helpers/formatter";
+import { BookPreview } from "./BookPreview";
 
 export interface TellrawProps {
 
@@ -102,12 +103,44 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
   render() {
     return (
       <div className="container">
-        <div className="row margin-below">
+        <div className="row mb-2">
           <div className="col">
             <h4>Tellraw Generator for Minecraft</h4>
           </div>
+          <div className="col-6">
+            <div className="btn-toolbar d-flex justify-content-end"
+                 role="toolbar"
+                 aria-label="Toolbar with button groups">
+              <a className="btn btn-danger btn-sm"
+                href="https://github.com/ezfe/tellraw/issues/new"
+                target="_">
+                <FontAwesomeIcon icon="exclamation-triangle" /> Report an Issue
+              </a>
+              <div className="btn-group ml-2">
+                <button className="btn btn-secondary btn-sm dropdown-toggle"
+                        type="button"
+                        id="dropdownMenuButton"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false">
+                  <FontAwesomeIcon icon="list" />
+                </button>
+                <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a className="dropdown-item" href="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Fwww.minecraftjson.com%2F&text=%2Ftellraw%20generator%20for%20minecraft&tw_p=tweetbutton&url=http%3A%2F%2Fwww.minecraftjson.com%2F&via=superezfe">
+                    <FontAwesomeIcon icon={["fab", "twitter"]} /> Tweet
+                  </a>
+                  <a className="dropdown-item" href="https://status.minecraftjson.com">
+                    <FontAwesomeIcon icon="wifi" /> Uptime
+                  </a>
+                  <a className="dropdown-item" href="https://github.com/ezfe/tellraw/archive/preview.zip">
+                    <FontAwesomeIcon icon="file-download" /> Download Website
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="row margin-below">
+        <div className="row mb-2">
           <div className="col-2">
             <span style={{ fontWeight: "bold" }}>Player and Command</span>
             <br />
@@ -134,7 +167,7 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
         
         <br />
         <br />
-        <div className="row margin-below">
+        <div className="row mb-2">
           <div className="col-2">
             <span style={{}}>Command</span>
           </div>
@@ -148,7 +181,7 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
                       value={this.state.compiled} />
           </div>
         </div>
-        <div className="row margin-below">
+        <div className="row mb-2">
           <div className="col-sm-2 offset-sm-2">
             <button className="btn btn-light btn-block"
                     onClick={this.importCommand}>
@@ -162,7 +195,8 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
             </button>
           </div>
         </div>
-        <div className="row margin-below" style={{ backgroundColor: "white" }}>
+        <BookPreview />
+        <div className="row mb-2" style={{ backgroundColor: "white" }}>
           <div className="col offset-sm-2">
             { formatSnippets(this.state.snippets) }
           </div>

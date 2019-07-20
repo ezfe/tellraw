@@ -34,7 +34,7 @@ export class InlineScoreboardObjectiveSnippetController extends React.Component<
 
   render() {
     return (
-      <div className="row margin-below">
+      <div className="row mb-2">
         <div className="col">
           <input className="form-control" placeholder="Player" value={this.props.snippet.score_name} onChange={this.changeScoreName} />
         </div>
