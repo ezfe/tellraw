@@ -49,6 +49,10 @@ body {
   border-color: $info;
 }
 
+.preview:not(.book-preview) {
+  background: white;
+}
+
 .book-preview {
   padding-top: 60px;
   padding-left: 30px;
@@ -59,6 +63,6 @@ body {
   background-size: 100%;
   background-color: transparent !important;
   border: none !important;
-  word-break: keep-all;
-  white-space: pre;
+  word-break: break-word;
+  // white-space: pre;
 }

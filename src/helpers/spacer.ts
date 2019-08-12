@@ -1,4 +1,5 @@
-import { faSortAmountDown } from "@fortawesome/free-solid-svg-icons";
+import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
+import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
 
 const defaultWidth = 5
 const spacer = 1
@@ -78,7 +79,7 @@ function nextString(source: string, maxWidth: number): NextStringReturned {
   return { found, remaining }
 }
 
-export function splitString(str: string): Array<string> {
+function splitPlainString(str: string): Array<string> {
   let accumulator = Array<string>()
   
   let unprocessed = str
@@ -89,4 +90,36 @@ export function splitString(str: string): Array<string> {
   }
 
   return accumulator
+}
+
+function splitPlainIndexes(str: string): Array<number> {
+  return splitPlainString(str).map(string => string.length)
+}
+
+function snippetToString(snippet: Snippet): string {
+  if (snippet instanceof TextSnippet) {
+    return snippet.text
+  } else {
+    return "variable_width"
+  }
+}
+
+function splitCollection(source: Array<Snippet>): Array<Snippet> {
+  let plainSplit = splitPlainIndexes(source.map(snippetToString).join("")).reverse()
+  let currentWidth = plainSplit.pop()
+
+  const splitSnippets = source.map((snippet: Snippet): Array<Snippet> => {
+    let accumulator = Array<Snippet>()
+
+    const text = snippetToString(snippet)
+    if (text.length > currentWidth) {
+      // Split text!
+    } else {
+      accumulator.push(snippet)
+    }
+
+    return accumulator
+  })
+
+  return [].concat(...splitSnippets)
 }

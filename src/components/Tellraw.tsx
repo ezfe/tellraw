@@ -1,14 +1,13 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as React from "react";
 import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
 import { VERSION } from "../constants";
-import { compile } from "../helpers/compile";
-import { CommandTemplatesController } from "./CommandTemplatesController";
-import { SnippetCollection } from "./SnippetCollection";
 import { CommandType } from "../data/templates";
+import { compile } from "../helpers/compile";
 import { loadLocalStorageState } from "../helpers/persistence";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { formatSnippets } from "../helpers/formatter";
-import { BookPreview } from "./BookPreview";
+import { CommandTemplatesController } from "./CommandTemplatesController";
+import Preview from "./Preview";
+import SnippetCollection from "./SnippetCollection";
 
 export interface TellrawProps {
 
@@ -195,12 +194,8 @@ class Tellraw extends React.Component<TellrawProps, TellrawState> {
             </button>
           </div>
         </div>
-        <BookPreview />
-        <div className="row mb-2" style={{ backgroundColor: "white" }}>
-          <div className="col offset-sm-2">
-            { formatSnippets(this.state.snippets) }
-          </div>
-        </div>
+
+        <Preview snippets={this.state.snippets} commandType={this.state.commandType} />
       </div>
     )
   }

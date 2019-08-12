@@ -10,7 +10,8 @@ export enum FeatureType {
     clicking,
     hovering,
     insertion,
-    pages
+    pages,
+    bookPreview
 }
 
 /**
@@ -37,8 +38,9 @@ export function isFeatureAvailable(commandType: CommandType, feature: FeatureTyp
         } else {
             return false
         }
-    } else if (feature == FeatureType.pages) {
-        // Pages are supported by books only
+    } else if (feature == FeatureType.pages ||
+               feature === FeatureType.bookPreview) {
+        // Pages & book previews are supported by books only
         return commandType == CommandType.book
     } else {
         return true

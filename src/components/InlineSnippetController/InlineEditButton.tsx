@@ -56,16 +56,25 @@ export class InlineEditButton extends React.Component<InlineEditButtonProps, {}>
               if (!action.enabled) {
                 return null
               }
+
+              const actionIcon = action.icon ? (
+                <>
+                  <FontAwesomeIcon icon={action.icon} />
+                  &nbsp;
+                </>
+              ) : null
               
               return (
-                <a key={action.id} className="dropdown-item" href="#" onClick={() => { this.props.onClick(action.id) }}>
-                  { action.icon ? (
-                      <>
-                        <FontAwesomeIcon icon={action.icon} />
-                        &nbsp;
-                      </>
-                    ) : null }
-                  { action.text }</a>
+                <a key={action.id}
+                  className="dropdown-item"
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    this.props.onClick(action.id)
+                  }}>
+                  { actionIcon }
+                  { action.text }
+                </a>
               )
             })
           }

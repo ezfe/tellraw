@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Color, getCSSHEX } from "../../classes/Color";
+import { Color } from "../../classes/Color";
 import { ClickEventType } from "../../classes/Snippets/ClickEvent";
 import { HoverEventType } from "../../classes/Snippets/HoverEvent";
 import { KeybindSnippet } from "../../classes/Snippets/SnippetTypes/KeybindSnippet";
@@ -7,16 +7,16 @@ import { ScoreboardObjectiveSnippet } from "../../classes/Snippets/SnippetTypes/
 import { SelectorSnippet } from "../../classes/Snippets/SnippetTypes/SelectorSnippet";
 import { Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
 import { TextSnippet } from "../../classes/Snippets/SnippetTypes/TextSnippet";
+import { CommandType, FeatureType, isFeatureAvailable } from "../../data/templates";
 import { duplicate_snippet } from "../../helpers/copy_snippet";
+import { formatSnippet } from "../../helpers/formatter";
 import { Checkbox } from "../Forms/Checkbox";
-import { SnippetCollection } from "../SnippetCollection";
+import { MinecraftColorWell } from "../MinecraftColorWell";
+import SnippetCollection from "../SnippetCollection";
 import { KeybindSnippetDetailController } from "./KeybindSnippetDetailController";
 import { ScoreboardObjectiveSnippetDetailController } from "./ScoreboardObjectiveDetailController";
 import { SelectorSnippetDetailController } from "./SelectorSnippetDetailController";
 import { TextSnippetDetailController } from "./TextSnippetDetailController";
-import { formatSnippet } from "../../helpers/formatter";
-import { CommandType, isFeatureAvailable, FeatureType } from "../../data/templates";
-import { MinecraftColorWell } from "../MinecraftColorWell";
 
 export interface SnippetDetailControllerProps {
   commandType: CommandType

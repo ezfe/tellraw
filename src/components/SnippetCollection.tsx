@@ -13,7 +13,7 @@ import { duplicate_snippet } from "../helpers/copy_snippet";
 import uuid = require("uuid");
 import { PagebreakSnippet } from "../classes/Snippets/SnippetTypes/PagebreakSnippet";
 
-export interface SnippetCollectionProps {
+interface SnippetCollectionProps {
   commandType: CommandType
   snippets: Array<Snippet>
   updateSnippets: (snippets: Array<Snippet>) => void
@@ -23,7 +23,7 @@ interface SnippetCollectionState {
   editing: Snippet,
 }
 
-export class SnippetCollection extends React.Component<SnippetCollectionProps, SnippetCollectionState> {
+class SnippetCollection extends React.Component<SnippetCollectionProps, SnippetCollectionState> {
   constructor(props: SnippetCollectionProps) {
     super(props)
 
@@ -208,3 +208,5 @@ export class SnippetCollection extends React.Component<SnippetCollectionProps, S
     )
   }
 }
+
+export default SnippetCollection;
