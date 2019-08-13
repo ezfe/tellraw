@@ -1,21 +1,17 @@
-import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
-import * as React from "react";
 import { TextDecorationProperty } from "csstype";
-import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
+import * as React from "react";
+import { getCSSHEX } from "../classes/Color";
 import { KeybindSnippet } from "../classes/Snippets/SnippetTypes/KeybindSnippet";
 import { LinebreakSnippet } from "../classes/Snippets/SnippetTypes/LinebreakSnippet";
+import { PagebreakSnippet } from "../classes/Snippets/SnippetTypes/PagebreakSnippet";
 import { ScoreboardObjectiveSnippet } from "../classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet";
 import { SelectorSnippet } from "../classes/Snippets/SnippetTypes/SelectorSnippet";
-import { getCSSHEX, Color } from "../classes/Color";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
+import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
 import { iconForSnippet } from "./snippet_icon";
-import { PagebreakSnippet } from "../classes/Snippets/SnippetTypes/PagebreakSnippet";
 
-export function formatSnippets(snippets: Array<Snippet>): JSX.Element {
-  const mapped = snippets.map(formatSnippet)
-  
-  return <>{ mapped }</>
+export function formatSnippets(snippets: Array<Snippet>): Array<JSX.Element> {
+  return snippets.map(formatSnippet)
 }
 
 function wrapText(text: string): JSX.Element {
@@ -23,7 +19,7 @@ function wrapText(text: string): JSX.Element {
 }
 
 export function formatSnippet(snippet: Snippet): JSX.Element {
-  if (snippet instanceof LinebreakSnippet) return <br />
+  if (snippet instanceof LinebreakSnippet) return <br key={snippet.id} />
 
   let textDecorationValue: TextDecorationProperty = 'none'
   if (snippet.underlined && !snippet.strikethrough) {

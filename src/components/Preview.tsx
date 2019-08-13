@@ -1,11 +1,28 @@
-import * as React from 'react';
-import { Snippet } from '../classes/Snippets/SnippetTypes/Snippet';
-import { CommandType, FeatureType, isFeatureAvailable } from '../data/templates';
-import { formatSnippets } from '../helpers/formatter';
+import * as React from 'react'
+import { Snippet } from '../classes/Snippets/SnippetTypes/Snippet'
+import { CommandType, FeatureType, isFeatureAvailable } from '../data/templates'
+import { formatSnippets } from '../helpers/formatter'
+import { ResizableBox } from 'react-resizable'
 
 interface PreviewProps {
   commandType: CommandType
   snippets: Array<Snippet>
+}
+
+function bookPreview(snippets: Array<Snippet>) {
+  return (
+    <div key="book-preview-div" className="preview book-preview">
+      { formatSnippets(snippets) }
+    </div>
+  )
+}
+
+function regularPreview(snippets: Array<Snippet>) {
+  return (
+    <ResizableBox key="regular-preview-div" className="preview" width={600} height={300} axis="x">
+      { formatSnippets(snippets) }
+    </ResizableBox>
+  )
 }
 
 const Preview: React.FunctionComponent<PreviewProps> = ({ commandType, snippets }) => {
@@ -16,9 +33,7 @@ const Preview: React.FunctionComponent<PreviewProps> = ({ commandType, snippets 
   return (
     <div className="row mb-2">
       <div className="col offset-sm-2">
-        <div className={className}>
-          { formatSnippets(snippets) }
-        </div>
+        { isBookPreview ? bookPreview(snippets) : regularPreview(snippets) }
       </div>
     </div>
   )
