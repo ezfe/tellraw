@@ -1,7 +1,5 @@
 import * as React from "react";
 import { SelectorSnippet } from "../../classes/Snippets/SnippetTypes/SelectorSnippet";
-import InlineEditButton from "./InlineEditButton";
-import { InlineSnippetControllerProps } from "./InlineSnippetController";
 
 export interface InlineSelectorSnippetControllerProps {
   snippet: SelectorSnippet

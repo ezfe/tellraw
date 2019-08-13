@@ -1,8 +1,8 @@
-import * as React from 'react'
-import { Snippet } from '../classes/Snippets/SnippetTypes/Snippet'
-import { CommandType, FeatureType, isFeatureAvailable } from '../data/templates'
-import { formatSnippets } from '../helpers/formatter'
-import { ResizableBox } from 'react-resizable'
+import * as React from 'react';
+import { ResizableBox } from 'react-resizable';
+import { Snippet } from '../classes/Snippets/SnippetTypes/Snippet';
+import { CommandType, FeatureType, isFeatureAvailable } from '../data/templates';
+import { formatSnippets } from '../helpers/formatter';
 
 interface PreviewProps {
   commandType: CommandType

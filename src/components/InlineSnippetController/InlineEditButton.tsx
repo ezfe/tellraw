@@ -1,7 +1,6 @@
-import * as React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import { isNullOrUndefined } from "util";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import * as React from "react";
 
 export interface InlineEditButtonAction {
   text: string
