@@ -1,6 +1,6 @@
 import * as React from "react";
 import { ScoreboardObjectiveSnippet } from "../../classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet";
-import { InlineEditButton } from "./InlineEditButton";
+import InlineEditButton from "./InlineEditButton";
 import { InlineSnippetControllerProps } from "./InlineSnippetController";
 
 export interface InlineScoreboardObjectiveSnippetControllerProps {
