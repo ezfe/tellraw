@@ -1,35 +1,26 @@
 import * as React from "react";
 import { KeybindSnippet } from "../../classes/Snippets/SnippetTypes/KeybindSnippet";
-import { InlineSnippetControllerProps } from "./InlineSnippetController";
 
-export interface InlineKeybindSnippetControllerProps {
+interface InlineKeybindSnippetControllerProps {
   snippet: KeybindSnippet
   updateSnippet: (Snippet) => void
 }
 
-export class InlineKeybindSnippetController extends React.Component<InlineKeybindSnippetControllerProps, {}> {
-
-  constructor(props: InlineKeybindSnippetControllerProps) {
-    super(props)
-
-    this.changeKeybind = this.changeKeybind.bind(this)
-    this.updateField = this.updateField.bind(this)
-  }
-
-  changeKeybind(event: any) {
-    this.updateField("keybind", event.target.value)
-  }
-
-  updateField(field: string, value: any) {
-    let newSnippet = this.props.snippet.copy()
+const InlineKeybindSnippetController: React.FunctionComponent<InlineKeybindSnippetControllerProps> = (props) => {
+  function updateField(field: string, value: any) {
+    let newSnippet = props.snippet.copy()
     newSnippet[field] = value
-    this.props.updateSnippet(newSnippet)
+    props.updateSnippet(newSnippet)
+  }
+  
+  function changeKeybind(event: any) {
+    updateField("keybind", event.target.value)
   }
 
-  render() {
-    return <input className="form-control"
-                  placeholder="Selector..."
-                  value={this.props.snippet.keybind}
-                  onChange={this.changeKeybind} />
-  }
+  return <input className="form-control"
+                placeholder="Selector..."
+                value={props.snippet.keybind}
+                onChange={changeKeybind} />
 }
+
+export default InlineKeybindSnippetController
