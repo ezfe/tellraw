@@ -9,7 +9,11 @@ interface PreviewProps {
   snippets: Array<Snippet>
 }
 
-function bookPreview(snippets: Array<Snippet>) {
+interface SubPreviewProps {
+  snippets: Array<Snippet>
+}
+
+const BookPreview: React.FunctionComponent<SubPreviewProps> = ({ snippets }) => {
   return (
     <div key="book-preview-div" className="preview book-preview">
       { formatSnippets(snippets) }
@@ -17,7 +21,7 @@ function bookPreview(snippets: Array<Snippet>) {
   )
 }
 
-function regularPreview(snippets: Array<Snippet>) {
+const RegularPreview: React.FunctionComponent<SubPreviewProps> = ({ snippets }) => {
   return (
     <ResizableBox key="regular-preview-div" className="preview" width={600} height={300} axis="x">
       { formatSnippets(snippets) }
@@ -33,7 +37,7 @@ const Preview: React.FunctionComponent<PreviewProps> = ({ commandType, snippets 
   return (
     <div className="row mb-2">
       <div className="col offset-sm-2">
-        { isBookPreview ? bookPreview(snippets) : regularPreview(snippets) }
+        { isBookPreview ? <BookPreview snippets={snippets} /> : <RegularPreview snippets={snippets} /> }
       </div>
     </div>
   )
