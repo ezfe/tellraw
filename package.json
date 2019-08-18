@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "bootstrap": "^3.3.7",
-    "jquery": "^3.2.1",
+    "jquery": "^3.4.0",
     "sortablejs": "^1.5.1"
   }
 }
