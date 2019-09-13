@@ -24,7 +24,8 @@ import {
   faExclamationTriangle,
   faList,
   faWifi,
-  faFileDownload
+  faFileDownload,
+  faTachometerAlt
 } from '@fortawesome/free-solid-svg-icons'
 import {
   faTwitter
@@ -46,7 +47,8 @@ library.add(
   faList,
   faTwitter,
   faWifi,
-  faFileDownload
+  faFileDownload,
+  faTachometerAlt
 )
 
 // Increment load count

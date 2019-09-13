@@ -2,16 +2,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as React from "react";
 import { KeybindSnippet } from "../classes/Snippets/SnippetTypes/KeybindSnippet";
 import { LinebreakSnippet } from "../classes/Snippets/SnippetTypes/LinebreakSnippet";
+import { PagebreakSnippet } from "../classes/Snippets/SnippetTypes/PagebreakSnippet";
 import { ScoreboardObjectiveSnippet } from "../classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet";
 import { SelectorSnippet } from "../classes/Snippets/SnippetTypes/SelectorSnippet";
 import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
 import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
+import { CommandType, FeatureType, isFeatureAvailable } from "../data/templates";
+import { duplicate_snippet } from "../helpers/copy_snippet";
 import { InlineSnippetController } from "./InlineSnippetController/InlineSnippetController";
 import { SnippetDetailController } from "./SnippetDetailController/SnippetDetailController";
-import { CommandType, isFeatureAvailable, FeatureType } from "../data/templates";
-import { duplicate_snippet } from "../helpers/copy_snippet";
 import uuid = require("uuid");
-import { PagebreakSnippet } from "../classes/Snippets/SnippetTypes/PagebreakSnippet";
+import { useKeyPress } from "../helpers/useKeyPress";
+import { useLocalStorage } from "../helpers/useLocalStorage";
 
 interface SnippetCollectionProps {
   commandType: CommandType
@@ -23,38 +25,33 @@ interface SnippetCollectionState {
   editing: Snippet,
 }
 
-class SnippetCollection extends React.Component<SnippetCollectionProps, SnippetCollectionState> {
-  constructor(props: SnippetCollectionProps) {
-    super(props)
+const SnippetCollection: React.FunctionComponent<SnippetCollectionProps> = (props) => {
 
-    this.state = {
-      editing: null
+  const [editing, setEditing] = React.useState(null)
+  const optionPressed = useKeyPress("Alt")
+  const [showFastEditTip, setShowFastEditTip] = useLocalStorage("20190913-fast-edit-tip", true)
+  const dismissFastEditTip = () => { setShowFastEditTip(false) }
+  
+  /**
+   * Add a new snippet
+   * 
+   * @param snippet The snippet to add
+   */
+  function addSnippet(snippet: Snippet) {
+    if (optionPressed) {
+      props.updateSnippets([...props.snippets, snippet])
+    } else {
+      startEditing(snippet)
     }
-
-    this.startEditing = this.startEditing.bind(this)
-    this.updateEditing = this.updateEditing.bind(this)
-    this.stopEditing = this.stopEditing.bind(this)
-    
-    this.updateSnippet = this.updateSnippet.bind(this)
-    this.removeSnippet = this.removeSnippet.bind(this)
-    this.duplicateSnippet = this.duplicateSnippet.bind(this)
-
-    this.addLineBreak = this.addLineBreak.bind(this)
-    this.addPageBreak = this.addPageBreak.bind(this)
-
-    this.clearAllSnippets = this.clearAllSnippets.bind(this)
-
-    this.editor = this.editor.bind(this)
-    this.listView = this.listView.bind(this)
   }
 
-    /**
+  /**
    * Start editing a snippet.
    * 
    * @param snippet The snippet to start editing
    */
-  startEditing(snippet: Snippet) {
-    this.setState({ editing: snippet })
+  function startEditing(snippet: Snippet) {
+    setEditing(snippet)
   }
 
   /**
@@ -63,8 +60,8 @@ class SnippetCollection extends React.Component<SnippetCollectionProps, SnippetC
    * 
    * @param snippet The new snippet state
    */
-  updateEditing(snippet: Snippet) {
-    this.setState({ editing: snippet })
+  function updateEditing(snippet: Snippet) {
+    setEditing(snippet)
   }
 
   /**
@@ -72,17 +69,17 @@ class SnippetCollection extends React.Component<SnippetCollectionProps, SnippetC
    * 
    * @param save Whether to save the new snippet state back to the main snippet list.
    */
-  stopEditing(save: boolean) {
-    if (save && this.state.editing !== null) {
-      this.updateSnippet(this.state.editing)
+  function stopEditing(save: boolean) {
+    if (save && editing !== null) {
+      updateSnippet(editing)
     }
 
-    this.setState({ editing: null })
+    setEditing(null)
   }
 
-  updateSnippet(newSnippet: Snippet) {
+  function updateSnippet(newSnippet: Snippet) {
     let isNewSnippet = true
-    let updatedSnippets = this.props.snippets.map(currentSnippet => {
+    let updatedSnippets = props.snippets.map(currentSnippet => {
       if (currentSnippet.id === newSnippet.id) {
         isNewSnippet = false
         return newSnippet
@@ -92,67 +89,66 @@ class SnippetCollection extends React.Component<SnippetCollectionProps, SnippetC
     })
 
     if (isNewSnippet) {
-      updatedSnippets = [...this.props.snippets, newSnippet]
+      updatedSnippets = [...props.snippets, newSnippet]
     }
 
-    this.props.updateSnippets(updatedSnippets)
+    props.updateSnippets(updatedSnippets)
   }
 
-  removeSnippet(snippet: Snippet) {
-    let filtered = this.props.snippets.filter(currentSnippet => {
+  function removeSnippet(snippet: Snippet) {
+    let filtered = props.snippets.filter(currentSnippet => {
       return currentSnippet.id !== snippet.id
     })
 
-    this.props.updateSnippets(filtered)
+    props.updateSnippets(filtered)
   }
   
-  duplicateSnippet(snippet: Snippet) {
-    let now = this.props.snippets
+  function duplicateSnippet(snippet: Snippet) {
+    let now = props.snippets
     let newSnippet = duplicate_snippet(snippet)
     newSnippet.id = uuid()
 
     let i = now.indexOf(snippet);
     now.splice(i, 0, newSnippet);
 
-    this.props.updateSnippets(now);
+    props.updateSnippets(now);
   }
 
-  addLineBreak() {
+  function addLineBreak() {
     const snip = new LinebreakSnippet(null)
 
-    this.props.updateSnippets([...this.props.snippets, snip])
+    props.updateSnippets([...props.snippets, snip])
   }
 
-  addPageBreak() {
+  function addPageBreak() {
     const snip = new PagebreakSnippet(null)
 
-    this.props.updateSnippets([...this.props.snippets, snip])
+    props.updateSnippets([...props.snippets, snip])
   }
 
-  clearAllSnippets() {
+  function clearAllSnippets() {
     const titleString = "Are you sure!?!"
     const bodyString = "Clicking Delete will remove all your text and reset it to an empty string."
     if (confirm(`${titleString}\n${bodyString}`)) {
-      this.props.updateSnippets([]);
+      props.updateSnippets([]);
     }
   }
 
-  editor() {
-    console.log(this.state)
-    return <SnippetDetailController commandType={this.props.commandType} snippet={this.state.editing} updateSnippet={this.updateEditing} stopEditing={this.stopEditing}/>
+  function editor() {
+    return <SnippetDetailController commandType={props.commandType} snippet={editing} updateSnippet={updateEditing} stopEditing={stopEditing}/>
   }
 
-  listView() {
+  function listView() {
     return (
       <>
         {
-          this.props.snippets.map((s: Snippet) => {
+          props.snippets.map((s: Snippet) => {
             return <InlineSnippetController key={s.id}
-                                                snippet={s}
-                                                updateSnippet={this.updateSnippet}
-                                                startEditingSnippet={this.startEditing}
-                                                removeSnippet={this.removeSnippet}
-                                                duplicateSnippet={this.duplicateSnippet} />
+                                            snippet={s}
+                                            updateSnippet={updateSnippet}
+                                            startEditingSnippet={startEditing}
+                                            removeSnippet={removeSnippet}
+                                            duplicateSnippet={duplicateSnippet} />
             })
         }
 
@@ -165,18 +161,38 @@ class SnippetCollection extends React.Component<SnippetCollectionProps, SnippetC
                       data-toggle="dropdown"
                       aria-haspopup="true"
                       aria-expanded="false">
-
-                <FontAwesomeIcon icon="plus-circle" /> Add Text
+                {
+                  optionPressed ? (
+                    <>
+                      <FontAwesomeIcon icon="tachometer-alt" /> Fast Add
+                    </>
+                  ) : (
+                    <>
+                      <FontAwesomeIcon icon="plus-circle" /> Add Text
+                    </>
+                  )
+                }
               </button>
               <div className="dropdown-menu" aria-labelledby="add-snippet-dropdown-button">
-                <button className="dropdown-item" onClick={() => { this.startEditing(new TextSnippet(null)) }}>Text</button>
-                <button className="dropdown-item" onClick={() => { this.startEditing(new SelectorSnippet(null)) }}>Selector</button>
-                <button className="dropdown-item" onClick={() => { this.startEditing(new ScoreboardObjectiveSnippet(null)) }}>Scoreboard Objective</button>
-                <button className="dropdown-item" onClick={() => { this.startEditing(new KeybindSnippet(null)) }}>Keybind</button>
-                <button className="dropdown-item" onClick={this.addLineBreak}>Line Break ⏎</button>
+                <button className="dropdown-item" onClick={() => { addSnippet(new TextSnippet(null)) }}>Text</button>
+                <button className="dropdown-item" onClick={() => { addSnippet(new SelectorSnippet(null)) }}>Selector</button>
+                <button className="dropdown-item" onClick={() => { addSnippet(new ScoreboardObjectiveSnippet(null)) }}>Scoreboard Objective</button>
+                <button className="dropdown-item" onClick={() => { addSnippet(new KeybindSnippet(null)) }}>Keybind</button>
+                <button className="dropdown-item" onClick={addLineBreak}>Line Break ⏎</button>
                 {
-                  isFeatureAvailable(this.props.commandType, FeatureType.pages) ? (
-                    <button className="dropdown-item" onClick={this.addPageBreak}>New Page <FontAwesomeIcon icon="file-alt" /></button>
+                  isFeatureAvailable(props.commandType, FeatureType.pages) ? (
+                    <button className="dropdown-item" onClick={addPageBreak}>New Page <FontAwesomeIcon icon="file-alt" /></button>
+                  ) : null
+                }
+                {
+                  showFastEditTip ? (
+                    <>
+                      <div className="dropdown-divider"></div>
+                        <p className="text-muted pl-4 pr-4 mb-0 d-flex justify-content-between align-items-center">
+                          Hold option to add without editing
+                        <button className="btn btn-sm btn-outline-danger" onClick={dismissFastEditTip}>OK</button>
+                      </p>
+                    </>
                   ) : null
                 }
               </div>
@@ -184,7 +200,7 @@ class SnippetCollection extends React.Component<SnippetCollectionProps, SnippetC
           </div>
           <div className="col-sm-3">
             <button className="btn btn-danger btn-block"
-                    onClick={this.clearAllSnippets}>
+                    onClick={clearAllSnippets}>
               <FontAwesomeIcon icon="times-circle" /> Delete All
             </button>
           </div>
@@ -193,20 +209,18 @@ class SnippetCollection extends React.Component<SnippetCollectionProps, SnippetC
     )
   }
 
-  render() {
-    let view: JSX.Element
-    if (this.state.editing === null) {
-      view = this.listView()
-    } else {
-      view = this.editor()
-    }
-
-    return (
-      <div className="light-well">
-        {view}
-      </div>
-    )
+  let view: JSX.Element
+  if (editing === null) {
+    view = listView()
+  } else {
+    view = editor()
   }
+
+  return (
+    <div className="light-well">
+      {view}
+    </div>
+  )
 }
 
 export default SnippetCollection;
