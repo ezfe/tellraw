@@ -209,16 +209,9 @@ const SnippetCollection: React.FunctionComponent<SnippetCollectionProps> = (prop
     )
   }
 
-  let view: JSX.Element
-  if (editing === null) {
-    view = listView()
-  } else {
-    view = editor()
-  }
-
   return (
     <div className="light-well">
-      {view}
+      { editing === null ? listView() : editor() }
     </div>
   )
 }

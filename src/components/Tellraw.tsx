@@ -1,20 +1,15 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as React from "react";
 import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
+import { LSKEY_SNIPPET_ARR } from "../constants";
 import { CommandType } from "../data/templates";
 import { compile } from "../helpers/compile";
+import { loadV5State } from "../helpers/persistence";
+import { useLocalStorage, useLSSnippets } from "../helpers/useLocalStorage";
 import { CommandTemplatesController } from "./CommandTemplatesController";
 import Preview from "./Preview";
 import SnippetCollection from "./SnippetCollection";
-import { useLocalStorage, useLSSnippets } from "../helpers/useLocalStorage";
-import { LSKEY_SNIPPET_ARR } from "../constants";
-
-interface TellrawState {
-  snippets: Array<Snippet>
-  commandType: CommandType,
-  command: string,
-  compiled: string
-}
+import Importing from "./Importing";
 
 const outputFieldRef = React.createRef();
 
@@ -23,6 +18,9 @@ const Tellraw: React.FunctionComponent<{}> = () => {
   let [commandType, setCommandType] = React.useState(CommandType.tellraw)
   let [command, setCommand] = useLocalStorage("20190913-command-template-string", "/tellraw @a %s")
   let [compiled, setCompiled] = useLocalStorage("20190916-compiled-string", "/tellraw @p []")
+  
+  let [importing, setImporting] = React.useState(false)
+  let [importingString, setImportingString] = React.useState("")
 
   function recompile(f_snippets: Array<Snippet> = null,
     f_command: string = null,
@@ -46,17 +44,27 @@ const Tellraw: React.FunctionComponent<{}> = () => {
     recompile(null, null, type)
   }
 
-  function importCommand() {
-    const string = prompt("Enter exported string!")
-    const obj = JSON.parse(string)
-    
-    // Temporary
-    localStorage.setItem("jobject", JSON.stringify(obj["jobject"]));
-    location.reload();
+  function startImporting() {
+    setImporting(true)
+    setImportingString("")
+  }
+
+  function finishImporting(success: boolean) {
+    if (success) {
+      const obj = JSON.parse(importingString)
+      const snippets = loadV5State(obj["jobject"] as Array<object>)
+
+      setSnippets(snippets)
+    }
+    setImporting(false)
   }
 
   function exportCommand() {
-    
+    console.log(JSON.stringify({"jobject": snippets}));
+  }
+
+  if (importing) {
+    return <Importing importingString={importingString} setImportingString={setImportingString} finishImporting={finishImporting} />
   }
 
   return (
@@ -143,13 +151,13 @@ const Tellraw: React.FunctionComponent<{}> = () => {
       <div className="row mb-2">
         <div className="col-sm-2 offset-sm-2">
           <button className="btn btn-light btn-block"
-                  onClick={this.importCommand}>
+                  onClick={startImporting}>
             <FontAwesomeIcon icon="file-import" /> Import
           </button>
         </div>
         <div className="col-sm-2">
           <button className="btn btn-light btn-block"
-                  onClick={this.exportCommand}>
+                  onClick={exportCommand}>
             <FontAwesomeIcon icon="file-export" /> Export
           </button>
         </div>
