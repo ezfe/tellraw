@@ -31,7 +31,7 @@ const SnippetCollection: React.FunctionComponent<SnippetCollectionProps> = (prop
   const optionPressed = useKeyPress("Alt")
   const [showFastEditTip, setShowFastEditTip] = useLocalStorage("20190913-fast-edit-tip", true)
   const dismissFastEditTip = () => { setShowFastEditTip(false) }
-  
+
   /**
    * Add a new snippet
    * 

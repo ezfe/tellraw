@@ -30,6 +30,8 @@ import {
 import {
   faTwitter
 } from '@fortawesome/free-brands-svg-icons'
+import { VERSION } from "./constants";
+import { legacyStatePreparation } from "./helpers/persistence";
 // Then we add the icons to the library object
 library.add(
   faEdit,
@@ -62,6 +64,9 @@ if (localStorage.getItem("initialTimestamp") === null) {
 if (localStorage.getItem("donateStatus") === null) {
   localStorage.setItem("donateStatus", "unprompted");
 }
+
+// load legacy!
+legacyStatePreparation()
 
 ReactDOM.render(
   <Tellraw />,

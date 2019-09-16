@@ -1,15 +1,39 @@
 import { useState } from "react";
+import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
+import { loadV5State } from "./persistence";
+
+export function useLSSnippets(key: string, initialValue: Array<Snippet>): [Array<Snippet>, (value: Array<Snippet>) => void] {
+  const [storedValue, setStoredValue] = useLocalStorage(key, initialValue, (lsValue: string) => {
+    const parsed = JSON.parse(lsValue || "[]") as Array<object>
+    return loadV5State(parsed)
+  })
+
+  const setValue = (value: Array<Snippet>) => {
+    setStoredValue(value)
+  }
+
+  return [storedValue, setValue]
+}
 
 // https://usehooks.com/useLocalStorage/
-export function useLocalStorage(key, initialValue) {
+export function useLocalStorage<A>(
+    key: string,
+    initialValue: A,
+    localStorageLoader?: (string) => A
+  ): [A, (value: A) => void] {
+    
   // State to store our value
   // Pass initial state function to useState so logic is only executed once
   const [storedValue, setStoredValue] = useState(() => {
     try {
       // Get from local storage by key
-      const item = window.localStorage.getItem(key);
-      // Parse stored json or if none return initialValue
-      return item ? JSON.parse(item) : initialValue;
+      const item = window.localStorage.getItem(key)
+
+      if (localStorageLoader) {
+        return item ? localStorageLoader(item) : initialValue
+      } else {
+        return item ? JSON.parse(item) : initialValue
+      }
     } catch (error) {
       // If error also return initialValue
       console.log(error);
@@ -19,15 +43,12 @@ export function useLocalStorage(key, initialValue) {
 
   // Return a wrapped version of useState's setter function that ...
   // ... persists the new value to localStorage.
-  const setValue = value => {
+  const setValue = (value: A) => {
     try {
-      // Allow value to be a function so we have same API as useState
-      const valueToStore =
-        value instanceof Function ? value(storedValue) : value;
       // Save state
-      setStoredValue(valueToStore);
+      setStoredValue(value);
       // Save to local storage
-      window.localStorage.setItem(key, JSON.stringify(valueToStore));
+      window.localStorage.setItem(key, JSON.stringify(value));
     } catch (error) {
       // A more advanced implementation would handle the error case
       console.log(error);

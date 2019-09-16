@@ -5,36 +5,42 @@ import { KeybindSnippet } from "../classes/Snippets/SnippetTypes/KeybindSnippet"
 import { ScoreboardObjectiveSnippet } from "../classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet";
 import { SelectorSnippet } from "../classes/Snippets/SnippetTypes/SelectorSnippet";
 import { PagebreakSnippet } from "../classes/Snippets/SnippetTypes/PagebreakSnippet";
+import { VERSION } from "../constants";
 
-// export function currentTimeStamp(): number {
-//   return Date.now()
-// }
-
-export function loadLocalStorageState(): Snippet[] {
+export function legacyStatePreparation() {
   
-  const lsformat = parseInt(localStorage.getItem("jformat") || "5")
+  const lsformat = parseInt(localStorage.getItem("jformat") || VERSION.toString())
 
   if (lsformat <= 3) {
     localStorage.clear()
     location.reload()
+    return
   } else if (lsformat === 4) {
-    return loadV4State()
-  } else if (lsformat === 5) {
-    return loadV5State()
-  } else {
-    console.error(`Unexpected version ${lsformat}`)
-  }
+    const source_array = JSON.parse(localStorage.getItem("jobject") || "[]")
 
-  return null;
-}
-
-export function saveState(snippets: Snippet[]) {
+    const loaded = source_array.map((sf) => {
+        if (sf["NEW_ITERATE_FLAG"]) {
+            return new PagebreakSnippet(null)
+        } else if ("text" in sf) {
+            return TextSnippet.load_legacy(sf)
+        } else if ("selector" in sf) {
+            return SelectorSnippet.load_legacy(sf)
+        } else if ("score" in sf) {
+            return ScoreboardObjectiveSnippet.load_legacy(sf)
+        }
+    })
   
+    localStorage.clear()
+    localStorage.setItem("jobject", JSON.stringify(loaded))
+    localStorage.setItem("jformat", VERSION.toString())
+    location.reload()
+    return
+  } else {
+    localStorage.setItem("jformat", VERSION.toString())
+  }
 }
 
-function loadV5State(): Array<Snippet> {
-  const source_array = JSON.parse(localStorage.getItem('jobject') || "[]") as Array<object>
-
+export function loadV5State(source_array: Array<object>): Array<Snippet> {
   return source_array.map((s): Snippet => {
     if (s.hasOwnProperty("text")) {
       if (s["text"] === "\n") {
@@ -55,21 +61,5 @@ function loadV5State(): Array<Snippet> {
       x.text = `Failed to claim ${JSON.stringify(s)}`
       return x
     }
-  })
-}
-
-function loadV4State(): Array<Snippet> {
-  const source_array = JSON.parse(localStorage.getItem("jobject") || "[]")
-
-  return source_array.map((sf) => {
-      if (sf["NEW_ITERATE_FLAG"]) {
-          return new PagebreakSnippet(null)
-      } else if ("text" in sf) {
-          return TextSnippet.load_legacy(sf)
-      } else if ("selector" in sf) {
-          return SelectorSnippet.load_legacy(sf)
-      } else if ("score" in sf) {
-          return ScoreboardObjectiveSnippet.load_legacy(sf)
-      }
   })
 }
