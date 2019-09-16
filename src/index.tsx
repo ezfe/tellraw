@@ -53,6 +53,11 @@ library.add(
   faTachometerAlt
 )
 
+// load legacy!
+// this includes ALL localStorage key transformations
+// and should happen first
+legacyStatePreparation()
+
 // Increment load count
 localStorage.setItem("loadCount", (1 + parseInt(localStorage.getItem("loadCount") || "0")).toString())
 
@@ -64,9 +69,6 @@ if (localStorage.getItem("initialTimestamp") === null) {
 if (localStorage.getItem("donateStatus") === null) {
   localStorage.setItem("donateStatus", "unprompted");
 }
-
-// load legacy!
-legacyStatePreparation()
 
 ReactDOM.render(
   <Tellraw />,

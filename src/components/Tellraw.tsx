@@ -7,6 +7,7 @@ import { CommandTemplatesController } from "./CommandTemplatesController";
 import Preview from "./Preview";
 import SnippetCollection from "./SnippetCollection";
 import { useLocalStorage, useLSSnippets } from "../helpers/useLocalStorage";
+import { LSKEY_SNIPPET_ARR } from "../constants";
 
 interface TellrawState {
   snippets: Array<Snippet>
@@ -18,7 +19,7 @@ interface TellrawState {
 const outputFieldRef = React.createRef();
 
 const Tellraw: React.FunctionComponent<{}> = () => {  
-  let [snippets, setSnippets] = useLSSnippets("20190913-snippet-array", [])
+  let [snippets, setSnippets] = useLSSnippets(LSKEY_SNIPPET_ARR, [])
   let [commandType, setCommandType] = React.useState(CommandType.tellraw)
   let [command, setCommand] = useLocalStorage("20190913-command-template-string", "/tellraw @a %s")
   let [compiled, setCompiled] = useLocalStorage("20190916-compiled-string", "/tellraw @p []")

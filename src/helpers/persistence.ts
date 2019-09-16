@@ -5,17 +5,20 @@ import { KeybindSnippet } from "../classes/Snippets/SnippetTypes/KeybindSnippet"
 import { ScoreboardObjectiveSnippet } from "../classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet";
 import { SelectorSnippet } from "../classes/Snippets/SnippetTypes/SelectorSnippet";
 import { PagebreakSnippet } from "../classes/Snippets/SnippetTypes/PagebreakSnippet";
-import { VERSION } from "../constants";
+import { VERSION, LSKEY_SNIPPET_ARR } from "../constants";
 
 export function legacyStatePreparation() {
   
   const lsformat = parseInt(localStorage.getItem("jformat") || VERSION.toString())
+  console.log(`Processing legacy state ${lsformat}`)
 
   if (lsformat <= 3) {
+    console.warn("Resetting local state instead of upgrading")
     localStorage.clear()
-    location.reload()
     return
   } else if (lsformat === 4) {
+    console.log(`Upgrading local state from ${lsformat} to ${VERSION}`)
+
     const source_array = JSON.parse(localStorage.getItem("jobject") || "[]")
 
     const loaded = source_array.map((sf) => {
@@ -30,10 +33,11 @@ export function legacyStatePreparation() {
         }
     })
   
+    console.log("Clearing local storage in preparation for new object")
     localStorage.clear()
-    localStorage.setItem("jobject", JSON.stringify(loaded))
+    console.log("Storing new object")
+    localStorage.setItem(LSKEY_SNIPPET_ARR, JSON.stringify(loaded))
     localStorage.setItem("jformat", VERSION.toString())
-    location.reload()
     return
   } else {
     localStorage.setItem("jformat", VERSION.toString())
