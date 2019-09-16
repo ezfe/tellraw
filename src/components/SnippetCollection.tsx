@@ -227,8 +227,8 @@ const SnippetCollection: React.FunctionComponent<SnippetCollectionProps> = (prop
                   showFastEditTip ? (
                     <>
                       <div className="dropdown-divider"></div>
-                        <p className="text-muted pl-4 pr-4 mb-0 d-flex justify-content-between align-items-center">
-                          Hold option to add without editing
+                      <p className="text-muted pl-4 pr-4 mb-0 d-flex justify-content-between align-items-center">
+                        Hold option to add without editing
                         <button className="btn btn-sm btn-outline-danger" onClick={dismissFastEditTip}>OK</button>
                       </p>
                     </>
