@@ -6,7 +6,7 @@ import { CommandType } from "../data/templates";
 import { compile } from "../helpers/compile";
 import { loadV5State } from "../helpers/persistence";
 import { useLocalStorage, useLSSnippets } from "../helpers/useLocalStorage";
-import { CommandTemplatesController } from "./CommandTemplatesController";
+import CommandTemplatesController from "./CommandTemplatesController";
 import Preview from "./Preview";
 import SnippetCollection from "./SnippetCollection";
 import Importing from "./Importing";
@@ -132,7 +132,7 @@ const Tellraw: React.FunctionComponent<{}> = () => {
         </div>
       </div>
       <CommandTemplatesController commandType={commandType}
-                                  updateCommandType={this.updateCommandType} />
+                                  updateCommandType={updateCommandType} />
       
       <br />
       <br />

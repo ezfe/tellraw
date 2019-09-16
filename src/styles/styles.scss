@@ -66,3 +66,22 @@ body {
   word-break: break-word;
   // white-space: pre;
 }
+
+.mcj-format-option {
+  border-color: white;
+  border-radius: 5px;
+  border-width: 2px;
+  border-style: solid;
+  cursor: pointer;
+  text-align: center;
+}
+
+.mcj-format-option:hover {
+  background-color: grey;
+  color: black;
+}
+
+.mcj-format-option.active {
+  background-color: white;
+  color: black;
+}
