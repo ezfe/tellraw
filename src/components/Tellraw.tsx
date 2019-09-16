@@ -19,6 +19,8 @@ const Tellraw: React.FunctionComponent<{}> = () => {
   let [command, setCommand] = useLocalStorage("20190913-command-template-string", "/tellraw @a %s")
   let [compiled, setCompiled] = useLocalStorage("20190916-compiled-string", "/tellraw @p []")
   
+  let [exporting, setExporting] = React.useState(false)
+
   let [importing, setImporting] = React.useState(false)
   let [importingString, setImportingString] = React.useState("")
 
@@ -59,12 +61,22 @@ const Tellraw: React.FunctionComponent<{}> = () => {
     setImporting(false)
   }
 
-  function exportCommand() {
-    console.log(JSON.stringify({"jobject": snippets}));
-  }
-
   if (importing) {
     return <Importing importingString={importingString} setImportingString={setImportingString} finishImporting={finishImporting} />
+  }
+
+  if (exporting) {
+    return (
+      <div className="container">
+        <div className="row">
+          <div className="col-md-6 offset-md-3 light-well" style={{ textAlign: "center" }}>
+            { JSON.stringify({"jobject": snippets}) }
+            <br/><br/>
+            <button className="btn btn-success" onClick={() => { setExporting(false) }}>Done</button>
+          </div>
+        </div>
+      </div>
+    )
   }
 
   return (
@@ -157,7 +169,7 @@ const Tellraw: React.FunctionComponent<{}> = () => {
         </div>
         <div className="col-sm-2">
           <button className="btn btn-light btn-block"
-                  onClick={exportCommand}>
+                  onClick={() => { setExporting(true) }}>
             <FontAwesomeIcon icon="file-export" /> Export
           </button>
         </div>
