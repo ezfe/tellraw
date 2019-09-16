@@ -13,6 +13,7 @@ import InlineKeybindSnippetController from "./InlineKeybindSnippetController";
 import { InlineScoreboardObjectiveSnippetController } from "./InlineScoreboardObjectiveSnippetController";
 import { InlineSelectorSnippetController } from "./InlineSelectorSnippetController";
 import { InlineTextSnippetController } from "./InlineTextSnippetController";
+import { DraggableProvided } from "react-beautiful-dnd";
 
 export interface InlineSnippetControllerProps {
   snippet: Snippet
@@ -20,6 +21,8 @@ export interface InlineSnippetControllerProps {
   startEditingSnippet: (Snippet) => void
   removeSnippet: (Snippet) => void
   duplicateSnippet: (Snippet) => void
+
+  provided: DraggableProvided
 }
 
 export class InlineSnippetController extends React.Component<InlineSnippetControllerProps, {}> {
@@ -84,8 +87,10 @@ export class InlineSnippetController extends React.Component<InlineSnippetContro
       enabled: true
     }
     
+    const { provided } = this.props;
+
     return (
-      <div className="row mb-2">
+      <div className="row mb-2" {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
         <div className="col-1 col-sm-2">
           <InlineEditButton onClick={this.editButtonClick}
                             mainAction={startEditingAction}

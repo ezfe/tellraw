@@ -14,6 +14,7 @@ import { SnippetDetailController } from "./SnippetDetailController/SnippetDetail
 import uuid = require("uuid");
 import { useKeyPress } from "../helpers/useKeyPress";
 import { useLocalStorage } from "../helpers/useLocalStorage";
+import { DragDropContext, Droppable, Draggable, DroppableProvided, DroppableStateSnapshot, DropResult } from 'react-beautiful-dnd';
 
 interface SnippetCollectionProps {
   commandType: CommandType
@@ -138,19 +139,57 @@ const SnippetCollection: React.FunctionComponent<SnippetCollectionProps> = (prop
     return <SnippetDetailController commandType={props.commandType} snippet={editing} updateSnippet={updateEditing} stopEditing={stopEditing}/>
   }
 
+  function onDragEnd(result: DropResult) {
+    const { destination, source, draggableId } = result
+    if (!destination) return
+
+    let arr = [...props.snippets]
+    const moving = arr.splice(source.index, 1)[0]
+
+    console.log("Removed...", arr)
+    arr.splice(destination.index, 0, moving)
+    console.log("Re-added...", arr)
+
+    props.updateSnippets(arr)
+
+    console.log(result)
+  }
+
+  function snippetList() {
+    return (
+      <DragDropContext onDragEnd={onDragEnd}>
+        <Droppable droppableId="snippet-well">
+          {(provided) => {
+            return (
+              <div {...provided.droppableProps} ref={provided.innerRef}>
+                {props.snippets.map((s: Snippet, index) => {
+                  return (
+                    <Draggable key={s.id} draggableId={s.id} index={index}>
+                      {(provided, snapshot) => {
+                        return <InlineSnippetController key={s.id}
+                                                provided={provided}
+                                                snippet={s}
+                                                updateSnippet={updateSnippet}
+                                                startEditingSnippet={startEditing}
+                                                removeSnippet={removeSnippet}
+                                                duplicateSnippet={duplicateSnippet} />
+                      }}
+                    </Draggable>
+                  )
+                })}
+                {provided.placeholder}
+              </div>
+            )
+          }}
+        </Droppable>
+      </DragDropContext>
+    );
+  }
+
   function listView() {
     return (
       <>
-        {
-          props.snippets.map((s: Snippet) => {
-            return <InlineSnippetController key={s.id}
-                                            snippet={s}
-                                            updateSnippet={updateSnippet}
-                                            startEditingSnippet={startEditing}
-                                            removeSnippet={removeSnippet}
-                                            duplicateSnippet={duplicateSnippet} />
-            })
-        }
+        { snippetList() }
 
         <div className="row">
           <div className="col-sm-3 offset-sm-2">
