@@ -16,21 +16,40 @@ export function legacyStatePreparation() {
     console.warn("Resetting local state instead of upgrading")
     localStorage.clear()
     return
-  } else if (lsformat === 4) {
+  } else if (lsformat == 4) {
     console.log(`Upgrading local state from ${lsformat} to ${VERSION}`)
 
-    const source_array = JSON.parse(localStorage.getItem("jobject") || "[]")
+    const source_array = JSON.parse(localStorage.getItem("jobject") || "[]") as Array<object>
+    
+    const loaded = source_array.flatMap((sf): Array<Snippet> => {
+      if (sf["NEW_ITERATE_FLAG"]) {
+        return [new PagebreakSnippet(null)]
+      } else if ("text" in sf) {
+        let el = {...sf}
+        let arr = Array<object>()
 
-    const loaded = source_array.map((sf) => {
-        if (sf["NEW_ITERATE_FLAG"]) {
-            return new PagebreakSnippet(null)
-        } else if ("text" in sf) {
-            return TextSnippet.load_legacy(sf)
-        } else if ("selector" in sf) {
-            return SelectorSnippet.load_legacy(sf)
-        } else if ("score" in sf) {
-            return ScoreboardObjectiveSnippet.load_legacy(sf)
+        while (true) {
+          const text_preexisting = el["text"] as string
+          const index = text_preexisting.indexOf("\\n")
+
+          if (index > -1) {
+            const first_section = text_preexisting.substring(0, index)
+            const new_object = {...sf, text: first_section}
+            arr.push(new_object)
+            arr.push(new LinebreakSnippet())
+            el = {...sf, text: text_preexisting.substring(index + 2)}
+          } else {
+            arr.push(el)
+            break
+          }
         }
+
+        return arr.map(el => { return TextSnippet.load_legacy(el) })
+      } else if ("selector" in sf) {
+        return [SelectorSnippet.load_legacy(sf)]
+      } else if ("score" in sf) {
+        return [ScoreboardObjectiveSnippet.load_legacy(sf)]
+      }
     })
   
     console.log("Clearing local storage in preparation for new object")
