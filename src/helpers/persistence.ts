@@ -54,7 +54,7 @@ export function loadV5State(source_array: Array<object>): Array<Snippet> {
       }
     } else if (s.hasOwnProperty("keybind")) {
       return (Object as any).assign(new KeybindSnippet(), s)
-    } else if (s.hasOwnProperty("score")) {
+    } else if (s.hasOwnProperty("score") || s.hasOwnProperty("score_name")) {
       return (Object as any).assign(new ScoreboardObjectiveSnippet(), s)
     } else if (s.hasOwnProperty("selector")) {
       return (Object as any).assign(new SelectorSnippet(), s)
