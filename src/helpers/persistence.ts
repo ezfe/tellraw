@@ -26,7 +26,7 @@ export function legacyStatePreparation() {
         return [new PagebreakSnippet(null)]
       } else if ("text" in sf) {
         let el = {...sf}
-        let arr = Array<object>()
+        let arr = Array<Snippet>()
 
         while (true) {
           const text_preexisting = el["text"] as string
@@ -35,16 +35,18 @@ export function legacyStatePreparation() {
           if (index > -1) {
             const first_section = text_preexisting.substring(0, index)
             const new_object = {...sf, text: first_section}
-            arr.push(new_object)
+            
+            arr.push(TextSnippet.load_legacy(new_object))
             arr.push(new LinebreakSnippet())
+            
             el = {...sf, text: text_preexisting.substring(index + 2)}
           } else {
-            arr.push(el)
+            arr.push(TextSnippet.load_legacy(el))
             break
           }
         }
 
-        return arr.map(el => { return TextSnippet.load_legacy(el) })
+        return arr
       } else if ("selector" in sf) {
         return [SelectorSnippet.load_legacy(sf)]
       } else if ("score" in sf) {
