@@ -11,8 +11,6 @@ import Preview from "./Preview";
 import SnippetCollection from "./SnippetCollection";
 import Importing from "./Importing";
 
-const outputFieldRef = React.createRef();
-
 const Tellraw: React.FunctionComponent<{}> = () => {  
   let [snippets, setSnippets] = useLSSnippets(LSKEY_SNIPPET_ARR, [])
   let [commandType, setCommandType] = React.useState(CommandType.tellraw)
@@ -70,7 +68,12 @@ const Tellraw: React.FunctionComponent<{}> = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-6 offset-md-3 light-well" style={{ textAlign: "center" }}>
-            { JSON.stringify({"jobject": snippets}) }
+          <textarea readOnly={true}
+                    className="form-control"
+                    onClick={(event) => {
+                      event.currentTarget.select()
+                    }}
+                    value={JSON.stringify({"jobject": snippets})} />
             <br/><br/>
             <button className="btn btn-success" onClick={() => { setExporting(false) }}>Done</button>
           </div>
@@ -151,10 +154,9 @@ const Tellraw: React.FunctionComponent<{}> = () => {
         <div className="col">
           <textarea readOnly={true}
                     className="form-control"
-                    onClick={() => {
-                      this.outputFieldRef.current.select()
+                    onClick={(event) => {
+                      event.currentTarget.select()
                     }}
-                    ref={this.outputFieldRef}
                     value={compiled} />
         </div>
       </div>
