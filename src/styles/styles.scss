@@ -74,12 +74,17 @@ body {
   border-radius: 5px;
   border-width: 2px;
   border-style: solid;
-  cursor: pointer;
+
+  background-color: transparent;
+
   text-align: center;
+
+  cursor: pointer;
+  transition-duration: 0.4s;
 }
 
 .mcj-format-option:hover {
-  background-color: grey;
+  background-color: white;
   color: black;
 }
 

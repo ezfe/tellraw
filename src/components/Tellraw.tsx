@@ -118,7 +118,7 @@ const Tellraw: React.FunctionComponent<{}> = () => {
           </div>
         </div>
       </div>
-      <div className="row mb-2">
+      <div className="row mb-4">
         <div className="col-2">
           <span style={{ fontWeight: "bold" }}>Player and Command</span>
           <br />
@@ -131,11 +131,9 @@ const Tellraw: React.FunctionComponent<{}> = () => {
             className="form-control" />
         </div>
       </div>
+
       <CommandTemplatesController commandType={commandType}
                                   updateCommandType={updateCommandType} />
-      
-      <br />
-      <br />
       
       <SnippetCollection commandType={commandType}
                           snippets={snippets} 
