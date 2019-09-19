@@ -11,8 +11,9 @@ const Importing: React.FunctionComponent<ImportingProps> = (props) => {
     <div className="container">
       <div className="row">
         <div className="col-md-6 offset-md-3 light-well" style={{ textAlign: "center" }}>
-          Please enter the string you were given when you exported your command
-          <br/><br/>
+          <p className="mb-3">
+            Please enter the string you were given when you exported your command
+          </p>
           <input autoFocus className="form-control" id="hotfix-input-cell" value={props.importingString} onChange={(event) => { props.setImportingString(event.target.value) }} />
           <br/><br/>
           <button className="btn btn-danger mr-3" onClick={() => { props.finishImporting(false) }}>Cancel</button>
