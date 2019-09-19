@@ -76,6 +76,11 @@ export function compile(snippets: Array<Snippet>, command: string): string {
   const results = object_compile(snippets)
 
   const encoded = JSON.stringify(results)
+  if (!command) {
+    console.error("Command isn't available", command)
+    return ""
+  }
+
   if (command.indexOf("%s") === -1) {
     // error
     console.error("No %s to replace")
