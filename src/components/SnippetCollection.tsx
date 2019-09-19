@@ -20,6 +20,7 @@ interface SnippetCollectionProps {
   commandType: CommandType
   snippets: Array<Snippet>
   updateSnippets: (snippets: Array<Snippet>) => void
+  deleteAll: () => void
 }
 
 interface SnippetCollectionState {
@@ -131,7 +132,7 @@ const SnippetCollection: React.FunctionComponent<SnippetCollectionProps> = (prop
     const titleString = "Are you sure!?!"
     const bodyString = "Clicking Delete will remove all your text and reset it to an empty string."
     if (confirm(`${titleString}\n${bodyString}`)) {
-      props.updateSnippets([]);
+      props.deleteAll()
     }
   }
 

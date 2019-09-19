@@ -181,7 +181,13 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
         <div className="col">
           <div className="row">
             <div className="col inline-snippet-collection">
-              <SnippetCollection commandType={CommandType.hovertext} snippets={this.props.snippet.hover_event_children} updateSnippets={this.changeHoverEventChildren} />
+              <SnippetCollection commandType={CommandType.hovertext}
+                                 snippets={this.props.snippet.hover_event_children}
+                                 updateSnippets={this.changeHoverEventChildren}
+                                 deleteAll={() => {
+                                   this.changeHoverEventChildren([])
+                                 }}
+                                 />
             </div>
           </div>
         </div>

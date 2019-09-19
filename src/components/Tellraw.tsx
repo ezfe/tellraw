@@ -1,49 +1,50 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as React from "react";
 import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
-import { LSKEY_COMMAND_STRING, LSKEY_SNIPPET_ARR, LSKEY_COMMAND_TYPE } from "../constants";
+import { LSKEY_COMMAND_STRING, LSKEY_SNIPPET_ARR, LSKEY_COMMAND_TYPE, VERSION } from "../constants";
 import { CommandType, template_lookup } from "../data/templates";
 import { compile } from "../helpers/compile";
-import { loadV5State } from "../helpers/loaders";
+import { loadV5State, legacyStatePreparation, mapV4Template, loadV4State } from "../helpers/loaders";
 import { useLocalStorage, useLSSnippets } from "../helpers/useLocalStorage";
 import CommandTemplatesController from "./CommandTemplatesController";
 import Importing from "./Importing";
 import Preview from "./Preview";
 import SnippetCollection from "./SnippetCollection";
+import { export_snippets } from "../helpers/export";
 
 const Tellraw: React.FunctionComponent<{}> = () => {  
   let [snippets, setSnippets] = useLSSnippets(LSKEY_SNIPPET_ARR, [])
   let [commandType, setCommandType] = useLocalStorage(LSKEY_COMMAND_TYPE, CommandType.tellraw)
   let [command, setCommand] = useLocalStorage(LSKEY_COMMAND_STRING, template_lookup(commandType)[0])
-  let [compiled, setCompiled] = useLocalStorage("20190916-compiled-string", compile([], command))
+  // let [compiled, setCompiled] = useLocalStorage("20190916-compiled-string", compile([], command))
   
   let [exporting, setExporting] = React.useState(false)
 
   let [importing, setImporting] = React.useState(false)
   let [importingString, setImportingString] = React.useState("")
 
-  function recompile(f_snippets: Array<Snippet> = null,
-    f_command: string = null,
-    f_type: CommandType = null) {
+  // function recompile(f_snippets: Array<Snippet> = null,
+  //   f_command: string = null,
+  //   f_type: CommandType = null) {
 
-      if (f_snippets === null) f_snippets = snippets
-      if (f_command === null) f_command = command
-      if (f_type === null) f_type = commandType
+  //     if (f_snippets === null) f_snippets = snippets
+  //     if (f_command === null) f_command = command
+  //     if (f_type === null) f_type = commandType
 
-      setCompiled(compile(f_snippets, f_command))
-      console.log("State Snippets", snippets)
-  }
+  //     setCompiled(compile(f_snippets, f_command))
+  //     console.log("State Snippets", snippets)
+  // }
 
   function updateCustomCommand(event: any) {
     setCommand(event.target.value)
-    recompile(null, event.target.value)
+    // recompile(null, event.target.value)
   }
 
   function updateCommandType(type: CommandType) {
     setCommandType(type)
     const new_command = template_lookup(type)[0]
     setCommand(new_command)
-    recompile(null, new_command, type)
+    // recompile(null, new_command, type)
   }
 
   function startImporting() {
@@ -53,11 +54,30 @@ const Tellraw: React.FunctionComponent<{}> = () => {
 
   function finishImporting(success: boolean) {
     if (success) {
-      const obj = JSON.parse(importingString)
-      const snippets = loadV5State(obj["jobject"] as Array<object>)
+      const import_data = JSON.parse(importingString)
 
-      setSnippets(snippets)
+      const command = import_data["command"]
+      setCommand(command)
+
+      if (import_data["jformat"] === VERSION) {
+        const type = import_data["jtemplate"]
+        setCommandType(type)
+      
+        const snippets = loadV5State(import_data["jobject"] as Array<object>)
+        setSnippets(snippets)
+
+        // recompile(snippets, command, type)
+      } else {
+        const type = mapV4Template(import_data["jtemplate"])
+        setCommandType(type)
+
+        const snippets = loadV4State(import_data["jobject"])
+        setSnippets(snippets)
+
+        // recompile(snippets, command, type)
+      }
     }
+
     setImporting(false)
   }
 
@@ -69,13 +89,17 @@ const Tellraw: React.FunctionComponent<{}> = () => {
     return (
       <div className="container">
         <div className="row">
+          <p className="mb-3">
+            Click below to copy the exported command string. Store it in a safe place
+            to import back onto the site in the future.
+          </p>
           <div className="col-md-6 offset-md-3 light-well" style={{ textAlign: "center" }}>
           <textarea readOnly={true}
                     className="form-control"
                     onClick={(event) => {
                       event.currentTarget.select()
                     }}
-                    value={JSON.stringify({"jobject": snippets})} />
+                    value={ export_snippets(snippets, command, commandType) } />
             <br/><br/>
             <button className="btn btn-success" onClick={() => { setExporting(false) }}>Done</button>
           </div>
@@ -144,7 +168,12 @@ const Tellraw: React.FunctionComponent<{}> = () => {
                           snippets={snippets} 
                           updateSnippets={(snippets: Array<Snippet>) => {
                             setSnippets(snippets)
-                            recompile(snippets)
+                            // recompile(snippets)
+                          }}
+                          deleteAll={() => {
+                            setSnippets([])
+                            setCommand(template_lookup(CommandType.tellraw)[0])
+                            setCommandType(CommandType.tellraw)
                           }} />
       
       <br />
@@ -159,7 +188,7 @@ const Tellraw: React.FunctionComponent<{}> = () => {
                     onClick={(event) => {
                       event.currentTarget.select()
                     }}
-                    value={compiled} />
+                    value={compile(snippets, command)} />
         </div>
       </div>
       <div className="row mb-2">

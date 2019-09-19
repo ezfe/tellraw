@@ -6,6 +6,7 @@ import { SelectorSnippet } from "../classes/Snippets/SnippetTypes/SelectorSnippe
 import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
 import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
 import { LSKEY_COMMAND_STRING, LSKEY_SNIPPET_ARR, VERSION, LSKEY_COMMAND_TYPE } from "../constants";
+import { CommandType } from "../data/templates";
 
 export function legacyStatePreparation() {
   
@@ -21,38 +22,7 @@ export function legacyStatePreparation() {
 
     const source_array = JSON.parse(localStorage.getItem("jobject") || "[]") as Array<object>
     
-    const loaded = source_array.flatMap((sf): Array<Snippet> => {
-      if (sf["NEW_ITERATE_FLAG"]) {
-        return [new PagebreakSnippet(null)]
-      } else if ("text" in sf) {
-        let el = {...sf}
-        let arr = Array<Snippet>()
-
-        while (true) {
-          const text_preexisting = el["text"] as string
-          const index = text_preexisting.indexOf("\\n")
-
-          if (index > -1) {
-            const first_section = text_preexisting.substring(0, index)
-            const new_object = {...sf, text: first_section}
-            
-            arr.push(TextSnippet.load_legacy(new_object))
-            arr.push(new LinebreakSnippet())
-            
-            el = {...sf, text: text_preexisting.substring(index + 2)}
-          } else {
-            arr.push(TextSnippet.load_legacy(el))
-            break
-          }
-        }
-
-        return arr
-      } else if ("selector" in sf) {
-        return [SelectorSnippet.load_legacy(sf)]
-      } else if ("score" in sf) {
-        return [ScoreboardObjectiveSnippet.load_legacy(sf)]
-      }
-    })
+    const loaded = loadV4State(source_array)
 
     const commandString = localStorage.getItem("jcommand")
     const template = localStorage.getItem("jtemplate")
@@ -64,20 +34,59 @@ export function legacyStatePreparation() {
     localStorage.setItem(LSKEY_SNIPPET_ARR, JSON.stringify(loaded))
     localStorage.setItem("jformat", VERSION.toString())
     localStorage.setItem(LSKEY_COMMAND_STRING, commandString)
-    if (["tellraw", "execute_tellraw"].indexOf(template) != -1) {
-      localStorage.setItem(LSKEY_COMMAND_TYPE, "\"tellraw\"")
-    } else if (["title", "subtitle", "actionbar"].indexOf(template) != -1) {
-      localStorage.setItem(LSKEY_COMMAND_TYPE, "\"overlay\"")
-    } else if (["sign_item", "sign_block", "sign_block13"].indexOf(template) != -1) {
-      localStorage.setItem(LSKEY_COMMAND_TYPE, "\"sign\"")
-    } else if (["book12", "book13", "book"].indexOf(template) != -1) {
-      localStorage.setItem(LSKEY_COMMAND_TYPE, "\"book\"")
-    }
+    localStorage.setItem(LSKEY_COMMAND_TYPE, mapV4Template(template))
     
     return
   } else {
     localStorage.setItem("jformat", VERSION.toString())
   }
+}
+
+export function mapV4Template(legacy: string): CommandType {
+  if (["tellraw", "execute_tellraw"].indexOf(legacy) != -1) {
+    return CommandType.tellraw
+  } else if (["title", "subtitle", "actionbar"].indexOf(legacy) != -1) {
+    return CommandType.overlay
+  } else if (["sign_item", "sign_block", "sign_block13"].indexOf(legacy) != -1) {
+    return CommandType.sign
+  } else if (["book12", "book13", "book"].indexOf(legacy) != -1) {
+    return CommandType.book
+  }
+}
+
+export function loadV4State(source_array: Array<object>): Array<Snippet> {
+  return source_array.flatMap((sf): Array<Snippet> => {
+    if (sf["NEW_ITERATE_FLAG"]) {
+      return [new PagebreakSnippet(null)]
+    } else if ("text" in sf) {
+      let el = {...sf}
+      let arr = Array<Snippet>()
+
+      while (true) {
+        const text_preexisting = el["text"] as string
+        const index = text_preexisting.indexOf("\\n")
+
+        if (index > -1) {
+          const first_section = text_preexisting.substring(0, index)
+          const new_object = {...sf, text: first_section}
+          
+          arr.push(TextSnippet.load_legacy(new_object))
+          arr.push(new LinebreakSnippet())
+          
+          el = {...sf, text: text_preexisting.substring(index + 2)}
+        } else {
+          arr.push(TextSnippet.load_legacy(el))
+          break
+        }
+      }
+
+      return arr
+    } else if ("selector" in sf) {
+      return [SelectorSnippet.load_legacy(sf)]
+    } else if ("score" in sf) {
+      return [ScoreboardObjectiveSnippet.load_legacy(sf)]
+    }
+  })
 }
 
 export function loadV5State(source_array: Array<object>): Array<Snippet> {
