@@ -41,8 +41,9 @@ const Tellraw: React.FunctionComponent<{}> = () => {
 
   function updateCommandType(type: CommandType) {
     setCommandType(type)
-    setCommand(template_lookup(type)[0])
-    recompile(null, null, type)
+    const new_command = template_lookup(type)[0]
+    setCommand(new_command)
+    recompile(null, new_command, type)
   }
 
   function startImporting() {
@@ -123,7 +124,7 @@ const Tellraw: React.FunctionComponent<{}> = () => {
         </div>
       </div>
       <div className="row mb-4">
-        <div className="col-2">
+        <div className="col-3">
           <span style={{ fontWeight: "bold" }}>Player and Command</span>
           <br />
           <span>Used to select and execute different players</span>
