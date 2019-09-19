@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
-import { loadV5State } from "./persistence";
+import { loadV5State } from "./loaders";
 
 export function useLSSnippets(key: string, initialValue: Array<Snippet>): [Array<Snippet>, (value: Array<Snippet>) => void] {
   const [storedValue, setStoredValue] = useLocalStorage(key, initialValue, (lsValue: string) => {

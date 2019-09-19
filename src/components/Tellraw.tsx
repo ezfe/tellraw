@@ -1,20 +1,20 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as React from "react";
 import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
-import { LSKEY_SNIPPET_ARR } from "../constants";
-import { CommandType } from "../data/templates";
+import { LSKEY_COMMAND_STRING, LSKEY_SNIPPET_ARR, LSKEY_COMMAND_TYPE } from "../constants";
+import { CommandType, template_lookup } from "../data/templates";
 import { compile } from "../helpers/compile";
-import { loadV5State } from "../helpers/persistence";
+import { loadV5State } from "../helpers/loaders";
 import { useLocalStorage, useLSSnippets } from "../helpers/useLocalStorage";
 import CommandTemplatesController from "./CommandTemplatesController";
+import Importing from "./Importing";
 import Preview from "./Preview";
 import SnippetCollection from "./SnippetCollection";
-import Importing from "./Importing";
 
 const Tellraw: React.FunctionComponent<{}> = () => {  
   let [snippets, setSnippets] = useLSSnippets(LSKEY_SNIPPET_ARR, [])
-  let [commandType, setCommandType] = React.useState(CommandType.tellraw)
-  let [command, setCommand] = useLocalStorage("20190913-command-template-string", "/tellraw @a %s")
+  let [commandType, setCommandType] = useLocalStorage(LSKEY_COMMAND_TYPE, CommandType.tellraw)
+  let [command, setCommand] = useLocalStorage(LSKEY_COMMAND_STRING, template_lookup(commandType)[0])
   let [compiled, setCompiled] = useLocalStorage("20190916-compiled-string", "/tellraw @p []")
   
   let [exporting, setExporting] = React.useState(false)
@@ -41,6 +41,7 @@ const Tellraw: React.FunctionComponent<{}> = () => {
 
   function updateCommandType(type: CommandType) {
     setCommandType(type)
+    setCommand(template_lookup(type)[0])
     recompile(null, null, type)
   }
 
@@ -128,10 +129,10 @@ const Tellraw: React.FunctionComponent<{}> = () => {
           <span>Used to select and execute different players</span>
         </div>
         <div className="col">
-          <input defaultValue={command}
-            onChange={this.updateCustomCommand}
-            type="text"
-            className="form-control" />
+          <input value={command}
+                 onChange={updateCustomCommand}
+                 type="text"
+                 className="form-control" />
         </div>
       </div>
 

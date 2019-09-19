@@ -47,69 +47,25 @@ export function isFeatureAvailable(commandType: CommandType, feature: FeatureTyp
     }
 }
 
-// class Template {
-//     id: string
-//     command: string
-//     version: string
-//     formatType: string
-//     mouseActionOptions: Array<string>
-// }
+export function template_lookup(ct: CommandType): Array<string> {
+    return templates[CommandType[ct]]
+}
 
-// export const templates: Array<Template> = [
-//     {
-//         id: "tellraw",
-//         command: "/tellraw @p %s",
-//         version: "1.7",
-//         formatType: "standardjson",
-//         mouseActionOptions: [MOUSE_ACTION_HOVER, MOUSE_ACTION_CLICK, MOUSE_ACTION_INSERTION]
-//     } as Template,
-//     {
-//         id: "execute_tellraw",
-//         command: "/execute @a ~ ~ ~ tellraw @p %s",
-//         version: "1.8",
-//         formatType: "standardjson",
-//         mouseActionOptions: [MOUSE_ACTION_HOVER, MOUSE_ACTION_CLICK, MOUSE_ACTION_INSERTION]
-//     } as Template,
-//     {
-//         id: "title",
-//         command: "/title @a title %s",
-//         version: "1.8",
-//         formatType: "standardjson",
-//         mouseActionOptions: []
-//     } as Template,
-//     {
-//         id: "subtitle",
-//         command: "/title @a subtitle %s",
-//         version: "1.8",
-//         formatType: "standardjson",
-//         mouseActionOptions: []
-//     } as Template,
-//     {
-//         id: "actionbar",
-//         command: "/title @a actionbar %s",
-//         version: "1.11",
-//         formatType: "standardjson",
-//         mouseActionOptions: []
-//     } as Template,
-//     {
-//         id: "sign_item",
-//         command: '/give @p sign 1 0 {BlockEntityTag:{%s,id:"Sign"}}',
-//         version: "1.8",
-//         formatType: "signset",
-//         mouseActionOptions: []
-//     } as Template,
-//     {
-//         id: "sign_block",
-//         command: "/blockdata [x] [y] [z] {%s}",
-//         version: "1.8",
-//         formatType: "signset",
-//         mouseActionOptions: []
-//     } as Template,
-//     {
-//         id: "book",
-//         command: "/give @p written_book{pages:%s,title:CustomBook,author:Player}",
-//         version: "1.13",
-//         formatType: "bookarray",
-//         mouseActionOptions: [MOUSE_ACTION_HOVER, MOUSE_ACTION_CLICK, MOUSE_ACTION_INSERTION]
-//     } as Template
-// ];
+const templates = {
+    "tellraw": [
+        "/tellraw @p %s",
+        "/execute @a ~ ~ ~ tellraw @p %s"
+    ],
+    "overlay": [
+        "/title @a title %s",
+        "/title @a subtitle %s",
+        "/title @a actionbar %s"
+    ],
+    "sign": [
+        "/give @p sign{BlockEntityTag:{%s,id:\"Sign\"}}",
+        "/data merge block [x] [y] [z] {%s}"
+    ],
+    "book": [
+        "/give @p written_book{pages:%s,title:\"Custom Book\",author:Player}"
+    ]
+}

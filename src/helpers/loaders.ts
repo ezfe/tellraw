@@ -1,11 +1,11 @@
-import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
-import { LinebreakSnippet } from "../classes/Snippets/SnippetTypes/LinebreakSnippet";
-import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
 import { KeybindSnippet } from "../classes/Snippets/SnippetTypes/KeybindSnippet";
+import { LinebreakSnippet } from "../classes/Snippets/SnippetTypes/LinebreakSnippet";
+import { PagebreakSnippet } from "../classes/Snippets/SnippetTypes/PagebreakSnippet";
 import { ScoreboardObjectiveSnippet } from "../classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet";
 import { SelectorSnippet } from "../classes/Snippets/SnippetTypes/SelectorSnippet";
-import { PagebreakSnippet } from "../classes/Snippets/SnippetTypes/PagebreakSnippet";
-import { VERSION, LSKEY_SNIPPET_ARR } from "../constants";
+import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
+import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
+import { LSKEY_COMMAND_STRING, LSKEY_SNIPPET_ARR, VERSION, LSKEY_COMMAND_TYPE } from "../constants";
 
 export function legacyStatePreparation() {
   
@@ -53,12 +53,27 @@ export function legacyStatePreparation() {
         return [ScoreboardObjectiveSnippet.load_legacy(sf)]
       }
     })
-  
+
+    const commandString = localStorage.getItem("jcommand")
+    const template = localStorage.getItem("jtemplate")
+    
     console.log("Clearing local storage in preparation for new object")
     localStorage.clear()
+
     console.log("Storing new object")
     localStorage.setItem(LSKEY_SNIPPET_ARR, JSON.stringify(loaded))
     localStorage.setItem("jformat", VERSION.toString())
+    localStorage.setItem(LSKEY_COMMAND_STRING, commandString)
+    if (["tellraw", "execute_tellraw"].indexOf(template) != -1) {
+      localStorage.setItem(LSKEY_COMMAND_TYPE, "\"tellraw\"")
+    } else if (["title", "subtitle", "actionbar"].indexOf(template) != -1) {
+      localStorage.setItem(LSKEY_COMMAND_TYPE, "\"overlay\"")
+    } else if (["sign_item", "sign_block", "sign_block13"].indexOf(template) != -1) {
+      localStorage.setItem(LSKEY_COMMAND_TYPE, "\"sign\"")
+    } else if (["book12", "book13", "book"].indexOf(template) != -1) {
+      localStorage.setItem(LSKEY_COMMAND_TYPE, "\"book\"")
+    }
+    
     return
   } else {
     localStorage.setItem("jformat", VERSION.toString())

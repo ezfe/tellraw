@@ -31,7 +31,7 @@ import {
   faTwitter
 } from '@fortawesome/free-brands-svg-icons'
 import { VERSION } from "./constants";
-import { legacyStatePreparation } from "./helpers/persistence";
+import { legacyStatePreparation } from "./helpers/loaders";
 // Then we add the icons to the library object
 library.add(
   faEdit,
