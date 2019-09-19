@@ -15,7 +15,7 @@ const Tellraw: React.FunctionComponent<{}> = () => {
   let [snippets, setSnippets] = useLSSnippets(LSKEY_SNIPPET_ARR, [])
   let [commandType, setCommandType] = useLocalStorage(LSKEY_COMMAND_TYPE, CommandType.tellraw)
   let [command, setCommand] = useLocalStorage(LSKEY_COMMAND_STRING, template_lookup(commandType)[0])
-  let [compiled, setCompiled] = useLocalStorage("20190916-compiled-string", "/tellraw @p []")
+  let [compiled, setCompiled] = useLocalStorage("20190916-compiled-string", compile([], command))
   
   let [exporting, setExporting] = React.useState(false)
 
