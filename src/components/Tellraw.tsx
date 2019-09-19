@@ -89,18 +89,17 @@ const Tellraw: React.FunctionComponent<{}> = () => {
     return (
       <div className="container">
         <div className="row">
-          <p className="mb-3">
-            Click below to copy the exported command string. Store it in a safe place
-            to import back onto the site in the future.
-          </p>
           <div className="col-md-6 offset-md-3 light-well" style={{ textAlign: "center" }}>
-          <textarea readOnly={true}
-                    className="form-control"
-                    onClick={(event) => {
-                      event.currentTarget.select()
-                    }}
-                    value={ export_snippets(snippets, command, commandType) } />
-            <br/><br/>
+            <p className="mb-3">
+              Click below to copy the exported command string. Store it in a safe place
+              to import back onto the site in the future.
+            </p>
+            <textarea readOnly={true}
+                      className="form-control mb-3"
+                      onClick={(event) => {
+                        event.currentTarget.select()
+                      }}
+                      value={ export_snippets(snippets, command, commandType) } />
             <button className="btn btn-success" onClick={() => { setExporting(false) }}>Done</button>
           </div>
         </div>
