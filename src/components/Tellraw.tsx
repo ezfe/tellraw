@@ -1,50 +1,34 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as React from "react";
-import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
-import { LSKEY_COMMAND_STRING, LSKEY_SNIPPET_ARR, LSKEY_COMMAND_TYPE, VERSION } from "../constants";
+import { LSKEY_COMMAND_STRING, LSKEY_COMMAND_TYPE, LSKEY_SNIPPET_ARR, VERSION } from "../constants";
 import { CommandType, template_lookup } from "../data/templates";
 import { compile } from "../helpers/compile";
-import { loadV5State, legacyStatePreparation, mapV4Template, loadV4State } from "../helpers/loaders";
+import { export_snippets } from "../helpers/export";
+import { loadV4State, loadV5State, mapV4Template } from "../helpers/loaders";
 import { useLocalStorage, useLSSnippets } from "../helpers/useLocalStorage";
 import CommandTemplatesController from "./CommandTemplatesController";
 import Importing from "./Importing";
 import Preview from "./Preview";
 import SnippetCollection from "./SnippetCollection";
-import { export_snippets } from "../helpers/export";
 
 const Tellraw: React.FunctionComponent<{}> = () => {  
   let [snippets, setSnippets] = useLSSnippets(LSKEY_SNIPPET_ARR, [])
   let [commandType, setCommandType] = useLocalStorage(LSKEY_COMMAND_TYPE, CommandType.tellraw)
   let [command, setCommand] = useLocalStorage(LSKEY_COMMAND_STRING, template_lookup(commandType)[0])
-  // let [compiled, setCompiled] = useLocalStorage("20190916-compiled-string", compile([], command))
   
   let [exporting, setExporting] = React.useState(false)
 
   let [importing, setImporting] = React.useState(false)
   let [importingString, setImportingString] = React.useState("")
 
-  // function recompile(f_snippets: Array<Snippet> = null,
-  //   f_command: string = null,
-  //   f_type: CommandType = null) {
-
-  //     if (f_snippets === null) f_snippets = snippets
-  //     if (f_command === null) f_command = command
-  //     if (f_type === null) f_type = commandType
-
-  //     setCompiled(compile(f_snippets, f_command))
-  //     console.log("State Snippets", snippets)
-  // }
-
   function updateCustomCommand(event: any) {
     setCommand(event.target.value)
-    // recompile(null, event.target.value)
   }
 
   function updateCommandType(type: CommandType) {
     setCommandType(type)
     const new_command = template_lookup(type)[0]
     setCommand(new_command)
-    // recompile(null, new_command, type)
   }
 
   function startImporting() {
@@ -65,8 +49,6 @@ const Tellraw: React.FunctionComponent<{}> = () => {
       
         const snippets = loadV5State(import_data["jobject"] as Array<object>)
         setSnippets(snippets)
-
-        // recompile(snippets, command, type)
       } else {
         alert("Warning\n\nYou're importing from an old format. Please re-export after verifying the import went smoothly to save in the newest format.")
 
@@ -75,8 +57,6 @@ const Tellraw: React.FunctionComponent<{}> = () => {
 
         const snippets = loadV4State(import_data["jobject"])
         setSnippets(snippets)
-
-        // recompile(snippets, command, type)
       }
     }
 
@@ -167,10 +147,7 @@ const Tellraw: React.FunctionComponent<{}> = () => {
       
       <SnippetCollection commandType={commandType}
                           snippets={snippets} 
-                          updateSnippets={(snippets: Array<Snippet>) => {
-                            setSnippets(snippets)
-                            // recompile(snippets)
-                          }}
+                          updateSnippets={(snippets) => { setSnippets(snippets) }}
                           deleteAll={() => {
                             setSnippets([])
                             setCommand(template_lookup(CommandType.tellraw)[0])
