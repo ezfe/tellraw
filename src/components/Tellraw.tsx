@@ -68,6 +68,8 @@ const Tellraw: React.FunctionComponent<{}> = () => {
 
         // recompile(snippets, command, type)
       } else {
+        alert("Warning\n\nYou're importing from an old format. Please re-export after verifying the import went smoothly to save in the newest format.")
+
         const type = mapV4Template(import_data["jtemplate"])
         setCommandType(type)
 

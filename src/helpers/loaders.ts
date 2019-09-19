@@ -20,7 +20,8 @@ export function legacyStatePreparation() {
   } else if (lsformat == 4) {
     console.log(`Upgrading local state from ${lsformat} to ${VERSION}`)
 
-    const source_array = JSON.parse(localStorage.getItem("jobject") || "[]") as Array<object>
+    const source_str = localStorage.getItem("jobject")
+    const source_array = JSON.parse(source_str || "[]") as Array<object>
     
     const loaded = loadV4State(source_array)
 
@@ -35,6 +36,9 @@ export function legacyStatePreparation() {
     localStorage.setItem("jformat", VERSION.toString())
     localStorage.setItem(LSKEY_COMMAND_STRING, commandString)
     localStorage.setItem(LSKEY_COMMAND_TYPE, mapV4Template(template))
+    
+    localStorage.setItem(`upgrade-v4-backup-${(new Date()).getTime()}`, source_str)
+    alert("Hey! I've updated this site\n\nIf you lose any data during the transition or are missing a feature you used to use, please click the Report an Issue button and I'll look into it! I should be able to get most stuff back in event of data loss if you write me.")
     
     return
   } else {
