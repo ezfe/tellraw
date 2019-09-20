@@ -6,76 +6,130 @@ import { ScoreboardObjectiveSnippet } from "../classes/Snippets/SnippetTypes/Sco
 import { SelectorSnippet } from "../classes/Snippets/SnippetTypes/SelectorSnippet";
 import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
 import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
+import { PagebreakSnippet } from "../classes/Snippets/SnippetTypes/PagebreakSnippet";
+import { CommandType, isFeatureAvailable, FeatureType } from "../data/templates";
+import { LinebreakSnippet } from "../classes/Snippets/SnippetTypes/LinebreakSnippet";
 
-export function object_compile(snippets: Array<Snippet>): Array<Object> {
-  let results = Array<Object>()
-  results.push("")
-  for (const snippet of snippets) {
-    let pending = {}
+export function object_compile(sections: Array<Array<Snippet>>, type: CommandType): string {
+  let results = Array<Array<Object>>()
+  for (const section_snippets of sections) {
+    let section_results = Array<Object>()
+    section_results.push("")
+    for (const snippet of section_snippets) {
+      let pending = {}
 
-    console.log(snippet)
+      if (snippet instanceof TextSnippet) {
+        pending["text"] = snippet.text
+      } else if (snippet instanceof SelectorSnippet) {
+        pending["selector"] = snippet.selector
+      } else if (snippet instanceof ScoreboardObjectiveSnippet) {
+        pending["score"] = {
+          "name": snippet.score_name,
+          "objective": snippet.score_objective
+        }
 
-    if (snippet instanceof TextSnippet) {
-      pending["text"] = snippet.text
-    } else if (snippet instanceof SelectorSnippet) {
-      pending["selector"] = snippet.selector
-    } else if (snippet instanceof ScoreboardObjectiveSnippet) {
-      pending["score"] = {
-        "name": snippet.score_name,
-        "objective": snippet.score_objective
+        if (snippet.score_value !== null) {
+          pending["score"]["value"] = snippet.score_value
+        }
+      } else if (snippet instanceof KeybindSnippet) {
+        pending["keybind"] = snippet.keybind
       }
 
-      if (snippet.score_value !== null) {
-        pending["score"]["value"] = snippet.score_value
+      /* Style Transfer */
+      if (snippet.bold) pending["bold"] = true
+      if (snippet.italic) pending["italic"] = true
+      if (snippet.underlined) pending["underlined"] = true
+      if (snippet.strikethrough) pending["strikethrough"] = true
+      if (snippet.obfuscated) pending["obfuscated"] = true
+      if (snippet.color != Color.none) pending["color"] = Color[snippet.color]
+
+      if (snippet.insertion.length > 0) {
+        pending["insertion"] = snippet.insertion
       }
-    } else if (snippet instanceof KeybindSnippet) {
-      pending["keybind"] = snippet.keybind
+
+      if (snippet.click_event_type != ClickEventType.none) {
+        pending["clickEvent"] = {
+          "action": ClickEventType[snippet.click_event_type],
+          "value": snippet.click_event_value
+        }
+      }
+
+      if (snippet.hover_event_type == HoverEventType.show_text) {
+        const recursive_result = object_compile([snippet.hover_event_children], CommandType.hovertext)
+        pending["hoverEvent"] = {
+          "action": HoverEventType[snippet.hover_event_type],
+          "value": recursive_result
+        }
+      } else if (snippet.hover_event_type != HoverEventType.none) {
+        pending["hoverEvent"] = {
+          "action": HoverEventType[snippet.hover_event_type],
+          "value": snippet.hover_event_value
+        }
+      }
+
+      section_results.push(pending)
     }
-
-    /* Style Transfer */
-    if (snippet.bold) pending["bold"] = true
-    if (snippet.italic) pending["italic"] = true
-    if (snippet.underlined) pending["underlined"] = true
-    if (snippet.strikethrough) pending["strikethrough"] = true
-    if (snippet.obfuscated) pending["obfuscated"] = true
-    if (snippet.color != Color.none) pending["color"] = Color[snippet.color]
-
-    if (snippet.insertion.length > 0) {
-      pending["insertion"] = snippet.insertion
-    }
-
-    if (snippet.click_event_type != ClickEventType.none) {
-      pending["clickEvent"] = {
-        "action": ClickEventType[snippet.click_event_type],
-        "value": snippet.click_event_value
-      }
-    }
-
-    if (snippet.hover_event_type == HoverEventType.show_text) {
-      console.log("Compiling list of children", snippet.hover_event_children)
-      const recursive_result = object_compile(snippet.hover_event_children)
-      console.log("Compile finished", recursive_result)
-      pending["hoverEvent"] = {
-        "action": HoverEventType[snippet.hover_event_type],
-        "value": recursive_result
-      }
-    } else if (snippet.hover_event_type != HoverEventType.none) {
-      pending["hoverEvent"] = {
-        "action": HoverEventType[snippet.hover_event_type],
-        "value": snippet.hover_event_value
-      }
-    }
-
-    results.push(pending)
+    results.push(section_results)
   }
 
-  return results
+  if (type == CommandType.book) {
+    return JSON.stringify(results.map(e => { return JSON.stringify(e) }))
+  } else if (type == CommandType.sign) {
+    let ret = ""
+    if (results.length >= 1) {
+      const l1 = JSON.stringify(results[0])
+      ret = ret.concat(`Text1:${l1}`)
+
+      if (results.length >= 2) {
+        const l2 = JSON.stringify(results[1])
+        ret = ret.concat(`,Text2:${l2}`)
+
+        if (results.length >= 3) {
+          const l3 = JSON.stringify(results[2])
+          ret = ret.concat(`,Text3:${l3}`)
+
+          if (results.length >= 4) {
+            const l4 = JSON.stringify(results[3])
+            ret = ret.concat(`,Text4:${l4}`)
+          }
+        }
+      }
+    }
+
+    return ret
+  } else if (results.length > 0) {
+    return JSON.stringify(results[0])
+  } else {
+    console.error("No elements?")
+    return ""
+  }
 }
 
-export function compile(snippets: Array<Snippet>, command: string): string {
-  const results = object_compile(snippets)
+export function compile(snippets: Array<Snippet>, command: string, type: CommandType): string {
+  const section_list = Array<Array<Snippet>>()
+  let unprocessed = [...snippets]
 
-  const encoded = JSON.stringify(results)
+  if (isFeatureAvailable(type, FeatureType.pages) || type == CommandType.sign) {
+    while (unprocessed.length > 0) {
+      const applyLinebreaks = (type == CommandType.sign)
+
+      const index = unprocessed.findIndex((s) => {
+        return (s instanceof PagebreakSnippet) || (applyLinebreaks && s instanceof LinebreakSnippet)
+      })
+
+      if (index == -1) {
+        section_list.push(unprocessed.splice(0, unprocessed.length))
+      } else {
+        section_list.push(unprocessed.splice(0, index))
+      }
+      unprocessed.splice(0, 1)
+    }
+  } else {
+    section_list.push(unprocessed.filter(e => { return !(e instanceof PagebreakSnippet) }))
+  }
+
+  const results = object_compile(section_list, type)
+
   if (!command) {
     console.error("Command isn't available", command)
     return ""
@@ -84,8 +138,8 @@ export function compile(snippets: Array<Snippet>, command: string): string {
   if (command.indexOf("%s") === -1) {
     // error
     console.error("No %s to replace")
-    return encoded
+    return results
   } else {
-    return command.replace("%s", encoded);
+    return command.replace("%s", results);
   }
 }

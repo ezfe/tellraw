@@ -10,7 +10,7 @@ import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
 import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
 import { iconForSnippet } from "./snippet_icon";
 
-export function formatSnippets(snippets: Array<Snippet>): Array<JSX.Element> {
+export function formatSnippets(snippets: Array<Snippet>, bookPage?: number): Array<JSX.Element> {
   return snippets.map(formatSnippet)
 }
 
@@ -53,7 +53,7 @@ export function formatSnippet(snippet: Snippet): JSX.Element {
   } else if (snippet instanceof LinebreakSnippet) {
     text = <br />
   } else if (snippet instanceof PagebreakSnippet) {
-    text = <><br />-- page --<br /></>
+    text = <><br />-- page break --<br /></>
   }
 
   return (

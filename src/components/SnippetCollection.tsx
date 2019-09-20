@@ -23,10 +23,6 @@ interface SnippetCollectionProps {
   deleteAll: () => void
 }
 
-interface SnippetCollectionState {
-  editing: Snippet,
-}
-
 const SnippetCollection: React.FunctionComponent<SnippetCollectionProps> = (props) => {
 
   const [editing, setEditing] = React.useState(null)
@@ -80,6 +76,7 @@ const SnippetCollection: React.FunctionComponent<SnippetCollectionProps> = (prop
   }
 
   function updateSnippet(newSnippet: Snippet) {
+    console.log("Updating", newSnippet)
     let isNewSnippet = true
     let updatedSnippets = props.snippets.map(currentSnippet => {
       if (currentSnippet.id === newSnippet.id) {
@@ -106,7 +103,7 @@ const SnippetCollection: React.FunctionComponent<SnippetCollectionProps> = (prop
   }
   
   function duplicateSnippet(snippet: Snippet) {
-    let now = props.snippets
+    let now = [...props.snippets]
     let newSnippet = duplicate_snippet(snippet)
     newSnippet.id = uuid()
 
@@ -141,19 +138,15 @@ const SnippetCollection: React.FunctionComponent<SnippetCollectionProps> = (prop
   }
 
   function onDragEnd(result: DropResult) {
-    const { destination, source, draggableId } = result
+    const { destination, source } = result
     if (!destination) return
 
     let arr = [...props.snippets]
     const moving = arr.splice(source.index, 1)[0]
 
-    console.log("Removed...", arr)
     arr.splice(destination.index, 0, moving)
-    console.log("Re-added...", arr)
 
     props.updateSnippets(arr)
-
-    console.log(result)
   }
 
   function snippetList() {

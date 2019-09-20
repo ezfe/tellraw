@@ -15,11 +15,13 @@ const Tellraw: React.FunctionComponent<{}> = () => {
   let [snippets, setSnippets] = useLSSnippets(LSKEY_SNIPPET_ARR, [])
   let [commandType, setCommandType] = useLocalStorage(LSKEY_COMMAND_TYPE, CommandType.tellraw)
   let [command, setCommand] = useLocalStorage(LSKEY_COMMAND_STRING, template_lookup(commandType)[0])
-  
+
   let [exporting, setExporting] = React.useState(false)
 
   let [importing, setImporting] = React.useState(false)
   let [importingString, setImportingString] = React.useState("")
+
+  const compiled = compile(snippets, command, commandType)
 
   function updateCustomCommand(event: any) {
     setCommand(event.target.value)
@@ -147,7 +149,9 @@ const Tellraw: React.FunctionComponent<{}> = () => {
       
       <SnippetCollection commandType={commandType}
                           snippets={snippets} 
-                          updateSnippets={(snippets) => { setSnippets(snippets) }}
+                          updateSnippets={(snippets) => {
+                            setSnippets(snippets)
+                          }}
                           deleteAll={() => {
                             setSnippets([])
                             setCommand(template_lookup(CommandType.tellraw)[0])
@@ -166,7 +170,7 @@ const Tellraw: React.FunctionComponent<{}> = () => {
                     onClick={(event) => {
                       event.currentTarget.select()
                     }}
-                    value={compile(snippets, command)} />
+                    value={compiled} />
         </div>
       </div>
       <div className="row mb-2">

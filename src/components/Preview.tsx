@@ -14,9 +14,11 @@ interface SubPreviewProps {
 }
 
 const BookPreview: React.FunctionComponent<SubPreviewProps> = ({ snippets }) => {
+  let [bookPage, setBookPage] = React.useState(0)
+
   return (
     <div key="book-preview-div" className="preview book-preview">
-      { formatSnippets(snippets) }
+      { formatSnippets(snippets, bookPage) }
     </div>
   )
 }
