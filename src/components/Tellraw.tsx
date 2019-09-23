@@ -10,6 +10,7 @@ import CommandTemplatesController from "./CommandTemplatesController";
 import Importing from "./Importing";
 import Preview from "./Preview";
 import SnippetCollection from "./SnippetCollection";
+import Button from "./generic/Button";
 
 const Tellraw: React.FunctionComponent<{}> = () => {  
   let [snippets, setSnippets] = useLSSnippets(LSKEY_SNIPPET_ARR, [])
@@ -34,8 +35,8 @@ const Tellraw: React.FunctionComponent<{}> = () => {
   }
 
   function startImporting() {
-    setImporting(true)
     setImportingString("")
+    setImporting(true)
   }
 
   function finishImporting(success: boolean) {
@@ -63,6 +64,7 @@ const Tellraw: React.FunctionComponent<{}> = () => {
     }
 
     setImporting(false)
+    setImportingString("")
   }
 
   if (importing) {
@@ -84,7 +86,7 @@ const Tellraw: React.FunctionComponent<{}> = () => {
                         event.currentTarget.select()
                       }}
                       value={ export_snippets(snippets, command, commandType) } />
-            <button className="btn btn-success" onClick={() => { setExporting(false) }}>Done</button>
+            <Button type="success" icon="check-circle" onClick={() => { setExporting(false) }}>Done</Button>
           </div>
         </div>
       </div>
@@ -175,16 +177,20 @@ const Tellraw: React.FunctionComponent<{}> = () => {
       </div>
       <div className="row mb-2">
         <div className="col-sm-2 offset-sm-2">
-          <button className="btn btn-light btn-block"
-                  onClick={startImporting}>
-            <FontAwesomeIcon icon="file-import" /> Import
-          </button>
+          <Button type="light"
+                  className="btn-block"
+                  onClick={startImporting}
+                  icon="file-import">
+            Import
+          </Button>
         </div>
         <div className="col-sm-2">
-          <button className="btn btn-light btn-block"
-                  onClick={() => { setExporting(true) }}>
-            <FontAwesomeIcon icon="file-export" /> Export
-          </button>
+          <Button type="light"
+                  className="btn-block"
+                  onClick={() => { setExporting(true) }}
+                  icon="file-export">
+            Export
+          </Button>
         </div>
       </div>
 

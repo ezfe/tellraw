@@ -1,47 +1,26 @@
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faClone, faEdit, faExclamationTriangle, faFileAlt, faFileDownload, faFileExport, faFileImport, faKeyboard, faList, faPlusCircle, faTachometerAlt, faTimesCircle, faTrashAlt, faTrophy, faUserTag, faWifi, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import 'bootstrap';
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-
 import Tellraw from "./components/Tellraw";
-
-import 'bootstrap';
+import { legacyStatePreparation } from "./helpers/loaders";
 import './styles/styles.scss';
 
-// To use FA, we need to import the library object
-import { library } from '@fortawesome/fontawesome-svg-core';
-// As well as each icon we want to use
-import {
-  faEdit,
-  faPlusCircle,
-  faKeyboard,
-  faTrophy,
-  faUserTag,
-  faTrashAlt,
-  faClone,
-  faTimesCircle,
-  faFileAlt,
-  faFileImport,
-  faFileExport,
-  faExclamationTriangle,
-  faList,
-  faWifi,
-  faFileDownload,
-  faTachometerAlt
-} from '@fortawesome/free-solid-svg-icons'
-import {
-  faTwitter
-} from '@fortawesome/free-brands-svg-icons'
-import { VERSION } from "./constants";
-import { legacyStatePreparation } from "./helpers/loaders";
+
+
 // Then we add the icons to the library object
 library.add(
   faEdit,
   faPlusCircle,
+  faCheckCircle,
+  faTimesCircle,
   faKeyboard,
   faTrophy,
   faUserTag,
   faTrashAlt,
   faClone,
-  faTimesCircle,
   faFileAlt,
   faFileImport,
   faFileExport,

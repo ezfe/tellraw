@@ -1,4 +1,5 @@
 import * as React from "react"
+import Button from "./generic/Button";
 
 interface ImportingProps {
   importingString: string,
@@ -15,8 +16,17 @@ const Importing: React.FunctionComponent<ImportingProps> = (props) => {
             Please enter the string you were given when you exported your command
           </p>
           <input autoFocus className="form-control mb-3" id="hotfix-input-cell" value={props.importingString} onChange={(event) => { props.setImportingString(event.target.value) }} />
-          <button className="btn btn-danger mr-3" onClick={() => { props.finishImporting(false) }}>Cancel</button>
-          <button className="btn btn-success" onClick={() => { props.finishImporting(true) }}>Import</button>
+          <Button className="mr-3"
+                  type="danger"
+                  icon="times-circle"
+                  onClick={() => { props.finishImporting(false) }}>
+            Cancel
+          </Button>
+          <Button type="success"
+                  icon="check-circle"
+                  onClick={() => { props.finishImporting(true) }}>
+            Import
+          </Button>
         </div>
       </div>
     </div>

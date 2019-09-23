@@ -15,6 +15,7 @@ import uuid = require("uuid");
 import { useKeyPress } from "../helpers/useKeyPress";
 import { useLocalStorage } from "../helpers/useLocalStorage";
 import { DragDropContext, Droppable, Draggable, DroppableProvided, DroppableStateSnapshot, DropResult } from 'react-beautiful-dnd';
+import Button from "./generic/Button";
 
 interface SnippetCollectionProps {
   commandType: CommandType
@@ -232,10 +233,12 @@ const SnippetCollection: React.FunctionComponent<SnippetCollectionProps> = (prop
             </div>
           </div>
           <div className="col-sm-3">
-            <button className="btn btn-danger btn-block"
+            <Button className="btn-block"
+                    type="danger"
+                    icon="times-circle"
                     onClick={clearAllSnippets}>
-              <FontAwesomeIcon icon="times-circle" /> Delete All
-            </button>
+              Delete All
+            </Button>
           </div>
         </div>
       </>
