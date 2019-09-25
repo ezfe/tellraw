@@ -20,7 +20,6 @@ const Tellraw: React.FunctionComponent<{}> = () => {
   let [exporting, setExporting] = React.useState(false)
 
   let [importing, setImporting] = React.useState(false)
-  let [importingString, setImportingString] = React.useState("")
 
   const compiled = compile(snippets, command, commandType)
 
@@ -35,40 +34,15 @@ const Tellraw: React.FunctionComponent<{}> = () => {
   }
 
   function startImporting() {
-    setImportingString("")
     setImporting(true)
   }
 
-  function finishImporting(success: boolean) {
-    if (success) {
-      const import_data = JSON.parse(importingString)
-
-      const command = import_data["command"]
-      setCommand(command)
-
-      if (import_data["jformat"] === VERSION) {
-        const type = import_data["jtemplate"]
-        setCommandType(type)
-      
-        const snippets = loadV5State(import_data["jobject"] as Array<object>)
-        setSnippets(snippets)
-      } else {
-        alert("Warning\n\nYou're importing from an old format. Please re-export after verifying the import went smoothly to save in the newest format.")
-
-        const type = mapV4Template(import_data["jtemplate"])
-        setCommandType(type)
-
-        const snippets = loadV4State(import_data["jobject"])
-        setSnippets(snippets)
-      }
-    }
-
+  function stopImporting() {
     setImporting(false)
-    setImportingString("")
   }
 
   if (importing) {
-    return <Importing importingString={importingString} setImportingString={setImportingString} finishImporting={finishImporting} />
+    return <Importing setSnippets={setSnippets} setCommand={setCommand} setCommandType={setCommandType} stopImporting={stopImporting} />
   }
 
   if (exporting) {

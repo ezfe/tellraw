@@ -59,6 +59,8 @@ export function mapV4Template(legacy: string): CommandType {
 }
 
 export function loadV4State(source_array: Array<object>): Array<Snippet> {
+  if (!Array.isArray(source_array)) { return [] }
+
   return source_array.flatMap((sf): Array<Snippet> => {
     if (sf["NEW_ITERATE_FLAG"]) {
       return [new PagebreakSnippet(null)]
