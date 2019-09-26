@@ -62,7 +62,7 @@ const templates = {
         "/title @a actionbar %s"
     ],
     "sign": [
-        "/give @p sign{BlockEntityTag:{%s,id:\"Sign\"}}",
+        "/give @p oak_sign{BlockEntityTag:{%s,id:\"Sign\"}}",
         "/data merge block [x] [y] [z] {%s}"
     ],
     "book": [

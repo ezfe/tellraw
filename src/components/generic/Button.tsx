@@ -7,12 +7,13 @@ interface ButtonProps {
   type: ("primary" | "secondary" | "success" | "danger" | "warning" | "info" | "light" | "dark" | "link")
   className?: string
 
+  formType?: ("button" | "submit" | "reset")
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
 }
 
 const Button: React.FunctionComponent<ButtonProps> = (props) => {
   return (
-    <button className={`btn btn-${props.type} ${props.className}`} onClick={props.onClick}>
+    <button className={`btn btn-${props.type} ${props.className}`} onClick={props.onClick} type={props.formType}>
       { props.icon ? <FontAwesomeIcon icon={props.icon} />  : null }
       { props.icon && props.children ? " " : null }
       { props.children }

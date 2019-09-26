@@ -78,19 +78,19 @@ export function object_compile(sections: Array<Array<Snippet>>, type: CommandTyp
     let ret = ""
     if (results.length >= 1) {
       const l1 = JSON.stringify(results[0])
-      ret = ret.concat(`Text1:${l1}`)
+      ret = ret.concat(`Text1:${JSON.stringify(l1)}`)
 
       if (results.length >= 2) {
         const l2 = JSON.stringify(results[1])
-        ret = ret.concat(`,Text2:${l2}`)
+        ret = ret.concat(`,Text2:${JSON.stringify(l2)}`)
 
         if (results.length >= 3) {
           const l3 = JSON.stringify(results[2])
-          ret = ret.concat(`,Text3:${l3}`)
+          ret = ret.concat(`,Text3:${JSON.stringify(l3)}`)
 
           if (results.length >= 4) {
             const l4 = JSON.stringify(results[3])
-            ret = ret.concat(`,Text4:${l4}`)
+            ret = ret.concat(`,Text4:${JSON.stringify(l4)}`)
           }
         }
       }

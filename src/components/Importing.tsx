@@ -77,7 +77,9 @@ const Importing: React.FunctionComponent<ImportingProps> = (props) => {
                    />
             <Button className="mr-3"
                     type="danger"
-                    icon="times-circle">
+                    formType="button"
+                    icon="times-circle"
+                    onClick={props.stopImporting}>
               Cancel
             </Button>
             <Button type="success"
