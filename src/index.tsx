@@ -1,6 +1,6 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
-import { faClone, faEdit, faExclamationTriangle, faFileAlt, faFileDownload, faFileExport, faFileImport, faKeyboard, faList, faPlusCircle, faTachometerAlt, faTimesCircle, faTrashAlt, faTrophy, faUserTag, faWifi, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { faClone, faEdit, faExclamationTriangle, faFileAlt, faFileDownload, faFileExport, faFileImport, faKeyboard, faList, faPlusCircle, faTachometerAlt, faTimesCircle, faTrashAlt, faTrophy, faUserTag, faWifi, faCheckCircle, faArrowCircleRight, faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import 'bootstrap';
 import * as React from "react";
 import * as ReactDOM from "react-dom";
@@ -16,6 +16,8 @@ library.add(
   faPlusCircle,
   faCheckCircle,
   faTimesCircle,
+  faArrowCircleRight,
+  faArrowCircleLeft,
   faKeyboard,
   faTrophy,
   faUserTag,
