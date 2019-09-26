@@ -1,7 +1,10 @@
 {
   "dependencies": {
-    "bootstrap": "^3.3.7",
-    "jquery": "^3.2.1",
+    "bootstrap": "3",
+    "jquery": "3",
     "sortablejs": "^1.5.1"
+  },
+  "scripts": {
+    "build": "echo Success"
   }
 }
