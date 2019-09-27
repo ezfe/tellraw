@@ -1762,7 +1762,7 @@ function initialize() {
     }
 
     if (lsm.getItem("jformat") != version && lsm.getItem("jformat") != undefined) {
-        if (lsm.getItem("jformat") < version) {
+        if (lsm.getItem("jformat") > version) {
             alert("Something's gone terribly wrong!")
             location.href = "https://github.com/ezfe/tellraw/issues/new";
             return;
