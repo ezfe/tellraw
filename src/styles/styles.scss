@@ -42,11 +42,11 @@ body {
 }
 
 .bordered-formatter-preview {
-  border-style: dashed;
-  border-width: 3px;
+  border-style: solid;
+  border-width: 2px;
   border-radius: 3px;
-  padding: 5px;
   border-color: $info;
+  display: inline-block;
 }
 
 .preview:not(.book-preview) {

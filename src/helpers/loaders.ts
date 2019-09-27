@@ -7,6 +7,7 @@ import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
 import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
 import { LSKEY_COMMAND_STRING, LSKEY_SNIPPET_ARR, VERSION, LSKEY_COMMAND_TYPE } from "../constants";
 import { CommandType } from "../data/templates";
+import { NBTSnippet } from "../classes/Snippets/SnippetTypes/NBTSnippet";
 
 export function legacyStatePreparation() {
   
@@ -109,8 +110,10 @@ export function loadV5State(source_array: Array<object>): Array<Snippet> {
       return (Object as any).assign(new ScoreboardObjectiveSnippet(), s)
     } else if (s.hasOwnProperty("selector")) {
       return (Object as any).assign(new SelectorSnippet(), s)
+    } else if (s.hasOwnProperty("nbt")) {
+      return (Object as any).assign(new NBTSnippet(), s)
     } else if (s.hasOwnProperty("isPagebreak")) {
-      return (Object as any).assign(new PagebreakSnippet, s)
+      return (Object as any).assign(new PagebreakSnippet(), s)
     } else {
       let x = new TextSnippet()
       x.text = `Failed to claim ${JSON.stringify(s)}`

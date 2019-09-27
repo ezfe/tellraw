@@ -5,6 +5,7 @@ import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { ScoreboardObjectiveSnippet } from "../classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet";
 import { SelectorSnippet } from "../classes/Snippets/SnippetTypes/SelectorSnippet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { NBTSnippet } from "../classes/Snippets/SnippetTypes/NBTSnippet";
 
 function iconPropForSnippet(snippet: Snippet): IconProp {
   if (snippet instanceof KeybindSnippet) {
@@ -13,6 +14,8 @@ function iconPropForSnippet(snippet: Snippet): IconProp {
     return "trophy"
   } else if (snippet instanceof SelectorSnippet) {
     return "user-tag"
+  } else if (snippet instanceof NBTSnippet) {
+    return "database"
   }
 
   return null

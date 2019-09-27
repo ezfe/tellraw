@@ -14,6 +14,8 @@ import { InlineScoreboardObjectiveSnippetController } from "./InlineScoreboardOb
 import { InlineSelectorSnippetController } from "./InlineSelectorSnippetController";
 import { InlineTextSnippetController } from "./InlineTextSnippetController";
 import { DraggableProvided } from "react-beautiful-dnd";
+import { NBTSnippet } from "../../classes/Snippets/SnippetTypes/NBTSnippet";
+import { InlineNBTSnippetController } from "./InlineNBTSnippetController";
 
 export interface InlineSnippetControllerProps {
   snippet: Snippet
@@ -52,13 +54,15 @@ export class InlineSnippetController extends React.Component<InlineSnippetContro
     } else if (this.props.snippet instanceof PagebreakSnippet) {
       return <span>Page Break <FontAwesomeIcon icon="file-alt" /></span>
     } else if (this.props.snippet instanceof TextSnippet) {
-      return <InlineTextSnippetController snippet={this.props.snippet as TextSnippet} updateSnippet={this.props.updateSnippet} />
+      return <InlineTextSnippetController snippet={this.props.snippet} updateSnippet={this.props.updateSnippet} />
     } else if (this.props.snippet instanceof SelectorSnippet) {
-      return <InlineSelectorSnippetController snippet={this.props.snippet as SelectorSnippet} updateSnippet={this.props.updateSnippet} />
+      return <InlineSelectorSnippetController snippet={this.props.snippet} updateSnippet={this.props.updateSnippet} />
     } else if (this.props.snippet instanceof ScoreboardObjectiveSnippet) {
-      return <InlineScoreboardObjectiveSnippetController snippet={this.props.snippet as ScoreboardObjectiveSnippet} updateSnippet={this.props.updateSnippet} />
+      return <InlineScoreboardObjectiveSnippetController snippet={this.props.snippet} updateSnippet={this.props.updateSnippet} />
     } else if (this.props.snippet instanceof KeybindSnippet) {
-      return <InlineKeybindSnippetController snippet={this.props.snippet as KeybindSnippet} updateSnippet={this.props.updateSnippet} />
+      return <InlineKeybindSnippetController snippet={this.props.snippet} updateSnippet={this.props.updateSnippet} />
+    } else if (this.props.snippet instanceof NBTSnippet) {
+      return <InlineNBTSnippetController snippet={this.props.snippet} updateSnippet={this.props.updateSnippet} />
     } else {
       return <span>{typeof this.props.snippet} isn't implemented</span>
     }

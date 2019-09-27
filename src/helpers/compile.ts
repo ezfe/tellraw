@@ -9,6 +9,7 @@ import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
 import { PagebreakSnippet } from "../classes/Snippets/SnippetTypes/PagebreakSnippet";
 import { CommandType, isFeatureAvailable, FeatureType } from "../data/templates";
 import { LinebreakSnippet } from "../classes/Snippets/SnippetTypes/LinebreakSnippet";
+import { NBTSnippet } from "../classes/Snippets/SnippetTypes/NBTSnippet";
 
 export function object_compile(sections: Array<Array<Snippet>>, type: CommandType): string {
   let results = Array<Array<Object>>()
@@ -31,6 +32,9 @@ export function object_compile(sections: Array<Array<Snippet>>, type: CommandTyp
         if (snippet.score_value !== null) {
           pending["score"]["value"] = snippet.score_value
         }
+      } else if (snippet instanceof NBTSnippet) {
+        pending["nbt"] = snippet.nbt
+        pending["storage"] = snippet.storage
       } else if (snippet instanceof KeybindSnippet) {
         pending["keybind"] = snippet.keybind
       }

@@ -16,6 +16,7 @@ import { useKeyPress } from "../helpers/useKeyPress";
 import { useLocalStorage } from "../helpers/useLocalStorage";
 import { DragDropContext, Droppable, Draggable, DroppableProvided, DroppableStateSnapshot, DropResult } from 'react-beautiful-dnd';
 import Button from "./generic/Button";
+import { NBTSnippet } from "../classes/Snippets/SnippetTypes/NBTSnippet";
 
 interface SnippetCollectionProps {
   commandType: CommandType
@@ -211,6 +212,7 @@ const SnippetCollection: React.FunctionComponent<SnippetCollectionProps> = (prop
                 <button className="dropdown-item" onClick={() => { addSnippet(new TextSnippet(null)) }}>Text</button>
                 <button className="dropdown-item" onClick={() => { addSnippet(new SelectorSnippet(null)) }}>Selector</button>
                 <button className="dropdown-item" onClick={() => { addSnippet(new ScoreboardObjectiveSnippet(null)) }}>Scoreboard Objective</button>
+                <button className="dropdown-item" onClick={() => { addSnippet(new NBTSnippet(null)) }}>NBT Storage</button>
                 <button className="dropdown-item" onClick={() => { addSnippet(new KeybindSnippet(null)) }}>Keybind</button>
                 <button className="dropdown-item" onClick={addLineBreak}>Line Break ⏎</button>
                 {

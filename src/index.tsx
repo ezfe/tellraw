@@ -1,6 +1,6 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
-import { faClone, faEdit, faExclamationTriangle, faFileAlt, faFileDownload, faFileExport, faFileImport, faKeyboard, faList, faPlusCircle, faTachometerAlt, faTimesCircle, faTrashAlt, faTrophy, faUserTag, faWifi, faCheckCircle, faArrowCircleRight, faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons';
+import { faClone, faEdit, faExclamationTriangle, faFileAlt, faFileDownload, faFileExport, faFileImport, faKeyboard, faList, faPlusCircle, faTachometerAlt, faTimesCircle, faTrashAlt, faTrophy, faUserTag, faWifi, faCheckCircle, faArrowCircleRight, faArrowCircleLeft, faDatabase } from '@fortawesome/free-solid-svg-icons';
 import 'bootstrap';
 import * as React from "react";
 import * as ReactDOM from "react-dom";
@@ -31,7 +31,8 @@ library.add(
   faTwitter,
   faWifi,
   faFileDownload,
-  faTachometerAlt
+  faTachometerAlt,
+  faDatabase
 )
 
 // load legacy!

@@ -5,6 +5,7 @@ import { CommandType, FeatureType, isFeatureAvailable } from '../data/templates'
 import { formatSnippets } from '../helpers/formatter';
 import Button from './generic/Button';
 import { PagebreakSnippet } from '../classes/Snippets/SnippetTypes/PagebreakSnippet';
+import { useLocalStorage } from '../helpers/useLocalStorage';
 
 interface PreviewProps {
   commandType: CommandType
@@ -43,45 +44,66 @@ const Preview: React.FunctionComponent<PreviewProps> = ({ commandType, snippets 
   const bookPreviewClass = isBookPreview  ? "book-preview" : ""
   const className = "preview " + bookPreviewClass
 
+  let [bookPreviewDisclaimerShown, setBookPreviewDisclaimerShown] = useLocalStorage("20190927-book-preview-disclaimer", false)
+
   return (
-    <div className="row mb-2">
-      <div className="col-8 offset-2 d-flex align-items-center justify-content-center">
-        <div>
-          {
-            isBookPreview ? (
-              <Button style={{ width: "150px" }}
-                      type="light"
-                      icon="arrow-circle-left"
-                      onClick={() => {
-                        if (bookPage > 0) {
-                          setBookPage(bookPage - 1)
-                        }
-                      }}>
-                Previous
-              </Button>
-            ) : null
-          }
-        </div>
-        { isBookPreview ? <BookPreview bookPage={bookPage} snippets={snippets} /> : <RegularPreview snippets={snippets} /> }
-        <div>
-          {
-            isBookPreview ? (
-              <Button style={{ width: "150px" }}
-                      type="light"
-                      iconRight="arrow-circle-left"
-                      onClick={() => {
-                        const bookLength = snippets.filter(s => { return s instanceof PagebreakSnippet }).length + 1
-                        if (bookPage < bookLength) {
-                          setBookPage(bookPage - 1)
-                        }
-                      }}>
-                Next
-              </Button>
-            ) : null
-          }
+    <>
+      <div className="row mb-2">
+        <div className="col-8 offset-2 d-flex align-items-center justify-content-center">
+          <div>
+            {
+              isBookPreview ? (
+                <Button style={{ width: "150px" }}
+                        type="light"
+                        icon="arrow-circle-left"
+                        onClick={() => {
+                          if (bookPage > 0) {
+                            setBookPage(bookPage - 1)
+                          }
+                        }}>
+                  Previous
+                </Button>
+              ) : null
+            }
+          </div>
+          { isBookPreview ? <BookPreview bookPage={bookPage} snippets={snippets} /> : <RegularPreview snippets={snippets} /> }
+          <div>
+            {
+              isBookPreview ? (
+                <Button style={{ width: "150px" }}
+                        type="light"
+                        iconRight="arrow-circle-right"
+                        onClick={() => {
+                          const bookLength = snippets.filter(s => { return s instanceof PagebreakSnippet }).length + 1
+                          if (bookPage < bookLength) {
+                            setBookPage(bookPage - 1)
+                          }
+                        }}>
+                  Next
+                </Button>
+              ) : null
+            }
+          </div>
         </div>
       </div>
-    </div>
+      {
+        (isBookPreview && !bookPreviewDisclaimerShown) ? (
+          <div className="row mb-2">
+            <div className="col-8 offset-2">
+              <p>
+                Please understand that it is difficult for me to
+                replicate the same text size and wrapping behavior as in regular Minecraft.
+              </p>
+              <p>
+                You should verify that it looks correct from time-to-time in-game as well,
+                as some text may not fit when it appears as though it will here!
+              </p>
+              <Button icon="check-circle" type="info" onClick={() => { setBookPreviewDisclaimerShown(true) }}>OK</Button>
+            </div>
+          </div>
+        ) : null
+      }
+    </>
   )
 }
 

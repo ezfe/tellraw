@@ -9,6 +9,7 @@ import { SelectorSnippet } from "../classes/Snippets/SnippetTypes/SelectorSnippe
 import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
 import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
 import { iconForSnippet } from "./snippet_icon";
+import { NBTSnippet } from "../classes/Snippets/SnippetTypes/NBTSnippet";
 
 export function formatSnippets(snippets: Array<Snippet>, bookPage?: number): Array<JSX.Element> {
   return snippets.map(formatSnippet)
@@ -50,6 +51,8 @@ export function formatSnippet(snippet: Snippet): JSX.Element {
     text = wrapText(`${snippet.score_objective}@${snippet.score_name}`)
   } else if (snippet instanceof SelectorSnippet) {
     text = wrapText(snippet.selector)
+  } else if (snippet instanceof NBTSnippet) {
+    text = wrapText(`${snippet.nbt}@${snippet.storage}`)
   } else if (snippet instanceof LinebreakSnippet) {
     text = <br />
   } else if (snippet instanceof PagebreakSnippet) {

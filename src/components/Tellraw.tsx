@@ -67,6 +67,14 @@ const Tellraw: React.FunctionComponent<{}> = () => {
     )
   }
 
+  const kuolwuh = ['c','<','e','i','e','<','e','"','l','a','i','>','c','a','o','n','c','a','k','m','a','o','e','m','"','i','i','l','e','/','i',':','e','l','e','l','m','s','=','"','f','@','m','h','t','e','o','z','l','m','i','>','k','.','r','m',' ','@','e','s','a','.','z','n','e','l','e',' ','l','=','e','"']
+  const nlkoqnl = [36,0,23,25,63,68,43,34,37,10,59,71,65,70,32,26,31,38,19,33,1,14,18,62,8,11,20,58,5,69,46,15,21,12,29,24,67,40,41,48,6,27,9,3,13,57,66,51,47,44,54,49,53,30,4,28,35,61,52,39,45,64,17,60,55,22,50,2,56,7,16,42];
+  let nilfhbi= new Array();
+  for(var i = 0; i < nlkoqnl.length; i++) {
+    nilfhbi[nlkoqnl[i]] = kuolwuh[i];
+  }
+  const email = nilfhbi.join("")
+
   return (
     <div className="container">
       <div className="row mb-2">
@@ -169,6 +177,16 @@ const Tellraw: React.FunctionComponent<{}> = () => {
       </div>
 
       <Preview snippets={snippets} commandType={commandType} />
+
+      <hr />
+
+      <div className="row">
+        <div className="col">
+          <span style={{ color: "grey", fontSize: "10px" }}>
+            <a href="https://ezekielelin.com/contact" target="_blank">Contact Me</a> | "Minecraft" content and materials are trademarks and copyrights of Mojang and its licensors. This site is not affiliated with Mojang.
+			    </span>
+        </div>
+      </div>
     </div>
   )
 }

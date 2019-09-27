@@ -17,6 +17,8 @@ import { KeybindSnippetDetailController } from "./KeybindSnippetDetailController
 import { ScoreboardObjectiveSnippetDetailController } from "./ScoreboardObjectiveDetailController";
 import { SelectorSnippetDetailController } from "./SelectorSnippetDetailController";
 import { TextSnippetDetailController } from "./TextSnippetDetailController";
+import { NBTSnippet } from "../../classes/Snippets/SnippetTypes/NBTSnippet";
+import NBTSnippetDetailController from "./NBTSnippetDetailController";
 
 export interface SnippetDetailControllerProps {
   commandType: CommandType
@@ -107,6 +109,8 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
       return <ScoreboardObjectiveSnippetDetailController snippet={this.props.snippet} updateSnippet={this.props.updateSnippet} />
     } else if (this.props.snippet instanceof KeybindSnippet) {
       return <KeybindSnippetDetailController snippet={this.props.snippet} updateSnippet={this.props.updateSnippet} />
+    } else if (this.props.snippet instanceof NBTSnippet) {
+      return <NBTSnippetDetailController snippet={this.props.snippet} updateSnippet={this.props.updateSnippet} />
     } else {
       return <span>{typeof this.props.snippet} isn't implemented supported renderer</span>
     } 

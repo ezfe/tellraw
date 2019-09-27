@@ -34,7 +34,7 @@ export class ScoreboardObjectiveSnippetDetailController extends React.Component<
   render() {
     return (
       <>
-        <div className="row">
+        <div className="row mb-2">
           <div className="col">
             <input className="form-control" placeholder="Scoreboard Name" value={this.props.snippet.score_name} onChange={this.changeName} />   
           </div>
