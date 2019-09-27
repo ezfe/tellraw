@@ -11,8 +11,54 @@ import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
 import { iconForSnippet } from "./snippet_icon";
 import { NBTSnippet } from "../classes/Snippets/SnippetTypes/NBTSnippet";
 
+function nthOccurence<T>(array: Array<T>, pattern: (T) => boolean, n: number) {
+  let searchFrom = 0
+
+  while (true) {
+    const nextIndex = array.findIndex((v: T, index: number) => {
+      return (index >= searchFrom && pattern(v))
+    })
+
+    console.log(`Search From: ${searchFrom}, Next Index: ${nextIndex}, n: ${n}`)
+
+    if (n <= 0 || nextIndex < 0) {
+      return (n <= 0) ? searchFrom : -1
+    } else {
+      n -= 1
+      searchFrom = nextIndex + 1
+    }
+  }
+}
+
 export function formatSnippets(snippets: Array<Snippet>, bookPage?: number): Array<JSX.Element> {
-  return snippets.map(formatSnippet)
+  console.log("Formatting with page", snippets, bookPage)
+
+  let pageStartIndex = 0
+  if (bookPage && bookPage > 1) {
+    pageStartIndex = nthOccurence(snippets, (snippet) => {
+      return snippet instanceof PagebreakSnippet
+    }, bookPage - 1)
+
+    if (pageStartIndex == -1) {
+      pageStartIndex = 0
+      console.error("Cannot find page", bookPage)
+    }
+  }
+  console.log("Determined start index", pageStartIndex)
+
+  let pageEndIndex = snippets.length
+  if (bookPage) {
+    pageEndIndex = nthOccurence(snippets, (snippet) => {
+      return snippet instanceof PagebreakSnippet
+    }, bookPage) - 1
+
+    if (pageEndIndex == -1) {
+      pageEndIndex = snippets.length
+    }
+  }
+  console.log("Determined end index", pageEndIndex)
+  
+  return snippets.slice(pageStartIndex, pageEndIndex).map(formatSnippet)
 }
 
 function wrapText(text: string): JSX.Element {

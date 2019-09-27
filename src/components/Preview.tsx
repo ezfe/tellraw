@@ -38,7 +38,8 @@ const RegularPreview: React.FunctionComponent<SubPreviewProps> = ({ snippets }) 
 }
 
 const Preview: React.FunctionComponent<PreviewProps> = ({ commandType, snippets }) => {
-  let [bookPage, setBookPage] = React.useState(0)
+  let [bookPage, setBookPage] = React.useState(1)
+  const pageCount = snippets.filter(s => { return s instanceof PagebreakSnippet }).length + 1
 
   const isBookPreview = isFeatureAvailable(commandType, FeatureType.bookPreview)  
   const bookPreviewClass = isBookPreview  ? "book-preview" : ""
@@ -56,11 +57,8 @@ const Preview: React.FunctionComponent<PreviewProps> = ({ commandType, snippets 
                 <Button style={{ width: "150px" }}
                         type="light"
                         icon="arrow-circle-left"
-                        onClick={() => {
-                          if (bookPage > 0) {
-                            setBookPage(bookPage - 1)
-                          }
-                        }}>
+                        disabled={bookPage <= 1}
+                        onClick={() => { setBookPage(bookPage - 1) }}>
                   Previous
                 </Button>
               ) : null
@@ -73,12 +71,8 @@ const Preview: React.FunctionComponent<PreviewProps> = ({ commandType, snippets 
                 <Button style={{ width: "150px" }}
                         type="light"
                         iconRight="arrow-circle-right"
-                        onClick={() => {
-                          const bookLength = snippets.filter(s => { return s instanceof PagebreakSnippet }).length + 1
-                          if (bookPage < bookLength) {
-                            setBookPage(bookPage - 1)
-                          }
-                        }}>
+                        disabled={bookPage >= pageCount}
+                        onClick={() => { setBookPage(bookPage + 1) }}>
                   Next
                 </Button>
               ) : null

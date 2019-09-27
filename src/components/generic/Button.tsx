@@ -12,13 +12,14 @@ interface ButtonProps {
   formType?: ("button" | "submit" | "reset")
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
   style?: React.CSSProperties
+  disabled?: boolean
 }
 
 const Button: React.FunctionComponent<ButtonProps> = (props) => {
   const blockClass = props.block ? "btn-block" : ""
 
   return (
-    <button style={props.style} className={`btn btn-${props.type} ${props.className} ${blockClass}`} onClick={props.onClick} type={props.formType}>
+    <button style={props.style} className={`btn btn-${props.type} ${props.className} ${blockClass}`} onClick={props.onClick} type={props.formType} disabled={props.disabled}>
       { props.icon ? <FontAwesomeIcon icon={props.icon} />  : null }
       { props.icon && props.children ? " " : null }
       { props.children }
