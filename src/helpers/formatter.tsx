@@ -39,7 +39,7 @@ export function formatSnippets(snippets: Array<Snippet>, bookPage?: number): Arr
       return snippet instanceof PagebreakSnippet
     }, bookPage - 1)
 
-    if (pageStartIndex == -1) {
+    if (pageStartIndex < 0) {
       pageStartIndex = 0
       console.error("Cannot find page", bookPage)
     }
@@ -52,7 +52,7 @@ export function formatSnippets(snippets: Array<Snippet>, bookPage?: number): Arr
       return snippet instanceof PagebreakSnippet
     }, bookPage) - 1
 
-    if (pageEndIndex == -1) {
+    if (pageEndIndex < 0) {
       pageEndIndex = snippets.length
     }
   }
