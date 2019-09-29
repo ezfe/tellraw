@@ -8,8 +8,6 @@ import Tellraw from "./components/Tellraw";
 import { legacyStatePreparation } from "./helpers/loaders";
 import './styles/styles.scss';
 
-
-
 // Then we add the icons to the library object
 library.add(
   faEdit,
