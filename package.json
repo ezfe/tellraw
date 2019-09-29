@@ -27,7 +27,8 @@
     "webpack-cli": "^3.3.6"
   },
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "build:prod": "webpack --mode=\"production\""
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.8",
