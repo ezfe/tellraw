@@ -5,6 +5,7 @@
     "sortablejs": "^1.5.1"
   },
   "scripts": {
-    "build": "echo Success"
+    "build": "echo Success",
+    "build:prod": "echo Success:prod"
   }
 }
