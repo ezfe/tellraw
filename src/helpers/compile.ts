@@ -11,7 +11,7 @@ import { CommandType, isFeatureAvailable, FeatureType } from "../data/templates"
 import { LinebreakSnippet } from "../classes/Snippets/SnippetTypes/LinebreakSnippet";
 import { NBTSnippet } from "../classes/Snippets/SnippetTypes/NBTSnippet";
 
-export function object_compile(sections: Array<Array<Snippet>>, type: CommandType): string {
+export function object_compile(sections: Array<Array<Snippet>>, type: CommandType): any {
   let results = Array<Array<Object>>()
   for (const section_snippets of sections) {
     let section_results = Array<Object>()
@@ -101,6 +101,8 @@ export function object_compile(sections: Array<Array<Snippet>>, type: CommandTyp
     }
 
     return ret
+  } else if (type == CommandType.hovertext) {
+    return results[0]
   } else if (results.length > 0) {
     return JSON.stringify(results[0])
   } else {

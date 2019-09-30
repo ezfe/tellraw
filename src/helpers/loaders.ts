@@ -98,6 +98,12 @@ export function loadV4State(source_array: Array<object>): Array<Snippet> {
 
 export function loadV5State(source_array: Array<object>): Array<Snippet> {
   return source_array.map((s): Snippet => {
+    let childSnippets = Array<Snippet>()
+    if (s.hasOwnProperty("hover_event_children")) {
+      childSnippets = loadV5State(s["hover_event_children"])
+      s["hover_event_children"] = childSnippets
+    }
+
     if (s.hasOwnProperty("text")) {
       if (s["text"] === "\n") {
         return (Object as any).assign(new LinebreakSnippet(), s)
