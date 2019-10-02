@@ -42,15 +42,14 @@ const Preview: React.FunctionComponent<PreviewProps> = ({ commandType, snippets 
   const pageCount = snippets.filter(s => { return s instanceof PagebreakSnippet }).length + 1
 
   const isBookPreview = isFeatureAvailable(commandType, FeatureType.bookPreview)  
-  const bookPreviewClass = isBookPreview  ? "book-preview" : ""
-  const className = "preview " + bookPreviewClass
+  const bookPreviewClass = isBookPreview  ? "d-flex align-items-center justify-content-center" : ""
 
   let [bookPreviewDisclaimerShown, setBookPreviewDisclaimerShown] = useLocalStorage("20190927-book-preview-disclaimer", false)
 
   return (
     <>
       <div className="row mb-2">
-        <div className={`col-8 offset-2 d-flex ${isBookPreview ? "align-items-center justify-content-center" : ""}`}>
+        <div className={`col-8 offset-2 ${bookPreviewClass}`}>
           <div>
             {
               isBookPreview ? (
