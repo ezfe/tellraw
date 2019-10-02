@@ -50,7 +50,7 @@ const Preview: React.FunctionComponent<PreviewProps> = ({ commandType, snippets 
   return (
     <>
       <div className="row mb-2">
-        <div className="col-8 offset-2 d-flex align-items-center justify-content-center">
+        <div className={`col-8 offset-2 d-flex ${isBookPreview ? "align-items-center justify-content-center" : ""}`}>
           <div>
             {
               isBookPreview ? (
