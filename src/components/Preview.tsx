@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { ResizableBox } from 'react-resizable';
 import { Snippet } from '../classes/Snippets/SnippetTypes/Snippet';
 import { CommandType, FeatureType, isFeatureAvailable } from '../data/templates';
 import { formatSnippets } from '../helpers/formatter';
@@ -16,31 +15,46 @@ interface SubPreviewProps {
   snippets: Array<Snippet>
 }
 
-interface BookPreviewProps {
-  snippets: Array<Snippet>
-  bookPage: number
-}
+const BookPreview: React.FunctionComponent<SubPreviewProps> = ({ snippets }) => {
+  let [bookPage, setBookPage] = React.useState(1)
+  const pageCount = snippets.filter(s => { return s instanceof PagebreakSnippet }).length + 1
 
-const BookPreview: React.FunctionComponent<BookPreviewProps> = ({ snippets, bookPage }) => {
   return (
-    <div key="book-preview-div" className="preview book-preview ml-3 mr-3">
-      { formatSnippets(snippets, bookPage) }
-    </div>
+    <>
+      <div>
+        <Button style={{ width: "150px" }}
+                type="light"
+                icon="arrow-circle-left"
+                disabled={bookPage <= 1}
+                onClick={() => { setBookPage(bookPage - 1) }}>
+          Previous
+        </Button>
+      </div>
+      <div key="book-preview-div" className="preview book-preview ml-3 mr-3">
+        { formatSnippets(snippets, bookPage) }
+      </div>
+      <div>
+        <Button style={{ width: "150px" }}
+                type="light"
+                iconRight="arrow-circle-right"
+                disabled={bookPage >= pageCount}
+                onClick={() => { setBookPage(bookPage + 1) }}>
+          Next
+        </Button>
+      </div>
+    </>
   )
 }
 
 const RegularPreview: React.FunctionComponent<SubPreviewProps> = ({ snippets }) => {
   return (
-    <ResizableBox key="regular-preview-div" className="preview" width={600} height={300} axis="x">
+    <div className="preview" style={{ minHeight: '300px' }}>
       { formatSnippets(snippets) }
-    </ResizableBox>
+    </div>
   )
 }
 
 const Preview: React.FunctionComponent<PreviewProps> = ({ commandType, snippets }) => {
-  let [bookPage, setBookPage] = React.useState(1)
-  const pageCount = snippets.filter(s => { return s instanceof PagebreakSnippet }).length + 1
-
   const isBookPreview = isFeatureAvailable(commandType, FeatureType.bookPreview)  
   const bookPreviewClass = isBookPreview  ? "d-flex align-items-center justify-content-center" : ""
 
@@ -50,33 +64,7 @@ const Preview: React.FunctionComponent<PreviewProps> = ({ commandType, snippets 
     <>
       <div className="row mb-2">
         <div className={`col-8 offset-2 ${bookPreviewClass}`}>
-          <div>
-            {
-              isBookPreview ? (
-                <Button style={{ width: "150px" }}
-                        type="light"
-                        icon="arrow-circle-left"
-                        disabled={bookPage <= 1}
-                        onClick={() => { setBookPage(bookPage - 1) }}>
-                  Previous
-                </Button>
-              ) : null
-            }
-          </div>
-          { isBookPreview ? <BookPreview bookPage={bookPage} snippets={snippets} /> : <RegularPreview snippets={snippets} /> }
-          <div>
-            {
-              isBookPreview ? (
-                <Button style={{ width: "150px" }}
-                        type="light"
-                        iconRight="arrow-circle-right"
-                        disabled={bookPage >= pageCount}
-                        onClick={() => { setBookPage(bookPage + 1) }}>
-                  Next
-                </Button>
-              ) : null
-            }
-          </div>
+          { isBookPreview ? <BookPreview snippets={snippets} /> : <RegularPreview snippets={snippets} /> }
         </div>
       </div>
       {
