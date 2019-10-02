@@ -3,6 +3,7 @@ import { Color } from "../../classes/Color";
 import { ClickEventType } from "../../classes/Snippets/ClickEvent";
 import { HoverEventType } from "../../classes/Snippets/HoverEvent";
 import { KeybindSnippet } from "../../classes/Snippets/SnippetTypes/KeybindSnippet";
+import { NBTSnippet } from "../../classes/Snippets/SnippetTypes/NBTSnippet";
 import { ScoreboardObjectiveSnippet } from "../../classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet";
 import { SelectorSnippet } from "../../classes/Snippets/SnippetTypes/SelectorSnippet";
 import { Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
@@ -13,12 +14,8 @@ import { formatSnippet } from "../../helpers/formatter";
 import { Checkbox } from "../Forms/Checkbox";
 import { MinecraftColorWell } from "../MinecraftColorWell";
 import SnippetCollection from "../SnippetCollection";
+import { GenericSnippetDetailController } from "./GenericDetailController";
 import { KeybindSnippetDetailController } from "./KeybindSnippetDetailController";
-import { ScoreboardObjectiveSnippetDetailController } from "./ScoreboardObjectiveDetailController";
-import { SelectorSnippetDetailController } from "./SelectorSnippetDetailController";
-import { TextSnippetDetailController } from "./TextSnippetDetailController";
-import { NBTSnippet } from "../../classes/Snippets/SnippetTypes/NBTSnippet";
-import NBTSnippetDetailController from "./NBTSnippetDetailController";
 
 export interface SnippetDetailControllerProps {
   commandType: CommandType
@@ -101,16 +98,16 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
   }
 
   customAreaRender() {
-    if (this.props.snippet instanceof TextSnippet) {
-      return <TextSnippetDetailController snippet={this.props.snippet} updateSnippet={this.props.updateSnippet} />
-    } else if (this.props.snippet instanceof SelectorSnippet) {
-      return <SelectorSnippetDetailController snippet={this.props.snippet} updateSnippet={this.props.updateSnippet} />
-    } else if (this.props.snippet instanceof ScoreboardObjectiveSnippet) {
-      return <ScoreboardObjectiveSnippetDetailController snippet={this.props.snippet} updateSnippet={this.props.updateSnippet} />
-    } else if (this.props.snippet instanceof KeybindSnippet) {
+    if (this.props.snippet instanceof KeybindSnippet) {
       return <KeybindSnippetDetailController snippet={this.props.snippet} updateSnippet={this.props.updateSnippet} />
-    } else if (this.props.snippet instanceof NBTSnippet) {
-      return <NBTSnippetDetailController snippet={this.props.snippet} updateSnippet={this.props.updateSnippet} />
+    } else if (
+          this.props.snippet instanceof ScoreboardObjectiveSnippet
+      || this.props.snippet instanceof NBTSnippet
+      // || this.props.snippet instanceof KeybindSnippet
+      || this.props.snippet instanceof SelectorSnippet
+      || this.props.snippet instanceof TextSnippet
+    ) {
+      return <GenericSnippetDetailController snippet={this.props.snippet} updateSnippet={this.props.updateSnippet} />
     } else {
       return <span>{typeof this.props.snippet} isn't implemented supported renderer</span>
     } 
