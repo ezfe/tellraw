@@ -63,7 +63,7 @@ const Preview: React.FunctionComponent<PreviewProps> = ({ commandType, snippets 
   return (
     <>
       <div className="row mb-2">
-        <div className={`col-8 offset-2 ${bookPreviewClass}`}>
+        <div className={`col-sm-10 col-md-8 offset-sm-2 ${bookPreviewClass}`}>
           { isBookPreview ? <BookPreview snippets={snippets} /> : <RegularPreview snippets={snippets} /> }
         </div>
       </div>

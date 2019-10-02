@@ -30,12 +30,13 @@ export interface CommandTemplatesControllerProps {
 // State is never set so we use the '{}' type.
 const CommandTemplatesController: React.FunctionComponent<CommandTemplatesControllerProps> = (props) => {
   return (
-    <div className="row mb-4">
+    <div className="row">
       {
-        selectableStates.map(typeInfo => {
+        selectableStates.map((typeInfo, index) => {
           const selected = props.commandType === typeInfo.type
+          const last = index >= selectableStates.length - 1
           return (
-            <div className="col-2" key={`command-template-${typeInfo.type}`}>
+            <div className={`col-12 col-sm-4 col-md-3 col-lg-2 ${last ? "mb-4" : "mb-2"}`} key={`command-template-${typeInfo.type}`}>
               <div className={`mcj-format-option ${selected ? "active" : ""}`}
                   onClick={() => { props.updateCommandType(typeInfo.type) }}>
                 {typeInfo.name}

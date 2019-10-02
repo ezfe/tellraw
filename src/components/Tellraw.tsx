@@ -71,11 +71,11 @@ const Tellraw: React.FunctionComponent<{}> = () => {
 
   return (
     <div className="container">
-      <div className="row mb-2">
-        <div className="col">
+      <div className="row">
+        <div className="col-sm-8 col-md mb-2">
           <h4>Tellraw Generator for Minecraft</h4>
         </div>
-        <div className="col-6">
+        <div className="col-sm-5 mb-2">
           <div className="btn-toolbar d-flex justify-content-end"
                 role="toolbar"
                 aria-label="Toolbar with button groups">
@@ -129,13 +129,13 @@ const Tellraw: React.FunctionComponent<{}> = () => {
           </div>
         ) : null
       }
-      <div className="row mb-4">
-        <div className="col-3">
+      <div className="row">
+        <div className="col-sm-5 col-md-3 mb-2">
           <span style={{ fontWeight: "bold" }}>Player and Command</span>
           <br />
           <span>Used to select and execute different players</span>
         </div>
-        <div className="col">
+        <div className="col-sm mb-4">
           <input value={command}
                  onChange={updateCustomCommand}
                  type="text"
@@ -172,8 +172,8 @@ const Tellraw: React.FunctionComponent<{}> = () => {
                     value={compiled} />
         </div>
       </div>
-      <div className="row mb-2">
-        <div className="col-sm-2 offset-sm-2">
+      <div className="row">
+        <div className="col-sm-2 offset-sm-2 mb-2">
           <Button type="light"
                   className="btn-block"
                   onClick={startImporting}
@@ -181,7 +181,7 @@ const Tellraw: React.FunctionComponent<{}> = () => {
             Import
           </Button>
         </div>
-        <div className="col-sm-2">
+        <div className="col-sm-2 mb-2">
           <Button type="light"
                   className="btn-block"
                   onClick={() => { setExporting(true) }}
