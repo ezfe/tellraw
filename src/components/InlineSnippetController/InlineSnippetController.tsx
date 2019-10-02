@@ -1,7 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as React from "react";
+import { DraggableProvided } from "react-beautiful-dnd";
 import { KeybindSnippet } from "../../classes/Snippets/SnippetTypes/KeybindSnippet";
 import { LinebreakSnippet } from "../../classes/Snippets/SnippetTypes/LinebreakSnippet";
+import { NBTSnippet } from "../../classes/Snippets/SnippetTypes/NBTSnippet";
 import { PagebreakSnippet } from "../../classes/Snippets/SnippetTypes/PagebreakSnippet";
 import { ScoreboardObjectiveSnippet } from "../../classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet";
 import { SelectorSnippet } from "../../classes/Snippets/SnippetTypes/SelectorSnippet";
@@ -9,13 +11,7 @@ import { Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
 import { TextSnippet } from "../../classes/Snippets/SnippetTypes/TextSnippet";
 import { MinecraftColorWell } from "../MinecraftColorWell";
 import InlineEditButton, { InlineEditButtonAction } from "./InlineEditButton";
-import InlineKeybindSnippetController from "./InlineKeybindSnippetController";
-import { InlineScoreboardObjectiveSnippetController } from "./InlineScoreboardObjectiveSnippetController";
-import { InlineSelectorSnippetController } from "./InlineSelectorSnippetController";
-import { InlineTextSnippetController } from "./InlineTextSnippetController";
-import { DraggableProvided } from "react-beautiful-dnd";
-import { NBTSnippet } from "../../classes/Snippets/SnippetTypes/NBTSnippet";
-import { InlineNBTSnippetController } from "./InlineNBTSnippetController";
+import { InlineGenericSnippetController } from "./InlineGenericSnippetController";
 
 export interface InlineSnippetControllerProps {
   snippet: Snippet
@@ -53,16 +49,14 @@ export class InlineSnippetController extends React.Component<InlineSnippetContro
       return <span>Line Break ⏎</span>
     } else if (this.props.snippet instanceof PagebreakSnippet) {
       return <span>Page Break <FontAwesomeIcon icon="file-alt" /></span>
-    } else if (this.props.snippet instanceof TextSnippet) {
-      return <InlineTextSnippetController snippet={this.props.snippet} updateSnippet={this.props.updateSnippet} />
-    } else if (this.props.snippet instanceof SelectorSnippet) {
-      return <InlineSelectorSnippetController snippet={this.props.snippet} updateSnippet={this.props.updateSnippet} />
-    } else if (this.props.snippet instanceof ScoreboardObjectiveSnippet) {
-      return <InlineScoreboardObjectiveSnippetController snippet={this.props.snippet} updateSnippet={this.props.updateSnippet} />
-    } else if (this.props.snippet instanceof KeybindSnippet) {
-      return <InlineKeybindSnippetController snippet={this.props.snippet} updateSnippet={this.props.updateSnippet} />
-    } else if (this.props.snippet instanceof NBTSnippet) {
-      return <InlineNBTSnippetController snippet={this.props.snippet} updateSnippet={this.props.updateSnippet} />
+    } else if (
+         this.props.snippet instanceof ScoreboardObjectiveSnippet
+      || this.props.snippet instanceof NBTSnippet
+      || this.props.snippet instanceof KeybindSnippet
+      || this.props.snippet instanceof SelectorSnippet
+      || this.props.snippet instanceof TextSnippet
+    ) {
+      return <InlineGenericSnippetController snippet={this.props.snippet} updateSnippet={this.props.updateSnippet} />
     } else {
       return <span>{typeof this.props.snippet} isn't implemented</span>
     }

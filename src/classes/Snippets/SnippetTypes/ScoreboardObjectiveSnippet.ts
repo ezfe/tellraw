@@ -1,7 +1,7 @@
 import { copy_standard_attributes } from "../../../helpers/copy_snippet";
 import { legacy_apply_common_formatting } from "../../../helpers/legacy_apply_styles";
 import { Color } from "../../Color";
-import { Snippet } from "./Snippet";
+import { Snippet, FieldSpecifier } from "./Snippet";
 
 export class ScoreboardObjectiveSnippet extends Snippet {
   id: string
@@ -42,5 +42,18 @@ export class ScoreboardObjectiveSnippet extends Snippet {
     snippet = legacy_apply_common_formatting(snippet, sf)
 
     return snippet
+  }
+  
+  editor_fields(): Array<FieldSpecifier> {
+    return [
+      {
+        field: "score_name",
+        placeholder: "Player"
+      },
+      {
+        field: "score_objective",
+        placeholder: "Objective"
+      }
+    ]
   }
 }

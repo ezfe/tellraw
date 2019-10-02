@@ -2,7 +2,11 @@ import { Color } from "../../Color";
 import { ClickEventType } from "../ClickEvent";
 import { HoverEventType } from "../HoverEvent";
 import uuid = require("uuid");
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
+
+export interface FieldSpecifier {
+    field: string,
+    placeholder: string
+}
 
 export abstract class Snippet {
     id: string
@@ -30,5 +34,9 @@ export abstract class Snippet {
         } else {
             this.id = uuid()
         }
+    }
+
+    editor_fields(): Array<FieldSpecifier> {
+        return []
     }
 }

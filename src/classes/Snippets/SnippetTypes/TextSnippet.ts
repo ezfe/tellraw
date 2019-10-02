@@ -1,6 +1,6 @@
 import { copy_standard_attributes } from "../../../helpers/copy_snippet";
 import { legacy_apply_common_formatting } from "../../../helpers/legacy_apply_styles";
-import { Snippet } from "./Snippet";
+import { Snippet, FieldSpecifier } from "./Snippet";
 
 export class TextSnippet extends Snippet {
   id: string
@@ -28,5 +28,9 @@ export class TextSnippet extends Snippet {
     snippet = legacy_apply_common_formatting(snippet, sf)
 
     return snippet
+  }
+
+  editor_fields(): Array<FieldSpecifier> {
+    return [{field: "text", placeholder: "Text"}]
   }
 }
