@@ -33,7 +33,7 @@ const Importing: React.FunctionComponent<ImportingProps> = (props) => {
 
     if (!("command" in import_data
           && "jobject" in import_data
-          && "jformat" in import_data)) {
+          && "jtemplate" in import_data)) {
       
       alert(`An error occurred importing your command.\n\nFeel free to use the "Report an Issue" option on the main page to report this`)
       return
@@ -42,7 +42,7 @@ const Importing: React.FunctionComponent<ImportingProps> = (props) => {
     const command = import_data["command"]
     props.setCommand(command)
 
-    if (import_data["jformat"] === VERSION) {
+    if ("jtemplate" in import_data && import_data["jformat"] === VERSION) {
       const type = import_data["jtemplate"]
       props.setCommandType(type)
     
