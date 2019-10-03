@@ -51,8 +51,13 @@ body {
 
 .preview:not(.book-preview) {
   padding: 10px;
-  background: white;
   border-radius: 5px;
+}
+
+.preview-color-picker {
+  position: absolute;
+  right: 5px;
+  bottom: 20px;
 }
 
 .book-preview {

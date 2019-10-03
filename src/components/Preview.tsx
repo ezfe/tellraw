@@ -47,9 +47,12 @@ const BookPreview: React.FunctionComponent<SubPreviewProps> = ({ snippets }) => 
 }
 
 const RegularPreview: React.FunctionComponent<SubPreviewProps> = ({ snippets }) => {
+  let [backgroundColor, setBackgroundColor] = useLocalStorage('20191003-preview-background-color', '#ffffff');
+
   return (
-    <div className="preview" style={{ minHeight: '300px' }}>
+    <div className="preview" style={{ minHeight: '300px', backgroundColor }}>
       { formatSnippets(snippets) }
+      <input className="preview-color-picker" type="color" value={backgroundColor} onChange={(evt) => { setBackgroundColor(evt.target.value) }} />
     </div>
   )
 }
