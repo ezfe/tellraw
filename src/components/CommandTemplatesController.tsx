@@ -1,6 +1,7 @@
 import * as React from "react";
 import { CommandType } from "../data/templates"
 import { checkPropTypes } from "prop-types";
+import Button from "./generic/Button";
 
 const selectableStates = [
   {
@@ -37,10 +38,17 @@ const CommandTemplatesController: React.FunctionComponent<CommandTemplatesContro
           const last = index >= selectableStates.length - 1
           return (
             <div className={`col-12 col-sm-4 col-md-3 col-lg-2 ${last ? "mb-4" : "mb-2"}`} key={`command-template-${typeInfo.type}`}>
-              <div className={`mcj-format-option ${selected ? "active" : ""}`}
+              <Button block
+                type="info"
+                onClick={() => { props.updateCommandType(typeInfo.type) }}
+                dropdowns={__}
+                >
+                { typeInfo.name }
+              </Button>
+              {/* <div className={`mcj-format-option ${selected ? "active" : ""}`}
                   onClick={() => { props.updateCommandType(typeInfo.type) }}>
                 {typeInfo.name}
-              </div>
+              </div> */}
             </div>
           )
         })
