@@ -1763,9 +1763,14 @@ function initialize() {
 
     if (lsm.getItem("jformat") != version && lsm.getItem("jformat") != undefined) {
         if (lsm.getItem("jformat") > version) {
-            alert("Something's gone terribly wrong!")
-            location.href = "https://github.com/ezfe/tellraw/issues/new";
-            return;
+            const backup_keys = Object.keys(lsm.dictionary()).filter(k => { return k.indexOf("upgrade-v4-backup-") >= 0 });
+            if (backup_keys.length > 0) {
+                jobject = JSON.parse(lsm.getItem(backup_keys[0]));
+            } else {
+                alert("Something's gone terribly wrong!");
+                location.href = "https://github.com/ezfe/tellraw/issues/new";
+                return;
+            }
         }
         sessionStorage.setItem("nextTimeImport", makeExportString());
         sessionStorage.setItem(
