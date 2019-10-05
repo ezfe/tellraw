@@ -1765,7 +1765,12 @@ function initialize() {
         if (lsm.getItem("jformat") > version) {
             const backup_keys = Object.keys(lsm.dictionary()).filter(k => { return k.indexOf("upgrade-v4-backup-") >= 0 });
             if (backup_keys.length > 0) {
-                jobject = JSON.parse(lsm.getItem(backup_keys[0]));
+                console.log("Recovering from keys", backup_keys);
+                const key = backup_keys[0];
+                console.log("Selecting key", key);
+                const loaded_value = JSON.parse(lsm.getItem(key));
+                console.log("Loaded backup", loaded_value)
+                jobject = verify_jobject_format(loaded_value);
                 backup_keys.forEach(key => {
                     lsm.removeItem(key);
                 });
