@@ -1,5 +1,5 @@
 import * as React from "react";
-import { CommandType } from "../data/templates"
+import { CommandType, template_lookup } from "../data/templates"
 import { checkPropTypes } from "prop-types";
 import Button from "./generic/Button";
 
@@ -41,7 +41,12 @@ const CommandTemplatesController: React.FunctionComponent<CommandTemplatesContro
               <Button block
                 type="info"
                 onClick={() => { props.updateCommandType(typeInfo.type) }}
-                dropdowns={__}
+                dropdowns={template_lookup(typeInfo.type).map(template => {
+                  return {
+                    label: template,
+                    onClick: () => { alert(template) }
+                  }
+                })}
                 >
                 { typeInfo.name }
               </Button>

@@ -27,21 +27,16 @@ interface ButtonProps {
 }
 
 const Button: React.FunctionComponent<ButtonProps> = (props) => {
-  let identifier = React.useState(uuid())[0]
-  const blockClass = props.block ? "btn-block" : ""
   const isDropdown = props.dropdowns && props.dropdowns.length > 0
-  const dropdownClass = isDropdown ? "dropdown-toggle" : ""
+  const mainButtonBlock = (props.block || isDropdown) ? "btn-block" : ""
+  const dropdownGroupBlock = (props.block ? "btn-block" : "")
   
   const mainButton = (
     <button style={props.style}
-      className={`btn btn-${props.type} ${props.className} ${blockClass} ${dropdownClass}`}
+      className={`btn btn-${props.type} ${props.className || ""} ${mainButtonBlock}`}
       onClick={props.onClick}
-      type={props.formType}
-      disabled={props.disabled}
-
-      id={isDropdown ? identifier : null}
-      data-toggle={isDropdown ? "dropdown" : null}
-      aria-haspopup={isDropdown ? "true" : null}>
+      type={props.formType || "button"}
+      disabled={props.disabled}>
 
       { props.icon ? <FontAwesomeIcon icon={props.icon} />  : null }
       { props.icon && props.children ? " " : null }
@@ -53,9 +48,18 @@ const Button: React.FunctionComponent<ButtonProps> = (props) => {
 
   if (isDropdown) {
     return (
-      <div className="dropdown">
+      <div className={`btn-group ${dropdownGroupBlock}`}>
         { mainButton }
-        <div className="dropdown-menu" aria-labeledby={identifier}>
+        
+        <button type="button"
+                className={`btn btn-${props.type} dropdown-toggle dropdown-toggle-split`}
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false">
+          <span className="sr-only">Toggle Dropdown</span>
+        </button>
+
+        <div className="dropdown-menu">
           {
             props.dropdowns.map((dropdown, index) => {
               return (
