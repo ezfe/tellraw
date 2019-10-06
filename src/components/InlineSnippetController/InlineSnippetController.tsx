@@ -12,6 +12,7 @@ import { TextSnippet } from "../../classes/Snippets/SnippetTypes/TextSnippet";
 import { MinecraftColorWell } from "../MinecraftColorWell";
 import InlineEditButton, { InlineEditButtonAction } from "./InlineEditButton";
 import { InlineGenericSnippetController } from "./InlineGenericSnippetController";
+import InlineNBTSnippetController from "./InlineNBTSnippetController";
 
 export interface InlineSnippetControllerProps {
   snippet: Snippet
@@ -49,9 +50,10 @@ export class InlineSnippetController extends React.Component<InlineSnippetContro
       return <span>Line Break ⏎</span>
     } else if (this.props.snippet instanceof PagebreakSnippet) {
       return <span>Page Break <FontAwesomeIcon icon="file-alt" /></span>
+    } else if (this.props.snippet instanceof NBTSnippet) {
+      return <InlineNBTSnippetController snippet={this.props.snippet} updateSnippet={this.props.updateSnippet} />
     } else if (
          this.props.snippet instanceof ScoreboardObjectiveSnippet
-      || this.props.snippet instanceof NBTSnippet
       || this.props.snippet instanceof KeybindSnippet
       || this.props.snippet instanceof SelectorSnippet
       || this.props.snippet instanceof TextSnippet

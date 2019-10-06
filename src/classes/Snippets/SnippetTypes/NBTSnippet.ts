@@ -1,11 +1,18 @@
 import { copy_standard_attributes } from "../../../helpers/copy_snippet";
-import { legacy_apply_common_formatting } from "../../../helpers/legacy_apply_styles";
 import { Snippet, FieldSpecifier } from "./Snippet";
+
+export enum NBTType {
+  storage, entity, block
+}
 
 export class NBTSnippet extends Snippet {
   id: string
 
+  type: NBTType = NBTType.storage
   nbt: string = ""
+  // This has to remain storage for legacy reasons, but
+  // it's actually going to be compiled to whichever field
+  // type specifies
   storage: string = ""
 
   constructor(id: string = null) {
@@ -17,22 +24,10 @@ export class NBTSnippet extends Snippet {
 
     newValue.nbt = this.nbt
     newValue.storage = this.storage
+    newValue.type = this.type
 
     copy_standard_attributes(this, newValue)
     
     return newValue
-  }
-
-  editor_fields(): Array<FieldSpecifier> {
-    return [
-      {
-        field: "storage",
-        placeholder: "Storage Identifier"
-      },
-      {
-        field: "nbt",
-        placeholder: "NBT Path"
-      }
-    ]
   }
 }

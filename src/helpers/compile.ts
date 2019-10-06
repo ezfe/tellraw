@@ -9,7 +9,7 @@ import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
 import { PagebreakSnippet } from "../classes/Snippets/SnippetTypes/PagebreakSnippet";
 import { CommandType, isFeatureAvailable, FeatureType } from "../data/templates";
 import { LinebreakSnippet } from "../classes/Snippets/SnippetTypes/LinebreakSnippet";
-import { NBTSnippet } from "../classes/Snippets/SnippetTypes/NBTSnippet";
+import { NBTSnippet, NBTType } from "../classes/Snippets/SnippetTypes/NBTSnippet";
 
 export function object_compile(sections: Array<Array<Snippet>>, type: CommandType): any {
   let results = Array<Array<Object>>()
@@ -34,7 +34,9 @@ export function object_compile(sections: Array<Array<Snippet>>, type: CommandTyp
         }
       } else if (snippet instanceof NBTSnippet) {
         pending["nbt"] = snippet.nbt
-        pending["storage"] = snippet.storage
+        // this works because of how enums
+        // work in TypeScript
+        pending[NBTType[snippet.type]] = snippet.storage
       } else if (snippet instanceof KeybindSnippet) {
         pending["keybind"] = snippet.keybind
       }
