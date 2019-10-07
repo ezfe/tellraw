@@ -91,7 +91,7 @@ export class InlineSnippetController extends React.Component<InlineSnippetContro
 
     return (
       <div className="row mb-2" {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
-        <div className="col-1 col-sm-2 d-flex flex-column justify-content-center">
+        <div className="col-4 col-md-3 col-lg-2 d-flex flex-column justify-content-center">
           <InlineEditButton onClick={this.editButtonClick}
                             mainAction={startEditingAction}
                             dropdownActions={[
