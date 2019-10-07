@@ -24,100 +24,93 @@ export interface InlineSnippetControllerProps {
   provided: DraggableProvided
 }
 
-export class InlineSnippetController extends React.Component<InlineSnippetControllerProps, {}> {
+const InlineSnippetController: React.FunctionComponent<InlineSnippetControllerProps> = (props) => {
   
-  constructor(props: InlineSnippetControllerProps) {
-    super(props)
-    
-    this.editButtonClick = this.editButtonClick.bind(this)
-    this.customController = this.customController.bind(this)
-  }
-  
-  editButtonClick(action: string) {
+  function editButtonClick(action: string) {
     if (action == "start-editing") {
-      this.props.startEditingSnippet(this.props.snippet)
+      props.startEditingSnippet(props.snippet)
     } else if (action == "delete") {
-      this.props.removeSnippet(this.props.snippet)
+      props.removeSnippet(props.snippet)
     } else if (action == "duplicate") {
-      this.props.duplicateSnippet(this.props.snippet)
+      props.duplicateSnippet(props.snippet)
     } else {
       alert(`Failed to catch ${action}`)
     }
   }
   
-  customController() {
-    if (this.props.snippet instanceof LinebreakSnippet) {
+  function customController() {
+    if (props.snippet instanceof LinebreakSnippet) {
       return <span>Line Break ⏎</span>
-    } else if (this.props.snippet instanceof PagebreakSnippet) {
+    } else if (props.snippet instanceof PagebreakSnippet) {
       return <span>Page Break <FontAwesomeIcon icon="file-alt" /></span>
-    } else if (this.props.snippet instanceof NBTSnippet) {
-      return <InlineNBTSnippetController snippet={this.props.snippet} updateSnippet={this.props.updateSnippet} />
+    } else if (props.snippet instanceof NBTSnippet) {
+      return <InlineNBTSnippetController snippet={props.snippet} updateSnippet={props.updateSnippet} />
     } else if (
-         this.props.snippet instanceof ScoreboardObjectiveSnippet
-      || this.props.snippet instanceof KeybindSnippet
-      || this.props.snippet instanceof SelectorSnippet
-      || this.props.snippet instanceof TextSnippet
+         props.snippet instanceof ScoreboardObjectiveSnippet
+      || props.snippet instanceof KeybindSnippet
+      || props.snippet instanceof SelectorSnippet
+      || props.snippet instanceof TextSnippet
     ) {
-      return <InlineGenericSnippetController snippet={this.props.snippet} updateSnippet={this.props.updateSnippet} />
+      return <InlineGenericSnippetController snippet={props.snippet} updateSnippet={props.updateSnippet} />
     } else {
-      return <span>{typeof this.props.snippet} isn't implemented</span>
+      return <span>{typeof props.snippet} isn't implemented</span>
     }
   }
-  
-  render() {
-    const editingEnabled = !(this.props.snippet instanceof LinebreakSnippet
-      || this.props.snippet instanceof PagebreakSnippet)
-    
-    const { provided } = this.props;
 
-    return (
-      <div className="row mb-2" {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
-        <div className="col-4 col-md-3 col-lg-2 d-flex flex-column justify-content-center">
-          <Button
-            type="secondary" block
-            icon="edit"
-            disabled={!editingEnabled}
-            onClick={() => {
-              this.editButtonClick("start-editing")
-            }}
-            dropdowns={[
-              {
-                label: "Delete",
-                icon: "trash-alt",
-                onClick: () => {
-                  this.editButtonClick("delete")
-                }
-              },
-              {
-                label: "Duplicate",
-                icon: "clone",
-                onClick: () => {
-                  this.editButtonClick("duplicate")
-                }
+  const editingEnabled = !(props.snippet instanceof LinebreakSnippet
+    || props.snippet instanceof PagebreakSnippet)
+  
+  const { provided } = props;
+
+  return (
+    <div className="row mb-2" {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
+      <div className="col-4 col-md-3 col-lg-2 d-flex flex-column justify-content-center">
+        <Button
+          type="secondary" block
+          icon="edit"
+          disabled={!editingEnabled}
+          onClick={() => {
+            editButtonClick("start-editing")
+          }}
+          dropdowns={[
+            {
+              label: "Delete",
+              icon: "trash-alt",
+              onClick: () => {
+                editButtonClick("delete")
               }
-            ]}              
-          >
-            Edit
-          </Button>
-        </div>
-        
-        {/*
-        Flex justification is for text fields
-        which are used for page and linebreaks
-        */}
-        <div className="col"
-             style={{
-               display: "flex",
-               flexDirection: "column",
-               justifyContent: "center"
-             }}>
-          { this.customController() }
-        </div>
-        
-        <div className="col-1">
-          <MinecraftColorWell color={this.props.snippet.color} />
-        </div>
+            },
+            {
+              label: "Duplicate",
+              icon: "clone",
+              onClick: () => {
+                editButtonClick("duplicate")
+              }
+            }
+          ]}              
+        >
+          Edit
+        </Button>
       </div>
-    )
-  }
+      
+      {/*
+      Flex justification is for text fields
+      which are used for page and linebreaks
+      */}
+      <div className="col"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center"
+            }}>
+        { customController() }
+      </div>
+      
+      <div className="col-1">
+        <MinecraftColorWell color={props.snippet.color} />
+      </div>
+    </div>
+  )
 }
+
+export default InlineSnippetController
