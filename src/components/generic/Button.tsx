@@ -30,10 +30,11 @@ const Button: React.FunctionComponent<ButtonProps> = (props) => {
   const isDropdown = props.dropdowns && props.dropdowns.length > 0
   const mainButtonBlock = (props.block || isDropdown) ? "btn-block" : ""
   const dropdownGroupBlock = (props.block ? "btn-block" : "")
-  
+
   const mainButton = (
-    <button style={props.style}
-      className={`btn btn-${props.type} ${props.className || ""} ${mainButtonBlock}`}
+    <button
+      style={props.style}
+      className={`btn btn-${props.type} ${mainButtonBlock}`}
       onClick={props.onClick}
       type={props.formType || "button"}
       disabled={props.disabled}>
@@ -46,39 +47,39 @@ const Button: React.FunctionComponent<ButtonProps> = (props) => {
     </button>
   )
 
-  if (isDropdown) {
-    return (
-      <div className={`btn-group ${dropdownGroupBlock}`}>
-        { mainButton }
-        
-        <button type="button"
-                className={`btn btn-${props.type} dropdown-toggle dropdown-toggle-split`}
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false">
-          <span className="sr-only">Toggle Dropdown</span>
-        </button>
+  return (
+    <div className={`btn-group ${dropdownGroupBlock} ${props.className || ""}`}>
+      { mainButton }
+      
+      { isDropdown ? (
+        <>
+          <button type="button"
+                  className={`btn btn-${props.type} dropdown-toggle dropdown-toggle-split`}
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false">
+            <span className="sr-only">Toggle Dropdown</span>
+          </button>
 
-        <div className="dropdown-menu">
-          {
-            props.dropdowns.map((dropdown, index) => {
-              return (
-                <a key={index} className="dropdown-item" onClick={dropdown.onClick}>
-                  { dropdown.icon ? <FontAwesomeIcon icon={dropdown.icon} />  : null }
-                  { dropdown.icon && dropdown.label ? " " : null }
-                  { dropdown.label }
-                  { dropdown.iconRight && dropdown.label ? " " : null }
-                  { dropdown.iconRight ? <FontAwesomeIcon icon={dropdown.iconRight} />  : null }
-                </a>
-              )
-            })
-          }
-        </div>
-      </div>
-    )
-  } else {
-    return mainButton
-  }
+          <div className="dropdown-menu">
+            {
+              props.dropdowns.map((dropdown, index) => {
+                return (
+                  <a key={index} className="dropdown-item" onClick={dropdown.onClick}>
+                    { dropdown.icon ? <FontAwesomeIcon icon={dropdown.icon} />  : null }
+                    { dropdown.icon && dropdown.label ? " " : null }
+                    { dropdown.label }
+                    { dropdown.iconRight && dropdown.label ? " " : null }
+                    { dropdown.iconRight ? <FontAwesomeIcon icon={dropdown.iconRight} />  : null }
+                  </a>
+                )
+              })
+            }
+          </div>
+        </>
+      ) : null }
+    </div>
+  )
 }
 
 export default Button;

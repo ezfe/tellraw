@@ -29,10 +29,9 @@ const Tellraw: React.FunctionComponent<{}> = () => {
     setCommand(event.target.value)
   }
 
-  function updateCommandType(type: CommandType) {
+  function updateCommandType(type: CommandType, command_override?: string) {
     setCommandType(type)
-    const new_command = template_lookup(type)[0]
-    setCommand(new_command)
+    setCommand(command_override || template_lookup(type)[0])
   }
 
   function startImporting() {
