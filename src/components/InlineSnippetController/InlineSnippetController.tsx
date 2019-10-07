@@ -9,8 +9,8 @@ import { ScoreboardObjectiveSnippet } from "../../classes/Snippets/SnippetTypes/
 import { SelectorSnippet } from "../../classes/Snippets/SnippetTypes/SelectorSnippet";
 import { Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
 import { TextSnippet } from "../../classes/Snippets/SnippetTypes/TextSnippet";
+import Button from "../generic/Button";
 import { MinecraftColorWell } from "../MinecraftColorWell";
-import InlineEditButton, { InlineEditButtonAction } from "./InlineEditButton";
 import { InlineGenericSnippetController } from "./InlineGenericSnippetController";
 import InlineNBTSnippetController from "./InlineNBTSnippetController";
 
@@ -67,37 +67,38 @@ export class InlineSnippetController extends React.Component<InlineSnippetContro
   render() {
     const editingEnabled = !(this.props.snippet instanceof LinebreakSnippet
       || this.props.snippet instanceof PagebreakSnippet)
-    let startEditingAction: InlineEditButtonAction = {
-      id: "start-editing",
-      text: "Edit",
-      enabled: editingEnabled
-    }
-
-    let deleteAction: InlineEditButtonAction = {
-      id: "delete",
-      text: "Delete",
-      icon: "trash-alt",
-      enabled: true
-    }
-
-    let duplicateAction: InlineEditButtonAction = {
-      id: "duplicate",
-      text: "Duplicate",
-      icon: "clone",
-      enabled: true
-    }
     
     const { provided } = this.props;
 
     return (
       <div className="row mb-2" {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
         <div className="col-4 col-md-3 col-lg-2 d-flex flex-column justify-content-center">
-          <InlineEditButton onClick={this.editButtonClick}
-                            mainAction={startEditingAction}
-                            dropdownActions={[
-                              deleteAction,
-                              duplicateAction
-                            ]} />
+          <Button
+            type="secondary" block
+            icon="edit"
+            disabled={!editingEnabled}
+            onClick={() => {
+              this.editButtonClick("start-editing")
+            }}
+            dropdowns={[
+              {
+                label: "Delete",
+                icon: "trash-alt",
+                onClick: () => {
+                  this.editButtonClick("delete")
+                }
+              },
+              {
+                label: "Duplicate",
+                icon: "clone",
+                onClick: () => {
+                  this.editButtonClick("duplicate")
+                }
+              }
+            ]}              
+          >
+            Edit
+          </Button>
         </div>
         
         {/*
