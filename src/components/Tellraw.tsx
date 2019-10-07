@@ -104,7 +104,7 @@ const Tellraw: React.FunctionComponent<{}> = () => {
                   <FontAwesomeIcon icon="file-download" /> Download Website
                 </a>
                 <a className="dropdown-item" href="https://legacy.minecraftjson.com">
-                  Legacy Version
+                  <FontAwesomeIcon icon="code-branch" /> Legacy Version
                 </a>
               </div>
             </div>

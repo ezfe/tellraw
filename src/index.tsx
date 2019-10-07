@@ -4,6 +4,7 @@ import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons/faArrowCirc
 import { faArrowCircleRight } from '@fortawesome/free-solid-svg-icons/faArrowCircleRight';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons/faCheckCircle';
 import { faClone } from '@fortawesome/free-solid-svg-icons/faClone';
+import { faCodeBranch } from '@fortawesome/free-solid-svg-icons/faCodeBranch';
 import { faDatabase } from '@fortawesome/free-solid-svg-icons/faDatabase';
 import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons/faExclamationTriangle';
@@ -49,7 +50,8 @@ library.add(
   faWifi,
   faFileDownload,
   faTachometerAlt,
-  faDatabase
+  faDatabase,
+  faCodeBranch
 )
 
 // load legacy!
