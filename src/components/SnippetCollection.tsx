@@ -188,7 +188,7 @@ const SnippetCollection: React.FunctionComponent<SnippetCollectionProps> = (prop
         { snippetList() }
 
         <div className="row">
-          <div className="col-sm-3 offset-sm-2">
+          <div className="col-sm-4 col-md-3 offset-sm-2 mb-2 mb-sm-0">
             <div className="dropdown">
               <button className="btn btn-primary btn-block dropdown-toggle"
                       type="button"
@@ -234,7 +234,7 @@ const SnippetCollection: React.FunctionComponent<SnippetCollectionProps> = (prop
               </div>
             </div>
           </div>
-          <div className="col-sm-3">
+          <div className="col-sm-4 col-md-3">
             <Button className="btn-block"
                     type="danger"
                     icon="times-circle"
