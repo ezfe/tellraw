@@ -16,6 +16,7 @@ import { MinecraftColorWell } from "../MinecraftColorWell";
 import SnippetCollection from "../SnippetCollection";
 import { GenericSnippetDetailController } from "./GenericDetailController";
 import { KeybindSnippetDetailController } from "./KeybindSnippetDetailController";
+import NBTSnippetController from "../InlineSnippetController/InlineNBTSnippetController";
 
 export interface SnippetDetailControllerProps {
   commandType: CommandType
@@ -100,10 +101,10 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
   customAreaRender() {
     if (this.props.snippet instanceof KeybindSnippet) {
       return <KeybindSnippetDetailController snippet={this.props.snippet} updateSnippet={this.props.updateSnippet} />
+    } else if (this.props.snippet instanceof NBTSnippet) {
+      return <NBTSnippetController snippet={this.props.snippet} updateSnippet={this.props.updateSnippet} />
     } else if (
-          this.props.snippet instanceof ScoreboardObjectiveSnippet
-      || this.props.snippet instanceof NBTSnippet
-      // || this.props.snippet instanceof KeybindSnippet
+         this.props.snippet instanceof ScoreboardObjectiveSnippet
       || this.props.snippet instanceof SelectorSnippet
       || this.props.snippet instanceof TextSnippet
     ) {
