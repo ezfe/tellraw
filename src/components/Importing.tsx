@@ -83,7 +83,8 @@ const Importing: React.FunctionComponent<ImportingProps> = (props) => {
               Cancel
             </Button>
             <Button type="success"
-                    icon="check-circle">
+                    icon="check-circle"
+                    onClick={doImport}>
               Import
             </Button>
           </div>
