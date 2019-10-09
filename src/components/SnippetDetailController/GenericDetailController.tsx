@@ -23,7 +23,7 @@ export class GenericSnippetDetailController extends React.Component<GenericSnipp
   render() {
     return this.props.snippet.editor_fields().map((field, index) => {
         return (
-          <div className={`row ${index > 0 ? "mt-2" : ""}`}>
+          <div key={index} className={`row ${index > 0 ? "mt-2" : ""}`}>
             <div className="col" key={index}>
               <input className="form-control" placeholder={field.placeholder} value={this.props.snippet[field.field]} onChange={(evt) => { this.updateField(field, evt) }} />
             </div>

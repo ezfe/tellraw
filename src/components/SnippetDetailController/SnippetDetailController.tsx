@@ -135,6 +135,7 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
               <option key={ClickEventType.run_command} value={ClickEventType.run_command}>Run Command</option>
               <option key={ClickEventType.suggest_command} value={ClickEventType.suggest_command}>Suggest Command</option>
               <option key={ClickEventType.change_page} value={ClickEventType.change_page}>Change Page (Books Only)</option>
+              <option key={ClickEventType.copy_to_clipboard} value={ClickEventType.copy_to_clipboard}>Copy to Clipboard</option>
 						</select>
           </div>
           {
