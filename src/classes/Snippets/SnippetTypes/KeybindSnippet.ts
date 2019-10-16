@@ -28,6 +28,10 @@ export class KeybindSnippet extends Snippet {
   }
 
   editor_fields(): Array<FieldSpecifier> {
-    return [{field: "keybind", placeholder: "Keybind"}]
+    return [{
+      field: "keybind",
+      placeholder: "Keybind",
+      datalistID: "datalist-keybinds"
+    }]
   }
 }

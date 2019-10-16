@@ -5,7 +5,8 @@ import uuid = require("uuid");
 
 export interface FieldSpecifier {
     field: string,
-    placeholder: string
+    placeholder: string,
+    datalistID?: string
 }
 
 export abstract class Snippet {

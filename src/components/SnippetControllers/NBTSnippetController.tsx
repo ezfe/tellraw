@@ -6,7 +6,7 @@ export interface NBTSnippetControllerProps {
   updateSnippet: (Snippet) => void
 }
 
-const NBTSnippetController: React.FunctionComponent<NBTSnippetControllerProps> = (props) => {
+export const NBTSnippetController: React.FunctionComponent<NBTSnippetControllerProps> = (props) => {
 
   function updateField(field: string, event: any) {
     let newSnippet = props.snippet.copy()
@@ -15,8 +15,6 @@ const NBTSnippetController: React.FunctionComponent<NBTSnippetControllerProps> =
   }
 
   function changeNBTType(event: any) {
-    // console.log(event.target.value)
-    // console.log(NBTType.storage)
     let newSnippet = props.snippet.copy()
     newSnippet.type = event.target.value
     props.updateSnippet(newSnippet)
@@ -44,5 +42,3 @@ const NBTSnippetController: React.FunctionComponent<NBTSnippetControllerProps> =
     </>
   )
 }
-
-export default NBTSnippetController

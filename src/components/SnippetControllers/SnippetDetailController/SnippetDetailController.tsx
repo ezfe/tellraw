@@ -1,22 +1,21 @@
 import * as React from "react";
-import { Color } from "../../classes/Color";
-import { ClickEventType } from "../../classes/Snippets/ClickEvent";
-import { HoverEventType } from "../../classes/Snippets/HoverEvent";
-import { KeybindSnippet } from "../../classes/Snippets/SnippetTypes/KeybindSnippet";
-import { NBTSnippet } from "../../classes/Snippets/SnippetTypes/NBTSnippet";
-import { ScoreboardObjectiveSnippet } from "../../classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet";
-import { SelectorSnippet } from "../../classes/Snippets/SnippetTypes/SelectorSnippet";
-import { Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
-import { TextSnippet } from "../../classes/Snippets/SnippetTypes/TextSnippet";
-import { CommandType, FeatureType, isFeatureAvailable } from "../../data/templates";
-import { duplicate_snippet } from "../../helpers/copy_snippet";
-import { formatSnippet } from "../../helpers/formatter";
-import { Checkbox } from "../Forms/Checkbox";
-import { MinecraftColorWell } from "../MinecraftColorWell";
-import SnippetCollection from "../SnippetCollection";
-import { GenericSnippetDetailController } from "./GenericDetailController";
-import { KeybindSnippetDetailController } from "./KeybindSnippetDetailController";
-import NBTSnippetController from "../InlineSnippetController/InlineNBTSnippetController";
+import { Color } from "../../../classes/Color";
+import { ClickEventType } from "../../../classes/Snippets/ClickEvent";
+import { HoverEventType } from "../../../classes/Snippets/HoverEvent";
+import { KeybindSnippet } from "../../../classes/Snippets/SnippetTypes/KeybindSnippet";
+import { NBTSnippet } from "../../../classes/Snippets/SnippetTypes/NBTSnippet";
+import { ScoreboardObjectiveSnippet } from "../../../classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet";
+import { SelectorSnippet } from "../../../classes/Snippets/SnippetTypes/SelectorSnippet";
+import { Snippet } from "../../../classes/Snippets/SnippetTypes/Snippet";
+import { TextSnippet } from "../../../classes/Snippets/SnippetTypes/TextSnippet";
+import { CommandType, FeatureType, isFeatureAvailable } from "../../../data/templates";
+import { duplicate_snippet } from "../../../helpers/copy_snippet";
+import { formatSnippet } from "../../../helpers/formatter";
+import { Checkbox } from "../../Forms/Checkbox";
+import { MinecraftColorWell } from "../../MinecraftColorWell";
+import SnippetCollection from "../../SnippetCollection";
+import { GenericSnippetController } from "../GenericSnippetController";
+import { NBTSnippetController } from "../NBTSnippetController";
 
 export interface SnippetDetailControllerProps {
   commandType: CommandType
@@ -99,16 +98,15 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
   }
 
   customAreaRender() {
-    if (this.props.snippet instanceof KeybindSnippet) {
-      return <KeybindSnippetDetailController snippet={this.props.snippet} updateSnippet={this.props.updateSnippet} />
-    } else if (this.props.snippet instanceof NBTSnippet) {
+    if (this.props.snippet instanceof NBTSnippet) {
       return <NBTSnippetController snippet={this.props.snippet} updateSnippet={this.props.updateSnippet} />
     } else if (
          this.props.snippet instanceof ScoreboardObjectiveSnippet
       || this.props.snippet instanceof SelectorSnippet
       || this.props.snippet instanceof TextSnippet
+      || this.props.snippet instanceof KeybindSnippet
     ) {
-      return <GenericSnippetDetailController snippet={this.props.snippet} updateSnippet={this.props.updateSnippet} />
+      return <GenericSnippetController snippet={this.props.snippet} updateSnippet={this.props.updateSnippet} />
     } else {
       return <span>{typeof this.props.snippet} isn't implemented supported renderer</span>
     } 
@@ -118,6 +116,8 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
     if (!isFeatureAvailable(this.props.commandType, FeatureType.clicking)) {
       return null
     }
+
+    const clickEventTypeIsCommand = this.props.snippet.click_event_type == ClickEventType.run_command || this.props.snippet.click_event_type == ClickEventType.suggest_command
 
     return (
       <>
@@ -141,7 +141,13 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
           {
             this.props.snippet.click_event_type !== ClickEventType.none ? (
               <div className="col">
-                <input type="text" className="form-control" value={this.props.snippet.click_event_value} onChange={this.changeClickEventValue}/>
+                <input
+                  list={clickEventTypeIsCommand ? "datalist-commands" : null}
+                  type="text"
+                  className="form-control"
+                  value={this.props.snippet.click_event_value}
+                  onChange={this.changeClickEventValue}
+                />
               </div>  
             ) : null
           }
