@@ -21,8 +21,6 @@ const Tellraw: React.FunctionComponent<{}> = () => {
 
   let [importing, setImporting] = React.useState(false)
 
-  let [betaAlertShown, setBetaAlertShown] = useLocalStorage("20190927-beta-alert", false)
-
   const compiled = compile(snippets, command, commandType)
 
   function updateCustomCommand(event: any) {
@@ -111,24 +109,6 @@ const Tellraw: React.FunctionComponent<{}> = () => {
           </div>
         </div>
       </div>
-      {
-        !betaAlertShown ? (
-          <div className="row mb-4 mt-4">
-            <div className="col">
-              <div className="alert alert-warning alert-dismissible fade show" role="alert">
-                <strong>Hey there!</strong><br />
-                This is a new version of the website! If you experience any issues
-                please click the "Contact Me" button at the bottom of the page or the "Report an Issue" button
-                in the top-right hand corner of the page.
-
-                <button type="button" className="close" data-dismiss="alert" aria-label="Close" onClick={() => { setBetaAlertShown(true) }}>
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        ) : null
-      }
       <div className="row">
         <div className="col-sm-5 col-md-3 mb-2">
           <span style={{ fontWeight: "bold" }}>Player and Command</span>
