@@ -68,7 +68,7 @@ function wrapText(text: string): JSX.Element {
 export function formatSnippet(snippet: Snippet): JSX.Element {
   if (snippet instanceof LinebreakSnippet) return <br key={snippet.id} />
 
-  let textDecorationValue: TextDecorationProperty = 'none'
+  let textDecorationValue: TextDecorationProperty<void> = 'none'
   if (snippet.underlined && !snippet.strikethrough) {
     textDecorationValue = 'underline'
   } else if (snippet.strikethrough && !snippet.underlined) {

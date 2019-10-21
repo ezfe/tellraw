@@ -1,6 +1,5 @@
 const path = require("path")
 const precss = require("precss")
-const autoprefixer = require("autoprefixer")
 
 module.exports = {
   entry: "./src/index.tsx",
@@ -40,8 +39,7 @@ module.exports = {
             options: {
               plugins: function () { // post css plugins, can be exported to postcss.config.js
                 return [
-                  precss,
-                  autoprefixer
+                  precss
                 ];
               }
             }
