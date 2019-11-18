@@ -110,7 +110,7 @@ const Tellraw: React.FunctionComponent<{}> = () => {
         </div>
       </div>
       <div className="row">
-        <div className="col-sm-5 col-md-3 mb-2">
+        <div className="col-sm-5 col-md-3 mb-2" id="command-label">
           <span style={{ fontWeight: "bold" }}>Player and Command</span>
           <br />
           <span>Used to select and execute different players</span>
@@ -119,7 +119,8 @@ const Tellraw: React.FunctionComponent<{}> = () => {
           <input value={command}
                  onChange={updateCustomCommand}
                  type="text"
-                 className="form-control" />
+                 className="form-control"
+                 aria-labeledby="command-label" />
         </div>
       </div>
 
