@@ -88,7 +88,7 @@ const Tellraw: React.FunctionComponent<{}> = () => {
                       data-toggle="dropdown"
                       aria-haspopup="true"
                       aria-expanded="false"
-                      area-label="Miscellaneous Actions">
+                      aria-label="Miscellaneous Actions">
                 <FontAwesomeIcon icon="list" />
               </button>
               <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
