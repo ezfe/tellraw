@@ -31,7 +31,9 @@ const BookPreview: React.FunctionComponent<SubPreviewProps> = ({ snippets }) => 
         </Button>
       </div>
       <div key="book-preview-div" className="preview book-preview ml-3 mr-3">
-        { formatSnippets(snippets, bookPage) }
+        <div style={{ overflowY: "scroll", height: "100%", width: "100%" }}>
+          { formatSnippets(snippets, bookPage) }
+        </div>
       </div>
       <div>
         <Button style={{ width: "150px" }}

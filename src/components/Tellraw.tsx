@@ -111,7 +111,7 @@ const Tellraw: React.FunctionComponent<{}> = () => {
       </div>
       <div className="row">
         <div className="col-sm-5 col-md-3 mb-2" id="command-label">
-          <span style={{ fontWeight: "bold" }}>Player and Command</span>
+          <span style={{ fontWeight: "bold" }}>Command Template</span>
           <br />
           <span>Used to select and execute different players</span>
         </div>
@@ -141,8 +141,10 @@ const Tellraw: React.FunctionComponent<{}> = () => {
       <br />
       <br />
       <div className="row mb-2">
-        <div className="col-2">
-          <span style={{}}>Command</span>
+        <div className="col-3">
+          <span style={{ fontWeight: "bold" }}>Command</span>
+          <br />
+          <span>Copy and paste into Minecraft</span>
         </div>
         <div className="col">
           <textarea readOnly={true}
@@ -153,8 +155,16 @@ const Tellraw: React.FunctionComponent<{}> = () => {
                     value={compiled} />
         </div>
       </div>
+
+      <Preview snippets={snippets} commandType={commandType} />
+
+      <hr />
+
       <div className="row">
-        <div className="col-sm-2 offset-sm-2 mb-2">
+        <div className="col-3">
+          <span style={{ fontWeight: "bold" }}>Save and Restore</span>
+        </div>
+        <div className="col-sm-2 mb-2">
           <Button type="light"
                   className="btn-block"
                   onClick={startImporting}
@@ -170,9 +180,15 @@ const Tellraw: React.FunctionComponent<{}> = () => {
             Export
           </Button>
         </div>
+        <div className="col mb-2">
+          <span>
+            Export your command and save in a text file, so that you can
+            get easily get it back. Some browsers reset their cache
+            periodically and will forget what you've entered if you don't
+            save it by clicking Export.
+          </span>
+        </div>
       </div>
-
-      <Preview snippets={snippets} commandType={commandType} />
 
       <hr />
 
