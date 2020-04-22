@@ -23,6 +23,7 @@ interface SnippetCollectionProps {
   snippets: Array<Snippet>
   updateSnippets: (snippets: Array<Snippet>) => void
   deleteAll: () => void
+  v116Flag: boolean
 }
 
 const SnippetCollection: React.FunctionComponent<SnippetCollectionProps> = (props) => {
@@ -136,7 +137,15 @@ const SnippetCollection: React.FunctionComponent<SnippetCollectionProps> = (prop
   }
 
   function editor() {
-    return <SnippetDetailController commandType={props.commandType} snippet={editing} updateSnippet={updateEditing} stopEditing={stopEditing}/>
+    return (
+      <SnippetDetailController
+        commandType={props.commandType}
+        snippet={editing}
+        updateSnippet={updateEditing}
+        stopEditing={stopEditing}
+        v116Flag={props.v116Flag}
+      />
+    )
   }
 
   function onDragEnd(result: DropResult) {

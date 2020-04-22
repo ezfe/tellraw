@@ -22,10 +22,11 @@ export interface SnippetDetailControllerProps {
   snippet: Snippet
   updateSnippet: (snippet: Snippet) => void
   stopEditing: (save: boolean) => void
+  v116Flag: boolean
 }
 
 export interface SnippetDetailControllerState {
-  customFont: boolean
+
 }
 
 export class SnippetDetailController extends React.Component<SnippetDetailControllerProps, SnippetDetailControllerState> {
@@ -35,9 +36,7 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
     
     console.log(this.props)
 
-    this.state = {
-      customFont: false
-    }
+    this.state = {}
 
     this.changeColor = this.changeColor.bind(this)
     
@@ -214,6 +213,7 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
                                  deleteAll={() => {
                                    this.changeHoverEventChildren([])
                                  }}
+                                 v116Flag={this.props.v116Flag}
                                  />
             </div>
           </div>
@@ -279,16 +279,20 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
                 <Checkbox label="Underlined" checked={this.props.snippet.underlined} onChange={newValue => this.updateField("underlined", newValue)} />
                 <Checkbox label="Strikethrough" checked={this.props.snippet.strikethrough} onChange={newValue => this.updateField("strikethrough", newValue)} />
                 <Checkbox label="Obfuscated" checked={this.props.snippet.obfuscated} onChange={newValue => this.updateField("obfuscated", newValue)} />
-                <div className="row">
-                  <div className="col form-inline">
-                    <Checkbox label="Custom Font" checked={this.props.snippet.font !== null} onChange={newValue => this.updateFontCheckbox(newValue)} />
-                    {
-                      (this.props.snippet.font !== null) ? (
-                        <input type="text" className="form-control" value={this.props.snippet.font} onChange={this.changeFont}/>
-                      ) : null
-                    }
-                  </div>
-                </div>
+                {
+                  this.props.v116Flag ? (
+                    <div className="row">
+                      <div className="col form-inline">
+                        <Checkbox label="Custom Font" checked={this.props.snippet.font !== null} onChange={newValue => this.updateFontCheckbox(newValue)} />
+                        {
+                          (this.props.snippet.font !== null) ? (
+                            <input type="text" className="form-control" value={this.props.snippet.font} onChange={this.changeFont}/>
+                          ) : null
+                        }
+                      </div>
+                    </div>
+                  ) : null
+                }
               </div>
             </div>
           </div>

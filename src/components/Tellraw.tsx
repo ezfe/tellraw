@@ -1,16 +1,16 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as React from "react";
-import { LSKEY_COMMAND_STRING, LSKEY_COMMAND_TYPE, LSKEY_SNIPPET_ARR, VERSION } from "../constants";
+import { LSKEY_COMMAND_STRING, LSKEY_COMMAND_TYPE, LSKEY_SNIPPET_ARR, LSKEY_V116 } from "../constants";
 import { CommandType, template_lookup } from "../data/templates";
 import { compile } from "../helpers/compile";
 import { export_snippets } from "../helpers/export";
-import { loadV4State, loadV5State, mapV4Template } from "../helpers/loaders";
 import { useLocalStorage, useLSSnippets } from "../helpers/useLocalStorage";
 import CommandTemplatesController from "./CommandTemplatesController";
+import { Checkbox } from "./Forms/Checkbox";
+import Button from "./generic/Button";
 import Importing from "./Importing";
 import Preview from "./Preview";
 import SnippetCollection from "./SnippetCollection";
-import Button from "./generic/Button";
 
 const Tellraw: React.FunctionComponent<{}> = () => {  
   let [snippets, setSnippets] = useLSSnippets(LSKEY_SNIPPET_ARR, [])
@@ -20,6 +20,8 @@ const Tellraw: React.FunctionComponent<{}> = () => {
   let [exporting, setExporting] = React.useState(false)
 
   let [importing, setImporting] = React.useState(false)
+
+  let [v116Flag, setv116Flag] = useLocalStorage(LSKEY_V116, false);
 
   const compiled = compile(snippets, command, commandType)
 
@@ -136,7 +138,8 @@ const Tellraw: React.FunctionComponent<{}> = () => {
                             setSnippets([])
                             setCommand(template_lookup(CommandType.tellraw)[0])
                             setCommandType(CommandType.tellraw)
-                          }} />
+                          }}
+                          v116Flag={v116Flag} />
       
       <br />
       <br />
@@ -187,6 +190,17 @@ const Tellraw: React.FunctionComponent<{}> = () => {
             periodically and will forget what you've entered if you don't
             save it by clicking Export.
           </span>
+        </div>
+      </div>
+
+      <hr />
+
+      <div className="row">
+        <div className="col-3">
+          <span style={{ fontWeight: "bold" }}>Settings</span>
+        </div>
+        <div className="col">
+          <Checkbox label="Show Minecraft 1.16 Features" checked={v116Flag} onChange={setv116Flag} />
         </div>
       </div>
 
