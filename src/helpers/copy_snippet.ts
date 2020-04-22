@@ -39,6 +39,8 @@ export function copy_standard_attributes(source: Snippet, destination: Snippet) 
   destination.strikethrough = source.strikethrough
   destination.obfuscated = source.obfuscated
 
+  destination.font = source.font
+
   destination.color = source.color
 
   destination.insertion = source.insertion

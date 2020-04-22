@@ -25,7 +25,7 @@ export interface SnippetDetailControllerProps {
 }
 
 export interface SnippetDetailControllerState {
-  
+  customFont: boolean
 }
 
 export class SnippetDetailController extends React.Component<SnippetDetailControllerProps, SnippetDetailControllerState> {
@@ -35,7 +35,9 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
     
     console.log(this.props)
 
-    this.state = {}
+    this.state = {
+      customFont: false
+    }
 
     this.changeColor = this.changeColor.bind(this)
     
@@ -46,10 +48,12 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
     this.changeHoverEventValue = this.changeHoverEventValue.bind(this)
     this.changeHoverEventChildren = this.changeHoverEventChildren.bind(this)
     this.changeInsertion = this.changeInsertion.bind(this)
+    this.changeFont = this.changeFont.bind(this)
 
     this.updateToggle = this.updateToggle.bind(this)
     this.updateField = this.updateField.bind(this)
-    
+    this.updateFontCheckbox = this.updateFontCheckbox.bind(this)
+
     this.customAreaRender = this.customAreaRender.bind(this)
     this.clickEventRenderer = this.clickEventRenderer.bind(this)
     this.hoverEventRenderer = this.hoverEventRenderer.bind(this)
@@ -87,6 +91,10 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
     this.updateField("insertion", event.target.value)
   }
 
+  changeFont(event: any) {
+    this.updateField("font", event.target.value)
+  }
+
   updateToggle(field: string, event: any) {
     this.updateField(field, event.target.checked)
   }
@@ -94,6 +102,16 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
   updateField(field: string, value: any) {
     let newSnippet = duplicate_snippet(this.props.snippet)
     newSnippet[field] = value
+    this.props.updateSnippet(newSnippet)
+  }
+
+  updateFontCheckbox(newValue: boolean) {
+    let newSnippet = duplicate_snippet(this.props.snippet)
+    if (newValue) {
+      newSnippet.font = "minecraft:default"
+    } else {
+      newSnippet.font = null
+    }
     this.props.updateSnippet(newSnippet)
   }
 
@@ -129,7 +147,7 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
 
         <div className="row mb-2">
           <div className="col-4">
-            <select className="form-control" value={this.props.snippet.click_event_type} onChange={this.changeClickEventType}>
+            <select className="custom-select" value={this.props.snippet.click_event_type} onChange={this.changeClickEventType}>
               <option key={ClickEventType.none} value={ClickEventType.none}>None</option>
               <option key={ClickEventType.open_url} value={ClickEventType.open_url}>Open URL</option>
               <option key={ClickEventType.run_command} value={ClickEventType.run_command}>Run Command</option>
@@ -171,7 +189,7 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
 
         <div className="row mb-2">
           <div className="col-4">
-            <select className="form-control" value={this.props.snippet.hover_event_type} onChange={this.changeHoverEventType}>
+            <select className="custom-select" value={this.props.snippet.hover_event_type} onChange={this.changeHoverEventType}>
             <option key={HoverEventType.none} value={HoverEventType.none}>None</option>
             <option key={HoverEventType.show_entity} value={HoverEventType.show_entity}>Show Entity</option>
             <option key={HoverEventType.show_item} value={HoverEventType.show_item}>Show Item</option>
@@ -234,16 +252,6 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
   render() {
     return (
       <>
-        {/* <div className="row mb-2">
-          <div className="col">
-            <select className="form-control" onChange={this.changeSnippetType} value={this.props.snippet.type}>
-              <option value={SnippetType.text}>Plain Text</option>
-              <option value={SnippetType.selector}>Selector</option>
-              <option value={SnippetType.scoreboardObjective}>Scoreboard Objective</option>
-            </select>
-          </div>
-        </div> */}
-
         <div className="row mb-2">
           <div className="col">
             { this.customAreaRender() }
@@ -251,7 +259,7 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
           <div className="col-4">
             <div className="row mb-2">
               <div className="col">
-                <select className="form-control" onChange={this.changeColor} value={this.props.snippet.color}>
+                <select className="custom-select" onChange={this.changeColor} value={this.props.snippet.color}>
                   {
                     Object.keys(Color).filter(key => !isNaN(Number(Color[key])))
                       .map(key => {
@@ -271,6 +279,16 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
                 <Checkbox label="Underlined" checked={this.props.snippet.underlined} onChange={newValue => this.updateField("underlined", newValue)} />
                 <Checkbox label="Strikethrough" checked={this.props.snippet.strikethrough} onChange={newValue => this.updateField("strikethrough", newValue)} />
                 <Checkbox label="Obfuscated" checked={this.props.snippet.obfuscated} onChange={newValue => this.updateField("obfuscated", newValue)} />
+                <div className="row">
+                  <div className="col form-inline">
+                    <Checkbox label="Custom Font" checked={this.props.snippet.font !== null} onChange={newValue => this.updateFontCheckbox(newValue)} />
+                    {
+                      (this.props.snippet.font !== null) ? (
+                        <input type="text" className="form-control" value={this.props.snippet.font} onChange={this.changeFont}/>
+                      ) : null
+                    }
+                  </div>
+                </div>
               </div>
             </div>
           </div>

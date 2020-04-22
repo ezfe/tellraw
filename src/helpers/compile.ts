@@ -48,6 +48,7 @@ export function object_compile(sections: Array<Array<Snippet>>, type: CommandTyp
       if (snippet.strikethrough) pending["strikethrough"] = true
       if (snippet.obfuscated) pending["obfuscated"] = true
       if (snippet.color != Color.none) pending["color"] = Color[snippet.color]
+      if (snippet.font) pending["font"] = snippet.font
 
       if (snippet.insertion.length > 0) {
         pending["insertion"] = snippet.insertion

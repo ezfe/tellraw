@@ -11,7 +11,8 @@ export enum FeatureType {
     hovering,
     insertion,
     pages,
-    bookPreview
+    bookPreview,
+    font
 }
 
 /**

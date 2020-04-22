@@ -18,6 +18,8 @@ export abstract class Snippet {
     strikethrough: boolean = false
     obfuscated: boolean = false
   
+    font: string = null
+
     color: Color = Color.none
   
     insertion: string = ""
