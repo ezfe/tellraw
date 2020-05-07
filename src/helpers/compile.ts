@@ -11,7 +11,7 @@ import { CommandType, isFeatureAvailable, FeatureType } from "../data/templates"
 import { LinebreakSnippet } from "../classes/Snippets/SnippetTypes/LinebreakSnippet";
 import { NBTSnippet, NBTType } from "../classes/Snippets/SnippetTypes/NBTSnippet";
 
-export function object_compile(sections: Array<Array<Snippet>>, type: CommandType): any {
+export function object_compile(sections: Array<Array<Snippet>>, type: CommandType, v116Flag: boolean): any {
   let results = Array<Array<Object>>()
   for (const section_snippets of sections) {
     let section_results = Array<Object>()
@@ -48,7 +48,7 @@ export function object_compile(sections: Array<Array<Snippet>>, type: CommandTyp
       if (snippet.strikethrough) pending["strikethrough"] = true
       if (snippet.obfuscated) pending["obfuscated"] = true
       if (snippet.color != Color.none) pending["color"] = Color[snippet.color]
-      if (snippet.font) pending["font"] = snippet.font
+      if (v116Flag && snippet.font) pending["font"] = snippet.font
 
       if (snippet.insertion.length > 0) {
         pending["insertion"] = snippet.insertion
@@ -62,7 +62,7 @@ export function object_compile(sections: Array<Array<Snippet>>, type: CommandTyp
       }
 
       if (snippet.hover_event_type == HoverEventType.show_text) {
-        const recursive_result = object_compile([snippet.hover_event_children], CommandType.hovertext)
+        const recursive_result = object_compile([snippet.hover_event_children], CommandType.hovertext, v116Flag)
         pending["hoverEvent"] = {
           "action": HoverEventType[snippet.hover_event_type],
           "value": recursive_result
@@ -114,7 +114,7 @@ export function object_compile(sections: Array<Array<Snippet>>, type: CommandTyp
   }
 }
 
-export function compile(snippets: Array<Snippet>, command: string, type: CommandType): string {
+export function compile(snippets: Array<Snippet>, command: string, type: CommandType, v116Flag: boolean): string {
   const section_list = Array<Array<Snippet>>()
   let unprocessed = [...snippets]
 
@@ -137,7 +137,7 @@ export function compile(snippets: Array<Snippet>, command: string, type: Command
     section_list.push(unprocessed.filter(e => { return !(e instanceof PagebreakSnippet) }))
   }
 
-  const results = object_compile(section_list, type)
+  const results = object_compile(section_list, type, v116Flag)
 
   if (!command) {
     console.error("Command isn't available", command)

@@ -23,7 +23,7 @@ const Tellraw: React.FunctionComponent<{}> = () => {
 
   let [v116Flag, setv116Flag] = useLocalStorage(LSKEY_V116, false);
 
-  const compiled = compile(snippets, command, commandType)
+  const compiled = compile(snippets, command, commandType, v116Flag)
 
   function updateCustomCommand(event: any) {
     setCommand(event.target.value)

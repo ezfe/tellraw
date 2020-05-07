@@ -138,7 +138,7 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
 
     return (
       <>
-        <div className="row mb-2">
+        <div className="row">
           <div className="col">
             <h4>Click Event:</h4>
           </div>
@@ -169,6 +169,7 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
             ) : null
           }
         </div>
+        <hr />
       </>
     )
   }
@@ -180,7 +181,7 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
 
     return (
       <>
-        <div className="row mb-2">
+        <div className="row">
           <div className="col">
             <h4>Hover Event:</h4>
           </div>
@@ -197,6 +198,7 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
           </div>
           { this.hoverEventValueRender() }
         </div>
+        <hr />
       </>
     )
   }
@@ -256,6 +258,16 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
           <div className="col">
             { this.customAreaRender() }
           </div>
+        </div>
+        <hr />
+        <div className="row">
+          <div className="col">
+            <h4>
+              Formatting Options:
+            </h4>
+          </div>
+        </div>
+        <div className="row mb-2">
           <div className="col-4">
             <div className="row mb-2">
               <div className="col">
@@ -272,31 +284,32 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
                 <MinecraftColorWell color={this.props.snippet.color} />
               </div>
             </div>
-            <div className="row">
-              <div className="col">
-                <Checkbox label="Bold" checked={this.props.snippet.bold} onChange={newValue => this.updateField("bold", newValue)} />
-                <Checkbox label="Italic" checked={this.props.snippet.italic} onChange={newValue => this.updateField("italic", newValue)} />
-                <Checkbox label="Underlined" checked={this.props.snippet.underlined} onChange={newValue => this.updateField("underlined", newValue)} />
-                <Checkbox label="Strikethrough" checked={this.props.snippet.strikethrough} onChange={newValue => this.updateField("strikethrough", newValue)} />
-                <Checkbox label="Obfuscated" checked={this.props.snippet.obfuscated} onChange={newValue => this.updateField("obfuscated", newValue)} />
-                {
-                  this.props.v116Flag ? (
-                    <div className="row">
-                      <div className="col form-inline">
-                        <Checkbox label="Custom Font" checked={this.props.snippet.font !== null} onChange={newValue => this.updateFontCheckbox(newValue)} />
-                        {
-                          (this.props.snippet.font !== null) ? (
-                            <input type="text" className="form-control" value={this.props.snippet.font} onChange={this.changeFont}/>
-                          ) : null
-                        }
-                      </div>
-                    </div>
-                  ) : null
-                }
-              </div>
-            </div>
           </div>
+          <div className="col-4">
+            <Checkbox label="Bold" checked={this.props.snippet.bold} onChange={newValue => this.updateField("bold", newValue)} />
+            <Checkbox label="Italic" checked={this.props.snippet.italic} onChange={newValue => this.updateField("italic", newValue)} />
+            <Checkbox label="Underlined" checked={this.props.snippet.underlined} onChange={newValue => this.updateField("underlined", newValue)} />
+            <Checkbox label="Strikethrough" checked={this.props.snippet.strikethrough} onChange={newValue => this.updateField("strikethrough", newValue)} />
+            <Checkbox label="Obfuscated" checked={this.props.snippet.obfuscated} onChange={newValue => this.updateField("obfuscated", newValue)} />
+          </div>
+          {
+            this.props.v116Flag ? (
+              <div className="col-4">
+                <div className="row">
+                  <Checkbox label="Custom Font" checked={this.props.snippet.font !== null} onChange={newValue => this.updateFontCheckbox(newValue)} />
+                </div>
+                <div className="row">
+                  {
+                    (this.props.snippet.font !== null) ? (
+                      <input type="text" className="form-control" value={this.props.snippet.font} onChange={this.changeFont}/>
+                    ) : null
+                  }
+                </div>
+              </div>
+            ) : null
+          }
         </div>
+        <hr />
 
         { this.clickEventRenderer() }
 
