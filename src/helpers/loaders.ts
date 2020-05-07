@@ -12,7 +12,9 @@ import { NBTSnippet } from "../classes/Snippets/SnippetTypes/NBTSnippet";
 export function legacyStatePreparation() {
   
   const lsformat = parseInt(localStorage.getItem("jformat") || VERSION.toString())
-  console.log(`Processing legacy state ${lsformat}`)
+  console.log("Verifying format...")
+  console.log("Currently", lsformat)
+  console.log("Wanted", VERSION)
 
   if (lsformat <= 3) {
     console.warn("Resetting local state instead of upgrading")

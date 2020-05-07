@@ -7,21 +7,13 @@ interface CheckboxProps {
   label: string
 }
 
-export class Checkbox extends React.Component<CheckboxProps, {}> {
-  randomUUID = null
-
-  componentWillMount() {
-    this.randomUUID = uuid()
-  }
-
-  render() {
-    const id = this.randomUUID
-
-    return (
-      <div className="custom-control custom-checkbox">
-        <input checked={this.props.checked} onChange={event => this.props.onChange(event.target.checked)} type="checkbox" className="custom-control-input" id={id} />
-        <label className="custom-control-label" htmlFor={id}>{ this.props.label }</label>
-      </div>  
-    )
-  }
+export const Checkbox: React.FunctionComponent<CheckboxProps> = (props) => {  
+  let [randomUUID, setRandomUUID] = React.useState(uuid())
+  
+  return (
+    <div className="custom-control custom-checkbox">
+      <input checked={props.checked} onChange={event => props.onChange(event.target.checked)} type="checkbox" className="custom-control-input" id={randomUUID} />
+      <label className="custom-control-label" htmlFor={randomUUID}>{ props.label }</label>
+    </div>  
+  )
 }
