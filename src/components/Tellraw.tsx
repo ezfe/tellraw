@@ -122,7 +122,7 @@ const Tellraw: React.FunctionComponent<{}> = () => {
                  onChange={updateCustomCommand}
                  type="text"
                  className="form-control"
-                 aria-labeledby="command-label" />
+                 aria-labelledby="command-label" />
         </div>
       </div>
 
