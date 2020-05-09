@@ -1,5 +1,7 @@
 import * as React from "react";
 import { Color, getCSSHEX } from "../classes/Color";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { highContrastColor } from "../helpers/high_contrast";
 
 interface MinecraftColorWellProps {
   color: Color
@@ -29,18 +31,30 @@ export function MinecraftColorWell(props: MinecraftColorWellProps) {
 }
 
 interface ColorPickerProps {
-  currentColor: Color
+  color: Color
   checked: boolean
-  onChange: (newValue: boolean) => void
-  label: string
+  onClick: (color: Color) => void
 }
 
-// export const ColorPicker: React.FunctionComponent<ColorPickerProps> = (props) => {  
-  
-//   return (
-//     <div className="custom-control custom-checkbox">
-//       <input checked={props.checked} onChange={event => props.onChange(event.target.checked)} type="checkbox" className="custom-control-input" id={randomUUID} />
-//       <label className="custom-control-label" htmlFor={randomUUID}>{ props.label }</label>
-//     </div>  
-//   )
-// }
+export const MinecraftColorButton: React.FunctionComponent<ColorPickerProps> = (props) => {  
+  return (
+    <div
+      style={{
+        width: 'calc(1.5em + 0.75rem + 2px)',
+        height: 'calc(1.5em + 0.75rem + 2px)',
+        backgroundColor: getCSSHEX(props.color)
+      }}
+      onClick={() => { props.onClick(props.color) }}
+      className="d-flex justify-content-center align-items-center"
+    >
+      {
+        props.checked ? (
+          <FontAwesomeIcon
+            icon="check-circle"
+            style={{ color: highContrastColor(getCSSHEX(props.color), "white", "black") }}
+          />
+        ) : null
+      }
+    </div>
+  )
+}

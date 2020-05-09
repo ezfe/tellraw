@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Color } from "../../../classes/Color";
 import { ClickEventType } from "../../../classes/Snippets/ClickEvent";
 import { HoverEventType } from "../../../classes/Snippets/HoverEvent";
 import { KeybindSnippet } from "../../../classes/Snippets/SnippetTypes/KeybindSnippet";
@@ -12,10 +11,11 @@ import { CommandType, FeatureType, isFeatureAvailable } from "../../../data/temp
 import { duplicate_snippet } from "../../../helpers/copy_snippet";
 import { formatSnippet } from "../../../helpers/formatter";
 import { Checkbox } from "../../Forms/Checkbox";
-import { MinecraftColorWell } from "../../MinecraftColorWell";
+import { MinecraftColorWell, MinecraftColorButton } from "../../MinecraftColorWell";
 import SnippetCollection from "../../SnippetCollection";
 import { GenericSnippetController } from "../GenericSnippetController";
 import { NBTSnippetController } from "../NBTSnippetController";
+import { minecraftColorSet } from "../../../classes/Color";
 
 export interface SnippetDetailControllerProps {
   commandType: CommandType
@@ -269,19 +269,36 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
         </div>
         <div className="row mb-2">
           <div className="col-4">
-            <div className="row mb-2">
-              <div className="col">
-                {/* <select className="custom-select" onChange={this.changeColor} value={this.props.snippet.color}>
-                  {
-                    Object.keys(Color).filter(key => !isNaN(Number(Color[key])))
-                      .map(key => {
-                        return <option key={Color[key]} value={Color[key]}>{key.split('_').map((s) => s.charAt(0).toUpperCase() + s.substring(1)).join(' ')}</option>
-                      })
-                  }
-                </select> */}
+            <div className="row mb-1">
+              <div className="col d-flex flex-wrap">
+                {
+                  Object.keys(minecraftColorSet).map((color) => {
+                    return (
+                      <MinecraftColorButton
+                        key={color}
+                        color={color}
+                        checked={this.props.snippet.color == color}
+                        onClick={(newColor) => {
+                          this.updateField("color", newColor)
+                        }}
+                      />
+                    )
+                  })
+                }
               </div>
               <div className="col-3" style={{ display: "flex", flexDirection: "row-reverse" }}>
                 <MinecraftColorWell color={this.props.snippet.color} />
+              </div>
+            </div>
+            <div className="row mb-2">
+              <div className="col">
+                <input
+                  type="color"
+                  value={this.props.snippet.color}
+                  onChange={(evt) => {
+                    this.updateField("color", evt.target.value)
+                  }}
+                />
               </div>
             </div>
           </div>
@@ -296,14 +313,18 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
             this.props.v116Flag ? (
               <div className="col-4">
                 <div className="row">
-                  <Checkbox label="Custom Font" checked={this.props.snippet.font !== null} onChange={newValue => this.updateFontCheckbox(newValue)} />
+                  <div className="col">
+                    <Checkbox label="Custom Font" checked={this.props.snippet.font !== null} onChange={newValue => this.updateFontCheckbox(newValue)} />
+                  </div>
                 </div>
                 <div className="row">
-                  {
-                    (this.props.snippet.font !== null) ? (
-                      <input type="text" className="form-control" value={this.props.snippet.font} onChange={this.changeFont}/>
-                    ) : null
-                  }
+                  <div className="col">
+                    {
+                      (this.props.snippet.font !== null) ? (
+                        <input type="text" className="form-control" value={this.props.snippet.font} onChange={this.changeFont}/>
+                      ) : null
+                    }
+                  </div>
                 </div>
               </div>
             ) : null
