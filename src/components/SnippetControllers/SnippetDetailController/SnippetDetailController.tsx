@@ -15,7 +15,7 @@ import { MinecraftColorWell, MinecraftColorButton } from "../../MinecraftColorWe
 import SnippetCollection from "../../SnippetCollection";
 import { GenericSnippetController } from "../GenericSnippetController";
 import { NBTSnippetController } from "../NBTSnippetController";
-import { minecraftColorSet } from "../../../classes/Color";
+import { minecraftColorSet, getCSSHEX } from "../../../classes/Color";
 
 export interface SnippetDetailControllerProps {
   commandType: CommandType
@@ -267,38 +267,68 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
             </h4>
           </div>
         </div>
-        <div className="row mb-2">
+        <div className="row">
           <div className="col-4">
             <div className="row mb-1">
+              <div className="col">
+                <span style={{ fontWeight: "bold" }}>
+                  Preset Colors:
+                </span>
+              </div>
+            </div>
+            <div className="row mb-2">
               <div className="col d-flex flex-wrap">
                 {
-                  Object.keys(minecraftColorSet).map((color) => {
-                    return (
-                      <MinecraftColorButton
-                        key={color}
-                        color={color}
-                        checked={this.props.snippet.color == color}
-                        onClick={(newColor) => {
-                          this.updateField("color", newColor)
-                        }}
-                      />
-                    )
-                  })
+                  Object.keys(minecraftColorSet)
+                    .filter((color) => { return color != "none" })
+                    .map((color) => {
+                      return (
+                        <MinecraftColorButton
+                          key={color}
+                          color={color}
+                          checked={this.props.snippet.color == color}
+                          onClick={(newColor) => {
+                            this.updateField("color", newColor)
+                          }}
+                        />
+                      )
+                    })
                 }
               </div>
-              <div className="col-3" style={{ display: "flex", flexDirection: "row-reverse" }}>
-                <MinecraftColorWell color={this.props.snippet.color} />
+            </div>
+            <div className="row mb-1">
+              <div className="col">
+                <span style={{ fontWeight: "bold" }}>
+                  Custom Color:
+                </span>
+                <input
+                  type="color"
+                  value={getCSSHEX(this.props.snippet.color)}
+                  onChange={(evt) => {
+                    this.updateField("color", evt.target.value.toUpperCase())
+                  }}
+                />
               </div>
             </div>
             <div className="row mb-2">
               <div className="col">
-                <input
-                  type="color"
-                  value={this.props.snippet.color}
-                  onChange={(evt) => {
-                    this.updateField("color", evt.target.value)
-                  }}
-                />
+                {
+                  this.props.snippet.color != "none" ? (
+                    <button
+                      className="btn btn-secondary"
+                      onClick={() => {
+                        this.updateField("color", "none")
+                      }}
+                    >
+                      Remove Color
+                    </button>
+                  ) : (
+                    <p className="mb-0">
+                      No color is selected, so it will appear
+                      the default color in-game, usually black.
+                    </p>
+                  )
+                }
               </div>
             </div>
           </div>
