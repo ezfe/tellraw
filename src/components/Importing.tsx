@@ -3,7 +3,7 @@ import Button from "./generic/Button";
 import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
 import { CommandType } from "../data/templates";
 import { VERSION } from "../constants";
-import { loadV5State, mapV4Template, loadV4State } from "../helpers/loaders";
+import { loadCurrentVersionState, upgradeV5State } from "../helpers/loaders";
 
 interface ImportingProps {
   setSnippets: (snippets: Array<Snippet>) => void,
@@ -39,23 +39,23 @@ const Importing: React.FunctionComponent<ImportingProps> = (props) => {
       return
     }
 
-    const command = import_data["command"]
-    props.setCommand(command)
-
-    if ("jtemplate" in import_data && import_data["jformat"] === VERSION) {
+    if ("jtemplate" in import_data && import_data["jformat"] >= 5) {
+      const command = import_data["command"]
+      props.setCommand(command)
+  
       const type = import_data["jtemplate"]
       props.setCommandType(type)
     
-      const snippets = loadV5State(import_data["jobject"] as Array<object>)
+      let jobject = import_data["jobject"] as object[]
+
+      if (import_data["jformat"] == 5) {
+        jobject = upgradeV5State(jobject)
+      }
+
+      const snippets = loadCurrentVersionState(jobject)
       props.setSnippets(snippets)
     } else {
-      alert("Warning\n\nYou're importing from an old format. Please re-export after verifying the import went smoothly to save in the newest format.")
-
-      const type = mapV4Template(import_data["jtemplate"])
-      props.setCommandType(type)
-
-      const snippets = loadV4State(import_data["jobject"])
-      props.setSnippets(snippets)
+      alert("Your export data is incorrectly formatted, and cannot be imported.")
     }
 
     props.stopImporting()

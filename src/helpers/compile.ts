@@ -47,7 +47,7 @@ export function object_compile(sections: Array<Array<Snippet>>, type: CommandTyp
       if (snippet.underlined) pending["underlined"] = true
       if (snippet.strikethrough) pending["strikethrough"] = true
       if (snippet.obfuscated) pending["obfuscated"] = true
-      if (snippet.color != Color.none) pending["color"] = Color[snippet.color]
+      if (snippet.color != "none") pending["color"] = snippet.color
       if (v116Flag && snippet.font) pending["font"] = snippet.font
 
       if (snippet.insertion.length > 0) {

@@ -6,7 +6,7 @@ interface MinecraftColorWellProps {
 }
 
 export function MinecraftColorWell(props: MinecraftColorWellProps) {
-  if (props.color == Color.none) {
+  if (props.color == "none") {
     return (
       <div style={{
         width: 'calc(1.5em + 0.75rem + 2px)',
@@ -27,3 +27,20 @@ export function MinecraftColorWell(props: MinecraftColorWellProps) {
     )
   }
 }
+
+interface ColorPickerProps {
+  currentColor: Color
+  checked: boolean
+  onChange: (newValue: boolean) => void
+  label: string
+}
+
+// export const ColorPicker: React.FunctionComponent<ColorPickerProps> = (props) => {  
+  
+//   return (
+//     <div className="custom-control custom-checkbox">
+//       <input checked={props.checked} onChange={event => props.onChange(event.target.checked)} type="checkbox" className="custom-control-input" id={randomUUID} />
+//       <label className="custom-control-label" htmlFor={randomUUID}>{ props.label }</label>
+//     </div>  
+//   )
+// }

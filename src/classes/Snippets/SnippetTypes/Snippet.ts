@@ -20,7 +20,7 @@ export abstract class Snippet {
   
     font: string = null
 
-    color: Color = Color.none
+    color: Color = "none"
   
     insertion: string = ""
 

@@ -271,14 +271,14 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
           <div className="col-4">
             <div className="row mb-2">
               <div className="col">
-                <select className="custom-select" onChange={this.changeColor} value={this.props.snippet.color}>
+                {/* <select className="custom-select" onChange={this.changeColor} value={this.props.snippet.color}>
                   {
                     Object.keys(Color).filter(key => !isNaN(Number(Color[key])))
                       .map(key => {
                         return <option key={Color[key]} value={Color[key]}>{key.split('_').map((s) => s.charAt(0).toUpperCase() + s.substring(1)).join(' ')}</option>
                       })
                   }
-                </select>
+                </select> */}
               </div>
               <div className="col-3" style={{ display: "flex", flexDirection: "row-reverse" }}>
                 <MinecraftColorWell color={this.props.snippet.color} />
