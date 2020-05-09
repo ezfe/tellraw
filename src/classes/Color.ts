@@ -41,7 +41,6 @@ export const minecraftColorSet = {
 }
 
 export function getCSSHEX(color: Color): string {
-  console.log(`Converting ${color} to hexadecimal`)
   if (color in minecraftColorSet) {
     return minecraftColorSet[color]
   } else {
