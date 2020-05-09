@@ -296,20 +296,24 @@ export class SnippetDetailController extends React.Component<SnippetDetailContro
                 }
               </div>
             </div>
-            <div className="row mb-1">
-              <div className="col">
-                <span style={{ fontWeight: "bold" }}>
-                  Custom Color:
-                </span>
-                <input
-                  type="color"
-                  value={getCSSHEX(this.props.snippet.color)}
-                  onChange={(evt) => {
-                    this.updateField("color", evt.target.value.toUpperCase())
-                  }}
-                />
-              </div>
-            </div>
+            {
+              this.props.v116Flag ? (
+                <div className="row mb-1">
+                  <div className="col">
+                    <span style={{ fontWeight: "bold" }}>
+                      Custom Color:
+                    </span>
+                    <input
+                      type="color"
+                      value={getCSSHEX(this.props.snippet.color)}
+                      onChange={(evt) => {
+                        this.updateField("color", evt.target.value.toUpperCase())
+                      }}
+                    />
+                  </div>
+                </div>
+              ) : null
+            }
             <div className="row mb-2">
               <div className="col">
                 {
