@@ -62,6 +62,7 @@ library.add(
 legacyStatePreparation()
 
 if (localStorage.getItem(LSKEY_V116) === "true" && defaultVersion == "1.15") {
+  localStorage.removeItem(LSKEY_V116)
   localStorage.setItem(LSKEY_VERSION, "1.16")
 }
 

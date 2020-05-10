@@ -28,7 +28,7 @@ export const NBTSnippetController: React.FunctionComponent<NBTSnippetControllerP
         <div className="col">
           <select className="custom-select" value={props.snippet.type} onChange={changeNBTType}>
             {
-              versionAtLeast(props.version, "1.15") ? (
+              versionAtLeast(props.version, "1.15") || props.snippet.type == NBTType.storage ? (
                 <option key={NBTType.storage} value={NBTType.storage}>Storage</option>
               ) : null
             }

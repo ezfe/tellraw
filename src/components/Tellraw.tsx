@@ -27,6 +27,7 @@ const Tellraw: React.FunctionComponent<{}> = () => {
   const compiled = compile(snippets, command, commandType, version)
 
   function changeVersion(event: any) {
+    console.log(event.target.value)
     setVersion(event.target.value)
   }
 
@@ -208,6 +209,7 @@ const Tellraw: React.FunctionComponent<{}> = () => {
           <div className="form-group">
             <label htmlFor="versionSelect">Minecraft Version Compatibility:</label>
             <select className="custom-select" value={version} onChange={changeVersion} id="versionSelect">
+              <option key="1.13" value="1.13">1.13</option>
               <option key="1.14" value="1.14">1.14</option>
               <option key="1.15" value="1.15">1.15 (Current Version)</option>
               <option key="1.16" value="1.16">1.16 (Snapshot Version)</option>

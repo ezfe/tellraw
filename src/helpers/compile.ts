@@ -34,6 +34,16 @@ export function object_compile(sections: Array<Array<Snippet>>, type: CommandTyp
           pending["score"]["value"] = snippet.score_value
         }
       } else if (snippet instanceof NBTSnippet) {
+        if (!versionAtLeast(version, "1.14")) {
+          console.warn(`Skipping NBT component, since ${version} doesn't qualify.`)
+          continue
+        }
+        
+        if (snippet.type == NBTType.storage && !versionAtLeast(version, "1.15")) {
+          console.warn(`Skipping NBT storage component, since ${version} doesn't qualify.`)
+          continue
+        }
+
         pending["nbt"] = snippet.nbt
         // this works because of how enums
         // work in TypeScript
@@ -49,7 +59,14 @@ export function object_compile(sections: Array<Array<Snippet>>, type: CommandTyp
       if (snippet.strikethrough) pending["strikethrough"] = true
       if (snippet.obfuscated) pending["obfuscated"] = true
       if (snippet.color != "none") pending["color"] = snippet.color
-      if (versionAtLeast(version, "1.16") && snippet.font) pending["font"] = snippet.font
+      
+      if (snippet.font) {
+        if (versionAtLeast(version, "1.16")) {
+          pending["font"] = snippet.font
+        } else {
+          console.warn(`Skipping font attribute, since ${version} doesn't qualify.`)
+        }
+      }
 
       if (snippet.insertion.length > 0) {
         pending["insertion"] = snippet.insertion
