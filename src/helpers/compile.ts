@@ -10,8 +10,9 @@ import { PagebreakSnippet } from "../classes/Snippets/SnippetTypes/PagebreakSnip
 import { CommandType, isFeatureAvailable, FeatureType } from "../data/templates";
 import { LinebreakSnippet } from "../classes/Snippets/SnippetTypes/LinebreakSnippet";
 import { NBTSnippet, NBTType } from "../classes/Snippets/SnippetTypes/NBTSnippet";
+import { Version, versionAtLeast } from "./versions";
 
-export function object_compile(sections: Array<Array<Snippet>>, type: CommandType, v116Flag: boolean): any {
+export function object_compile(sections: Array<Array<Snippet>>, type: CommandType, version: Version): any {
   let results = Array<Array<Object>>()
   for (const section_snippets of sections) {
     let section_results = Array<Object>()
@@ -48,7 +49,7 @@ export function object_compile(sections: Array<Array<Snippet>>, type: CommandTyp
       if (snippet.strikethrough) pending["strikethrough"] = true
       if (snippet.obfuscated) pending["obfuscated"] = true
       if (snippet.color != "none") pending["color"] = snippet.color
-      if (v116Flag && snippet.font) pending["font"] = snippet.font
+      if (versionAtLeast(version, "1.16") && snippet.font) pending["font"] = snippet.font
 
       if (snippet.insertion.length > 0) {
         pending["insertion"] = snippet.insertion
@@ -62,10 +63,17 @@ export function object_compile(sections: Array<Array<Snippet>>, type: CommandTyp
       }
 
       if (snippet.hover_event_type == HoverEventType.show_text) {
-        const recursive_result = object_compile([snippet.hover_event_children], CommandType.hovertext, v116Flag)
-        pending["hoverEvent"] = {
-          "action": HoverEventType[snippet.hover_event_type],
-          "value": recursive_result
+        const recursive_result = object_compile([snippet.hover_event_children], CommandType.hovertext, version)
+        if (versionAtLeast(version, "1.16")) {
+          pending["hoverEvent"] = {
+            "action": HoverEventType[snippet.hover_event_type],
+            "contents": recursive_result
+          }
+        } else {
+          pending["hoverEvent"] = {
+            "action": HoverEventType[snippet.hover_event_type],
+            "value": recursive_result
+          }
         }
       } else if (snippet.hover_event_type != HoverEventType.none) {
         pending["hoverEvent"] = {
@@ -114,7 +122,7 @@ export function object_compile(sections: Array<Array<Snippet>>, type: CommandTyp
   }
 }
 
-export function compile(snippets: Array<Snippet>, command: string, type: CommandType, v116Flag: boolean): string {
+export function compile(snippets: Array<Snippet>, command: string, type: CommandType, version: Version): string {
   const section_list = Array<Array<Snippet>>()
   let unprocessed = [...snippets]
 
@@ -137,7 +145,7 @@ export function compile(snippets: Array<Snippet>, command: string, type: Command
     section_list.push(unprocessed.filter(e => { return !(e instanceof PagebreakSnippet) }))
   }
 
-  const results = object_compile(section_list, type, v116Flag)
+  const results = object_compile(section_list, type, version)
 
   if (!command) {
     console.error("Command isn't available", command)

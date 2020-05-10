@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as React from "react";
-import { LSKEY_COMMAND_STRING, LSKEY_COMMAND_TYPE, LSKEY_SNIPPET_ARR, LSKEY_V116 } from "../constants";
+import { LSKEY_COMMAND_STRING, LSKEY_COMMAND_TYPE, LSKEY_SNIPPET_ARR, LSKEY_VERSION } from "../constants";
 import { CommandType, template_lookup } from "../data/templates";
 import { compile } from "../helpers/compile";
 import { export_snippets } from "../helpers/export";
@@ -11,6 +11,7 @@ import Button from "./generic/Button";
 import Importing from "./Importing";
 import Preview from "./Preview";
 import SnippetCollection from "./SnippetCollection";
+import { defaultVersion } from "../helpers/versions";
 
 const Tellraw: React.FunctionComponent<{}> = () => {  
   let [snippets, setSnippets] = useLSSnippets(LSKEY_SNIPPET_ARR, [])
@@ -21,9 +22,9 @@ const Tellraw: React.FunctionComponent<{}> = () => {
 
   let [importing, setImporting] = React.useState(false)
 
-  let [v116Flag, setv116Flag] = useLocalStorage(LSKEY_V116, false);
+  let [version, setVersion] = useLocalStorage(LSKEY_VERSION, defaultVersion);
 
-  const compiled = compile(snippets, command, commandType, v116Flag)
+  const compiled = compile(snippets, command, commandType, version)
 
   function updateCustomCommand(event: any) {
     setCommand(event.target.value)
@@ -139,7 +140,7 @@ const Tellraw: React.FunctionComponent<{}> = () => {
                             setCommand(template_lookup(CommandType.tellraw)[0])
                             setCommandType(CommandType.tellraw)
                           }}
-                          v116Flag={v116Flag} />
+                          version={version} />
       
       <br />
       <br />
@@ -200,7 +201,14 @@ const Tellraw: React.FunctionComponent<{}> = () => {
           <span style={{ fontWeight: "bold" }}>Settings</span>
         </div>
         <div className="col">
-          <Checkbox label="Show Minecraft 1.16 Features" checked={v116Flag} onChange={setv116Flag} />
+          <Checkbox label="Use Minecraft 1.16 Features" checked={version == "1.16"} onChange={(checked) => {
+              if (checked) {
+                setVersion("1.16")
+              } else {
+                setVersion("1.15")
+              }
+            }}
+          />
         </div>
       </div>
 

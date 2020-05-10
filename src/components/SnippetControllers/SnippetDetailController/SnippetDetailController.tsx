@@ -1,4 +1,5 @@
 import * as React from "react";
+import { getCSSHEX, minecraftColorSet } from "../../../classes/Color";
 import { ClickEventType } from "../../../classes/Snippets/ClickEvent";
 import { HoverEventType } from "../../../classes/Snippets/HoverEvent";
 import { KeybindSnippet } from "../../../classes/Snippets/SnippetTypes/KeybindSnippet";
@@ -10,19 +11,19 @@ import { TextSnippet } from "../../../classes/Snippets/SnippetTypes/TextSnippet"
 import { CommandType, FeatureType, isFeatureAvailable } from "../../../data/templates";
 import { duplicate_snippet } from "../../../helpers/copy_snippet";
 import { formatSnippet } from "../../../helpers/formatter";
+import { Version, versionAtLeast } from "../../../helpers/versions";
 import { Checkbox } from "../../Forms/Checkbox";
-import { MinecraftColorWell, MinecraftColorButton } from "../../MinecraftColorWell";
+import { MinecraftColorButton } from "../../MinecraftColorWell";
 import SnippetCollection from "../../SnippetCollection";
 import { GenericSnippetController } from "../GenericSnippetController";
 import { NBTSnippetController } from "../NBTSnippetController";
-import { minecraftColorSet, getCSSHEX } from "../../../classes/Color";
 
 export interface SnippetDetailControllerProps {
   commandType: CommandType
   snippet: Snippet
   updateSnippet: (snippet: Snippet) => void
   stopEditing: (save: boolean) => void
-  v116Flag: boolean
+  version: Version
 }
 
 export const SnippetDetailController: React.FunctionComponent<SnippetDetailControllerProps> = (props) => {  
@@ -177,7 +178,7 @@ export const SnippetDetailController: React.FunctionComponent<SnippetDetailContr
                                  deleteAll={() => {
                                    changeHoverEventChildren([])
                                  }}
-                                 v116Flag={props.v116Flag}
+                                 version={props.version}
                                  />
             </div>
           </div>
@@ -258,7 +259,7 @@ export const SnippetDetailController: React.FunctionComponent<SnippetDetailContr
             </div>
           </div>
           {
-            props.v116Flag ? (
+            versionAtLeast(props.version, "1.16") ? (
               <div className="row mb-1">
                 <div className="col">
                   <span style={{ fontWeight: "bold" }}>
@@ -305,7 +306,7 @@ export const SnippetDetailController: React.FunctionComponent<SnippetDetailContr
           <Checkbox label="Obfuscated" checked={props.snippet.obfuscated} onChange={newValue => updateField("obfuscated", newValue)} />
         </div>
         {
-          props.v116Flag ? (
+          versionAtLeast(props.version, "1.16") ? (
             <div className="col-4">
               <div className="row">
                 <div className="col">

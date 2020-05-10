@@ -17,13 +17,14 @@ import { useLocalStorage } from "../helpers/useLocalStorage";
 import { DragDropContext, Droppable, Draggable, DroppableProvided, DroppableStateSnapshot, DropResult } from 'react-beautiful-dnd';
 import Button from "./generic/Button";
 import { NBTSnippet } from "../classes/Snippets/SnippetTypes/NBTSnippet";
+import { Version } from "../helpers/versions";
 
 interface SnippetCollectionProps {
   commandType: CommandType
   snippets: Array<Snippet>
   updateSnippets: (snippets: Array<Snippet>) => void
   deleteAll: () => void
-  v116Flag: boolean
+  version: Version
 }
 
 const SnippetCollection: React.FunctionComponent<SnippetCollectionProps> = (props) => {
@@ -143,7 +144,7 @@ const SnippetCollection: React.FunctionComponent<SnippetCollectionProps> = (prop
         snippet={editing}
         updateSnippet={updateEditing}
         stopEditing={stopEditing}
-        v116Flag={props.v116Flag}
+        version={props.version}
       />
     )
   }
