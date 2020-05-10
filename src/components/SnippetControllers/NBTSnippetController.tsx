@@ -27,11 +27,14 @@ export const NBTSnippetController: React.FunctionComponent<NBTSnippetControllerP
       <div className="row mb-2">
         <div className="col">
           <select className="custom-select" value={props.snippet.type} onChange={changeNBTType}>
-            {
-              versionAtLeast(props.version, "1.15") || props.snippet.type == NBTType.storage ? (
-                <option key={NBTType.storage} value={NBTType.storage}>Storage</option>
-              ) : null
-            }
+            <option key={NBTType.storage} value={NBTType.storage} disabled={!versionAtLeast(props.version, "1.15")}>
+              Storage
+              {
+                versionAtLeast(props.version, "1.15") ? null : (
+                  " (Requires 1.15+)"
+                )
+              }
+            </option>
             <option key={NBTType.entity} value={NBTType.entity}>Entity</option>
             <option key={NBTType.block} value={NBTType.block}>Block</option>
           </select>
