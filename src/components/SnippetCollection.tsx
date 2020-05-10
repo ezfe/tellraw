@@ -178,7 +178,8 @@ const SnippetCollection: React.FunctionComponent<SnippetCollectionProps> = (prop
                                                 updateSnippet={updateSnippet}
                                                 startEditingSnippet={startEditing}
                                                 removeSnippet={removeSnippet}
-                                                duplicateSnippet={duplicateSnippet} />
+                                                duplicateSnippet={duplicateSnippet}
+                                                version={props.version} />
                       }}
                     </Draggable>
                   )

@@ -13,6 +13,7 @@ import Button from "../../generic/Button";
 import { MinecraftColorWell } from "../../MinecraftColorWell";
 import { GenericSnippetController } from "../GenericSnippetController";
 import { NBTSnippetController } from "../NBTSnippetController";
+import { Version } from "../../../helpers/versions";
 
 export interface InlineSnippetControllerProps {
   snippet: Snippet
@@ -20,7 +21,7 @@ export interface InlineSnippetControllerProps {
   startEditingSnippet: (Snippet) => void
   removeSnippet: (Snippet) => void
   duplicateSnippet: (Snippet) => void
-
+  version: Version
   provided: DraggableProvided
 }
 
@@ -44,7 +45,7 @@ const InlineSnippetController: React.FunctionComponent<InlineSnippetControllerPr
     } else if (props.snippet instanceof PagebreakSnippet) {
       return <span>Page Break <FontAwesomeIcon icon="file-alt" /></span>
     } else if (props.snippet instanceof NBTSnippet) {
-      return <NBTSnippetController snippet={props.snippet} updateSnippet={props.updateSnippet} />
+      return <NBTSnippetController snippet={props.snippet} updateSnippet={props.updateSnippet} version={props.version}/>
     } else if (
          props.snippet instanceof ScoreboardObjectiveSnippet
       || props.snippet instanceof KeybindSnippet

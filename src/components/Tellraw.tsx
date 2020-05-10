@@ -26,6 +26,10 @@ const Tellraw: React.FunctionComponent<{}> = () => {
 
   const compiled = compile(snippets, command, commandType, version)
 
+  function changeVersion(event: any) {
+    setVersion(event.target.value)
+  }
+
   function updateCustomCommand(event: any) {
     setCommand(event.target.value)
   }
@@ -200,15 +204,15 @@ const Tellraw: React.FunctionComponent<{}> = () => {
         <div className="col-3">
           <span style={{ fontWeight: "bold" }}>Settings</span>
         </div>
-        <div className="col">
-          <Checkbox label="Use Minecraft 1.16 Features" checked={version == "1.16"} onChange={(checked) => {
-              if (checked) {
-                setVersion("1.16")
-              } else {
-                setVersion("1.15")
-              }
-            }}
-          />
+        <div className="col-3">
+          <div className="form-group">
+            <label htmlFor="versionSelect">Minecraft Version Compatibility:</label>
+            <select className="custom-select" value={version} onChange={changeVersion} id="versionSelect">
+              <option key="1.14" value="1.14">1.14</option>
+              <option key="1.15" value="1.15">1.15 (Current Version)</option>
+              <option key="1.16" value="1.16">1.16 (Snapshot Version)</option>
+            </select>
+          </div>
         </div>
       </div>
 

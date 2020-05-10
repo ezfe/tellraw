@@ -79,7 +79,7 @@ export const SnippetDetailController: React.FunctionComponent<SnippetDetailContr
 
   function customAreaRender() {
     if (props.snippet instanceof NBTSnippet) {
-      return <NBTSnippetController snippet={props.snippet} updateSnippet={props.updateSnippet} />
+      return <NBTSnippetController snippet={props.snippet} updateSnippet={props.updateSnippet} version={props.version} />
     } else if (
          props.snippet instanceof ScoreboardObjectiveSnippet
       || props.snippet instanceof SelectorSnippet

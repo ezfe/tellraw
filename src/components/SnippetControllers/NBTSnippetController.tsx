@@ -1,9 +1,11 @@
 import * as React from "react";
 import { NBTSnippet, NBTType } from "../../classes/Snippets/SnippetTypes/NBTSnippet";
+import { versionAtLeast, Version } from "../../helpers/versions";
 
 export interface NBTSnippetControllerProps {
   snippet: NBTSnippet
   updateSnippet: (Snippet) => void
+  version: Version
 }
 
 export const NBTSnippetController: React.FunctionComponent<NBTSnippetControllerProps> = (props) => {
@@ -24,8 +26,12 @@ export const NBTSnippetController: React.FunctionComponent<NBTSnippetControllerP
     <>
       <div className="row mb-2">
         <div className="col">
-          <select className="form-control" value={props.snippet.type} onChange={changeNBTType}>
-            <option key={NBTType.storage} value={NBTType.storage}>Storage</option>
+          <select className="custom-select" value={props.snippet.type} onChange={changeNBTType}>
+            {
+              versionAtLeast(props.version, "1.15") ? (
+                <option key={NBTType.storage} value={NBTType.storage}>Storage</option>
+              ) : null
+            }
             <option key={NBTType.entity} value={NBTType.entity}>Entity</option>
             <option key={NBTType.block} value={NBTType.block}>Block</option>
           </select>
