@@ -1,10 +1,12 @@
 import * as React from "react";
 import { NBTSnippet, NBTType } from "../../classes/Snippets/SnippetTypes/NBTSnippet";
-import { versionAtLeast, Version } from "../../helpers/versions";
+import { CommandType, FeatureType, isFeatureAvailable } from "../../data/templates";
+import { Version } from "../../helpers/versions";
 
 export interface NBTSnippetControllerProps {
   snippet: NBTSnippet
   updateSnippet: (Snippet) => void
+  commandType: CommandType
   version: Version
 }
 
@@ -22,15 +24,25 @@ export const NBTSnippetController: React.FunctionComponent<NBTSnippetControllerP
     props.updateSnippet(newSnippet)
   }
 
+  if (!isFeatureAvailable(props.commandType, props.version, FeatureType.nbtComponent)) {
+    return (
+      <div className="row">
+        <div className="col">
+          <p>NBT Components require Minecraft 1.14+</p>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <>
       <div className="row mb-2">
         <div className="col">
           <select className="custom-select" value={props.snippet.type} onChange={changeNBTType}>
-            <option key={NBTType.storage} value={NBTType.storage} disabled={!versionAtLeast(props.version, "1.15")}>
+            <option key={NBTType.storage} value={NBTType.storage} disabled={!isFeatureAvailable(props.commandType, props.version, FeatureType.nbtStorageComponent)}>
               Storage
               {
-                versionAtLeast(props.version, "1.15") ? null : (
+                isFeatureAvailable(props.commandType, props.version, FeatureType.nbtStorageComponent) ? null : (
                   " (Requires 1.15+)"
                 )
               }

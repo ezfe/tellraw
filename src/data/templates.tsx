@@ -1,3 +1,5 @@
+import { Version, versionAtLeast } from "../helpers/versions"
+
 export enum CommandType {
     tellraw = "tellraw",
     overlay = "overlay",
@@ -12,7 +14,10 @@ export enum FeatureType {
     insertion,
     pages,
     bookPreview,
-    font
+    font,
+    customColor,
+    nbtComponent,
+    nbtStorageComponent,
 }
 
 /**
@@ -25,11 +30,13 @@ export enum FeatureType {
  * @param commandType The command type
  * @param feature  The feature being queried
  */
-export function isFeatureAvailable(commandType: CommandType, feature: FeatureType): boolean {
+export function isFeatureAvailable(commandType: CommandType, version: Version, feature: FeatureType): boolean {
+    console.log(`Checking feature: ${FeatureType[feature]} for version ${version}, command type ${commandType}`)
+    console.log(FeatureType.nbtComponent, feature, feature == FeatureType.nbtComponent)
     if (feature == FeatureType.clicking ||
         feature == FeatureType.hovering ||
         feature == FeatureType.insertion) {
-          
+
         // Clicking, hovering, and inserting are all the same
         // They are supported by tellraw and books
         // but nothing else
@@ -40,9 +47,15 @@ export function isFeatureAvailable(commandType: CommandType, feature: FeatureTyp
             return false
         }
     } else if (feature == FeatureType.pages ||
-               feature === FeatureType.bookPreview) {
+               feature == FeatureType.bookPreview) {
         // Pages & book previews are supported by books only
         return commandType == CommandType.book
+    } else if (feature == FeatureType.font || feature == FeatureType.customColor) {
+        return versionAtLeast(version, "1.16")
+    } else if (feature == FeatureType.nbtComponent) {
+        return versionAtLeast(version, "1.14")
+    } else if (feature == FeatureType.nbtStorageComponent) {
+        return versionAtLeast(version, "1.15")
     } else {
         return true
     }

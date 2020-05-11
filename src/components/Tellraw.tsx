@@ -165,7 +165,7 @@ const Tellraw: React.FunctionComponent<{}> = () => {
         </div>
       </div>
 
-      <Preview snippets={snippets} commandType={commandType} />
+      <Preview snippets={snippets} commandType={commandType} version={version} />
 
       <hr />
 

@@ -11,7 +11,7 @@ import { TextSnippet } from "../../../classes/Snippets/SnippetTypes/TextSnippet"
 import { CommandType, FeatureType, isFeatureAvailable } from "../../../data/templates";
 import { duplicate_snippet } from "../../../helpers/copy_snippet";
 import { formatSnippet } from "../../../helpers/formatter";
-import { Version, versionAtLeast } from "../../../helpers/versions";
+import { Version } from "../../../helpers/versions";
 import { Checkbox } from "../../Forms/Checkbox";
 import { MinecraftColorButton } from "../../MinecraftColorWell";
 import SnippetCollection from "../../SnippetCollection";
@@ -79,7 +79,7 @@ export const SnippetDetailController: React.FunctionComponent<SnippetDetailContr
 
   function customAreaRender() {
     if (props.snippet instanceof NBTSnippet) {
-      return <NBTSnippetController snippet={props.snippet} updateSnippet={props.updateSnippet} version={props.version} />
+      return <NBTSnippetController snippet={props.snippet} updateSnippet={props.updateSnippet} commandType={props.commandType} version={props.version} />
     } else if (
          props.snippet instanceof ScoreboardObjectiveSnippet
       || props.snippet instanceof SelectorSnippet
@@ -93,7 +93,7 @@ export const SnippetDetailController: React.FunctionComponent<SnippetDetailContr
   }
 
   function clickEventRenderer() {
-    if (!isFeatureAvailable(props.commandType, FeatureType.clicking)) {
+    if (!isFeatureAvailable(props.commandType, props.version, FeatureType.clicking)) {
       return null
     }
 
@@ -138,7 +138,7 @@ export const SnippetDetailController: React.FunctionComponent<SnippetDetailContr
   }
 
   function hoverEventRenderer() {
-    if (!isFeatureAvailable(props.commandType, FeatureType.hovering)) {
+    if (!isFeatureAvailable(props.commandType, props.version, FeatureType.hovering)) {
       return null
     }
 
@@ -194,7 +194,7 @@ export const SnippetDetailController: React.FunctionComponent<SnippetDetailContr
   }
 
   function insertionRenderer() {
-    if (!isFeatureAvailable(props.commandType, FeatureType.insertion)) {
+    if (!isFeatureAvailable(props.commandType, props.version, FeatureType.insertion)) {
       return null
     }
 
@@ -259,7 +259,7 @@ export const SnippetDetailController: React.FunctionComponent<SnippetDetailContr
             </div>
           </div>
           {
-            versionAtLeast(props.version, "1.16") ? (
+            isFeatureAvailable(props.commandType, props.version, FeatureType.customColor) ? (
               <div className="row mb-1">
                 <div className="col">
                   <span style={{ fontWeight: "bold" }}>
@@ -306,7 +306,7 @@ export const SnippetDetailController: React.FunctionComponent<SnippetDetailContr
           <Checkbox label="Obfuscated" checked={props.snippet.obfuscated} onChange={newValue => updateField("obfuscated", newValue)} />
         </div>
         {
-          versionAtLeast(props.version, "1.16") ? (
+          isFeatureAvailable(props.commandType, props.version, FeatureType.font) ? (
             <div className="col-4">
               <div className="row">
                 <div className="col">

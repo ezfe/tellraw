@@ -5,10 +5,12 @@ import { formatSnippets } from '../helpers/formatter';
 import Button from './generic/Button';
 import { PagebreakSnippet } from '../classes/Snippets/SnippetTypes/PagebreakSnippet';
 import { useLocalStorage } from '../helpers/useLocalStorage';
+import { Version } from '../helpers/versions';
 
 interface PreviewProps {
   commandType: CommandType
   snippets: Array<Snippet>
+  version: Version
 }
 
 interface SubPreviewProps {
@@ -59,8 +61,8 @@ const RegularPreview: React.FunctionComponent<SubPreviewProps> = ({ snippets }) 
   )
 }
 
-const Preview: React.FunctionComponent<PreviewProps> = ({ commandType, snippets }) => {
-  const isBookPreview = isFeatureAvailable(commandType, FeatureType.bookPreview)  
+const Preview: React.FunctionComponent<PreviewProps> = ({ commandType, snippets, version }) => {
+  const isBookPreview = isFeatureAvailable(commandType, version, FeatureType.bookPreview)  
   const bookPreviewClass = isBookPreview  ? "d-flex align-items-center justify-content-center" : ""
 
   let [bookPreviewDisclaimerShown, setBookPreviewDisclaimerShown] = useLocalStorage("20190927-book-preview-disclaimer", false)

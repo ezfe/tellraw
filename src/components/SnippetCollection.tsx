@@ -1,7 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as React from "react";
+import { DragDropContext, Draggable, Droppable, DropResult } from 'react-beautiful-dnd';
 import { KeybindSnippet } from "../classes/Snippets/SnippetTypes/KeybindSnippet";
 import { LinebreakSnippet } from "../classes/Snippets/SnippetTypes/LinebreakSnippet";
+import { NBTSnippet } from "../classes/Snippets/SnippetTypes/NBTSnippet";
 import { PagebreakSnippet } from "../classes/Snippets/SnippetTypes/PagebreakSnippet";
 import { ScoreboardObjectiveSnippet } from "../classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet";
 import { SelectorSnippet } from "../classes/Snippets/SnippetTypes/SelectorSnippet";
@@ -9,15 +11,13 @@ import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
 import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
 import { CommandType, FeatureType, isFeatureAvailable } from "../data/templates";
 import { duplicate_snippet } from "../helpers/copy_snippet";
+import { useKeyPress } from "../helpers/useKeyPress";
+import { useLocalStorage } from "../helpers/useLocalStorage";
+import { Version } from "../helpers/versions";
+import Button from "./generic/Button";
 import InlineSnippetController from "./SnippetControllers/InlineSnippetController/InlineSnippetController";
 import { SnippetDetailController } from "./SnippetControllers/SnippetDetailController/SnippetDetailController";
 import uuid = require("uuid");
-import { useKeyPress } from "../helpers/useKeyPress";
-import { useLocalStorage } from "../helpers/useLocalStorage";
-import { DragDropContext, Droppable, Draggable, DroppableProvided, DroppableStateSnapshot, DropResult } from 'react-beautiful-dnd';
-import Button from "./generic/Button";
-import { NBTSnippet } from "../classes/Snippets/SnippetTypes/NBTSnippet";
-import { Version, versionAtLeast } from "../helpers/versions";
 
 interface SnippetCollectionProps {
   commandType: CommandType
@@ -179,7 +179,8 @@ const SnippetCollection: React.FunctionComponent<SnippetCollectionProps> = (prop
                                                 startEditingSnippet={startEditing}
                                                 removeSnippet={removeSnippet}
                                                 duplicateSnippet={duplicateSnippet}
-                                                version={props.version} />
+                                                version={props.version}
+                                                commandtype={props.commandType} />
                       }}
                     </Draggable>
                   )
@@ -224,14 +225,14 @@ const SnippetCollection: React.FunctionComponent<SnippetCollectionProps> = (prop
                 <button className="dropdown-item" onClick={() => { addSnippet(new SelectorSnippet(null)) }}>Selector</button>
                 <button className="dropdown-item" onClick={() => { addSnippet(new ScoreboardObjectiveSnippet(null)) }}>Scoreboard Objective</button>
                 {
-                  versionAtLeast(props.version, "1.14") ? (
+                  isFeatureAvailable(props.commandType, props.version, FeatureType.nbtComponent) ? (
                     <button className="dropdown-item" onClick={() => { addSnippet(new NBTSnippet(null)) }}>NBT Storage</button>
                   ) : null
                 }
                 <button className="dropdown-item" onClick={() => { addSnippet(new KeybindSnippet(null)) }}>Keybind</button>
                 <button className="dropdown-item" onClick={addLineBreak}>Line Break ⏎</button>
                 {
-                  isFeatureAvailable(props.commandType, FeatureType.pages) ? (
+                  isFeatureAvailable(props.commandType, props.version, FeatureType.pages) ? (
                     <button className="dropdown-item" onClick={addPageBreak}>New Page <FontAwesomeIcon icon="file-alt" /></button>
                   ) : null
                 }

@@ -34,13 +34,12 @@ export function object_compile(sections: Array<Array<Snippet>>, type: CommandTyp
           pending["score"]["value"] = snippet.score_value
         }
       } else if (snippet instanceof NBTSnippet) {
-        if (!versionAtLeast(version, "1.14")) {
-          console.warn(`Skipping NBT component, since ${version} doesn't qualify.`)
+        if (!isFeatureAvailable(type, version, FeatureType.nbtComponent)) {
           continue
         }
         
-        if (snippet.type == NBTType.storage && !versionAtLeast(version, "1.15")) {
-          console.warn(`Skipping NBT storage component, since ${version} doesn't qualify.`)
+        if (snippet.type == NBTType.storage
+          && !isFeatureAvailable(type, version, FeatureType.nbtStorageComponent)) {
           continue
         }
 
@@ -61,7 +60,7 @@ export function object_compile(sections: Array<Array<Snippet>>, type: CommandTyp
       if (snippet.color != "none") pending["color"] = snippet.color
       
       if (snippet.font) {
-        if (versionAtLeast(version, "1.16")) {
+        if (isFeatureAvailable(type, version, FeatureType.font)) {
           pending["font"] = snippet.font
         } else {
           console.warn(`Skipping font attribute, since ${version} doesn't qualify.`)
@@ -143,7 +142,7 @@ export function compile(snippets: Array<Snippet>, command: string, type: Command
   const section_list = Array<Array<Snippet>>()
   let unprocessed = [...snippets]
 
-  if (isFeatureAvailable(type, FeatureType.pages) || type == CommandType.sign) {
+  if (isFeatureAvailable(type, version, FeatureType.pages) || type == CommandType.sign) {
     while (unprocessed.length > 0) {
       const applyLinebreaks = (type == CommandType.sign)
 
