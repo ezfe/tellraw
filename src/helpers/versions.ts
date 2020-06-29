@@ -1,6 +1,6 @@
 export type Version = "1.16" | "1.15" | "1.14" | "1.13"
 
-export const releaseVersion: Version = "1.15"
+export const releaseVersion: Version = "1.16"
 export const snapshotVersion: Version = "1.16"
 
 export const defaultVersion: Version = releaseVersion

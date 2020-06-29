@@ -211,8 +211,8 @@ const Tellraw: React.FunctionComponent<{}> = () => {
             <select className="custom-select" value={version} onChange={changeVersion} id="versionSelect">
               <option key="1.13" value="1.13">1.13</option>
               <option key="1.14" value="1.14">1.14</option>
-              <option key="1.15" value="1.15">1.15 (Current Version)</option>
-              <option key="1.16" value="1.16">1.16 (Snapshot Version)</option>
+              <option key="1.15" value="1.15">1.15</option>
+              <option key="1.16" value="1.16">1.16 (Current Version)</option>
             </select>
           </div>
         </div>

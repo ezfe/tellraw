@@ -1,22 +1,22 @@
 import * as React from "react";
-import { getCSSHEX, minecraftColorSet } from "../../../classes/Color";
-import { ClickEventType } from "../../../classes/Snippets/ClickEvent";
-import { HoverEventType } from "../../../classes/Snippets/HoverEvent";
-import { KeybindSnippet } from "../../../classes/Snippets/SnippetTypes/KeybindSnippet";
-import { NBTSnippet } from "../../../classes/Snippets/SnippetTypes/NBTSnippet";
-import { ScoreboardObjectiveSnippet } from "../../../classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet";
-import { SelectorSnippet } from "../../../classes/Snippets/SnippetTypes/SelectorSnippet";
-import { Snippet } from "../../../classes/Snippets/SnippetTypes/Snippet";
-import { TextSnippet } from "../../../classes/Snippets/SnippetTypes/TextSnippet";
-import { CommandType, FeatureType, isFeatureAvailable } from "../../../data/templates";
-import { duplicate_snippet } from "../../../helpers/copy_snippet";
-import { formatSnippet } from "../../../helpers/formatter";
-import { Version } from "../../../helpers/versions";
-import { Checkbox } from "../../Forms/Checkbox";
-import { MinecraftColorButton } from "../../MinecraftColorWell";
-import SnippetCollection from "../../SnippetCollection";
-import { GenericSnippetController } from "../GenericSnippetController";
-import { NBTSnippetController } from "../NBTSnippetController";
+import { getCSSHEX, minecraftColorSet } from "../../classes/Color";
+import { ClickEventType } from "../../classes/Snippets/ClickEvent";
+import { HoverEventType } from "../../classes/Snippets/HoverEvent";
+import { KeybindSnippet } from "../../classes/Snippets/SnippetTypes/KeybindSnippet";
+import { NBTSnippet } from "../../classes/Snippets/SnippetTypes/NBTSnippet";
+import { ScoreboardObjectiveSnippet } from "../../classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet";
+import { SelectorSnippet } from "../../classes/Snippets/SnippetTypes/SelectorSnippet";
+import { Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
+import { TextSnippet } from "../../classes/Snippets/SnippetTypes/TextSnippet";
+import { CommandType, FeatureType, isFeatureAvailable } from "../../data/templates";
+import { duplicate_snippet } from "../../helpers/copy_snippet";
+import { formatSnippet } from "../../helpers/formatter";
+import { Version } from "../../helpers/versions";
+import { Checkbox } from "../Forms/Checkbox";
+import { MinecraftColorButton } from "../MinecraftColorWell";
+import SnippetCollection from "../SnippetCollection";
+import { GenericSnippetController } from "./GenericSnippetController";
+import { NBTSnippetController } from "./NBTSnippetController";
 
 export interface SnippetDetailControllerProps {
   commandType: CommandType
@@ -286,7 +286,7 @@ export const SnippetDetailController: React.FunctionComponent<SnippetDetailContr
                       updateField("color", "none")
                     }}
                   >
-                    Remove Color
+                    Unset Color
                   </button>
                 ) : (
                   <p className="mb-0">

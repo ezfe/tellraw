@@ -27,8 +27,6 @@ import * as ReactDOM from "react-dom";
 import Tellraw from "./components/Tellraw";
 import { legacyStatePreparation } from "./helpers/loaders";
 import './styles/styles.scss';
-import { LSKEY_V116, LSKEY_VERSION } from './constants';
-import { defaultVersion } from './helpers/versions';
 
 // Then we add the icons to the library object
 library.add(
@@ -60,11 +58,6 @@ library.add(
 // this includes ALL localStorage key transformations
 // and should happen first
 legacyStatePreparation()
-
-if (localStorage.getItem(LSKEY_V116) === "true" && defaultVersion == "1.15") {
-  localStorage.removeItem(LSKEY_V116)
-  localStorage.setItem(LSKEY_VERSION, "1.16")
-}
 
 // Increment load count
 localStorage.setItem("loadCount", (1 + parseInt(localStorage.getItem("loadCount") || "0")).toString())
