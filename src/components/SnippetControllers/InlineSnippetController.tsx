@@ -1,20 +1,20 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as React from "react";
 import { DraggableProvided } from "react-beautiful-dnd";
-import { KeybindSnippet } from "../../../classes/Snippets/SnippetTypes/KeybindSnippet";
-import { LinebreakSnippet } from "../../../classes/Snippets/SnippetTypes/LinebreakSnippet";
-import { NBTSnippet } from "../../../classes/Snippets/SnippetTypes/NBTSnippet";
-import { PagebreakSnippet } from "../../../classes/Snippets/SnippetTypes/PagebreakSnippet";
-import { ScoreboardObjectiveSnippet } from "../../../classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet";
-import { SelectorSnippet } from "../../../classes/Snippets/SnippetTypes/SelectorSnippet";
-import { Snippet } from "../../../classes/Snippets/SnippetTypes/Snippet";
-import { TextSnippet } from "../../../classes/Snippets/SnippetTypes/TextSnippet";
-import Button from "../../generic/Button";
-import { MinecraftColorWell } from "../../MinecraftColorWell";
-import { GenericSnippetController } from "../GenericSnippetController";
-import { NBTSnippetController } from "../NBTSnippetController";
-import { Version } from "../../../helpers/versions";
-import { CommandType } from "../../../data/templates";
+import { KeybindSnippet } from "../../classes/Snippets/SnippetTypes/KeybindSnippet";
+import { LinebreakSnippet } from "../../classes/Snippets/SnippetTypes/LinebreakSnippet";
+import { NBTSnippet } from "../../classes/Snippets/SnippetTypes/NBTSnippet";
+import { PagebreakSnippet } from "../../classes/Snippets/SnippetTypes/PagebreakSnippet";
+import { ScoreboardObjectiveSnippet } from "../../classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet";
+import { SelectorSnippet } from "../../classes/Snippets/SnippetTypes/SelectorSnippet";
+import { Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
+import { TextSnippet } from "../../classes/Snippets/SnippetTypes/TextSnippet";
+import Button from "../generic/Button";
+import { MinecraftColorWell } from "../MinecraftColorWell";
+import { GenericSnippetController } from "./GenericSnippetController";
+import { NBTSnippetController } from "./NBTSnippetController";
+import { Version } from "../../helpers/versions";
+import { CommandType } from "../../data/templates";
 
 export interface InlineSnippetControllerProps {
   snippet: Snippet

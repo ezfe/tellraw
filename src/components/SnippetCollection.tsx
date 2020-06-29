@@ -15,8 +15,8 @@ import { useKeyPress } from "../helpers/useKeyPress";
 import { useLocalStorage } from "../helpers/useLocalStorage";
 import { Version } from "../helpers/versions";
 import Button from "./generic/Button";
-import InlineSnippetController from "./SnippetControllers/InlineSnippetController/InlineSnippetController";
-import { SnippetDetailController } from "./SnippetControllers/SnippetDetailController/SnippetDetailController";
+import InlineSnippetController from "./SnippetControllers/InlineSnippetController";
+import { SnippetDetailController } from "./SnippetControllers/SnippetDetailController";
 import uuid = require("uuid");
 
 interface SnippetCollectionProps {

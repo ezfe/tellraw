@@ -1,9 +1,8 @@
-import * as React from "react"
-import Button from "./generic/Button";
+import * as React from "react";
 import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
 import { CommandType } from "../data/templates";
-import { VERSION } from "../constants";
 import { loadCurrentVersionState, upgradeV5State } from "../helpers/loaders";
+import Button from "./generic/Button";
 
 interface ImportingProps {
   setSnippets: (snippets: Array<Snippet>) => void,

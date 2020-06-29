@@ -1,17 +1,17 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as React from "react";
-import { LSKEY_COMMAND_STRING, LSKEY_COMMAND_TYPE, LSKEY_SNIPPET_ARR, LSKEY_VERSION } from "../constants";
+import { LSKEY_COMMAND_STRING, LSKEY_COMMAND_TYPE, LSKEY_SNIPPET_ARR, LSKEY_VERSION, LSKEY_CUSTOM_COLORS } from "../constants";
 import { CommandType, template_lookup } from "../data/templates";
 import { compile } from "../helpers/compile";
 import { export_snippets } from "../helpers/export";
 import { useLocalStorage, useLSSnippets } from "../helpers/useLocalStorage";
+import { defaultVersion } from "../helpers/versions";
 import CommandTemplatesController from "./CommandTemplatesController";
-import { Checkbox } from "./Forms/Checkbox";
 import Button from "./generic/Button";
 import Importing from "./Importing";
 import Preview from "./Preview";
 import SnippetCollection from "./SnippetCollection";
-import { defaultVersion } from "../helpers/versions";
+import ColorManager from "./ColorManager";
 
 const Tellraw: React.FunctionComponent<{}> = () => {  
   let [snippets, setSnippets] = useLSSnippets(LSKEY_SNIPPET_ARR, [])
@@ -19,8 +19,10 @@ const Tellraw: React.FunctionComponent<{}> = () => {
   let [command, setCommand] = useLocalStorage(LSKEY_COMMAND_STRING, template_lookup(commandType)[0])
 
   let [exporting, setExporting] = React.useState(false)
-
   let [importing, setImporting] = React.useState(false)
+  
+  let [colorManaging, setColorManaging] = React.useState(false)
+  let [customColors, setCustomColors] = useLocalStorage(LSKEY_CUSTOM_COLORS, [])
 
   let [version, setVersion] = useLocalStorage(LSKEY_VERSION, defaultVersion);
 
@@ -72,6 +74,10 @@ const Tellraw: React.FunctionComponent<{}> = () => {
         </div>
       </div>
     )
+  }
+
+  if (colorManaging) {
+    return <ColorManager customColors={[]} />
   }
 
   return (
