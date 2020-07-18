@@ -12,6 +12,7 @@ import Importing from "./Importing";
 import Preview from "./Preview";
 import SnippetCollection from "./SnippetCollection";
 import ColorManager from "./ColorManager";
+import { Color } from "../classes/Color";
 
 const Tellraw: React.FunctionComponent<{}> = () => {  
   let [snippets, setSnippets] = useLSSnippets(LSKEY_SNIPPET_ARR, [])
@@ -77,7 +78,9 @@ const Tellraw: React.FunctionComponent<{}> = () => {
   }
 
   if (colorManaging) {
-    return <ColorManager customColors={[]} />
+    return <ColorManager customColors={[]}
+                         setCustomColors={(customColors: Color[]) => { setCustomColors(customColors) }}
+                         setColorManaging={(newValue: boolean) => { setColorManaging(newValue) }} />
   }
 
   return (
@@ -142,16 +145,16 @@ const Tellraw: React.FunctionComponent<{}> = () => {
                                   updateCommandType={updateCommandType} />
       
       <SnippetCollection commandType={commandType}
-                          snippets={snippets} 
-                          updateSnippets={(snippets) => {
-                            setSnippets(snippets)
-                          }}
-                          deleteAll={() => {
-                            setSnippets([])
-                            setCommand(template_lookup(CommandType.tellraw)[0])
-                            setCommandType(CommandType.tellraw)
-                          }}
-                          version={version} />
+                         snippets={snippets} 
+                         updateSnippets={(snippets) => {
+                           setSnippets(snippets)
+                         }}
+                         deleteAll={() => {
+                           setSnippets([])
+                           setCommand(template_lookup(CommandType.tellraw)[0])
+                           setCommandType(CommandType.tellraw)
+                         }}
+                         version={version} />
       
       <br />
       <br />
