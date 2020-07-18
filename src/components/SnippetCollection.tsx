@@ -18,6 +18,7 @@ import Button from "./generic/Button";
 import InlineSnippetController from "./SnippetControllers/InlineSnippetController";
 import { SnippetDetailController } from "./SnippetControllers/SnippetDetailController";
 import uuid = require("uuid");
+import { Color } from "../classes/Color";
 
 interface SnippetCollectionProps {
   commandType: CommandType
@@ -25,6 +26,8 @@ interface SnippetCollectionProps {
   updateSnippets: (snippets: Array<Snippet>) => void
   deleteAll: () => void
   version: Version
+  customColors: Color[],
+  setColorManaging: (newValue: Boolean) => void
 }
 
 const SnippetCollection: React.FunctionComponent<SnippetCollectionProps> = (props) => {
@@ -145,6 +148,8 @@ const SnippetCollection: React.FunctionComponent<SnippetCollectionProps> = (prop
         updateSnippet={updateEditing}
         stopEditing={stopEditing}
         version={props.version}
+        customColors={props.customColors}
+        setColorManaging={props.setColorManaging}
       />
     )
   }

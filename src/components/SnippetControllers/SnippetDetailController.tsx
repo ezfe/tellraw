@@ -1,5 +1,5 @@
 import * as React from "react";
-import { getCSSHEX, minecraftColorSet } from "../../classes/Color";
+import { Color, minecraftColorSet, getCSSHEX } from "../../classes/Color";
 import { ClickEventType } from "../../classes/Snippets/ClickEvent";
 import { HoverEventType } from "../../classes/Snippets/HoverEvent";
 import { KeybindSnippet } from "../../classes/Snippets/SnippetTypes/KeybindSnippet";
@@ -23,7 +23,9 @@ export interface SnippetDetailControllerProps {
   snippet: Snippet
   updateSnippet: (snippet: Snippet) => void
   stopEditing: (save: boolean) => void
-  version: Version
+  version: Version,
+  customColors: Color[],
+  setColorManaging: (newValue: Boolean) => void
 }
 
 export const SnippetDetailController: React.FunctionComponent<SnippetDetailControllerProps> = (props) => {  
@@ -57,10 +59,6 @@ export const SnippetDetailController: React.FunctionComponent<SnippetDetailContr
     updateField("font", event.target.value)
   }
 
-  function updateToggle(field: string, event: any) {
-    updateField(field, event.target.checked)
-  }
-
   function updateField(field: string, value: any) {
     let newSnippet = duplicate_snippet(props.snippet)
     newSnippet[field] = value
@@ -75,6 +73,10 @@ export const SnippetDetailController: React.FunctionComponent<SnippetDetailContr
       newSnippet.font = null
     }
     props.updateSnippet(newSnippet)
+  }
+
+  function fullColorSet(): Color[] {
+    return [...Object.keys(minecraftColorSet), ...props.customColors]
   }
 
   function customAreaRender() {
@@ -179,6 +181,8 @@ export const SnippetDetailController: React.FunctionComponent<SnippetDetailContr
                                    changeHoverEventChildren([])
                                  }}
                                  version={props.version}
+                                 customColors={props.customColors}
+                                 setColorManaging={props.setColorManaging}
                                  />
             </div>
           </div>
@@ -241,7 +245,7 @@ export const SnippetDetailController: React.FunctionComponent<SnippetDetailContr
           <div className="row mb-2">
             <div className="col d-flex flex-wrap">
               {
-                Object.keys(minecraftColorSet)
+                Object.keys(fullColorSet)
                   .filter((color) => { return color != "none" })
                   .map((color) => {
                     return (
@@ -274,6 +278,11 @@ export const SnippetDetailController: React.FunctionComponent<SnippetDetailContr
                   />
                 </div>
               </div>
+              // <div className="row mb-1">
+              //   <div className="col">
+              //     <button onClick={() => { props.setColorManaging(true) }}>Color Manager...</button>
+              //   </div>
+              // </div>
             ) : null
           }
           <div className="row mb-2">

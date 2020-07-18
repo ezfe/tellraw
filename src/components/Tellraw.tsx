@@ -154,7 +154,10 @@ const Tellraw: React.FunctionComponent<{}> = () => {
                            setCommand(template_lookup(CommandType.tellraw)[0])
                            setCommandType(CommandType.tellraw)
                          }}
-                         version={version} />
+                         version={version}
+                         customColors={customColors}
+                         setColorManaging={(newValue: boolean) => { setColorManaging(newValue) }}
+                         />
       
       <br />
       <br />
