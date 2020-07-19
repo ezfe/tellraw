@@ -300,7 +300,7 @@ export const SnippetDetailController: React.FunctionComponent<SnippetDetailContr
                 ) : (
                   <p className="mb-0">
                     No color is selected, so it will appear
-                    the default color in-game, usually black.
+                    the default color in-game, usually white or black.
                   </p>
                 )
               }
