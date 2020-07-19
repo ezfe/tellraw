@@ -245,7 +245,7 @@ export const SnippetDetailController: React.FunctionComponent<SnippetDetailContr
           <div className="row mb-2">
             <div className="col d-flex flex-wrap">
               {
-                Object.keys(fullColorSet)
+                fullColorSet()
                   .filter((color) => { return color != "none" })
                   .map((color) => {
                     return (
