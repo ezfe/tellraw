@@ -33,8 +33,15 @@ export enum FeatureType {
 export function isFeatureAvailable(commandType: CommandType, version: Version, feature: FeatureType): boolean {
     console.log(`Checking feature: ${FeatureType[feature]} for version ${version}, command type ${commandType}`)
     console.log(FeatureType.nbtComponent, feature, feature == FeatureType.nbtComponent)
-    if (feature == FeatureType.clicking ||
-        feature == FeatureType.hovering ||
+    if (feature == FeatureType.clicking) {
+        if (commandType == CommandType.tellraw ||
+            commandType == CommandType.book ||
+            commandType == CommandType.sign) {
+            return true
+        } else {
+            return false
+        }
+    } else if (feature == FeatureType.hovering ||
         feature == FeatureType.insertion) {
 
         // Clicking, hovering, and inserting are all the same
@@ -42,12 +49,12 @@ export function isFeatureAvailable(commandType: CommandType, version: Version, f
         // but nothing else
         if (commandType == CommandType.tellraw ||
             commandType == CommandType.book) {
-                return true
+            return true
         } else {
             return false
         }
     } else if (feature == FeatureType.pages ||
-               feature == FeatureType.bookPreview) {
+        feature == FeatureType.bookPreview) {
         // Pages & book previews are supported by books only
         return commandType == CommandType.book
     } else if (feature == FeatureType.font || feature == FeatureType.customColor) {

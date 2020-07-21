@@ -24,7 +24,11 @@ export function object_compile(
   type: CommandType,
   version: Version
 ): any {
-  let results = Array<Array<Object>>();
+  // Depending on whether a sign click
+  // event is used, sections may be single
+  // tellraw snippets instead of normal arrays
+  let results = Array<Object>();
+
   for (const section_snippets of sections) {
     let section_results = Array<Object>();
     section_results.push("");
@@ -89,11 +93,22 @@ export function object_compile(
         pending["insertion"] = snippet.insertion;
       }
 
-      if (snippet.click_event_type != ClickEventType.none) {
-        pending["clickEvent"] = {
-          action: ClickEventType[snippet.click_event_type],
-          value: snippet.click_event_value,
-        };
+      // If the clicking feature is available and
+      // it is not a sign with more than one snippet
+      // in this section, process the click event
+      if (
+        isFeatureAvailable(type, version, FeatureType.clicking) &&
+        !(type == CommandType.sign || section_snippets.length > 1)
+      ) {
+        if (snippet.click_event_type != ClickEventType.none) {
+          pending["clickEvent"] = {
+            action: ClickEventType[snippet.click_event_type],
+            value: snippet.click_event_value,
+          };
+        }
+      } else {
+        console.log('Rejected click event transferral')
+        console.log(type, version, section_snippets.length)
       }
 
       if (isFeatureAvailable(type, version, FeatureType.hovering)) {
@@ -124,7 +139,14 @@ export function object_compile(
 
       section_results.push(pending);
     }
-    results.push(section_results);
+    // If it's a sign, and there are 2 elements
+    // (the first element is always "")
+    // then replace it all with that one blob
+    if (type == CommandType.sign && section_results.length == 2) {
+      results.push(section_results[1]);
+    } else {
+      results.push(section_results);
+    }
   }
 
   if (type == CommandType.book) {
