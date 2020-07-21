@@ -81,23 +81,25 @@ export function object_compile(sections: Array<Array<Snippet>>, type: CommandTyp
         }
       }
 
-      if (snippet.hover_event_type == HoverEventType.show_text) {
-        const recursive_result = object_compile([snippet.hover_event_children], CommandType.hovertext, version)
-        if (versionAtLeast(version, "1.16")) {
+      if (isFeatureAvailable(type, version, FeatureType.hovering)) {
+        if (snippet.hover_event_type == HoverEventType.show_text) {
+          const recursive_result = object_compile([snippet.hover_event_children], CommandType.hovertext, version)
+          if (versionAtLeast(version, "1.16")) {
+            pending["hoverEvent"] = {
+              "action": HoverEventType[snippet.hover_event_type],
+              "contents": recursive_result
+            }
+          } else {
+            pending["hoverEvent"] = {
+              "action": HoverEventType[snippet.hover_event_type],
+              "value": recursive_result
+            }
+          }
+        } else if (snippet.hover_event_type != HoverEventType.none) {
           pending["hoverEvent"] = {
             "action": HoverEventType[snippet.hover_event_type],
-            "contents": recursive_result
+            "value": snippet.hover_event_value
           }
-        } else {
-          pending["hoverEvent"] = {
-            "action": HoverEventType[snippet.hover_event_type],
-            "value": recursive_result
-          }
-        }
-      } else if (snippet.hover_event_type != HoverEventType.none) {
-        pending["hoverEvent"] = {
-          "action": HoverEventType[snippet.hover_event_type],
-          "value": snippet.hover_event_value
         }
       }
 
