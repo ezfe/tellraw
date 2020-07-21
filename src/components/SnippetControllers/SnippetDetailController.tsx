@@ -123,14 +123,31 @@ export const SnippetDetailController: React.FunctionComponent<SnippetDetailContr
           {
             props.snippet.click_event_type !== ClickEventType.none ? (
               <div className="col">
-                <input
-                  list={clickEventTypeIsCommand ? "datalist-commands" : null}
-                  type="text"
-                  className="form-control"
-                  value={props.snippet.click_event_value}
-                  onChange={changeClickEventValue}
-                />
-              </div>  
+                <div className="row">
+                  <div className="col">
+                    <input
+                      list={clickEventTypeIsCommand ? "datalist-commands" : null}
+                      type="text"
+                      className="form-control"
+                      value={props.snippet.click_event_value}
+                      onChange={changeClickEventValue}
+                    />
+                  </div>  
+                </div>
+                {
+                  props.commandType == CommandType.sign ? (
+                    <div className="row mt-2">
+                      <div className="col">
+                        <div className="alert alert-warning" role="alert">
+                          If you have more than one text entry for each line
+                          in the sign, the click event will not be applied.
+                          This is due to Minecraft limitations with signs.
+                        </div>
+                      </div>
+                    </div>
+                  ) : null
+                }
+              </div>
             ) : null
           }
         </div>
@@ -214,6 +231,7 @@ export const SnippetDetailController: React.FunctionComponent<SnippetDetailContr
                    onChange={changeInsertion} />
           </div>
         </div>
+        <hr />
       </>
     )
   }
@@ -344,9 +362,6 @@ export const SnippetDetailController: React.FunctionComponent<SnippetDetailContr
       { insertionRenderer() }
 
       <br />
-
-
-      <hr />
       
       {/* Preview */}
 
