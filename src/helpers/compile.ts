@@ -96,19 +96,16 @@ export function object_compile(
       // If the clicking feature is available and
       // it is not a sign with more than one snippet
       // in this section, process the click event
-      if (
-        isFeatureAvailable(type, version, FeatureType.clicking) &&
-        !(type == CommandType.sign || section_snippets.length > 1)
-      ) {
-        if (snippet.click_event_type != ClickEventType.none) {
+      if (snippet.click_event_type != ClickEventType.none) {
+        if (
+          isFeatureAvailable(type, version, FeatureType.clicking) &&
+          !(type == CommandType.sign && section_snippets.length > 1)
+        ) {
           pending["clickEvent"] = {
             action: ClickEventType[snippet.click_event_type],
             value: snippet.click_event_value,
           };
         }
-      } else {
-        console.log('Rejected click event transferral')
-        console.log(type, version, section_snippets.length)
       }
 
       if (isFeatureAvailable(type, version, FeatureType.hovering)) {

@@ -32,7 +32,6 @@ export enum FeatureType {
  */
 export function isFeatureAvailable(commandType: CommandType, version: Version, feature: FeatureType): boolean {
     console.log(`Checking feature: ${FeatureType[feature]} for version ${version}, command type ${commandType}`)
-    console.log(FeatureType.nbtComponent, feature, feature == FeatureType.nbtComponent)
     if (feature == FeatureType.clicking) {
         if (commandType == CommandType.tellraw ||
             commandType == CommandType.book ||
