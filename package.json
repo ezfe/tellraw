@@ -42,7 +42,6 @@
     "react": "^16.8.6",
     "react-beautiful-dnd": "^11.0.5",
     "react-dom": "^16.8.6",
-    "react-resizable": "^1.8.0",
     "url-loader": "^2.1.0",
     "uuid": "^3.3.2"
   }
