@@ -47,6 +47,9 @@ export function object_compile(sections: Array<Array<Snippet>>, type: CommandTyp
         // this works because of how enums
         // work in TypeScript
         pending[NBTType[snippet.type]] = snippet.storage
+        if (snippet.interpret) {
+          pending["interpret"] = snippet.interpret
+        }
       } else if (snippet instanceof KeybindSnippet) {
         pending["keybind"] = snippet.keybind
       }

@@ -2,6 +2,7 @@ import * as React from "react";
 import { NBTSnippet, NBTType } from "../../classes/Snippets/SnippetTypes/NBTSnippet";
 import { CommandType, FeatureType, isFeatureAvailable } from "../../data/templates";
 import { Version } from "../../helpers/versions";
+import { Checkbox } from "../Forms/Checkbox";
 
 export interface NBTSnippetControllerProps {
   snippet: NBTSnippet
@@ -13,8 +14,12 @@ export interface NBTSnippetControllerProps {
 export const NBTSnippetController: React.FunctionComponent<NBTSnippetControllerProps> = (props) => {
 
   function updateField(field: string, event: any) {
+    updateFieldValue(field, event.target.value)
+  }
+
+  function updateFieldValue(field: string, value: any) {
     let newSnippet = props.snippet.copy()
-    newSnippet[field] = event.target.value
+    newSnippet[field] = value
     props.updateSnippet(newSnippet)
   }
 
@@ -58,6 +63,11 @@ export const NBTSnippetController: React.FunctionComponent<NBTSnippetControllerP
       <div className="row">
         <div className="col">
           <input className="form-control" value={props.snippet.nbt} placeholder="NBT Path" onChange={(evt) => { updateField("nbt", evt) }} />
+        </div>
+      </div>
+      <div className="row">
+        <div className="col">
+          <Checkbox checked={props.snippet.interpret} onChange={(newValue) => { updateFieldValue("interpret", newValue) }} label="Interpret" />
         </div>
       </div>
     </>

@@ -14,6 +14,7 @@ export class NBTSnippet extends Snippet {
   // it's actually going to be compiled to whichever field
   // type specifies
   storage: string = ""
+  interpret: boolean = false
 
   constructor(id: string = null) {
     super(id)
@@ -25,6 +26,7 @@ export class NBTSnippet extends Snippet {
     newValue.nbt = this.nbt
     newValue.storage = this.storage
     newValue.type = this.type
+    newValue.interpret = this.interpret
 
     copy_standard_attributes(this, newValue)
     
