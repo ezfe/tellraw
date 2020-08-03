@@ -136,10 +136,10 @@ export function object_compile(
 
       section_results.push(pending);
     }
-    // If it's a sign, and there are 2 elements
+    // If there are 2 elements
     // (the first element is always "")
     // then replace it all with that one blob
-    if (type == CommandType.sign && section_results.length == 2) {
+    if (section_results.length == 2) {
       results.push(section_results[1]);
     } else {
       results.push(section_results);
