@@ -17,7 +17,7 @@ const ColorManager: React.FunctionComponent<ColorManagerProps> = (props) => {
 
   return (
     <>
-      Custom Colors...
+      Custom colors are coming soon...
     </>
   );
 }
