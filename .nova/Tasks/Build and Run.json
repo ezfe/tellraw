@@ -1,0 +1,17 @@
+{
+  "actions" : {
+    "build" : {
+      "enabled" : true,
+      "script" : "yarn build"
+    },
+    "clean" : {
+      "enabled" : true,
+      "script" : "rm -rf dist"
+    },
+    "run" : {
+      "enabled" : true,
+      "script" : "yarn build\nopen index.html"
+    }
+  },
+  "identifier" : "65AA183D-E7BA-43DA-968A-BEC32933BB81"
+}
