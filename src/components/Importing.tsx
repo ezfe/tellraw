@@ -14,7 +14,7 @@ interface ImportingProps {
 const Importing: React.FunctionComponent<ImportingProps> = (props) => {
   let [importingString, setImportingString] = React.useState("")
 
-  function formSubmit(e): boolean {
+  function formSubmit(e: React.FormEvent<HTMLFormElement>): boolean {
     e.preventDefault()
     e.stopPropagation()
     doImport()
