@@ -21,6 +21,13 @@ export class TextSnippet extends Snippet {
   }
 
   editor_fields(): Array<FieldSpecifier> {
-    return [{field: "text", placeholder: "Text"}]
+    return [
+      {
+        field: "text",
+        placeholder: "Text",
+        datalistID: null,
+        fieldType: "string"
+      }
+    ]
   }
 }

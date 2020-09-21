@@ -20,7 +20,8 @@ export class KeybindSnippet extends Snippet {
     return [{
       field: "keybind",
       placeholder: "Keybind",
-      datalistID: "datalist-keybinds"
+      datalistID: "datalist-keybinds",
+      fieldType: "string"
     }]
   }
 }

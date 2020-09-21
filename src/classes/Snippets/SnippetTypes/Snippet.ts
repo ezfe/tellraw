@@ -3,10 +3,13 @@ import { ClickEventType } from "../ClickEvent";
 import { HoverEventType } from "../HoverEvent";
 import uuid = require("uuid");
 
+export type FieldType = "string" | "string[]"
+
 export interface FieldSpecifier {
     field: string,
-    placeholder: string,
-    datalistID?: string
+    placeholder: string | null,
+    datalistID: string | null
+    fieldType: FieldType
 }
 
 export abstract class Snippet {
