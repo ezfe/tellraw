@@ -6,6 +6,7 @@ import { SelectorSnippet } from "../../classes/Snippets/SnippetTypes/SelectorSni
 import { FieldSpecifier, Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
 import { TextSnippet } from "../../classes/Snippets/SnippetTypes/TextSnippet";
 import { TranslateSnippet } from "../../classes/Snippets/SnippetTypes/TranslateSnippet";
+import Button from "../generic/Button";
 
 export type GenericFieldCompatable = ScoreboardObjectiveSnippet | NBTSnippet | KeybindSnippet | SelectorSnippet | TextSnippet | TranslateSnippet
 
@@ -34,6 +35,12 @@ export const GenericSnippetController: React.FunctionComponent<GenericSnippetCon
     updateSnippet(newSnippet)
   }
 
+  function removeIndex(field: FieldSpecifier, index: number) {
+    let newSnippet = snippet.copy()
+    newSnippet[field.field].splice(index, 1)
+    updateSnippet(newSnippet)
+  }
+
   return (
     <div className="row">
       {
@@ -51,28 +58,45 @@ export const GenericSnippetController: React.FunctionComponent<GenericSnippetCon
               </div>
             )
           } else if (field.fieldType == "string[]") {
+            console.log("Working with field", field)
+            console.log("On snippet...", snippet)
+            let stringList: string[] = snippet[field.field];
+            console.log(stringList);
             return (
               <div className="col-6" key={index}>
                 {
                   snippet[field.field].map((value: string, subIndex: number) => {
-                    <div className="row">
-                      <div className="col">
-                        <input
-                          list={field.datalistID}
-                          className="form-control"
-                          placeholder={`${field.placeholder} #${subIndex + 1}`}
-                          value={value}
-                          onChange={(evt) => { updateField(field, evt, subIndex) }}
-                        />
+                    return (
+                      <div className="row mb-1" key={`${index}-${subIndex}`}>
+                        <div className="col">
+                          <input
+                            list={field.datalistID}
+                            className="form-control"
+                            placeholder={`${field.placeholder} #${subIndex + 1}`}
+                            value={value}
+                            onChange={(evt) => { updateField(field, evt, subIndex) }}
+                          />
+                        </div>
+                        <div className="col-3">
+                          <Button
+                            type="danger"
+                            icon="times-circle"
+                            onClick={() => { removeIndex(field, subIndex) }}
+                          />
+                        </div>
                       </div>
-                    </div>
+                    )
                   })
                 }
                 <div className="row">
-                  <div className="col">
-                    <button onClick={() => { extendArray(field) }}>
-                      Add...
-                    </button>
+                  <div className="col">                   
+                    <Button
+                      type="success"
+                      icon="plus-circle"
+                      onClick={() => { extendArray(field) }}
+                    >
+                      Add Parameter Value
+                    </Button>
                   </div>
                 </div>
               </div>
