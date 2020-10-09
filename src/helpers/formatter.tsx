@@ -10,6 +10,7 @@ import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
 import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
 import { iconForSnippet } from "./snippet_icon";
 import { NBTSnippet } from "../classes/Snippets/SnippetTypes/NBTSnippet";
+import { TranslateSnippet } from "../classes/Snippets/SnippetTypes/TranslateSnippet";
 
 function nthOccurence<T>(array: Array<T>, pattern: (T) => boolean, n: number) {
   let searchFrom = 0
@@ -99,6 +100,8 @@ export function formatSnippet(snippet: Snippet): JSX.Element {
     text = wrapText(snippet.selector)
   } else if (snippet instanceof NBTSnippet) {
     text = wrapText(`${snippet.nbt}@${snippet.storage}`)
+  } else if (snippet instanceof TranslateSnippet) {
+    text = wrapText(snippet.translate)
   } else if (snippet instanceof LinebreakSnippet) {
     text = <br />
   } else if (snippet instanceof PagebreakSnippet) {
