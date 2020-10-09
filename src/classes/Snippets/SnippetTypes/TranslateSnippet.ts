@@ -27,7 +27,7 @@ export class TranslateSnippet extends Snippet {
 			{
 				field: "translate",
 				placeholder: "Translate Identifier",
-				datalistID: null,
+				datalistID: "datalist-translations",
 				fieldType: "string"
 			},
 			{

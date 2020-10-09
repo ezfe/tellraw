@@ -50,7 +50,7 @@ const InlineSnippetController: React.FunctionComponent<InlineSnippetControllerPr
     } else if (props.snippet instanceof NBTSnippet) {
       return <NBTSnippetController snippet={props.snippet} updateSnippet={props.updateSnippet} commandType={props.commandtype} version={props.version}/>
     } else if (props.snippet instanceof TranslateSnippet) {
-      return <span>Translation Snippet Editing Unimplemented</span>
+      return <span>Translation Snippet ({ props.snippet.translate }) - Click Edit to modify</span>
     } else if (
          props.snippet instanceof ScoreboardObjectiveSnippet
       || props.snippet instanceof KeybindSnippet
