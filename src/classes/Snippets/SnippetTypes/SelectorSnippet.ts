@@ -21,6 +21,13 @@ export class SelectorSnippet extends Snippet {
   }
 
   editor_fields(): Array<FieldSpecifier> {
-    return [{field: "selector", placeholder: "Selector"}]
+    return [
+      {
+        field: "selector",
+        placeholder: "Selector",
+        datalistID: null,
+        fieldType: "string"
+      }
+    ]
   }
 }

@@ -15,6 +15,7 @@ import { GenericSnippetController } from "./GenericSnippetController";
 import { NBTSnippetController } from "./NBTSnippetController";
 import { Version } from "../../helpers/versions";
 import { CommandType } from "../../data/templates";
+import { TranslateSnippet } from "../../classes/Snippets/SnippetTypes/TranslateSnippet";
 
 export interface InlineSnippetControllerProps {
   snippet: Snippet
@@ -48,6 +49,8 @@ const InlineSnippetController: React.FunctionComponent<InlineSnippetControllerPr
       return <span>Page Break <FontAwesomeIcon icon="file-alt" /></span>
     } else if (props.snippet instanceof NBTSnippet) {
       return <NBTSnippetController snippet={props.snippet} updateSnippet={props.updateSnippet} commandType={props.commandtype} version={props.version}/>
+    } else if (props.snippet instanceof TranslateSnippet) {
+      return <span>Translation Snippet ({ props.snippet.translate }) - Click Edit to modify</span>
     } else if (
          props.snippet instanceof ScoreboardObjectiveSnippet
       || props.snippet instanceof KeybindSnippet

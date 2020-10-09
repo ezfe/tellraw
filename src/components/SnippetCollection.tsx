@@ -9,6 +9,7 @@ import { ScoreboardObjectiveSnippet } from "../classes/Snippets/SnippetTypes/Sco
 import { SelectorSnippet } from "../classes/Snippets/SnippetTypes/SelectorSnippet";
 import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
 import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
+import { TranslateSnippet } from "../classes/Snippets/SnippetTypes/TranslateSnippet";
 import { CommandType, FeatureType, isFeatureAvailable } from "../data/templates";
 import { duplicate_snippet } from "../helpers/copy_snippet";
 import { useKeyPress } from "../helpers/useKeyPress";
@@ -235,6 +236,7 @@ const SnippetCollection: React.FunctionComponent<SnippetCollectionProps> = (prop
                   ) : null
                 }
                 <button className="dropdown-item" onClick={() => { addSnippet(new KeybindSnippet(null)) }}>Keybind</button>
+                <button className="dropdown-item" onClick={() => { addSnippet(new TranslateSnippet(null)) }}>Translation</button>
                 <button className="dropdown-item" onClick={addLineBreak}>Line Break ⏎</button>
                 {
                   isFeatureAvailable(props.commandType, props.version, FeatureType.pages) ? (

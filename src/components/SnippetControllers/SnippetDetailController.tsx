@@ -8,6 +8,7 @@ import { ScoreboardObjectiveSnippet } from "../../classes/Snippets/SnippetTypes/
 import { SelectorSnippet } from "../../classes/Snippets/SnippetTypes/SelectorSnippet";
 import { Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
 import { TextSnippet } from "../../classes/Snippets/SnippetTypes/TextSnippet";
+import { TranslateSnippet } from "../../classes/Snippets/SnippetTypes/TranslateSnippet";
 import { CommandType, FeatureType, isFeatureAvailable } from "../../data/templates";
 import { duplicate_snippet } from "../../helpers/copy_snippet";
 import { formatSnippet } from "../../helpers/formatter";
@@ -87,6 +88,7 @@ export const SnippetDetailController: React.FunctionComponent<SnippetDetailContr
       || props.snippet instanceof SelectorSnippet
       || props.snippet instanceof TextSnippet
       || props.snippet instanceof KeybindSnippet
+      || props.snippet instanceof TranslateSnippet
     ) {
       return <GenericSnippetController snippet={props.snippet} updateSnippet={props.updateSnippet} />
     } else {
