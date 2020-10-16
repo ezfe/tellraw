@@ -1,6 +1,5 @@
 import * as React from "react";
 import { CommandType, template_lookup } from "../data/templates"
-import { checkPropTypes } from "prop-types";
 import Button from "./generic/Button";
 
 const selectableStates = [
@@ -24,7 +23,7 @@ const selectableStates = [
 
 export interface CommandTemplatesControllerProps {
   commandType: CommandType
-  updateCommandType: (CommandType, string?) => void
+  updateCommandType: (type: CommandType, template?: string) => void
 }
 
 // 'HelloProps' describes the shape of props.

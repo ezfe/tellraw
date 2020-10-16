@@ -36,11 +36,15 @@ export class ScoreboardObjectiveSnippet extends Snippet {
     return [
       {
         field: "score_name",
-        placeholder: "Player"
+        placeholder: "Player",
+        datalistID: null,
+        fieldType: "string"
       },
       {
         field: "score_objective",
-        placeholder: "Objective"
+        placeholder: "Objective",
+        datalistID: null,
+        fieldType: "string"
       }
     ]
   }

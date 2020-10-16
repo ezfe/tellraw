@@ -7,6 +7,7 @@ import { ScoreboardObjectiveSnippet } from "../classes/Snippets/SnippetTypes/Sco
 import { SelectorSnippet } from "../classes/Snippets/SnippetTypes/SelectorSnippet";
 import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
 import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
+import { TranslateSnippet } from "../classes/Snippets/SnippetTypes/TranslateSnippet";
 import { LSKEY_SNIPPET_ARR, VERSION } from "../constants";
 
 export function legacyStatePreparation() {
@@ -91,6 +92,8 @@ export function loadCurrentVersionState(source_array: Array<object>): Array<Snip
       return (Object as any).assign(new SelectorSnippet(), s)
     } else if (s.hasOwnProperty("nbt")) {
       return (Object as any).assign(new NBTSnippet(), s)
+    } else if (s.hasOwnProperty("translate")) {
+      return (Object as any).assign(new TranslateSnippet(), s)
     } else if (s.hasOwnProperty("isPagebreak")) {
       return (Object as any).assign(new PagebreakSnippet(), s)
     } else {

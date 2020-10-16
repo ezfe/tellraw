@@ -18,6 +18,7 @@ import {
   NBTType,
 } from "../classes/Snippets/SnippetTypes/NBTSnippet";
 import { Version, versionAtLeast } from "./versions";
+import { TranslateSnippet } from "../classes/Snippets/SnippetTypes/TranslateSnippet";
 
 export function object_compile(
   sections: Snippet[][],
@@ -69,6 +70,11 @@ export function object_compile(
         }
       } else if (snippet instanceof KeybindSnippet) {
         pending["keybind"] = snippet.keybind;
+      } else if (snippet instanceof TranslateSnippet) {
+        pending["translate"] = snippet.translate
+        if (snippet.parameters.length > 0) {
+          pending["with"] = snippet.parameters
+        }
       }
 
       /* Style Transfer */
