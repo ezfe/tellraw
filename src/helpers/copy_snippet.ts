@@ -6,6 +6,7 @@ import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
 import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
 import { PagebreakSnippet } from "../classes/Snippets/SnippetTypes/PagebreakSnippet";
 import { NBTSnippet } from "../classes/Snippets/SnippetTypes/NBTSnippet";
+import { TranslateSnippet } from "../classes/Snippets/SnippetTypes/TranslateSnippet";
 
 export function duplicate_snippet(snippet: Snippet) {
   if (snippet instanceof LinebreakSnippet) {
@@ -22,9 +23,10 @@ export function duplicate_snippet(snippet: Snippet) {
     return snippet.copy()
   } else if (snippet instanceof NBTSnippet) {
     return snippet.copy()
+  } else if (snippet instanceof TranslateSnippet) {
+    return snippet.copy()
   } else {
-    alert("An unknown issue occurred\n\nMore information is provided in the browser console")
-    console.error("An error occurred copying a snippet. It probably hasn't been implemented yet in the copy_snippet function.", snippet)
+    alert("An error occurred copying a snippet. It probably hasn't been implemented yet in the copy_snippet function.")
     
     let x = new TextSnippet(null)
     x.text = "A copy error occurred"
