@@ -29,7 +29,8 @@
   },
   "scripts": {
     "build": "webpack",
-    "build:prod": "webpack --mode=\"production\""
+    "build:prod": "webpack --mode=\"production\"",
+    "http": "python3 -m http.server"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.8",
