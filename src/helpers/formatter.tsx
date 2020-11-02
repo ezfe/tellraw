@@ -1,16 +1,15 @@
-import { TextDecorationProperty } from "csstype";
 import * as React from "react";
 import { getCSSHEX } from "../classes/Color";
 import { KeybindSnippet } from "../classes/Snippets/SnippetTypes/KeybindSnippet";
 import { LinebreakSnippet } from "../classes/Snippets/SnippetTypes/LinebreakSnippet";
+import { NBTSnippet } from "../classes/Snippets/SnippetTypes/NBTSnippet";
 import { PagebreakSnippet } from "../classes/Snippets/SnippetTypes/PagebreakSnippet";
 import { ScoreboardObjectiveSnippet } from "../classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet";
 import { SelectorSnippet } from "../classes/Snippets/SnippetTypes/SelectorSnippet";
 import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
 import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
-import { iconForSnippet } from "./snippet_icon";
-import { NBTSnippet } from "../classes/Snippets/SnippetTypes/NBTSnippet";
 import { TranslateSnippet } from "../classes/Snippets/SnippetTypes/TranslateSnippet";
+import { iconForSnippet } from "./snippet_icon";
 
 function nthOccurence<T>(array: Array<T>, pattern: (T) => boolean, n: number) {
   let searchFrom = 0
@@ -58,18 +57,18 @@ export function formatSnippets(snippets: Array<Snippet>, bookPage?: number): Arr
     }
   }
   console.log("Determined end index", pageEndIndex)
-  
+
   return snippets.slice(pageStartIndex, pageEndIndex).map(formatSnippet)
 }
 
 function wrapText(text: string): JSX.Element {
-  return <span>{ text }</span>
+  return <span>{text}</span>
 }
 
 export function formatSnippet(snippet: Snippet): JSX.Element {
   if (snippet instanceof LinebreakSnippet) return <br key={snippet.id} />
 
-  let textDecorationValue: TextDecorationProperty<void> = 'none'
+  let textDecorationValue = 'none'
   if (snippet.underlined && !snippet.strikethrough) {
     textDecorationValue = 'underline'
   } else if (snippet.strikethrough && !snippet.underlined) {
@@ -113,12 +112,12 @@ export function formatSnippet(snippet: Snippet): JSX.Element {
       {
         icon !== null ? (
           <>
-            { icon }
+            { icon}
             {'\u00A0' /* Unicode Non Blocking Space */}
           </>
         ) : null
       }
-      { text }
+      { text}
     </span>
   )
 }

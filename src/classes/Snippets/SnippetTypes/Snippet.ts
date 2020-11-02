@@ -1,7 +1,7 @@
 import { Color } from "../../Color";
 import { ClickEventType } from "../ClickEvent";
 import { HoverEventType } from "../HoverEvent";
-import uuid = require("uuid");
+import { v4 as uuidv4 } from 'uuid';
 
 export type FieldType = "string" | "string[]"
 
@@ -39,7 +39,7 @@ export abstract class Snippet {
         if (id !== null) {
             this.id = id
         } else {
-            this.id = uuid()
+            this.id = uuidv4()
         }
     }
 

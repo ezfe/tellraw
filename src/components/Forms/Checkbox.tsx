@@ -1,5 +1,5 @@
 import * as React from "react";
-import uuid = require("uuid");
+import { v4 as uuidv4 } from 'uuid';
 
 interface CheckboxProps {
   checked: boolean
@@ -8,7 +8,7 @@ interface CheckboxProps {
 }
 
 export const Checkbox: React.FunctionComponent<CheckboxProps> = (props) => {  
-  let [randomUUID, setRandomUUID] = React.useState(uuid())
+  let [randomUUID, setRandomUUID] = React.useState(uuidv4())
   
   return (
     <div className="custom-control custom-checkbox">

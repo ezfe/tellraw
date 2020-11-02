@@ -1,6 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as React from "react";
 import { DragDropContext, Draggable, Droppable, DropResult } from 'react-beautiful-dnd';
+import { v4 as uuidv4 } from 'uuid';
+import { Color } from "../classes/Color";
 import { KeybindSnippet } from "../classes/Snippets/SnippetTypes/KeybindSnippet";
 import { LinebreakSnippet } from "../classes/Snippets/SnippetTypes/LinebreakSnippet";
 import { NBTSnippet } from "../classes/Snippets/SnippetTypes/NBTSnippet";
@@ -18,8 +20,6 @@ import { Version } from "../helpers/versions";
 import Button from "./generic/Button";
 import InlineSnippetController from "./SnippetControllers/InlineSnippetController";
 import { SnippetDetailController } from "./SnippetControllers/SnippetDetailController";
-import uuid = require("uuid");
-import { Color } from "../classes/Color";
 
 interface SnippetCollectionProps {
   commandType: CommandType
@@ -113,7 +113,7 @@ const SnippetCollection: React.FunctionComponent<SnippetCollectionProps> = (prop
   function duplicateSnippet(snippet: Snippet) {
     let now = [...props.snippets]
     let newSnippet = duplicate_snippet(snippet)
-    newSnippet.id = uuid()
+    newSnippet.id = uuidv4()
 
     let i = now.indexOf(snippet);
     now.splice(i, 0, newSnippet);
