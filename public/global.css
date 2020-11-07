@@ -1,0 +1,82 @@
+body {
+  color: #dddddd;
+  background-color: #222222;
+}
+
+.light-well {
+  background-color: #f5f5f5;
+  color: #333333;
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+
+  // margin: -20px;
+  padding: 20px;
+}
+
+.inline-snippet-collection {
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 10px;
+  padding: 15px;
+  border-color: grey;
+}
+
+.bordered-formatter-preview {
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 3px;
+  border-color: $info;
+  display: inline-block;
+}
+
+.preview:not(.book-preview) {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.preview-color-picker {
+  position: absolute;
+  right: 20px;
+  bottom: 5px;
+}
+
+.book-preview {
+  padding-top: 60px;
+  padding-left: 30px;
+  padding-right: 70px;
+  padding-bottom: 20px;
+  width: 292px;
+  height: 360px;
+  background-image: url(../images/book.png);
+  background-size: 100%;
+  background-color: transparent !important;
+  background-repeat: no-repeat;
+  border: none !important;
+  word-break: break-word;
+  // white-space: pre;
+}
+
+.mcj-format-option {
+  border-color: white;
+  border-radius: 5px;
+  border-width: 2px;
+  border-style: solid;
+
+  background-color: transparent;
+
+  text-align: center;
+
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+.mcj-format-option:hover {
+  background-color: white;
+  color: black;
+}
+
+.mcj-format-option.active {
+  background-color: white;
+  color: black;
+}

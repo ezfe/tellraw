@@ -1,24 +1,19 @@
-import { Color } from "../classes/Color";
 import { ClickEventType } from "../classes/Snippets/ClickEvent";
 import { HoverEventType } from "../classes/Snippets/HoverEvent";
 import { KeybindSnippet } from "../classes/Snippets/SnippetTypes/KeybindSnippet";
-import { ScoreboardObjectiveSnippet } from "../classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet";
-import { SelectorSnippet } from "../classes/Snippets/SnippetTypes/SelectorSnippet";
-import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
-import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
-import { PagebreakSnippet } from "../classes/Snippets/SnippetTypes/PagebreakSnippet";
-import {
-  CommandType,
-  isFeatureAvailable,
-  FeatureType,
-} from "../data/templates";
 import { LinebreakSnippet } from "../classes/Snippets/SnippetTypes/LinebreakSnippet";
 import {
   NBTSnippet,
-  NBTType,
+  NBTType
 } from "../classes/Snippets/SnippetTypes/NBTSnippet";
-import { Version, versionAtLeast } from "./versions";
+import { PagebreakSnippet } from "../classes/Snippets/SnippetTypes/PagebreakSnippet";
+import { ScoreboardObjectiveSnippet } from "../classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet";
+import { SelectorSnippet } from "../classes/Snippets/SnippetTypes/SelectorSnippet";
+import type { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
+import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
 import { TranslateSnippet } from "../classes/Snippets/SnippetTypes/TranslateSnippet";
+import { CommandType, FeatureType, isFeatureAvailable } from "../data/templates";
+import { Version, versionAtLeast } from "./versions";
 
 export function object_compile(
   sections: Snippet[][],

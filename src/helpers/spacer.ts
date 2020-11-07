@@ -1,4 +1,4 @@
-import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
+import type { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
 import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
 
 const defaultWidth = 5

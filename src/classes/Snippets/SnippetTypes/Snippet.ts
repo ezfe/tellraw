@@ -1,7 +1,7 @@
-import { Color } from "../../Color";
 import { ClickEventType } from "../ClickEvent";
 import { HoverEventType } from "../HoverEvent";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
+import type { Color } from "../../Color";
 
 export type FieldType = "string" | "string[]"
 
