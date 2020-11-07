@@ -2,7 +2,7 @@
   import { faTwitter } from '@fortawesome/free-brands-svg-icons';
   import { faCodeBranch,faFileDownload,faList,faWifi } from '@fortawesome/free-solid-svg-icons';
   import { Dropdown,DropdownItem,DropdownMenu,DropdownToggle } from 'sveltestrap';
-  import Icon from './Icon.svelte';
+  import Icon from './generic/Icon.svelte';
 
   let informationDropdownVisible = false
 
@@ -32,6 +32,5 @@
       <Icon icon={faCodeBranch} />
       Legacy Version
     </DropdownItem>
-    
   </DropdownMenu>
 </Dropdown>

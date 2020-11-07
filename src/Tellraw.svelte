@@ -1,6 +1,6 @@
 <script lang="typescript">
   import Icon from './components/generic/Icon.svelte';
-  import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'sveltestrap';
+  import { Button } from 'sveltestrap';
   import { CommandType, template_lookup } from './data/templates';
   import { compile } from './helpers/compile';
   import { export_snippets } from './helpers/export';
@@ -8,7 +8,8 @@
   import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons/faExclamationTriangle';
   import { faFileImport } from '@fortawesome/free-solid-svg-icons/faFileImport';
   import { faFileExport } from '@fortawesome/free-solid-svg-icons/faFileExport';
-  import SiteActions from './components/generic/SiteActions.svelte';
+  import SiteActions from './components/SiteActions.svelte';
+  import CommandTemplatesController from './components/CommandTemplatesController.svelte';
 
   let exporting = false
   let importing = false
@@ -92,9 +93,9 @@
       </div>
     </div>
 
-    <!-- <CommandTemplatesController commandType={commandType}
-                                updateCommandType={updateCommandType} />
+    <CommandTemplatesController bind:commandType={$commandType} bind:command={$command} />
     
+    <!--
     <SnippetCollection commandType={commandType}
                         snippets={snippets} 
                         updateSnippets={(snippets) => {
