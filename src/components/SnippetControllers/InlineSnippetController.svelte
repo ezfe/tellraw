@@ -1,40 +1,39 @@
 <script lang="typescript">
-  import { faClone, faEdit, faFileAlt, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+  import { faClone,faEdit,faFileAlt,faTrashAlt } from "@fortawesome/free-solid-svg-icons";
   import { Col,Row } from "sveltestrap";
+  import { v4 as uuidv4 } from "uuid";
   import { LinebreakSnippet } from "../../classes/Snippets/SnippetTypes/LinebreakSnippet";
   import { NBTSnippet } from "../../classes/Snippets/SnippetTypes/NBTSnippet";
   import { PagebreakSnippet } from "../../classes/Snippets/SnippetTypes/PagebreakSnippet";
   import type { Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
   import { TranslateSnippet } from "../../classes/Snippets/SnippetTypes/TranslateSnippet";
+  import { duplicate_snippet } from "../../helpers/copy_snippet";
+  import { snippets } from "../../persistence/stores";
   import Icon from "../generic/Icon.svelte";
-import SplitDropdown from "../generic/SplitDropdown.svelte";
-import MinecraftColorWell from "../MinecraftColorWell.svelte";
-
-  /*
-  export interface InlineSnippetControllerProps {
-    snippet: Snippet
-    updateSnippet: (Snippet) => void
-    startEditingSnippet: (Snippet) => void
-    removeSnippet: (Snippet) => void
-    duplicateSnippet: (Snippet) => void
-    version: Version
-    commandtype: CommandType
-    provided: DraggableProvided
-  }
-  */
+  import SplitDropdown from "../generic/SplitDropdown.svelte";
+  import MinecraftColorWell from "../MinecraftColorWell.svelte";
 
   export let snippet: Snippet
+  export let editing: Snippet
 
-  function editButtonClick(action: string) {
-    // if (action == "start-editing") {
-    //   props.startEditingSnippet(props.snippet)
-    // } else if (action == "delete") {
-    //   props.removeSnippet(props.snippet)
-    // } else if (action == "duplicate") {
-    //   props.duplicateSnippet(props.snippet)
-    // } else {
-      alert(`Failed to catch ${action}`)
-    // }
+  function removeSnippet() {
+    let filtered = $snippets.filter(cs => cs.id !== snippet.id)
+    snippets.set(filtered)
+  }
+  
+  function duplicateSnippet() {
+    let now = [...$snippets]
+    let newSnippet = duplicate_snippet(snippet)
+    newSnippet.id = uuidv4()
+
+    let i = now.indexOf(snippet);
+    now.splice(i, 0, newSnippet);
+
+    snippets.set(now);
+  }
+
+  function startEditingSnippet() {
+    editing = snippet
   }
 
   $: editingEnabled = !(snippet instanceof LinebreakSnippet || snippet instanceof PagebreakSnippet)
@@ -47,20 +46,21 @@ import MinecraftColorWell from "../MinecraftColorWell.svelte";
       color="secondary"
       disabled={!editingEnabled}
       block
+      on:click={() => { startEditingSnippet() }}
       dropdowns={[
         {
           label: "Delete",
           icon: faTrashAlt,
-          //onClick: () => {
-          //  editButtonClick("delete")
-          //}
+          onClick: () => {
+            removeSnippet()
+          }
         },
         {
           label: "Duplicate",
           icon: faClone,
-          //onClick: () => {
-          //  editButtonClick("duplicate")
-          //}
+          onClick: () => {
+            duplicateSnippet()
+          }
         }
       ]} 
     >

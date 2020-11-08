@@ -9,7 +9,6 @@
   import Importing from './components/Importing.svelte';
   import SiteActions from './components/SiteActions.svelte';
   import SnippetCollection from './components/SnippetCollection.svelte';
-  import { CommandType,template_lookup } from './data/templates';
   import { compile } from './helpers/compile';
   import { export_snippets } from './helpers/export';
   import { command,commandType,customColors,snippets,version } from './persistence/stores';
@@ -20,13 +19,7 @@
   
   let colorManaging = false
   
-  let compiled;
   $: compiled = compile($snippets, $command, $commandType, $version)
-
-  function updateCommandType(type: CommandType, command_override?: string) {
-    commandType.set(type)
-    command.set(command_override || template_lookup(type)[0])
-  }
 
   function startImporting() {
     importing = true

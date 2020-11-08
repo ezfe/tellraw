@@ -15,8 +15,7 @@
   import Icon from "./generic/Icon.svelte";
   import InlineSnippetController from "./SnippetControllers/InlineSnippetController.svelte";
 
-
-  let editing = false
+  let editing: Snippet = null
 
   function clearAllSnippets() {
     const titleString = "Are you sure!?!"
@@ -38,7 +37,34 @@
   }
 
   function startEditing(snippet: Snippet) {
-    snippets.set([...$snippets, snippet])
+    editing = snippet
+  }
+
+  function stopEditing(save: boolean) {
+    if (save && editing !== null) {
+      updateSnippet(editing)
+    }
+
+    editing = null
+  }
+
+  function updateSnippet(newSnippet: Snippet) {
+    console.log("Updating", newSnippet)
+    let isNewSnippet = true
+    let updatedSnippets = $snippets.map(currentSnippet => {
+      if (currentSnippet.id === newSnippet.id) {
+        isNewSnippet = false
+        return newSnippet
+      } else {
+        return currentSnippet
+      }
+    })
+
+    if (isNewSnippet) {
+      updatedSnippets = [...$snippets, newSnippet]
+    }
+    
+    snippets.set(updatedSnippets)
   }
 
   function newLinebreak() {
@@ -67,7 +93,7 @@
     <span>Editing not yet implemented...</span>
   {:else}
     {#each $snippets as snippet}
-      <InlineSnippetController {snippet} />
+      <InlineSnippetController {snippet} bind:editing={editing} />
     {/each}
 
     <Row>

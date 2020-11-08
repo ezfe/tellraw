@@ -19,7 +19,7 @@ import Icon from "./Icon.svelte";
     label?: string
     icon?: IconDefinition,
     iconRight?: IconDefinition,
-    // onClick?: (event) => void
+    onClick?: () => void
     disabled?: boolean
   }
 
@@ -33,7 +33,7 @@ import Icon from "./Icon.svelte";
 
 <Dropdown {isOpen} toggle={() => { isOpen = !isOpen }}>
   <ButtonGroup class={block ? "btn-block" : ""}>
-    <Button {color} {disabled} {block}>
+    <Button {color} {disabled} {block} on:click>
       <slot />
     </Button>
     <DropdownToggle {color} caret class="dropdown-toggle-split" />
@@ -41,7 +41,7 @@ import Icon from "./Icon.svelte";
   <DropdownMenu>
 
     {#each dropdowns as dropdown}
-      <DropdownItem>
+      <DropdownItem on:click={dropdown.onClick}>
         {#if dropdown.icon}
           <Icon icon={dropdown.icon} />
         {/if}
