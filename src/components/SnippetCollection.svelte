@@ -10,9 +10,10 @@
   import type { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
   import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
   import { TranslateSnippet } from "../classes/Snippets/SnippetTypes/TranslateSnippet";
-  import { CommandType, FeatureType,isFeatureAvailable, template_lookup } from "../data/templates";
-  import { command, commandType,snippets,version } from "../persistence/stores";
+  import { CommandType,FeatureType,isFeatureAvailable,template_lookup } from "../data/templates";
+  import { command,commandType,snippets,version } from "../persistence/stores";
   import Icon from "./generic/Icon.svelte";
+  import InlineSnippetController from "./SnippetControllers/InlineSnippetController.svelte";
 
 
   let editing = false
@@ -65,7 +66,9 @@
     /> -->
     <span>Editing not yet implemented...</span>
   {:else}
-    <!-- { snippetList() } -->
+    {#each $snippets as snippet}
+      <InlineSnippetController {snippet} />
+    {/each}
 
     <Row>
       <div class="col-sm-4 col-md-3 offset-sm-2 mb-2 mb-sm-0">

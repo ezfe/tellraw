@@ -1,17 +1,11 @@
 <script lang="typescript">
   import { faTwitter } from '@fortawesome/free-brands-svg-icons';
   import { faCodeBranch,faFileDownload,faList,faWifi } from '@fortawesome/free-solid-svg-icons';
-  import { Dropdown,DropdownItem,DropdownMenu,DropdownToggle } from 'sveltestrap';
+  import { UncontrolledDropdown,DropdownItem,DropdownMenu,DropdownToggle } from 'sveltestrap';
   import Icon from './generic/Icon.svelte';
-
-  let informationDropdownVisible = false
-
-  function toggleInformationDropdown() {
-    informationDropdownVisible = !informationDropdownVisible
-  }
 </script>
 
-<Dropdown isOpen={informationDropdownVisible} toggle={toggleInformationDropdown} class="ml-2">
+<UncontrolledDropdown class="ml-2">
   <DropdownToggle size="sm" color="secondary" caret>
     <Icon icon={faList} />
   </DropdownToggle>
@@ -33,4 +27,4 @@
       Legacy Version
     </DropdownItem>
   </DropdownMenu>
-</Dropdown>
+</UncontrolledDropdown>

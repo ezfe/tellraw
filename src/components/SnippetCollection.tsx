@@ -1,7 +1,7 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import * as React from "react";
+import { FontAwesomeIcon } from "../components/generic/node_modules/@fortawesome/react-fontawesome";
+import * as React from "../components/generic/node_modules/react";
 import { DragDropContext, Draggable, Droppable, DropResult } from 'react-beautiful-dnd';
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from '../components/generic/node_modules/uuid';
 import { Color } from "../classes/Color";
 import { KeybindSnippet } from "../classes/Snippets/SnippetTypes/KeybindSnippet";
 import { LinebreakSnippet } from "../classes/Snippets/SnippetTypes/LinebreakSnippet";
@@ -17,7 +17,7 @@ import { duplicate_snippet } from "../helpers/copy_snippet";
 import { useKeyPress } from "../helpers/useKeyPress";
 import { useLocalStorage } from "../helpers/useLocalStorage";
 import { Version } from "../helpers/versions";
-import Button from "./generic/Button";
+import Button from "../components/generic/Button";
 import InlineSnippetController from "./SnippetControllers/InlineSnippetController";
 import { SnippetDetailController } from "./SnippetControllers/SnippetDetailController";
 
@@ -37,19 +37,6 @@ const SnippetCollection: React.FunctionComponent<SnippetCollectionProps> = (prop
   const optionPressed = useKeyPress("Alt")
   const [showFastEditTip, setShowFastEditTip] = useLocalStorage("20190913-fast-edit-tip", true)
   const dismissFastEditTip = () => { setShowFastEditTip(false) }
-
-  /**
-   * Add a new snippet
-   * 
-   * @param snippet The snippet to add
-   */
-  function addSnippet(snippet: Snippet) {
-    if (optionPressed) {
-      props.updateSnippets([...props.snippets, snippet])
-    } else {
-      startEditing(snippet)
-    }
-  }
 
   /**
    * Start editing a snippet.
@@ -133,28 +120,6 @@ const SnippetCollection: React.FunctionComponent<SnippetCollectionProps> = (prop
     props.updateSnippets([...props.snippets, snip])
   }
 
-  function clearAllSnippets() {
-    const titleString = "Are you sure!?!"
-    const bodyString = "Clicking Delete will remove all your text and reset it to an empty string."
-    if (confirm(`${titleString}\n${bodyString}`)) {
-      props.deleteAll()
-    }
-  }
-
-  function editor() {
-    return (
-      <SnippetDetailController
-        commandType={props.commandType}
-        snippet={editing}
-        updateSnippet={updateEditing}
-        stopEditing={stopEditing}
-        version={props.version}
-        customColors={props.customColors}
-        setColorManaging={props.setColorManaging}
-      />
-    )
-  }
-
   function onDragEnd(result: DropResult) {
     const { destination, source } = result
     if (!destination) return
@@ -200,81 +165,6 @@ const SnippetCollection: React.FunctionComponent<SnippetCollectionProps> = (prop
     );
   }
 
-  function listView() {
-    return (
-      <>
-        { snippetList() }
-
-        <div className="row">
-          <div className="col-sm-4 col-md-3 offset-sm-2 mb-2 mb-sm-0">
-            <div className="dropdown">
-              <button className="btn btn-primary btn-block dropdown-toggle"
-                      type="button"
-                      id="add-snippet-dropdown-button"
-                      data-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false">
-                {
-                  optionPressed ? (
-                    <>
-                      <FontAwesomeIcon icon="tachometer-alt" /> Fast Add
-                    </>
-                  ) : (
-                    <>
-                      <FontAwesomeIcon icon="plus-circle" /> Add Text
-                    </>
-                  )
-                }
-              </button>
-              <div className="dropdown-menu" aria-labelledby="add-snippet-dropdown-button">
-                <button className="dropdown-item" onClick={() => { addSnippet(new TextSnippet(null)) }}>Text</button>
-                <button className="dropdown-item" onClick={() => { addSnippet(new SelectorSnippet(null)) }}>Selector</button>
-                <button className="dropdown-item" onClick={() => { addSnippet(new ScoreboardObjectiveSnippet(null)) }}>Scoreboard Objective</button>
-                {
-                  isFeatureAvailable(props.commandType, props.version, FeatureType.nbtComponent) ? (
-                    <button className="dropdown-item" onClick={() => { addSnippet(new NBTSnippet(null)) }}>NBT Storage</button>
-                  ) : null
-                }
-                <button className="dropdown-item" onClick={() => { addSnippet(new KeybindSnippet(null)) }}>Keybind</button>
-                <button className="dropdown-item" onClick={() => { addSnippet(new TranslateSnippet(null)) }}>Translation</button>
-                <button className="dropdown-item" onClick={addLineBreak}>Line Break ⏎</button>
-                {
-                  isFeatureAvailable(props.commandType, props.version, FeatureType.pages) ? (
-                    <button className="dropdown-item" onClick={addPageBreak}>New Page <FontAwesomeIcon icon="file-alt" /></button>
-                  ) : null
-                }
-                {
-                  showFastEditTip ? (
-                    <>
-                      <div className="dropdown-divider"></div>
-                      <p className="text-muted pl-4 pr-4 mb-0 d-flex justify-content-between align-items-center">
-                        Hold option to add without editing
-                        <button className="btn btn-sm btn-outline-danger" onClick={dismissFastEditTip}>OK</button>
-                      </p>
-                    </>
-                  ) : null
-                }
-              </div>
-            </div>
-          </div>
-          <div className="col-sm-4 col-md-3">
-            <Button className="btn-block"
-                    type="danger"
-                    icon="times-circle"
-                    onClick={clearAllSnippets}>
-              Delete All
-            </Button>
-          </div>
-        </div>
-      </>
-    )
-  }
-
-  return (
-    <div className="light-well">
-      { editing === null ? listView() : editor() }
-    </div>
-  )
 }
 
 export default SnippetCollection;
