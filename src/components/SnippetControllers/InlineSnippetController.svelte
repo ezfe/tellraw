@@ -1,5 +1,5 @@
 <script lang="typescript">
-  import { faFileAlt } from "@fortawesome/free-solid-svg-icons";
+  import { faClone, faEdit, faFileAlt, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
   import { Col,Row } from "sveltestrap";
   import { LinebreakSnippet } from "../../classes/Snippets/SnippetTypes/LinebreakSnippet";
   import { NBTSnippet } from "../../classes/Snippets/SnippetTypes/NBTSnippet";
@@ -7,7 +7,21 @@
   import type { Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
   import { TranslateSnippet } from "../../classes/Snippets/SnippetTypes/TranslateSnippet";
   import Icon from "../generic/Icon.svelte";
+import SplitDropdown from "../generic/SplitDropdown.svelte";
 import MinecraftColorWell from "../MinecraftColorWell.svelte";
+
+  /*
+  export interface InlineSnippetControllerProps {
+    snippet: Snippet
+    updateSnippet: (Snippet) => void
+    startEditingSnippet: (Snippet) => void
+    removeSnippet: (Snippet) => void
+    duplicateSnippet: (Snippet) => void
+    version: Version
+    commandtype: CommandType
+    provided: DraggableProvided
+  }
+  */
 
   export let snippet: Snippet
 
@@ -29,32 +43,30 @@ import MinecraftColorWell from "../MinecraftColorWell.svelte";
 
 <Row class="mb-2">
   <div class="col-4 col-md-3 col-lg-2 d-flex flex-column justify-content-center">
-    <!-- <Button
-          type="secondary" block
-          icon="edit"
-          disabled={!editingEnabled}
-          onClick={() => {
-            editButtonClick("start-editing")
-          }}
-          dropdowns={[
-            {
-              label: "Delete",
-              icon: "trash-alt",
-              onClick: () => {
-                editButtonClick("delete")
-              }
-            },
-            {
-              label: "Duplicate",
-              icon: "clone",
-              onClick: () => {
-                editButtonClick("duplicate")
-              }
-            }
-          ]}              
-        >
-          Edit
-        </Button> -->
+    <SplitDropdown
+      color="secondary"
+      disabled={!editingEnabled}
+      block
+      dropdowns={[
+        {
+          label: "Delete",
+          icon: faTrashAlt,
+          //onClick: () => {
+          //  editButtonClick("delete")
+          //}
+        },
+        {
+          label: "Duplicate",
+          icon: faClone,
+          //onClick: () => {
+          //  editButtonClick("duplicate")
+          //}
+        }
+      ]} 
+    >
+      <Icon icon={faEdit} />
+      Edit
+    </SplitDropdown>
   </div>
 
   <!--
