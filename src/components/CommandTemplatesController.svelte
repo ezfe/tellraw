@@ -4,6 +4,7 @@
 	import { createEventDispatcher } from 'svelte';
   import Icon from "./generic/Icon.svelte";
   import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+  import { command, commandType } from '../persistence/stores';
 
   interface SelectableState {
     type: CommandType
@@ -41,18 +42,15 @@
     }
   ];
 
-  export let commandType: CommandType;
-  export let command: string;
-
   function makeSelection(typeInfo: SelectableState, template?: string) {
-    commandType = typeInfo.type;
-    command = template || template_lookup(typeInfo.type)[0];
+    commandType.set(typeInfo.type);
+    command.set(template || template_lookup(typeInfo.type)[0]);
   }
 
   $: mapped = selectableStates.map((typeInfo, index) => {
     return {
       ...typeInfo,
-      isSelected: typeInfo.type === commandType,
+      isSelected: typeInfo.type === $commandType,
       isLast: index >= selectableStates.length - 1
     }
   })

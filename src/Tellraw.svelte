@@ -1,15 +1,19 @@
 <script lang="typescript">
+  import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+  import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons/faExclamationTriangle';
+  import { faFileExport } from '@fortawesome/free-solid-svg-icons/faFileExport';
+  import { faFileImport } from '@fortawesome/free-solid-svg-icons/faFileImport';
+  import { Button,Row } from 'sveltestrap';
+  import CommandTemplatesController from './components/CommandTemplatesController.svelte';
   import Icon from './components/generic/Icon.svelte';
-  import { Button } from 'sveltestrap';
-  import { CommandType, template_lookup } from './data/templates';
+  import Importing from './components/Importing.svelte';
+  import SiteActions from './components/SiteActions.svelte';
+  import SnippetCollection from './components/SnippetCollection.svelte';
+  import { CommandType,template_lookup } from './data/templates';
   import { compile } from './helpers/compile';
   import { export_snippets } from './helpers/export';
   import { command,commandType,customColors,snippets,version } from './persistence/stores';
-  import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons/faExclamationTriangle';
-  import { faFileImport } from '@fortawesome/free-solid-svg-icons/faFileImport';
-  import { faFileExport } from '@fortawesome/free-solid-svg-icons/faFileExport';
-  import SiteActions from './components/SiteActions.svelte';
-  import CommandTemplatesController from './components/CommandTemplatesController.svelte';
+
 
   let exporting = false
   let importing = false
@@ -27,18 +31,13 @@
   function startImporting() {
     importing = true
   }
-
-  function stopImporting() {
-    importing = false
-  }
 </script>
 
 <div class="container">
   {#if importing}
-    <!-- <Importing setSnippets={setSnippets} setCommand={setCommand} setCommandType={setCommandType} stopImporting={stopImporting} /> -->
-    <span>Importing?</span>
-  {:else if exporting}  
-    <div class="row">
+    <Importing bind:importing={importing} />
+  {:else if exporting}
+    <Row>
       <div class="col-md-6 offset-md-3 light-well text-center">
         <p class="mb-3">
           Click below to copy the exported command string. Store it in a safe place
@@ -46,14 +45,16 @@
         </p>
         <textarea readOnly={true}
                   class="form-control mb-3"
-                  onClick={(event) => {
+                  on:click={(event) => {
                     event.currentTarget.select()
                   }}
                   value={ export_snippets($snippets, $command, $commandType) } />
-        <button on:click={() => { exporting = false }}>Done</button>
-        <!-- <Button type="success" icon="check-circle" onClick={() => { setExporting(false) }}>Done</Button> -->
+        <Button color="success" on:click={() => { exporting = false }}>
+          <Icon icon={faCheckCircle} />
+          Done
+        </Button>
       </div>
-    </div>
+    </Row>
   {:else if colorManaging}
     <!-- <ColorManager customColors={[]}
                 setCustomColors={(customColors: Color[]) => { setCustomColors(customColors) }}
@@ -93,18 +94,15 @@
       </div>
     </div>
 
-    <CommandTemplatesController bind:commandType={$commandType} bind:command={$command} />
+    <CommandTemplatesController />
+
+    <SnippetCollection />
     
     <!--
     <SnippetCollection commandType={commandType}
                         snippets={snippets} 
                         updateSnippets={(snippets) => {
                           setSnippets(snippets)
-                        }}
-                        deleteAll={() => {
-                          setSnippets([])
-                          setCommand(template_lookup(CommandType.tellraw)[0])
-                          setCommandType(CommandType.tellraw)
                         }}
                         version={version}
                         customColors={customColors}
