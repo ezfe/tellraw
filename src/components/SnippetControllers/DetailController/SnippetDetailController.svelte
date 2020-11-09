@@ -211,16 +211,28 @@
 
   <Row class="mb-2">
     <div class="col-4">
-      <select class="custom-select" value={snippet.click_event_type} on:blur={changeClickEventType}>
-        <option value={ClickEventType.none}>None</option>
-        <option value={ClickEventType.open_url}>Open URL</option>
-        <option value={ClickEventType.run_command}>Run Command</option>
-        <option value={ClickEventType.suggest_command}>Suggest Command</option>
-        <option value={ClickEventType.change_page}>Change Page (Books Only)</option>
-        <option value={ClickEventType.copy_to_clipboard}>Copy to Clipboard</option>
+      <select class="custom-select" value={snippet.click_event_type} on:input={changeClickEventType}>
+        <option selected={snippet.click_event_type == ClickEventType.none} value={ClickEventType.none}>
+          None
+        </option>
+        <option selected={snippet.click_event_type == ClickEventType.open_url} value={ClickEventType.open_url}>
+          Open URL
+        </option>
+        <option selected={snippet.click_event_type == ClickEventType.run_command} value={ClickEventType.run_command}>
+          Run Command
+        </option>
+        <option selected={snippet.click_event_type == ClickEventType.suggest_command} value={ClickEventType.suggest_command}>
+          Suggest Command
+        </option>
+        <option selected={snippet.click_event_type == ClickEventType.change_page} value={ClickEventType.change_page}>
+          Change Page (Books Only)
+        </option>
+        <option selected={snippet.click_event_type == ClickEventType.copy_to_clipboard} value={ClickEventType.copy_to_clipboard}>
+          Copy to Clipboard
+        </option>
       </select>
     </div>
-    {#if snippet.click_event_type !== ClickEventType.none}
+    {#if snippet.click_event_type != ClickEventType.none}
       <div class="col">
         <div class="row">
           <div class="col">
@@ -259,11 +271,19 @@
 
   <div class="row mb-2">
     <div class="col-4">
-      <select class="custom-select" value={snippet.hover_event_type} on:blur={changeHoverEventType}>
-      <option value={HoverEventType.none}>None</option>
-      <option value={HoverEventType.show_entity}>Show Entity</option>
-      <option value={HoverEventType.show_item}>Show Item</option>
-      <option value={HoverEventType.show_text}>Show Text</option>
+      <select class="custom-select" value={snippet.hover_event_type} on:input={changeHoverEventType}>
+        <option selected={snippet.hover_event_type == HoverEventType.none} value={HoverEventType.none}>
+          None
+        </option>
+        <option selected={snippet.hover_event_type == HoverEventType.show_entity} value={HoverEventType.show_entity}>
+          Show Entity
+        </option>
+        <option selected={snippet.hover_event_type == HoverEventType.show_item} value={HoverEventType.show_item}>
+          Show Item
+        </option>
+        <option selected={snippet.hover_event_type == HoverEventType.show_text} value={HoverEventType.show_text}>
+          Show Text
+        </option>
       </select>
     </div>
     {#if snippet.hover_event_type == HoverEventType.show_text}

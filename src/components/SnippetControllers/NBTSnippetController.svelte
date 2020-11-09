@@ -36,11 +36,11 @@
 {:else}
   <Row class="mb-2">
     <Col>
-      <select class="custom-select" value={snippet.type} on:blur={changeNBTType}>
+      <select class="custom-select" value={snippet.type} on:input={changeNBTType}>
         <option value={NBTType.storage} disabled={!isFeatureAvailable($commandType, $version, FeatureType.nbtStorageComponent)}>
           Storage
           {#if !isFeatureAvailable($commandType, $version, FeatureType.nbtStorageComponent)}
-              {" (Requires 1.15+)"}
+            {" (Requires 1.15+)"}
           {/if}
         </option>
         <option value={NBTType.entity}>Entity</option>

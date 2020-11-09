@@ -101,7 +101,6 @@ import { CommandType, template_lookup } from '../data/templates';
     <CommandTemplatesController />
 
     <SnippetCollection
-      bind:command={$command}
       bind:commandType={$commandType}
       bind:colorManaging={colorManaging}
       snippets={$snippets}
