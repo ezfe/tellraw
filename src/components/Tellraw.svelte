@@ -4,14 +4,15 @@
   import { faFileExport } from '@fortawesome/free-solid-svg-icons/faFileExport';
   import { faFileImport } from '@fortawesome/free-solid-svg-icons/faFileImport';
   import { Button,Row } from 'sveltestrap';
-  import CommandTemplatesController from './components/CommandTemplatesController.svelte';
-  import Icon from './components/generic/Icon.svelte';
-  import Importing from './components/Importing.svelte';
-  import SiteActions from './components/SiteActions.svelte';
-  import SnippetCollection from './components/SnippetCollection.svelte';
-  import { compile } from './helpers/compile';
-  import { export_snippets } from './helpers/export';
-  import { command,commandType,customColors,snippets,version } from './persistence/stores';
+  import CommandTemplatesController from './CommandTemplatesController.svelte';
+  import Icon from './generic/Icon.svelte';
+  import Importing from './Importing.svelte';
+  import SiteActions from './SiteActions.svelte';
+  import SnippetCollection from './SnippetCollection.svelte';
+  import { compile } from '../helpers/compile';
+  import { export_snippets } from '../helpers/export';
+  import { command,commandType,customColors,snippets,version } from '../persistence/stores';
+import { CommandType, template_lookup } from '../data/templates';
 
 
   let exporting = false
@@ -20,6 +21,16 @@
   let colorManaging = false
   
   $: compiled = compile($snippets, $command, $commandType, $version)
+
+  function clearAllSnippets() {
+    const titleString = "Are you sure!?!"
+    const bodyString = "Clicking Delete will remove all your text and reset it to an empty string."
+    if (confirm(`${titleString}\n${bodyString}`)) {
+      snippets.set([])
+      commandType.set(CommandType.tellraw)
+      command.set(template_lookup($commandType)[0])
+    }
+  }
 
   function startImporting() {
     importing = true
@@ -89,18 +100,16 @@
 
     <CommandTemplatesController />
 
-    <SnippetCollection />
-    
-    <!--
-    <SnippetCollection commandType={commandType}
-                        snippets={snippets} 
-                        updateSnippets={(snippets) => {
-                          setSnippets(snippets)
-                        }}
-                        version={version}
-                        customColors={customColors}
-                        setColorManaging={(newValue: boolean) => { setColorManaging(newValue) }}
-                        /> -->
+    <SnippetCollection
+      bind:command={$command}
+      bind:commandType={$commandType}
+      bind:colorManaging={colorManaging}
+      snippets={$snippets}
+      updateSnippets={(newValue) => {
+        snippets.set(newValue)
+      }}
+      deleteAll={clearAllSnippets}
+    />
     
     <br />
     <br />

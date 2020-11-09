@@ -2,9 +2,10 @@
   import FAIcon from 'svelte-awesome';
 
   //IconPathData
-  import type { IconDefinition } from '@fortawesome/fontawesome-common-types'
+  import type { IconDefinition } from '@fortawesome/fontawesome-common-types';
 
   export let icon: IconDefinition;
+  export let style: string;
 
   // let pathData: IconPathData;
   // let path = "";
@@ -24,7 +25,7 @@
   // }
 </script>
 
-<FAIcon data={icon} />
+<FAIcon data={icon} {style} />
 
 <!-- <svg
   aria-hidden="true"

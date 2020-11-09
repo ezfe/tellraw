@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { legacyStatePreparation } from './helpers/loaders';
 	import { onMount } from 'svelte';
-import Tellraw from './Tellraw.svelte';
+import Tellraw from './components/Tellraw.svelte';
 
 	onMount(() => {
 		// load legacy!

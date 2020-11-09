@@ -11,25 +11,22 @@
   import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
   import { TranslateSnippet } from "../classes/Snippets/SnippetTypes/TranslateSnippet";
   import { CommandType,FeatureType,isFeatureAvailable,template_lookup } from "../data/templates";
-  import { command,commandType,snippets,version } from "../persistence/stores";
+  import { version } from "../persistence/stores";
   import Icon from "./generic/Icon.svelte";
+import SnippetDetailController from "./SnippetControllers/DetailController/SnippetDetailController.svelte";
   import InlineSnippetController from "./SnippetControllers/InlineSnippetController.svelte";
 
   let editing: Snippet = null
-
-  function clearAllSnippets() {
-    const titleString = "Are you sure!?!"
-    const bodyString = "Clicking Delete will remove all your text and reset it to an empty string."
-    if (confirm(`${titleString}\n${bodyString}`)) {
-      snippets.set([])
-      commandType.set(CommandType.tellraw)
-      command.set(template_lookup($commandType)[0])
-    }
-  }
+  export let command: string
+  export let commandType: CommandType
+  export let colorManaging: boolean
+  export let snippets: Snippet[]
+  export let updateSnippets: (newValue: Snippet[]) => void
+  export let deleteAll: () => void
 
   function addSnippet(snippet: Snippet) {
     //if (/* || optionPressed*/) {
-    snippets.set([...$snippets, snippet])
+    updateSnippets([...snippets, snippet])
     //}
     // } else {
     // startEditing(snippet)
@@ -51,7 +48,7 @@
   function updateSnippet(newSnippet: Snippet) {
     console.log("Updating", newSnippet)
     let isNewSnippet = true
-    let updatedSnippets = $snippets.map(currentSnippet => {
+    let updatedSnippets = snippets.map(currentSnippet => {
       if (currentSnippet.id === newSnippet.id) {
         isNewSnippet = false
         return newSnippet
@@ -61,38 +58,34 @@
     })
 
     if (isNewSnippet) {
-      updatedSnippets = [...$snippets, newSnippet]
+      updatedSnippets = [...snippets, newSnippet]
     }
     
-    snippets.set(updatedSnippets)
+    updateSnippets(updatedSnippets)
   }
 
   function newLinebreak() {
-    snippets.set([...$snippets, new LinebreakSnippet(null)])
+    updateSnippets([...snippets, new LinebreakSnippet(null)])
   }
 
   function newPagebreak() {
-    snippets.set([...$snippets, new PagebreakSnippet(null)])
+    updateSnippets([...snippets, new PagebreakSnippet(null)])
   }
 
-  $: nbtStorageAvailable = isFeatureAvailable($commandType, $version, FeatureType.nbtComponent)
-  $: pageBreakAvailalbe = isFeatureAvailable($commandType, $version, FeatureType.pages)
+  $: nbtStorageAvailable = isFeatureAvailable(commandType, $version, FeatureType.nbtComponent)
+  $: pageBreakAvailalbe = isFeatureAvailable(commandType, $version, FeatureType.pages)
 </script>
 
 <div class="light-well">
   {#if editing}
-    <!-- <SnippetDetailController
-      commandType={props.commandType}
-      snippet={editing}
-      updateSnippet={updateEditing}
+    <SnippetDetailController
+      {commandType}
+      bind:snippet={editing}
       stopEditing={stopEditing}
-      version={props.version}
-      customColors={props.customColors}
-      setColorManaging={props.setColorManaging}
-    /> -->
-    <span>Editing not yet implemented...</span>
+      bind:colorManaging={colorManaging}
+    />
   {:else}
-    {#each $snippets as snippet}
+    {#each snippets as snippet}
       <InlineSnippetController {snippet} {updateSnippet} bind:editing={editing} />
     {/each}
 
@@ -141,7 +134,7 @@
       <div class="col-sm-4 col-md-3">
         <Button block
                 color="danger"
-                on:click={clearAllSnippets}>
+                on:click={deleteAll}>
           <Icon icon={faTimesCircle} />
           Delete All
         </Button>
