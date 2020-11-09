@@ -17,7 +17,6 @@ import SnippetDetailController from "./SnippetControllers/DetailController/Snipp
   import InlineSnippetController from "./SnippetControllers/InlineSnippetController.svelte";
 
   let editing: Snippet = null
-  export let command: string
   export let commandType: CommandType
   export let colorManaging: boolean
   export let snippets: Snippet[]

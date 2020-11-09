@@ -1,31 +1,22 @@
 <script lang="typescript">
   import { Button,Col,Row } from "sveltestrap";
-  import { getCSSHEX, minecraftColorSet } from "../../../classes/Color";
+  import type { Color } from "../../../classes/Color";
+  import { getCSSHEX,minecraftColorSet } from "../../../classes/Color";
   import { ClickEventType } from "../../../classes/Snippets/ClickEvent";
   import { HoverEventType } from "../../../classes/Snippets/HoverEvent";
-  import { KeybindSnippet } from "../../../classes/Snippets/SnippetTypes/KeybindSnippet";
-  import { ScoreboardObjectiveSnippet } from "../../../classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet";
-  import { SelectorSnippet } from "../../../classes/Snippets/SnippetTypes/SelectorSnippet";
   import type { Snippet } from "../../../classes/Snippets/SnippetTypes/Snippet";
-  import { TextSnippet } from "../../../classes/Snippets/SnippetTypes/TextSnippet";
-  import { TranslateSnippet } from "../../../classes/Snippets/SnippetTypes/TranslateSnippet";
   import { CommandType,FeatureType,isFeatureAvailable } from "../../../data/templates";
   import { duplicate_snippet } from "../../../helpers/copy_snippet";
   import { customColors,version } from "../../../persistence/stores";
   import Checkbox from "../../generic/Checkbox.svelte";
   import MinecraftColorButton from "../../MinecraftColorButton.svelte";
   import SnippetCollection from "../../SnippetCollection.svelte";
-  import NbtSnippetController from "../NBTSnippetController.svelte";
-
 
 
   export let snippet: Snippet
-  export let updateSnippet: (snippet: Snippet) => void
   export let stopEditing: (save: boolean) => void
-  export let editing: boolean
   export let colorManaging: boolean
   export let commandType: CommandType
-  export let deleteAll: () => void
 
   $: filteredColorSet = fullColorSet().filter((color) => { return color != "none" })
   $: clickEventTypeIsCommand = snippet.click_event_type == ClickEventType.run_command || snippet.click_event_type == ClickEventType.suggest_command
@@ -49,7 +40,7 @@
   function changeHoverEventChildren(snippets: Array<Snippet>) {
     let newSnippet = duplicate_snippet(snippet)
     newSnippet.hover_event_children = snippets
-    updateSnippet(newSnippet)
+    snippet = newSnippet
   }
 
   function changeInsertion(event: any) {
@@ -63,7 +54,7 @@
   function updateField(field: string, value: any) {
     let newSnippet = duplicate_snippet(snippet)
     newSnippet[field] = value
-    updateSnippet(newSnippet)
+    snippet = newSnippet
   }
 
   function updateFontCheckbox(newValue: boolean) {
@@ -73,7 +64,7 @@
     } else {
       newSnippet.font = null
     }
-    updateSnippet(newSnippet)
+    snippet = newSnippet
   }
 
   function fullColorSet(): Color[] {
@@ -338,9 +329,9 @@
 
 <div class="row">
   <div class="offset-8 col-2">
-    <button class="btn btn-secondary btn-block" on:click={() => { editing = false }}>Cancel</button>
+    <button class="btn btn-secondary btn-block" on:click={() => { stopEditing(false) }}>Cancel</button>
   </div>
   <div class="col-2">
-    <button class="btn btn-primary btn-block" on:click={() => { editing = true }}>Save</button>
+    <button class="btn btn-primary btn-block" on:click={() => { stopEditing(true) }}>Save</button>
   </div>
 </div>
