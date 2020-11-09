@@ -57,7 +57,7 @@ import Checkbox from "../generic/Checkbox.svelte";
   </Row>
   <Row>
     <Col>
-      <Checkbox checked={snippet.interpret} on:change={(event) => { updateFieldValue("interpret", event.currentTarget.checked) }}>
+      <Checkbox checked={snippet.interpret} on:change={(event) => { updateFieldValue("interpret", event.detail) }}>
         Interpret
       </Checkbox>
     </Col>

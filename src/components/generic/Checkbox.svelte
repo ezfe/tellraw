@@ -8,9 +8,14 @@
   export let checked: boolean
 
   let randomUUID = uuidv4()
+
+  function onChange(event) {
+    dispatch('change', event.currentTarget.checked)
+  }
+  
 </script>
 
 <div class="custom-control custom-checkbox">
-  <input {checked} on:change type="checkbox" class="custom-control-input" id={randomUUID} />
+  <input {checked} on:change={onChange} type="checkbox" class="custom-control-input" id={randomUUID} />
   <label class="custom-control-label" for={randomUUID}><slot /></label>
 </div>
