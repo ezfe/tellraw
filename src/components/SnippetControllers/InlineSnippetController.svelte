@@ -12,9 +12,12 @@
   import Icon from "../generic/Icon.svelte";
   import SplitDropdown from "../generic/SplitDropdown.svelte";
   import MinecraftColorWell from "../MinecraftColorWell.svelte";
+  import NbtSnippetController from "./NBTSnippetController.svelte";
+
 
   export let snippet: Snippet
   export let editing: Snippet
+  export let updateSnippet: (snippet: Snippet) => void
 
   function removeSnippet() {
     let filtered = $snippets.filter(cs => cs.id !== snippet.id)
@@ -79,8 +82,7 @@
     {:else if snippet instanceof PagebreakSnippet}
       <span>Page Break <Icon icon={faFileAlt} /></span>
     {:else if snippet instanceof NBTSnippet}
-      <!-- <NBTSnippetController snippet={props.snippet} updateSnippet={props.updateSnippet} commandType={props.commandtype} version={props.version}/> -->
-      <span>NBT Controller!</span>
+      <NbtSnippetController {snippet} {updateSnippet} />
     {:else if snippet instanceof TranslateSnippet}
       <span>Translation Snippet ({ snippet.translate }) - Click Edit to modify</span>
     {:else}

@@ -93,7 +93,7 @@
     <span>Editing not yet implemented...</span>
   {:else}
     {#each $snippets as snippet}
-      <InlineSnippetController {snippet} bind:editing={editing} />
+      <InlineSnippetController {snippet} {updateSnippet} bind:editing={editing} />
     {/each}
 
     <Row>
