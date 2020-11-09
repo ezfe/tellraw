@@ -1,10 +1,11 @@
 <script lang="typescript">
-  import { Col, Row } from "sveltestrap"
-import { NBTSnippet, NBTType } from "../../classes/Snippets/SnippetTypes/NBTSnippet";
+  import { Col,Row } from "sveltestrap";
+  import { NBTSnippet,NBTType } from "../../classes/Snippets/SnippetTypes/NBTSnippet";
   import type { Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
-import { FeatureType, isFeatureAvailable } from "../../data/templates";
-  import { commandType, version } from "../../persistence/stores";
-import Checkbox from "../generic/Checkbox.svelte";
+  import { FeatureType,isFeatureAvailable } from "../../data/templates";
+  import { commandType,version } from "../../persistence/stores";
+  import Checkbox from "../generic/Checkbox.svelte";
+
 
   export let snippet: NBTSnippet
   export let updateSnippet: (snippet: Snippet) => void
@@ -52,7 +53,7 @@ import Checkbox from "../generic/Checkbox.svelte";
   </Row>
   <Row>
     <Col>
-      <input class="form-control" value={snippet.nbt} placeholder="NBT Path" on:change={(evt) => { updateField("nbt", evt) }} />
+      <input class="form-control" value={snippet.nbt} placeholder="NBT Path" on:input={(evt) => { updateField("nbt", evt) }} />
     </Col>
   </Row>
   <Row>

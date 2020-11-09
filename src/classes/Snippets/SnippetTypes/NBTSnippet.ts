@@ -1,5 +1,5 @@
 import { copy_standard_attributes } from "../../../helpers/copy_snippet";
-import { Snippet, FieldSpecifier } from "./Snippet";
+import { Snippet } from "./Snippet";
 
 export enum NBTType {
   storage, entity, block

@@ -12,8 +12,13 @@
   import Icon from "../generic/Icon.svelte";
   import SplitDropdown from "../generic/SplitDropdown.svelte";
   import MinecraftColorWell from "../MinecraftColorWell.svelte";
+  import GenericSnippetController from "./GenericSnippetController.svelte";
   import NbtSnippetController from "./NBTSnippetController.svelte";
-
+  import type { GenericFieldCompatable } from "../../classes/Snippets/SnippetTypes/GenericFieldCompatable"
+import { TextSnippet } from "../../classes/Snippets/SnippetTypes/TextSnippet";
+import { SelectorSnippet } from "../../classes/Snippets/SnippetTypes/SelectorSnippet";
+import { KeybindSnippet } from "../../classes/Snippets/SnippetTypes/KeybindSnippet";
+import { ScoreboardObjectiveSnippet } from "../../classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet";
 
   export let snippet: Snippet
   export let editing: Snippet
@@ -41,6 +46,19 @@
 
   $: editingEnabled = !(snippet instanceof LinebreakSnippet || snippet instanceof PagebreakSnippet)
   
+  function genericSnippet(): GenericFieldCompatable {
+    if (
+      snippet instanceof ScoreboardObjectiveSnippet
+      || snippet instanceof KeybindSnippet
+      || snippet instanceof SelectorSnippet
+      || snippet instanceof TextSnippet
+      || snippet instanceof TranslateSnippet
+    ) {
+      return snippet
+    } else {
+      return null
+    }
+  }
 </script>
 
 <Row class="mb-2">
@@ -85,11 +103,12 @@
       <NbtSnippetController {snippet} {updateSnippet} />
     {:else if snippet instanceof TranslateSnippet}
       <span>Translation Snippet ({ snippet.translate }) - Click Edit to modify</span>
+    {:else if genericSnippet()}
+      <!-- Generic Snippet will be nil if it's not a generic snippet -->
+      <!-- by if-ing first, can assure it's not null -->
+      <GenericSnippetController snippet={genericSnippet()} {updateSnippet} />
     {:else}
-      Generic Controller
-      <!-- <GenericSnippetController snippet={props.snippet} updateSnippet={props.updateSnippet} /> -->
-      <!-- add this message to generic controller -->
-      <!-- <span>{typeof props.snippet} isn't implemented</span> -->
+      <span>{typeof snippet} isn't implemented</span>
     {/if}
   </Col>
 
