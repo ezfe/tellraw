@@ -4,6 +4,8 @@
   import { getCSSHEX,minecraftColorSet } from "../../../classes/Color";
   import { ClickEventType } from "../../../classes/Snippets/ClickEvent";
   import { HoverEventType } from "../../../classes/Snippets/HoverEvent";
+import { genericSnippet } from "../../../classes/Snippets/SnippetTypes/GenericFieldCompatable";
+import { NBTSnippet } from "../../../classes/Snippets/SnippetTypes/NBTSnippet";
   import type { Snippet } from "../../../classes/Snippets/SnippetTypes/Snippet";
   import { CommandType,FeatureType,isFeatureAvailable } from "../../../data/templates";
   import { duplicate_snippet } from "../../../helpers/copy_snippet";
@@ -11,6 +13,8 @@
   import Checkbox from "../../generic/Checkbox.svelte";
   import MinecraftColorButton from "../../MinecraftColorButton.svelte";
   import SnippetCollection from "../../SnippetCollection.svelte";
+import GenericSnippetController from "../GenericSnippetController.svelte";
+import NbtSnippetController from "../NBTSnippetController.svelte";
 
 
   export let snippet: Snippet
@@ -57,6 +61,11 @@
     snippet = newSnippet
   }
 
+  function updateSnippet(newSnippet: Snippet) {
+    // snippet = duplicate_snippet(newSnippet);
+    snippet = newSnippet;
+  }
+
   function updateFontCheckbox(newValue: boolean) {
     let newSnippet = duplicate_snippet(snippet)
     if (newValue) {
@@ -75,22 +84,13 @@
 
 <div class="row mb-2">
   <div class="col">
-    <!--
     {#if snippet instanceof NBTSnippet}
-      <NbtSnippetController {snippet} {updateSnippet} {commandType} />
-    {:else if
-         snippet instanceof ScoreboardObjectiveSnippet
-      || snippet instanceof SelectorSnippet
-      || snippet instanceof TextSnippet
-      || snippet instanceof KeybindSnippet
-      || snippet instanceof TranslateSnippet
-    }
-      <GenericSnippetController {snippet} {updateSnippet} />
+      <NbtSnippetController {snippet} {updateSnippet} />
+    {:else if genericSnippet(snippet)}
+      <GenericSnippetController snippet={genericSnippet(snippet)} {updateSnippet} />
     {:else}
       <span>{typeof snippet} isn't implemented supported renderer</span>
     {/if}
-    -->
-    Unimplemented
   </div>
 </div>
 <hr />
