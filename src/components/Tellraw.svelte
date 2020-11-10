@@ -39,7 +39,7 @@ import { TextSnippet } from '../classes/Snippets/SnippetTypes/TextSnippet';
 
   function speedtest() {
     let arr = [];
-    for (var i = 0; i < 100000; i++) {
+    for (var i = 0; i < 10000; i++) {
       arr.push(new TextSnippet(null));
     }
     snippets.set(arr);
