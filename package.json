@@ -28,8 +28,8 @@
     "webpack-cli": "^4.1.0"
   },
   "scripts": {
-    "build": "webpack",
-    "build:prod": "webpack --mode=\"production\"",
+    "dev": "webpack",
+    "build": "webpack --mode=\"production\"",
     "http": "python3 -m http.server"
   },
   "dependencies": {
