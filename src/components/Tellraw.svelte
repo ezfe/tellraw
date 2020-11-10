@@ -13,6 +13,7 @@
   import { export_snippets } from '../helpers/export';
   import { command,commandType,customColors,snippets,version } from '../persistence/stores';
 import { CommandType, template_lookup } from '../data/templates';
+import { TextSnippet } from '../classes/Snippets/SnippetTypes/TextSnippet';
 
 
   let exporting = false
@@ -34,6 +35,14 @@ import { CommandType, template_lookup } from '../data/templates';
 
   function startImporting() {
     importing = true
+  }
+
+  function speedtest() {
+    let arr = [];
+    for (var i = 0; i < 100000; i++) {
+      arr.push(new TextSnippet(null));
+    }
+    snippets.set(arr);
   }
 </script>
 
@@ -182,6 +191,7 @@ import { CommandType, template_lookup } from '../data/templates';
         <span style="color: grey; font-size: 10px;">
           <a href="https://ezekielelin.com/contact" target="_blank">Contact Me</a> | "Minecraft" content and materials are trademarks and copyrights of Mojang and its licensors. This site is not affiliated with Mojang.
         </span>
+        <button on:click={speedtest} style="display: none;">speedtest</button>
       </div>
     </div>
   {/if}
