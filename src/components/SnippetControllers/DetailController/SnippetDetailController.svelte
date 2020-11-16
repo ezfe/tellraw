@@ -4,8 +4,8 @@
   import { getCSSHEX,minecraftColorSet } from "../../../classes/Color";
   import { ClickEventType } from "../../../classes/Snippets/ClickEvent";
   import { HoverEventType } from "../../../classes/Snippets/HoverEvent";
-import { genericSnippet } from "../../../classes/Snippets/SnippetTypes/GenericFieldCompatable";
-import { NBTSnippet } from "../../../classes/Snippets/SnippetTypes/NBTSnippet";
+  import { genericSnippet } from "../../../classes/Snippets/SnippetTypes/GenericFieldCompatable";
+  import { NBTSnippet } from "../../../classes/Snippets/SnippetTypes/NBTSnippet";
   import type { Snippet } from "../../../classes/Snippets/SnippetTypes/Snippet";
   import { CommandType,FeatureType,isFeatureAvailable } from "../../../data/templates";
   import { duplicate_snippet } from "../../../helpers/copy_snippet";
@@ -13,8 +13,9 @@ import { NBTSnippet } from "../../../classes/Snippets/SnippetTypes/NBTSnippet";
   import Checkbox from "../../generic/Checkbox.svelte";
   import MinecraftColorButton from "../../MinecraftColorButton.svelte";
   import SnippetCollection from "../../SnippetCollection.svelte";
-import GenericSnippetController from "../GenericSnippetController.svelte";
-import NbtSnippetController from "../NBTSnippetController.svelte";
+  import GenericSnippetController from "../GenericSnippetController.svelte";
+  import NbtSnippetController from "../NBTSnippetController.svelte";
+
 
 
   export let snippet: Snippet
