@@ -4,6 +4,8 @@
   import { PagebreakSnippet } from "../../classes/Snippets/SnippetTypes/PagebreakSnippet";
   import type { Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
   import Icon from "../generic/Icon.svelte";
+  import PreviewContents from "./PreviewContents.svelte";
+
 
   export let snippets: Snippet[]
   let bookPage = 1
@@ -23,7 +25,7 @@
 </div>
 <div class="preview book-preview ml-3 mr-3">
   <div class="format-wrapper">
-    { formatSnippets(snippets, bookPage) }
+    <PreviewContents {snippets} {bookPage} />
   </div>
 </div>
 <div>

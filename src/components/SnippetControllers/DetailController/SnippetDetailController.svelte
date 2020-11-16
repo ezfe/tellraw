@@ -12,6 +12,7 @@
   import { customColors,version } from "../../../persistence/stores";
   import Checkbox from "../../generic/Checkbox.svelte";
   import MinecraftColorButton from "../../MinecraftColorButton.svelte";
+import PreviewContents from "../../Previews/PreviewContents.svelte";
   import SnippetCollection from "../../SnippetCollection.svelte";
   import GenericSnippetController from "../GenericSnippetController.svelte";
   import NbtSnippetController from "../NBTSnippetController.svelte";
@@ -341,7 +342,7 @@
 <div class="row mb-2">
   <div class="col">
     <p>
-      <!--{ formatSnippet(props.snippet) }-->
+      <PreviewContents snippets={[snippet]} />
     </p>
   </div>
 </div>

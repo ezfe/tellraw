@@ -1,0 +1,153 @@
+<script lang="typescript">
+  import { getCSSHEX } from "../../classes/Color";
+  import { KeybindSnippet } from "../../classes/Snippets/SnippetTypes/KeybindSnippet";
+  import { LinebreakSnippet } from "../../classes/Snippets/SnippetTypes/LinebreakSnippet";
+  import { NBTSnippet } from "../../classes/Snippets/SnippetTypes/NBTSnippet";
+  import { PagebreakSnippet } from "../../classes/Snippets/SnippetTypes/PagebreakSnippet";
+  import { ScoreboardObjectiveSnippet } from "../../classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet";
+  import { SelectorSnippet } from "../../classes/Snippets/SnippetTypes/SelectorSnippet";
+  import type { Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
+  import { TextSnippet } from "../../classes/Snippets/SnippetTypes/TextSnippet";
+  import { TranslateSnippet } from "../../classes/Snippets/SnippetTypes/TranslateSnippet";
+
+
+  function nthOccurence<T>(array: Array<T>, pattern: (T) => boolean, n: number) {
+    let searchFrom = 0
+
+    while (true) {
+      const nextIndex = array.findIndex((v: T, index: number) => {
+        return (index >= searchFrom && pattern(v))
+      })
+
+      console.log(`Search From: ${searchFrom}, Next Index: ${nextIndex}, n: ${n}`)
+
+      if (n <= 0 || nextIndex < 0) {
+        return (n <= 0) ? searchFrom : -1
+      } else {
+        n -= 1
+        searchFrom = nextIndex + 1
+      }
+    }
+  }
+
+  export let snippets: Snippet[]
+  export let bookPage: number | undefined
+
+  let pageStartIndex = 0
+  $: {
+    if (bookPage && bookPage > 1) {
+      pageStartIndex = nthOccurence(
+        snippets,
+        (snippet => snippet instanceof PagebreakSnippet),
+        bookPage - 1
+      )
+
+      if (pageStartIndex < 0) {
+        pageStartIndex = 0
+        console.error("Cannot find page", bookPage)
+      }
+    }
+  }
+
+  let pageEndIndex = snippets.length
+  $: {
+    if (bookPage) {
+      pageEndIndex = nthOccurence(
+        snippets,
+        (snippet => snippet instanceof PagebreakSnippet),
+        bookPage
+      ) - 1
+
+      if (pageEndIndex < 0) {
+        pageEndIndex = snippets.length
+      }
+    }
+  }
+
+  $: slicedSnippets = snippets.slice(pageStartIndex, pageEndIndex)
+  $: decoratedSnippets = slicedSnippets.map(snippet => {
+    if (snippet instanceof LinebreakSnippet) {
+      return {
+        snippet,
+        linebreak: true
+      }
+    }
+
+    let classes: string[] = []
+
+    if (snippet.underlined) {
+      classes.push("underline")
+    }
+    if (snippet.strikethrough) {
+      classes.push("line-through")
+    }
+    if (snippet.italic) {
+      classes.push("italic")
+    }
+    if (snippet.bold) {
+      classes.push("bold")
+    }
+
+    // let icon = iconForSnippet(snippet)
+    // if (icon !== null) clazz = "bordered-formatter-preview"
+
+    return {
+      snippet,
+      className: classes.join(" "),
+      color: getCSSHEX(snippet.color)
+    }
+  })
+</script>
+
+{#each decoratedSnippets as snippetInfo}
+  {#if snippetInfo.linebreak}
+    <br />
+  {:else}
+    <span class={snippetInfo.className} style={`color: ${snippetInfo.color}`}>
+      <!-- no icons -->
+      <span>
+        {#if snippetInfo.snippet instanceof TextSnippet}
+          { snippetInfo.snippet.text }
+        {:else if snippetInfo.snippet instanceof KeybindSnippet}
+          { snippetInfo.snippet.keybind }
+        {:else if snippetInfo.snippet instanceof ScoreboardObjectiveSnippet}
+          { snippetInfo.snippet.score_objective }@{ snippetInfo.snippet.score_name }
+        {:else if snippetInfo.snippet instanceof SelectorSnippet}
+          { snippetInfo.snippet.selector }
+        {:else if snippetInfo.snippet instanceof NBTSnippet}
+          {snippetInfo.snippet.nbt}@{snippetInfo.snippet.storage}
+        {:else if snippetInfo.snippet instanceof TranslateSnippet}
+          {snippetInfo.snippet.translate}
+        {:else if snippetInfo.snippet instanceof LinebreakSnippet}
+          <br />
+        {:else if snippetInfo.snippet instanceof PagebreakSnippet}
+          <br />
+          -- page break
+          <br />
+        {/if}
+      </span>
+    </span>
+  {/if}
+{/each}
+
+<style>
+  .underline {
+    text-decoration: underline;
+  }
+
+  .line-through {
+    text-decoration: line-through;
+  }
+
+  .underline.line-through {
+    text-decoration: underline line-through;
+  }
+
+  .bold {
+    font-weight: bold;
+  }
+
+  .italic {
+    font-style: italic;
+  }
+</style>

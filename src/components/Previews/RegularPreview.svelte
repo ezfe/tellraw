@@ -1,7 +1,9 @@
 <script lang="typescript">
-  import { previewBackgroundColor } from "../../persistence/stores"
-
+  import { PagebreakSnippet } from "../../classes/Snippets/SnippetTypes/PagebreakSnippet";
   import type { Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
+  import { previewBackgroundColor } from "../../persistence/stores";
+  import PreviewContents from "./PreviewContents.svelte";
+
 
   export let snippets: Snippet[]
 
@@ -11,7 +13,7 @@
 </script>
 
 <div class="preview" style={`background-color: ${$previewBackgroundColor}`}>
-  { formatSnippets(snippets) }
+  <PreviewContents {snippets} />
   <input class="preview-color-picker" type="color" bind:value={$previewBackgroundColor} />
 </div>
 

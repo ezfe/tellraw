@@ -1,9 +1,9 @@
 <script lang="typescript">
   import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
   import { Button } from 'sveltestrap';
-import type { Snippet } from '../../classes/Snippets/SnippetTypes/Snippet';
-import { CommandType, FeatureType, isFeatureAvailable } from '../../data/templates';
-import type { Version } from '../../helpers/versions';
+  import type { Snippet } from '../../classes/Snippets/SnippetTypes/Snippet';
+  import { CommandType,FeatureType,isFeatureAvailable } from '../../data/templates';
+  import type { Version } from '../../helpers/versions';
   import { bookPreviewDisclaimerShown } from '../../persistence/stores';
   import Icon from '../generic/Icon.svelte';
   import BookPreview from './BookPreview.svelte';

@@ -14,6 +14,7 @@
   import { command,commandType,customColors,snippets,version } from '../persistence/stores';
 import { CommandType, template_lookup } from '../data/templates';
 import { TextSnippet } from '../classes/Snippets/SnippetTypes/TextSnippet';
+import PreviewContainer from './Previews/PreviewContainer.svelte';
 
 
   let exporting = false
@@ -137,7 +138,7 @@ import { TextSnippet } from '../classes/Snippets/SnippetTypes/TextSnippet';
       </div>
     </div>
 
-    <!-- <Preview snippets={snippets} commandType={commandType} version={version} /> -->
+    <PreviewContainer snippets={$snippets} commandType={$commandType} />
 
     <hr />
 
