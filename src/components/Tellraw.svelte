@@ -12,9 +12,9 @@
   import { compile } from '../helpers/compile';
   import { export_snippets } from '../helpers/export';
   import { command,commandType,customColors,snippets,version } from '../persistence/stores';
-import { CommandType, template_lookup } from '../data/templates';
-import { TextSnippet } from '../classes/Snippets/SnippetTypes/TextSnippet';
-import PreviewContainer from './Previews/PreviewContainer.svelte';
+  import { CommandType, template_lookup } from '../data/templates';
+  import { TextSnippet } from '../classes/Snippets/SnippetTypes/TextSnippet';
+  import PreviewContainer from './Previews/PreviewContainer.svelte';
 
 
   let exporting = false
