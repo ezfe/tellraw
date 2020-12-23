@@ -1,10 +1,9 @@
 <script lang="typescript">
-  import { CommandType, template_lookup } from "../data/templates"
-  import { Button, ButtonGroup, Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'sveltestrap';
-	import { createEventDispatcher } from 'svelte';
-  import Icon from "./generic/Icons/IconContainer.svelte";
-  import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
-  import { command, commandType } from '../persistence/stores';
+  import { createEventDispatcher } from 'svelte';
+  import { Button } from 'sveltestrap';
+  import { CommandType,template_lookup } from "../data/templates";
+  import { command,commandType } from '../persistence/stores';
+import CheckCircle from './generic/Icons/CheckCircle.svelte';
 
   interface SelectableState {
     type: CommandType
@@ -65,7 +64,7 @@
         on:click={() => { makeSelection(typeInfo) }}
       >
         {#if typeInfo.isSelected}
-          <Icon icon={faCheckCircle} />
+          <CheckCircle />
         {/if}
         { typeInfo.name }
       </Button>

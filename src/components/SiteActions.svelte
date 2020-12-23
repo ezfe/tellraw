@@ -1,9 +1,10 @@
 <script lang="typescript">
-  import { faCodeBranch,faFileDownload,faWifi } from '@fortawesome/free-solid-svg-icons';
-  import { UncontrolledDropdown,DropdownItem,DropdownMenu,DropdownToggle } from 'sveltestrap';
-  import Icon from './generic/Icons/IconContainer.svelte';
+  import { DropdownItem,DropdownMenu,DropdownToggle,UncontrolledDropdown } from 'sveltestrap';
+  import CodeBranch from './generic/Icons/CodeBranch.svelte';
+  import FileDownload from './generic/Icons/FileDownload.svelte';
   import List from './generic/Icons/List.svelte';
-import Twitter from './generic/Icons/Twitter.svelte';
+  import Twitter from './generic/Icons/Twitter.svelte';
+  import WiFi from './generic/Icons/WiFi.svelte';
 </script>
 
 <UncontrolledDropdown class="ml-2">
@@ -16,15 +17,15 @@ import Twitter from './generic/Icons/Twitter.svelte';
       Tweet
     </DropdownItem>
     <DropdownItem href="https://status.minecraftjson.com">
-      <Icon icon={faWifi} />
+      <WiFi />
       Uptime
     </DropdownItem>
     <DropdownItem href="https://github.com/ezfe/tellraw/releases/latest">
-      <Icon icon={faFileDownload} />
+      <FileDownload />
       Download Website
     </DropdownItem>
     <DropdownItem href="https://legacy.minecraftjson.com">
-      <Icon icon={faCodeBranch} />
+      <CodeBranch />
       Legacy Version
     </DropdownItem>
   </DropdownMenu>
