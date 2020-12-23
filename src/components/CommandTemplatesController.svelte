@@ -2,7 +2,7 @@
   import { CommandType, template_lookup } from "../data/templates"
   import { Button, ButtonGroup, Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'sveltestrap';
 	import { createEventDispatcher } from 'svelte';
-  import Icon from "./generic/Icon.svelte";
+  import Icon from "./generic/Icons/IconContainer.svelte";
   import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
   import { command, commandType } from '../persistence/stores';
 

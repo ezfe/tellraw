@@ -3,7 +3,7 @@
   import { Button } from "sveltestrap";
   import { PagebreakSnippet } from "../../classes/Snippets/SnippetTypes/PagebreakSnippet";
   import type { Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
-  import Icon from "../generic/Icon.svelte";
+  import Icon from "../generic/Icons/IconContainer.svelte";
   import PreviewContents from "./PreviewContents.svelte";
 
 

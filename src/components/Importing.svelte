@@ -4,7 +4,7 @@
   import { Button } from 'sveltestrap';
 import { loadCurrentVersionState, upgradeV5State } from '../helpers/loaders';
   import { command,commandType,customColors,snippets,version } from '../persistence/stores';
-  import Icon from './generic/Icon.svelte';
+  import Icon from './generic/Icons/IconContainer.svelte';
 
   let importingString = ""
   export let importing: boolean

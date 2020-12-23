@@ -3,7 +3,7 @@
   import type { Color } from "../classes/Color";
   import { getCSSHEX } from "../classes/Color";
   import { highContrastColor } from "../helpers/high_contrast";
-  import Icon from "./generic/Icon.svelte";
+  import Icon from "./generic/Icons/IconContainer.svelte";
 
 
   export let checked: boolean

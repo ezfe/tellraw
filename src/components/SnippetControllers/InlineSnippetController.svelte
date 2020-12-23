@@ -10,7 +10,7 @@
   import { TranslateSnippet } from "../../classes/Snippets/SnippetTypes/TranslateSnippet";
   import { duplicate_snippet } from "../../helpers/copy_snippet";
   import { snippets } from "../../persistence/stores";
-  import Icon from "../generic/Icon.svelte";
+  import Icon from "../generic/Icons/IconContainer.svelte";
   import SplitDropdown from "../generic/SplitDropdown.svelte";
   import MinecraftColorWell from "../MinecraftColorWell.svelte";
   import GenericSnippetController from "./GenericSnippetController.svelte";

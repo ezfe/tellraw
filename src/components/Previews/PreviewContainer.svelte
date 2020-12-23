@@ -5,7 +5,7 @@
   import { CommandType,FeatureType,isFeatureAvailable } from '../../data/templates';
   import type { Version } from '../../helpers/versions';
   import { bookPreviewDisclaimerShown } from '../../persistence/stores';
-  import Icon from '../generic/Icon.svelte';
+  import Icon from '../generic/Icons/IconContainer.svelte';
   import BookPreview from './BookPreview.svelte';
   import RegularPreview from './RegularPreview.svelte';
 

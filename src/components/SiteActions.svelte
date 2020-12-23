@@ -1,17 +1,18 @@
 <script lang="typescript">
-  import { faTwitter } from '@fortawesome/free-brands-svg-icons';
-  import { faCodeBranch,faFileDownload,faList,faWifi } from '@fortawesome/free-solid-svg-icons';
+  import { faCodeBranch,faFileDownload,faWifi } from '@fortawesome/free-solid-svg-icons';
   import { UncontrolledDropdown,DropdownItem,DropdownMenu,DropdownToggle } from 'sveltestrap';
-  import Icon from './generic/Icon.svelte';
+  import Icon from './generic/Icons/IconContainer.svelte';
+  import List from './generic/Icons/List.svelte';
+import Twitter from './generic/Icons/Twitter.svelte';
 </script>
 
 <UncontrolledDropdown class="ml-2">
   <DropdownToggle size="sm" color="secondary" caret>
-    <Icon icon={faList} />
+    <List />
   </DropdownToggle>
   <DropdownMenu>
     <DropdownItem href="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Fwww.minecraftjson.com%2F&text=%2Ftellraw%20generator%20for%20minecraft&tw_p=tweetbutton&url=http%3A%2F%2Fwww.minecraftjson.com%2F&via=superezfe">
-      <Icon icon={faTwitter} />
+      <Twitter />
       Tweet
     </DropdownItem>
     <DropdownItem href="https://status.minecraftjson.com">

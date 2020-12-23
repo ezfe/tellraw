@@ -3,7 +3,7 @@
   import { Button,Col,Row } from "sveltestrap";
   import type { GenericFieldCompatable } from "../../classes/Snippets/SnippetTypes/GenericFieldCompatable";
   import type { FieldSpecifier, Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
-  import Icon from "../generic/Icon.svelte";
+  import Icon from "../generic/Icons/IconContainer.svelte";
 
 
   export let snippet: GenericFieldCompatable

@@ -1,11 +1,11 @@
 <script lang="typescript">
   import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
-  import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons/faExclamationTriangle';
+
   import { faFileExport } from '@fortawesome/free-solid-svg-icons/faFileExport';
   import { faFileImport } from '@fortawesome/free-solid-svg-icons/faFileImport';
   import { Button,Row } from 'sveltestrap';
   import CommandTemplatesController from './CommandTemplatesController.svelte';
-  import Icon from './generic/Icon.svelte';
+  import Icon from './generic/Icons/IconContainer.svelte';
   import Importing from './Importing.svelte';
   import SiteActions from './SiteActions.svelte';
   import SnippetCollection from './SnippetCollection.svelte';
@@ -15,6 +15,7 @@
   import { CommandType, template_lookup } from '../data/templates';
   import { TextSnippet } from '../classes/Snippets/SnippetTypes/TextSnippet';
   import PreviewContainer from './Previews/PreviewContainer.svelte';
+import ExclamationTriangle from './generic/Icons/ExclamationTriangle.svelte';
 
 
   let exporting = false
@@ -88,7 +89,7 @@
               role="toolbar"
               aria-label="Toolbar with button groups">
           <Button size="sm" color="danger" href="https://github.com/ezfe/tellraw/issues/new" target="_">
-            <Icon icon={faExclamationTriangle} /> Report an Issue
+            <ExclamationTriangle /> Report an Issue
           </Button>
           <SiteActions />
         </div>

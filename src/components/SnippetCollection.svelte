@@ -12,8 +12,8 @@
   import { TranslateSnippet } from "../classes/Snippets/SnippetTypes/TranslateSnippet";
   import { CommandType,FeatureType,isFeatureAvailable,template_lookup } from "../data/templates";
   import { version } from "../persistence/stores";
-  import Icon from "./generic/Icon.svelte";
-import SnippetDetailController from "./SnippetControllers/DetailController/SnippetDetailController.svelte";
+  import Icon from "./generic/Icons/IconContainer.svelte";
+  import SnippetDetailController from "./SnippetControllers/DetailController/SnippetDetailController.svelte";
   import InlineSnippetController from "./SnippetControllers/InlineSnippetController.svelte";
 
   let editing: Snippet = null
