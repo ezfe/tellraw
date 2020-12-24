@@ -15,6 +15,7 @@
   import PreviewContainer from './Previews/PreviewContainer.svelte';
   import ExclamationTriangle from './generic/Icons/ExclamationTriangle.svelte';
   import CheckCircle from './generic/Icons/CheckCircle.svelte';
+import LightWell from './generic/LightWell.svelte';
 
 
   let exporting = false
@@ -52,21 +53,23 @@
     <Importing bind:importing={importing} />
   {:else if exporting}
     <Row>
-      <div class="col-md-6 offset-md-3 light-well text-center">
-        <p class="mb-3">
-          Click below to copy the exported command string. Store it in a safe place
-          to import back onto the site in the future.
-        </p>
-        <textarea readOnly={true}
-                  class="form-control mb-3"
-                  on:click={(event) => {
-                    event.currentTarget.select()
-                  }}
-                  value={ export_snippets($snippets, $command, $commandType) } />
-        <Button color="success" on:click={() => { exporting = false }}>
-          <CheckCircle />
-          Done
-        </Button>
+      <div class="col-md-6 offset-md-3 text-center">
+        <LightWell>
+          <p class="mb-3">
+            Click below to copy the exported command string. Store it in a safe place
+            to import back onto the site in the future.
+          </p>
+          <textarea readOnly={true}
+                    class="form-control mb-3"
+                    on:click={(event) => {
+                      event.currentTarget.select()
+                    }}
+                    value={ export_snippets($snippets, $command, $commandType) } />
+          <Button color="success" on:click={() => { exporting = false }}>
+            <CheckCircle />
+            Done
+          </Button>
+        </LightWell>
       </div>
     </Row>
   {:else if colorManaging}

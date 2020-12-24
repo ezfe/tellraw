@@ -150,4 +150,13 @@
   .italic {
     font-style: italic;
   }
+  
+  .bordered-formatter-preview {
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 3px;
+    border-color: var(--info);
+    /* border-color: $info; */
+    display: inline-block;
+  }
 </style>

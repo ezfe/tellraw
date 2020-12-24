@@ -18,7 +18,12 @@
 </div>
 
 <style>
-.preview {
-  min-height: 300px;
-}
+  .preview {
+    min-height: 300px;
+  }
+  .preview-color-picker {
+    position: absolute;
+    right: 20px;
+    bottom: 5px;
+  }
 </style>

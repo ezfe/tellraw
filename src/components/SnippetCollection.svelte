@@ -15,6 +15,7 @@
   import PlusCircle from "./generic/Icons/PlusCircle.svelte";
 import TachometerAlt from "./generic/Icons/TachometerAlt.svelte";
   import TimesCircle from "./generic/Icons/TimesCircle.svelte";
+import LightWell from "./generic/LightWell.svelte";
   import SnippetDetailController from "./SnippetControllers/DetailController/SnippetDetailController.svelte";
   import InlineSnippetController from "./SnippetControllers/InlineSnippetController.svelte";
 
@@ -95,7 +96,7 @@ import TachometerAlt from "./generic/Icons/TachometerAlt.svelte";
 
 <svelte:window on:keydown={keyDown} on:keyup={keyUp} />
 
-<div class="light-well">
+<LightWell>
   {#if editing}
     <SnippetDetailController
       {commandType}
@@ -172,4 +173,4 @@ import TachometerAlt from "./generic/Icons/TachometerAlt.svelte";
       </div>
     </Row>
   {/if}
-</div>
+</LightWell>

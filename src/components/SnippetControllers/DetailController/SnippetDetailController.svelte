@@ -357,3 +357,13 @@ import PreviewContents from "../../Previews/PreviewContents.svelte";
     <button class="btn btn-primary btn-block" on:click={() => { stopEditing(true) }}>Save</button>
   </div>
 </div>
+
+<style>
+  .inline-snippet-collection {
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 10px;
+    padding: 15px;
+    border-color: grey;
+  }
+</style>

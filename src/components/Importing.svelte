@@ -4,6 +4,7 @@
   import { command,commandType,snippets } from '../persistence/stores';
   import CheckCircle from './generic/Icons/CheckCircle.svelte';
   import TimesCircle from './generic/Icons/TimesCircle.svelte';
+import LightWell from './generic/LightWell.svelte';
 
 
   let importingString = ""
@@ -56,24 +57,26 @@
 
 <form on:submit={formSubmit}>
   <div class="row">
-    <div class="col-md-6 offset-md-3 light-well text-center">
-      <p class="mb-3">
-        Please enter the string you were given when you exported your command
-      </p>
-      <!-- svelte-ignore a11y-autofocus -->
-      <input
-        autoFocus
-        class="form-control mb-3"
-        bind:value={importingString}
-      />
-      <Button type="button" color="danger" class="mr-3" on:click={() => { importing = false }}>
-        <TimesCircle />
-        Cancel
-      </Button>
-      <Button type="submit" color="success" class="mr-3" on:click={doImport}>
-        <CheckCircle />
-        Import
-      </Button>
+    <div class="col-md-6 offset-md-3 text-center">
+      <LightWell>
+        <p class="mb-3">
+          Please enter the string you were given when you exported your command
+        </p>
+        <!-- svelte-ignore a11y-autofocus -->
+        <input
+          autoFocus
+          class="form-control mb-3"
+          bind:value={importingString}
+        />
+        <Button type="button" color="danger" class="mr-3" on:click={() => { importing = false }}>
+          <TimesCircle />
+          Cancel
+        </Button>
+        <Button type="submit" color="success" class="mr-3" on:click={doImport}>
+          <CheckCircle />
+          Import
+        </Button>
+      </LightWell>
     </div>
   </div>
 </form>
