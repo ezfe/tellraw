@@ -3,8 +3,7 @@
   import { Button } from 'sveltestrap';
   import type { Snippet } from '../../classes/Snippets/SnippetTypes/Snippet';
   import { CommandType,FeatureType,isFeatureAvailable } from '../../data/templates';
-  import type { Version } from '../../helpers/versions';
-  import { bookPreviewDisclaimerShown } from '../../persistence/stores';
+  import { bookPreviewDisclaimerShown, version } from '../../persistence/stores';
   import Icon from '../generic/Icons/IconContainer.svelte';
   import BookPreview from './BookPreview.svelte';
   import RegularPreview from './RegularPreview.svelte';
@@ -12,9 +11,8 @@
 
   export let commandType: CommandType
   export let snippets: Snippet[]
-  export let version: Version
 
-  $: isBookPreview = isFeatureAvailable(commandType, version, FeatureType.bookPreview)  
+  $: isBookPreview = isFeatureAvailable(commandType, $version, FeatureType.bookPreview)  
   $: bookPreviewClass = isBookPreview  ? "d-flex align-items-center justify-content-center" : ""
 </script>
 
