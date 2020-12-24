@@ -1598,10 +1598,6 @@ function refreshLanguage(dropdownSelection) {
             '<li><a><i class="fa fa-spinner fa-pulse fa-fw" aria-hidden="true"></i></a></li>'
         );
     }
-    $("#language_keys").append('<li class="divider"></li>');
-    $("#language_keys").append(
-        '<li><a href="https://mcjson.oneskyapp.com"><span class="language_area" lang="language.translate"></span></a></li>'
-    );
 
     $(".langSelect").removeClass("label label-success");
     $("." + lsm.getItem("langCode")).addClass("label label-success");
