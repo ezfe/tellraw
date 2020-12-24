@@ -1,5 +1,4 @@
 <script lang="typescript">
-  import { faFileAlt,faPlusCircle,faTimesCircle } from "@fortawesome/free-solid-svg-icons";
   import { Button,DropdownItem,DropdownMenu,DropdownToggle,Row,UncontrolledDropdown } from "sveltestrap";
   import { KeybindSnippet } from "../classes/Snippets/SnippetTypes/KeybindSnippet";
   import { LinebreakSnippet } from "../classes/Snippets/SnippetTypes/LinebreakSnippet";
@@ -10,9 +9,11 @@
   import type { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
   import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
   import { TranslateSnippet } from "../classes/Snippets/SnippetTypes/TranslateSnippet";
-  import { CommandType,FeatureType,isFeatureAvailable,template_lookup } from "../data/templates";
+  import { CommandType,FeatureType,isFeatureAvailable } from "../data/templates";
   import { version } from "../persistence/stores";
-  import Icon from "./generic/Icons/IconContainer.svelte";
+  import FileAlt from "./generic/Icons/FileAlt.svelte";
+  import PlusCircle from "./generic/Icons/PlusCircle.svelte";
+  import TimesCircle from "./generic/Icons/TimesCircle.svelte";
   import SnippetDetailController from "./SnippetControllers/DetailController/SnippetDetailController.svelte";
   import InlineSnippetController from "./SnippetControllers/InlineSnippetController.svelte";
 
@@ -94,7 +95,7 @@
           <!-- this will be a controlled dropdown w/ a button toggle-->
           <DropdownToggle color="primary" block caret>
             <!-- tachometer-alt when option pressed-->
-            <Icon icon={faPlusCircle} />
+            <PlusCircle />
             Add Text
           </DropdownToggle>
           <DropdownMenu>
@@ -123,7 +124,7 @@
             </DropdownItem>
             {#if pageBreakAvailalbe}
               <DropdownItem on:click={newPagebreak}>
-                New Page <Icon icon={faFileAlt} />
+                New Page <FileAlt />
               </DropdownItem>
             {/if}
             <!-- fast edit tip -->
@@ -134,7 +135,7 @@
         <Button block
                 color="danger"
                 on:click={deleteAll}>
-          <Icon icon={faTimesCircle} />
+          <TimesCircle />
           Delete All
         </Button>
       </div>

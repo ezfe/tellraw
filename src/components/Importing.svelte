@@ -1,10 +1,10 @@
 <script lang="typescript">
-
-  import { faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
   import { Button } from 'sveltestrap';
-import { loadCurrentVersionState, upgradeV5State } from '../helpers/loaders';
-  import { command,commandType,customColors,snippets,version } from '../persistence/stores';
-  import Icon from './generic/Icons/IconContainer.svelte';
+  import { loadCurrentVersionState,upgradeV5State } from '../helpers/loaders';
+  import { command,commandType,snippets } from '../persistence/stores';
+  import CheckCircle from './generic/Icons/CheckCircle.svelte';
+  import TimesCircle from './generic/Icons/TimesCircle.svelte';
+
 
   let importingString = ""
   export let importing: boolean
@@ -60,18 +60,18 @@ import { loadCurrentVersionState, upgradeV5State } from '../helpers/loaders';
       <p class="mb-3">
         Please enter the string you were given when you exported your command
       </p>
+      <!-- svelte-ignore a11y-autofocus -->
       <input
         autoFocus
         class="form-control mb-3"
-        id="hotfix-input-cell"
         bind:value={importingString}
       />
       <Button type="button" color="danger" class="mr-3" on:click={() => { importing = false }}>
-        <Icon icon={faTimesCircle} />
+        <TimesCircle />
         Cancel
       </Button>
       <Button type="submit" color="success" class="mr-3" on:click={doImport}>
-        <Icon icon={faCheckCircle} />
+        <CheckCircle />
         Import
       </Button>
     </div>

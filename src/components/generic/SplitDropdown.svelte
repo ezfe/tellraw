@@ -1,9 +1,7 @@
 <script lang="typescript">
-import type { IconDefinition } from "@fortawesome/free-solid-svg-icons";
-import type { each } from "svelte/internal";
-
-  import { Button, ButtonGroup, Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from "sveltestrap";
-import Icon from "./Icons/IconContainer.svelte";
+  import type { IconDefinition } from "@fortawesome/free-solid-svg-icons";
+  import { Button,ButtonGroup,Dropdown,DropdownItem,DropdownMenu,DropdownToggle } from "sveltestrap";
+  import Icon from "./Icons/IconContainer.svelte";
 
   type ButtonColor =
     | 'primary'

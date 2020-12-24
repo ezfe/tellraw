@@ -1,10 +1,8 @@
 <script lang="typescript">
-  import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
   import type { Color } from "../classes/Color";
   import { getCSSHEX } from "../classes/Color";
   import { highContrastColor } from "../helpers/high_contrast";
-  import Icon from "./generic/Icons/IconContainer.svelte";
-
+import CheckCircle from "./generic/Icons/CheckCircle.svelte";
 
   export let checked: boolean
   export let color: Color
@@ -17,10 +15,7 @@
   on:click={() => { onClick(color) }}
 >
   {#if checked}
-    <Icon
-      icon={faCheckCircle}
-      style={`color: ${highContrastColor(getCSSHEX(color), "white", "black")}`}
-    />
+    <CheckCircle style={`color: ${highContrastColor(getCSSHEX(color), "white", "black")}`} />
   {/if}
 </div>
 

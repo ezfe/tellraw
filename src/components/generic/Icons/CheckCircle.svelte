@@ -1,6 +1,8 @@
 <script lang="typescript">  
   import { faCheckCircle as icon } from '@fortawesome/free-solid-svg-icons/faCheckCircle';
   import IconContainer from './IconContainer.svelte';
+
+  export let style = "";
 </script>
 
-<IconContainer {icon} />
+<IconContainer {icon} {style} />

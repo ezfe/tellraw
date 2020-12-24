@@ -1,6 +1,4 @@
 <script lang="typescript">
-  import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
-
   import { faFileExport } from '@fortawesome/free-solid-svg-icons/faFileExport';
   import { faFileImport } from '@fortawesome/free-solid-svg-icons/faFileImport';
   import { Button,Row } from 'sveltestrap';
@@ -15,7 +13,8 @@
   import { CommandType, template_lookup } from '../data/templates';
   import { TextSnippet } from '../classes/Snippets/SnippetTypes/TextSnippet';
   import PreviewContainer from './Previews/PreviewContainer.svelte';
-import ExclamationTriangle from './generic/Icons/ExclamationTriangle.svelte';
+  import ExclamationTriangle from './generic/Icons/ExclamationTriangle.svelte';
+  import CheckCircle from './generic/Icons/CheckCircle.svelte';
 
 
   let exporting = false
@@ -65,7 +64,7 @@ import ExclamationTriangle from './generic/Icons/ExclamationTriangle.svelte';
                   }}
                   value={ export_snippets($snippets, $command, $commandType) } />
         <Button color="success" on:click={() => { exporting = false }}>
-          <Icon icon={faCheckCircle} />
+          <CheckCircle />
           Done
         </Button>
       </div>

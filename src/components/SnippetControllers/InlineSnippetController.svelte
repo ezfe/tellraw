@@ -10,6 +10,7 @@
   import { TranslateSnippet } from "../../classes/Snippets/SnippetTypes/TranslateSnippet";
   import { duplicate_snippet } from "../../helpers/copy_snippet";
   import { snippets } from "../../persistence/stores";
+import FileAlt from "../generic/Icons/FileAlt.svelte";
   import Icon from "../generic/Icons/IconContainer.svelte";
   import SplitDropdown from "../generic/SplitDropdown.svelte";
   import MinecraftColorWell from "../MinecraftColorWell.svelte";
@@ -80,7 +81,7 @@
     {#if snippet instanceof LinebreakSnippet}
       <span>Line Break ⏎</span>
     {:else if snippet instanceof PagebreakSnippet}
-      <span>Page Break <Icon icon={faFileAlt} /></span>
+      <span>Page Break <FileAlt /></span>
     {:else if snippet instanceof NBTSnippet}
       <NbtSnippetController {snippet} {updateSnippet} />
     {:else if snippet instanceof TranslateSnippet}
