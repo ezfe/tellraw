@@ -10,14 +10,16 @@
   import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
   import { TranslateSnippet } from "../classes/Snippets/SnippetTypes/TranslateSnippet";
   import { CommandType,FeatureType,isFeatureAvailable } from "../data/templates";
-  import { version } from "../persistence/stores";
+  import { fastEditTipShown, version } from "../persistence/stores";
   import FileAlt from "./generic/Icons/FileAlt.svelte";
   import PlusCircle from "./generic/Icons/PlusCircle.svelte";
+import TachometerAlt from "./generic/Icons/TachometerAlt.svelte";
   import TimesCircle from "./generic/Icons/TimesCircle.svelte";
   import SnippetDetailController from "./SnippetControllers/DetailController/SnippetDetailController.svelte";
   import InlineSnippetController from "./SnippetControllers/InlineSnippetController.svelte";
 
   let editing: Snippet = null
+  let optionPressed = false
   export let commandType: CommandType
   export let colorManaging: boolean
   export let snippets: Snippet[]
@@ -72,9 +74,27 @@
     updateSnippets([...snippets, new PagebreakSnippet(null)])
   }
 
+  function hideFastEditTip() {
+    fastEditTipShown.set(false)
+  }
+
+  function keyDown(event) {
+    if (event.key === "Alt" || event.keyCode === 18) {
+      optionPressed = true;
+    }
+  }
+
+  function keyUp(event) {
+    if (event.key === "Alt" || event.keyCode === 18) {
+      optionPressed = false;
+    }
+  }
+
   $: nbtStorageAvailable = isFeatureAvailable(commandType, $version, FeatureType.nbtComponent)
   $: pageBreakAvailalbe = isFeatureAvailable(commandType, $version, FeatureType.pages)
 </script>
+
+<svelte:window on:keydown={keyDown} on:keyup={keyUp} />
 
 <div class="light-well">
   {#if editing}
@@ -94,8 +114,11 @@
         <UncontrolledDropdown>
           <!-- this will be a controlled dropdown w/ a button toggle-->
           <DropdownToggle color="primary" block caret>
-            <!-- tachometer-alt when option pressed-->
-            <PlusCircle />
+            {#if optionPressed}
+              <TachometerAlt />
+            {:else}
+              <PlusCircle />
+            {/if}
             Add Text
           </DropdownToggle>
           <DropdownMenu>
@@ -127,7 +150,16 @@
                 New Page <FileAlt />
               </DropdownItem>
             {/if}
-            <!-- fast edit tip -->
+            {#if fastEditTipShown}
+              <div class="dropdown-divider"></div>
+              <p class="text-muted pl-4 pr-4 mb-0 d-flex justify-content-between align-items-center">
+                Hold option to add without editing
+                <Button color="danger" size="sm" outline on:click={hideFastEditTip}>
+                  OK
+                </Button>
+                <!-- <button className="btn btn-sm btn-outline-danger" onClick={}>OK</button> -->
+              </p>
+            {/if}
           </DropdownMenu>
         </UncontrolledDropdown>
       </div>
