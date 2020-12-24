@@ -27,12 +27,11 @@ import TachometerAlt from "./generic/Icons/TachometerAlt.svelte";
   export let deleteAll: () => void
 
   function addSnippet(snippet: Snippet) {
-    //if (/* || optionPressed*/) {
-    updateSnippets([...snippets, snippet])
-    //}
-    // } else {
-    // startEditing(snippet)
-    // }
+    if (optionPressed) {
+      updateSnippets([...snippets, snippet])
+    } else {
+      startEditing(snippet)
+    }
   }
 
   function startEditing(snippet: Snippet) {
