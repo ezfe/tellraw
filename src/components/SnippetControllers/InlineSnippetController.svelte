@@ -1,5 +1,4 @@
 <script lang="typescript">
-  import { faClone,faEdit,faFileAlt,faTrashAlt } from "@fortawesome/free-solid-svg-icons";
   import { Col,Row } from "sveltestrap";
   import { v4 as uuidv4 } from "uuid";
   import { genericSnippet } from "../../classes/Snippets/SnippetTypes/GenericFieldCompatable";
@@ -10,8 +9,11 @@
   import { TranslateSnippet } from "../../classes/Snippets/SnippetTypes/TranslateSnippet";
   import { duplicate_snippet } from "../../helpers/copy_snippet";
   import { snippets } from "../../persistence/stores";
-import FileAlt from "../generic/Icons/FileAlt.svelte";
+  import Clone from "../generic/Icons/Clone.svelte";
+import Edit from "../generic/Icons/Edit.svelte";
+  import FileAlt from "../generic/Icons/FileAlt.svelte";
   import Icon from "../generic/Icons/IconContainer.svelte";
+  import TrashAlt from "../generic/Icons/TrashAlt.svelte";
   import SplitDropdown from "../generic/SplitDropdown.svelte";
   import MinecraftColorWell from "../MinecraftColorWell.svelte";
   import GenericSnippetController from "./GenericSnippetController.svelte";
@@ -54,21 +56,21 @@ import FileAlt from "../generic/Icons/FileAlt.svelte";
       dropdowns={[
         {
           label: "Delete",
-          icon: faTrashAlt,
+          icon: TrashAlt,
           onClick: () => {
             removeSnippet()
           }
         },
         {
           label: "Duplicate",
-          icon: faClone,
+          icon: Clone,
           onClick: () => {
             duplicateSnippet()
           }
         }
       ]} 
     >
-      <Icon icon={faEdit} />
+      <Edit />
       Edit
     </SplitDropdown>
   </div>

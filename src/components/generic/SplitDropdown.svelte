@@ -15,7 +15,7 @@
 
   interface DropdownAction {
     label?: string
-    icon?: IconDefinition,
+    icon?: any,
     iconRight?: IconDefinition,
     onClick?: () => void
     disabled?: boolean
@@ -40,9 +40,7 @@
 
     {#each dropdowns as dropdown}
       <DropdownItem on:click={dropdown.onClick}>
-        {#if dropdown.icon}
-          <Icon icon={dropdown.icon} />
-        {/if}
+        <svelte:component this={dropdown.icon} />
         {#if dropdown.label}
           {#if dropdown.icon}
             {" "}
@@ -52,11 +50,8 @@
             {" "}
           {/if}
         {/if}
-        {#if dropdown.iconRight}
-          <Icon icon={dropdown.iconRight} />
-        {/if}
+        <svelte:component this={dropdown.iconRight} />
       </DropdownItem>
     {/each}
-    <DropdownItem></DropdownItem>
   </DropdownMenu>
 </Dropdown>
