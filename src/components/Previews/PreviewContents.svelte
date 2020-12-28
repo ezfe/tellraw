@@ -10,16 +10,13 @@
   import { TextSnippet } from "../../classes/Snippets/SnippetTypes/TextSnippet";
   import { TranslateSnippet } from "../../classes/Snippets/SnippetTypes/TranslateSnippet";
 
-
-  function nthOccurence<T>(array: Array<T>, pattern: (T) => boolean, n: number) {
+  function nthPageBreak(array: Snippet[], n: number) {
     let searchFrom = 0
 
     while (true) {
-      const nextIndex = array.findIndex((v: T, index: number) => {
-        return (index >= searchFrom && pattern(v))
+      const nextIndex = array.findIndex((snippet, index) => {
+        return (index >= searchFrom && snippet instanceof PagebreakSnippet)
       })
-
-      console.log(`Search From: ${searchFrom}, Next Index: ${nextIndex}, n: ${n}`)
 
       if (n <= 0 || nextIndex < 0) {
         return (n <= 0) ? searchFrom : -1
@@ -30,39 +27,30 @@
     }
   }
 
+  function findPageStartIndex(bookPage: number, snippets: Snippet[]) {
+    let found = 0
+    if (bookPage && bookPage > 1) {
+      found = nthPageBreak(snippets, bookPage - 1)
+    }
+    return Math.max(found, 0)
+  }
+
+  function findPageEndIndex(bookPage: number, snippets: Snippet[]) {
+    let found = snippets.length
+    if (bookPage) {
+      found = nthPageBreak(snippets, bookPage) - 1
+      if (found < 0) {
+        found = snippets.length;
+      }
+    }
+    return Math.min(found, snippets.length)
+  }
+
   export let snippets: Snippet[]
   export let bookPage: number | undefined
 
-  let pageStartIndex = 0
-  $: {
-    if (bookPage && bookPage > 1) {
-      pageStartIndex = nthOccurence(
-        snippets,
-        (snippet => snippet instanceof PagebreakSnippet),
-        bookPage - 1
-      )
-
-      if (pageStartIndex < 0) {
-        pageStartIndex = 0
-        console.error("Cannot find page", bookPage)
-      }
-    }
-  }
-
-  let pageEndIndex = snippets.length
-  $: {
-    if (bookPage) {
-      pageEndIndex = nthOccurence(
-        snippets,
-        (snippet => snippet instanceof PagebreakSnippet),
-        bookPage
-      ) - 1
-
-      if (pageEndIndex < 0) {
-        pageEndIndex = snippets.length
-      }
-    }
-  }
+  $: pageStartIndex = findPageStartIndex(bookPage, snippets)
+  $: pageEndIndex = findPageEndIndex(bookPage, snippets)
 
   $: slicedSnippets = snippets.slice(pageStartIndex, pageEndIndex)
   $: decoratedSnippets = slicedSnippets.map(snippet => {

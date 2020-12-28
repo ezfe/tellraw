@@ -18,7 +18,7 @@
           color="light"
           icon="arrow-circle-left"
           disabled={bookPage <= 1}
-          onClick={() => { bookPage -= 1 }}>
+          on:click={() => { bookPage -= 1 }}>
     <Icon icon={faArrowCircleLeft} />
     Previous
   </Button>
@@ -32,7 +32,7 @@
   <Button style="width: 150px"
           color="light"
           disabled={bookPage >= pageCount}
-          onClick={() => { bookPage += 1 }}>
+          on:click={() => { bookPage += 1 }}>
     <Icon icon={faArrowCircleRight} />
     Next
   </Button>
