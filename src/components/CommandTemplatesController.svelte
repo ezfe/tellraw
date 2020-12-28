@@ -1,9 +1,9 @@
 <script lang="typescript">
   import { createEventDispatcher } from 'svelte';
-  import { Button } from 'sveltestrap';
   import { CommandType,template_lookup } from "../data/templates";
   import { command,commandType } from '../persistence/stores';
-import CheckCircle from './generic/Icons/CheckCircle.svelte';
+  import CheckCircle from './generic/Icons/CheckCircle.svelte';
+  import SplitDropdown from './generic/SplitDropdown.svelte';
 
   interface SelectableState {
     type: CommandType
@@ -41,9 +41,9 @@ import CheckCircle from './generic/Icons/CheckCircle.svelte';
     }
   ];
 
-  function makeSelection(typeInfo: SelectableState, template?: string) {
-    commandType.set(typeInfo.type);
-    command.set(template || template_lookup(typeInfo.type)[0]);
+  function makeSelection(type: CommandType, template?: string) {
+    commandType.set(type);
+    command.set(template || template_lookup(type)[0]);
   }
 
   $: mapped = selectableStates.map((typeInfo, index) => {
@@ -58,16 +58,24 @@ import CheckCircle from './generic/Icons/CheckCircle.svelte';
 <div class="row">
   {#each mapped as typeInfo, index (typeInfo)}
     <div class={`col-12 col-sm-5 col-md-4 col-lg-3 ${typeInfo.isLast ? "mb-4" : "mb-2"}`}>
-      <Button
+      <SplitDropdown
         block
         color={ typeInfo.isSelected ? "success" : "light" }
-        on:click={() => { makeSelection(typeInfo) }}
+        on:click={() => { makeSelection(typeInfo.type) }}
+        dropdowns={template_lookup(typeInfo.type).map(template => {
+          return {
+            label: template,
+            onClick: () => {
+              makeSelection(typeInfo.type, template)
+            }
+          }
+        })}
       >
         {#if typeInfo.isSelected}
           <CheckCircle />
         {/if}
         { typeInfo.name }
-      </Button>
+      </SplitDropdown>
     </div>
   {/each}
 </div>
