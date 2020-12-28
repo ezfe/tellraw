@@ -342,7 +342,7 @@ import PreviewContents from "../../Previews/PreviewContents.svelte";
 <div class="row mb-2">
   <div class="col">
     <p>
-      <PreviewContents snippets={[snippet]} />
+      <PreviewContents snippets={[snippet]} bookPage={null} />
     </p>
   </div>
 </div>

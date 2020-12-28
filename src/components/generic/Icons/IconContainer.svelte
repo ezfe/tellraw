@@ -13,7 +13,6 @@
   let path = "";
   let viewBox = "";
 
-  $: console.log(icon)
   $: viewBox = "0 0 " + icon.icon[0] + " " + icon.icon[1];
   $: {
     pathData = icon.icon[4];

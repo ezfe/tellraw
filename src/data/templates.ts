@@ -31,7 +31,7 @@ export enum FeatureType {
  * @param feature  The feature being queried
  */
 export function isFeatureAvailable(commandType: CommandType, version: Version, feature: FeatureType): boolean {
-    console.log(`Checking feature: ${FeatureType[feature]} for version ${version}, command type ${commandType}`)
+    // console.log(`Checking feature: ${FeatureType[feature]} for version ${version}, command type ${commandType}`)
     if (feature == FeatureType.clicking) {
         if (commandType == CommandType.tellraw ||
             commandType == CommandType.book ||

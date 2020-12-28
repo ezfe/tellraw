@@ -1,4 +1,6 @@
 <script lang="typescript">
+  import {flip} from "svelte/animate";
+  import {dndzone} from "svelte-dnd-action";
   import { Button,DropdownItem,DropdownMenu,DropdownToggle,Row,UncontrolledDropdown } from "sveltestrap";
   import { KeybindSnippet } from "../classes/Snippets/SnippetTypes/KeybindSnippet";
   import { LinebreakSnippet } from "../classes/Snippets/SnippetTypes/LinebreakSnippet";
@@ -13,11 +15,12 @@
   import { fastEditTipShown, version } from "../persistence/stores";
   import FileAlt from "./generic/Icons/FileAlt.svelte";
   import PlusCircle from "./generic/Icons/PlusCircle.svelte";
-import TachometerAlt from "./generic/Icons/TachometerAlt.svelte";
+  import TachometerAlt from "./generic/Icons/TachometerAlt.svelte";
   import TimesCircle from "./generic/Icons/TimesCircle.svelte";
-import LightWell from "./generic/LightWell.svelte";
+  import LightWell from "./generic/LightWell.svelte";
   import SnippetDetailController from "./SnippetControllers/DetailController/SnippetDetailController.svelte";
   import InlineSnippetController from "./SnippetControllers/InlineSnippetController.svelte";
+import { loadCurrentVersionState } from "../helpers/loaders";
 
   let editing: Snippet = null
   let optionPressed = false
@@ -90,6 +93,16 @@ import LightWell from "./generic/LightWell.svelte";
     }
   }
 
+  function handleDndConsider(event) {
+    console.log('Considering event', event)
+    updateSnippets(loadCurrentVersionState(event.detail.items));
+  }
+
+  function handleDndFinalize(event) {
+    console.log('Finalizing event', event)
+    updateSnippets(loadCurrentVersionState(event.detail.items));
+  }
+
   $: nbtStorageAvailable = isFeatureAvailable(commandType, $version, FeatureType.nbtComponent)
   $: pageBreakAvailalbe = isFeatureAvailable(commandType, $version, FeatureType.pages)
 </script>
@@ -105,9 +118,13 @@ import LightWell from "./generic/LightWell.svelte";
       bind:colorManaging={colorManaging}
     />
   {:else}
-    {#each snippets as snippet}
-      <InlineSnippetController {snippet} {updateSnippet} bind:editing={editing} />
-    {/each}
+    <section use:dndzone={{items: snippets, flipDurationMs: 300}} on:consider={handleDndConsider} on:finalize={handleDndFinalize}>
+      {#each snippets as snippet(snippet.id)}
+        <div animate:flip={{ duration: 300 }}>
+          <InlineSnippetController {snippet} {updateSnippet} bind:editing={editing} />
+        </div>
+      {/each}
+    </section>
 
     <Row>
       <div class="col-sm-4 col-md-3 offset-sm-2 mb-2 mb-sm-0">

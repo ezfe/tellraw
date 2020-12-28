@@ -5,7 +5,7 @@ import { NBTSnippet } from "../classes/Snippets/SnippetTypes/NBTSnippet";
 import { PagebreakSnippet } from "../classes/Snippets/SnippetTypes/PagebreakSnippet";
 import { ScoreboardObjectiveSnippet } from "../classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet";
 import { SelectorSnippet } from "../classes/Snippets/SnippetTypes/SelectorSnippet";
-import type { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
+import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
 import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
 import { TranslateSnippet } from "../classes/Snippets/SnippetTypes/TranslateSnippet";
 import { LSKEY_SNIPPET_ARR, VERSION } from "../constants";
@@ -73,6 +73,10 @@ export function upgradeV5State(source_array: Array<object>): Array<object> {
 // Version 6
 export function loadCurrentVersionState(source_array: Array<object>): Array<Snippet> {
   return source_array.map((s): Snippet => {
+    if (s instanceof Snippet) {
+      return s;
+    }
+
     if (s.hasOwnProperty("hover_event_children")) {
       const childSnippets = loadCurrentVersionState(s["hover_event_children"])
       s["hover_event_children"] = childSnippets
