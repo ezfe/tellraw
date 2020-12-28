@@ -1,9 +1,6 @@
 <script lang="typescript">
-  import { faFileExport } from '@fortawesome/free-solid-svg-icons/faFileExport';
-  import { faFileImport } from '@fortawesome/free-solid-svg-icons/faFileImport';
   import { Button,Row } from 'sveltestrap';
   import CommandTemplatesController from './CommandTemplatesController.svelte';
-  import Icon from './generic/Icons/IconContainer.svelte';
   import Importing from './Importing.svelte';
   import SiteActions from './SiteActions.svelte';
   import SnippetCollection from './SnippetCollection.svelte';
@@ -15,7 +12,9 @@
   import PreviewContainer from './Previews/PreviewContainer.svelte';
   import ExclamationTriangle from './generic/Icons/ExclamationTriangle.svelte';
   import CheckCircle from './generic/Icons/CheckCircle.svelte';
-import LightWell from './generic/LightWell.svelte';
+  import LightWell from './generic/LightWell.svelte';
+import FileImport from './generic/Icons/FileImport.svelte';
+import FileExport from './generic/Icons/FileExport.svelte';
 
 
   let exporting = false
@@ -151,12 +150,12 @@ import LightWell from './generic/LightWell.svelte';
       </div>
       <div class="col-sm-2 mb-2">
         <Button color="light" block on:click={startImporting}>
-          <Icon icon={faFileImport} /> Import
+          <FileImport /> Import
         </Button>
       </div>
       <div class="col-sm-2 mb-2">
         <Button color="light" block on:click={() => { exporting = true }}>
-          <Icon icon={faFileExport} /> Export
+          <FileExport /> Export
         </Button>
       </div>
       <div class="col mb-2">

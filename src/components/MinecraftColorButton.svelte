@@ -2,7 +2,7 @@
   import type { Color } from "../classes/Color";
   import { getCSSHEX } from "../classes/Color";
   import { highContrastColor } from "../helpers/high_contrast";
-import CheckCircle from "./generic/Icons/CheckCircle.svelte";
+  import CheckCircle from "./generic/Icons/CheckCircle.svelte";
 
   export let checked: boolean
   export let color: Color

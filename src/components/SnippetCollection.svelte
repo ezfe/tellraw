@@ -150,7 +150,7 @@ import LightWell from "./generic/LightWell.svelte";
                 New Page <FileAlt />
               </DropdownItem>
             {/if}
-            {#if fastEditTipShown}
+            {#if $fastEditTipShown}
               <div class="dropdown-divider"></div>
               <p class="text-muted pl-4 pr-4 mb-0 d-flex justify-content-between align-items-center">
                 Hold option to add without editing
