@@ -765,7 +765,7 @@ svelte-check@^1.1.10:
     svelte-preprocess "^4.0.0"
     typescript "*"
 
-svelte-dnd-action@^0.7.0:
+svelte-dnd-action@^0.7.1:
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/svelte-dnd-action/-/svelte-dnd-action-0.7.1.tgz#fe8079781592362119e307253f074c932ed05057"
   integrity sha512-h5GNY7ZbZX9MPJjMUHMji8pNqeu5vG/8DiebihdBx6p4pkakeeBzdID+cl37+R1DVk48mID1QO0a7sbo+cThHg==

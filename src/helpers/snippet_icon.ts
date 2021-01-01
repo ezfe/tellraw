@@ -3,26 +3,20 @@ import { NBTSnippet } from "../classes/Snippets/SnippetTypes/NBTSnippet";
 import { ScoreboardObjectiveSnippet } from "../classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet";
 import { SelectorSnippet } from "../classes/Snippets/SnippetTypes/SelectorSnippet";
 import type { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
+import DatabaseIcon from "../components/generic/Icons/Database.svelte";
+import TrophyIcon from "../components/generic/Icons/Trophy.svelte";
+import UserTagIcon from "../components/generic/Icons/UserTag.svelte";
+import KeyboardIcon from "../components/generic/Icons/Keyboard.svelte";
 
-function iconPropForSnippet(snippet: Snippet): string /* IconProp */ {
+export function iconForSnippet(snippet: Snippet): any {
   if (snippet instanceof KeybindSnippet) {
-    return "keyboard"
+    return KeyboardIcon
   } else if (snippet instanceof ScoreboardObjectiveSnippet) {
-    return "trophy"
+    return TrophyIcon
   } else if (snippet instanceof SelectorSnippet) {
-    return "user-tag"
+    return UserTagIcon
   } else if (snippet instanceof NBTSnippet) {
-    return "database"
+    return DatabaseIcon
   }
-
-  return null
+  return null;
 }
-
-// export function iconForSnippet(snippet: Snippet): JSX.Element {
-//   const iconProp = iconPropForSnippet(snippet)
-//   if (iconProp) {
-//     return <FontAwesomeIcon icon={iconPropForSnippet(snippet)} />
-//   } else {
-//     return null
-//   }
-// }

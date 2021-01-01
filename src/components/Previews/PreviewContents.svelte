@@ -9,6 +9,7 @@
   import type { Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
   import { TextSnippet } from "../../classes/Snippets/SnippetTypes/TextSnippet";
   import { TranslateSnippet } from "../../classes/Snippets/SnippetTypes/TranslateSnippet";
+  import { iconForSnippet } from "../../helpers/snippet_icon";
 
   function nthPageBreak(array: Snippet[], n: number) {
     let searchFrom = 0
@@ -76,13 +77,14 @@
       classes.push("bold")
     }
 
-    // let icon = iconForSnippet(snippet)
-    // if (icon !== null) clazz = "bordered-formatter-preview"
+    let icon = iconForSnippet(snippet)
+    if (icon !== null) classes.push("bordered-formatter-preview")
 
     return {
       snippet,
       className: classes.join(" "),
-      color: getCSSHEX(snippet.color)
+      color: getCSSHEX(snippet.color),
+      icon
     }
   })
 </script>
@@ -92,7 +94,9 @@
     <br />
   {:else}
     <span class={snippetInfo.className} style={`color: ${snippetInfo.color}`}>
-      <!-- no icons -->
+      {#if snippetInfo.icon}
+        <svelte:component this={snippetInfo.icon} />
+      {/if}
       <span>
         {#if snippetInfo.snippet instanceof TextSnippet}
           { snippetInfo.snippet.text }
