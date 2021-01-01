@@ -33,8 +33,8 @@
           color="light"
           disabled={bookPage >= pageCount}
           on:click={() => { bookPage += 1 }}>
-    <Icon icon={faArrowCircleRight} />
     Next
+    <Icon icon={faArrowCircleRight} />
   </Button>
 </div>
 
