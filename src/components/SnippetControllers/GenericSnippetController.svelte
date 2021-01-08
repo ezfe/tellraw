@@ -1,10 +1,9 @@
 <script lang="typescript">
-  import { faPlusCircle, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
   import { Button,Col,Row } from "sveltestrap";
   import type { GenericFieldCompatable } from "../../classes/Snippets/SnippetTypes/GenericFieldCompatable";
-  import type { FieldSpecifier, Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
-  import Icon from "../generic/Icons/IconContainer.svelte";
-
+  import type { FieldSpecifier,Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
+  import PlusCircle from "../generic/Icons/PlusCircle.svelte";
+  import TimesCircle from "../generic/Icons/TimesCircle.svelte";
 
   export let snippet: GenericFieldCompatable
   export let updateSnippet: (snippet: Snippet) => void
@@ -68,7 +67,7 @@
                 color="danger"
                 on:click={() => { removeIndex(field, subIndex) }}
               >
-                <Icon icon={faTimesCircle} />
+                <TimesCircle />
               </Button>
             </div>
           </Row>
@@ -76,7 +75,7 @@
         <Row>
           <Col>                   
             <Button color="success" on:click={() => { extendArray(field) }}>
-              <Icon icon={faPlusCircle} />
+              <PlusCircle />
               Add Parameter Value
             </Button>
           </Col>

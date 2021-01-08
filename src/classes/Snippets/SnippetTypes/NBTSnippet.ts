@@ -1,4 +1,4 @@
-import { copy_standard_attributes } from "../../../helpers/copy_snippet";
+import { copy_standard_attributes } from "../../../helpers/copy_standard_attributes";
 import { Snippet } from "./Snippet";
 
 export enum NBTType {

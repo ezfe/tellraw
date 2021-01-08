@@ -1,11 +1,10 @@
 <script lang="typescript">
-  import { faArrowCircleLeft,faArrowCircleRight } from "@fortawesome/free-solid-svg-icons";
   import { Button } from "sveltestrap";
   import { PagebreakSnippet } from "../../classes/Snippets/SnippetTypes/PagebreakSnippet";
   import type { Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
-  import Icon from "../generic/Icons/IconContainer.svelte";
+  import ArrowCircleLeft from "../generic/Icons/ArrowCircleLeft.svelte";
+  import ArrowCircleRight from "../generic/Icons/ArrowCircleRight.svelte";
   import PreviewContents from "./PreviewContents.svelte";
-
 
   export let snippets: Snippet[]
   let bookPage = 1
@@ -19,7 +18,7 @@
           icon="arrow-circle-left"
           disabled={bookPage <= 1}
           on:click={() => { bookPage -= 1 }}>
-    <Icon icon={faArrowCircleLeft} />
+    <ArrowCircleLeft />
     Previous
   </Button>
 </div>
@@ -34,7 +33,7 @@
           disabled={bookPage >= pageCount}
           on:click={() => { bookPage += 1 }}>
     Next
-    <Icon icon={faArrowCircleRight} />
+    <ArrowCircleRight />
   </Button>
 </div>
 

@@ -1,6 +1,6 @@
 <script lang="typescript">
-  import {flip} from "svelte/animate";
-  import {dndzone} from "svelte-dnd-action";
+  import { dndzone } from "svelte-dnd-action";
+  import { flip } from "svelte/animate";
   import { Button,DropdownItem,DropdownMenu,DropdownToggle,Row,UncontrolledDropdown } from "sveltestrap";
   import { KeybindSnippet } from "../classes/Snippets/SnippetTypes/KeybindSnippet";
   import { LinebreakSnippet } from "../classes/Snippets/SnippetTypes/LinebreakSnippet";
@@ -12,7 +12,8 @@
   import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
   import { TranslateSnippet } from "../classes/Snippets/SnippetTypes/TranslateSnippet";
   import { CommandType,FeatureType,isFeatureAvailable } from "../data/templates";
-  import { fastEditTipShown, version } from "../persistence/stores";
+  import { loadCurrentVersionState } from "../helpers/loaders";
+  import { fastEditTipShown,version } from "../persistence/stores";
   import FileAlt from "./generic/Icons/FileAlt.svelte";
   import PlusCircle from "./generic/Icons/PlusCircle.svelte";
   import TachometerAlt from "./generic/Icons/TachometerAlt.svelte";
@@ -20,7 +21,6 @@
   import LightWell from "./generic/LightWell.svelte";
   import SnippetDetailController from "./SnippetControllers/DetailController/SnippetDetailController.svelte";
   import InlineSnippetController from "./SnippetControllers/InlineSnippetController.svelte";
-import { loadCurrentVersionState } from "../helpers/loaders";
 
   let editing: Snippet = null
   let optionPressed = false

@@ -8,16 +8,14 @@
   import { NBTSnippet } from "../../../classes/Snippets/SnippetTypes/NBTSnippet";
   import type { Snippet } from "../../../classes/Snippets/SnippetTypes/Snippet";
   import { CommandType,FeatureType,isFeatureAvailable } from "../../../data/templates";
-  import { duplicate_snippet } from "../../../helpers/copy_snippet";
+  import { duplicate_snippet } from "../../../helpers/duplicate_snippet";
   import { customColors,version } from "../../../persistence/stores";
   import Checkbox from "../../generic/Checkbox.svelte";
   import MinecraftColorButton from "../../MinecraftColorButton.svelte";
-import PreviewContents from "../../Previews/PreviewContents.svelte";
+  import PreviewContents from "../../Previews/PreviewContents.svelte";
   import SnippetCollection from "../../SnippetCollection.svelte";
   import GenericSnippetController from "../GenericSnippetController.svelte";
   import NbtSnippetController from "../NBTSnippetController.svelte";
-
-
 
   export let snippet: Snippet
   export let stopEditing: (save: boolean) => void

@@ -7,12 +7,11 @@
   import { PagebreakSnippet } from "../../classes/Snippets/SnippetTypes/PagebreakSnippet";
   import type { Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
   import { TranslateSnippet } from "../../classes/Snippets/SnippetTypes/TranslateSnippet";
-  import { duplicate_snippet } from "../../helpers/copy_snippet";
+import { duplicate_snippet } from "../../helpers/duplicate_snippet";
   import { snippets } from "../../persistence/stores";
   import Clone from "../generic/Icons/Clone.svelte";
-import Edit from "../generic/Icons/Edit.svelte";
+  import Edit from "../generic/Icons/Edit.svelte";
   import FileAlt from "../generic/Icons/FileAlt.svelte";
-  import Icon from "../generic/Icons/IconContainer.svelte";
   import TrashAlt from "../generic/Icons/TrashAlt.svelte";
   import SplitDropdown from "../generic/SplitDropdown.svelte";
   import MinecraftColorWell from "../MinecraftColorWell.svelte";

@@ -1,13 +1,11 @@
 <script lang="typescript">
-  import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
   import { Button } from 'sveltestrap';
   import type { Snippet } from '../../classes/Snippets/SnippetTypes/Snippet';
   import { CommandType,FeatureType,isFeatureAvailable } from '../../data/templates';
-  import { bookPreviewDisclaimerShown, version } from '../../persistence/stores';
-  import Icon from '../generic/Icons/IconContainer.svelte';
+  import { bookPreviewDisclaimerShown,version } from '../../persistence/stores';
+  import CheckCircle from '../generic/Icons/CheckCircle.svelte';
   import BookPreview from './BookPreview.svelte';
   import RegularPreview from './RegularPreview.svelte';
-
 
   export let commandType: CommandType
   export let snippets: Snippet[]
@@ -37,7 +35,7 @@
         as some text may not fit when it appears as though it will here!
       </p>
       <Button color="info" on:click={() => { bookPreviewDisclaimerShown.set(true) }}>
-        <Icon icon={faCheckCircle} />
+        <CheckCircle />
         OK
       </Button>
     </div>
