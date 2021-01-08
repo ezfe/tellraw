@@ -22,7 +22,7 @@ export function legacyStatePreparation() {
     localStorage.clear()
     return
   }
-  
+
   if (lsformat == 5) {
     console.log(`Upgrading local state from ${lsformat} to ${VERSION}`)
     console.log("Mapping colors, then deferring to default loader")
@@ -33,6 +33,11 @@ export function legacyStatePreparation() {
     const correctedSnippetArray = upgradeV5State(source_array)
 
     localStorage.setItem(LSKEY_SNIPPET_ARR, JSON.stringify(correctedSnippetArray))
+  }
+
+  if (lsformat == 6) {
+    // no upgrade actions needed
+    // reserved for `svelte` release
   }
 
   localStorage.setItem("jformat", VERSION.toString())
