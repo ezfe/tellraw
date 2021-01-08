@@ -8,7 +8,7 @@ export enum NBTType {
 export class NBTSnippet extends Snippet {
   id: string
 
-  type: NBTType = NBTType.storage
+  type: NBTType = NBTType.entity
   nbt: string = ""
   // This has to remain storage for legacy reasons, but
   // it's actually going to be compiled to whichever field
