@@ -38,6 +38,12 @@ export function legacyStatePreparation() {
   if (lsformat == 6) {
     // no upgrade actions needed
     // reserved for `svelte` release
+    alert(
+`Hello!\n\nI've made substantial changes to the technology powering this website, \
+so it should now be much faster to load and snappier to interact with.\n\nPlease \
+reach out to me if you experience any problems using the website – especially if \
+it's a new problem you haven't encountered before. There is a contact button at \
+the bottom of the page.\n\n- Ezekiel`)
   }
 
   localStorage.setItem("jformat", VERSION.toString())
