@@ -211,7 +211,7 @@
 
   <Row class="mb-2">
     <div class="col-4">
-      <select class="custom-select" value={snippet.click_event_type} on:input={changeClickEventType}>
+      <select class="form-select" value={snippet.click_event_type} on:input={changeClickEventType}>
         <option selected={snippet.click_event_type == ClickEventType.none} value={ClickEventType.none}>
           None
         </option>
@@ -271,7 +271,7 @@
 
   <div class="row mb-2">
     <div class="col-4">
-      <select class="custom-select" value={snippet.hover_event_type} on:input={changeHoverEventType}>
+      <select class="form-select" value={snippet.hover_event_type} on:input={changeHoverEventType}>
         <option selected={snippet.hover_event_type == HoverEventType.none} value={HoverEventType.none}>
           None
         </option>

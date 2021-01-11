@@ -177,7 +177,7 @@ import FileExport from './generic/Icons/FileExport.svelte';
       <div class="col-3">
         <div class="form-group">
           <label for="versionSelect">Minecraft Version Compatibility:</label>
-          <select class="custom-select" bind:value={$version} id="versionSelect">
+          <select class="form-select" bind:value={$version} id="versionSelect">
             <option value="1.13">1.13</option>
             <option value="1.14">1.14</option>
             <option value="1.15">1.15</option>

@@ -36,7 +36,7 @@
 {:else}
   <Row class="mb-2">
     <Col>
-      <select class="custom-select" value={snippet.type} on:input={changeNBTType}>
+      <select class="form-select" value={snippet.type} on:input={changeNBTType}>
         <option value={NBTType.storage} disabled={!isFeatureAvailable($commandType, $version, FeatureType.nbtStorageComponent)}>
           Storage
           {#if !isFeatureAvailable($commandType, $version, FeatureType.nbtStorageComponent)}
