@@ -128,9 +128,9 @@
 
     <Row>
       <div class="col-sm-4 col-md-3 offset-sm-2 mb-2 mb-sm-0">
-        <UncontrolledDropdown>
+        <UncontrolledDropdown class="w-100">
           <!-- this will be a controlled dropdown w/ a button toggle-->
-          <DropdownToggle color="primary" block caret>
+          <DropdownToggle class="w-100" color="primary" caret>
             {#if optionPressed}
               <TachometerAlt />
             {:else}
@@ -169,7 +169,7 @@
             {/if}
             {#if $fastEditTipShown}
               <div class="dropdown-divider"></div>
-              <p class="text-muted pl-4 pr-4 mb-0 d-flex justify-content-between align-items-center">
+              <p class="text-muted px-4 mb-0 d-flex justify-content-between align-items-center">
                 Hold option to add without editing
                 <Button color="danger" size="sm" outline on:click={hideFastEditTip}>
                   OK

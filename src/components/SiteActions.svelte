@@ -7,7 +7,7 @@
   import WiFi from './generic/Icons/WiFi.svelte';
 </script>
 
-<UncontrolledDropdown class="ml-2">
+<UncontrolledDropdown class="ms-2">
   <DropdownToggle size="sm" color="secondary" caret>
     <List />
   </DropdownToggle>

@@ -54,11 +54,6 @@
   resolved "https://registry.yarnpkg.com/@polka/url/-/url-1.0.0-next.11.tgz#aeb16f50649a91af79dbe36574b66d0f9e4d9f71"
   integrity sha512-3NsZsJIA/22P3QUyrEDNA2D133H4j224twJrdipXN38dpnIOzAbUDtOwkcJ5pXmn75w7LSQDjA4tO9dm1XlqlA==
 
-"@popperjs/core@^2.6.0":
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.6.0.tgz#f022195afdfc942e088ee2101285a1d31c7d727f"
-  integrity sha512-cPqjjzuFWNK3BSKLm0abspP0sp/IGOli4p5I5fKFAzdS8fvjdOwDCfZqAaIiXd9lPkOWi3SUUfZof3hEb7J/uw==
-
 "@rollup/plugin-commonjs@^17.0.0":
   version "17.0.0"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-commonjs/-/plugin-commonjs-17.0.0.tgz#2ae2228354cf0fbba6cf9f06f30b2c66a974324c"
@@ -646,10 +641,10 @@ rollup-pluginutils@^2.8.2:
   dependencies:
     estree-walker "^0.6.1"
 
-rollup@^2.3.4:
-  version "2.35.1"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.35.1.tgz#e6bc8d10893556a638066f89e8c97f422d03968c"
-  integrity sha512-q5KxEyWpprAIcainhVy6HfRttD9kutQpHbeqDTWnqAFNJotiojetK6uqmcydNMymBEtC4I8bCYR+J3mTMqeaUA==
+rollup@^2.36.1:
+  version "2.36.1"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.36.1.tgz#2174f0c25c7b400d57b05628d0e732c7ae8d2178"
+  integrity sha512-eAfqho8dyzuVvrGqpR0ITgEdq0zG2QJeWYh+HeuTbpcaXk8vNFc48B7bJa1xYosTCKx0CuW+447oQOW8HgBIZQ==
   optionalDependencies:
     fsevents "~2.1.2"
 
@@ -751,10 +746,10 @@ svelte-awesome@^2.3.0:
   dependencies:
     svelte "^3.15.0"
 
-svelte-check@^1.1.10:
-  version "1.1.24"
-  resolved "https://registry.yarnpkg.com/svelte-check/-/svelte-check-1.1.24.tgz#5658add6760b73a93cee0be9a3d4260caee07780"
-  integrity sha512-zKd2uX0cJMF7l1Wsw7kYSqpk2P2IB48AQLYJtgfUEIQt7S7r8sOrBvSQ6qjj6bVEouT7z9lcuzoOgjD16x8P/A==
+svelte-check@^1.1.26:
+  version "1.1.26"
+  resolved "https://registry.yarnpkg.com/svelte-check/-/svelte-check-1.1.26.tgz#e29dec0a51714613796d38d0c568a69d1b569881"
+  integrity sha512-IDi6KwDUSryxo5+F2Ru8oRMdaZse9c2UW8DJEjXAIYitn7qb0acNDj6WOK/4E1TlgDesO5MzS0SoeHZg5qUonQ==
   dependencies:
     chalk "^4.0.0"
     chokidar "^3.4.1"
@@ -765,10 +760,10 @@ svelte-check@^1.1.10:
     svelte-preprocess "^4.0.0"
     typescript "*"
 
-svelte-dnd-action@^0.7.1:
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/svelte-dnd-action/-/svelte-dnd-action-0.7.1.tgz#fe8079781592362119e307253f074c932ed05057"
-  integrity sha512-h5GNY7ZbZX9MPJjMUHMji8pNqeu5vG/8DiebihdBx6p4pkakeeBzdID+cl37+R1DVk48mID1QO0a7sbo+cThHg==
+svelte-dnd-action@^0.7.3:
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/svelte-dnd-action/-/svelte-dnd-action-0.7.3.tgz#979f1cfae4ebde7620f8c084bfd7da209bc3fbcc"
+  integrity sha512-w8FH731QBnvzbweA/vikwLKkM5yzg5+kXpjp2NaaBi/xRmEE8qeG+oLls2I70f02IO3CGVjf0xlF8TR0HkAmaw==
 
 svelte-preprocess@^4.0.0, svelte-preprocess@^4.5.2:
   version "4.6.1"
@@ -780,17 +775,21 @@ svelte-preprocess@^4.0.0, svelte-preprocess@^4.5.2:
     detect-indent "^6.0.0"
     strip-indent "^3.0.0"
 
-svelte@^3.0.0, svelte@^3.15.0:
+svelte@^3.15.0:
   version "3.31.0"
   resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.31.0.tgz#13966e5f55b975bc86675469bb2c58dd0e558d97"
   integrity sha512-r+n8UJkDqoQm1b+3tA3Lh6mHXKpcfOSOuEuIo5gE2W9wQYi64RYX/qE6CZBDDsP/H4M+N426JwY7XGH4xASvGQ==
 
-sveltestrap@^3.9.5:
-  version "3.10.0"
-  resolved "https://registry.yarnpkg.com/sveltestrap/-/sveltestrap-3.10.0.tgz#817167114274fc630cf6406fa3e645fb252ff2ea"
-  integrity sha512-kec/q0nqjqxRf3b3NKrC9OzUjDKUZ2cmJupALH3DL8z2k74SYcUMbZ9+Gj9zNXHSXKkAdm0Xv0YQ1pVfyMZYVg==
+svelte@^3.31.2:
+  version "3.31.2"
+  resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.31.2.tgz#d2ddf6cacbb95e4cc3796207510b660a25586324"
+  integrity sha512-TxZGrXzX2ggFH3BIKY5fmbeMdJuZrMIMDYPMX6R9255bueuYIuVaBQSLUeY2oD7W4IdeqRZiAVGCjDw2POKBRA==
+
+sveltestrap@^5.0.0-beta:
+  version "5.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/sveltestrap/-/sveltestrap-5.0.0-beta.1.tgz#66e75762cec77b2b72d7a28b54cd8fcc5248239a"
+  integrity sha512-CsQPubuXrvddaXBSaN+Ujh/0vU0RaleHWFi8qyD5tTGGE8dA6+NPwcrjXpQ0dtwSUR6J2Zewm2XYN1G8v4KYxA==
   dependencies:
-    "@popperjs/core" "^2.6.0"
     lodash.isobject "^3.0.2"
     lodash.tonumber "^4.0.3"
 
@@ -820,10 +819,10 @@ totalist@^1.0.0:
   resolved "https://registry.yarnpkg.com/totalist/-/totalist-1.1.0.tgz#a4d65a3e546517701e3e5c37a47a70ac97fe56df"
   integrity sha512-gduQwd1rOdDMGxFG1gEvhV88Oirdo2p+KjoYFU7k2g+i7n6AFFbDQ5kMPUsW0pNbfQsB/cwXvT1i4Bue0s9g5g==
 
-tslib@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.0.3.tgz#8e0741ac45fc0c226e58a17bfc3e64b9bc6ca61c"
-  integrity sha512-uZtkfKblCEQtZKBF6EBXVZeQNl82yqtDQdv+eck8u7tdPxjLu2/lp5/uPW+um2tpuxINHWy3GhiccY7QgEaVHQ==
+tslib@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.1.0.tgz#da60860f1c2ecaa5703ab7d39bc05b6bf988b97a"
+  integrity sha512-hcVC3wYEziELGGmEEXue7D75zbwIIVUMWAVbHItGPx0ziyXxrOMQx4rQEVEV45Ut/1IotuEvwqPopzIOkDMf0A==
 
 typescript@*, typescript@^4.0.5:
   version "4.1.3"

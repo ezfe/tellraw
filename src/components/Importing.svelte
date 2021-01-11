@@ -68,11 +68,11 @@ import LightWell from './generic/LightWell.svelte';
           class="form-control mb-3"
           bind:value={importingString}
         />
-        <Button type="button" color="danger" class="mr-3" on:click={() => { importing = false }}>
+        <Button type="button" color="danger" class="me-3" on:click={() => { importing = false }}>
           <TimesCircle />
           Cancel
         </Button>
-        <Button type="submit" color="success" class="mr-3" on:click={doImport}>
+        <Button type="submit" color="success" class="me-3" on:click={doImport}>
           <CheckCircle />
           Import
         </Button>

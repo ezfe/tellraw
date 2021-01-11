@@ -28,8 +28,8 @@
   let isOpen = false
 </script>
 
-<Dropdown {isOpen} toggle={() => { isOpen = !isOpen }}>
-  <ButtonGroup class={block ? "btn-block" : ""}>
+<Dropdown class={block ? "w-100" : ""} {isOpen} toggle={() => { isOpen = !isOpen }}>
+  <ButtonGroup class={block ? "w-100" : ""}>
     <Button {color} {disabled} {block} on:click>
       <slot />
     </Button>

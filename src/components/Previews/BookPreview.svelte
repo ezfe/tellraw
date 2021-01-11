@@ -22,7 +22,7 @@
     Previous
   </Button>
 </div>
-<div class="preview book-preview ml-3 mr-3">
+<div class="preview book-preview mx-3">
   <div class="format-wrapper">
     <PreviewContents {snippets} {bookPage} />
   </div>

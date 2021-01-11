@@ -349,10 +349,10 @@
 
 <div class="row">
   <div class="offset-8 col-2">
-    <button class="btn btn-secondary btn-block" on:click={() => { stopEditing(false) }}>Cancel</button>
+    <button class="btn btn-secondary w-100" on:click={() => { stopEditing(false) }}>Cancel</button>
   </div>
   <div class="col-2">
-    <button class="btn btn-primary btn-block" on:click={() => { stopEditing(true) }}>Save</button>
+    <button class="btn btn-primary w-100" on:click={() => { stopEditing(true) }}>Save</button>
   </div>
 </div>
 
