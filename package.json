@@ -4,7 +4,7 @@
   "repository": "https://github.com/ezfe/tellraw",
   "author": "ezfe",
   "license": "MIT",
-  "version": "7.0.2",
+  "version": "7.0.3",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
