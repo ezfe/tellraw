@@ -17,10 +17,10 @@ jobs:
         with:
           node-version: 12
       - run: yarn
-      - run: yarn build:prod
+      - run: yarn build
       - name: Zip Project
         run: |
-          zip -r minecraftjson-compiled.zip dist index.html
+          zip -r minecraftjson-compiled.zip public
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
