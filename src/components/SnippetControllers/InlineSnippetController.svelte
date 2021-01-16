@@ -1,14 +1,11 @@
 <script lang="typescript">
   import { Col,Row } from "sveltestrap";
-  import { v4 as uuidv4 } from "uuid";
   import { genericSnippet } from "../../classes/Snippets/SnippetTypes/GenericFieldCompatable";
   import { LinebreakSnippet } from "../../classes/Snippets/SnippetTypes/LinebreakSnippet";
   import { NBTSnippet } from "../../classes/Snippets/SnippetTypes/NBTSnippet";
   import { PagebreakSnippet } from "../../classes/Snippets/SnippetTypes/PagebreakSnippet";
   import type { Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
   import { TranslateSnippet } from "../../classes/Snippets/SnippetTypes/TranslateSnippet";
-import { duplicate_snippet } from "../../helpers/duplicate_snippet";
-  import { snippets } from "../../persistence/stores";
   import Clone from "../generic/Icons/Clone.svelte";
   import Edit from "../generic/Icons/Edit.svelte";
   import FileAlt from "../generic/Icons/FileAlt.svelte";
@@ -21,22 +18,8 @@ import { duplicate_snippet } from "../../helpers/duplicate_snippet";
   export let snippet: Snippet
   export let editing: Snippet
   export let updateSnippet: (snippet: Snippet) => void
-
-  function removeSnippet() {
-    let filtered = $snippets.filter(cs => cs.id !== snippet.id)
-    snippets.set(filtered)
-  }
-  
-  function duplicateSnippet() {
-    let now = [...$snippets]
-    let newSnippet = duplicate_snippet(snippet)
-    newSnippet.id = uuidv4()
-
-    let i = now.indexOf(snippet);
-    now.splice(i, 0, newSnippet);
-
-    snippets.set(now);
-  }
+  export let removeSnippet: (snippet: Snippet) => void
+  export let duplicateSnippet: (snippet: Snippet) => void
 
   function startEditingSnippet() {
     editing = snippet
@@ -57,14 +40,14 @@ import { duplicate_snippet } from "../../helpers/duplicate_snippet";
           label: "Delete",
           icon: TrashAlt,
           onClick: () => {
-            removeSnippet()
+            removeSnippet(snippet)
           }
         },
         {
           label: "Duplicate",
           icon: Clone,
           onClick: () => {
-            duplicateSnippet()
+            duplicateSnippet(snippet)
           }
         }
       ]} 
