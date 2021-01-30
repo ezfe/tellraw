@@ -22,6 +22,7 @@ import LightWell from './generic/LightWell.svelte';
     try {
       import_data = JSON.parse(importingString) as Array<object>
     } catch (e) {
+      console.error(e);
       alert(`An error occurred importing your command.\n\nFeel free to use the "Report an Issue" option on the main page to report this`)
       return
     }
@@ -30,6 +31,7 @@ import LightWell from './generic/LightWell.svelte';
           && "jobject" in import_data
           && "jtemplate" in import_data)) {
       
+      console.error('Missing one of command, jobject, jtemplate');
       alert(`An error occurred importing your command.\n\nFeel free to use the "Report an Issue" option on the main page to report this`)
       return
     }
@@ -47,7 +49,7 @@ import LightWell from './generic/LightWell.svelte';
 
       snippets.set(loadCurrentVersionState(jobject))
     } else {
-      alert("Your export data is incorrectly formatted, and cannot be imported.")
+      alert("Your export data is incorrectly formatted - and may be too old, and cannot be imported.")
     }
 
     importing = false
