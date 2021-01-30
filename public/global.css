@@ -3,11 +3,6 @@ body {
   background-color: #222222;
 }
 
-.preview:not(.book-preview) {
-  padding: 10px;
-  border-radius: 5px;
-}
-
 .book-preview {
   padding-top: 60px;
   padding-left: 30px;
