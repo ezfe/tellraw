@@ -9,6 +9,7 @@
   import { PagebreakSnippet } from "../classes/Snippets/SnippetTypes/PagebreakSnippet";
   import { ScoreboardObjectiveSnippet } from "../classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet";
   import { SelectorSnippet } from "../classes/Snippets/SnippetTypes/SelectorSnippet";
+  import { GroupSnippet } from "../classes/Snippets/SnippetTypes/GroupSnippet";
   import type { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
   import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
   import { TranslateSnippet } from "../classes/Snippets/SnippetTypes/TranslateSnippet";
@@ -210,6 +211,9 @@
             </DropdownItem>
             <DropdownItem on:click={() => { addSnippet(new TranslateSnippet(null)) }}>
               Translation
+            </DropdownItem>
+            <DropdownItem on:click={() => { addSnippet(new GroupSnippet(null)) }}>
+              Snippet Group
             </DropdownItem>
             <DropdownItem on:click={newLinebreak}>
               Line Break ⏎

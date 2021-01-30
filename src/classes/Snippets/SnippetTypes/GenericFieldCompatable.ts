@@ -1,3 +1,4 @@
+import { GroupSnippet } from "./GroupSnippet";
 import { KeybindSnippet } from "./KeybindSnippet";
 import { ScoreboardObjectiveSnippet } from "./ScoreboardObjectiveSnippet";
 import { SelectorSnippet } from "./SelectorSnippet";
@@ -5,7 +6,7 @@ import type { Snippet } from "./Snippet";
 import { TextSnippet } from "./TextSnippet";
 import { TranslateSnippet } from "./TranslateSnippet";
 
-export type GenericFieldCompatable = ScoreboardObjectiveSnippet | KeybindSnippet | SelectorSnippet | TextSnippet | TranslateSnippet
+export type GenericFieldCompatable = ScoreboardObjectiveSnippet | KeybindSnippet | SelectorSnippet | TextSnippet | TranslateSnippet | GroupSnippet
 
 export function genericSnippet(snippet: Snippet): GenericFieldCompatable {
   if (
@@ -14,6 +15,7 @@ export function genericSnippet(snippet: Snippet): GenericFieldCompatable {
     || snippet instanceof SelectorSnippet
     || snippet instanceof TextSnippet
     || snippet instanceof TranslateSnippet
+    || snippet instanceof GroupSnippet
   ) {
     return snippet
   } else {

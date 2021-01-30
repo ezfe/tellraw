@@ -1,4 +1,5 @@
 import type { Color } from "../classes/Color";
+import { GroupSnippet } from "../classes/Snippets/SnippetTypes/GroupSnippet";
 import { KeybindSnippet } from "../classes/Snippets/SnippetTypes/KeybindSnippet";
 import { LinebreakSnippet } from "../classes/Snippets/SnippetTypes/LinebreakSnippet";
 import { NBTSnippet } from "../classes/Snippets/SnippetTypes/NBTSnippet";
@@ -111,6 +112,9 @@ export function loadCurrentVersionState(source_array: Array<object>): Array<Snip
       return (Object as any).assign(new TranslateSnippet(), s)
     } else if (s.hasOwnProperty("isPagebreak")) {
       return (Object as any).assign(new PagebreakSnippet(), s)
+    } else if (s.hasOwnProperty("children")) {
+      // s["children"] = loadCurrentVersionState(s["children"])
+      return (Object as any).assign(new GroupSnippet(), s)
     } else {
       let x = new TextSnippet()
       x.text = `Failed to claim ${JSON.stringify(s)}`

@@ -1,4 +1,5 @@
 import type { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
+import { duplicate_snippet } from "./duplicate_snippet";
 
 export function copy_standard_attributes(source: Snippet, destination: Snippet) {
   destination.bold = source.bold
@@ -18,5 +19,5 @@ export function copy_standard_attributes(source: Snippet, destination: Snippet) 
 
   destination.hover_event_type = source.hover_event_type
   destination.hover_event_value = source.hover_event_value
-  destination.hover_event_children = source.hover_event_children
+  destination.hover_event_children = source.hover_event_children.map(snippet => duplicate_snippet(snippet))
 }

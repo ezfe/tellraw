@@ -1,3 +1,4 @@
+import { GroupSnippet } from "../classes/Snippets/SnippetTypes/GroupSnippet"
 import { KeybindSnippet } from "../classes/Snippets/SnippetTypes/KeybindSnippet"
 import { LinebreakSnippet } from "../classes/Snippets/SnippetTypes/LinebreakSnippet"
 import { NBTSnippet } from "../classes/Snippets/SnippetTypes/NBTSnippet"
@@ -24,6 +25,8 @@ export function duplicate_snippet(snippet: Snippet) {
   } else if (snippet instanceof NBTSnippet) {
     return snippet.copy()
   } else if (snippet instanceof TranslateSnippet) {
+    return snippet.copy()
+  } else if (snippet instanceof GroupSnippet) {
     return snippet.copy()
   } else {
     console.error("An error occurred copying a snippet. It probably hasn't been implemented yet in the copy_snippet function.")
