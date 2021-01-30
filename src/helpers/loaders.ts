@@ -11,7 +11,7 @@ import { TranslateSnippet } from "../classes/Snippets/SnippetTypes/TranslateSnip
 import { LSKEY_SNIPPET_ARR, VERSION } from "../constants";
 
 export function legacyStatePreparation() {
-  
+
   const lsformat = parseInt(localStorage.getItem("jformat") || VERSION.toString())
   console.log("Verifying format...")
   console.log("Currently", lsformat)

@@ -34,7 +34,7 @@
 
   /**
    * Add a new snippet to the list.
-   * 
+   *
    * - If `option` is pressed, the snippet is added immediately
    * - If `option` is not pressed, the snippet is not saved, but
    *   starts being edited. It is added when the edit form is completed.
@@ -71,7 +71,7 @@
   /**
    * Save a new copy of a snippet. The snippet can be
    * new, or could already exist.
-   * 
+   *
    * - New snippets are appended to the end of the set
    * - Existing snippets are replaced
    *
@@ -92,7 +92,7 @@
     if (isNewSnippet) {
       updatedSnippets = [...snippets, newSnippet]
     }
-    
+
     updateSnippets(updatedSnippets)
   }
 
