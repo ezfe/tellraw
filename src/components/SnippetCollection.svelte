@@ -2,6 +2,7 @@
   import { dndzone } from "svelte-dnd-action";
   import { flip } from "svelte/animate";
   import { Button,DropdownItem,DropdownMenu,DropdownToggle,Row,UncontrolledDropdown } from "sveltestrap";
+  import { v4 as uuidv4 } from "uuid";
   import { KeybindSnippet } from "../classes/Snippets/SnippetTypes/KeybindSnippet";
   import { LinebreakSnippet } from "../classes/Snippets/SnippetTypes/LinebreakSnippet";
   import { NBTSnippet } from "../classes/Snippets/SnippetTypes/NBTSnippet";
@@ -12,6 +13,7 @@
   import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
   import { TranslateSnippet } from "../classes/Snippets/SnippetTypes/TranslateSnippet";
   import { CommandType,FeatureType,isFeatureAvailable } from "../data/templates";
+  import { duplicate_snippet } from "../helpers/duplicate_snippet";
   import { loadCurrentVersionState } from "../helpers/loaders";
   import { fastEditTipShown,version } from "../persistence/stores";
   import FileAlt from "./generic/Icons/FileAlt.svelte";
@@ -30,6 +32,14 @@
   export let updateSnippets: (newValue: Snippet[]) => void
   export let deleteAll: () => void
 
+  /**
+   * Add a new snippet to the list.
+   * 
+   * - If `option` is pressed, the snippet is added immediately
+   * - If `option` is not pressed, the snippet is not saved, but
+   *   starts being edited. It is added when the edit form is completed.
+   * @param snippet
+   */
   function addSnippet(snippet: Snippet) {
     if (optionPressed) {
       updateSnippets([...snippets, snippet])
@@ -38,10 +48,18 @@
     }
   }
 
+  /**
+   * Start editing a specific snippet
+   * @param snippet The snippet to edit
+   */
   function startEditing(snippet: Snippet) {
     editing = snippet
   }
 
+  /**
+   * Stop editing the current snippet.
+   * @param save Whether to save or discard the current edits
+   */
   function stopEditing(save: boolean) {
     if (save && editing !== null) {
       updateSnippet(editing)
@@ -50,6 +68,15 @@
     editing = null
   }
 
+  /**
+   * Save a new copy of a snippet. The snippet can be
+   * new, or could already exist.
+   * 
+   * - New snippets are appended to the end of the set
+   * - Existing snippets are replaced
+   *
+   * @param newSnippet The snippet to insert or replace
+   */
   function updateSnippet(newSnippet: Snippet) {
     console.log("Updating", newSnippet)
     let isNewSnippet = true
@@ -67,6 +94,31 @@
     }
     
     updateSnippets(updatedSnippets)
+  }
+
+  /**
+   * Remove a snippet and call `updateSnippets` to
+   * save the new snippet set.
+   * @param snippet The snippet to delete
+   */
+  function removeSnippet(snippet: Snippet) {
+    updateSnippets(snippets.filter(cs => cs.id !== snippet.id))
+  }
+
+  /**
+   * Duplicate a snippet and call `updateSnippets` to
+   * save the new snippet set.
+   * @param snippet The snippet to duplicate
+   */
+  function duplicateSnippet(snippet: Snippet) {
+    let now = [...snippets]
+    let newSnippet = duplicate_snippet(snippet)
+    newSnippet.id = uuidv4()
+
+    let i = now.indexOf(snippet);
+    now.splice(i, 0, newSnippet);
+
+    updateSnippets(now);
   }
 
   function newLinebreak() {
@@ -121,7 +173,7 @@
     <section use:dndzone={{items: snippets, flipDurationMs: 300}} on:consider={handleDndConsider} on:finalize={handleDndFinalize}>
       {#each snippets as snippet(snippet.id)}
         <div animate:flip={{ duration: 300 }}>
-          <InlineSnippetController {snippet} {updateSnippet} bind:editing={editing} />
+          <InlineSnippetController {snippet} {updateSnippet} {removeSnippet} {duplicateSnippet} bind:editing={editing} />
         </div>
       {/each}
     </section>
