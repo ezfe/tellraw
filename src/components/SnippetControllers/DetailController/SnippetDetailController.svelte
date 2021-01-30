@@ -243,7 +243,7 @@
               value={snippet.click_event_value}
               on:input={changeClickEventValue}
             />
-          </div>  
+          </div>
         </div>
         {#if commandType == CommandType.sign}
           <div class="row mt-2">

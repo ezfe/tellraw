@@ -1,26 +1,38 @@
 <script lang="typescript">
   import { Col,Row } from "sveltestrap";
   import { genericSnippet } from "../../classes/Snippets/SnippetTypes/GenericFieldCompatable";
-  import { LinebreakSnippet } from "../../classes/Snippets/SnippetTypes/LinebreakSnippet";
   import { GroupSnippet } from "../../classes/Snippets/SnippetTypes/GroupSnippet";
+  import { LinebreakSnippet } from "../../classes/Snippets/SnippetTypes/LinebreakSnippet";
   import { NBTSnippet } from "../../classes/Snippets/SnippetTypes/NBTSnippet";
   import { PagebreakSnippet } from "../../classes/Snippets/SnippetTypes/PagebreakSnippet";
   import type { Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
   import { TranslateSnippet } from "../../classes/Snippets/SnippetTypes/TranslateSnippet";
+  import { CommandType } from "../../data/templates";
+  import { duplicate_snippet } from "../../helpers/duplicate_snippet";
   import Clone from "../generic/Icons/Clone.svelte";
   import Edit from "../generic/Icons/Edit.svelte";
   import FileAlt from "../generic/Icons/FileAlt.svelte";
   import TrashAlt from "../generic/Icons/TrashAlt.svelte";
   import SplitDropdown from "../generic/SplitDropdown.svelte";
   import MinecraftColorWell from "../MinecraftColorWell.svelte";
+  import SnippetCollection from "../SnippetCollection.svelte";
   import GenericSnippetController from "./GenericSnippetController.svelte";
   import NBTSnippetController from "./NBTSnippetController.svelte";
 
   export let snippet: Snippet
   export let editing: Snippet
+  export let colorManaging: boolean
   export let updateSnippet: (snippet: Snippet) => void
   export let removeSnippet: (snippet: Snippet) => void
   export let duplicateSnippet: (snippet: Snippet) => void
+
+  function changeGroupSnippetChildren(snippets: Array<Snippet>) {
+    // TODO: Break this out into a new file so we don't need
+    // to do stuff like "as GroupSnippet"
+    let newSnippet = duplicate_snippet(snippet) as GroupSnippet
+    newSnippet.hover_event_children = snippets
+    updateSnippet(newSnippet)
+  }
 
   function startEditingSnippet() {
     editing = snippet
@@ -72,7 +84,21 @@
     {:else if snippet instanceof TranslateSnippet}
       <span>Translation Snippet ({ snippet.translate }) - Click Edit to modify</span>
     {:else if snippet instanceof GroupSnippet}
-      <span>group</span>
+      <div class="col">
+        <div class="row">
+          <div class="col inline-snippet-collection">
+            <SnippetCollection
+              commandType={CommandType.hovertext}
+              snippets={snippet.hover_event_children}
+              updateSnippets={changeGroupSnippetChildren}
+              deleteAll={() => {
+                changeGroupSnippetChildren([])
+              }}
+              bind:colorManaging={colorManaging}
+            />
+          </div>
+        </div>
+      </div>
     {:else if genericSnippet(snippet)}
       <!-- Generic Snippet will be nil if it's not a generic snippet -->
       <!-- by if-ing first, can assure it's not null -->
