@@ -90,8 +90,7 @@ export function loadCurrentVersionState(source_array: Array<object>): Array<Snip
     }
 
     if (s.hasOwnProperty("hover_event_children")) {
-      const childSnippets = loadCurrentVersionState(s["hover_event_children"])
-      s["hover_event_children"] = childSnippets
+      s["hover_event_children"] = loadCurrentVersionState(s["hover_event_children"])
     }
 
     if (s.hasOwnProperty("text")) {
@@ -113,7 +112,7 @@ export function loadCurrentVersionState(source_array: Array<object>): Array<Snip
     } else if (s.hasOwnProperty("isPagebreak")) {
       return (Object as any).assign(new PagebreakSnippet(), s)
     } else if (s.hasOwnProperty("children")) {
-      // s["children"] = loadCurrentVersionState(s["children"])
+      s["children"] = loadCurrentVersionState(s["children"])
       return (Object as any).assign(new GroupSnippet(), s)
     } else {
       let x = new TextSnippet()
