@@ -148,7 +148,7 @@
 
   function handleDndConsider(event) {
     console.log('Considering event', event)
-    updateSnippets(loadCurrentVersionState(event.detail.items));
+    updateSnippets(loadCurrentVersionState(event.detail.items, false));
   }
 
   function handleDndFinalize(event) {

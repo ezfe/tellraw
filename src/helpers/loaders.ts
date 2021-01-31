@@ -11,6 +11,7 @@ import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
 import { TranslateSnippet } from "../classes/Snippets/SnippetTypes/TranslateSnippet";
 import { LSKEY_SNIPPET_ARR, VERSION } from "../constants";
 import { v4 as uuidv4 } from "uuid";
+import { SHADOW_ITEM_MARKER_PROPERTY_NAME } from "svelte-dnd-action";
 
 export function legacyStatePreparation() {
 
@@ -84,10 +85,21 @@ export function upgradeV5State(source_array: Array<object>): Array<object> {
 }
 
 // Version 6
-export function loadCurrentVersionState(source_array: Array<object>): Array<Snippet> {
-  return source_array.map((s): Snippet => {
-    s["id"] = uuidv4();
-    delete s["isDndShadowItem"];
+export function loadCurrentVersionState(source_array: Array<object>, filterShadowItems: boolean = true): Array<Snippet> {
+  console.log('Parsing snippets', source_array);
+  const parsed = source_array.map((s): Snippet => {
+    if (!s) {
+      console.error('Received null item', s, source_array)
+      return;
+    }
+
+    if (filterShadowItems && s[SHADOW_ITEM_MARKER_PROPERTY_NAME]) {
+      console.log('Filtering shadow item', s, source_array)
+      return;
+    }
+
+    // s["id"] = uuidv4();
+    console.log('Encountered item ID', s["id"]);
 
     if (s instanceof Snippet) {
       return s;
@@ -124,4 +136,6 @@ export function loadCurrentVersionState(source_array: Array<object>): Array<Snip
       return x
     }
   })
+  console.log('Built properly typed array', parsed);
+  return parsed;
 }
