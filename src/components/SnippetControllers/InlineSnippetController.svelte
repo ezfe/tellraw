@@ -7,7 +7,7 @@
   import { PagebreakSnippet } from "../../classes/Snippets/SnippetTypes/PagebreakSnippet";
   import type { Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
   import { TranslateSnippet } from "../../classes/Snippets/SnippetTypes/TranslateSnippet";
-  import { CommandType } from "../../data/templates";
+  import type { CommandType } from "../../data/templates";
   import { duplicate_snippet } from "../../helpers/duplicate_snippet";
   import Clone from "../generic/Icons/Clone.svelte";
   import Edit from "../generic/Icons/Edit.svelte";
@@ -21,6 +21,7 @@
 
   export let snippet: Snippet
   export let editing: Snippet
+  export let commandType: CommandType
   export let colorManaging: boolean
   export let updateSnippet: (snippet: Snippet) => void
   export let removeSnippet: (snippet: Snippet) => void
@@ -30,7 +31,7 @@
     // TODO: Break this out into a new file so we don't need
     // to do stuff like "as GroupSnippet"
     let newSnippet = duplicate_snippet(snippet) as GroupSnippet
-    newSnippet.hover_event_children = snippets
+    newSnippet.children = snippets
     updateSnippet(newSnippet)
   }
 
@@ -88,8 +89,8 @@
         <div class="row">
           <div class="col inline-snippet-collection">
             <SnippetCollection
-              commandType={CommandType.hovertext}
-              snippets={snippet.hover_event_children}
+              {commandType}
+              snippets={snippet.children}
               updateSnippets={changeGroupSnippetChildren}
               deleteAll={() => {
                 changeGroupSnippetChildren([])

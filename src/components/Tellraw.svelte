@@ -19,9 +19,9 @@ import FileExport from './generic/Icons/FileExport.svelte';
 
   let exporting = false
   let importing = false
-  
+
   let colorManaging = false
-  
+
   $: compiled = compile($snippets, $command, $commandType, $version)
 
   function clearAllSnippets() {
@@ -121,7 +121,7 @@ import FileExport from './generic/Icons/FileExport.svelte';
       }}
       deleteAll={clearAllSnippets}
     />
-    
+
     <br />
     <br />
     <div class="row mb-2">

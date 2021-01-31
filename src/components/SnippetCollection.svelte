@@ -174,7 +174,7 @@
     <section use:dndzone={{items: snippets, flipDurationMs: 300}} on:consider={handleDndConsider} on:finalize={handleDndFinalize}>
       {#each snippets as snippet(snippet.id)}
         <div animate:flip={{ duration: 300 }}>
-          <InlineSnippetController {snippet} {updateSnippet} {removeSnippet} {duplicateSnippet} bind:editing={editing} bind:colorManaging={colorManaging} />
+          <InlineSnippetController {snippet} {commandType} {updateSnippet} {removeSnippet} {duplicateSnippet} bind:editing={editing} bind:colorManaging={colorManaging} />
         </div>
       {/each}
     </section>
