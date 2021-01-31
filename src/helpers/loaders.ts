@@ -9,9 +9,10 @@ import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
 import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
 import { TranslateSnippet } from "../classes/Snippets/SnippetTypes/TranslateSnippet";
 import { LSKEY_SNIPPET_ARR, VERSION } from "../constants";
+import { v4 as uuidv4 } from "uuid";
 
 export function legacyStatePreparation() {
-  
+
   const lsformat = parseInt(localStorage.getItem("jformat") || VERSION.toString())
   console.log("Verifying format...")
   console.log("Currently", lsformat)
@@ -84,6 +85,9 @@ export function upgradeV5State(source_array: Array<object>): Array<object> {
 // Version 6
 export function loadCurrentVersionState(source_array: Array<object>): Array<Snippet> {
   return source_array.map((s): Snippet => {
+    s["id"] = uuidv4();
+    delete s["isDndShadowItem"];
+
     if (s instanceof Snippet) {
       return s;
     }
