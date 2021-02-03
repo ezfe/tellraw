@@ -30,7 +30,7 @@
   "scripts": {
     "dev": "webpack",
     "build": "webpack --mode=\"production\"",
-    "http": "python3 -m http.server"
+    "http": "python3 -m http.server 5000"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.8",
