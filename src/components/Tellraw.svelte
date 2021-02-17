@@ -1,27 +1,26 @@
 <script lang="typescript">
   import { Button,Row } from 'sveltestrap';
-  import CommandTemplatesController from './CommandTemplatesController.svelte';
-  import Importing from './Importing.svelte';
-  import SiteActions from './SiteActions.svelte';
-  import SnippetCollection from './SnippetCollection.svelte';
+  import { TextSnippet } from '../classes/Snippets/SnippetTypes/TextSnippet';
+  import { CommandType,template_lookup } from '../data/templates';
   import { compile } from '../helpers/compile';
   import { export_snippets } from '../helpers/export';
   import { command,commandType,customColors,snippets,version } from '../persistence/stores';
-  import { CommandType, template_lookup } from '../data/templates';
-  import { TextSnippet } from '../classes/Snippets/SnippetTypes/TextSnippet';
-  import PreviewContainer from './Previews/PreviewContainer.svelte';
-  import ExclamationTriangle from './generic/Icons/ExclamationTriangle.svelte';
+  import CommandTemplatesController from './CommandTemplatesController.svelte';
   import CheckCircle from './generic/Icons/CheckCircle.svelte';
+  import ExclamationTriangle from './generic/Icons/ExclamationTriangle.svelte';
+  import FileExport from './generic/Icons/FileExport.svelte';
+  import FileImport from './generic/Icons/FileImport.svelte';
   import LightWell from './generic/LightWell.svelte';
-import FileImport from './generic/Icons/FileImport.svelte';
-import FileExport from './generic/Icons/FileExport.svelte';
-
+  import Importing from './Importing.svelte';
+  import PreviewContainer from './Previews/PreviewContainer.svelte';
+  import SiteActions from './SiteActions.svelte';
+  import SnippetCollection from './SnippetCollection.svelte';
 
   let exporting = false
   let importing = false
-  
+
   let colorManaging = false
-  
+
   $: compiled = compile($snippets, $command, $commandType, $version)
 
   function clearAllSnippets() {
@@ -36,6 +35,10 @@ import FileExport from './generic/Icons/FileExport.svelte';
 
   function startImporting() {
     importing = true
+  }
+
+  function startExporting() {
+    exporting = true
   }
 
   function speedtest() {
@@ -121,7 +124,7 @@ import FileExport from './generic/Icons/FileExport.svelte';
       }}
       deleteAll={clearAllSnippets}
     />
-    
+
     <br />
     <br />
     <div class="row mb-2">
@@ -154,7 +157,7 @@ import FileExport from './generic/Icons/FileExport.svelte';
         </Button>
       </div>
       <div class="col-sm-2 mb-2">
-        <Button color="light" block on:click={() => { exporting = true }}>
+        <Button color="light" block on:click={startExporting}>
           <FileExport /> Export
         </Button>
       </div>
