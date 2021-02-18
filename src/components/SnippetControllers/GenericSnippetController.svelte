@@ -1,11 +1,11 @@
 <script lang="typescript">
   import { Button,Col,Row } from "sveltestrap";
-  import type { GenericFieldCompatable } from "../../classes/Snippets/SnippetTypes/GenericFieldCompatable";
   import type { FieldSpecifier,Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
+  import type { TextSnippet } from "../../classes/Snippets/SnippetTypes/TextSnippet";
   import PlusCircle from "../generic/Icons/PlusCircle.svelte";
   import TimesCircle from "../generic/Icons/TimesCircle.svelte";
 
-  export let snippet: GenericFieldCompatable
+  export let snippet: TextSnippet
   export let updateSnippet: (snippet: Snippet) => void
 
   function updateField(field: FieldSpecifier, value: any, index: number | null = null) {
@@ -19,7 +19,7 @@
     }
     updateSnippet(newSnippet)
   }
-  
+
   function extendArray(field: FieldSpecifier) {
     let newSnippet = snippet.copy()
     newSnippet[field.field].push("")
@@ -73,7 +73,7 @@
           </Row>
         {/each}
         <Row>
-          <Col>                   
+          <Col>
             <Button color="success" on:click={() => { extendArray(field) }}>
               <PlusCircle />
               Add Parameter Value

@@ -1,14 +1,7 @@
 import type { Color } from "../classes/Color";
 import { GroupSnippet } from "../classes/Snippets/SnippetTypes/GroupSnippet";
-import { KeybindSnippet } from "../classes/Snippets/SnippetTypes/KeybindSnippet";
-import { LinebreakSnippet } from "../classes/Snippets/SnippetTypes/LinebreakSnippet";
-import { NBTSnippet } from "../classes/Snippets/SnippetTypes/NBTSnippet";
-import { PagebreakSnippet } from "../classes/Snippets/SnippetTypes/PagebreakSnippet";
-import { ScoreboardObjectiveSnippet } from "../classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet";
-import { SelectorSnippet } from "../classes/Snippets/SnippetTypes/SelectorSnippet";
 import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
 import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
-import { TranslateSnippet } from "../classes/Snippets/SnippetTypes/TranslateSnippet";
 import { LSKEY_SNIPPET_ARR, VERSION } from "../constants";
 import { v4 as uuidv4 } from "uuid";
 import { SHADOW_ITEM_MARKER_PROPERTY_NAME } from "svelte-dnd-action";
@@ -110,23 +103,7 @@ export function loadCurrentVersionState(source_array: Array<object>, filterShado
     }
 
     if (s.hasOwnProperty("text")) {
-      if (s["text"] === "\n") {
-        return (Object as any).assign(new LinebreakSnippet(), s)
-      } else {
-        return (Object as any).assign(new TextSnippet(), s)
-      }
-    } else if (s.hasOwnProperty("keybind")) {
-      return (Object as any).assign(new KeybindSnippet(), s)
-    } else if (s.hasOwnProperty("score") || s.hasOwnProperty("score_name")) {
-      return (Object as any).assign(new ScoreboardObjectiveSnippet(), s)
-    } else if (s.hasOwnProperty("selector")) {
-      return (Object as any).assign(new SelectorSnippet(), s)
-    } else if (s.hasOwnProperty("nbt")) {
-      return (Object as any).assign(new NBTSnippet(), s)
-    } else if (s.hasOwnProperty("translate")) {
-      return (Object as any).assign(new TranslateSnippet(), s)
-    } else if (s.hasOwnProperty("isPagebreak")) {
-      return (Object as any).assign(new PagebreakSnippet(), s)
+      return (Object as any).assign(new TextSnippet(), s)
     } else if (s.hasOwnProperty("children")) {
       s["children"] = loadCurrentVersionState(s["children"])
       return (Object as any).assign(new GroupSnippet(), s)
