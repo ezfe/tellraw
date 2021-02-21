@@ -1,4 +1,3 @@
-import { copy_standard_attributes } from "../../../helpers/copy_standard_attributes";
 import { FieldSpecifier, Snippet } from "./Snippet";
 
 export class TextSnippet extends Snippet {
@@ -12,11 +11,9 @@ export class TextSnippet extends Snippet {
 
   copy(): TextSnippet {
     let newValue = new TextSnippet(this.id)
-  
+
     newValue.text = this.text
 
-    copy_standard_attributes(this, newValue)
-    
     return newValue
   }
 
