@@ -19,7 +19,7 @@
   import TachometerAlt from "./generic/Icons/TachometerAlt.svelte";
   import TimesCircle from "./generic/Icons/TimesCircle.svelte";
   import LightWell from "./generic/LightWell.svelte";
-  import SnippetDetailController from "./SnippetControllers/DetailController/SnippetDetailController.svelte";
+  import SnippetDetailController from "./SnippetControllers/SnippetDetailController.svelte";
   import InlineSnippetController from "./SnippetControllers/InlineSnippetController.svelte";
 
   let editing: Snippet = null
