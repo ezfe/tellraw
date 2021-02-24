@@ -243,7 +243,7 @@
               value={snippet.click_event_value}
               on:input={changeClickEventValue}
             />
-          </div>  
+          </div>
         </div>
         {#if commandType == CommandType.sign}
           <div class="row mt-2">
@@ -304,7 +304,7 @@
       </div>
     {:else if snippet.hover_event_type != HoverEventType.none}
       <div class="col">
-        <input type="text" class="form-control" value={snippet.hover_event_value} onChange={changeHoverEventValue}/>
+        <input type="text" class="form-control" value={snippet.hover_event_value} on:change={changeHoverEventValue}/>
       </div>
     {/if}
   </div>
