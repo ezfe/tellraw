@@ -86,7 +86,6 @@ export function upgradeV5State(source_array: Array<object>): Array<object> {
 export function loadCurrentVersionState(source_array: Array<object>): Array<Snippet> {
   return source_array.map((s): Snippet => {
     s["id"] = uuidv4();
-    delete s["isDndShadowItem"];
 
     if (s instanceof Snippet) {
       return s;

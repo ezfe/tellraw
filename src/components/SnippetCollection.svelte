@@ -1,6 +1,4 @@
 <script lang="typescript">
-  import { dndzone } from "svelte-dnd-action";
-  import { flip } from "svelte/animate";
   import { Button,DropdownItem,DropdownMenu,DropdownToggle,Row,UncontrolledDropdown } from "sveltestrap";
   import { v4 as uuidv4 } from "uuid";
   import { KeybindSnippet } from "../classes/Snippets/SnippetTypes/KeybindSnippet";
@@ -34,7 +32,7 @@
 
   /**
    * Add a new snippet to the list.
-   * 
+   *
    * - If `option` is pressed, the snippet is added immediately
    * - If `option` is not pressed, the snippet is not saved, but
    *   starts being edited. It is added when the edit form is completed.
@@ -71,7 +69,7 @@
   /**
    * Save a new copy of a snippet. The snippet can be
    * new, or could already exist.
-   * 
+   *
    * - New snippets are appended to the end of the set
    * - Existing snippets are replaced
    *
@@ -92,7 +90,7 @@
     if (isNewSnippet) {
       updatedSnippets = [...snippets, newSnippet]
     }
-    
+
     updateSnippets(updatedSnippets)
   }
 
@@ -145,16 +143,6 @@
     }
   }
 
-  function handleDndConsider(event) {
-    console.log('Considering event', event)
-    updateSnippets(loadCurrentVersionState(event.detail.items));
-  }
-
-  function handleDndFinalize(event) {
-    console.log('Finalizing event', event)
-    updateSnippets(loadCurrentVersionState(event.detail.items));
-  }
-
   $: nbtStorageAvailable = isFeatureAvailable(commandType, $version, FeatureType.nbtComponent)
   $: pageBreakAvailalbe = isFeatureAvailable(commandType, $version, FeatureType.pages)
 </script>
@@ -170,13 +158,9 @@
       bind:colorManaging={colorManaging}
     />
   {:else}
-    <section use:dndzone={{items: snippets, flipDurationMs: 300}} on:consider={handleDndConsider} on:finalize={handleDndFinalize}>
-      {#each snippets as snippet(snippet.id)}
-        <div animate:flip={{ duration: 300 }}>
-          <InlineSnippetController {snippet} {updateSnippet} {removeSnippet} {duplicateSnippet} bind:editing={editing} />
-        </div>
-      {/each}
-    </section>
+    {#each snippets as snippet(snippet.id)}
+      <InlineSnippetController {snippet} {updateSnippet} {removeSnippet} {duplicateSnippet} bind:editing={editing} />
+    {/each}
 
     <Row>
       <div class="col-sm-4 col-md-3 offset-sm-2 mb-2 mb-sm-0">
