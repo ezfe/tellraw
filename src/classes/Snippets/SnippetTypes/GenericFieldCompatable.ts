@@ -1,3 +1,4 @@
+import { GroupSnippet } from "./GroupSnippet";
 import { KeybindSnippet } from "./KeybindSnippet";
 import { ScoreboardObjectiveSnippet } from "./ScoreboardObjectiveSnippet";
 import { SelectorSnippet } from "./SelectorSnippet";

@@ -1,21 +1,22 @@
 <script lang="typescript">
   import { Button,Col,Row } from "sveltestrap";
-  import type { Color } from "../../../classes/Color";
-  import { getCSSHEX,minecraftColorSet } from "../../../classes/Color";
-  import { ClickEventType } from "../../../classes/Snippets/ClickEvent";
-  import { HoverEventType } from "../../../classes/Snippets/HoverEvent";
-  import { genericSnippet } from "../../../classes/Snippets/SnippetTypes/GenericFieldCompatable";
-  import { NBTSnippet } from "../../../classes/Snippets/SnippetTypes/NBTSnippet";
-  import type { Snippet } from "../../../classes/Snippets/SnippetTypes/Snippet";
-  import { CommandType,FeatureType,isFeatureAvailable } from "../../../data/templates";
-  import { duplicate_snippet } from "../../../helpers/duplicate_snippet";
-  import { customColors,version } from "../../../persistence/stores";
-  import Checkbox from "../../generic/Checkbox.svelte";
-  import MinecraftColorButton from "../../MinecraftColorButton.svelte";
-  import PreviewContents from "../../Previews/PreviewContents.svelte";
-  import SnippetCollection from "../../SnippetCollection.svelte";
-  import GenericSnippetController from "../GenericSnippetController.svelte";
-  import NbtSnippetController from "../NBTSnippetController.svelte";
+  import type { Color } from "../../classes/Color";
+  import { getCSSHEX,minecraftColorSet } from "../../classes/Color";
+  import { ClickEventType } from "../../classes/Snippets/ClickEvent";
+  import { HoverEventType } from "../../classes/Snippets/HoverEvent";
+  import { genericSnippet } from "../../classes/Snippets/SnippetTypes/GenericFieldCompatable";
+import { GroupSnippet } from "../../classes/Snippets/SnippetTypes/GroupSnippet";
+  import { NBTSnippet } from "../../classes/Snippets/SnippetTypes/NBTSnippet";
+  import type { Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
+  import { CommandType,FeatureType,isFeatureAvailable } from "../../data/templates";
+  import { duplicate_snippet } from "../../helpers/duplicate_snippet";
+  import { customColors,version } from "../../persistence/stores";
+  import Checkbox from "../generic/Checkbox.svelte";
+  import MinecraftColorButton from "../MinecraftColorButton.svelte";
+  import PreviewContents from "../Previews/PreviewContents.svelte";
+  import SnippetCollection from "../SnippetCollection.svelte";
+  import GenericSnippetController from "./GenericSnippetController.svelte";
+  import NbtSnippetController from "./NBTSnippetController.svelte";
 
   export let snippet: Snippet
   export let stopEditing: (save: boolean) => void
@@ -61,6 +62,14 @@
     snippet = newSnippet
   }
 
+  function changeGroupSnippetChildren(snippets: Array<Snippet>) {
+    let newSnippet = duplicate_snippet(snippet)
+    if (newSnippet instanceof GroupSnippet) {
+      newSnippet.children = snippets
+      updateSnippet(newSnippet)
+    }
+  }
+
   function updateSnippet(newSnippet: Snippet) {
     // snippet = duplicate_snippet(newSnippet);
     snippet = newSnippet;
@@ -86,6 +95,17 @@
   <div class="col">
     {#if snippet instanceof NBTSnippet}
       <NbtSnippetController {snippet} {updateSnippet} />
+    {:else if snippet instanceof GroupSnippet}
+      <SnippetCollection
+        {commandType}
+        moving={null}
+        snippets={snippet.children}
+        updateSnippets={changeGroupSnippetChildren}
+        deleteAll={() => {
+          changeGroupSnippetChildren([])
+        }}
+        bind:colorManaging={colorManaging}
+      />
     {:else if genericSnippet(snippet)}
       <GenericSnippetController snippet={genericSnippet(snippet)} {updateSnippet} />
     {:else}
@@ -243,7 +263,7 @@
               value={snippet.click_event_value}
               on:input={changeClickEventValue}
             />
-          </div>  
+          </div>
         </div>
         {#if commandType == CommandType.sign}
           <div class="row mt-2">
@@ -304,7 +324,7 @@
       </div>
     {:else if snippet.hover_event_type != HoverEventType.none}
       <div class="col">
-        <input type="text" class="form-control" value={snippet.hover_event_value} onChange={changeHoverEventValue}/>
+        <input type="text" class="form-control" value={snippet.hover_event_value} on:change={changeHoverEventValue}/>
       </div>
     {/if}
   </div>

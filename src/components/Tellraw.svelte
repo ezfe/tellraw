@@ -1,27 +1,54 @@
 <script lang="typescript">
   import { Button,Row } from 'sveltestrap';
-  import CommandTemplatesController from './CommandTemplatesController.svelte';
-  import Importing from './Importing.svelte';
-  import SiteActions from './SiteActions.svelte';
-  import SnippetCollection from './SnippetCollection.svelte';
+import { GroupSnippet } from '../classes/Snippets/SnippetTypes/GroupSnippet';
+import type { Snippet } from '../classes/Snippets/SnippetTypes/Snippet';
+  import { TextSnippet } from '../classes/Snippets/SnippetTypes/TextSnippet';
+  import { CommandType,template_lookup } from '../data/templates';
   import { compile } from '../helpers/compile';
+import { duplicate_snippet } from '../helpers/duplicate_snippet';
   import { export_snippets } from '../helpers/export';
   import { command,commandType,customColors,snippets,version } from '../persistence/stores';
-  import { CommandType, template_lookup } from '../data/templates';
-  import { TextSnippet } from '../classes/Snippets/SnippetTypes/TextSnippet';
-  import PreviewContainer from './Previews/PreviewContainer.svelte';
-  import ExclamationTriangle from './generic/Icons/ExclamationTriangle.svelte';
+  import CommandTemplatesController from './CommandTemplatesController.svelte';
   import CheckCircle from './generic/Icons/CheckCircle.svelte';
+  import ExclamationTriangle from './generic/Icons/ExclamationTriangle.svelte';
+  import FileExport from './generic/Icons/FileExport.svelte';
+  import FileImport from './generic/Icons/FileImport.svelte';
   import LightWell from './generic/LightWell.svelte';
-import FileImport from './generic/Icons/FileImport.svelte';
-import FileExport from './generic/Icons/FileExport.svelte';
-
+  import Importing from './Importing.svelte';
+  import PreviewContainer from './Previews/PreviewContainer.svelte';
+  import SiteActions from './SiteActions.svelte';
+  import SnippetCollection from './SnippetCollection.svelte';
 
   let exporting = false
   let importing = false
-  
+
   let colorManaging = false
-  
+
+  let moving: Snippet | null = null
+
+  function filterSnippets(_snippets: Snippet[], moving: Snippet | null): Snippet[] {
+    // prevent performance impacts when not moving snippets
+    if (!moving) return _snippets;
+
+    return _snippets
+      .filter(snippet => {
+        const resolution = snippet.id !== moving?.id
+        return resolution
+      })
+      .map(snippet => {
+        const newSnippet = duplicate_snippet(snippet)
+        newSnippet.hover_event_children = filterSnippets(newSnippet.hover_event_children, moving)
+        if (newSnippet instanceof GroupSnippet) {
+          newSnippet.children = filterSnippets(newSnippet.children, moving)
+        }
+        return newSnippet;
+      });
+  }
+
+  // remove the moving snippet without deleting it from the data store
+  // in case something goes wrong
+  $: filtered = filterSnippets($snippets, moving);
+
   $: compiled = compile($snippets, $command, $commandType, $version)
 
   function clearAllSnippets() {
@@ -36,6 +63,10 @@ import FileExport from './generic/Icons/FileExport.svelte';
 
   function startImporting() {
     importing = true
+  }
+
+  function startExporting() {
+    exporting = true
   }
 
   function speedtest() {
@@ -115,13 +146,14 @@ import FileExport from './generic/Icons/FileExport.svelte';
     <SnippetCollection
       bind:commandType={$commandType}
       bind:colorManaging={colorManaging}
-      snippets={$snippets}
+      bind:moving={moving}
+      snippets={filtered}
       updateSnippets={(newValue) => {
         snippets.set(newValue)
       }}
       deleteAll={clearAllSnippets}
     />
-    
+
     <br />
     <br />
     <div class="row mb-2">
@@ -154,7 +186,7 @@ import FileExport from './generic/Icons/FileExport.svelte';
         </Button>
       </div>
       <div class="col-sm-2 mb-2">
-        <Button color="light" block on:click={() => { exporting = true }}>
+        <Button color="light" block on:click={startExporting}>
           <FileExport /> Export
         </Button>
       </div>

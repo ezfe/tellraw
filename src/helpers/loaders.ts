@@ -1,4 +1,5 @@
 import type { Color } from "../classes/Color";
+import { GroupSnippet } from "../classes/Snippets/SnippetTypes/GroupSnippet";
 import { KeybindSnippet } from "../classes/Snippets/SnippetTypes/KeybindSnippet";
 import { LinebreakSnippet } from "../classes/Snippets/SnippetTypes/LinebreakSnippet";
 import { NBTSnippet } from "../classes/Snippets/SnippetTypes/NBTSnippet";
@@ -9,9 +10,10 @@ import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
 import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
 import { TranslateSnippet } from "../classes/Snippets/SnippetTypes/TranslateSnippet";
 import { LSKEY_SNIPPET_ARR, VERSION } from "../constants";
+import { v4 as uuidv4 } from "uuid";
 
 export function legacyStatePreparation() {
-  
+
   const lsformat = parseInt(localStorage.getItem("jformat") || VERSION.toString())
   console.log("Verifying format...")
   console.log("Currently", lsformat)
@@ -84,13 +86,14 @@ export function upgradeV5State(source_array: Array<object>): Array<object> {
 // Version 6
 export function loadCurrentVersionState(source_array: Array<object>): Array<Snippet> {
   return source_array.map((s): Snippet => {
+    s["id"] = uuidv4();
+
     if (s instanceof Snippet) {
       return s;
     }
 
     if (s.hasOwnProperty("hover_event_children")) {
-      const childSnippets = loadCurrentVersionState(s["hover_event_children"])
-      s["hover_event_children"] = childSnippets
+      s["hover_event_children"] = loadCurrentVersionState(s["hover_event_children"])
     }
 
     if (s.hasOwnProperty("text")) {
@@ -111,6 +114,9 @@ export function loadCurrentVersionState(source_array: Array<object>): Array<Snip
       return (Object as any).assign(new TranslateSnippet(), s)
     } else if (s.hasOwnProperty("isPagebreak")) {
       return (Object as any).assign(new PagebreakSnippet(), s)
+    } else if (s.hasOwnProperty("children")) {
+      s["children"] = loadCurrentVersionState(s["children"])
+      return (Object as any).assign(new GroupSnippet(), s)
     } else {
       let x = new TextSnippet()
       x.text = `Failed to claim ${JSON.stringify(s)}`

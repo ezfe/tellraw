@@ -9,8 +9,13 @@ import buildStore from "./store_builder";
 
 // Snippets
 const INITIAL_SNIPPETS = getItem(LSKEY_SNIPPET_ARR, Array<Snippet>(), (lsValue: string) => {
-  const parsed = JSON.parse(lsValue || "[]") as Array<object>;
-  return loadCurrentVersionState(parsed);
+  try {
+    const parsed = JSON.parse(lsValue || "[]") as Array<object>;
+    return loadCurrentVersionState(parsed);
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
 });
 export const snippets = buildStore(INITIAL_SNIPPETS, LSKEY_SNIPPET_ARR);
 

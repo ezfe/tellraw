@@ -1,5 +1,6 @@
 import { ClickEventType } from "../classes/Snippets/ClickEvent";
 import { HoverEventType } from "../classes/Snippets/HoverEvent";
+import { GroupSnippet } from "../classes/Snippets/SnippetTypes/GroupSnippet";
 import { KeybindSnippet } from "../classes/Snippets/SnippetTypes/KeybindSnippet";
 import { LinebreakSnippet } from "../classes/Snippets/SnippetTypes/LinebreakSnippet";
 import {
@@ -15,7 +16,131 @@ import { TranslateSnippet } from "../classes/Snippets/SnippetTypes/TranslateSnip
 import { CommandType, FeatureType, isFeatureAvailable } from "../data/templates";
 import { Version, versionAtLeast } from "./versions";
 
-export function object_compile(
+function compile_section(section_snippets: Snippet[], type: CommandType, version: Version): Object[] {
+  const results: Object[] = [];
+  for (const snippet of section_snippets) {
+    let pending = {};
+
+    if (snippet instanceof TextSnippet) {
+      pending["text"] = snippet.text;
+    } else if (snippet instanceof SelectorSnippet) {
+      pending["selector"] = snippet.selector;
+    } else if (snippet instanceof ScoreboardObjectiveSnippet) {
+      pending["score"] = {
+        name: snippet.score_name,
+        objective: snippet.score_objective,
+      };
+
+      if (snippet.score_value !== null) {
+        pending["score"]["value"] = snippet.score_value;
+      }
+    } else if (snippet instanceof NBTSnippet) {
+      if (!isFeatureAvailable(type, version, FeatureType.nbtComponent)) {
+        continue;
+      }
+
+      if (
+        snippet.type == NBTType.storage &&
+        !isFeatureAvailable(type, version, FeatureType.nbtStorageComponent)
+      ) {
+        continue;
+      }
+
+      pending["nbt"] = snippet.nbt;
+      // this works because of how enums
+      // work in TypeScript
+      pending[NBTType[snippet.type]] = snippet.storage;
+      if (snippet.interpret) {
+        pending["interpret"] = snippet.interpret;
+      }
+    } else if (snippet instanceof KeybindSnippet) {
+      pending["keybind"] = snippet.keybind;
+    } else if (snippet instanceof TranslateSnippet) {
+      pending["translate"] = snippet.translate
+      if (snippet.parameters.length > 0) {
+        pending["with"] = snippet.parameters
+      }
+    } else if (snippet instanceof GroupSnippet) {
+      pending["text"] = "";
+      pending["extra"] = compile_section(snippet.children, type, version);
+    }
+
+    /* Style Transfer */
+    if (snippet.bold) pending["bold"] = true;
+    if (snippet.italic) pending["italic"] = true;
+    if (snippet.underlined) pending["underlined"] = true;
+    if (snippet.strikethrough) pending["strikethrough"] = true;
+    if (snippet.obfuscated) pending["obfuscated"] = true;
+    if (snippet.color != "none") pending["color"] = snippet.color;
+
+    if (snippet.font) {
+      if (isFeatureAvailable(type, version, FeatureType.font)) {
+        pending["font"] = snippet.font;
+      } else {
+        console.warn(
+          `Skipping font attribute, since ${version} doesn't qualify.`
+        );
+      }
+    }
+
+    if (snippet.insertion.length > 0) {
+      pending["insertion"] = snippet.insertion;
+    }
+
+    // If the clicking feature is available and
+    // it is not a sign with more than one snippet
+    // in this section, process the click event
+    if (snippet.click_event_type != ClickEventType.none) {
+      if (
+        isFeatureAvailable(type, version, FeatureType.clicking) &&
+        !(type == CommandType.sign && section_snippets.length > 1)
+      ) {
+        pending["clickEvent"] = {
+          action: ClickEventType[snippet.click_event_type],
+          value: snippet.click_event_value,
+        };
+      }
+    }
+
+    if (isFeatureAvailable(type, version, FeatureType.hovering)) {
+      if (snippet.hover_event_type == HoverEventType.show_text) {
+        const recursive_result = compile_section(
+          snippet.hover_event_children,
+          CommandType.hovertext,
+          version
+        );
+        if (versionAtLeast(version, "1.16")) {
+          pending["hoverEvent"] = {
+            action: HoverEventType[snippet.hover_event_type],
+            contents: recursive_result,
+          };
+        } else {
+          pending["hoverEvent"] = {
+            action: HoverEventType[snippet.hover_event_type],
+            value: recursive_result,
+          };
+        }
+      } else if (snippet.hover_event_type != HoverEventType.none) {
+        if (versionAtLeast(version, "1.16")) {
+          pending["hoverEvent"] = {
+            action: HoverEventType[snippet.hover_event_type],
+            contents: snippet.hover_event_value,
+          };
+        } else {
+          pending["hoverEvent"] = {
+            action: HoverEventType[snippet.hover_event_type],
+            value: snippet.hover_event_value,
+          };
+        }
+      }
+    }
+
+    results.push(pending);
+  };
+  return results;
+}
+
+export function compile_section_list(
   sections: Snippet[][],
   type: CommandType,
   version: Version
@@ -26,117 +151,8 @@ export function object_compile(
   let results = Array<Object>();
 
   for (const section_snippets of sections) {
-    let section_results = Array<Object>();
-    section_results.push("");
-    for (const snippet of section_snippets) {
-      let pending = {};
+    const section_results = ["", ...compile_section(section_snippets, type, version)];
 
-      if (snippet instanceof TextSnippet) {
-        pending["text"] = snippet.text;
-      } else if (snippet instanceof SelectorSnippet) {
-        pending["selector"] = snippet.selector;
-      } else if (snippet instanceof ScoreboardObjectiveSnippet) {
-        pending["score"] = {
-          name: snippet.score_name,
-          objective: snippet.score_objective,
-        };
-
-        if (snippet.score_value !== null) {
-          pending["score"]["value"] = snippet.score_value;
-        }
-      } else if (snippet instanceof NBTSnippet) {
-        if (!isFeatureAvailable(type, version, FeatureType.nbtComponent)) {
-          continue;
-        }
-
-        if (
-          snippet.type == NBTType.storage &&
-          !isFeatureAvailable(type, version, FeatureType.nbtStorageComponent)
-        ) {
-          continue;
-        }
-
-        pending["nbt"] = snippet.nbt;
-        // this works because of how enums
-        // work in TypeScript
-        pending[NBTType[snippet.type]] = snippet.storage;
-        if (snippet.interpret) {
-          pending["interpret"] = snippet.interpret;
-        }
-      } else if (snippet instanceof KeybindSnippet) {
-        pending["keybind"] = snippet.keybind;
-      } else if (snippet instanceof TranslateSnippet) {
-        pending["translate"] = snippet.translate
-        if (snippet.parameters.length > 0) {
-          pending["with"] = snippet.parameters
-        }
-      }
-
-      /* Style Transfer */
-      if (snippet.bold) pending["bold"] = true;
-      if (snippet.italic) pending["italic"] = true;
-      if (snippet.underlined) pending["underlined"] = true;
-      if (snippet.strikethrough) pending["strikethrough"] = true;
-      if (snippet.obfuscated) pending["obfuscated"] = true;
-      if (snippet.color != "none") pending["color"] = snippet.color;
-
-      if (snippet.font) {
-        if (isFeatureAvailable(type, version, FeatureType.font)) {
-          pending["font"] = snippet.font;
-        } else {
-          console.warn(
-            `Skipping font attribute, since ${version} doesn't qualify.`
-          );
-        }
-      }
-
-      if (snippet.insertion.length > 0) {
-        pending["insertion"] = snippet.insertion;
-      }
-
-      // If the clicking feature is available and
-      // it is not a sign with more than one snippet
-      // in this section, process the click event
-      if (snippet.click_event_type != ClickEventType.none) {
-        if (
-          isFeatureAvailable(type, version, FeatureType.clicking) &&
-          !(type == CommandType.sign && section_snippets.length > 1)
-        ) {
-          pending["clickEvent"] = {
-            action: ClickEventType[snippet.click_event_type],
-            value: snippet.click_event_value,
-          };
-        }
-      }
-
-      if (isFeatureAvailable(type, version, FeatureType.hovering)) {
-        if (snippet.hover_event_type == HoverEventType.show_text) {
-          const recursive_result = object_compile(
-            [snippet.hover_event_children],
-            CommandType.hovertext,
-            version
-          );
-          if (versionAtLeast(version, "1.16")) {
-            pending["hoverEvent"] = {
-              action: HoverEventType[snippet.hover_event_type],
-              contents: recursive_result,
-            };
-          } else {
-            pending["hoverEvent"] = {
-              action: HoverEventType[snippet.hover_event_type],
-              value: recursive_result,
-            };
-          }
-        } else if (snippet.hover_event_type != HoverEventType.none) {
-          pending["hoverEvent"] = {
-            action: HoverEventType[snippet.hover_event_type],
-            value: snippet.hover_event_value,
-          };
-        }
-      }
-
-      section_results.push(pending);
-    }
     // If there are 2 elements
     // (the first element is always "")
     // then replace it all with that one blob
@@ -176,16 +192,22 @@ export function object_compile(
     }
 
     return ret;
-  } else if (type == CommandType.hovertext) {
-    return results[0];
   } else if (results.length > 0) {
     return JSON.stringify(results[0]);
   } else {
-    console.error("No elements?");
+    console.error("No elements case identified to compile this");
     return "";
   }
 }
 
+/**
+ * Compile a set of snippets to a final string
+ * @param snippets Snippets to compile
+ * @param command Command to inject compiled text into
+ * @param type Command type (books, tellraw, signs, etc.)
+ * @param version Minecraft version compiling for
+ * @returns Compiled string to run in Minecraft
+ */
 export function compile(
   snippets: Array<Snippet>,
   command: string,
@@ -224,7 +246,7 @@ export function compile(
     );
   }
 
-  const results = object_compile(section_list, type, version);
+  const results = compile_section_list(section_list, type, version);
 
   if (!command) {
     console.error("Command isn't available", command);
