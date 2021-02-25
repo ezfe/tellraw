@@ -28,7 +28,6 @@
 
   export let commandType: CommandType
   export let colorManaging: boolean
-  export let moving: Snippet | null
   export let snippets: Snippet[]
   export let updateSnippets: (newValue: Snippet[]) => void
   export let deleteAll: () => void
@@ -146,15 +145,6 @@
     }
   }
 
-  function dropMoving(index: number) {
-    const newSnippet = duplicate_snippet(moving);
-    moving = null;
-
-    let now = [...snippets];
-    now.splice(index, 0, newSnippet);
-    updateSnippets(now);
-  }
-
   $: nbtStorageAvailable = isFeatureAvailable(commandType, $version, FeatureType.nbtComponent)
   $: pageBreakAvailalbe = isFeatureAvailable(commandType, $version, FeatureType.pages)
 </script>
@@ -171,33 +161,14 @@
     />
   {:else}
     {#each snippets as snippet, index (snippet.id)}
-      {#if moving}
-      <Row class="mb-2">
-        <Col>
-          <Button on:click={() => dropMoving(index)}>
-            <MapMarkerAlt /> to here
-          </Button>
-        </Col>
-      </Row>
-      {/if}
       <InlineSnippetController
         {snippet}
         {updateSnippet}
         {removeSnippet}
         {duplicateSnippet}
         bind:editing={editing}
-        bind:moving={moving}
       />
     {/each}
-    {#if moving}
-      <Row>
-        <Col>
-          <Button on:click={() => dropMoving(snippets.length)}>
-            <MapMarkerAlt /> to here
-          </Button>
-        </Col>
-      </Row>
-    {/if}
 
     <Row>
       <div class="col-sm-4 col-md-3 offset-sm-2 mb-2 mb-sm-0">
