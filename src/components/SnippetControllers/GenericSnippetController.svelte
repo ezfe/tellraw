@@ -19,7 +19,7 @@
     }
     updateSnippet(newSnippet)
   }
-  
+
   function extendArray(field: FieldSpecifier) {
     let newSnippet = snippet.copy()
     newSnippet[field.field].push("")
@@ -73,7 +73,7 @@
           </Row>
         {/each}
         <Row>
-          <Col>                   
+          <Col>
             <Button color="success" on:click={() => { extendArray(field) }}>
               <PlusCircle />
               Add Parameter Value

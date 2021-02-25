@@ -85,21 +85,9 @@ export function upgradeV5State(source_array: Array<object>): Array<object> {
 }
 
 // Version 6
-export function loadCurrentVersionState(source_array: Array<object>, filterShadowItems: boolean = true): Array<Snippet> {
-  console.log('Parsing snippets', source_array);
-  const parsed = source_array.map((s): Snippet => {
-    if (!s) {
-      console.error('Received null item', s, source_array)
-      return;
-    }
-
-    if (filterShadowItems && s[SHADOW_ITEM_MARKER_PROPERTY_NAME]) {
-      console.log('Filtering shadow item', s, source_array)
-      return;
-    }
-
-    // s["id"] = uuidv4();
-    console.log('Encountered item ID', s["id"]);
+export function loadCurrentVersionState(source_array: Array<object>): Array<Snippet> {
+  return source_array.map((s): Snippet => {
+    s["id"] = uuidv4();
 
     if (s instanceof Snippet) {
       return s;

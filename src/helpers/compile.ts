@@ -128,10 +128,17 @@ export function object_compile(
             };
           }
         } else if (snippet.hover_event_type != HoverEventType.none) {
-          pending["hoverEvent"] = {
-            action: HoverEventType[snippet.hover_event_type],
-            value: snippet.hover_event_value,
-          };
+          if (versionAtLeast(version, "1.16")) {
+            pending["hoverEvent"] = {
+              action: HoverEventType[snippet.hover_event_type],
+              contents: snippet.hover_event_value,
+            };
+          } else {
+            pending["hoverEvent"] = {
+              action: HoverEventType[snippet.hover_event_type],
+              value: snippet.hover_event_value,
+            };
+          }
         }
       }
 

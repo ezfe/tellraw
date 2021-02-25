@@ -1,21 +1,21 @@
 <script lang="typescript">
   import { Button,Col,Row } from "sveltestrap";
-  import type { Color } from "../../../classes/Color";
-  import { getCSSHEX,minecraftColorSet } from "../../../classes/Color";
-  import { ClickEventType } from "../../../classes/Snippets/ClickEvent";
-  import { HoverEventType } from "../../../classes/Snippets/HoverEvent";
-  import { genericSnippet } from "../../../classes/Snippets/SnippetTypes/GenericFieldCompatable";
-  import { NBTSnippet } from "../../../classes/Snippets/SnippetTypes/NBTSnippet";
-  import type { Snippet } from "../../../classes/Snippets/SnippetTypes/Snippet";
-  import { CommandType,FeatureType,isFeatureAvailable } from "../../../data/templates";
-  import { duplicate_snippet } from "../../../helpers/duplicate_snippet";
-  import { customColors,version } from "../../../persistence/stores";
-  import Checkbox from "../../generic/Checkbox.svelte";
-  import MinecraftColorButton from "../../MinecraftColorButton.svelte";
-  import PreviewContents from "../../Previews/PreviewContents.svelte";
-  import SnippetCollection from "../../SnippetCollection.svelte";
-  import GenericSnippetController from "../GenericSnippetController.svelte";
-  import NbtSnippetController from "../NBTSnippetController.svelte";
+  import type { Color } from "../../classes/Color";
+  import { getCSSHEX,minecraftColorSet } from "../../classes/Color";
+  import { ClickEventType } from "../../classes/Snippets/ClickEvent";
+  import { HoverEventType } from "../../classes/Snippets/HoverEvent";
+  import { genericSnippet } from "../../classes/Snippets/SnippetTypes/GenericFieldCompatable";
+  import { NBTSnippet } from "../../classes/Snippets/SnippetTypes/NBTSnippet";
+  import type { Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
+  import { CommandType,FeatureType,isFeatureAvailable } from "../../data/templates";
+  import { duplicate_snippet } from "../../helpers/duplicate_snippet";
+  import { customColors,version } from "../../persistence/stores";
+  import Checkbox from "../generic/Checkbox.svelte";
+  import MinecraftColorButton from "../MinecraftColorButton.svelte";
+  import PreviewContents from "../Previews/PreviewContents.svelte";
+  import SnippetCollection from "../SnippetCollection.svelte";
+  import GenericSnippetController from "./GenericSnippetController.svelte";
+  import NbtSnippetController from "./NBTSnippetController.svelte";
 
   export let snippet: Snippet
   export let stopEditing: (save: boolean) => void
@@ -304,7 +304,7 @@
       </div>
     {:else if snippet.hover_event_type != HoverEventType.none}
       <div class="col">
-        <input type="text" class="form-control" value={snippet.hover_event_value} onChange={changeHoverEventValue}/>
+        <input type="text" class="form-control" value={snippet.hover_event_value} on:change={changeHoverEventValue}/>
       </div>
     {/if}
   </div>
