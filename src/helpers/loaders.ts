@@ -11,7 +11,6 @@ import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
 import { TranslateSnippet } from "../classes/Snippets/SnippetTypes/TranslateSnippet";
 import { LSKEY_SNIPPET_ARR, VERSION } from "../constants";
 import { v4 as uuidv4 } from "uuid";
-import { SHADOW_ITEM_MARKER_PROPERTY_NAME } from "svelte-dnd-action";
 
 export function legacyStatePreparation() {
 
@@ -124,6 +123,4 @@ export function loadCurrentVersionState(source_array: Array<object>): Array<Snip
       return x
     }
   })
-  console.log('Built properly typed array', parsed);
-  return parsed;
 }

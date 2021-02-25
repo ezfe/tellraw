@@ -5,6 +5,7 @@
   import { ClickEventType } from "../../classes/Snippets/ClickEvent";
   import { HoverEventType } from "../../classes/Snippets/HoverEvent";
   import { genericSnippet } from "../../classes/Snippets/SnippetTypes/GenericFieldCompatable";
+import { GroupSnippet } from "../../classes/Snippets/SnippetTypes/GroupSnippet";
   import { NBTSnippet } from "../../classes/Snippets/SnippetTypes/NBTSnippet";
   import type { Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
   import { CommandType,FeatureType,isFeatureAvailable } from "../../data/templates";
@@ -61,6 +62,14 @@
     snippet = newSnippet
   }
 
+  function changeGroupSnippetChildren(snippets: Array<Snippet>) {
+    let newSnippet = duplicate_snippet(snippet)
+    if (newSnippet instanceof GroupSnippet) {
+      newSnippet.children = snippets
+      updateSnippet(newSnippet)
+    }
+  }
+
   function updateSnippet(newSnippet: Snippet) {
     // snippet = duplicate_snippet(newSnippet);
     snippet = newSnippet;
@@ -86,6 +95,17 @@
   <div class="col">
     {#if snippet instanceof NBTSnippet}
       <NbtSnippetController {snippet} {updateSnippet} />
+    {:else if snippet instanceof GroupSnippet}
+      <SnippetCollection
+        {commandType}
+        moving={null}
+        snippets={snippet.children}
+        updateSnippets={changeGroupSnippetChildren}
+        deleteAll={() => {
+          changeGroupSnippetChildren([])
+        }}
+        bind:colorManaging={colorManaging}
+      />
     {:else if genericSnippet(snippet)}
       <GenericSnippetController snippet={genericSnippet(snippet)} {updateSnippet} />
     {:else}

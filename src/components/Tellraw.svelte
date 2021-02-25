@@ -1,9 +1,11 @@
 <script lang="typescript">
   import { Button,Row } from 'sveltestrap';
+import { GroupSnippet } from '../classes/Snippets/SnippetTypes/GroupSnippet';
 import type { Snippet } from '../classes/Snippets/SnippetTypes/Snippet';
   import { TextSnippet } from '../classes/Snippets/SnippetTypes/TextSnippet';
   import { CommandType,template_lookup } from '../data/templates';
   import { compile } from '../helpers/compile';
+import { duplicate_snippet } from '../helpers/duplicate_snippet';
   import { export_snippets } from '../helpers/export';
   import { command,commandType,customColors,snippets,version } from '../persistence/stores';
   import CommandTemplatesController from './CommandTemplatesController.svelte';
@@ -24,9 +26,29 @@ import type { Snippet } from '../classes/Snippets/SnippetTypes/Snippet';
 
   let moving: Snippet | null = null
 
+  function filterSnippets(_snippets: Snippet[], moving: Snippet | null): Snippet[] {
+    // prevent performance impacts when not moving snippets
+    if (!moving) return _snippets;
+
+    return _snippets
+      .filter(snippet => {
+        const resolution = snippet.id !== moving?.id
+        return resolution
+      })
+      .map(snippet => {
+        const newSnippet = duplicate_snippet(snippet)
+        newSnippet.hover_event_children = filterSnippets(newSnippet.hover_event_children, moving)
+        if (newSnippet instanceof GroupSnippet) {
+          newSnippet.children = filterSnippets(newSnippet.children, moving)
+        }
+        return newSnippet;
+      });
+  }
+
   // remove the moving snippet without deleting it from the data store
   // in case something goes wrong
-  $: filtered = $snippets.filter(snippet => snippet.id !== moving?.id)
+  $: filtered = filterSnippets($snippets, moving);
+
   $: compiled = compile($snippets, $command, $commandType, $version)
 
   function clearAllSnippets() {

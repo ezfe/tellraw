@@ -30,11 +30,11 @@
   export let duplicateSnippet: (snippet: Snippet) => void
 
   function changeGroupSnippetChildren(snippets: Array<Snippet>) {
-    // TODO: Break this out into a new file so we don't need
-    // to do stuff like "as GroupSnippet"
-    let newSnippet = duplicate_snippet(snippet) as GroupSnippet
-    newSnippet.children = snippets
-    updateSnippet(newSnippet)
+    let newSnippet = duplicate_snippet(snippet)
+    if (newSnippet instanceof GroupSnippet) {
+      newSnippet.children = snippets
+      updateSnippet(newSnippet)
+    }
   }
 
   function startEditingSnippet() {
@@ -99,6 +99,7 @@
           <div class="col inline-snippet-collection">
             <SnippetCollection
               {commandType}
+              bind:moving={moving}
               snippets={snippet.children}
               updateSnippets={changeGroupSnippetChildren}
               deleteAll={() => {
@@ -118,7 +119,9 @@
     {/if}
   </Col>
 
-  <div class="col-1">
-    <MinecraftColorWell color={snippet.color} />
-  </div>
+  {#if !(snippet instanceof GroupSnippet)}
+    <div class="col-1">
+      <MinecraftColorWell color={snippet.color} />
+    </div>
+  {/if}
 </Row>

@@ -5,7 +5,8 @@ export enum CommandType {
     overlay = "overlay",
     sign = "sign",
     book = "book",
-    hovertext = "hovertext"
+    hovertext = "hovertext",
+    children = "children"
 }
 
 export enum FeatureType {
@@ -23,10 +24,10 @@ export enum FeatureType {
 /**
  * Indicates true or false, whether a given feature is
  * available for a specific type of command
- * 
+ *
  * For example, hovering over text is not available
  * in sign commands
- * 
+ *
  * @param commandType The command type
  * @param feature  The feature being queried
  */
