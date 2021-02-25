@@ -1,3 +1,5 @@
+import { SHADOW_ITEM_MARKER_PROPERTY_NAME } from "svelte-dnd-action";
+import { v4 as uuidv4 } from "uuid";
 import type { Color } from "../classes/Color";
 import { GroupSnippet } from "../classes/Snippets/SnippetTypes/GroupSnippet";
 import { KeybindSnippet } from "../classes/Snippets/SnippetTypes/KeybindSnippet";
@@ -10,7 +12,6 @@ import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
 import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
 import { TranslateSnippet } from "../classes/Snippets/SnippetTypes/TranslateSnippet";
 import { LSKEY_SNIPPET_ARR, VERSION } from "../constants";
-import { v4 as uuidv4 } from "uuid";
 
 export function legacyStatePreparation() {
 
@@ -84,8 +85,15 @@ export function upgradeV5State(source_array: Array<object>): Array<object> {
 }
 
 // Version 6
-export function loadCurrentVersionState(source_array: Array<object>): Array<Snippet> {
-  return source_array.map((s): Snippet => {
+export function loadCurrentVersionState(source_array: Array<object>, filterShadowItems: boolean = true): Array<Snippet> {
+  return source_array.filter(s => {
+    if (filterShadowItems && s[SHADOW_ITEM_MARKER_PROPERTY_NAME]) {
+      console.log('Filtering shadow item', s, source_array)
+      return false;
+    } else {
+      return true;
+    }
+  }).map((s): Snippet => {
     s["id"] = uuidv4();
 
     if (s instanceof Snippet) {
