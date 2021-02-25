@@ -9,6 +9,7 @@
   import Clone from "../generic/Icons/Clone.svelte";
   import Edit from "../generic/Icons/Edit.svelte";
   import FileAlt from "../generic/Icons/FileAlt.svelte";
+  import HandPointer from "../generic/Icons/HandPointer.svelte";
   import TrashAlt from "../generic/Icons/TrashAlt.svelte";
   import SplitDropdown from "../generic/SplitDropdown.svelte";
   import MinecraftColorWell from "../MinecraftColorWell.svelte";
@@ -16,7 +17,8 @@
   import NbtSnippetController from "./NBTSnippetController.svelte";
 
   export let snippet: Snippet
-  export let editing: Snippet
+  export let editing: Snippet | null
+  export let moving: Snippet | null
   export let updateSnippet: (snippet: Snippet) => void
   export let removeSnippet: (snippet: Snippet) => void
   export let duplicateSnippet: (snippet: Snippet) => void
@@ -49,8 +51,15 @@
           onClick: () => {
             duplicateSnippet(snippet)
           }
+        },
+        {
+          label: "Move",
+          icon: HandPointer,
+          onClick: () => {
+            moving = snippet
+          }
         }
-      ]} 
+      ]}
     >
       <Edit />
       Edit

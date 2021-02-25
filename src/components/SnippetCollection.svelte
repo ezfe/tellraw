@@ -1,5 +1,5 @@
 <script lang="typescript">
-  import { Button,DropdownItem,DropdownMenu,DropdownToggle,Row,UncontrolledDropdown } from "sveltestrap";
+  import { Button,Col,DropdownItem,DropdownMenu,DropdownToggle,Row,UncontrolledDropdown } from "sveltestrap";
   import { v4 as uuidv4 } from "uuid";
   import { KeybindSnippet } from "../classes/Snippets/SnippetTypes/KeybindSnippet";
   import { LinebreakSnippet } from "../classes/Snippets/SnippetTypes/LinebreakSnippet";
@@ -12,20 +12,22 @@
   import { TranslateSnippet } from "../classes/Snippets/SnippetTypes/TranslateSnippet";
   import { CommandType,FeatureType,isFeatureAvailable } from "../data/templates";
   import { duplicate_snippet } from "../helpers/duplicate_snippet";
-  import { loadCurrentVersionState } from "../helpers/loaders";
   import { fastEditTipShown,version } from "../persistence/stores";
   import FileAlt from "./generic/Icons/FileAlt.svelte";
+  import MapMarkerAlt from "./generic/Icons/MapMarkerAlt.svelte";
   import PlusCircle from "./generic/Icons/PlusCircle.svelte";
   import TachometerAlt from "./generic/Icons/TachometerAlt.svelte";
   import TimesCircle from "./generic/Icons/TimesCircle.svelte";
   import LightWell from "./generic/LightWell.svelte";
-  import SnippetDetailController from "./SnippetControllers/SnippetDetailController.svelte";
   import InlineSnippetController from "./SnippetControllers/InlineSnippetController.svelte";
+  import SnippetDetailController from "./SnippetControllers/SnippetDetailController.svelte";
 
   let editing: Snippet = null
   let optionPressed = false
+
   export let commandType: CommandType
   export let colorManaging: boolean
+  export let moving: Snippet | null
   export let snippets: Snippet[]
   export let updateSnippets: (newValue: Snippet[]) => void
   export let deleteAll: () => void
@@ -143,6 +145,15 @@
     }
   }
 
+  function dropMoving(index: number) {
+    const newSnippet = duplicate_snippet(moving);
+    moving = null;
+
+    let now = [...snippets];
+    now.splice(index, 0, newSnippet);
+    updateSnippets(now);
+  }
+
   $: nbtStorageAvailable = isFeatureAvailable(commandType, $version, FeatureType.nbtComponent)
   $: pageBreakAvailalbe = isFeatureAvailable(commandType, $version, FeatureType.pages)
 </script>
@@ -158,9 +169,34 @@
       bind:colorManaging={colorManaging}
     />
   {:else}
-    {#each snippets as snippet(snippet.id)}
-      <InlineSnippetController {snippet} {updateSnippet} {removeSnippet} {duplicateSnippet} bind:editing={editing} />
+    {#each snippets as snippet, index (snippet.id)}
+      {#if moving}
+      <Row class="mb-2">
+        <Col>
+          <Button on:click={() => dropMoving(index)}>
+            <MapMarkerAlt /> to here
+          </Button>
+        </Col>
+      </Row>
+      {/if}
+      <InlineSnippetController
+        {snippet}
+        {updateSnippet}
+        {removeSnippet}
+        {duplicateSnippet}
+        bind:editing={editing}
+        bind:moving={moving}
+      />
     {/each}
+    {#if moving}
+      <Row>
+        <Col>
+          <Button on:click={() => dropMoving(snippets.length)}>
+            <MapMarkerAlt /> to here
+          </Button>
+        </Col>
+      </Row>
+    {/if}
 
     <Row>
       <div class="col-sm-4 col-md-3 offset-sm-2 mb-2 mb-sm-0">

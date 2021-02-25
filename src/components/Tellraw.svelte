@@ -1,5 +1,6 @@
 <script lang="typescript">
   import { Button,Row } from 'sveltestrap';
+import type { Snippet } from '../classes/Snippets/SnippetTypes/Snippet';
   import { TextSnippet } from '../classes/Snippets/SnippetTypes/TextSnippet';
   import { CommandType,template_lookup } from '../data/templates';
   import { compile } from '../helpers/compile';
@@ -21,6 +22,11 @@
 
   let colorManaging = false
 
+  let moving: Snippet | null = null
+
+  // remove the moving snippet without deleting it from the data store
+  // in case something goes wrong
+  $: filtered = $snippets.filter(snippet => snippet.id !== moving?.id)
   $: compiled = compile($snippets, $command, $commandType, $version)
 
   function clearAllSnippets() {
@@ -118,7 +124,8 @@
     <SnippetCollection
       bind:commandType={$commandType}
       bind:colorManaging={colorManaging}
-      snippets={$snippets}
+      bind:moving={moving}
+      snippets={filtered}
       updateSnippets={(newValue) => {
         snippets.set(newValue)
       }}
