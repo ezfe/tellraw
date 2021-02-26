@@ -94,7 +94,7 @@ export function loadCurrentVersionState(source_array: Array<object>, filterShado
       return true;
     }
   }).map((s): Snippet => {
-    s["id"] = uuidv4();
+    // s["id"] = uuidv4();
 
     if (s instanceof Snippet) {
       return s;
