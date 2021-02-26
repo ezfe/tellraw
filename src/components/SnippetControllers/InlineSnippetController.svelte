@@ -8,21 +8,16 @@
   import GenericSnippetController from "./GenericSnippetController.svelte";
 
   export let snippet: Snippet
-  export let editing: Snippet
   export let updateSnippet: (snippet: Snippet) => void
   export let removeSnippet: (snippet: Snippet) => void
   export let duplicateSnippet: (snippet: Snippet) => void
 
   function changeGroupSnippetChildren(snippets: Array<Snippet>) {
-    // TODO: Break this out into a new file so we don't need
+    // TODO: Break this out into a new file so we don't ne
     // to do stuff like "as GroupSnippet"
     let newSnippet = duplicate_snippet(snippet) as GroupSnippet
     newSnippet.children = snippets
     updateSnippet(newSnippet)
-  }
-
-  function startEditingSnippet() {
-    editing = snippet
   }
 </script>
 

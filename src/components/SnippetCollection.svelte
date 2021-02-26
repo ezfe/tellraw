@@ -87,7 +87,8 @@
 
   function handleDndFinalize(event) {
     console.log('Finalizing event', event)
-    updateSnippets(loadCurrentVersionState(event.detail.items));
+    snippets = loadCurrentVersionState(event.detail.items, false);
+    updateSnippets(snippets)
   }
 </script>
 
