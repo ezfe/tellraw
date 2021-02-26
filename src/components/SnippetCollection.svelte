@@ -221,9 +221,9 @@ import { loadCurrentVersionState } from "../helpers/loaders";
             <DropdownItem on:click={() => { addSnippet(new TranslateSnippet(null)) }}>
               Translation
             </DropdownItem>
-            <DropdownItem on:click={() => { addSnippet(new GroupSnippet(null)) }}>
+            <!-- <DropdownItem on:click={() => { addSnippet(new GroupSnippet(null)) }}>
               Snippet Group
-            </DropdownItem>
+            </DropdownItem> -->
             <DropdownItem on:click={newLinebreak}>
               Line Break ⏎
             </DropdownItem>
