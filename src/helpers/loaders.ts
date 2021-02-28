@@ -1,5 +1,4 @@
 import { SHADOW_ITEM_MARKER_PROPERTY_NAME } from "svelte-dnd-action";
-import { v4 as uuidv4 } from "uuid";
 import type { Color } from "../classes/Color";
 import { GroupSnippet } from "../classes/Snippets/SnippetTypes/GroupSnippet";
 import { KeybindSnippet } from "../classes/Snippets/SnippetTypes/KeybindSnippet";
