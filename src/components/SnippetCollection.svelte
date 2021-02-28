@@ -1,21 +1,23 @@
 <script lang="typescript">
-  import { Button,Col,DropdownItem,DropdownMenu,DropdownToggle,Row,UncontrolledDropdown } from "sveltestrap";
+  import { dndzone } from "svelte-dnd-action";
+  import { flip } from "svelte/animate";
+  import { Button,DropdownItem,DropdownMenu,DropdownToggle,Row,UncontrolledDropdown } from "sveltestrap";
   import { v4 as uuidv4 } from "uuid";
+import { GroupSnippet } from "../classes/Snippets/SnippetTypes/GroupSnippet";
   import { KeybindSnippet } from "../classes/Snippets/SnippetTypes/KeybindSnippet";
   import { LinebreakSnippet } from "../classes/Snippets/SnippetTypes/LinebreakSnippet";
   import { NBTSnippet } from "../classes/Snippets/SnippetTypes/NBTSnippet";
   import { PagebreakSnippet } from "../classes/Snippets/SnippetTypes/PagebreakSnippet";
   import { ScoreboardObjectiveSnippet } from "../classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet";
   import { SelectorSnippet } from "../classes/Snippets/SnippetTypes/SelectorSnippet";
-  import { GroupSnippet } from "../classes/Snippets/SnippetTypes/GroupSnippet";
   import type { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
   import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
   import { TranslateSnippet } from "../classes/Snippets/SnippetTypes/TranslateSnippet";
   import { CommandType,FeatureType,isFeatureAvailable } from "../data/templates";
   import { duplicate_snippet } from "../helpers/duplicate_snippet";
+import { loadCurrentVersionState } from "../helpers/loaders";
   import { fastEditTipShown,version } from "../persistence/stores";
   import FileAlt from "./generic/Icons/FileAlt.svelte";
-  import MapMarkerAlt from "./generic/Icons/MapMarkerAlt.svelte";
   import PlusCircle from "./generic/Icons/PlusCircle.svelte";
   import TachometerAlt from "./generic/Icons/TachometerAlt.svelte";
   import TimesCircle from "./generic/Icons/TimesCircle.svelte";
@@ -28,7 +30,6 @@
 
   export let commandType: CommandType
   export let colorManaging: boolean
-  export let moving: Snippet | null
   export let snippets: Snippet[]
   export let updateSnippets: (newValue: Snippet[]) => void
   export let deleteAll: () => void
@@ -146,13 +147,16 @@
     }
   }
 
-  function dropMoving(index: number) {
-    const newSnippet = duplicate_snippet(moving);
-    moving = null;
+  function handleDndConsider(event) {
+    console.log('Considering event', event)
+    snippets = loadCurrentVersionState(event.detail.items, false);
+  }
 
-    let now = [...snippets];
-    now.splice(index, 0, newSnippet);
-    updateSnippets(now);
+  function handleDndFinalize(event) {
+    console.log('Finalizing event', event)
+    // snippets =
+    snippets = loadCurrentVersionState(event.detail.items, false);
+    updateSnippets(snippets);
   }
 
   $: nbtStorageAvailable = isFeatureAvailable(commandType, $version, FeatureType.nbtComponent)
@@ -170,34 +174,19 @@
       bind:colorManaging={colorManaging}
     />
   {:else}
+    <section use:dndzone={{items: snippets, flipDurationMs: 300}} on:consider={handleDndConsider} on:finalize={handleDndFinalize}>
     {#each snippets as snippet, index (snippet.id)}
-      {#if moving}
-      <Row class="mb-2">
-        <Col>
-          <Button on:click={() => dropMoving(index)}>
-            <MapMarkerAlt /> to here
-          </Button>
-        </Col>
-      </Row>
-      {/if}
-      <InlineSnippetController
-        {snippet}
-        {updateSnippet}
-        {removeSnippet}
-        {duplicateSnippet}
-        bind:editing={editing}
-        bind:moving={moving}
-      />
+      <div animate:flip={{ duration: 300 }}>
+        <InlineSnippetController
+          {snippet}
+          {updateSnippet}
+          {removeSnippet}
+          {duplicateSnippet}
+          bind:editing={editing}
+        />
+      </div>
     {/each}
-    {#if moving}
-      <Row>
-        <Col>
-          <Button on:click={() => dropMoving(snippets.length)}>
-            <MapMarkerAlt /> to here
-          </Button>
-        </Col>
-      </Row>
-    {/if}
+    </section>
 
     <Row>
       <div class="col-sm-4 col-md-3 offset-sm-2 mb-2 mb-sm-0">

@@ -1,3 +1,4 @@
+import { SHADOW_ITEM_MARKER_PROPERTY_NAME } from "svelte-dnd-action";
 import type { Color } from "../classes/Color";
 import { GroupSnippet } from "../classes/Snippets/SnippetTypes/GroupSnippet";
 import { KeybindSnippet } from "../classes/Snippets/SnippetTypes/KeybindSnippet";
@@ -10,7 +11,6 @@ import { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
 import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
 import { TranslateSnippet } from "../classes/Snippets/SnippetTypes/TranslateSnippet";
 import { LSKEY_SNIPPET_ARR, VERSION } from "../constants";
-import { v4 as uuidv4 } from "uuid";
 
 export function legacyStatePreparation() {
 
@@ -42,10 +42,11 @@ export function legacyStatePreparation() {
     // reserved for `svelte` release
     alert(
 `Hello!\n\nI've made substantial changes to the technology powering this website, \
-so it should now be much faster to load and snappier to interact with.\n\nPlease \
-reach out to me if you experience any problems using the website – especially if \
-it's a new problem you haven't encountered before. There is a contact button at \
-the bottom of the page.\n\n- Ezekiel`)
+especially the drag and drop functionality.\n\nPlease \
+reach out to me if you experience any problems, like losing snippets when you \
+drag and drop.\n\nThere's a button at the bottom of the page to contact me, please \
+provide detailed information about the issue or your email address so I can clarify \
+any questions about what you were doing to cause the problem.\n\n- Ezekiel`)
   }
 
   localStorage.setItem("jformat", VERSION.toString())
@@ -84,9 +85,16 @@ export function upgradeV5State(source_array: Array<object>): Array<object> {
 }
 
 // Version 6
-export function loadCurrentVersionState(source_array: Array<object>): Array<Snippet> {
-  return source_array.map((s): Snippet => {
-    s["id"] = uuidv4();
+export function loadCurrentVersionState(source_array: Array<object>, filterShadowItems: boolean = true): Array<Snippet> {
+  return source_array.filter(s => {
+    if (filterShadowItems && s[SHADOW_ITEM_MARKER_PROPERTY_NAME]) {
+      console.log('Filtering shadow item', s, source_array)
+      return false;
+    } else {
+      return true;
+    }
+  }).map((s): Snippet => {
+    // s["id"] = uuidv4();
 
     if (s instanceof Snippet) {
       return s;

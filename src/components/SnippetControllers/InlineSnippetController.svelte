@@ -22,7 +22,6 @@
 
   export let snippet: Snippet
   export let editing: Snippet | null
-  export let moving: Snippet | null
   export let commandType: CommandType
   export let colorManaging: boolean
   export let updateSnippet: (snippet: Snippet) => void
@@ -65,13 +64,6 @@
           onClick: () => {
             duplicateSnippet(snippet)
           }
-        },
-        {
-          label: "Move",
-          icon: HandPointer,
-          onClick: () => {
-            moving = snippet
-          }
         }
       ]}
     >
@@ -99,7 +91,6 @@
           <div class="col inline-snippet-collection">
             <SnippetCollection
               {commandType}
-              bind:moving={moving}
               snippets={snippet.children}
               updateSnippets={changeGroupSnippetChildren}
               deleteAll={() => {

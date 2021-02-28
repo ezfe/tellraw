@@ -24,31 +24,6 @@ import { duplicate_snippet } from '../helpers/duplicate_snippet';
 
   let colorManaging = false
 
-  let moving: Snippet | null = null
-
-  function filterSnippets(_snippets: Snippet[], moving: Snippet | null): Snippet[] {
-    // prevent performance impacts when not moving snippets
-    if (!moving) return _snippets;
-
-    return _snippets
-      .filter(snippet => {
-        const resolution = snippet.id !== moving?.id
-        return resolution
-      })
-      .map(snippet => {
-        const newSnippet = duplicate_snippet(snippet)
-        newSnippet.hover_event_children = filterSnippets(newSnippet.hover_event_children, moving)
-        if (newSnippet instanceof GroupSnippet) {
-          newSnippet.children = filterSnippets(newSnippet.children, moving)
-        }
-        return newSnippet;
-      });
-  }
-
-  // remove the moving snippet without deleting it from the data store
-  // in case something goes wrong
-  $: filtered = filterSnippets($snippets, moving);
-
   $: compiled = compile($snippets, $command, $commandType, $version)
 
   function clearAllSnippets() {
@@ -146,8 +121,7 @@ import { duplicate_snippet } from '../helpers/duplicate_snippet';
     <SnippetCollection
       bind:commandType={$commandType}
       bind:colorManaging={colorManaging}
-      bind:moving={moving}
-      snippets={filtered}
+      snippets={$snippets}
       updateSnippets={(newValue) => {
         snippets.set(newValue)
       }}

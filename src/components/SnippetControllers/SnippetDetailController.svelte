@@ -98,7 +98,6 @@ import { GroupSnippet } from "../../classes/Snippets/SnippetTypes/GroupSnippet";
     {:else if snippet instanceof GroupSnippet}
       <SnippetCollection
         {commandType}
-        moving={null}
         snippets={snippet.children}
         updateSnippets={changeGroupSnippetChildren}
         deleteAll={() => {
