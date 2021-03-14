@@ -1,11 +1,8 @@
 <script lang="typescript">
   import { Button,Row } from 'sveltestrap';
-import { GroupSnippet } from '../classes/Snippets/SnippetTypes/GroupSnippet';
-import type { Snippet } from '../classes/Snippets/SnippetTypes/Snippet';
   import { TextSnippet } from '../classes/Snippets/SnippetTypes/TextSnippet';
   import { CommandType,template_lookup } from '../data/templates';
   import { compile } from '../helpers/compile';
-import { duplicate_snippet } from '../helpers/duplicate_snippet';
   import { export_snippets } from '../helpers/export';
   import { command,commandType,customColors,snippets,version } from '../persistence/stores';
   import CommandTemplatesController from './CommandTemplatesController.svelte';
