@@ -8,6 +8,7 @@
 import { GroupSnippet } from "../../classes/Snippets/SnippetTypes/GroupSnippet";
   import { NBTSnippet } from "../../classes/Snippets/SnippetTypes/NBTSnippet";
   import type { Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
+import { TranslateSnippet } from "../../classes/Snippets/SnippetTypes/TranslateSnippet";
   import { CommandType,FeatureType,isFeatureAvailable } from "../../data/templates";
   import { duplicate_snippet } from "../../helpers/duplicate_snippet";
   import { customColors,version } from "../../persistence/stores";
@@ -17,6 +18,7 @@ import { GroupSnippet } from "../../classes/Snippets/SnippetTypes/GroupSnippet";
   import SnippetCollection from "../SnippetCollection.svelte";
   import GenericSnippetController from "./GenericSnippetController.svelte";
   import NbtSnippetController from "./NBTSnippetController.svelte";
+import TranslateSnippetController from "./TranslateSnippetController.svelte";
 
   export let snippet: Snippet
   export let stopEditing: (save: boolean) => void
@@ -104,6 +106,12 @@ import { GroupSnippet } from "../../classes/Snippets/SnippetTypes/GroupSnippet";
           changeGroupSnippetChildren([])
         }}
         bind:colorManaging={colorManaging}
+      />
+    {:else if snippet instanceof TranslateSnippet}
+      <TranslateSnippetController
+        {snippet}
+        {commandType}
+        {updateSnippet}
       />
     {:else if genericSnippet(snippet)}
       <GenericSnippetController snippet={genericSnippet(snippet)} {updateSnippet} />

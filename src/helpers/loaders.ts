@@ -86,6 +86,10 @@ export function upgradeV5State(source_array: Array<object>): Array<object> {
 
 // Version 6
 export function loadCurrentVersionState(source_array: Array<object>, filterShadowItems: boolean = true): Array<Snippet> {
+  if (!Array.isArray(source_array)) {
+    console.error('Received a non-array', source_array);
+    return []
+  }
   return source_array.filter(s => {
     if (filterShadowItems && s[SHADOW_ITEM_MARKER_PROPERTY_NAME]) {
       console.log('Filtering shadow item', s, source_array)
@@ -94,10 +98,12 @@ export function loadCurrentVersionState(source_array: Array<object>, filterShado
       return true;
     }
   }).map((s): Snippet => {
-    // s["id"] = uuidv4();
-
     if (s instanceof Snippet) {
       return s;
+    } else if (typeof s === "string") {
+      const snippet = new TextSnippet(null);
+      snippet.text = s;
+      return snippet;
     }
 
     if (s.hasOwnProperty("hover_event_children")) {
@@ -119,6 +125,7 @@ export function loadCurrentVersionState(source_array: Array<object>, filterShado
     } else if (s.hasOwnProperty("nbt")) {
       return (Object as any).assign(new NBTSnippet(), s)
     } else if (s.hasOwnProperty("translate")) {
+      s["parameters"] = loadCurrentVersionState(s["parameters"]);
       return (Object as any).assign(new TranslateSnippet(), s)
     } else if (s.hasOwnProperty("isPagebreak")) {
       return (Object as any).assign(new PagebreakSnippet(), s)
@@ -126,9 +133,9 @@ export function loadCurrentVersionState(source_array: Array<object>, filterShado
       s["children"] = loadCurrentVersionState(s["children"])
       return (Object as any).assign(new GroupSnippet(), s)
     } else {
-      let x = new TextSnippet()
-      x.text = `Failed to claim ${JSON.stringify(s)}`
-      return x
+      let snippet = new TextSnippet()
+      snippet.text = `Failed to claim ${JSON.stringify(s)}`
+      return snippet
     }
   })
 }
