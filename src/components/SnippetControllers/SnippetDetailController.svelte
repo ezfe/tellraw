@@ -243,9 +243,15 @@ import { GroupSnippet } from "../../classes/Snippets/SnippetTypes/GroupSnippet";
         <option selected={snippet.click_event_type == ClickEventType.suggest_command} value={ClickEventType.suggest_command}>
           Suggest Command
         </option>
-        <option selected={snippet.click_event_type == ClickEventType.change_page} value={ClickEventType.change_page}>
-          Change Page (Books Only)
-        </option>
+        {#if isFeatureAvailable(commandType, $version, FeatureType.pages)}
+          <option selected={snippet.click_event_type == ClickEventType.change_page} value={ClickEventType.change_page}>
+            Change Page
+          </option>
+        {:else}
+          <option disabled selected={snippet.click_event_type == ClickEventType.change_page} value={ClickEventType.change_page}>
+            Change Page (Books Only)
+          </option>
+        {/if}
         <option selected={snippet.click_event_type == ClickEventType.copy_to_clipboard} value={ClickEventType.copy_to_clipboard}>
           Copy to Clipboard
         </option>
