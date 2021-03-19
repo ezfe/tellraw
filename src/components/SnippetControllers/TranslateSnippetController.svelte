@@ -5,58 +5,83 @@
   import type { CommandType } from "../../data/templates";
   import AddSnippetDropdown from "../AddSnippetDropdown.svelte";
   import PlusCircle from "../generic/Icons/PlusCircle.svelte";
+import TimesCircle from "../generic/Icons/TimesCircle.svelte";
+  import SnippetCollection from "../SnippetCollection.svelte";
 
 
   export let snippet: TranslateSnippet
   export let commandType: CommandType
+  export let colorManaging: boolean
   export let updateSnippet: (snippet: Snippet) => void
 
-  function addSnippet(newParameter: Snippet, fast: boolean) {
+  function updateTranslate(event) {
     const newSnippet = snippet.copy();
-    newSnippet.parameters.push(newParameter);
+    newSnippet.translate = event.target.value;
     updateSnippet(newSnippet);
   }
 
-  function updateField(field: string, event: any) {
-    updateFieldValue(field, event.target.value)
+  function updateParameter(newParameter: Snippet[], index: number) {
+    const newSnippet = snippet.copy();
+    newSnippet.parameters[index] = newParameter;
+    updateSnippet(newSnippet);
   }
 
-  function updateFieldValue(field: string, value: any) {
-    let newSnippet = snippet.copy()
-    newSnippet[field] = value
-    updateSnippet(newSnippet)
+  function addParameter() {
+    const newSnippet = snippet.copy();
+    newSnippet.parameters.push([])
+    updateSnippet(newSnippet);
+  }
+
+  function deleteParameter(index: number) {
+    const newSnippet = snippet.copy();
+    newSnippet.parameters.splice(index, 1);
+    updateSnippet(newSnippet);
   }
 </script>
 
 <div class="col-6">
-  {#each snippet.parameters as value, subIndex}
+  <Row class="mb-2">
+    <input
+      list="datalist-translations"
+      class="form-control"
+      placeholder="Translate identifier"
+      value={snippet.translate}
+      on:input={updateTranslate}
+    />
+  </Row>
+</div>
+<div class="col-6">
+  {#each snippet.parameters as param, paramIndex}
     <Row class="mb-1">
-      <Col>
-        <input
-          class="form-control"
-          placeholder={`Parameter #${subIndex + 1}`}
-          value={JSON.stringify(value)}
-          on:input={(evt) => {
-            // updateField(field, evt.currentTarget.value, subIndex)
+      <div class="col inline-snippet-collection">
+        <SnippetCollection
+          commandType={commandType}
+          snippets={param}
+          updateSnippets={(snippets) => {
+            updateParameter(snippets, paramIndex)
           }}
+          deleteAll={() => {
+            updateParameter([], paramIndex)
+          }}
+          bind:colorManaging={colorManaging}
         />
-      </Col>
-      <!-- <div class="col-3">
+      </div>
+      <div class="col-3">
         <Button
           color="danger"
-          on:click={() => { removeIndex(field, subIndex) }}
+          on:click={() => { deleteParameter(paramIndex) }}
         >
           <TimesCircle />
         </Button>
-      </div> -->
+      </div>
     </Row>
   {/each}
   <Row>
     <Col>
-      <AddSnippetDropdown
-        {commandType}
-        {addSnippet}
-      />
+      <Button color="success" on:click={addParameter}>
+        <PlusCircle />
+        Add Parameter Value
+      </Button>
     </Col>
   </Row>
 </div>

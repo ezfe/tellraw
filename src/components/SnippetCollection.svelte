@@ -125,7 +125,6 @@
 
 <LightWell>
   {#if editing}
-    <span>Hi</span>
     <SnippetDetailController
       {commandType}
       bind:snippet={editing}

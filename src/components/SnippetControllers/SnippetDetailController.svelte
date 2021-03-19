@@ -5,10 +5,10 @@
   import { ClickEventType } from "../../classes/Snippets/ClickEvent";
   import { HoverEventType } from "../../classes/Snippets/HoverEvent";
   import { genericSnippet } from "../../classes/Snippets/SnippetTypes/GenericFieldCompatable";
-import { GroupSnippet } from "../../classes/Snippets/SnippetTypes/GroupSnippet";
+  import { GroupSnippet } from "../../classes/Snippets/SnippetTypes/GroupSnippet";
   import { NBTSnippet } from "../../classes/Snippets/SnippetTypes/NBTSnippet";
   import type { Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
-import { TranslateSnippet } from "../../classes/Snippets/SnippetTypes/TranslateSnippet";
+  import { TranslateSnippet } from "../../classes/Snippets/SnippetTypes/TranslateSnippet";
   import { CommandType,FeatureType,isFeatureAvailable } from "../../data/templates";
   import { duplicate_snippet } from "../../helpers/duplicate_snippet";
   import { customColors,version } from "../../persistence/stores";
@@ -18,7 +18,7 @@ import { TranslateSnippet } from "../../classes/Snippets/SnippetTypes/TranslateS
   import SnippetCollection from "../SnippetCollection.svelte";
   import GenericSnippetController from "./GenericSnippetController.svelte";
   import NbtSnippetController from "./NBTSnippetController.svelte";
-import TranslateSnippetController from "./TranslateSnippetController.svelte";
+  import TranslateSnippetController from "./TranslateSnippetController.svelte";
 
   export let snippet: Snippet
   export let stopEditing: (save: boolean) => void
@@ -112,6 +112,7 @@ import TranslateSnippetController from "./TranslateSnippetController.svelte";
         {snippet}
         {commandType}
         {updateSnippet}
+        bind:colorManaging={colorManaging}
       />
     {:else if genericSnippet(snippet)}
       <GenericSnippetController snippet={genericSnippet(snippet)} {updateSnippet} />

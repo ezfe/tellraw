@@ -125,7 +125,7 @@ export function loadCurrentVersionState(source_array: Array<object>, filterShado
     } else if (s.hasOwnProperty("nbt")) {
       return (Object as any).assign(new NBTSnippet(), s)
     } else if (s.hasOwnProperty("translate")) {
-      s["parameters"] = loadCurrentVersionState(s["parameters"]);
+      s["parameters"] = s["parameters"].map(param => loadCurrentVersionState(param));
       return (Object as any).assign(new TranslateSnippet(), s)
     } else if (s.hasOwnProperty("isPagebreak")) {
       return (Object as any).assign(new PagebreakSnippet(), s)
