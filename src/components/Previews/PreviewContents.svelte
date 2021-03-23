@@ -97,27 +97,25 @@
       {#if snippetInfo.icon}
         <svelte:component this={snippetInfo.icon} />
       {/if}
-      <span>
-        {#if snippetInfo.snippet instanceof TextSnippet}
-          { snippetInfo.snippet.text }
-        {:else if snippetInfo.snippet instanceof KeybindSnippet}
-          { snippetInfo.snippet.keybind }
-        {:else if snippetInfo.snippet instanceof ScoreboardObjectiveSnippet}
-          { snippetInfo.snippet.score_objective }@{ snippetInfo.snippet.score_name }
-        {:else if snippetInfo.snippet instanceof SelectorSnippet}
-          { snippetInfo.snippet.selector }
-        {:else if snippetInfo.snippet instanceof NBTSnippet}
-          {snippetInfo.snippet.nbt}@{snippetInfo.snippet.storage}
-        {:else if snippetInfo.snippet instanceof TranslateSnippet}
-          {snippetInfo.snippet.translate}
-        {:else if snippetInfo.snippet instanceof LinebreakSnippet}
-          <br />
-        {:else if snippetInfo.snippet instanceof PagebreakSnippet}
-          <br />
-          -- page break
-          <br />
-        {/if}
-      </span>
+      {#if snippetInfo.snippet instanceof TextSnippet}
+        { snippetInfo.snippet.text }
+      {:else if snippetInfo.snippet instanceof KeybindSnippet}
+        { snippetInfo.snippet.keybind }
+      {:else if snippetInfo.snippet instanceof ScoreboardObjectiveSnippet}
+        { snippetInfo.snippet.score_objective }@{ snippetInfo.snippet.score_name }
+      {:else if snippetInfo.snippet instanceof SelectorSnippet}
+        { snippetInfo.snippet.selector }
+      {:else if snippetInfo.snippet instanceof NBTSnippet}
+        {snippetInfo.snippet.nbt}@{snippetInfo.snippet.storage}
+      {:else if snippetInfo.snippet instanceof TranslateSnippet}
+        {snippetInfo.snippet.translate}
+      {:else if snippetInfo.snippet instanceof LinebreakSnippet}
+        <br />
+      {:else if snippetInfo.snippet instanceof PagebreakSnippet}
+        <br />
+        -- page break
+        <br />
+      {/if}
     </span>
   {/if}
 {/each}
@@ -142,7 +140,7 @@
   .italic {
     font-style: italic;
   }
-  
+
   .bordered-formatter-preview {
     border-style: solid;
     border-width: 2px;
