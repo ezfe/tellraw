@@ -3,16 +3,18 @@
   import type { Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
   import type { TranslateSnippet } from "../../classes/Snippets/SnippetTypes/TranslateSnippet";
   import type { CommandType } from "../../data/templates";
-  import AddSnippetDropdown from "../AddSnippetDropdown.svelte";
+  import Edit from "../generic/Icons/Edit.svelte";
   import PlusCircle from "../generic/Icons/PlusCircle.svelte";
-import TimesCircle from "../generic/Icons/TimesCircle.svelte";
+  import TimesCircle from "../generic/Icons/TimesCircle.svelte";
+  import PreviewContents from "../Previews/PreviewContents.svelte";
   import SnippetCollection from "../SnippetCollection.svelte";
-
 
   export let snippet: TranslateSnippet
   export let commandType: CommandType
   export let colorManaging: boolean
   export let updateSnippet: (snippet: Snippet) => void
+
+  let editing: number | null = null
 
   function updateTranslate(event) {
     const newSnippet = snippet.copy();
@@ -37,6 +39,14 @@ import TimesCircle from "../generic/Icons/TimesCircle.svelte";
     newSnippet.parameters.splice(index, 1);
     updateSnippet(newSnippet);
   }
+
+  function toggleEditParameter(index: number) {
+    if (editing === index) {
+      editing = null;
+    } else {
+      editing = index;
+    }
+  }
 </script>
 
 <div class="col-6">
@@ -53,20 +63,32 @@ import TimesCircle from "../generic/Icons/TimesCircle.svelte";
 <div class="col-6">
   {#each snippet.parameters as param, paramIndex}
     <Row class="mb-1">
-      <div class="col inline-snippet-collection">
-        <SnippetCollection
-          commandType={commandType}
-          snippets={param}
-          updateSnippets={(snippets) => {
-            updateParameter(snippets, paramIndex)
-          }}
-          deleteAll={() => {
-            updateParameter([], paramIndex)
-          }}
-          bind:colorManaging={colorManaging}
-        />
-      </div>
+      {#if editing === paramIndex}
+        <div class="col inline-snippet-collection">
+          <SnippetCollection
+            commandType={commandType}
+            snippets={param}
+            updateSnippets={(snippets) => {
+              updateParameter(snippets, paramIndex)
+            }}
+            deleteAll={() => {
+              updateParameter([], paramIndex)
+            }}
+            bind:colorManaging={colorManaging}
+          />
+        </div>
+      {:else}
+        <div class="col">
+          <PreviewContents snippets={param} bookPage={null} />
+        </div>
+      {/if}
       <div class="col-3">
+        <Button
+          color="warning"
+          on:click={() => { toggleEditParameter(paramIndex) }}
+        >
+          <Edit />
+        </Button>
         <Button
           color="danger"
           on:click={() => { deleteParameter(paramIndex) }}
