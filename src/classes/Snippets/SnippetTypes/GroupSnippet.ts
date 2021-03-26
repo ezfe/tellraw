@@ -8,16 +8,16 @@ export class GroupSnippet extends Snippet {
   children: Array<Snippet> = []
 
   constructor(id: string = null) {
-    super(id)
+  	super(id);
   }
 
   copy(): GroupSnippet {
-    let newValue = new GroupSnippet(this.id)
+  	let newValue = new GroupSnippet(this.id);
 
-    newValue.children = this.children.map(snippet => duplicate_snippet(snippet))
+  	newValue.children = this.children.map(snippet => duplicate_snippet(snippet));
 
-    copy_standard_attributes(this, newValue)
+  	copy_standard_attributes(this, newValue);
 
-    return newValue
+  	return newValue;
   }
 }

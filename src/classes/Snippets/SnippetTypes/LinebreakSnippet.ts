@@ -2,13 +2,13 @@ import { TextSnippet } from "./TextSnippet";
 
 export class LinebreakSnippet extends TextSnippet {
 
-  constructor(id: string = null) {
-    super(id)
+	constructor(id: string = null) {
+		super(id);
 
-    this.text = "\n"
-  }
+		this.text = "\n";
+	}
 
-  copy(): LinebreakSnippet {
-    return new LinebreakSnippet(this.id)
-  }
+	copy(): LinebreakSnippet {
+		return new LinebreakSnippet(this.id);
+	}
 }

@@ -8,18 +8,18 @@ export class TranslateSnippet extends Snippet {
 	parameters: string[] = []
 	
 	constructor(id: string = null) {
-		super(id)
+		super(id);
 	}
 	
 	copy(): TranslateSnippet {
-		let newValue = new TranslateSnippet(this.id)
+		let newValue = new TranslateSnippet(this.id);
 		
-		newValue.translate = this.translate
-		newValue.parameters = [...this.parameters]
+		newValue.translate = this.translate;
+		newValue.parameters = [...this.parameters];
 		
-		copy_standard_attributes(this, newValue)
+		copy_standard_attributes(this, newValue);
 		
-		return newValue
+		return newValue;
 	}
 	
 	editor_fields(): Array<FieldSpecifier> {
@@ -36,6 +36,6 @@ export class TranslateSnippet extends Snippet {
 				datalistID: null,
 				fieldType: "string[]"
 			}
-		]
+		];
 	}
 }

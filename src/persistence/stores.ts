@@ -9,13 +9,13 @@ import buildStore from "./store_builder";
 
 // Snippets
 const INITIAL_SNIPPETS = getItem(LSKEY_SNIPPET_ARR, Array<Snippet>(), (lsValue: string) => {
-  try {
-    const parsed = JSON.parse(lsValue || "[]") as Array<object>;
-    return loadCurrentVersionState(parsed);
-  } catch (error) {
-    console.error(error);
-    return [];
-  }
+	try {
+		const parsed = JSON.parse(lsValue || "[]") as Array<object>;
+		return loadCurrentVersionState(parsed);
+	} catch (error) {
+		console.error(error);
+		return [];
+	}
 });
 export const snippets = buildStore(INITIAL_SNIPPETS, LSKEY_SNIPPET_ARR);
 
@@ -36,13 +36,13 @@ const INITIAL_VERSION = getItem(LSKEY_VERSION, defaultVersion);
 export const version = buildStore(INITIAL_VERSION, LSKEY_VERSION);
 
 // Preview Background Color
-const INITIAL_BG_COLOR = getItem(LSKEY_PREVIEW_BGC, '#ffffff')
-export const previewBackgroundColor = buildStore(INITIAL_BG_COLOR, LSKEY_PREVIEW_BGC)
+const INITIAL_BG_COLOR = getItem(LSKEY_PREVIEW_BGC, "#ffffff");
+export const previewBackgroundColor = buildStore(INITIAL_BG_COLOR, LSKEY_PREVIEW_BGC);
 
 // Book Preview Disclaimer
-const INITIAL_BPDISC = getItem(LSKEY_BOOK_PREVIEW_DISCLAIMER, false)
-export const bookPreviewDisclaimerShown = buildStore(INITIAL_BPDISC, LSKEY_BOOK_PREVIEW_DISCLAIMER)
+const INITIAL_BPDISC = getItem(LSKEY_BOOK_PREVIEW_DISCLAIMER, false);
+export const bookPreviewDisclaimerShown = buildStore(INITIAL_BPDISC, LSKEY_BOOK_PREVIEW_DISCLAIMER);
 
 // Book Preview Disclaimer
-const INITIAL_SHOW_FAST_EDIT = getItem(LSKEY_SHOW_FAST_EDIT_TIP, true)
-export const fastEditTipShown = buildStore(INITIAL_SHOW_FAST_EDIT, LSKEY_SHOW_FAST_EDIT_TIP)
+const INITIAL_SHOW_FAST_EDIT = getItem(LSKEY_SHOW_FAST_EDIT_TIP, true);
+export const fastEditTipShown = buildStore(INITIAL_SHOW_FAST_EDIT, LSKEY_SHOW_FAST_EDIT_TIP);

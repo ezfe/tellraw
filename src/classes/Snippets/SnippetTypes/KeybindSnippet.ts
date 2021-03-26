@@ -7,21 +7,21 @@ export class KeybindSnippet extends Snippet {
   keybind: string = ""
 
   copy(): KeybindSnippet {
-    let newValue = new KeybindSnippet(this.id)
+  	let newValue = new KeybindSnippet(this.id);
 
-    newValue.keybind = this.keybind
+  	newValue.keybind = this.keybind;
 
-    copy_standard_attributes(this, newValue)
-    
-    return newValue
+  	copy_standard_attributes(this, newValue);
+
+  	return newValue;
   }
 
   editor_fields(): Array<FieldSpecifier> {
-    return [{
-      field: "keybind",
-      placeholder: "Keybind",
-      datalistID: "datalist-keybinds",
-      fieldType: "string"
-    }]
+  	return [{
+  		field: "keybind",
+  		placeholder: "Keybind",
+  		datalistID: "datalist-keybinds",
+  		fieldType: "string"
+  	}];
   }
 }

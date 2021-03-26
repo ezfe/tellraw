@@ -9,10 +9,10 @@ export class PagebreakSnippet extends Snippet {
   isPagebreak: boolean = true
 
   constructor(id: string = null) {
-    super(id)
+  	super(id);
   }
 
   copy(): PagebreakSnippet {
-    return new PagebreakSnippet(this.id)
+  	return new PagebreakSnippet(this.id);
   }
 }

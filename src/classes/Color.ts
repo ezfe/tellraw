@@ -21,31 +21,31 @@ export type Color = string
 // "none" |
 
 export const minecraftColorSet = {
-  black: "#000000",
-  dark_blue: "#0000B2",
-  dark_green: "#14AB00",
-  dark_aqua: "#13AAAB",
-  dark_red: "#A90400",
-  dark_purple: "#A900B2",
-  gold: "#FEAC00",
-  gray: "#AAAAAA",
-  dark_gray: "#555555",
-  blue: "#544CFF",
-  green: "#5CFF00",
-  aqua: "#5BFFFF",
-  red: "#FD5650",
-  light_purple: "#FD4DFF",
-  yellow: "#FFFF00",
-  white: "#FFFFFF",
-  none: "#000000"
-}
+	black: "#000000",
+	dark_blue: "#0000B2",
+	dark_green: "#14AB00",
+	dark_aqua: "#13AAAB",
+	dark_red: "#A90400",
+	dark_purple: "#A900B2",
+	gold: "#FEAC00",
+	gray: "#AAAAAA",
+	dark_gray: "#555555",
+	blue: "#544CFF",
+	green: "#5CFF00",
+	aqua: "#5BFFFF",
+	red: "#FD5650",
+	light_purple: "#FD4DFF",
+	yellow: "#FFFF00",
+	white: "#FFFFFF",
+	none: "#000000"
+};
 
 export function getCSSHEX(color: Color): string {
-  if (color in minecraftColorSet) {
-    return minecraftColorSet[color]
-  } else {
-    return color
-  }
+	if (color in minecraftColorSet) {
+		return minecraftColorSet[color];
+	} else {
+		return color;
+	}
 }
 
 // function noneHex() {

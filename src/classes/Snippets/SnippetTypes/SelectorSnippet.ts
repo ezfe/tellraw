@@ -7,27 +7,27 @@ export class SelectorSnippet extends Snippet {
   selector: string = ""
 
   constructor(id: string = null) {
-    super(id)
+  	super(id);
   }
 
   copy(): SelectorSnippet {
-    let newValue = new SelectorSnippet(this.id)
+  	let newValue = new SelectorSnippet(this.id);
 
-    newValue.selector = this.selector
+  	newValue.selector = this.selector;
 
-    copy_standard_attributes(this, newValue)
+  	copy_standard_attributes(this, newValue);
     
-    return newValue
+  	return newValue;
   }
 
   editor_fields(): Array<FieldSpecifier> {
-    return [
-      {
-        field: "selector",
-        placeholder: "Selector",
-        datalistID: null,
-        fieldType: "string"
-      }
-    ]
+  	return [
+  		{
+  			field: "selector",
+  			placeholder: "Selector",
+  			datalistID: null,
+  			fieldType: "string"
+  		}
+  	];
   }
 }

@@ -17,19 +17,19 @@ export class NBTSnippet extends Snippet {
   interpret: boolean = false
 
   constructor(id: string = null) {
-    super(id)
+  	super(id);
   }
 
   copy(): NBTSnippet {
-    let newValue = new NBTSnippet(this.id)
+  	let newValue = new NBTSnippet(this.id);
 
-    newValue.nbt = this.nbt
-    newValue.storage = this.storage
-    newValue.type = this.type
-    newValue.interpret = this.interpret
+  	newValue.nbt = this.nbt;
+  	newValue.storage = this.storage;
+  	newValue.type = this.type;
+  	newValue.interpret = this.interpret;
 
-    copy_standard_attributes(this, newValue)
-    
-    return newValue
+  	copy_standard_attributes(this, newValue);
+
+  	return newValue;
   }
 }

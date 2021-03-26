@@ -36,27 +36,27 @@ export abstract class Snippet {
   hover_event_children: Array<Snippet> = []
 
   constructor(id: string = null) {
-    if (id !== null) {
-      this.id = id
-    } else {
-      this.id = uuidv4()
-    }
+  	if (id !== null) {
+  		this.id = id;
+  	} else {
+  		this.id = uuidv4();
+  	}
   }
 
   editor_fields(): Array<FieldSpecifier> {
-    return []
+  	return [];
   }
 
   value(field: FieldSpecifier): string | string[] {
-    switch (field.fieldType) {
-      case "string":
-        return this[field.field] as string;
-      case "string[]":
-        return this[field.field] as string[]
-      default:
-        console.error(`Failed to retrieve field ${field.field} with type ${field.fieldType}`)
-        return "@Field Retrieval Error@"
-        break;
-    }
+  	switch (field.fieldType) {
+  	case "string":
+  		return this[field.field] as string;
+  	case "string[]":
+  		return this[field.field] as string[];
+  	default:
+  		console.error(`Failed to retrieve field ${field.field} with type ${field.fieldType}`);
+  		return "@Field Retrieval Error@";
+  		break;
+  	}
   }
 }

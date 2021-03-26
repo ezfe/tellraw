@@ -33,5 +33,11 @@
     "tslib": "^2.0.3",
     "typescript": "^4.0.5",
     "uuid": "^8.3.1"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.19.0",
+    "@typescript-eslint/parser": "^4.19.0",
+    "eslint": "^7.22.0",
+    "eslint-plugin-svelte3": "^3.1.2"
   }
 }

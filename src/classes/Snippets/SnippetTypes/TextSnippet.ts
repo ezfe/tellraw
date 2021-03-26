@@ -7,27 +7,27 @@ export class TextSnippet extends Snippet {
   text: string = ""
 
   constructor(id: string = null) {
-    super(id)
+  	super(id);
   }
 
   copy(): TextSnippet {
-    let newValue = new TextSnippet(this.id)
+  	let newValue = new TextSnippet(this.id);
   
-    newValue.text = this.text
+  	newValue.text = this.text;
 
-    copy_standard_attributes(this, newValue)
+  	copy_standard_attributes(this, newValue);
     
-    return newValue
+  	return newValue;
   }
 
   editor_fields(): Array<FieldSpecifier> {
-    return [
-      {
-        field: "text",
-        placeholder: "Text",
-        datalistID: null,
-        fieldType: "string"
-      }
-    ]
+  	return [
+  		{
+  			field: "text",
+  			placeholder: "Text",
+  			datalistID: null,
+  			fieldType: "string"
+  		}
+  	];
   }
 }
