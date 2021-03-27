@@ -5,7 +5,8 @@
   import type { CommandType } from "../../data/templates";
   import Edit from "../generic/Icons/Edit.svelte";
   import PlusCircle from "../generic/Icons/PlusCircle.svelte";
-  import TimesCircle from "../generic/Icons/TimesCircle.svelte";
+  import TrashAlt from "../generic/Icons/TrashAlt.svelte";
+  import SplitDropdown from "../generic/SplitDropdown.svelte";
   import PreviewContents from "../Previews/PreviewContents.svelte";
   import SnippetCollection from "../SnippetCollection.svelte";
 
@@ -40,17 +41,13 @@
     updateSnippet(newSnippet);
   }
 
-  function toggleEditParameter(index: number) {
-    if (editing === index) {
-      editing = null;
-    } else {
-      editing = index;
-    }
+  function startEditing(index: number) {
+    editing = index;
   }
 </script>
 
-<div class="col-6">
-  <Row class="mb-2">
+<Row class="mb-2">
+  <Col>
     <input
       list="datalist-translations"
       class="form-control"
@@ -58,52 +55,56 @@
       value={snippet.translate}
       on:input={updateTranslate}
     />
-  </Row>
-</div>
-<div class="col-6">
-  {#each snippet.parameters as param, paramIndex}
-    <Row class="mb-1">
-      {#if editing === paramIndex}
-        <div class="col inline-snippet-collection">
-          <SnippetCollection
-            commandType={commandType}
-            snippets={param}
-            updateSnippets={(snippets) => {
-              updateParameter(snippets, paramIndex)
-            }}
-            deleteAll={() => {
-              updateParameter([], paramIndex)
-            }}
-            bind:colorManaging={colorManaging}
-          />
-        </div>
-      {:else}
-        <div class="col">
-          <PreviewContents snippets={param} bookPage={null} />
-        </div>
-      {/if}
-      <div class="col-3">
-        <Button
-          color="warning"
-          on:click={() => { toggleEditParameter(paramIndex) }}
-        >
-          <Edit />
-        </Button>
-        <Button
-          color="danger"
-          on:click={() => { deleteParameter(paramIndex) }}
-        >
-          <TimesCircle />
-        </Button>
+  </Col>
+</Row>
+{#each snippet.parameters as param, paramIndex}
+  <Row class="mb-1">
+    <div class="col-4 col-md-3 col-lg-2 d-flex flex-column justify-content-center">
+      <SplitDropdown
+        color="secondary"
+        block
+        on:click={() => { startEditing(paramIndex) }}
+        dropdowns={[
+          {
+            label: "Delete",
+            icon: TrashAlt,
+            onClick: () => {
+              deleteParameter(paramIndex)
+            },
+          },
+        ]}
+      >
+        <Edit />
+        Edit
+      </SplitDropdown>
+    </div>
+
+    {#if editing === paramIndex}
+      <div class="col inline-snippet-collection">
+        <SnippetCollection
+          commandType={commandType}
+          snippets={param}
+          updateSnippets={(snippets) => {
+            updateParameter(snippets, paramIndex)
+          }}
+          deleteAll={() => {
+            updateParameter([], paramIndex)
+          }}
+          bind:colorManaging={colorManaging}
+        />
       </div>
-    </Row>
-  {/each}
-  <Row>
-    <Col>
-      <Button color="success" on:click={addParameter}>
-        <PlusCircle />
-        Add Parameter Value
-      </Button>
-    </Col>
+    {:else}
+      <div class="col">
+        <PreviewContents snippets={param} bookPage={null} />
+      </div>
+    {/if}
   </Row>
-</div>
+{/each}
+<Row>
+  <Col>
+    <Button color="success" on:click={addParameter}>
+      <PlusCircle />
+      Add Parameter Value
+    </Button>
+  </Col>
+</Row>
