@@ -13,7 +13,7 @@
   import LightWell from './generic/LightWell.svelte';
   import Importing from './Importing.svelte';
   import PreviewContainer from './Previews/PreviewContainer.svelte';
-  import SiteActions from './SiteActions.svelte';
+  import SiteActions from './buttons/SiteActions.svelte';
   import SnippetCollection from './SnippetCollection.svelte';
 
   let exporting = false

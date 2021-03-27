@@ -1,19 +1,19 @@
 <script lang="typescript">
   import { Button,DropdownItem,DropdownMenu,DropdownToggle,UncontrolledDropdown } from "sveltestrap";
-  import { KeybindSnippet } from "../classes/Snippets/SnippetTypes/KeybindSnippet";
-  import { LinebreakSnippet } from "../classes/Snippets/SnippetTypes/LinebreakSnippet";
-  import { NBTSnippet } from "../classes/Snippets/SnippetTypes/NBTSnippet";
-  import { PagebreakSnippet } from "../classes/Snippets/SnippetTypes/PagebreakSnippet";
-  import { ScoreboardObjectiveSnippet } from "../classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet";
-  import { SelectorSnippet } from "../classes/Snippets/SnippetTypes/SelectorSnippet";
-  import type { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
-  import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
-  import { TranslateSnippet } from "../classes/Snippets/SnippetTypes/TranslateSnippet";
-  import { CommandType,FeatureType,isFeatureAvailable } from "../data/templates";
-  import { fastEditTipShown,version } from "../persistence/stores";
-  import FileAlt from "./generic/Icons/FileAlt.svelte";
-  import PlusCircle from "./generic/Icons/PlusCircle.svelte";
-  import TachometerAlt from "./generic/Icons/TachometerAlt.svelte";
+  import { KeybindSnippet } from "../../classes/Snippets/SnippetTypes/KeybindSnippet";
+  import { LinebreakSnippet } from "../../classes/Snippets/SnippetTypes/LinebreakSnippet";
+  import { NBTSnippet } from "../../classes/Snippets/SnippetTypes/NBTSnippet";
+  import { PagebreakSnippet } from "../../classes/Snippets/SnippetTypes/PagebreakSnippet";
+  import { ScoreboardObjectiveSnippet } from "../../classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet";
+  import { SelectorSnippet } from "../../classes/Snippets/SnippetTypes/SelectorSnippet";
+  import type { Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
+  import { TextSnippet } from "../../classes/Snippets/SnippetTypes/TextSnippet";
+  import { TranslateSnippet } from "../../classes/Snippets/SnippetTypes/TranslateSnippet";
+  import { CommandType,FeatureType,isFeatureAvailable } from "../../data/templates";
+  import { fastEditTipShown,version } from "../../persistence/stores";
+  import FileAlt from "../generic/Icons/FileAlt.svelte";
+  import PlusCircle from "../generic/Icons/PlusCircle.svelte";
+  import TachometerAlt from "../generic/Icons/TachometerAlt.svelte";
 
   export let addSnippet: (snippet: Snippet, fast: Boolean) => void
   export let commandType: CommandType

@@ -7,7 +7,7 @@
   import type { CommandType } from "../data/templates";
   import { duplicate_snippet } from "../helpers/duplicate_snippet";
   import { loadCurrentVersionState } from "../helpers/loaders";
-  import AddSnippetDropdown from "./AddSnippetDropdown.svelte";
+  import AddSnippetDropdown from "./buttons/AddSnippetDropdown.svelte";
   import TimesCircle from "./generic/Icons/TimesCircle.svelte";
   import LightWell from "./generic/LightWell.svelte";
   import InlineSnippetController from "./SnippetControllers/InlineSnippetController.svelte";
