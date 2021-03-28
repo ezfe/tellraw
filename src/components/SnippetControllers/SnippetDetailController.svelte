@@ -13,7 +13,6 @@
   import { duplicate_snippet } from "../../helpers/duplicate_snippet";
   import { customColors,version } from "../../persistence/stores";
   import Checkbox from "../generic/Checkbox.svelte";
-  import LightWell from "../generic/LightWell.svelte";
   import MinecraftColorButton from "../MinecraftColorButton.svelte";
   import PreviewContents from "../Previews/PreviewContents.svelte";
   import SnippetCollection from "../SnippetCollection.svelte";
@@ -116,7 +115,7 @@
         {commandType}
         {updateSnippet}
         bind:colorManaging={colorManaging}
-        bind:nestedEditing={nestedEditing}
+        bind:hideExteriorWrapper={nestedEditing}
       />
     {:else if genericSnippet(snippet)}
       <GenericSnippetController snippet={genericSnippet(snippet)} {updateSnippet} />

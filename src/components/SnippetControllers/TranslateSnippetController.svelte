@@ -10,13 +10,15 @@
   import PreviewContents from "../Previews/PreviewContents.svelte";
   import SnippetCollection from "../SnippetCollection.svelte";
 
-  export let snippet: TranslateSnippet
-  export let commandType: CommandType
-  export let colorManaging: boolean
-  export let updateSnippet: (snippet: Snippet) => void
+  export let snippet: TranslateSnippet;
+  export let commandType: CommandType;
+  export let colorManaging: boolean;
+  export let updateSnippet: (snippet: Snippet) => void;
 
-  export let nestedEditing: boolean
-  let editing: number | null = null
+  export let hideExteriorWrapper: boolean;
+  let editing: number | null = null;
+
+  let hideWrapper = false;
 
   function updateTranslate(event) {
     const newSnippet = snippet.copy();
@@ -44,12 +46,12 @@
 
   function startEditing(index: number) {
     editing = index;
-    nestedEditing = true;
+    hideExteriorWrapper = true;
   }
 
   function stopEditing() {
     editing = null;
-    nestedEditing = false;
+    hideExteriorWrapper = false;
   }
 </script>
 
@@ -64,15 +66,18 @@
       updateParameter([], editing)
     }}
     bind:colorManaging={colorManaging}
+    bind:hideExteriorWrapper={hideWrapper}
   />
-  <Row>
-    <Col>
-      <Button color="primary" on:click={stopEditing}>
-        <PlusCircle />
-        Stop Editing
-      </Button>
-    </Col>
-  </Row>
+  {#if !hideWrapper}
+    <Row>
+      <Col>
+        <Button color="primary" on:click={stopEditing}>
+          <PlusCircle />
+          Stop Editing
+        </Button>
+      </Col>
+    </Row>
+  {/if}
 {:else}
   <Row class="mb-2">
     <Col>

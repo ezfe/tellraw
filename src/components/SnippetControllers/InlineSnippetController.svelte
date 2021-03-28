@@ -20,13 +20,13 @@
   import GenericSnippetController from "./GenericSnippetController.svelte";
   import NBTSnippetController from "./NBTSnippetController.svelte";
 
-  export let snippet: Snippet
-  export let editing: Snippet | null
-  export let commandType: CommandType
-  export let colorManaging: boolean
-  export let updateSnippet: (snippet: Snippet) => void
-  export let removeSnippet: (snippet: Snippet) => void
-  export let duplicateSnippet: (snippet: Snippet) => void
+  export let snippet: Snippet;
+  export let commandType: CommandType;
+  export let colorManaging: boolean;
+  export let startEditing: (snippet: Snippet) => void;
+  export let updateSnippet: (snippet: Snippet) => void;
+  export let removeSnippet: (snippet: Snippet) => void;
+  export let duplicateSnippet: (snippet: Snippet) => void;
 
   function changeGroupSnippetChildren(snippets: Array<Snippet>) {
     let newSnippet = duplicate_snippet(snippet)
@@ -34,10 +34,6 @@
       newSnippet.children = snippets
       updateSnippet(newSnippet)
     }
-  }
-
-  function startEditingSnippet() {
-    editing = snippet
   }
 
   $: editingEnabled = !(snippet instanceof LinebreakSnippet || snippet instanceof PagebreakSnippet)
@@ -49,7 +45,7 @@
       color="secondary"
       disabled={!editingEnabled}
       block
-      on:click={() => { startEditingSnippet() }}
+      on:click={() => { startEditing(snippet) }}
       dropdowns={[
         {
           label: "Delete",

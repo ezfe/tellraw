@@ -9,11 +9,11 @@
   import { loadCurrentVersionState } from "../helpers/loaders";
   import AddSnippetDropdown from "./buttons/AddSnippetDropdown.svelte";
   import TimesCircle from "./generic/Icons/TimesCircle.svelte";
-  import LightWell from "./generic/LightWell.svelte";
   import InlineSnippetController from "./SnippetControllers/InlineSnippetController.svelte";
   import SnippetDetailController from "./SnippetControllers/SnippetDetailController.svelte";
 
-  let editing: Snippet = null
+  export let hideExteriorWrapper: boolean;
+  let editing: Snippet = null;
 
   export let commandType: CommandType
   export let colorManaging: boolean
@@ -42,7 +42,8 @@
    * @param snippet The snippet to edit
    */
   function startEditing(snippet: Snippet) {
-    editing = snippet
+    hideExteriorWrapper = true;
+    editing = snippet;
   }
 
   /**
@@ -54,6 +55,7 @@
       updateSnippet(editing)
     }
 
+    hideExteriorWrapper = false;
     editing = null
   }
 
@@ -136,12 +138,12 @@
       <div animate:flip={{ duration: 300 }}>
         <InlineSnippetController
           {snippet}
+          {startEditing}
           {updateSnippet}
           {removeSnippet}
           {duplicateSnippet}
           {commandType}
           bind:colorManaging={colorManaging}
-          bind:editing={editing}
         />
       </div>
     {/each}
