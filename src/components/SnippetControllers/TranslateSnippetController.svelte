@@ -117,7 +117,7 @@
         </div>
 
         <div class="center-vertically flex-grow-1">
-          <p>
+          <p class="mb-0">
             <PreviewContents snippets={param} bookPage={null} />
           </p>
         </div>
