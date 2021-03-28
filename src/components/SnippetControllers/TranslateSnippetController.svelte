@@ -70,12 +70,11 @@
   />
   {#if !hideWrapper}
     <Row>
-      <Col>
-        <Button color="primary" on:click={stopEditing}>
-          <PlusCircle />
-          Stop Editing
+      <div class="offset-9 col-3">
+        <Button color="primary" block on:click={stopEditing}>
+          Stop Editing Parameter
         </Button>
-      </Col>
+      </div>
     </Row>
   {/if}
 {:else}

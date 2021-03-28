@@ -95,7 +95,7 @@
 
 </script>
 
-<div class="row mb-2">
+<div class="row">
   <div class="col">
     {#if snippet instanceof NBTSnippet}
       <NbtSnippetController {snippet} {updateSnippet} />
