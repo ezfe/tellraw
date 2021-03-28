@@ -94,7 +94,9 @@
             bind:colorManaging={colorManaging}
           />
         {:else}
-          <PreviewContents snippets={param} bookPage={null} />
+          <p>
+            <PreviewContents snippets={param} bookPage={null} />
+          </p>
         {/if}
       </div>
     </div>
