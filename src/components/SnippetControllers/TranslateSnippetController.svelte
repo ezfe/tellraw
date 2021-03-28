@@ -15,6 +15,7 @@
   export let colorManaging: boolean
   export let updateSnippet: (snippet: Snippet) => void
 
+  export let nestedEditing: boolean
   let editing: number | null = null
 
   function updateTranslate(event) {
@@ -43,73 +44,87 @@
 
   function startEditing(index: number) {
     editing = index;
+    nestedEditing = true;
+  }
+
+  function stopEditing() {
+    editing = null;
+    nestedEditing = false;
   }
 </script>
 
-<Row class="mb-2">
-  <Col>
-    <input
-      list="datalist-translations"
-      class="form-control"
-      placeholder="Translate identifier"
-      value={snippet.translate}
-      on:input={updateTranslate}
-    />
-  </Col>
-</Row>
-{#each snippet.parameters as param, paramIndex}
-  <Row class="mb-1">
-    <div class="col parameter-row">
-      <div class="center-vertically flex-shrink-0">
-        <SplitDropdown
-          color="secondary"
-          block
-          on:click={() => { startEditing(paramIndex) }}
-          dropdowns={[
-            {
-              label: "Delete",
-              icon: TrashAlt,
-              onClick: () => {
-                deleteParameter(paramIndex)
+{#if editing !== null}
+  <SnippetCollection
+    commandType={commandType}
+    snippets={snippet.parameters[editing]}
+    updateSnippets={(snippets) => {
+      updateParameter(snippets, editing)
+    }}
+    deleteAll={() => {
+      updateParameter([], editing)
+    }}
+    bind:colorManaging={colorManaging}
+  />
+  <Row>
+    <Col>
+      <Button color="primary" on:click={stopEditing}>
+        <PlusCircle />
+        Stop Editing
+      </Button>
+    </Col>
+  </Row>
+{:else}
+  <Row class="mb-2">
+    <Col>
+      <input
+        list="datalist-translations"
+        class="form-control"
+        placeholder="Translate identifier"
+        value={snippet.translate}
+        on:input={updateTranslate}
+      />
+    </Col>
+  </Row>
+  {#each snippet.parameters as param, paramIndex}
+    <Row class="mb-1">
+      <div class="col parameter-row">
+        <div class="center-vertically flex-shrink-0">
+          <SplitDropdown
+            color="secondary"
+            block
+            on:click={() => { startEditing(paramIndex) }}
+            dropdowns={[
+              {
+                label: "Delete",
+                icon: TrashAlt,
+                onClick: () => {
+                  deleteParameter(paramIndex)
+                },
               },
-            },
-          ]}
-        >
-          <Edit />
-          Edit
-        </SplitDropdown>
-      </div>
+            ]}
+          >
+            <Edit />
+            Edit
+          </SplitDropdown>
+        </div>
 
-      <div class="center-vertically flex-grow-1">
-        {#if editing === paramIndex}
-          <SnippetCollection
-            commandType={commandType}
-            snippets={param}
-            updateSnippets={(snippets) => {
-              updateParameter(snippets, paramIndex)
-            }}
-            deleteAll={() => {
-              updateParameter([], paramIndex)
-            }}
-            bind:colorManaging={colorManaging}
-          />
-        {:else}
+        <div class="center-vertically flex-grow-1">
           <p>
             <PreviewContents snippets={param} bookPage={null} />
           </p>
-        {/if}
+        </div>
       </div>
-    </div>
+    </Row>
+  {/each}
+  <Row>
+    <Col>
+      <Button color="success" on:click={addParameter}>
+        <PlusCircle />
+        Add Parameter Value
+      </Button>
+    </Col>
   </Row>
-{/each}
-<Row>
-  <Col>
-    <Button color="success" on:click={addParameter}>
-      <PlusCircle />
-      Add Parameter Value
-    </Button>
-  </Col>
-</Row>
+{/if}
 
 <style>
   .parameter-row {

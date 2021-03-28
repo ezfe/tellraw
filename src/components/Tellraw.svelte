@@ -115,15 +115,17 @@
 
     <CommandTemplatesController />
 
-    <SnippetCollection
-      bind:commandType={$commandType}
-      bind:colorManaging={colorManaging}
-      snippets={$snippets}
-      updateSnippets={(newValue) => {
-        snippets.set(newValue)
-      }}
-      deleteAll={clearAllSnippets}
-    />
+    <LightWell>
+      <SnippetCollection
+        bind:commandType={$commandType}
+        bind:colorManaging={colorManaging}
+        snippets={$snippets}
+        updateSnippets={(newValue) => {
+          snippets.set(newValue)
+        }}
+        deleteAll={clearAllSnippets}
+      />
+    </LightWell>
 
     <br />
     <br />

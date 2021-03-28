@@ -123,17 +123,16 @@
   }
 </script>
 
-<LightWell>
-  {#if editing}
-    <SnippetDetailController
-      {commandType}
-      bind:snippet={editing}
-      stopEditing={stopEditing}
-      bind:colorManaging={colorManaging}
-    />
-  {:else}
-    <section use:dndzone={{items: snippets, flipDurationMs: 300}} on:consider={handleDndConsider} on:finalize={handleDndFinalize}>
-    {#each snippets as snippet, index (snippet.id)}
+{#if editing}
+  <SnippetDetailController
+    {commandType}
+    bind:snippet={editing}
+    stopEditing={stopEditing}
+    bind:colorManaging={colorManaging}
+  />
+{:else}
+  <section use:dndzone={{items: snippets, flipDurationMs: 300}} on:consider={handleDndConsider} on:finalize={handleDndFinalize}>
+    {#each snippets as snippet (snippet.id)}
       <div animate:flip={{ duration: 300 }}>
         <InlineSnippetController
           {snippet}
@@ -146,23 +145,22 @@
         />
       </div>
     {/each}
-    </section>
+  </section>
 
-    <Row>
-      <div class="col-sm-4 col-md-3 offset-sm-2 mb-2 mb-sm-0">
-        <AddSnippetDropdown
-          {addSnippet}
-          {commandType}
-        />
-      </div>
-      <div class="col-sm-4 col-md-3">
-        <Button block
-                color="danger"
-                on:click={deleteAll}>
-          <TimesCircle />
-          Delete All
-        </Button>
-      </div>
-    </Row>
-  {/if}
-</LightWell>
+  <Row>
+    <div class="col-sm-4 col-md-3 offset-sm-2 mb-2 mb-sm-0">
+      <AddSnippetDropdown
+        {addSnippet}
+        {commandType}
+      />
+    </div>
+    <div class="col-sm-4 col-md-3">
+      <Button block
+              color="danger"
+              on:click={deleteAll}>
+        <TimesCircle />
+        Delete All
+      </Button>
+    </div>
+  </Row>
+{/if}
