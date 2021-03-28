@@ -125,7 +125,17 @@ export function loadCurrentVersionState(source_array: Array<object>, filterShado
     } else if (s.hasOwnProperty("nbt")) {
       return (Object as any).assign(new NBTSnippet(), s)
     } else if (s.hasOwnProperty("translate")) {
-      s["parameters"] = s["parameters"].map(param => loadCurrentVersionState(param));
+      if (Array.isArray(s["parameters"])) {
+        const parameters = s["parameters"].map((param): any[] => {
+          if (Array.isArray(param)) return param;
+          else return [param];
+        }).map(param => loadCurrentVersionState(param));
+
+        s["parameters"] = parameters;
+      } else {
+        console.error('Found unexpected non-array parameter value', s);
+        s["parameters"] = [];
+      }
       return (Object as any).assign(new TranslateSnippet(), s)
     } else if (s.hasOwnProperty("isPagebreak")) {
       return (Object as any).assign(new PagebreakSnippet(), s)
