@@ -87,19 +87,15 @@
       <span>Translation Snippet ({ snippet.translate }) - Click Edit to modify</span>
     {:else if snippet instanceof GroupSnippet}
       <div class="col">
-        <div class="row">
-          <div class="col inline-snippet-collection">
-            <SnippetCollection
-              {commandType}
-              snippets={snippet.children}
-              updateSnippets={changeGroupSnippetChildren}
-              deleteAll={() => {
-                changeGroupSnippetChildren([])
-              }}
-              bind:colorManaging={colorManaging}
-            />
-          </div>
-        </div>
+        <SnippetCollection
+          {commandType}
+          snippets={snippet.children}
+          updateSnippets={changeGroupSnippetChildren}
+          deleteAll={() => {
+            changeGroupSnippetChildren([])
+          }}
+          bind:colorManaging={colorManaging}
+        />
       </div>
     {:else if genericSnippet(snippet)}
       <!-- Generic Snippet will be nil if it's not a generic snippet -->

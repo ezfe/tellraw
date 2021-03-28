@@ -59,45 +59,45 @@
 </Row>
 {#each snippet.parameters as param, paramIndex}
   <Row class="mb-1">
-    <div class="col-4 col-md-3 col-lg-2 d-flex flex-column justify-content-center">
-      <SplitDropdown
-        color="secondary"
-        block
-        on:click={() => { startEditing(paramIndex) }}
-        dropdowns={[
-          {
-            label: "Delete",
-            icon: TrashAlt,
-            onClick: () => {
-              deleteParameter(paramIndex)
+    <div class="col parameter-row">
+      <div class="center-vertically flex-shrink-0">
+        <SplitDropdown
+          color="secondary"
+          block
+          on:click={() => { startEditing(paramIndex) }}
+          dropdowns={[
+            {
+              label: "Delete",
+              icon: TrashAlt,
+              onClick: () => {
+                deleteParameter(paramIndex)
+              },
             },
-          },
-        ]}
-      >
-        <Edit />
-        Edit
-      </SplitDropdown>
-    </div>
+          ]}
+        >
+          <Edit />
+          Edit
+        </SplitDropdown>
+      </div>
 
-    {#if editing === paramIndex}
-      <div class="col inline-snippet-collection">
-        <SnippetCollection
-          commandType={commandType}
-          snippets={param}
-          updateSnippets={(snippets) => {
-            updateParameter(snippets, paramIndex)
-          }}
-          deleteAll={() => {
-            updateParameter([], paramIndex)
-          }}
-          bind:colorManaging={colorManaging}
-        />
+      <div class="center-vertically flex-grow-1">
+        {#if editing === paramIndex}
+          <SnippetCollection
+            commandType={commandType}
+            snippets={param}
+            updateSnippets={(snippets) => {
+              updateParameter(snippets, paramIndex)
+            }}
+            deleteAll={() => {
+              updateParameter([], paramIndex)
+            }}
+            bind:colorManaging={colorManaging}
+          />
+        {:else}
+          <PreviewContents snippets={param} bookPage={null} />
+        {/if}
       </div>
-    {:else}
-      <div class="col">
-        <PreviewContents snippets={param} bookPage={null} />
-      </div>
-    {/if}
+    </div>
   </Row>
 {/each}
 <Row>
@@ -108,3 +108,16 @@
     </Button>
   </Col>
 </Row>
+
+<style>
+  .parameter-row {
+    display: flex;
+    gap: 30px;
+  }
+
+  .center-vertically {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+</style>
