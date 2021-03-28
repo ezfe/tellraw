@@ -76,7 +76,7 @@
       Flex justification is for text fields
       which are used for page and linebreaks
     -->
-  <Col style="display: flex; flex-direction: column; justify-content: center;">
+  <Col class="d-flex flex-column justify-content-center">
     {#if snippet instanceof LinebreakSnippet}
       <span>Line Break ⏎</span>
     {:else if snippet instanceof PagebreakSnippet}
