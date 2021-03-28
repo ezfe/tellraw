@@ -1,6 +1,5 @@
 <script lang="typescript">
-  import { Button,Col,FormGroup,Row } from "sveltestrap";
-import { KeybindSnippet } from "../../classes/Snippets/SnippetTypes/KeybindSnippet";
+  import { Button,FormGroup,Row } from "sveltestrap";
   import type { Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
   import { TextSnippet } from "../../classes/Snippets/SnippetTypes/TextSnippet";
   import type { TranslateSnippet } from "../../classes/Snippets/SnippetTypes/TranslateSnippet";
@@ -114,7 +113,9 @@ import { KeybindSnippet } from "../../classes/Snippets/SnippetTypes/KeybindSnipp
     </small>
   </FormGroup>
   <FormGroup>
-    <span class="label-like">Translation parameters</span>
+    {#if snippet.parameters.length > 0}
+      <span class="label-like">Translation parameters</span>
+    {/if}
     {#each snippet.parameters as param, paramIndex}
       <Row class="mb-1">
         <div class="col parameter-row">
