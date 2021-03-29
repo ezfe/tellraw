@@ -4,11 +4,7 @@
   import { TextSnippet } from "../../classes/Snippets/SnippetTypes/TextSnippet";
   import type { TranslateSnippet } from "../../classes/Snippets/SnippetTypes/TranslateSnippet";
   import type { CommandType } from "../../data/templates";
-import { countParameters, TranslationSet } from "../../helpers/translation_processor";
-  import Edit from "../generic/Icons/Edit.svelte";
-  import PlusCircle from "../generic/Icons/PlusCircle.svelte";
-  import TrashAlt from "../generic/Icons/TrashAlt.svelte";
-  import SplitDropdown from "../generic/SplitDropdown.svelte";
+  import { countParameters,TranslationSet } from "../../helpers/translation_processor";
   import PreviewContents from "../Previews/PreviewContents.svelte";
   import SnippetCollection from "../SnippetCollection.svelte";
 
@@ -117,7 +113,6 @@ import { countParameters, TranslationSet } from "../../helpers/translation_proce
         <option value={suggestion} />
       {/each}
     </datalist>
-    <span>Parameter Count: {targetParameterCount}</span>
     <small id="translation-string-help">
       Choose a translation identifier (specified in Minecraft translation files) or
       type out a translation string directly.
@@ -147,17 +142,6 @@ import { countParameters, TranslationSet } from "../../helpers/translation_proce
         </div>
       </Row>
     {/each}
-    <Button color="success" disabled>
-      <PlusCircle />
-      Add Parameter
-    </Button>
-    <br />
-    <small>
-      Add new parameters to replace the placeholders (usually %s or similar) in the translation string.
-      <a href="https://minecraft.fandom.com/wiki/Raw_JSON_text_format#Translated_Text" target="_">
-        Read more
-      </a>
-    </small>
   </FormGroup>
 {/if}
 
