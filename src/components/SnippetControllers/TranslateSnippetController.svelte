@@ -4,6 +4,7 @@
   import { TextSnippet } from "../../classes/Snippets/SnippetTypes/TextSnippet";
   import type { TranslateSnippet } from "../../classes/Snippets/SnippetTypes/TranslateSnippet";
   import type { CommandType } from "../../data/templates";
+import { countParameters, TranslationSet } from "../../helpers/translation_processor";
   import Edit from "../generic/Icons/Edit.svelte";
   import PlusCircle from "../generic/Icons/PlusCircle.svelte";
   import TrashAlt from "../generic/Icons/TrashAlt.svelte";
@@ -14,6 +15,7 @@
   export let snippet: TranslateSnippet;
   export let commandType: CommandType;
   export let colorManaging: boolean;
+  export let translationStrings: TranslationSet;
   export let updateSnippet: (snippet: Snippet) => void;
 
   export let hideExteriorWrapper: boolean;
@@ -21,9 +23,24 @@
 
   let hideWrapper = false;
 
-  let translationStringsPromise: Promise<{ [key: string]: string }> = fetch(
-      'datafiles/translations.json',
-    ).then(response => response.json());
+  $: targetParameterCount = countParameters(snippet.translate, translationStrings);
+  $: {
+    if (snippet.parameters.length < targetParameterCount) {
+      const newSnippet = snippet.copy();
+
+      while (newSnippet.parameters.length < targetParameterCount) {
+        const ts = new TextSnippet(null);
+        ts.text = "Click \"Edit\" to modify this parameter"
+        newSnippet.parameters.push([ts]);
+      }
+
+      updateSnippet(newSnippet);
+    } else if (snippet.parameters.length > targetParameterCount) {
+      const newSnippet = snippet.copy();
+      newSnippet.parameters = newSnippet.parameters.slice(0, targetParameterCount);
+      updateSnippet(newSnippet);
+    }
+  }
 
   function updateTranslate(event) {
     const newSnippet = snippet.copy();
@@ -37,14 +54,14 @@
     updateSnippet(newSnippet);
   }
 
-  function addParameter() {
-    const newSnippet = snippet.copy();
+  // function addParameter() {
+  //   const newSnippet = snippet.copy();
 
-    const ts = new TextSnippet(null);
-    ts.text = "Click \"Edit\" to modify this parameter"
-    newSnippet.parameters.push([ts]);
-    updateSnippet(newSnippet);
-  }
+  //   const ts = new TextSnippet(null);
+  //   ts.text = "Click \"Edit\" to modify this parameter"
+  //   newSnippet.parameters.push([ts]);
+  //   updateSnippet(newSnippet);
+  // }
 
   function deleteParameter(index: number) {
     const newSnippet = snippet.copy();
@@ -95,15 +112,12 @@
       list="datalist-translations"
       on:input={updateTranslate}
     />
-    {#await translationStringsPromise then translationStrings}
-      <datalist id="datalist-translations">
-        {#each Object.keys(translationStrings) as suggestion}
-          <option value={suggestion} />
-        {/each}
-      </datalist>
-    {:catch error}
-      <span>An error occurred downloading translation suggestions</span><br />
-    {/await}
+    <datalist id="datalist-translations">
+      {#each Object.keys(translationStrings) as suggestion}
+        <option value={suggestion} />
+      {/each}
+    </datalist>
+    <span>Parameter Count: {targetParameterCount}</span>
     <small id="translation-string-help">
       Choose a translation identifier (specified in Minecraft translation files) or
       type out a translation string directly.
@@ -116,27 +130,13 @@
     {#if snippet.parameters.length > 0}
       <span class="label-like">Translation parameters</span>
     {/if}
-    {#each snippet.parameters as param, paramIndex}
+    {#each snippet.parameters.slice(0, targetParameterCount) as param, paramIndex}
       <Row class="mb-1">
         <div class="col parameter-row">
           <div class="center-vertically flex-shrink-0">
-            <SplitDropdown
-              color="secondary"
-              block
-              on:click={() => { startEditing(paramIndex) }}
-              dropdowns={[
-                {
-                  label: "Delete",
-                  icon: TrashAlt,
-                  onClick: () => {
-                    deleteParameter(paramIndex)
-                  },
-                },
-              ]}
-            >
-              <Edit />
+            <Button color="secondary" block on:click={() => { startEditing(paramIndex) }}>
               Edit
-            </SplitDropdown>
+            </Button>
           </div>
 
           <div class="center-vertically flex-grow-1">
@@ -147,7 +147,7 @@
         </div>
       </Row>
     {/each}
-    <Button color="success" on:click={addParameter}>
+    <Button color="success" disabled>
       <PlusCircle />
       Add Parameter
     </Button>

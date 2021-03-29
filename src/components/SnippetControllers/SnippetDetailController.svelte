@@ -25,6 +25,10 @@
   export let colorManaging: boolean
   export let commandType: CommandType
 
+  let translationStringsPromise: Promise<{ [key: string]: string }> = fetch(
+      'datafiles/translations.json',
+    ).then(response => response.json());
+
   let nestedEditing = false;
 
   $: filteredColorSet = fullColorSet().filter((color) => { return color != "none" })
@@ -110,13 +114,18 @@
         bind:colorManaging={colorManaging}
       />
     {:else if snippet instanceof TranslateSnippet}
-      <TranslateSnippetController
-        {snippet}
-        {commandType}
-        {updateSnippet}
-        bind:colorManaging={colorManaging}
-        bind:hideExteriorWrapper={nestedEditing}
-      />
+        {#await translationStringsPromise}
+          <span>Loading...</span>
+        {:then translationStrings }
+          <TranslateSnippetController
+            {snippet}
+            {commandType}
+            {updateSnippet}
+            {translationStrings}
+            bind:colorManaging={colorManaging}
+            bind:hideExteriorWrapper={nestedEditing}
+          />
+        {/await}
     {:else if genericSnippet(snippet)}
       <GenericSnippetController snippet={genericSnippet(snippet)} {updateSnippet} />
     {:else}
