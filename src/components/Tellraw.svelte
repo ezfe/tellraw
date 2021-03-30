@@ -205,6 +205,7 @@ import Datalist from './Datalist.svelte';
 </div>
 
 <Datalist fileIdentifier="keybinds" />
+<Datalist fileIdentifier="commands" versioned />
 
 <style>
   .container {

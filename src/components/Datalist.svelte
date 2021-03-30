@@ -4,7 +4,7 @@
    export let fileIdentifier: string;
    export let versioned: boolean = false;
 
-   $: url = versioned ? `datafiles/${version}/${fileIdentifier}.json` : `datafiles/${fileIdentifier}.json`;
+   $: url = versioned ? `datafiles/${$version}/${fileIdentifier}.json` : `datafiles/${fileIdentifier}.json`;
    $: responsePromise = fetch(url);
    $: jsonPromise = responsePromise.then(res => res.ok ? res.json() : []);
    $: listPromise = jsonPromise.then(json => Array.isArray(json) ? json : Object.keys(json));
