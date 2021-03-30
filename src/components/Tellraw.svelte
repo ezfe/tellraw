@@ -6,6 +6,7 @@
   import { export_snippets } from '../helpers/export';
   import { command,commandType,customColors,snippets,version } from '../persistence/stores';
   import CommandTemplatesController from './CommandTemplatesController.svelte';
+import Datalist from './Datalist.svelte';
   import CheckCircle from './generic/Icons/CheckCircle.svelte';
   import ExclamationTriangle from './generic/Icons/ExclamationTriangle.svelte';
   import FileExport from './generic/Icons/FileExport.svelte';
@@ -213,6 +214,9 @@
     </div>
   {/if}
 </div>
+
+<Datalist fileIdentifier="keybinds" />
+<Datalist fileIdentifier="commands" versioned />
 
 <style>
   .container {
