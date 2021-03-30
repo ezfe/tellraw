@@ -20,6 +20,7 @@
   let importing = false
 
   let colorManaging = false
+  let hideWrapper = false
 
   $: compiled = compile($snippets, $command, $commandType, $version)
 
@@ -99,83 +100,91 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-sm-5 col-md-3 mb-2" id="command-label">
-        <span style="font-weight: bold;">Command Template</span>
-        <br />
-        <span>Used to select and execute different players</span>
-      </div>
-      <div class="col-sm mb-4">
-        <input bind:value={$command}
-                type="text"
-                class="form-control"
-                aria-labelledby="command-label" />
-      </div>
-    </div>
+
+    {#if !hideWrapper}
+      <Row>
+        <div class="col-sm-5 col-md-3 mb-2" id="command-label">
+          <span style="font-weight: bold;">Command Template</span>
+          <br />
+          <span>Used to select and execute different players</span>
+        </div>
+        <div class="col-sm mb-4">
+          <input bind:value={$command}
+                  type="text"
+                  class="form-control"
+                  aria-labelledby="command-label" />
+        </div>
+      </Row>
+    {/if}
 
     <CommandTemplatesController />
 
-    <LightWell>
-      <SnippetCollection
-        bind:commandType={$commandType}
-        bind:colorManaging={colorManaging}
-        snippets={$snippets}
-        updateSnippets={(newValue) => {
-          snippets.set(newValue)
-        }}
-        deleteAll={clearAllSnippets}
-      />
-    </LightWell>
-
-    <br />
-    <br />
-    <div class="row mb-2">
-      <div class="col-3">
-        <span style="font-weight: bold">Command</span>
-        <br />
-        <span>Copy and paste into Minecraft</span>
-      </div>
-      <div class="col">
-        <textarea readOnly={true}
-                  class="form-control"
-                  onClick={(event) => {
-                    event.currentTarget.select()
-                  }}
-                  value={compiled} />
-      </div>
+    <div class:mb-2={hideWrapper}>
+      <LightWell>
+        <SnippetCollection
+          bind:commandType={$commandType}
+          bind:colorManaging={colorManaging}
+          snippets={$snippets}
+          updateSnippets={(newValue) => {
+            snippets.set(newValue)
+          }}
+          deleteAll={clearAllSnippets}
+          bind:hideExteriorWrapper={hideWrapper}
+        />
+      </LightWell>
     </div>
 
-    <PreviewContainer snippets={$snippets} commandType={$commandType} />
-
-    <hr />
-
-    <div class="row">
-      <div class="col-3">
-        <span style="font-weight: bold;">Save and Restore</span>
+    {#if !hideWrapper}
+      <br />
+      <br />
+      <div class="row mb-2">
+        <div class="col-3">
+          <span style="font-weight: bold">Command</span>
+          <br />
+          <span>Copy and paste into Minecraft</span>
+        </div>
+        <div class="col">
+          <textarea readOnly={true}
+                    class="form-control"
+                    onClick={(event) => {
+                      event.currentTarget.select()
+                    }}
+                    value={compiled} />
+        </div>
       </div>
-      <div class="col-sm-2 mb-2">
-        <Button color="light" block on:click={startImporting}>
-          <FileImport /> Import
-        </Button>
-      </div>
-      <div class="col-sm-2 mb-2">
-        <Button color="light" block on:click={startExporting}>
-          <FileExport /> Export
-        </Button>
-      </div>
-      <div class="col mb-2">
-        <span>
-          Export your command and save in a text file, so that you can
-          get easily get it back. Some browsers reset their cache
-          periodically and will forget what you've entered if you don't
-          save it by clicking Export.
-        </span>
-      </div>
-    </div>
 
-    <hr />
+      <PreviewContainer snippets={$snippets} commandType={$commandType} />
 
-    <div class="row">
+      <hr />
+
+      <div class="row">
+        <div class="col-3">
+          <span style="font-weight: bold;">Save and Restore</span>
+        </div>
+        <div class="col-sm-2 mb-2">
+          <Button color="light" block on:click={startImporting}>
+            <FileImport /> Import
+          </Button>
+        </div>
+        <div class="col-sm-2 mb-2">
+          <Button color="light" block on:click={startExporting}>
+            <FileExport /> Export
+          </Button>
+        </div>
+        <div class="col mb-2">
+          <span>
+            Export your command and save in a text file, so that you can
+            get easily get it back. Some browsers reset their cache
+            periodically and will forget what you've entered if you don't
+            save it by clicking Export.
+          </span>
+        </div>
+      </div>
+
+      <hr />
+    {/if}
+
+    <Row>
       <div class="col-3">
         <span style="font-weight: bold">Settings</span>
       </div>
@@ -190,7 +199,7 @@
           </select>
         </div>
       </div>
-    </div>
+    </Row>
 
     <hr />
 
