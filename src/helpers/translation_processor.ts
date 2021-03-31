@@ -57,5 +57,6 @@ export function parameterIndexes(enteredText: string, translationSet: Translatio
 }
 
 export function countParameters(enteredText: string, translationSet: TranslationSet): number {
-   return parameterIndexes(enteredText, translationSet).size;
+   const indexes = parameterIndexes(enteredText, translationSet);
+   return Math.max(...indexes);
 }

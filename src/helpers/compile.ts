@@ -14,7 +14,7 @@ import type { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
 import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
 import { TranslateSnippet } from "../classes/Snippets/SnippetTypes/TranslateSnippet";
 import { CommandType, FeatureType, isFeatureAvailable } from "../data/templates";
-import { parameterIndexes, processParameters, TranslationSet } from "./translation_processor";
+import type { TranslationSet } from "./translation_processor";
 import { Version, versionAtLeast } from "./versions";
 
 function compile_section(
@@ -64,18 +64,7 @@ function compile_section(
     } else if (snippet instanceof TranslateSnippet) {
       pending["translate"] = snippet.translate
       if (snippet.parameters.length > 0) {
-        const matches = processParameters(snippet.translate, translationSet);
-        const maxIndex = Math.max(...matches.map(a => a.matchIndex));
-
-        const indexes = parameterIndexes(snippet.translate, translationSet);
-        const indexesSorted = [...indexes].sort();
-
-        pending["with"] = Array.from({ length: maxIndex }, () => []);
-
-        const remainingParameters = [...snippet.parameters].reverse();
-        for (const indx of indexesSorted) {
-          pending["with"][indx - 1] = compile_section(remainingParameters.pop(), type, version, translationSet);
-        }
+        pending["with"] = snippet.parameters.map(param => compile_section(param, type, version, translationSet))
       }
     } else if (snippet instanceof GroupSnippet) {
       pending["text"] = "";
