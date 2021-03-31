@@ -26,7 +26,7 @@ import type { TranslationSet } from '../helpers/translation_processor';
 
   let translationSet: TranslationSet = {};
 
-  $: compiled = compile($snippets, $command, $commandType, $version, translationSet)
+  $: compiled = compile($snippets, $command, $commandType, $version);
 
   function clearAllSnippets() {
     const titleString = "Are you sure!?!"

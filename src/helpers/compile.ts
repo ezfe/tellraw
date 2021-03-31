@@ -14,14 +14,12 @@ import type { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
 import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
 import { TranslateSnippet } from "../classes/Snippets/SnippetTypes/TranslateSnippet";
 import { CommandType, FeatureType, isFeatureAvailable } from "../data/templates";
-import type { TranslationSet } from "./translation_processor";
 import { Version, versionAtLeast } from "./versions";
 
 function compile_section(
   section_snippets: Snippet[],
   type: CommandType,
   version: Version,
-  translationSet: TranslationSet,
 ): Object[] {
   const results: Object[] = [];
   for (const snippet of section_snippets) {
@@ -64,11 +62,11 @@ function compile_section(
     } else if (snippet instanceof TranslateSnippet) {
       pending["translate"] = snippet.translate
       if (snippet.parameters.length > 0) {
-        pending["with"] = snippet.parameters.map(param => compile_section(param, type, version, translationSet))
+        pending["with"] = snippet.parameters.map(param => compile_section(param, type, version))
       }
     } else if (snippet instanceof GroupSnippet) {
       pending["text"] = "";
-      pending["extra"] = compile_section(snippet.children, type, version, translationSet);
+      pending["extra"] = compile_section(snippet.children, type, version);
     }
 
     /* Style Transfer */
@@ -113,8 +111,7 @@ function compile_section(
         const recursive_result = compile_section(
           snippet.hover_event_children,
           CommandType.hovertext,
-          version,
-          translationSet
+          version
         );
         if (versionAtLeast(version, "1.16")) {
           pending["hoverEvent"] = {
@@ -151,7 +148,6 @@ export function compile_section_list(
   sections: Snippet[][],
   type: CommandType,
   version: Version,
-  translationSet: TranslationSet,
 ): any {
   // Depending on whether a sign click
   // event is used, sections may be single
@@ -159,7 +155,7 @@ export function compile_section_list(
   let results = Array<Object>();
 
   for (const section_snippets of sections) {
-    const section_results = ["", ...compile_section(section_snippets, type, version, translationSet)];
+    const section_results = ["", ...compile_section(section_snippets, type, version)];
 
     // If there are 2 elements
     // (the first element is always "")
@@ -221,7 +217,6 @@ export function compile(
   command: string,
   type: CommandType,
   version: Version,
-  translationSet: TranslationSet,
 ): string {
   const section_list = Array<Array<Snippet>>();
   let unprocessed = [...snippets];
@@ -255,7 +250,7 @@ export function compile(
     );
   }
 
-  const results = compile_section_list(section_list, type, version, translationSet);
+  const results = compile_section_list(section_list, type, version);
 
   if (!command) {
     console.error("Command isn't available", command);
