@@ -11,7 +11,7 @@
   export let snippet: TranslateSnippet;
   export let commandType: CommandType;
   export let colorManaging: boolean;
-  export let translationStrings: TranslationSet;
+  export let translationSet: TranslationSet;
   export let updateSnippet: (snippet: Snippet) => void;
 
   export let hideExteriorWrapper: boolean;
@@ -19,7 +19,7 @@
 
   let hideWrapper = false;
 
-  $: targetParameterCount = countParameters(snippet.translate, translationStrings);
+  $: targetParameterCount = countParameters(snippet.translate, translationSet);
   $: {
     if (snippet.parameters.length < targetParameterCount) {
       const newSnippet = snippet.copy();
@@ -86,6 +86,7 @@
     deleteAll={() => {
       updateParameter([], editing)
     }}
+    {translationSet}
     bind:colorManaging={colorManaging}
     bind:hideExteriorWrapper={hideWrapper}
   />
@@ -108,11 +109,6 @@
       list="datalist-translations"
       on:input={updateTranslate}
     />
-    <datalist id="datalist-translations">
-      {#each Object.keys(translationStrings) as suggestion}
-        <option value={suggestion} />
-      {/each}
-    </datalist>
     <small id="translation-string-help">
       Choose a translation identifier (specified in Minecraft translation files) or
       type out a translation string directly.

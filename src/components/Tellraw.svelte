@@ -4,9 +4,11 @@
   import { CommandType,template_lookup } from '../data/templates';
   import { compile } from '../helpers/compile';
   import { export_snippets } from '../helpers/export';
+import type { TranslationSet } from '../helpers/translation_processor';
   import { command,commandType,customColors,snippets,version } from '../persistence/stores';
+  import SiteActions from './buttons/SiteActions.svelte';
   import CommandTemplatesController from './CommandTemplatesController.svelte';
-import Datalist from './Datalist.svelte';
+  import Datalist from './Datalist.svelte';
   import CheckCircle from './generic/Icons/CheckCircle.svelte';
   import ExclamationTriangle from './generic/Icons/ExclamationTriangle.svelte';
   import FileExport from './generic/Icons/FileExport.svelte';
@@ -14,16 +16,17 @@ import Datalist from './Datalist.svelte';
   import LightWell from './generic/LightWell.svelte';
   import Importing from './Importing.svelte';
   import PreviewContainer from './Previews/PreviewContainer.svelte';
-  import SiteActions from './buttons/SiteActions.svelte';
   import SnippetCollection from './SnippetCollection.svelte';
 
-  let exporting = false
-  let importing = false
+  let exporting = false;
+  let importing = false;
 
-  let colorManaging = false
-  let hideWrapper = false
+  let colorManaging = false;
+  let hideWrapper = false;
 
-  $: compiled = compile($snippets, $command, $commandType, $version)
+  let translationSet: TranslationSet = {};
+
+  $: compiled = compile($snippets, $command, $commandType, $version, translationSet)
 
   function clearAllSnippets() {
     const titleString = "Are you sure!?!"
@@ -41,6 +44,14 @@ import Datalist from './Datalist.svelte';
 
   function startExporting() {
     exporting = true
+  }
+
+  function updateTranslationSet(newContents: any) {
+    if (newContents.constructor == Object) {
+      translationSet = newContents;
+    } else {
+      console.error('Received non-object translation set', newContents);
+    }
   }
 
   function speedtest() {
@@ -123,13 +134,14 @@ import Datalist from './Datalist.svelte';
     <div class:mb-2={hideWrapper}>
       <LightWell>
         <SnippetCollection
-          bind:commandType={$commandType}
-          bind:colorManaging={colorManaging}
           snippets={$snippets}
           updateSnippets={(newValue) => {
             snippets.set(newValue)
           }}
           deleteAll={clearAllSnippets}
+          bind:commandType={$commandType}
+          bind:colorManaging={colorManaging}
+          {translationSet}
           bind:hideExteriorWrapper={hideWrapper}
         />
       </LightWell>
@@ -216,6 +228,7 @@ import Datalist from './Datalist.svelte';
 </div>
 
 <Datalist fileIdentifier="keybinds" />
+<Datalist fileIdentifier="translations" newFileContents={updateTranslationSet} />
 <Datalist fileIdentifier="commands" versioned />
 
 <style>

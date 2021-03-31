@@ -11,6 +11,7 @@
   import { TranslateSnippet } from "../../classes/Snippets/SnippetTypes/TranslateSnippet";
   import { CommandType,FeatureType,isFeatureAvailable } from "../../data/templates";
   import { duplicate_snippet } from "../../helpers/duplicate_snippet";
+import type { TranslationSet } from "../../helpers/translation_processor";
   import { customColors,version } from "../../persistence/stores";
   import Checkbox from "../generic/Checkbox.svelte";
   import MinecraftColorButton from "../MinecraftColorButton.svelte";
@@ -20,14 +21,11 @@
   import NbtSnippetController from "./NBTSnippetController.svelte";
   import TranslateSnippetController from "./TranslateSnippetController.svelte";
 
-  export let snippet: Snippet
-  export let stopEditing: (save: boolean) => void
-  export let colorManaging: boolean
-  export let commandType: CommandType
-
-  let translationStringsPromise: Promise<{ [key: string]: string }> = fetch(
-      'datafiles/translations.json',
-    ).then(response => response.json());
+  export let snippet: Snippet;
+  export let stopEditing: (save: boolean) => void;
+  export let colorManaging: boolean;
+  export let commandType: CommandType;
+  export let translationSet: TranslationSet;
 
   let nestedEditing = false;
 
@@ -114,18 +112,14 @@
         bind:colorManaging={colorManaging}
       />
     {:else if snippet instanceof TranslateSnippet}
-        {#await translationStringsPromise}
-          <span>Loading...</span>
-        {:then translationStrings }
-          <TranslateSnippetController
-            {snippet}
-            {commandType}
-            {updateSnippet}
-            {translationStrings}
-            bind:colorManaging={colorManaging}
-            bind:hideExteriorWrapper={nestedEditing}
-          />
-        {/await}
+      <TranslateSnippetController
+        {snippet}
+        {commandType}
+        {updateSnippet}
+        {translationSet}
+        bind:colorManaging={colorManaging}
+        bind:hideExteriorWrapper={nestedEditing}
+      />
     {:else if genericSnippet(snippet)}
       <GenericSnippetController snippet={genericSnippet(snippet)} {updateSnippet} />
     {:else}
