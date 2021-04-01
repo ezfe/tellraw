@@ -138,6 +138,9 @@
         </div>
       </Row>
     {/each}
+    {#if snippet.parameters.length > 0}
+      <small>Each entry corresponds to a placeholder (%s) in your translation string above.</small>
+    {/if}
   </FormGroup>
 {/if}
 
