@@ -1,3 +1,8 @@
+import { GroupSnippet } from "../classes/Snippets/SnippetTypes/GroupSnippet";
+import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
+import type { TranslateSnippet } from "../classes/Snippets/SnippetTypes/TranslateSnippet";
+import { copy_standard_attributes } from "./copy_standard_attributes";
+
 export type TranslationSet = { [key: string]: string }
 type ParameterMatch = {
    match: string,
@@ -10,11 +15,16 @@ function reverse(str: string): string {
    return [...str].reverse().join("");
 }
 
-export function processParameters(enteredText: string, translationSet: TranslationSet): ParameterMatch[] {
+function findTranslationString(enteredText: string, translationSet: TranslationSet): string {
    let translationString = enteredText;
    if (enteredText in translationSet) {
       translationString = translationSet[enteredText];
    }
+   return translationString;
+}
+
+export function processParameters(enteredText: string, translationSet: TranslationSet): ParameterMatch[] {
+   const translationString = findTranslationString(enteredText, translationSet);
 
    // const lookbehind = /(?<![^%](?:%%)*)%(?:([0-9]+)\$)?s/g;
    const reversedExp = /s(?:\$([0-9]+))?%(?!%(?:%%)*(?:[^%]|$))/g;
@@ -63,4 +73,48 @@ export function countParameters(enteredText: string, translationSet: Translation
       if (indx > max) max = indx;
    });
    return max;
+}
+
+export function previewGroupFromTranslate(snippet: TranslateSnippet, translationSet: TranslationSet): GroupSnippet {
+   const translationString = findTranslationString(snippet.translate, translationSet);
+   const matches = processParameters(snippet.translate, translationSet);
+
+   const groupSnippet = new GroupSnippet(null);
+   copy_standard_attributes(snippet, groupSnippet);
+
+   for (let i = 0; i < matches.length; i++) {
+      const match = matches[i];
+
+      if (i > 0) {
+         const priorMatch = matches[i - 1];
+         const middleSnippet = new TextSnippet(null);
+         middleSnippet.text = translationString.slice(priorMatch.index + priorMatch.length, match.index);
+         groupSnippet.children.push(middleSnippet);
+      } else if (match.index > 0) {
+         const firstSnippet = new TextSnippet(null);
+         firstSnippet.text = translationString.slice(0, match.index);
+         groupSnippet.children.push(firstSnippet);
+      }
+
+      const parameterGroup = new GroupSnippet(null);
+      const indexedParameter = snippet.parameters[match.matchIndex - 1];
+      if (indexedParameter) {
+         parameterGroup.children = [...indexedParameter];
+         groupSnippet.children.push(parameterGroup);
+      }
+   }
+
+   if (matches.length > 0) {
+      const lastMatch = matches[matches.length - 1];
+      if (lastMatch.index + lastMatch.length < translationString.length) {
+         const lastSnippet = new TextSnippet(null);
+         lastSnippet.text = translationString.slice(lastMatch.index + lastMatch.length, translationString.length);
+         groupSnippet.children.push(lastSnippet);
+      }
+   }
+
+
+   console.log('Transformed Translate Snippet', snippet, groupSnippet);
+
+   return groupSnippet;
 }
