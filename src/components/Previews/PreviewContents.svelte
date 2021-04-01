@@ -91,7 +91,7 @@ import { GroupSnippet } from "../../classes/Snippets/SnippetTypes/GroupSnippet";
     return {
       snippet,
       className: classes.join(" "),
-      color: getCSSHEX(snippet.color),
+      color: snippet.color === "none" ? "none" : getCSSHEX(snippet.color),
       icon
     }
   })
