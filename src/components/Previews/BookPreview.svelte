@@ -2,14 +2,17 @@
   import { Button } from "sveltestrap";
   import { PagebreakSnippet } from "../../classes/Snippets/SnippetTypes/PagebreakSnippet";
   import type { Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
+import type { TranslationSet } from "../../helpers/translation_processor";
   import ArrowCircleLeft from "../generic/Icons/ArrowCircleLeft.svelte";
   import ArrowCircleRight from "../generic/Icons/ArrowCircleRight.svelte";
   import PreviewContents from "./PreviewContents.svelte";
 
-  export let snippets: Snippet[]
-  let bookPage = 1
+  export let snippets: Snippet[];
+  export let translationSet: TranslationSet;
 
-  $: pageCount = snippets.filter(s => { return s instanceof PagebreakSnippet }).length + 1
+  let bookPage = 1;
+
+  $: pageCount = snippets.filter(s => { return s instanceof PagebreakSnippet }).length + 1;
 </script>
 
 <div>
@@ -24,7 +27,7 @@
 </div>
 <div class="preview book-preview ml-3 mr-3">
   <div class="format-wrapper">
-    <PreviewContents {snippets} {bookPage} />
+    <PreviewContents {snippets} {bookPage} {translationSet} />
   </div>
 </div>
 <div>

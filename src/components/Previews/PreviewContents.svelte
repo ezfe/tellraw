@@ -1,6 +1,6 @@
 <script lang="typescript">
   import { getCSSHEX } from "../../classes/Color";
-import { GroupSnippet } from "../../classes/Snippets/SnippetTypes/GroupSnippet";
+  import { GroupSnippet } from "../../classes/Snippets/SnippetTypes/GroupSnippet";
   import { KeybindSnippet } from "../../classes/Snippets/SnippetTypes/KeybindSnippet";
   import { LinebreakSnippet } from "../../classes/Snippets/SnippetTypes/LinebreakSnippet";
   import { NBTSnippet } from "../../classes/Snippets/SnippetTypes/NBTSnippet";
@@ -11,7 +11,7 @@ import { GroupSnippet } from "../../classes/Snippets/SnippetTypes/GroupSnippet";
   import { TextSnippet } from "../../classes/Snippets/SnippetTypes/TextSnippet";
   import { TranslateSnippet } from "../../classes/Snippets/SnippetTypes/TranslateSnippet";
   import { iconForSnippet } from "../../helpers/snippet_icon";
-  import { previewGroupFromTranslate } from "../../helpers/translation_processor";
+  import { previewGroupFromTranslate, TranslationSet } from "../../helpers/translation_processor";
 
   function nthPageBreak(array: Snippet[], n: number) {
     let searchFrom = 0
@@ -49,8 +49,10 @@ import { GroupSnippet } from "../../classes/Snippets/SnippetTypes/GroupSnippet";
     return Math.min(found, snippets.length)
   }
 
-  export let snippets: Snippet[]
-  export let bookPage: number | undefined
+  export let snippets: Snippet[];
+  export let bookPage: number | undefined;
+
+  export let translationSet: TranslationSet;
 
   $: pageStartIndex = findPageStartIndex(bookPage, snippets)
   $: pageEndIndex = findPageEndIndex(bookPage, snippets)
@@ -58,7 +60,7 @@ import { GroupSnippet } from "../../classes/Snippets/SnippetTypes/GroupSnippet";
   $: slicedSnippets = snippets.slice(pageStartIndex, pageEndIndex)
   $: decoratedSnippets = slicedSnippets.map(snippet => {
     if (snippet instanceof TranslateSnippet) {
-      return previewGroupFromTranslate(snippet, {});
+      return previewGroupFromTranslate(snippet, translationSet);
     } else {
       return snippet;
     }

@@ -381,7 +381,7 @@ import type { TranslationSet } from "../../helpers/translation_processor";
   <div class="row mb-2">
     <div class="col">
       <p>
-        <PreviewContents snippets={[snippet]} bookPage={null} />
+        <PreviewContents snippets={[snippet]} bookPage={null} {translationSet} />
       </p>
     </div>
   </div>

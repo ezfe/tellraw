@@ -166,7 +166,7 @@ import type { TranslationSet } from '../helpers/translation_processor';
         </div>
       </div>
 
-      <PreviewContainer snippets={$snippets} commandType={$commandType} />
+      <PreviewContainer snippets={$snippets} commandType={$commandType} {translationSet} />
 
       <hr />
 

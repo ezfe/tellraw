@@ -5,6 +5,9 @@
   import type { TranslateSnippet } from "../../classes/Snippets/SnippetTypes/TranslateSnippet";
   import type { CommandType } from "../../data/templates";
   import { countParameters,TranslationSet } from "../../helpers/translation_processor";
+  import PlusCircle from "../generic/Icons/PlusCircle.svelte";
+  import TrashAlt from "../generic/Icons/TrashAlt.svelte";
+  import SplitDropdown from "../generic/SplitDropdown.svelte";
   import PreviewContents from "../Previews/PreviewContents.svelte";
   import SnippetCollection from "../SnippetCollection.svelte";
 
@@ -20,6 +23,7 @@
   let hideWrapper = false;
 
   $: targetParameterCount = countParameters(snippet.translate, translationSet);
+  $: slicedParameters = snippet.parameters; // snippet.parameters.slice(0, targetParameterCount);
   $: {
     if (snippet.parameters.length < targetParameterCount) {
       const newSnippet = snippet.copy();
@@ -31,9 +35,10 @@
       }
 
       updateSnippet(newSnippet);
-    } else if (snippet.parameters.length > targetParameterCount) {
+    } else if (slicedParameters.length < snippet.parameters.length) {
+      // Don't shorten array when manual parameter management is enabled
       const newSnippet = snippet.copy();
-      newSnippet.parameters = newSnippet.parameters.slice(0, targetParameterCount);
+      newSnippet.parameters = slicedParameters;
       updateSnippet(newSnippet);
     }
   }
@@ -50,14 +55,14 @@
     updateSnippet(newSnippet);
   }
 
-  // function addParameter() {
-  //   const newSnippet = snippet.copy();
+  function addParameter() {
+    const newSnippet = snippet.copy();
 
-  //   const ts = new TextSnippet(null);
-  //   ts.text = "Click \"Edit\" to modify this parameter"
-  //   newSnippet.parameters.push([ts]);
-  //   updateSnippet(newSnippet);
-  // }
+    const ts = new TextSnippet(null);
+    ts.text = "Click \"Edit\" to modify this parameter"
+    newSnippet.parameters.push([ts]);
+    updateSnippet(newSnippet);
+  }
 
   function deleteParameter(index: number) {
     const newSnippet = snippet.copy();
@@ -121,18 +126,37 @@
     {#if snippet.parameters.length > 0}
       <span class="label-like">Translation parameters</span>
     {/if}
-    {#each snippet.parameters.slice(0, targetParameterCount) as param, paramIndex}
+    {#each slicedParameters as param, paramIndex}
       <Row class="mb-1">
         <div class="col parameter-row">
           <div class="center-vertically flex-shrink-0">
-            <Button color="secondary" block on:click={() => { startEditing(paramIndex) }}>
-              Edit
-            </Button>
+            {#if (paramIndex + 1) <= targetParameterCount}
+              <Button color="secondary" block on:click={() => { startEditing(paramIndex) }}>
+                Edit
+              </Button>
+            {:else}
+              <SplitDropdown
+                color="secondary"
+                block
+                on:click={() => { startEditing(paramIndex) }}
+                dropdowns={[
+                  {
+                    label: "Delete",
+                    icon: TrashAlt,
+                    onClick: () => {
+                      deleteParameter(paramIndex)
+                    },
+                  },
+                ]}
+              >
+                Edit
+              </SplitDropdown>
+            {/if}
           </div>
 
           <div class="center-vertically flex-grow-1">
             <p class="mb-0">
-              <PreviewContents snippets={param} bookPage={null} />
+              <PreviewContents snippets={param} bookPage={null} {translationSet} />
             </p>
           </div>
         </div>
@@ -141,6 +165,13 @@
     {#if snippet.parameters.length > 0}
       <small>Each entry corresponds to a placeholder (%s) in your translation string above.</small>
     {/if}
+  </FormGroup>
+  <FormGroup>
+    <Button color="success" on:click={addParameter}>
+      <PlusCircle />
+      Add Parameter
+    </Button>
+    <small>If you need to add more parameters than were automatically detected, click this button.</small>
   </FormGroup>
 {/if}
 
