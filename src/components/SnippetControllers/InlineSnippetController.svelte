@@ -12,7 +12,6 @@
   import Clone from "../generic/Icons/Clone.svelte";
   import Edit from "../generic/Icons/Edit.svelte";
   import FileAlt from "../generic/Icons/FileAlt.svelte";
-  import HandPointer from "../generic/Icons/HandPointer.svelte";
   import TrashAlt from "../generic/Icons/TrashAlt.svelte";
   import SplitDropdown from "../generic/SplitDropdown.svelte";
   import MinecraftColorWell from "../MinecraftColorWell.svelte";

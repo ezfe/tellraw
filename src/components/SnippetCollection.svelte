@@ -3,7 +3,6 @@
   import { flip } from "svelte/animate";
   import { Button,DropdownItem,DropdownMenu,DropdownToggle,Row,UncontrolledDropdown } from "sveltestrap";
   import { v4 as uuidv4 } from "uuid";
-import { GroupSnippet } from "../classes/Snippets/SnippetTypes/GroupSnippet";
   import { KeybindSnippet } from "../classes/Snippets/SnippetTypes/KeybindSnippet";
   import { LinebreakSnippet } from "../classes/Snippets/SnippetTypes/LinebreakSnippet";
   import { NBTSnippet } from "../classes/Snippets/SnippetTypes/NBTSnippet";
@@ -15,7 +14,7 @@ import { GroupSnippet } from "../classes/Snippets/SnippetTypes/GroupSnippet";
   import { TranslateSnippet } from "../classes/Snippets/SnippetTypes/TranslateSnippet";
   import { CommandType,FeatureType,isFeatureAvailable } from "../data/templates";
   import { duplicate_snippet } from "../helpers/duplicate_snippet";
-import { loadCurrentVersionState } from "../helpers/loaders";
+  import { loadCurrentVersionState } from "../helpers/loaders";
   import { fastEditTipShown,version } from "../persistence/stores";
   import FileAlt from "./generic/Icons/FileAlt.svelte";
   import PlusCircle from "./generic/Icons/PlusCircle.svelte";
