@@ -10,7 +10,7 @@
   export let commandType: CommandType
   export let snippets: Snippet[]
 
-  $: isBookPreview = isFeatureAvailable(commandType, $version, FeatureType.bookPreview)  
+  $: isBookPreview = isFeatureAvailable(commandType, $version, FeatureType.bookPreview)
   $: bookPreviewClass = isBookPreview  ? "d-flex align-items-center justify-content-center" : ""
 </script>
 

@@ -88,10 +88,15 @@ import { GroupSnippet } from "../../classes/Snippets/SnippetTypes/GroupSnippet";
     let icon = iconForSnippet(snippet)
     if (icon !== null) classes.push("bordered-formatter-preview")
 
+    let color = 'none';
+    if (snippet.color !== 'none') {
+      color = getCSSHEX(snippet.color);
+    }
+
     return {
       snippet,
       className: classes.join(" "),
-      color: snippet.color === "none" ? "none" : getCSSHEX(snippet.color),
+      color,
       icon
     }
   })

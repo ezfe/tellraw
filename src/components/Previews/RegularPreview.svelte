@@ -14,6 +14,8 @@
 <style>
   .preview {
     min-height: 300px;
+
+    color: black;
   }
   .preview-color-picker {
     position: absolute;
