@@ -1,5 +1,6 @@
 <script lang="typescript">
   import { getCSSHEX } from "../../classes/Color";
+  import { GroupSnippet } from "../../classes/Snippets/SnippetTypes/GroupSnippet";
   import { KeybindSnippet } from "../../classes/Snippets/SnippetTypes/KeybindSnippet";
   import { LinebreakSnippet } from "../../classes/Snippets/SnippetTypes/LinebreakSnippet";
   import { NBTSnippet } from "../../classes/Snippets/SnippetTypes/NBTSnippet";
@@ -10,6 +11,7 @@
   import { TextSnippet } from "../../classes/Snippets/SnippetTypes/TextSnippet";
   import { TranslateSnippet } from "../../classes/Snippets/SnippetTypes/TranslateSnippet";
   import { iconForSnippet } from "../../helpers/snippet_icon";
+  import { previewGroupFromTranslate, TranslationSet } from "../../helpers/translation_processor";
 
   function nthPageBreak(array: Snippet[], n: number) {
     let searchFrom = 0
@@ -47,14 +49,22 @@
     return Math.min(found, snippets.length)
   }
 
-  export let snippets: Snippet[]
-  export let bookPage: number | undefined
+  export let snippets: Snippet[];
+  export let bookPage: number | undefined;
+
+  export let translationSet: TranslationSet;
 
   $: pageStartIndex = findPageStartIndex(bookPage, snippets)
   $: pageEndIndex = findPageEndIndex(bookPage, snippets)
 
   $: slicedSnippets = snippets.slice(pageStartIndex, pageEndIndex)
   $: decoratedSnippets = slicedSnippets.map(snippet => {
+    if (snippet instanceof TranslateSnippet) {
+      return previewGroupFromTranslate(snippet, translationSet);
+    } else {
+      return snippet;
+    }
+  }).map(snippet => {
     if (snippet instanceof LinebreakSnippet) {
       return {
         snippet,
@@ -80,10 +90,15 @@
     let icon = iconForSnippet(snippet)
     if (icon !== null) classes.push("bordered-formatter-preview")
 
+    let color = 'none';
+    if (snippet.color !== 'none') {
+      color = getCSSHEX(snippet.color);
+    }
+
     return {
       snippet,
       className: classes.join(" "),
-      color: getCSSHEX(snippet.color),
+      color,
       icon
     }
   })
@@ -106,9 +121,9 @@
     -->{:else if snippetInfo.snippet instanceof SelectorSnippet}<!--
       -->{ snippetInfo.snippet.selector }<!--
     -->{:else if snippetInfo.snippet instanceof NBTSnippet}<!--
-      -->{snippetInfo.snippet.nbt}@{snippetInfo.snippet.storage}<!--
-    -->{:else if snippetInfo.snippet instanceof TranslateSnippet}<!--
-      -->{snippetInfo.snippet.translate}<!--
+      -->{ snippetInfo.snippet.nbt}@{snippetInfo.snippet.storage }<!--
+    -->{:else if snippetInfo.snippet instanceof GroupSnippet}<!--
+      --><svelte:self snippets={snippetInfo.snippet.children} /><!--
     -->{:else if snippetInfo.snippet instanceof LinebreakSnippet}<!--
       --><br /><!--
     -->{:else if snippetInfo.snippet instanceof PagebreakSnippet}<!--

@@ -2,24 +2,26 @@
   import { Button } from 'sveltestrap';
   import type { Snippet } from '../../classes/Snippets/SnippetTypes/Snippet';
   import { CommandType,FeatureType,isFeatureAvailable } from '../../data/templates';
+import type { TranslationSet } from '../../helpers/translation_processor';
   import { bookPreviewDisclaimerShown,version } from '../../persistence/stores';
   import CheckCircle from '../generic/Icons/CheckCircle.svelte';
   import BookPreview from './BookPreview.svelte';
   import RegularPreview from './RegularPreview.svelte';
 
-  export let commandType: CommandType
-  export let snippets: Snippet[]
+  export let snippets: Snippet[];
+  export let commandType: CommandType;
+  export let translationSet: TranslationSet;
 
-  $: isBookPreview = isFeatureAvailable(commandType, $version, FeatureType.bookPreview)  
+  $: isBookPreview = isFeatureAvailable(commandType, $version, FeatureType.bookPreview)
   $: bookPreviewClass = isBookPreview  ? "d-flex align-items-center justify-content-center" : ""
 </script>
 
 <div class="row mb-2">
   <div class={`col-sm-10 col-md-8 offset-sm-2 ${bookPreviewClass}`}>
     {#if isBookPreview}
-      <BookPreview {snippets} />
+      <BookPreview {snippets} {translationSet} />
     {:else}
-      <RegularPreview {snippets} />
+      <RegularPreview {snippets} {translationSet} />
     {/if}
   </div>
 </div>
