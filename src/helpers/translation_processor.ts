@@ -1,4 +1,5 @@
 import { GroupSnippet } from "../classes/Snippets/SnippetTypes/GroupSnippet";
+import type { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
 import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
 import type { TranslateSnippet } from "../classes/Snippets/SnippetTypes/TranslateSnippet";
 import { copy_standard_attributes } from "./copy_standard_attributes";
@@ -75,9 +76,16 @@ export function countParameters(enteredText: string, translationSet: Translation
    return max;
 }
 
-export function previewGroupFromTranslate(snippet: TranslateSnippet, translationSet: TranslationSet): GroupSnippet {
+export function previewGroupFromTranslate(snippet: TranslateSnippet, translationSet: TranslationSet): Snippet {
    const translationString = findTranslationString(snippet.translate, translationSet);
    const matches = processParameters(snippet.translate, translationSet);
+
+   if (matches.length === 0) {
+      const textSnippet = new TextSnippet(null);
+      textSnippet.text = translationString;
+      copy_standard_attributes(snippet, textSnippet);
+      return textSnippet;
+   }
 
    const groupSnippet = new GroupSnippet(null);
    copy_standard_attributes(snippet, groupSnippet);

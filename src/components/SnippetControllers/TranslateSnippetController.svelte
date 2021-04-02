@@ -162,7 +162,7 @@
         </div>
       </Row>
     {/each}
-    {#if snippet.parameters.length > 0}
+    {#if targetParameterCount > 0}
       <small>Each entry corresponds to a placeholder (%s) in your translation string above.</small>
     {/if}
   </FormGroup>
@@ -171,6 +171,7 @@
       <PlusCircle />
       Add Parameter
     </Button>
+    <br />
     <small>If you need to add more parameters than were automatically detected, click this button.</small>
   </FormGroup>
 {/if}
