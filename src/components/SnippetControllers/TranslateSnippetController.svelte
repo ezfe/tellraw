@@ -113,6 +113,8 @@ import SnippetDetailController from "./SnippetDetailController.svelte";
     {/each}
     {#if targetParameterCount > 0}
       <small>Each entry corresponds to a placeholder (%s) in your translation string above.</small>
+    {:else}
+      <small>Each entry corresponds to a placeholder in the translation string.</small>
     {/if}
   </FormGroup>
   <FormGroup>
