@@ -60,9 +60,9 @@ function compile_section(
     } else if (snippet instanceof KeybindSnippet) {
       pending["keybind"] = snippet.keybind;
     } else if (snippet instanceof TranslateSnippet) {
-      pending["translate"] = snippet.translate
+      pending["translate"] = snippet.translate;
       if (snippet.parameters.length > 0) {
-        pending["with"] = snippet.parameters.map(param => compile_section(param, type, version))
+        pending["with"] = compile_section(snippet.parameters, type, version);
       }
     } else if (snippet instanceof GroupSnippet) {
       pending["text"] = "";

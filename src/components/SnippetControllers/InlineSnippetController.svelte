@@ -19,13 +19,16 @@
   import GenericSnippetController from "./GenericSnippetController.svelte";
   import NBTSnippetController from "./NBTSnippetController.svelte";
 
+  type SnippetFn = (snippet: Snippet) => void;
+  type OptionalSnippetFn = SnippetFn | undefined;
+
   export let snippet: Snippet;
   export let commandType: CommandType;
   export let colorManaging: boolean;
-  export let startEditing: (snippet: Snippet) => void;
-  export let updateSnippet: (snippet: Snippet) => void;
-  export let removeSnippet: (snippet: Snippet) => void;
-  export let duplicateSnippet: (snippet: Snippet) => void;
+  export let startEditing: SnippetFn;
+  export let updateSnippet: SnippetFn;
+  export let removeSnippet: SnippetFn;
+  export let duplicateSnippet: OptionalSnippetFn;
 
   function changeGroupSnippetChildren(snippets: Array<Snippet>) {
     let newSnippet = duplicate_snippet(snippet)
@@ -35,7 +38,31 @@
     }
   }
 
-  $: editingEnabled = !(snippet instanceof LinebreakSnippet || snippet instanceof PagebreakSnippet)
+  function actionsFor(snippet: Snippet) {
+    const deleteAction = {
+      label: "Delete",
+      icon: TrashAlt,
+      onClick: () => {
+        removeSnippet(snippet)
+      }
+    };
+
+    const duplicateAction = {
+      label: "Duplicate",
+      icon: Clone,
+      onClick: () => {
+        duplicateSnippet(snippet)
+      }
+    };
+
+    if (duplicateSnippet) {
+      return [deleteAction, duplicateAction];
+    } else {
+      return [deleteAction];
+    }
+  }
+
+  $: editingEnabled = !(snippet instanceof LinebreakSnippet || snippet instanceof PagebreakSnippet);
 </script>
 
 <Row class="mb-2">
@@ -45,22 +72,7 @@
       disabled={!editingEnabled}
       block
       on:click={() => { startEditing(snippet) }}
-      dropdowns={[
-        {
-          label: "Delete",
-          icon: TrashAlt,
-          onClick: () => {
-            removeSnippet(snippet)
-          }
-        },
-        {
-          label: "Duplicate",
-          icon: Clone,
-          onClick: () => {
-            duplicateSnippet(snippet)
-          }
-        }
-      ]}
+      dropdowns={actionsFor(snippet)}
     >
       <Edit />
       Edit

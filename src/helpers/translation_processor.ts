@@ -104,11 +104,9 @@ export function previewGroupFromTranslate(snippet: TranslateSnippet, translation
          groupSnippet.children.push(firstSnippet);
       }
 
-      const parameterGroup = new GroupSnippet(null);
       const indexedParameter = snippet.parameters[match.matchIndex - 1];
       if (indexedParameter) {
-         parameterGroup.children = [...indexedParameter];
-         groupSnippet.children.push(parameterGroup);
+         groupSnippet.children.push(indexedParameter);
       }
    }
 

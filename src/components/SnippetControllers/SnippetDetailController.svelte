@@ -11,7 +11,7 @@
   import { TranslateSnippet } from "../../classes/Snippets/SnippetTypes/TranslateSnippet";
   import { CommandType,FeatureType,isFeatureAvailable } from "../../data/templates";
   import { duplicate_snippet } from "../../helpers/duplicate_snippet";
-import type { TranslationSet } from "../../helpers/translation_processor";
+  import type { TranslationSet } from "../../helpers/translation_processor";
   import { customColors,version } from "../../persistence/stores";
   import Checkbox from "../generic/Checkbox.svelte";
   import MinecraftColorButton from "../MinecraftColorButton.svelte";
@@ -97,6 +97,26 @@ import type { TranslationSet } from "../../helpers/translation_processor";
 
 </script>
 
+{#if !nestedEditing}
+  <!-- Preview -->
+
+  <div class="row mb-2">
+    <div class="col">
+      <h4>Preview:</h4>
+    </div>
+  </div>
+
+  <div class="row mb-2">
+    <div class="col">
+      <p>
+        <PreviewContents snippets={[snippet]} bookPage={null} {translationSet} />
+      </p>
+    </div>
+  </div>
+
+  <hr />
+{/if}
+
 <div class="row">
   <div class="col">
     {#if snippet instanceof NBTSnippet}
@@ -109,6 +129,7 @@ import type { TranslationSet } from "../../helpers/translation_processor";
         deleteAll={() => {
           changeGroupSnippetChildren([])
         }}
+        {translationSet}
         bind:colorManaging={colorManaging}
       />
     {:else if snippet instanceof TranslateSnippet}
@@ -117,7 +138,6 @@ import type { TranslationSet } from "../../helpers/translation_processor";
         {commandType}
         {updateSnippet}
         {translationSet}
-        bind:colorManaging={colorManaging}
         bind:hideExteriorWrapper={nestedEditing}
       />
     {:else if genericSnippet(snippet)}
@@ -338,6 +358,7 @@ import type { TranslationSet } from "../../helpers/translation_processor";
                 deleteAll={() => {
                   changeHoverEventChildren([])
                 }}
+                {translationSet}
                 bind:colorManaging={colorManaging}
               />
             </div>
@@ -353,7 +374,7 @@ import type { TranslationSet } from "../../helpers/translation_processor";
   {/if}
 
   {#if isFeatureAvailable(commandType, $version, FeatureType.insertion)}
-    <div class="row mb-2">
+    <div class="row">
       <div class="col-4">
         <h4>Insertion:</h4>
       </div>
@@ -365,30 +386,11 @@ import type { TranslationSet } from "../../helpers/translation_processor";
         />
       </div>
     </div>
-    <hr />
   {/if}
-
-  <br />
-
-  <!-- Preview -->
-
-  <div class="row mb-2">
-    <div class="col">
-      <h4>Preview:</h4>
-    </div>
-  </div>
-
-  <div class="row mb-2">
-    <div class="col">
-      <p>
-        <PreviewContents snippets={[snippet]} bookPage={null} {translationSet} />
-      </p>
-    </div>
-  </div>
 
   <!-- Exit Controls -->
 
-  <div class="row">
+  <div class="row mt-5">
     <div class="offset-8 col-2">
       <button class="btn btn-secondary btn-block" on:click={() => { stopEditing(false) }}>Cancel</button>
     </div>

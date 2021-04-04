@@ -6,7 +6,7 @@ export class TranslateSnippet extends Snippet {
 	id: string
 
 	translate: string = ""
-	parameters: Snippet[][] = []
+	parameters: Snippet[] = []
 
 	constructor(id: string = null) {
 		super(id)
@@ -16,7 +16,7 @@ export class TranslateSnippet extends Snippet {
 		let newValue = new TranslateSnippet(this.id)
 
 		newValue.translate = this.translate
-		newValue.parameters = this.parameters.map(param => param.map(s => duplicate_snippet(s)))
+		newValue.parameters = this.parameters.map(s => duplicate_snippet(s));
 
 		copy_standard_attributes(this, newValue)
 
