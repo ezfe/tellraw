@@ -123,7 +123,7 @@
     -->{:else if snippetInfo.snippet instanceof NBTSnippet}<!--
       -->{ snippetInfo.snippet.nbt}@{snippetInfo.snippet.storage }<!--
     -->{:else if snippetInfo.snippet instanceof GroupSnippet}<!--
-      --><svelte:self snippets={snippetInfo.snippet.children} /><!--
+      --><svelte:self snippets={snippetInfo.snippet.children} {translationSet} /><!--
     -->{:else if snippetInfo.snippet instanceof LinebreakSnippet}<!--
       --><br /><!--
     -->{:else if snippetInfo.snippet instanceof PagebreakSnippet}<!--
