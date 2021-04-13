@@ -29,10 +29,11 @@ export function duplicate_snippet(snippet: Snippet) {
   } else if (snippet instanceof GroupSnippet) {
     return snippet.copy()
   } else {
-    console.error("An error occurred copying a snippet. It probably hasn't been implemented yet in the copy_snippet function.")
+    console.error("An error occurred copying a snippet. \
+    It probably hasn't been implemented yet in the duplicate_snippet function.", snippet);
 
-    let x = new TextSnippet(null)
-    x.text = "A copy error occurred"
-    return x
+    let x = new TextSnippet(null);
+    x.text = "A copy error occurred";
+    return x;
   }
 }

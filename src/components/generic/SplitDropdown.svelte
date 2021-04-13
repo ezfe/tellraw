@@ -1,4 +1,4 @@
-<script lang="typescript">
+<script lang="ts">
   import type { IconDefinition } from "@fortawesome/free-solid-svg-icons";
   import { Button,ButtonGroup,Dropdown,DropdownItem,DropdownMenu,DropdownToggle } from "sveltestrap";
 

@@ -16,7 +16,11 @@ import { TranslateSnippet } from "../classes/Snippets/SnippetTypes/TranslateSnip
 import { CommandType, FeatureType, isFeatureAvailable } from "../data/templates";
 import { Version, versionAtLeast } from "./versions";
 
-function compile_section(section_snippets: Snippet[], type: CommandType, version: Version): Object[] {
+function compile_section(
+  section_snippets: Snippet[],
+  type: CommandType,
+  version: Version,
+): Object[] {
   const results: Object[] = [];
   for (const snippet of section_snippets) {
     let pending = {};
@@ -56,9 +60,9 @@ function compile_section(section_snippets: Snippet[], type: CommandType, version
     } else if (snippet instanceof KeybindSnippet) {
       pending["keybind"] = snippet.keybind;
     } else if (snippet instanceof TranslateSnippet) {
-      pending["translate"] = snippet.translate
+      pending["translate"] = snippet.translate;
       if (snippet.parameters.length > 0) {
-        pending["with"] = snippet.parameters
+        pending["with"] = compile_section(snippet.parameters, type, version);
       }
     } else if (snippet instanceof GroupSnippet) {
       pending["text"] = "";
@@ -143,7 +147,7 @@ function compile_section(section_snippets: Snippet[], type: CommandType, version
 export function compile_section_list(
   sections: Snippet[][],
   type: CommandType,
-  version: Version
+  version: Version,
 ): any {
   // Depending on whether a sign click
   // event is used, sections may be single
@@ -212,7 +216,7 @@ export function compile(
   snippets: Array<Snippet>,
   command: string,
   type: CommandType,
-  version: Version
+  version: Version,
 ): string {
   const section_list = Array<Array<Snippet>>();
   let unprocessed = [...snippets];

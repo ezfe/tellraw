@@ -1,4 +1,4 @@
-<script lang="typescript">  
+<script lang="ts">
   import { faUserTag as icon } from '@fortawesome/free-solid-svg-icons/faUserTag';
   import IconContainer from './IconContainer.svelte';
 </script>

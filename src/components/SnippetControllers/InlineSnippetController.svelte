@@ -1,4 +1,4 @@
-<script lang="typescript">
+<script lang="ts">
   import { Col,Row } from "sveltestrap";
   import { genericSnippet } from "../../classes/Snippets/SnippetTypes/GenericFieldCompatable";
   import { GroupSnippet } from "../../classes/Snippets/SnippetTypes/GroupSnippet";
@@ -19,13 +19,16 @@
   import GenericSnippetController from "./GenericSnippetController.svelte";
   import NBTSnippetController from "./NBTSnippetController.svelte";
 
-  export let snippet: Snippet
-  export let editing: Snippet | null
-  export let commandType: CommandType
-  export let colorManaging: boolean
-  export let updateSnippet: (snippet: Snippet) => void
-  export let removeSnippet: (snippet: Snippet) => void
-  export let duplicateSnippet: (snippet: Snippet) => void
+  type SnippetFn = (snippet: Snippet) => void;
+  type OptionalSnippetFn = SnippetFn | undefined;
+
+  export let snippet: Snippet;
+  export let commandType: CommandType;
+  export let colorManaging: boolean;
+  export let startEditing: SnippetFn;
+  export let updateSnippet: SnippetFn;
+  export let removeSnippet: SnippetFn;
+  export let duplicateSnippet: OptionalSnippetFn;
 
   function changeGroupSnippetChildren(snippets: Array<Snippet>) {
     let newSnippet = duplicate_snippet(snippet)
@@ -35,11 +38,31 @@
     }
   }
 
-  function startEditingSnippet() {
-    editing = snippet
+  function actionsFor(snippet: Snippet) {
+    const deleteAction = {
+      label: "Delete",
+      icon: TrashAlt,
+      onClick: () => {
+        removeSnippet(snippet)
+      }
+    };
+
+    const duplicateAction = {
+      label: "Duplicate",
+      icon: Clone,
+      onClick: () => {
+        duplicateSnippet(snippet)
+      }
+    };
+
+    if (duplicateSnippet) {
+      return [deleteAction, duplicateAction];
+    } else {
+      return [deleteAction];
+    }
   }
 
-  $: editingEnabled = !(snippet instanceof LinebreakSnippet || snippet instanceof PagebreakSnippet)
+  $: editingEnabled = !(snippet instanceof LinebreakSnippet || snippet instanceof PagebreakSnippet);
 </script>
 
 <Row class="mb-2">
@@ -48,23 +71,8 @@
       color="secondary"
       disabled={!editingEnabled}
       block
-      on:click={() => { startEditingSnippet() }}
-      dropdowns={[
-        {
-          label: "Delete",
-          icon: TrashAlt,
-          onClick: () => {
-            removeSnippet(snippet)
-          }
-        },
-        {
-          label: "Duplicate",
-          icon: Clone,
-          onClick: () => {
-            duplicateSnippet(snippet)
-          }
-        }
-      ]}
+      on:click={() => { startEditing(snippet) }}
+      dropdowns={actionsFor(snippet)}
     >
       <Edit />
       Edit
@@ -86,19 +94,15 @@
       <span>Translation Snippet ({ snippet.translate }) - Click Edit to modify</span>
     {:else if snippet instanceof GroupSnippet}
       <div class="col">
-        <div class="row">
-          <div class="col inline-snippet-collection">
-            <SnippetCollection
-              {commandType}
-              snippets={snippet.children}
-              updateSnippets={changeGroupSnippetChildren}
-              deleteAll={() => {
-                changeGroupSnippetChildren([])
-              }}
-              bind:colorManaging={colorManaging}
-            />
-          </div>
-        </div>
+        <SnippetCollection
+          {commandType}
+          snippets={snippet.children}
+          updateSnippets={changeGroupSnippetChildren}
+          deleteAll={() => {
+            changeGroupSnippetChildren([])
+          }}
+          bind:colorManaging={colorManaging}
+        />
       </div>
     {:else if genericSnippet(snippet)}
       <!-- Generic Snippet will be nil if it's not a generic snippet -->

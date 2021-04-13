@@ -1,10 +1,10 @@
-<script lang="typescript">
+<script lang="ts">
   import { DropdownItem,DropdownMenu,DropdownToggle,UncontrolledDropdown } from 'sveltestrap';
-  import CodeBranch from './generic/Icons/CodeBranch.svelte';
-  import FileDownload from './generic/Icons/FileDownload.svelte';
-  import List from './generic/Icons/List.svelte';
-  import Twitter from './generic/Icons/Twitter.svelte';
-  import WiFi from './generic/Icons/WiFi.svelte';
+  import CodeBranch from '../generic/Icons/CodeBranch.svelte';
+  import FileDownload from '../generic/Icons/FileDownload.svelte';
+  import List from '../generic/Icons/List.svelte';
+  import Twitter from '../generic/Icons/Twitter.svelte';
+  import WiFi from '../generic/Icons/WiFi.svelte';
 </script>
 
 <UncontrolledDropdown class="ml-2">
