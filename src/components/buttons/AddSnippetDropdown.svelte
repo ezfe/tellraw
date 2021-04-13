@@ -1,4 +1,4 @@
-<script lang="typescript">
+<script lang="ts">
   import { Button,DropdownItem,DropdownMenu,DropdownToggle,UncontrolledDropdown } from "sveltestrap";
   import { KeybindSnippet } from "../../classes/Snippets/SnippetTypes/KeybindSnippet";
   import { LinebreakSnippet } from "../../classes/Snippets/SnippetTypes/LinebreakSnippet";

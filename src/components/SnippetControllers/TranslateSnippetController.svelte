@@ -1,15 +1,14 @@
-<script lang="typescript">
+<script lang="ts">
   import { FormGroup,Row } from "sveltestrap";
   import type { Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
   import type { TranslateSnippet } from "../../classes/Snippets/SnippetTypes/TranslateSnippet";
   import type { CommandType } from "../../data/templates";
-import { duplicate_snippet } from "../../helpers/duplicate_snippet";
-  import { countParameters,TranslationSet } from "../../helpers/translation_processor";
+  import { duplicate_snippet } from "../../helpers/duplicate_snippet";
+  import type { TranslationSet } from "../../helpers/translation_processor";
+  import { countParameters } from "../../helpers/translation_processor";
   import AddSnippetDropdown from "../buttons/AddSnippetDropdown.svelte";
-import InlineSnippetController from "./InlineSnippetController.svelte";
-import SnippetDetailController from "./SnippetDetailController.svelte";
-
-
+  import InlineSnippetController from "./InlineSnippetController.svelte";
+  import SnippetDetailController from "./SnippetDetailController.svelte";
 
   export let snippet: TranslateSnippet;
   export let commandType: CommandType;

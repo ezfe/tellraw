@@ -1,4 +1,4 @@
-<script lang="typescript">  
+<script lang="ts">
   import { faExclamationTriangle as icon } from '@fortawesome/free-solid-svg-icons/faExclamationTriangle';
   import IconContainer from './IconContainer.svelte';
 </script>

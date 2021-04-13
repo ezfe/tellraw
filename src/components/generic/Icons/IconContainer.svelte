@@ -1,4 +1,4 @@
-<script lang="typescript">  
+<script lang="ts">
   import type { IconDefinition, IconPathData } from '@fortawesome/fontawesome-common-types';
 
   export let icon: IconDefinition
@@ -23,7 +23,7 @@
     }
   }
 </script>
-  
+
 <svg
   aria-hidden="true"
   role="img"

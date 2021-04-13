@@ -1,4 +1,4 @@
-<script lang="typescript">
+<script lang="ts">
   import { dndzone } from "svelte-dnd-action";
   import { flip } from "svelte/animate";
   import { Button,Row } from "sveltestrap";

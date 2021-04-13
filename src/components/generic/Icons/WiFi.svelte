@@ -1,4 +1,4 @@
-<script lang="typescript">  
+<script lang="ts">
   import { faWifi as icon } from '@fortawesome/free-solid-svg-icons/faWifi';
   import IconContainer from './IconContainer.svelte';
 </script>

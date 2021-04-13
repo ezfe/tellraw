@@ -1,4 +1,4 @@
-<script lang="typescript">
+<script lang="ts">
   import { Button,Col,Row } from "sveltestrap";
   import type { Color } from "../../classes/Color";
   import { getCSSHEX,minecraftColorSet } from "../../classes/Color";

@@ -1,4 +1,4 @@
-<script lang="typescript">
+<script lang="ts">
   import { Col,Row } from "sveltestrap";
   import { genericSnippet } from "../../classes/Snippets/SnippetTypes/GenericFieldCompatable";
   import { GroupSnippet } from "../../classes/Snippets/SnippetTypes/GroupSnippet";
