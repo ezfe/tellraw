@@ -40,13 +40,6 @@ export function legacyStatePreparation() {
   if (lsformat == 6) {
     // no upgrade actions needed
     // reserved for `svelte` release
-    alert(
-`Hello!\n\nI've made substantial changes to the technology powering this website, \
-especially the drag and drop functionality.\n\nPlease \
-reach out to me if you experience any problems, like losing snippets when you \
-drag and drop.\n\nThere's a button at the bottom of the page to contact me, please \
-provide detailed information about the issue or your email address so I can clarify \
-any questions about what you were doing to cause the problem.\n\n- Ezekiel`)
   }
 
   localStorage.setItem("jformat", VERSION.toString())
