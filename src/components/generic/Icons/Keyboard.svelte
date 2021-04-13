@@ -1,4 +1,4 @@
-<script lang="typescript">  
+<script lang="ts">
   import { faKeyboard as icon } from '@fortawesome/free-solid-svg-icons/faKeyboard';
   import IconContainer from './IconContainer.svelte';
 </script>

@@ -1,4 +1,4 @@
-<script lang="typescript">
+<script lang="ts">
   import { Button,DropdownItem,DropdownMenu,DropdownToggle,UncontrolledDropdown } from "sveltestrap";
   import { KeybindSnippet } from "../../classes/Snippets/SnippetTypes/KeybindSnippet";
   import { LinebreakSnippet } from "../../classes/Snippets/SnippetTypes/LinebreakSnippet";
@@ -15,6 +15,7 @@
   import PlusCircle from "../generic/Icons/PlusCircle.svelte";
   import TachometerAlt from "../generic/Icons/TachometerAlt.svelte";
 
+  export let title: String | undefined;
   export let addSnippet: (snippet: Snippet, fast: Boolean) => void
   export let commandType: CommandType
   let optionPressed = false
@@ -60,7 +61,7 @@
     {:else}
     <PlusCircle />
     {/if}
-    Add Text
+    {title ?? "Add Text"}
   </DropdownToggle>
   <DropdownMenu>
     <DropdownItem on:click={() => { _addSnippet(new TextSnippet(null)) }}>

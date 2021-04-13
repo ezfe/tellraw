@@ -40,13 +40,6 @@ export function legacyStatePreparation() {
   if (lsformat == 6) {
     // no upgrade actions needed
     // reserved for `svelte` release
-    alert(
-`Hello!\n\nI've made substantial changes to the technology powering this website, \
-especially the drag and drop functionality.\n\nPlease \
-reach out to me if you experience any problems, like losing snippets when you \
-drag and drop.\n\nThere's a button at the bottom of the page to contact me, please \
-provide detailed information about the issue or your email address so I can clarify \
-any questions about what you were doing to cause the problem.\n\n- Ezekiel`)
   }
 
   localStorage.setItem("jformat", VERSION.toString())
@@ -104,6 +97,10 @@ export function loadCurrentVersionState(source_array: Array<object>, filterShado
       const snippet = new TextSnippet(null);
       snippet.text = s;
       return snippet;
+    } else if (Array.isArray(s)) {
+      const group = new GroupSnippet(null);
+      group.children = loadCurrentVersionState(s);
+      return group;
     }
 
     if (s.hasOwnProperty("hover_event_children")) {
@@ -126,12 +123,19 @@ export function loadCurrentVersionState(source_array: Array<object>, filterShado
       return (Object as any).assign(new NBTSnippet(), s)
     } else if (s.hasOwnProperty("translate")) {
       if (Array.isArray(s["parameters"])) {
-        const parameters = s["parameters"].map((param): any[] => {
-          if (Array.isArray(param)) return param;
-          else return [param];
-        }).map(param => loadCurrentVersionState(param));
-
-        s["parameters"] = parameters;
+        const singlesFlattened = [];
+        s["parameters"].forEach(param => {
+          if (Array.isArray(param)) {
+            if (param.length === 1) {
+              singlesFlattened.push(param[0]);
+            } else {
+              singlesFlattened.push(param);
+            }
+          } else {
+            singlesFlattened.push(param);
+          }
+        });
+        s["parameters"] = loadCurrentVersionState(singlesFlattened);
       } else {
         console.error('Found unexpected non-array parameter value', s);
         s["parameters"] = [];

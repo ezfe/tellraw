@@ -1,4 +1,4 @@
-<script lang="typescript">
+<script lang="ts">
   import { Col,Row } from "sveltestrap";
   import { NBTSnippet,NBTType } from "../../classes/Snippets/SnippetTypes/NBTSnippet";
   import type { Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
@@ -9,7 +9,7 @@
 
   export let snippet: NBTSnippet
   export let updateSnippet: (snippet: Snippet) => void
-  
+
   function updateField(field: string, event: any) {
     updateFieldValue(field, event.target.value)
   }

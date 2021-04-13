@@ -1,4 +1,4 @@
-<script lang="typescript">
+<script lang="ts">
   import { Button } from 'sveltestrap';
   import { loadCurrentVersionState,upgradeV5State } from '../helpers/loaders';
   import { command,commandType,snippets } from '../persistence/stores';
@@ -30,7 +30,7 @@ import LightWell from './generic/LightWell.svelte';
     if (!("command" in import_data
           && "jobject" in import_data
           && "jtemplate" in import_data)) {
-      
+
       console.error('Missing one of command, jobject, jtemplate');
       alert(`An error occurred importing your command.\n\nFeel free to use the "Report an Issue" option on the main page to report this`)
       return
@@ -40,7 +40,7 @@ import LightWell from './generic/LightWell.svelte';
       command.set(import_data["command"])
 
       commandType.set(import_data["jtemplate"])
-    
+
       let jobject = import_data["jobject"] as object[]
 
       if (import_data["jformat"] == 5) {

@@ -1,4 +1,4 @@
-<script lang="typescript">  
+<script lang="ts">
   import { faTachometerAlt as icon } from '@fortawesome/free-solid-svg-icons/faTachometerAlt';
   import IconContainer from './IconContainer.svelte';
 </script>

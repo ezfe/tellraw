@@ -1,4 +1,4 @@
-<script lang="typescript">
+<script lang="ts">
   import { Button,Col,Row } from "sveltestrap";
   import type { Color } from "../../classes/Color";
   import { getCSSHEX,minecraftColorSet } from "../../classes/Color";
@@ -97,6 +97,26 @@
 
 </script>
 
+{#if !nestedEditing}
+  <!-- Preview -->
+
+  <div class="row mb-2">
+    <div class="col">
+      <h4>Preview:</h4>
+    </div>
+  </div>
+
+  <div class="row mb-2">
+    <div class="col">
+      <p>
+        <PreviewContents snippets={[snippet]} bookPage={null} {translationSet} />
+      </p>
+    </div>
+  </div>
+
+  <hr />
+{/if}
+
 <div class="row">
   <div class="col">
     {#if snippet instanceof NBTSnippet}
@@ -109,6 +129,7 @@
         deleteAll={() => {
           changeGroupSnippetChildren([])
         }}
+        {translationSet}
         bind:colorManaging={colorManaging}
       />
     {:else if snippet instanceof TranslateSnippet}
@@ -117,7 +138,6 @@
         {commandType}
         {updateSnippet}
         {translationSet}
-        bind:colorManaging={colorManaging}
         bind:hideExteriorWrapper={nestedEditing}
       />
     {:else if genericSnippet(snippet)}
@@ -337,6 +357,7 @@
                 deleteAll={() => {
                   changeHoverEventChildren([])
                 }}
+                {translationSet}
                 bind:colorManaging={colorManaging}
               />
             </div>
@@ -352,7 +373,7 @@
   {/if}
 
   {#if isFeatureAvailable(commandType, $version, FeatureType.insertion)}
-    <div class="row mb-2">
+    <div class="row">
       <div class="col-4">
         <h4>Insertion:</h4>
       </div>
@@ -364,30 +385,11 @@
         />
       </div>
     </div>
-    <hr />
   {/if}
-
-  <br />
-
-  <!-- Preview -->
-
-  <div class="row mb-2">
-    <div class="col">
-      <h4>Preview:</h4>
-    </div>
-  </div>
-
-  <div class="row mb-2">
-    <div class="col">
-      <p>
-        <PreviewContents snippets={[snippet]} bookPage={null} {translationSet} />
-      </p>
-    </div>
-  </div>
 
   <!-- Exit Controls -->
 
-  <div class="row">
+  <div class="row mt-5">
     <div class="offset-8 col-2">
       <button class="btn btn-secondary w-100" on:click={() => { stopEditing(false) }}>Cancel</button>
     </div>

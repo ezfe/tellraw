@@ -1,4 +1,4 @@
-<script lang="typescript">
+<script lang="ts">
   import { createEventDispatcher } from 'svelte';
   import { CommandType,template_lookup } from "../data/templates";
   import { command,commandType } from '../persistence/stores';

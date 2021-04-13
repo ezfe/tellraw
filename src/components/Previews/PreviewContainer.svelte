@@ -1,4 +1,4 @@
-<script lang="typescript">
+<script lang="ts">
   import { Button } from 'sveltestrap';
   import type { Snippet } from '../../classes/Snippets/SnippetTypes/Snippet';
   import { CommandType,FeatureType,isFeatureAvailable } from '../../data/templates';

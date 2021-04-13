@@ -1,4 +1,4 @@
-<script lang="typescript">  
+<script lang="ts">
   import { faTrashAlt as icon } from '@fortawesome/free-solid-svg-icons/faTrashAlt';
   import IconContainer from './IconContainer.svelte';
 </script>

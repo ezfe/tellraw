@@ -1,4 +1,4 @@
-<script lang="typescript">  
+<script lang="ts">
   import { faCodeBranch as icon } from '@fortawesome/free-solid-svg-icons/faCodeBranch';
   import IconContainer from './IconContainer.svelte';
 </script>

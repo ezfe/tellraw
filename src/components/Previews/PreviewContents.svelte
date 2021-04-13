@@ -1,4 +1,4 @@
-<script lang="typescript">
+<script lang="ts">
   import { getCSSHEX } from "../../classes/Color";
   import { GroupSnippet } from "../../classes/Snippets/SnippetTypes/GroupSnippet";
   import { KeybindSnippet } from "../../classes/Snippets/SnippetTypes/KeybindSnippet";
@@ -11,7 +11,9 @@
   import { TextSnippet } from "../../classes/Snippets/SnippetTypes/TextSnippet";
   import { TranslateSnippet } from "../../classes/Snippets/SnippetTypes/TranslateSnippet";
   import { iconForSnippet } from "../../helpers/snippet_icon";
-  import { previewGroupFromTranslate, TranslationSet } from "../../helpers/translation_processor";
+  import type { TranslationSet } from "../../helpers/translation_processor";
+  import { previewGroupFromTranslate } from "../../helpers/translation_processor";
+
 
   function nthPageBreak(array: Snippet[], n: number) {
     let searchFrom = 0
@@ -123,7 +125,7 @@
     -->{:else if snippetInfo.snippet instanceof NBTSnippet}<!--
       -->{ snippetInfo.snippet.nbt}@{snippetInfo.snippet.storage }<!--
     -->{:else if snippetInfo.snippet instanceof GroupSnippet}<!--
-      --><svelte:self snippets={snippetInfo.snippet.children} /><!--
+      --><svelte:self snippets={snippetInfo.snippet.children} {translationSet} /><!--
     -->{:else if snippetInfo.snippet instanceof LinebreakSnippet}<!--
       --><br /><!--
     -->{:else if snippetInfo.snippet instanceof PagebreakSnippet}<!--

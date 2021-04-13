@@ -1,4 +1,4 @@
-<script lang="typescript">
+<script lang="ts">
   import type { Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
 import type { TranslationSet } from "../../helpers/translation_processor";
   import { previewBackgroundColor } from "../../persistence/stores";
