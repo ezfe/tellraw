@@ -139,7 +139,12 @@ function compile_section(
       }
     }
 
-    results.push(pending);
+    const keys = Object.keys(pending);
+    if (keys.length === 1 && keys[0] === "text") {
+      results.push(pending["text"])
+    } else {
+      results.push(pending);
+    }
   };
   return results;
 }
