@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
-import type { TranslationSet } from "../../helpers/translation_processor";
+  import type { TranslationSet } from "../../helpers/translation_processor";
   import { previewBackgroundColor } from "../../persistence/stores";
   import PreviewContents from "./PreviewContents.svelte";
 
@@ -12,17 +12,13 @@ import type { TranslationSet } from "../../helpers/translation_processor";
   <div class="content-wrapper">
     <PreviewContents {snippets} bookPage={null} {translationSet} />
   </div>
-  <div class="control-lane" style={`--background-color: ${$previewBackgroundColor};`}>
-    <label>Background Color:</label>
-    <input class="preview-color-picker" type="color" bind:value={$previewBackgroundColor} />
-  </div>
 </div>
 
 <style>
   .preview {
     background-color: var(--background-color);
     min-height: 300px;
-    
+
     border-radius: 5px;
 
     display: flex;
@@ -34,14 +30,5 @@ import type { TranslationSet } from "../../helpers/translation_processor";
     padding: 10px;
 
     color: black;
-  }
-  
-  .control-lane {
-    -webkit-backdrop-filter: brightness(80%);
-    backdrop-filter: brightness(80%);
-
-    padding: 10px;
-    display: flex;
-    align-items: center;
   }
 </style>
