@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { IconDefinition } from "@fortawesome/free-solid-svg-icons";
-  import { Button,ButtonGroup,Dropdown,DropdownItem,DropdownMenu,DropdownToggle } from "sveltestrap";
+  import { Button,ButtonDropdown,ButtonGroup,Dropdown,DropdownItem,DropdownMenu,DropdownToggle } from "sveltestrap";
 
   type ButtonColor =
     | 'primary'
@@ -24,17 +24,13 @@
   export let disabled = false
   export let block = false
   export let dropdowns: DropdownAction[]
-
-  let isOpen = false
 </script>
 
-<Dropdown {isOpen} toggle={() => { isOpen = !isOpen }}>
-  <ButtonGroup class={block ? "btn-block" : ""}>
-    <Button {color} {disabled} {block} on:click>
-      <slot />
-    </Button>
-    <DropdownToggle {color} caret class="dropdown-toggle-split" />
-  </ButtonGroup>
+<ButtonDropdown class={block ? 'w-100' : ''}>
+  <Button {color} {disabled} {block} on:click>
+    <slot />
+  </Button>
+  <DropdownToggle split {color} />
   <DropdownMenu>
 
     {#each dropdowns as dropdown}
@@ -53,4 +49,4 @@
       </DropdownItem>
     {/each}
   </DropdownMenu>
-</Dropdown>
+</ButtonDropdown>

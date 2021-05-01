@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Button,DropdownItem,DropdownMenu,DropdownToggle,UncontrolledDropdown } from "sveltestrap";
+  import { Button,ButtonDropdown,DropdownItem,DropdownMenu,DropdownToggle,UncontrolledDropdown } from "sveltestrap";
   import { KeybindSnippet } from "../../classes/Snippets/SnippetTypes/KeybindSnippet";
   import { LinebreakSnippet } from "../../classes/Snippets/SnippetTypes/LinebreakSnippet";
   import { NBTSnippet } from "../../classes/Snippets/SnippetTypes/NBTSnippet";
@@ -54,8 +54,8 @@
 
 <svelte:window on:keydown={keyDown} on:keyup={keyUp} />
 
-<UncontrolledDropdown>
-  <DropdownToggle color="primary" block caret>
+<ButtonDropdown class="w-100">
+  <DropdownToggle color="primary" caret>
     {#if optionPressed}
     <TachometerAlt />
     {:else}
@@ -106,4 +106,4 @@
     </p>
     {/if}
   </DropdownMenu>
-</UncontrolledDropdown>
+</ButtonDropdown>
