@@ -12,8 +12,6 @@
     isLast: boolean
   }
 
-  const dispatch = createEventDispatcher();
-
   const selectableStates: SelectableState[] = [
     {
       type: CommandType.tellraw,
