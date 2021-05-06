@@ -16,7 +16,7 @@
       <Twitter />
       Tweet
     </DropdownItem>
-    <DropdownItem href="https://status.minecraftjson.com">
+    <DropdownItem href="https://stats.uptimerobot.com/3109Jiml4L">
       <WiFi />
       Uptime
     </DropdownItem>
