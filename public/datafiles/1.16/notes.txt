@@ -1,3 +1,0 @@
-The 1.16 command file has not been updated to 1.16, it's still version 1.15
---
-Ideally only redo the changes in 1.16 rather than the whole file :(
