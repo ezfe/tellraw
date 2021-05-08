@@ -1,6 +1,20 @@
-<script>
-	import { Row } from "sveltestrap";
-	import { previewBackgroundColor, version } from "../persistence/stores";
+<script lang="ts">
+	import { Button, Row } from "sveltestrap";
+	import { previewBackgroundColor, version, customLanguageTranslations } from "../persistence/stores";
+
+	function fancyPrint(object: any): string {
+		return JSON.stringify(object, null, 3);
+	}
+
+	function importTranslations() {
+		const valueString = prompt("Paste translation file here:");
+		const object = JSON.parse(valueString);
+		if (object.constructor != Object) {
+			alert('Unexpected format?');
+			return;
+		}
+		customLanguageTranslations.set(object);
+	}
 </script>
 
 <Row>
@@ -22,6 +36,14 @@
 			Preview Background Color:
 		</label>
 		<input id="bg-color-input" type="color" bind:value={$previewBackgroundColor} />
+
+		<label id="lang-label" for="lang-input">
+
+		</label>
+		<div>
+			<span>Using {Object.keys($customLanguageTranslations).length} custom translations</span>
+			<Button on:click={importTranslations}>Import</Button>
+		</div>
 	</div>
 </Row>
 
