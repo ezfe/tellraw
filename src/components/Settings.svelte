@@ -68,4 +68,8 @@
 	input[type=color] {
 		margin-left: -3px;
 	}
+
+	label {
+		margin-bottom: 0px;
+	}
 </style>
