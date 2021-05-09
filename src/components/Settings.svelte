@@ -1,10 +1,8 @@
 <script lang="ts">
-	import { Button, Row } from "sveltestrap";
-	import { previewBackgroundColor, version, customLanguageTranslations } from "../persistence/stores";
+	import { Button,Row } from "sveltestrap";
+	import { customLanguageTranslations,previewBackgroundColor,version } from "../persistence/stores";
 
-	function fancyPrint(object: any): string {
-		return JSON.stringify(object, null, 3);
-	}
+	$: translationsCount = Object.keys($customLanguageTranslations).length;
 
 	function importTranslations() {
 		const valueString = prompt("Paste translation file here:");
@@ -14,6 +12,10 @@
 			return;
 		}
 		customLanguageTranslations.set(object);
+	}
+
+	function resetTranslations() {
+		customLanguageTranslations.set({});
 	}
 </script>
 
@@ -38,11 +40,16 @@
 		<input id="bg-color-input" type="color" bind:value={$previewBackgroundColor} />
 
 		<label id="lang-label" for="lang-input">
-
+			Custom Language Translations:
 		</label>
 		<div>
-			<span>Using {Object.keys($customLanguageTranslations).length} custom translations</span>
-			<Button on:click={importTranslations}>Import</Button>
+			{#if translationsCount > 0}
+				<span>Using {translationsCount.toLocaleString()} custom translations</span>
+				<Button on:click={importTranslations}>Replace</Button>
+				<Button color="danger" on:click={resetTranslations}>Reset</Button>
+			{:else}
+				<Button on:click={importTranslations}>Import</Button>
+			{/if}
 		</div>
 	</div>
 </Row>
