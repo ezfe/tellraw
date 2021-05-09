@@ -4,7 +4,7 @@
   import { CommandType,template_lookup } from '../data/templates';
   import { compile } from '../helpers/compile';
   import { export_snippets } from '../helpers/export';
-import type { TranslationSet } from '../helpers/translation_processor';
+  import type { TranslationSet } from '../helpers/translation_processor';
   import { command,commandType,customColors,snippets,version } from '../persistence/stores';
   import SiteActions from './buttons/SiteActions.svelte';
   import CommandTemplatesController from './CommandTemplatesController.svelte';
@@ -16,6 +16,7 @@ import type { TranslationSet } from '../helpers/translation_processor';
   import LightWell from './generic/LightWell.svelte';
   import Importing from './Importing.svelte';
   import PreviewContainer from './Previews/PreviewContainer.svelte';
+  import Settings from './Settings.svelte';
   import SnippetCollection from './SnippetCollection.svelte';
 
   let exporting = false;
@@ -197,22 +198,7 @@ import type { TranslationSet } from '../helpers/translation_processor';
       <hr />
     {/if}
 
-    <Row>
-      <div class="col-3">
-        <span style="font-weight: bold">Settings</span>
-      </div>
-      <div class="col-3">
-        <div class="form-group">
-          <label for="versionSelect">Minecraft Version Compatibility:</label>
-          <select class="custom-select" bind:value={$version} id="versionSelect">
-            <option value="1.13">1.13</option>
-            <option value="1.14">1.14</option>
-            <option value="1.15">1.15</option>
-            <option value="1.16">1.16 (Current Version)</option>
-          </select>
-        </div>
-      </div>
-    </Row>
+    <Settings />
 
     <hr />
 
