@@ -36,7 +36,7 @@ const INITIAL_VERSION = getItem(LSKEY_VERSION, defaultVersion);
 export const version = buildStore(INITIAL_VERSION, LSKEY_VERSION);
 
 // Preview Background Color
-const INITIAL_BG_COLOR = getItem(LSKEY_PREVIEW_BGC, '#ffffff')
+const INITIAL_BG_COLOR = getItem(LSKEY_PREVIEW_BGC, '#008cb4')
 export const previewBackgroundColor = buildStore(INITIAL_BG_COLOR, LSKEY_PREVIEW_BGC)
 
 // Book Preview Disclaimer
