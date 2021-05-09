@@ -48,4 +48,5 @@ const INITIAL_SHOW_FAST_EDIT = getItem(LSKEY_SHOW_FAST_EDIT_TIP, true)
 export const fastEditTipShown = buildStore(INITIAL_SHOW_FAST_EDIT, LSKEY_SHOW_FAST_EDIT_TIP)
 
 // Custom Language Translations
-export const customLanguageTranslations = buildStore({}, LSKEY_CUSTOM_LANGUAGE_TRANSLATIONS)
+const INITIAL_CUSTOM_TRANSLATIONS = getItem(LSKEY_CUSTOM_LANGUAGE_TRANSLATIONS, {})
+export const customLanguageTranslations = buildStore(INITIAL_CUSTOM_TRANSLATIONS, LSKEY_CUSTOM_LANGUAGE_TRANSLATIONS)

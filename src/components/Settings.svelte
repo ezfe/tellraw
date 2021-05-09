@@ -45,10 +45,10 @@
 		<div>
 			{#if translationsCount > 0}
 				<span>Using {translationsCount.toLocaleString()} custom translations</span>
-				<Button on:click={importTranslations}>Replace</Button>
-				<Button color="danger" on:click={resetTranslations}>Reset</Button>
+				<Button size="sm" color="secondary" on:click={importTranslations}>Replace</Button>
+				<Button size="sm" color="danger" on:click={resetTranslations}>Reset</Button>
 			{:else}
-				<Button on:click={importTranslations}>Import</Button>
+				<Button size="sm" color="primary" on:click={importTranslations}>Import</Button>
 			{/if}
 		</div>
 	</div>
