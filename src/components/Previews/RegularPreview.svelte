@@ -8,7 +8,7 @@
   export let translationSet: TranslationSet;
 </script>
 
-<div class="preview" style={`background-color: ${$previewBackgroundColor}`}>
+<div class="preview p-3" style={`background-color: ${$previewBackgroundColor}`}>
   <PreviewContents {snippets} bookPage={null} {translationSet} />
 </div>
 
@@ -17,5 +17,6 @@
     background-color: var(--background-color);
     min-height: 300px;
     color: white;
+    border-radius: 5px;
   }
 </style>
