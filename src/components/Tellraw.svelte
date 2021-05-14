@@ -5,10 +5,11 @@
 	import { compile } from '../helpers/compile';
 	import { export_snippets } from '../helpers/export';
 	import type { TranslationSet } from '../helpers/translation_processor';
-	import { command,commandType,customColors,previewBackgroundColor,snippets,version } from '../persistence/stores';
+	import { command,commandType,customColors,customLanguageTranslations,previewBackgroundColor,snippets,version } from '../persistence/stores';
 	import SiteActions from './buttons/SiteActions.svelte';
 	import CommandTemplatesController from './CommandTemplatesController.svelte';
-	import Datalist from './Datalist.svelte';
+import ArrayDatalist from './Datalist/ArrayDatalist.svelte';
+import DictionaryDatalist from './Datalist/DictionaryDatalist.svelte';
 	import CheckCircle from './generic/Icons/CheckCircle.svelte';
 	import ExclamationTriangle from './generic/Icons/ExclamationTriangle.svelte';
 	import FileExport from './generic/Icons/FileExport.svelte';

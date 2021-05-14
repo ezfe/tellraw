@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { DropdownItem,DropdownMenu,DropdownToggle,UncontrolledDropdown } from 'sveltestrap';
+  import { ButtonDropdown, DropdownItem,DropdownMenu,DropdownToggle } from 'sveltestrap';
   import CodeBranch from '../generic/Icons/CodeBranch.svelte';
   import FileDownload from '../generic/Icons/FileDownload.svelte';
   import List from '../generic/Icons/List.svelte';
@@ -7,7 +7,7 @@
   import WiFi from '../generic/Icons/WiFi.svelte';
 </script>
 
-<UncontrolledDropdown class="ms-2">
+<ButtonDropdown class="ms-2">
   <DropdownToggle size="sm" color="secondary" caret>
     <List />
   </DropdownToggle>
@@ -29,4 +29,4 @@
       Legacy Version
     </DropdownItem>
   </DropdownMenu>
-</UncontrolledDropdown>
+</ButtonDropdown>
