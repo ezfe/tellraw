@@ -2,7 +2,7 @@
   import { Button } from 'sveltestrap';
   import type { Snippet } from '../../classes/Snippets/SnippetTypes/Snippet';
   import { CommandType,FeatureType,isFeatureAvailable } from '../../data/templates';
-import type { TranslationSet } from '../../helpers/translation_processor';
+  import type { TranslationSet } from '../../helpers/translation_processor';
   import { bookPreviewDisclaimerShown,version } from '../../persistence/stores';
   import CheckCircle from '../generic/Icons/CheckCircle.svelte';
   import BookPreview from './BookPreview.svelte';

@@ -4,7 +4,7 @@
   "repository": "https://github.com/ezfe/tellraw",
   "author": "ezfe",
   "license": "MIT",
-  "version": "7.0.4",
+  "version": "7.1.1",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
@@ -15,7 +15,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.8",
     "@fortawesome/free-brands-svg-icons": "^5.5.0",
     "@fortawesome/free-solid-svg-icons": "^5.5.0",
-    "@rollup/plugin-commonjs": "^18.0.0",
+    "@rollup/plugin-commonjs": "^19.0.0",
     "@rollup/plugin-node-resolve": "^13.0.0",
     "@rollup/plugin-typescript": "^8.1.0",
     "@tsconfig/svelte": "^1.0.10",

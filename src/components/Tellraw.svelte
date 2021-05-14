@@ -213,9 +213,9 @@
 	{/if}
 </div>
 
-<Datalist fileIdentifier="keybinds" />
-<Datalist fileIdentifier="translations" newFileContents={updateTranslationSet} />
-<Datalist fileIdentifier="commands" versioned />
+<ArrayDatalist fileIdentifier="keybinds" />
+<DictionaryDatalist fileIdentifier="translations" newFileContents={updateTranslationSet} mergeContents={$customLanguageTranslations} />
+<ArrayDatalist fileIdentifier="commands" versioned />
 
 <style>
 	.container {

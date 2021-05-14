@@ -1,6 +1,22 @@
-<script>
-	import { Row } from "sveltestrap";
-	import { previewBackgroundColor, version } from "../persistence/stores";
+<script lang="ts">
+	import { Button,Row } from "sveltestrap";
+	import { customLanguageTranslations,previewBackgroundColor,version } from "../persistence/stores";
+
+	$: translationsCount = Object.keys($customLanguageTranslations).length;
+
+	function importTranslations() {
+		const valueString = prompt("Paste translation file here:");
+		const object = JSON.parse(valueString);
+		if (object.constructor != Object) {
+			alert('Unexpected format?');
+			return;
+		}
+		customLanguageTranslations.set(object);
+	}
+
+	function resetTranslations() {
+		customLanguageTranslations.set({});
+	}
 </script>
 
 <Row>
@@ -22,6 +38,19 @@
 			Preview Background Color:
 		</label>
 		<input id="bg-color-input" type="color" bind:value={$previewBackgroundColor} />
+
+		<label id="lang-label" for="lang-input">
+			Custom Language Translations:
+		</label>
+		<div>
+			{#if translationsCount > 0}
+				<span>Using {translationsCount.toLocaleString()} custom translations</span>
+				<Button size="sm" color="secondary" on:click={importTranslations}>Replace</Button>
+				<Button size="sm" color="danger" on:click={resetTranslations}>Reset</Button>
+			{:else}
+				<Button size="sm" color="primary" on:click={importTranslations}>Import</Button>
+			{/if}
+		</div>
 	</div>
 </Row>
 
@@ -38,5 +67,9 @@
 
 	input[type=color] {
 		margin-left: -3px;
+	}
+
+	label {
+		margin-bottom: 0px;
 	}
 </style>

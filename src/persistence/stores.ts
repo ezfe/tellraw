@@ -1,6 +1,6 @@
 import type { Color } from "../classes/Color";
 import type { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
-import { DEFAULT_COMMAND_TYPE, LSKEY_BOOK_PREVIEW_DISCLAIMER, LSKEY_COMMAND_STRING, LSKEY_COMMAND_TYPE, LSKEY_CUSTOM_COLORS, LSKEY_PREVIEW_BGC, LSKEY_SHOW_FAST_EDIT_TIP, LSKEY_SNIPPET_ARR, LSKEY_VERSION } from "../constants";
+import { DEFAULT_COMMAND_TYPE, LSKEY_BOOK_PREVIEW_DISCLAIMER, LSKEY_COMMAND_STRING, LSKEY_COMMAND_TYPE, LSKEY_CUSTOM_COLORS, LSKEY_CUSTOM_LANGUAGE_TRANSLATIONS, LSKEY_PREVIEW_BGC, LSKEY_SHOW_FAST_EDIT_TIP, LSKEY_SNIPPET_ARR, LSKEY_VERSION } from "../constants";
 import { template_lookup } from "../data/templates";
 import { loadCurrentVersionState } from "../helpers/loaders";
 import { defaultVersion } from "../helpers/versions";
@@ -36,7 +36,7 @@ const INITIAL_VERSION = getItem(LSKEY_VERSION, defaultVersion);
 export const version = buildStore(INITIAL_VERSION, LSKEY_VERSION);
 
 // Preview Background Color
-const INITIAL_BG_COLOR = getItem(LSKEY_PREVIEW_BGC, '#ffffff')
+const INITIAL_BG_COLOR = getItem(LSKEY_PREVIEW_BGC, '#008cb4')
 export const previewBackgroundColor = buildStore(INITIAL_BG_COLOR, LSKEY_PREVIEW_BGC)
 
 // Book Preview Disclaimer
@@ -46,3 +46,7 @@ export const bookPreviewDisclaimerShown = buildStore(INITIAL_BPDISC, LSKEY_BOOK_
 // Book Preview Disclaimer
 const INITIAL_SHOW_FAST_EDIT = getItem(LSKEY_SHOW_FAST_EDIT_TIP, true)
 export const fastEditTipShown = buildStore(INITIAL_SHOW_FAST_EDIT, LSKEY_SHOW_FAST_EDIT_TIP)
+
+// Custom Language Translations
+const INITIAL_CUSTOM_TRANSLATIONS = getItem(LSKEY_CUSTOM_LANGUAGE_TRANSLATIONS, {})
+export const customLanguageTranslations = buildStore(INITIAL_CUSTOM_TRANSLATIONS, LSKEY_CUSTOM_LANGUAGE_TRANSLATIONS)
