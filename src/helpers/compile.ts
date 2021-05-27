@@ -222,6 +222,7 @@ export function compile(
   command: string,
   type: CommandType,
   version: Version,
+  litSign: boolean,
 ): string {
   const section_list = Array<Array<Snippet>>();
   let unprocessed = [...snippets];
@@ -255,7 +256,10 @@ export function compile(
     );
   }
 
-  const results = compile_section_list(section_list, type, version);
+  let results = compile_section_list(section_list, type, version);
+  if (litSign && isFeatureAvailable(type, version, FeatureType.litSign)) {
+    results = `${results},GlowingText:1b`
+  }
 
   if (!command) {
     console.error("Command isn't available", command);

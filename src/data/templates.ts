@@ -19,6 +19,7 @@ export enum FeatureType {
     customColor,
     nbtComponent,
     nbtStorageComponent,
+    litSign,
 }
 
 /**
@@ -63,6 +64,8 @@ export function isFeatureAvailable(commandType: CommandType, version: Version, f
         return versionAtLeast(version, "1.14")
     } else if (feature == FeatureType.nbtStorageComponent) {
         return versionAtLeast(version, "1.15")
+    } else if (feature == FeatureType.litSign) {
+        return commandType == CommandType.sign && versionAtLeast(version, "1.17")
     } else {
         return true
     }

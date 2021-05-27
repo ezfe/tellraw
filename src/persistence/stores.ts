@@ -1,6 +1,6 @@
 import type { Color } from "../classes/Color";
 import type { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
-import { DEFAULT_COMMAND_TYPE, LSKEY_BOOK_PREVIEW_DISCLAIMER, LSKEY_COMMAND_STRING, LSKEY_COMMAND_TYPE, LSKEY_CUSTOM_COLORS, LSKEY_CUSTOM_LANGUAGE_TRANSLATIONS, LSKEY_PREVIEW_BGC, LSKEY_SHOW_FAST_EDIT_TIP, LSKEY_SNIPPET_ARR, LSKEY_VERSION } from "../constants";
+import { DEFAULT_COMMAND_TYPE, LSKEY_BOOK_PREVIEW_DISCLAIMER, LSKEY_COMMAND_STRING, LSKEY_COMMAND_TYPE, LSKEY_CUSTOM_COLORS, LSKEY_CUSTOM_LANGUAGE_TRANSLATIONS, LSKEY_LIT_SIGN, LSKEY_PREVIEW_BGC, LSKEY_SHOW_FAST_EDIT_TIP, LSKEY_SNIPPET_ARR, LSKEY_VERSION } from "../constants";
 import { template_lookup } from "../data/templates";
 import { loadCurrentVersionState } from "../helpers/loaders";
 import { defaultVersion } from "../helpers/versions";
@@ -50,3 +50,7 @@ export const fastEditTipShown = buildStore(INITIAL_SHOW_FAST_EDIT, LSKEY_SHOW_FA
 // Custom Language Translations
 const INITIAL_CUSTOM_TRANSLATIONS = getItem(LSKEY_CUSTOM_LANGUAGE_TRANSLATIONS, {})
 export const customLanguageTranslations = buildStore(INITIAL_CUSTOM_TRANSLATIONS, LSKEY_CUSTOM_LANGUAGE_TRANSLATIONS)
+
+// Glowing Sign Color
+const INITIAL_LIT_SIGN = getItem(LSKEY_LIT_SIGN, false)
+export const litSign = buildStore(INITIAL_LIT_SIGN, LSKEY_LIT_SIGN)

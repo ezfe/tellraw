@@ -32,6 +32,7 @@
 			<option value="1.14">1.14</option>
 			<option value="1.15">1.15</option>
 			<option value="1.16">1.16 (Current Version)</option>
+			<option value="1.17">1.17 (Pre-release)</option>
 		</select>
 
 		<label id="bg-color-label" for="bg-color-input">

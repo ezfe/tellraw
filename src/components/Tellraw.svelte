@@ -1,15 +1,15 @@
 <script lang="ts">
 	import { Button,Row } from 'sveltestrap';
 	import { TextSnippet } from '../classes/Snippets/SnippetTypes/TextSnippet';
-	import { CommandType,template_lookup } from '../data/templates';
+	import { CommandType,FeatureType,isFeatureAvailable,template_lookup } from '../data/templates';
 	import { compile } from '../helpers/compile';
 	import { export_snippets } from '../helpers/export';
 	import type { TranslationSet } from '../helpers/translation_processor';
-	import { command,commandType,customColors,customLanguageTranslations,previewBackgroundColor,snippets,version } from '../persistence/stores';
+	import { command,commandType,customColors,customLanguageTranslations,litSign,snippets,version } from '../persistence/stores';
 	import SiteActions from './buttons/SiteActions.svelte';
 	import CommandTemplatesController from './CommandTemplatesController.svelte';
-import ArrayDatalist from './Datalist/ArrayDatalist.svelte';
-import DictionaryDatalist from './Datalist/DictionaryDatalist.svelte';
+	import ArrayDatalist from './Datalist/ArrayDatalist.svelte';
+	import DictionaryDatalist from './Datalist/DictionaryDatalist.svelte';
 	import CheckCircle from './generic/Icons/CheckCircle.svelte';
 	import ExclamationTriangle from './generic/Icons/ExclamationTriangle.svelte';
 	import FileExport from './generic/Icons/FileExport.svelte';
@@ -28,7 +28,7 @@ import DictionaryDatalist from './Datalist/DictionaryDatalist.svelte';
 
 	let translationSet: TranslationSet = {};
 
-	$: compiled = compile($snippets, $command, $commandType, $version);
+	$: compiled = compile($snippets, $command, $commandType, $version, $litSign);
 
 	function clearAllSnippets() {
 		const titleString = "Are you sure!?!"
@@ -152,6 +152,18 @@ import DictionaryDatalist from './Datalist/DictionaryDatalist.svelte';
 		</div>
 
 		{#if !hideWrapper}
+			{#if isFeatureAvailable($commandType, $version, FeatureType.litSign)}
+				<div class="row mb-2">
+					<div class="col-3">
+						<span style="font-weight: bold">Glowing Sign</span>
+						<br />
+						<span>Illuminate the sign text in dark conditions</span>
+					</div>
+					<div class="col">
+						<input type="checkbox" bind:checked={$litSign} />
+					</div>
+				</div>
+			{/if}
 			<div class="row mb-2">
 				<div class="col-3">
 					<span style="font-weight: bold">Command</span>
