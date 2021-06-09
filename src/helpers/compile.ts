@@ -126,10 +126,17 @@ function compile_section(
         }
       } else if (snippet.hover_event_type != HoverEventType.none) {
         if (versionAtLeast(version, "1.16")) {
-          pending["hoverEvent"] = {
-            action: HoverEventType[snippet.hover_event_type],
-            contents: snippet.hover_event_value,
-          };
+          try {
+            pending["hoverEvent"] = {
+              action: HoverEventType[snippet.hover_event_type],
+              contents: JSON.parse(snippet.hover_event_value),
+            };
+          } catch (error) {
+            pending["hoverEvent"] = {
+              action: HoverEventType[HoverEventType.show_text],
+              contents: `Cannot parse as JSON:\n${snippet.hover_event_value}`,
+            };
+          }
         } else {
           pending["hoverEvent"] = {
             action: HoverEventType[snippet.hover_event_type],
