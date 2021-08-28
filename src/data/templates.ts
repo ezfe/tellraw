@@ -20,6 +20,7 @@ export enum FeatureType {
     nbtComponent,
     nbtStorageComponent,
     litSign,
+    linebreak,
 }
 
 /**
@@ -66,6 +67,8 @@ export function isFeatureAvailable(commandType: CommandType, version: Version, f
         return versionAtLeast(version, "1.15")
     } else if (feature == FeatureType.litSign) {
         return commandType == CommandType.sign && versionAtLeast(version, "1.17")
+    } else if (feature == FeatureType.linebreak) {
+        return commandType != CommandType.sign && commandType != CommandType.overlay
     } else {
         return true
     }

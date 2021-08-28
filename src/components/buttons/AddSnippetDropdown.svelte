@@ -50,6 +50,7 @@
 
   $: nbtStorageAvailable = isFeatureAvailable(commandType, $version, FeatureType.nbtComponent)
   $: pageBreakAvailalbe = isFeatureAvailable(commandType, $version, FeatureType.pages)
+  $: linebreakAvailable = isFeatureAvailable(commandType, $version, FeatureType.linebreak)
 </script>
 
 <svelte:window on:keydown={keyDown} on:keyup={keyUp} />
@@ -87,9 +88,11 @@
     <!-- <DropdownItem on:click={() => { addSnippet(new GroupSnippet(null)) }}>
       Snippet Group
     </DropdownItem> -->
+    {#if linebreakAvailable}
     <DropdownItem on:click={newLinebreak}>
       Line Break ⏎
     </DropdownItem>
+    {/if}
     {#if pageBreakAvailalbe}
     <DropdownItem on:click={newPagebreak}>
       New Page <FileAlt />
