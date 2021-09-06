@@ -68,7 +68,7 @@ export function isFeatureAvailable(commandType: CommandType, version: Version, f
     } else if (feature == FeatureType.litSign) {
         return commandType == CommandType.sign && versionAtLeast(version, "1.17")
     } else if (feature == FeatureType.linebreak) {
-        return commandType != CommandType.sign && commandType != CommandType.overlay
+        return commandType != CommandType.overlay
     } else {
         return true
     }
