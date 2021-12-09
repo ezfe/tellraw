@@ -227,7 +227,7 @@
 </div>
 
 <ArrayDatalist fileIdentifier="keybinds" />
-<DictionaryDatalist fileIdentifier="translations" newFileContents={updateTranslationSet} mergeContents={$customLanguageTranslations} />
+<DictionaryDatalist fileIdentifier="translations" versioned newFileContents={updateTranslationSet} mergeContents={$customLanguageTranslations} />
 <ArrayDatalist fileIdentifier="commands" versioned />
 
 <style>

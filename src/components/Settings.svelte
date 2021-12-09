@@ -32,7 +32,8 @@
 			<option value="1.14">1.14</option>
 			<option value="1.15">1.15</option>
 			<option value="1.16">1.16</option>
-			<option value="1.17">1.17 (Current Version)</option>
+			<option value="1.17">1.17</option>
+			<option value="1.18">1.18 (Current Version)</option>
 		</select>
 
 		<label id="bg-color-label" for="bg-color-input">
