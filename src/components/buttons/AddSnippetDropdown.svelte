@@ -15,9 +15,9 @@
   import PlusCircle from "../generic/Icons/PlusCircle.svelte";
   import TachometerAlt from "../generic/Icons/TachometerAlt.svelte";
 
-  export let title: String | undefined;
-  export let addSnippet: (snippet: Snippet, fast: Boolean) => void
-  export let commandType: CommandType
+  export let title: String | undefined = undefined;
+  export let addSnippet: (snippet: Snippet, fast: Boolean) => void = () => {};
+  export let commandType: CommandType = CommandType.tellraw;
   let optionPressed = false
 
   function keyDown(event) {

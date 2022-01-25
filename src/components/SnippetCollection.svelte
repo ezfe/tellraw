@@ -4,7 +4,7 @@
   import { Button,Row } from "sveltestrap";
   import { v4 as uuidv4 } from "uuid";
   import type { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
-  import type { CommandType } from "../data/templates";
+  import { CommandType } from "../data/templates";
   import { duplicate_snippet } from "../helpers/duplicate_snippet";
   import { loadCurrentVersionState } from "../helpers/loaders";
   import type { TranslationSet } from "../helpers/translation_processor";
@@ -13,15 +13,15 @@
   import InlineSnippetController from "./SnippetControllers/InlineSnippetController.svelte";
   import SnippetDetailController from "./SnippetControllers/SnippetDetailController.svelte";
 
-  export let hideExteriorWrapper: boolean;
+  export let hideExteriorWrapper: boolean = false;
   let editing: Snippet = null;
 
-  export let commandType: CommandType
-  export let colorManaging: boolean
-  export let snippets: Snippet[]
-  export let translationSet: TranslationSet;
-  export let updateSnippets: (newValue: Snippet[]) => void
-  export let deleteAll: () => void
+  export let commandType: CommandType = CommandType.tellraw;
+  export let colorManaging: boolean = false;
+  export let snippets: Snippet[] = [];
+  export let translationSet: TranslationSet = {};
+  export let updateSnippets: (newValue: Snippet[]) => void = () => {};
+  export let deleteAll: () => void = () => {};
 
   /**
    * Add a new snippet to the list.

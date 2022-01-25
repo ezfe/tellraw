@@ -6,8 +6,9 @@
   import { NBTSnippet } from "../../classes/Snippets/SnippetTypes/NBTSnippet";
   import { PagebreakSnippet } from "../../classes/Snippets/SnippetTypes/PagebreakSnippet";
   import type { Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
+  import { TextSnippet } from "../../classes/Snippets/SnippetTypes/TextSnippet";
   import { TranslateSnippet } from "../../classes/Snippets/SnippetTypes/TranslateSnippet";
-  import type { CommandType } from "../../data/templates";
+  import { CommandType } from "../../data/templates";
   import { duplicate_snippet } from "../../helpers/duplicate_snippet";
   import Clone from "../generic/Icons/Clone.svelte";
   import Edit from "../generic/Icons/Edit.svelte";
@@ -22,13 +23,13 @@
   type SnippetFn = (snippet: Snippet) => void;
   type OptionalSnippetFn = SnippetFn | undefined;
 
-  export let snippet: Snippet;
-  export let commandType: CommandType;
-  export let colorManaging: boolean;
-  export let startEditing: SnippetFn;
-  export let updateSnippet: SnippetFn;
-  export let removeSnippet: SnippetFn;
-  export let duplicateSnippet: OptionalSnippetFn;
+  export let snippet: Snippet = new TextSnippet();
+  export let commandType: CommandType = CommandType.tellraw;
+  export let colorManaging: boolean = false;
+  export let startEditing: SnippetFn = () => {};
+  export let updateSnippet: SnippetFn = () => {};
+  export let removeSnippet: SnippetFn = () => {};
+  export let duplicateSnippet: OptionalSnippetFn = () => {};
 
   function changeGroupSnippetChildren(snippets: Array<Snippet>) {
     let newSnippet = duplicate_snippet(snippet)

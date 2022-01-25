@@ -1,8 +1,8 @@
 <script lang="ts">
   import { FormGroup,Row } from "sveltestrap";
   import type { Snippet } from "../../classes/Snippets/SnippetTypes/Snippet";
-  import type { TranslateSnippet } from "../../classes/Snippets/SnippetTypes/TranslateSnippet";
-  import type { CommandType } from "../../data/templates";
+  import { TranslateSnippet } from "../../classes/Snippets/SnippetTypes/TranslateSnippet";
+  import { CommandType } from "../../data/templates";
   import { duplicate_snippet } from "../../helpers/duplicate_snippet";
   import type { TranslationSet } from "../../helpers/translation_processor";
   import { countParameters } from "../../helpers/translation_processor";
@@ -10,11 +10,11 @@
   import InlineSnippetController from "./InlineSnippetController.svelte";
   import SnippetDetailController from "./SnippetDetailController.svelte";
 
-  export let snippet: TranslateSnippet;
-  export let commandType: CommandType;
-  export let colorManaging: boolean;
-  export let translationSet: TranslationSet;
-  export let updateSnippet: (snippet: Snippet) => void;
+  export let snippet: TranslateSnippet = new TranslateSnippet();
+  export let commandType: CommandType = CommandType.tellraw;
+  export let colorManaging: boolean = false;
+  export let translationSet: TranslationSet = {};
+  export let updateSnippet: (snippet: Snippet) => void = () => {};
 
   export let hideExteriorWrapper: boolean;
   let editing: Snippet | null = null;
