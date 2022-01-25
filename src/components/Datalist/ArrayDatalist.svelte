@@ -2,9 +2,9 @@
 	import { version } from "../../persistence/stores";
 	import Datalist from "./Datalist.svelte";
 
-	export let fileIdentifier: string;
+	export let fileIdentifier: string = '';
 	export let versioned: boolean = false;
-	export let newFileContents: ((fileContents: string[]) => void) | undefined;
+	export let newFileContents: ((fileContents: string[]) => void) | undefined = () => {};
 
 	export let mergeContents: string[] = [];
 
