@@ -1,4 +1,4 @@
-import { ClickEventType } from "../ClickEvent";
+import { ClickEvent, ClickEventType } from "../ClickEvent";
 import { HoverEventType } from "../HoverEvent";
 import { v4 as uuidv4 } from "uuid";
 import type { Color } from "../../Color";
@@ -27,7 +27,7 @@ export abstract class Snippet {
 
   insertion: string = ""
 
-  click_event_type: ClickEventType = ClickEventType.none
+  click_event_type: ClickEventType = ClickEvent.none
   click_event_value: string = ""
 
   hover_event_type: HoverEventType = HoverEventType.none

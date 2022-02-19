@@ -1,5 +1,6 @@
 import { SHADOW_ITEM_MARKER_PROPERTY_NAME } from "svelte-dnd-action";
 import type { Color } from "../classes/Color";
+import { ClickEventType } from "../classes/Snippets/ClickEvent";
 import { GroupSnippet } from "../classes/Snippets/SnippetTypes/GroupSnippet";
 import { KeybindSnippet } from "../classes/Snippets/SnippetTypes/KeybindSnippet";
 import { LinebreakSnippet } from "../classes/Snippets/SnippetTypes/LinebreakSnippet";
@@ -13,71 +14,45 @@ import { TranslateSnippet } from "../classes/Snippets/SnippetTypes/TranslateSnip
 import { LSKEY_SNIPPET_ARR, VERSION } from "../constants";
 
 export function legacyStatePreparation() {
-
-  const lsformat = parseInt(localStorage.getItem("jformat") || VERSION.toString())
+  let lsformat = parseInt(localStorage.getItem("jformat") || VERSION.toString())
   console.log("Verifying format...")
   console.log("Currently", lsformat)
   console.log("Wanted", VERSION)
 
-  if (lsformat < 5) {
+  if (lsformat < 7) {
     console.warn("Resetting local state instead of upgrading")
     localStorage.clear()
     return
   }
 
-  if (lsformat == 5) {
-    console.log(`Upgrading local state from ${lsformat} to ${VERSION}`)
-    console.log("Mapping colors, then deferring to default loader")
+  if (lsformat == 7) {
+    console.log(`Upgrading ClickEvent types from numerical to strings`)
 
     const source_str = localStorage.getItem(LSKEY_SNIPPET_ARR)
     const source_array = JSON.parse(source_str || "[]") as Array<object>
 
-    const correctedSnippetArray = upgradeV5State(source_array)
+    const correctedSnippetArray = upgradeV7State(source_array)
 
     localStorage.setItem(LSKEY_SNIPPET_ARR, JSON.stringify(correctedSnippetArray))
-  }
 
-  if (lsformat == 6) {
-    // no upgrade actions needed
-    // reserved for `svelte` release
+    lsformat = 8
   }
 
   localStorage.setItem("jformat", VERSION.toString())
 }
 
-export function upgradeV5State(source_array: Array<object>): Array<object> {
+export function upgradeV7State(source_array: Array<object>): Array<object> {
+  const clickEventTypeLookup: ClickEventType[] = ["none", "open_url", "run_command", "suggest_command", "change_page", "copy_to_clipboard"]
   return source_array.map((s): object => {
-    const parsedColorInt = parseInt(s["color"])
-    if (!isNaN(parsedColorInt)) {
-      const v5ColorMap: Color[] = [
-        "black",
-        "dark_blue",
-        "dark_green",
-        "dark_aqua",
-        "dark_red",
-        "dark_purple",
-        "gold",
-        "gray",
-        "dark_gray",
-        "blue",
-        "green",
-        "aqua",
-        "red",
-        "light_purple",
-        "yellow",
-        "white",
-        "none"
-      ]
-      if (parsedColorInt < v5ColorMap.length) {
-        s["color"] = v5ColorMap[parsedColorInt]
-      }
-    }
-
-    return s
+    const found_click_event_type = s["click_event_type"];
+    return {
+      ...s,
+      click_event_type: clickEventTypeLookup[found_click_event_type] ?? "none",
+    };
   })
 }
 
-// Version 6
+// Version 8
 export function loadCurrentVersionState(source_array: Array<object>, filterShadowItems: boolean = true): Array<Snippet> {
   if (!Array.isArray(source_array)) {
     console.error('Received a non-array', source_array);

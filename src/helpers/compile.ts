@@ -1,4 +1,3 @@
-import { ClickEventType } from "../classes/Snippets/ClickEvent";
 import { HoverEventType } from "../classes/Snippets/HoverEvent";
 import { GroupSnippet } from "../classes/Snippets/SnippetTypes/GroupSnippet";
 import { KeybindSnippet } from "../classes/Snippets/SnippetTypes/KeybindSnippet";
@@ -94,13 +93,13 @@ function compile_section(
     // If the clicking feature is available and
     // it is not a sign with more than one snippet
     // in this section, process the click event
-    if (snippet.click_event_type != ClickEventType.none) {
+    if (snippet.click_event_type != "none") {
       if (
         isFeatureAvailable(type, version, FeatureType.clicking) &&
         !(type == CommandType.sign && section_snippets.length > 1)
       ) {
         pending["clickEvent"] = {
-          action: ClickEventType[snippet.click_event_type],
+          action: snippet.click_event_type,
           value: snippet.click_event_value,
         };
       }

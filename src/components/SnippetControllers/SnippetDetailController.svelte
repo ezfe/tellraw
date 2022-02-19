@@ -2,7 +2,7 @@
   import { Button,Col,Row } from "sveltestrap";
   import type { Color } from "../../classes/Color";
   import { getCSSHEX,minecraftColorSet } from "../../classes/Color";
-  import { ClickEventType } from "../../classes/Snippets/ClickEvent";
+  import { ClickEvent } from "../../classes/Snippets/ClickEvent";
   import { HoverEventType } from "../../classes/Snippets/HoverEvent";
   import { genericSnippet } from "../../classes/Snippets/SnippetTypes/GenericFieldCompatable";
   import { GroupSnippet } from "../../classes/Snippets/SnippetTypes/GroupSnippet";
@@ -30,7 +30,7 @@
   let nestedEditing = false;
 
   $: filteredColorSet = fullColorSet().filter((color) => { return color != "none" })
-  $: clickEventTypeIsCommand = snippet.click_event_type == ClickEventType.run_command || snippet.click_event_type == ClickEventType.suggest_command
+  $: clickEventTypeIsCommand = snippet.click_event_type == "run_command" || snippet.click_event_type == "suggest_command"
 
   function changeClickEventType(event: any) {
     updateField("click_event_type", event.target.value)
@@ -266,34 +266,35 @@
 
     <Row class="mb-2">
       <div class="col-4">
+        <span>{snippet.click_event_type}</span>
         <select class="form-select" value={snippet.click_event_type} on:input={changeClickEventType}>
-          <option selected={snippet.click_event_type == ClickEventType.none} value={ClickEventType.none}>
+          <option selected={snippet.click_event_type == ClickEvent.none} value={ClickEvent.none}>
             None
           </option>
-          <option selected={snippet.click_event_type == ClickEventType.open_url} value={ClickEventType.open_url}>
+          <option selected={snippet.click_event_type == ClickEvent.open_url} value={ClickEvent.open_url}>
             Open URL
           </option>
-          <option selected={snippet.click_event_type == ClickEventType.run_command} value={ClickEventType.run_command}>
+          <option selected={snippet.click_event_type == ClickEvent.run_command} value={ClickEvent.run_command}>
             Run Command
           </option>
-          <option selected={snippet.click_event_type == ClickEventType.suggest_command} value={ClickEventType.suggest_command}>
+          <option selected={snippet.click_event_type == ClickEvent.suggest_command} value={ClickEvent.suggest_command}>
             Suggest Command
           </option>
           {#if isFeatureAvailable(commandType, $version, FeatureType.pages)}
-            <option selected={snippet.click_event_type == ClickEventType.change_page} value={ClickEventType.change_page}>
+            <option selected={snippet.click_event_type == ClickEvent.change_page} value={ClickEvent.change_page}>
               Change Page
             </option>
           {:else}
-            <option disabled selected={snippet.click_event_type == ClickEventType.change_page} value={ClickEventType.change_page}>
+            <option disabled selected={snippet.click_event_type == ClickEvent.change_page} value={ClickEvent.change_page}>
               Change Page (Books Only)
             </option>
           {/if}
-          <option selected={snippet.click_event_type == ClickEventType.copy_to_clipboard} value={ClickEventType.copy_to_clipboard}>
+          <option selected={snippet.click_event_type == ClickEvent.copy_to_clipboard} value={ClickEvent.copy_to_clipboard}>
             Copy to Clipboard
           </option>
         </select>
       </div>
-      {#if snippet.click_event_type != ClickEventType.none}
+      {#if snippet.click_event_type != "none"}
         <div class="col">
           <div class="row">
             <div class="col">

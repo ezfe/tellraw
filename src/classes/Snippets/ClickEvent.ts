@@ -1,8 +1,10 @@
-export enum ClickEventType {
-  none = 0,
-  open_url = 1,
-  run_command = 2,
-  suggest_command = 3,
-  change_page = 4,
-  copy_to_clipboard = 5
+export type ClickEventType = 'none' | 'open_url' | 'run_command' | 'suggest_command' | 'change_page' | 'copy_to_clipboard'
+
+export const ClickEvent: Record<ClickEventType, ClickEventType> = {
+  none: 'none',
+  open_url: 'open_url',
+  run_command: 'run_command',
+  suggest_command: 'suggest_command',
+  change_page: 'change_page',
+  copy_to_clipboard: 'copy_to_clipboard',
 }

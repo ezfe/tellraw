@@ -1,6 +1,7 @@
 import { copy_standard_attributes } from "../../../helpers/copy_standard_attributes";
 import type { Color } from "../../Color";
-import { FieldSpecifier, Snippet } from "./Snippet";
+import type { FieldSpecifier } from "./Snippet";
+import { Snippet } from "./Snippet";
 
 export class ScoreboardObjectiveSnippet extends Snippet {
   id: string
@@ -31,7 +32,7 @@ export class ScoreboardObjectiveSnippet extends Snippet {
 
     return newValue
   }
-  
+
   editor_fields(): Array<FieldSpecifier> {
     return [
       {

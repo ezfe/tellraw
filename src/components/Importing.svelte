@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Button } from 'sveltestrap';
-  import { loadCurrentVersionState,upgradeV5State } from '../helpers/loaders';
+  import { loadCurrentVersionState, upgradeV7State } from '../helpers/loaders';
   import { command,commandType,snippets } from '../persistence/stores';
   import CheckCircle from './generic/Icons/CheckCircle.svelte';
   import TimesCircle from './generic/Icons/TimesCircle.svelte';
@@ -36,20 +36,20 @@ import LightWell from './generic/LightWell.svelte';
       return
     }
 
-    if ("jtemplate" in import_data && import_data["jformat"] >= 5) {
+    if ("jtemplate" in import_data && import_data["jformat"] >= 6) {
       command.set(import_data["command"])
 
       commandType.set(import_data["jtemplate"])
 
       let jobject = import_data["jobject"] as object[]
 
-      if (import_data["jformat"] == 5) {
-        jobject = upgradeV5State(jobject)
+      if (import_data["jformat"] < 8) {
+        jobject = upgradeV7State(jobject)
       }
 
       snippets.set(loadCurrentVersionState(jobject))
     } else {
-      alert("Your export data is incorrectly formatted - and may be too old, and cannot be imported.")
+      alert("Your export data is incorrectly formatted, possibly too old, and cannot be imported.")
     }
 
     importing = false
