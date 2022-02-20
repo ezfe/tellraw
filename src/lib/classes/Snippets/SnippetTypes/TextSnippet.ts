@@ -1,22 +1,23 @@
-import { copy_standard_attributes } from "../../../helpers/copy_standard_attributes";
-import { FieldSpecifier, Snippet } from "./Snippet";
+import { copy_standard_attributes } from "$lib/helpers/copy_standard_attributes";
+import type { FieldSpecifier } from "./Snippet";
+import { Snippet } from "./Snippet";
 
 export class TextSnippet extends Snippet {
   id: string
 
-  text: string = ""
+  text = ""
 
   constructor(id: string = null) {
     super(id)
   }
 
   copy(): TextSnippet {
-    let newValue = new TextSnippet(this.id)
-  
+    const newValue = new TextSnippet(this.id)
+
     newValue.text = this.text
 
     copy_standard_attributes(this, newValue)
-    
+
     return newValue
   }
 

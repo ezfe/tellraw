@@ -1,7 +1,11 @@
+<script context="module">
+	export const ssr = false;
+</script>
+
 <script lang="ts">
-	import { legacyStatePreparation } from './helpers/loaders';
+	import { legacyStatePreparation } from '$lib/helpers/loaders';
 	import { onMount } from 'svelte';
-	import Tellraw from './components/Tellraw.svelte';
+	import Tellraw from '$lib/components/Tellraw.svelte';
 
 	onMount(() => {
 		// load legacy!

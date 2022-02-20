@@ -1,4 +1,5 @@
-import { Version, versionAtLeast } from "../helpers/versions"
+import type { Version} from "$lib/helpers/versions";
+import { versionAtLeast } from "$lib/helpers/versions"
 
 export enum CommandType {
     tellraw = "tellraw",

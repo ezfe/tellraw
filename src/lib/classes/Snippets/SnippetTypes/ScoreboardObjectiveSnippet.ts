@@ -1,27 +1,28 @@
 import { copy_standard_attributes } from "../../../helpers/copy_standard_attributes";
 import type { Color } from "../../Color";
-import { FieldSpecifier, Snippet } from "./Snippet";
+import type { FieldSpecifier } from "./Snippet";
+import { Snippet } from "./Snippet";
 
 export class ScoreboardObjectiveSnippet extends Snippet {
   id: string
 
-  score_name: string = ""
-  score_objective: string = ""
+  score_name = ""
+  score_objective = ""
   score_value: string = null
 
   // Shared Formatting
-  bold: boolean = false
-  italic: boolean = false
-  underlined: boolean = false
-  strikethrough: boolean = false
-  obfuscated: boolean = false
+  bold = false
+  italic = false
+  underlined = false
+  strikethrough = false
+  obfuscated = false
 
   color: Color = "none"
 
-  insertion: string = ""
+  insertion = ""
 
   copy(): ScoreboardObjectiveSnippet {
-    let newValue = new ScoreboardObjectiveSnippet(this.id)
+    const newValue = new ScoreboardObjectiveSnippet(this.id)
 
     newValue.score_name = this.score_name
     newValue.score_objective = this.score_objective
@@ -31,7 +32,7 @@ export class ScoreboardObjectiveSnippet extends Snippet {
 
     return newValue
   }
-  
+
   editor_fields(): Array<FieldSpecifier> {
     return [
       {

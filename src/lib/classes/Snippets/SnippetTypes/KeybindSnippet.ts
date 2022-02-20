@@ -1,18 +1,19 @@
-import { copy_standard_attributes } from "../../../helpers/copy_standard_attributes";
-import { FieldSpecifier, Snippet } from "./Snippet";
+import { copy_standard_attributes } from "$lib/helpers/copy_standard_attributes";
+import type { FieldSpecifier } from "./Snippet";
+import { Snippet } from "./Snippet";
 
 export class KeybindSnippet extends Snippet {
   id: string
 
-  keybind: string = ""
+  keybind = ""
 
   copy(): KeybindSnippet {
-    let newValue = new KeybindSnippet(this.id)
+    const newValue = new KeybindSnippet(this.id)
 
     newValue.keybind = this.keybind
 
     copy_standard_attributes(this, newValue)
-    
+
     return newValue
   }
 

@@ -14,16 +14,17 @@ import type { Snippet } from "../classes/Snippets/SnippetTypes/Snippet";
 import { TextSnippet } from "../classes/Snippets/SnippetTypes/TextSnippet";
 import { TranslateSnippet } from "../classes/Snippets/SnippetTypes/TranslateSnippet";
 import { CommandType, FeatureType, isFeatureAvailable } from "../data/templates";
-import { Version, versionAtLeast } from "./versions";
+import type { Version } from "./versions";
+import { versionAtLeast } from "./versions";
 
 function compile_section(
   section_snippets: Snippet[],
   type: CommandType,
   version: Version,
-): Object[] {
-  const results: Object[] = [];
+): Record<string, unknown>[] {
+  const results: Record<string, unknown>[] = [];
   for (const snippet of section_snippets) {
-    let pending = {};
+    const pending = {};
 
     if (snippet instanceof TextSnippet) {
       pending["text"] = snippet.text;
@@ -160,11 +161,14 @@ export function compile_section_list(
   sections: Snippet[][],
   type: CommandType,
   version: Version,
-): any {
+): string {
   // Depending on whether a sign click
   // event is used, sections may be single
   // tellraw snippets instead of normal arrays
-  let results = Array<Object>();
+  type BaseType = string | Record<string, unknown>;
+  type FullType = BaseType | BaseType[];
+
+  const results = Array<FullType>();
 
   for (const section_snippets of sections) {
     const section_results = ["", ...compile_section(section_snippets, type, version)];
@@ -232,7 +236,7 @@ export function compile(
   litSign: boolean,
 ): string {
   const section_list = Array<Array<Snippet>>();
-  let unprocessed = [...snippets];
+  const unprocessed = [...snippets];
 
   if (
     isFeatureAvailable(type, version, FeatureType.pages) ||

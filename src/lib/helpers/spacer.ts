@@ -33,16 +33,16 @@ interface NextStringReturned {
 }
 
 function nextString(source: string, maxWidth: number): NextStringReturned {
-  let accumulator = Array<string>()
+  const accumulator = Array<string>()
   let accumulatorWidth = 0
 
   const spaceSplit = source.split(" ")
   for (const word of spaceSplit) {
     const wordWidth = stringWidth(word)
     if (wordWidth > maxLineWidth) {
-      let charSplit = word.split("")
+      const charSplit = word.split("")
 
-      let charAccumulator = Array<string>()
+      const charAccumulator = Array<string>()
       let remWidth = maxLineWidth - accumulatorWidth
 
       for (const char of charSplit) {
@@ -71,7 +71,7 @@ function nextString(source: string, maxWidth: number): NextStringReturned {
   const offset = found.length
   const found2 = source.substr(0, offset)
   const remaining = source.substr(offset)
- 
+
   console.log("Source", source)
   console.log("Found", found, found2)
   console.log("Remain", remaining)
@@ -80,8 +80,8 @@ function nextString(source: string, maxWidth: number): NextStringReturned {
 }
 
 function splitPlainString(str: string): Array<string> {
-  let accumulator = Array<string>()
-  
+  const accumulator = Array<string>()
+
   let unprocessed = str
   while (unprocessed.length > 0) {
     const next = nextString(unprocessed, maxLineWidth)
@@ -105,11 +105,11 @@ function snippetToString(snippet: Snippet): string {
 }
 
 function splitCollection(source: Array<Snippet>): Array<Snippet> {
-  let plainSplit = splitPlainIndexes(source.map(snippetToString).join("")).reverse()
-  let currentWidth = plainSplit.pop()
+  const plainSplit = splitPlainIndexes(source.map(snippetToString).join("")).reverse()
+  const currentWidth = plainSplit.pop()
 
   const splitSnippets = source.map((snippet: Snippet): Array<Snippet> => {
-    let accumulator = Array<Snippet>()
+    const accumulator = Array<Snippet>()
 
     const text = snippetToString(snippet)
     if (text.length > currentWidth) {

@@ -138,15 +138,15 @@
 		<div class="mb-5">
 			<LightWell>
 				<SnippetCollection
-				snippets={$snippets}
-				updateSnippets={(newValue) => {
-					snippets.set(newValue)
-				}}
-				deleteAll={clearAllSnippets}
-				bind:commandType={$commandType}
-				bind:colorManaging={colorManaging}
-				{translationSet}
-				bind:hideExteriorWrapper={hideWrapper}
+					snippets={$snippets}
+					updateSnippets={(newValue) => {
+						snippets.set(newValue)
+					}}
+					deleteAll={clearAllSnippets}
+					bind:commandType={$commandType}
+					bind:colorManaging={colorManaging}
+					{translationSet}
+					bind:hideExteriorWrapper={hideWrapper}
 				/>
 			</LightWell>
 		</div>
