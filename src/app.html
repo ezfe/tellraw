@@ -41,14 +41,6 @@
 			</div>
 		</noscript>
 
-		<script lang="javascript">
-			const storageKey = 'performed-www-redirect';
-			if (location.href.includes('//minecraftjson.com') && sessionStorage.getItem(storageKey) !== 'yes') {
-				sessionStorage.setItem(storageKey, 'yes');
-				location.href = 'https://www.minecraftjson.com';
-			}
-		</script>
-
-		<div>%svelte.body%</div>
+		%svelte.body%
 	</body>
 </html>

@@ -22,7 +22,6 @@
 	<Button
 		style="width: 150px"
 		color="light"
-		icon="arrow-circle-left"
 		disabled={bookPage <= 1}
 		on:click={() => {
 			bookPage -= 1;
@@ -58,5 +57,21 @@
 		width: 100%;
 
 		color: black;
+	}
+
+	.book-preview {
+		padding-top: 60px;
+		padding-left: 30px;
+		padding-right: 70px;
+		padding-bottom: 20px;
+		width: 292px;
+		height: 360px;
+		background-image: url(/images/book.png);
+		background-size: 100%;
+		background-color: transparent !important;
+		background-repeat: no-repeat;
+		border: none !important;
+		word-break: break-word;
+		/* white-space: pre; */
 	}
 </style>

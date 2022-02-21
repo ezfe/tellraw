@@ -8,6 +8,13 @@
 	import Tellraw from '$lib/components/Tellraw.svelte';
 
 	onMount(() => {
+		const storageKey = 'performed-www-redirect';
+		if (location.href.includes('//minecraftjson.com') && sessionStorage.getItem(storageKey) !== 'yes') {
+			sessionStorage.setItem(storageKey, 'yes');
+			location.href = 'https://www.minecraftjson.com';
+			return;
+		}
+
 		// load legacy!
 		// this includes ALL localStorage key transformations
 		// and should happen first
