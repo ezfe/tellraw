@@ -11,21 +11,23 @@
 		// load legacy!
 		// this includes ALL localStorage key transformations
 		// and should happen first
-		legacyStatePreparation()
+		legacyStatePreparation();
 
 		// Increment load count
-		localStorage.setItem("loadCount", (1 + parseInt(localStorage.getItem("loadCount") || "0")).toString())
+		localStorage.setItem(
+			'loadCount',
+			(1 + parseInt(localStorage.getItem('loadCount') || '0')).toString()
+		);
 
 		// Set initial load
-		if (localStorage.getItem("initialTimestamp") === null) {
-			localStorage.setItem("initialTimestamp", new Date().getTime().toString());
+		if (localStorage.getItem('initialTimestamp') === null) {
+			localStorage.setItem('initialTimestamp', new Date().getTime().toString());
 		}
 
-		if (localStorage.getItem("donateStatus") === null) {
-			localStorage.setItem("donateStatus", "unprompted");
+		if (localStorage.getItem('donateStatus') === null) {
+			localStorage.setItem('donateStatus', 'unprompted');
 		}
-	})
-
+	});
 </script>
 
 <Tellraw />

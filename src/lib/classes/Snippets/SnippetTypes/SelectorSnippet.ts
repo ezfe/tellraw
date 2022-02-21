@@ -1,34 +1,34 @@
-import { copy_standard_attributes } from "../../../helpers/copy_standard_attributes";
-import type { FieldSpecifier } from "./Snippet";
-import { Snippet } from "./Snippet";
+import { copy_standard_attributes } from '../../../helpers/copy_standard_attributes';
+import type { FieldSpecifier } from './Snippet';
+import { Snippet } from './Snippet';
 
 export class SelectorSnippet extends Snippet {
-  id: string
+	id: string;
 
-  selector = ""
+	selector = '';
 
-  constructor(id: string = null) {
-    super(id)
-  }
+	constructor(id: string = null) {
+		super(id);
+	}
 
-  copy(): SelectorSnippet {
-    const newValue = new SelectorSnippet(this.id)
+	copy(): SelectorSnippet {
+		const newValue = new SelectorSnippet(this.id);
 
-    newValue.selector = this.selector
+		newValue.selector = this.selector;
 
-    copy_standard_attributes(this, newValue)
+		copy_standard_attributes(this, newValue);
 
-    return newValue
-  }
+		return newValue;
+	}
 
-  editor_fields(): Array<FieldSpecifier> {
-    return [
-      {
-        field: "selector",
-        placeholder: "Selector",
-        datalistID: null,
-        fieldType: "string"
-      }
-    ]
-  }
+	editor_fields(): Array<FieldSpecifier> {
+		return [
+			{
+				field: 'selector',
+				placeholder: 'Selector',
+				datalistID: null,
+				fieldType: 'string'
+			}
+		];
+	}
 }

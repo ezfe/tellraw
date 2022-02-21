@@ -1,3 +1,1 @@
-export enum SnippetType {
-
-}
+export enum SnippetType {}

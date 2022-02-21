@@ -1,11 +1,19 @@
 <script lang="ts">
-	import { Button,Row } from 'sveltestrap';
+	import { Button, Row } from 'sveltestrap';
 	import { TextSnippet } from '../classes/Snippets/SnippetTypes/TextSnippet';
-	import { CommandType,FeatureType,isFeatureAvailable,template_lookup } from '../data/templates';
+	import { CommandType, FeatureType, isFeatureAvailable, template_lookup } from '../data/templates';
 	import { compile } from '../helpers/compile';
 	import { export_snippets } from '../helpers/export';
 	import type { TranslationSet } from '../helpers/translation_processor';
-	import { command,commandType,customColors,customLanguageTranslations,litSign,snippets,version } from '../persistence/stores';
+	import {
+		command,
+		commandType,
+		customColors,
+		customLanguageTranslations,
+		litSign,
+		snippets,
+		version
+	} from '../persistence/stores';
 	import SiteActions from './buttons/SiteActions.svelte';
 	import CommandTemplatesController from './CommandTemplatesController.svelte';
 	import ArrayDatalist from './Datalist/ArrayDatalist.svelte';
@@ -31,21 +39,21 @@
 	$: compiled = compile($snippets, $command, $commandType, $version, $litSign);
 
 	function clearAllSnippets() {
-		const titleString = "Are you sure!?!"
-		const bodyString = "Clicking Delete will remove all your text and reset it to an empty string."
+		const titleString = 'Are you sure!?!';
+		const bodyString = 'Clicking Delete will remove all your text and reset it to an empty string.';
 		if (confirm(`${titleString}\n${bodyString}`)) {
-			snippets.set([])
-			commandType.set(CommandType.tellraw)
-			command.set(template_lookup($commandType)[0])
+			snippets.set([]);
+			commandType.set(CommandType.tellraw);
+			command.set(template_lookup($commandType)[0]);
 		}
 	}
 
 	function startImporting() {
-		importing = true
+		importing = true;
 	}
 
 	function startExporting() {
-		exporting = true
+		exporting = true;
 	}
 
 	function updateTranslationSet(newContents: any) {
@@ -67,23 +75,29 @@
 
 <div class="container">
 	{#if importing}
-		<Importing bind:importing={importing} />
+		<Importing bind:importing />
 	{:else if exporting}
 		<Row>
 			<div class="col-md-6 offset-md-3 text-center">
 				<LightWell>
 					<p class="mb-3">
-						Click below to copy the exported command string. Store it in a safe place
-						to import back onto the site in the future.
+						Click below to copy the exported command string. Store it in a safe place to import back
+						onto the site in the future.
 					</p>
-					<textarea readOnly={true}
+					<textarea
+						readOnly={true}
 						class="form-control mb-3"
 						on:click={(event) => {
-							event.currentTarget.select()
+							event.currentTarget.select();
 						}}
-						value={ export_snippets($snippets, $command, $commandType) }
+						value={export_snippets($snippets, $command, $commandType)}
 					/>
-					<Button color="success" on:click={() => { exporting = false }}>
+					<Button
+						color="success"
+						on:click={() => {
+							exporting = false;
+						}}
+					>
 						<CheckCircle />
 						Done
 					</Button>
@@ -105,11 +119,17 @@
 				<h4>Tellraw Generator for Minecraft</h4>
 			</div>
 			<div class="col-sm-5 mb-2">
-				<div class="btn-toolbar d-flex justify-content-end"
+				<div
+					class="btn-toolbar d-flex justify-content-end"
 					role="toolbar"
 					aria-label="Toolbar with button groups"
 				>
-					<Button size="sm" color="danger" href="https://github.com/ezfe/tellraw/issues/new" target="_">
+					<Button
+						size="sm"
+						color="danger"
+						href="https://github.com/ezfe/tellraw/issues/new"
+						target="_"
+					>
 						<ExclamationTriangle /> Report an Issue
 					</Button>
 					<SiteActions />
@@ -125,10 +145,12 @@
 					<span>Used to select and execute different players</span>
 				</div>
 				<div class="col-sm mb-4">
-					<input bind:value={$command}
-					type="text"
-					class="form-control"
-					aria-labelledby="command-label" />
+					<input
+						bind:value={$command}
+						type="text"
+						class="form-control"
+						aria-labelledby="command-label"
+					/>
 				</div>
 			</Row>
 		{/if}
@@ -140,11 +162,11 @@
 				<SnippetCollection
 					snippets={$snippets}
 					updateSnippets={(newValue) => {
-						snippets.set(newValue)
+						snippets.set(newValue);
 					}}
 					deleteAll={clearAllSnippets}
 					bind:commandType={$commandType}
-					bind:colorManaging={colorManaging}
+					bind:colorManaging
 					{translationSet}
 					bind:hideExteriorWrapper={hideWrapper}
 				/>
@@ -171,12 +193,14 @@
 					<span>Copy and paste into Minecraft</span>
 				</div>
 				<div class="col">
-					<textarea readOnly={true}
-					class="form-control"
-					onClick={(event) => {
-						event.currentTarget.select()
-					}}
-					value={compiled} />
+					<textarea
+						readOnly={true}
+						class="form-control"
+						onClick={(event) => {
+							event.currentTarget.select();
+						}}
+						value={compiled}
+					/>
 				</div>
 			</div>
 
@@ -200,10 +224,9 @@
 				</div>
 				<div class="col mb-2">
 					<span>
-						Export your command and save in a text file, so that you can
-						get easily get it back. Some browsers reset their cache
-						periodically and will forget what you've entered if you don't
-						save it by clicking Export.
+						Export your command and save in a text file, so that you can get easily get it back.
+						Some browsers reset their cache periodically and will forget what you've entered if you
+						don't save it by clicking Export.
 					</span>
 				</div>
 			</div>
@@ -218,7 +241,9 @@
 		<div class="row">
 			<div class="col">
 				<span style="color: grey; font-size: 10px;">
-					<a href="https://ezekielelin.com/contact" target="_blank">Contact Me</a> | "Minecraft" content and materials are trademarks and copyrights of Mojang and its licensors. This site is not affiliated with Mojang.
+					<a href="https://ezekielelin.com/contact" target="_blank">Contact Me</a> | "Minecraft" content
+					and materials are trademarks and copyrights of Mojang and its licensors. This site is not affiliated
+					with Mojang.
 				</span>
 				<button on:click={speedtest} style="display: none;">speedtest</button>
 			</div>
@@ -227,7 +252,12 @@
 </div>
 
 <ArrayDatalist fileIdentifier="keybinds" />
-<DictionaryDatalist fileIdentifier="translations" versioned newFileContents={updateTranslationSet} mergeContents={$customLanguageTranslations} />
+<DictionaryDatalist
+	fileIdentifier="translations"
+	versioned
+	newFileContents={updateTranslationSet}
+	mergeContents={$customLanguageTranslations}
+/>
 <ArrayDatalist fileIdentifier="commands" versioned />
 
 <style>
