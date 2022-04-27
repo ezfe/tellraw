@@ -73,6 +73,7 @@
 	}
 </script>
 
+<div id="spacer-temp-fix" />
 <div class="container">
 	{#if importing}
 		<Importing bind:importing />
@@ -261,7 +262,10 @@
 <ArrayDatalist fileIdentifier="commands" versioned />
 
 <style>
-	.container {
+	/* .container {
 		margin-top: 20px;
+	} */
+	#spacer-temp-fix {
+		height: 20px;
 	}
 </style>
