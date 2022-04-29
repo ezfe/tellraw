@@ -26,3 +26,7 @@ body {
 	background-color: white;
 	color: black;
 }
+
+body:has(dialog[open]) {
+	overflow: hidden;
+}
