@@ -1,0 +1,28 @@
+body {
+	color: #dddddd;
+	background-color: #222222;
+}
+
+.mcj-format-option {
+	border-color: white;
+	border-radius: 5px;
+	border-width: 2px;
+	border-style: solid;
+
+	background-color: transparent;
+
+	text-align: center;
+
+	cursor: pointer;
+	transition-duration: 0.4s;
+}
+
+.mcj-format-option:hover {
+	background-color: white;
+	color: black;
+}
+
+.mcj-format-option.active {
+	background-color: white;
+	color: black;
+}
