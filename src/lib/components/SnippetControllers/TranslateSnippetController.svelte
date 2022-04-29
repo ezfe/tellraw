@@ -16,10 +16,7 @@
 	export let translationSet: TranslationSet = {};
 	export let updateSnippet: (snippet: Snippet) => void = () => {};
 
-	export let hideExteriorWrapper: boolean;
 	let editing: Snippet | null = null;
-
-	let hideWrapper = false;
 
 	$: targetParameterCount = countParameters(snippet.translate, translationSet);
 
@@ -49,7 +46,6 @@
 
 	function startEditing(index: number) {
 		editing = duplicate_snippet(snippet.parameters[index]);
-		hideExteriorWrapper = true;
 	}
 
 	function stopEditing(save: boolean) {
@@ -66,7 +62,6 @@
 		}
 
 		editing = null;
-		hideExteriorWrapper = false;
 	}
 </script>
 

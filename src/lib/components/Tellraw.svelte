@@ -32,7 +32,6 @@
 	let importing = false;
 
 	let colorManaging = false;
-	let hideWrapper = false;
 
 	let translationSet: TranslationSet = {};
 
@@ -138,23 +137,21 @@
 			</div>
 		</div>
 
-		{#if !hideWrapper}
-			<Row>
-				<div class="col-sm-5 col-md-3 mb-2" id="command-label">
-					<span style="font-weight: bold;">Command Template</span>
-					<br />
-					<span>Used to select and execute different players</span>
-				</div>
-				<div class="col-sm mb-4">
-					<input
-						bind:value={$command}
-						type="text"
-						class="form-control"
-						aria-labelledby="command-label"
-					/>
-				</div>
-			</Row>
-		{/if}
+		<Row>
+			<div class="col-sm-5 col-md-3 mb-2" id="command-label">
+				<span style="font-weight: bold;">Command Template</span>
+				<br />
+				<span>Used to select and execute different players</span>
+			</div>
+			<div class="col-sm mb-4">
+				<input
+					bind:value={$command}
+					type="text"
+					class="form-control"
+					aria-labelledby="command-label"
+				/>
+			</div>
+		</Row>
 
 		<CommandTemplatesController />
 
@@ -169,71 +166,68 @@
 					bind:commandType={$commandType}
 					bind:colorManaging
 					{translationSet}
-					bind:hideExteriorWrapper={hideWrapper}
 				/>
 			</LightWell>
 		</div>
 
-		{#if !hideWrapper}
-			{#if isFeatureAvailable($commandType, $version, FeatureType.litSign)}
-				<div class="row mb-2">
-					<div class="col-3">
-						<span style="font-weight: bold">Glowing Sign</span>
-						<br />
-						<span>Illuminate the sign text in dark conditions</span>
-					</div>
-					<div class="col">
-						<input type="checkbox" bind:checked={$litSign} />
-					</div>
-				</div>
-			{/if}
+		{#if isFeatureAvailable($commandType, $version, FeatureType.litSign)}
 			<div class="row mb-2">
 				<div class="col-3">
-					<span style="font-weight: bold">Command</span>
+					<span style="font-weight: bold">Glowing Sign</span>
 					<br />
-					<span>Copy and paste into Minecraft</span>
+					<span>Illuminate the sign text in dark conditions</span>
 				</div>
 				<div class="col">
-					<textarea
-						readOnly={true}
-						class="form-control"
-						onClick={(event) => {
-							event.currentTarget.select();
-						}}
-						value={compiled}
-					/>
+					<input type="checkbox" bind:checked={$litSign} />
 				</div>
 			</div>
-
-			<PreviewContainer snippets={$snippets} commandType={$commandType} {translationSet} />
-
-			<hr />
-
-			<div class="row">
-				<div class="col-3">
-					<span style="font-weight: bold;">Save and Restore</span>
-				</div>
-				<div class="col-sm-2 mb-2">
-					<Button color="light" block on:click={startImporting}>
-						<FileImport /> Import
-					</Button>
-				</div>
-				<div class="col-sm-2 mb-2">
-					<Button color="light" block on:click={startExporting}>
-						<FileExport /> Export
-					</Button>
-				</div>
-				<div class="col mb-2">
-					<span>
-						Export your command and save in a text file, so that you can get easily get it back.
-						Some browsers reset their cache periodically and will forget what you've entered if you
-						don't save it by clicking Export.
-					</span>
-				</div>
-			</div>
-
-			<hr />
 		{/if}
+		<div class="row mb-2">
+			<div class="col-3">
+				<span style="font-weight: bold">Command</span>
+				<br />
+				<span>Copy and paste into Minecraft</span>
+			</div>
+			<div class="col">
+				<textarea
+					readOnly={true}
+					class="form-control"
+					onClick={(event) => {
+						event.currentTarget.select();
+					}}
+					value={compiled}
+				/>
+			</div>
+		</div>
+
+		<PreviewContainer snippets={$snippets} commandType={$commandType} {translationSet} />
+
+		<hr />
+
+		<div class="row">
+			<div class="col-3">
+				<span style="font-weight: bold;">Save and Restore</span>
+			</div>
+			<div class="col-sm-2 mb-2">
+				<Button color="light" block on:click={startImporting}>
+					<FileImport /> Import
+				</Button>
+			</div>
+			<div class="col-sm-2 mb-2">
+				<Button color="light" block on:click={startExporting}>
+					<FileExport /> Export
+				</Button>
+			</div>
+			<div class="col mb-2">
+				<span>
+					Export your command and save in a text file, so that you can get easily get it back. Some
+					browsers reset their cache periodically and will forget what you've entered if you don't
+					save it by clicking Export.
+				</span>
+			</div>
+		</div>
+
+		<hr />
 
 		<Settings />
 

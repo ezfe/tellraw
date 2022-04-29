@@ -13,7 +13,6 @@
 	import InlineSnippetController from './SnippetControllers/InlineSnippetController.svelte';
 	import SnippetDetailController from './SnippetControllers/SnippetDetailController.svelte';
 
-	export let hideExteriorWrapper: boolean = false;
 	let editing: Snippet = null;
 
 	export let commandType: CommandType = CommandType.tellraw;
@@ -44,7 +43,6 @@
 	 * @param snippet The snippet to edit
 	 */
 	function startEditing(snippet: Snippet) {
-		hideExteriorWrapper = true;
 		editing = snippet;
 	}
 
@@ -57,7 +55,6 @@
 			updateSnippet(editing);
 		}
 
-		hideExteriorWrapper = false;
 		editing = null;
 	}
 
@@ -135,36 +132,36 @@
 		{translationSet}
 		bind:colorManaging
 	/>
-{:else}
-	<section
-		use:dndzone={{ items: snippets, flipDurationMs: 300 }}
-		on:consider={handleDndConsider}
-		on:finalize={handleDndFinalize}
-	>
-		{#each snippets as snippet (snippet.id)}
-			<div animate:flip={{ duration: 300 }}>
-				<InlineSnippetController
-					{snippet}
-					{startEditing}
-					{updateSnippet}
-					{removeSnippet}
-					{duplicateSnippet}
-					{commandType}
-					bind:colorManaging
-				/>
-			</div>
-		{/each}
-	</section>
-
-	<Row>
-		<div class="col-sm-4 col-md-3 offset-sm-2 mb-2 mb-sm-0">
-			<AddSnippetDropdown {addSnippet} {commandType} />
-		</div>
-		<div class="col-sm-4 col-md-3">
-			<Button block color="danger" on:click={deleteAll}>
-				<TimesCircle />
-				Delete All
-			</Button>
-		</div>
-	</Row>
 {/if}
+
+<section
+	use:dndzone={{ items: snippets, flipDurationMs: 300 }}
+	on:consider={handleDndConsider}
+	on:finalize={handleDndFinalize}
+>
+	{#each snippets as snippet (snippet.id)}
+		<div animate:flip={{ duration: 300 }}>
+			<InlineSnippetController
+				{snippet}
+				{startEditing}
+				{updateSnippet}
+				{removeSnippet}
+				{duplicateSnippet}
+				{commandType}
+				bind:colorManaging
+			/>
+		</div>
+	{/each}
+</section>
+
+<Row>
+	<div class="col-sm-4 col-md-3 offset-sm-2 mb-2 mb-sm-0">
+		<AddSnippetDropdown {addSnippet} {commandType} />
+	</div>
+	<div class="col-sm-4 col-md-3">
+		<Button block color="danger" on:click={deleteAll}>
+			<TimesCircle />
+			Delete All
+		</Button>
+	</div>
+</Row>
