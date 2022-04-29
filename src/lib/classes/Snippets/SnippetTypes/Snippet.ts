@@ -1,6 +1,5 @@
-import { ClickEvent } from "../ClickEvent";
 import type { ClickEventType } from "../ClickEvent";
-import { HoverEventType } from '../HoverEvent';
+import type { HoverEventType } from '../HoverEvent';
 import { v4 as uuidv4 } from 'uuid';
 import type { Color } from '../../Color';
 
@@ -28,10 +27,10 @@ export abstract class Snippet {
 
 	insertion = '';
 
-	click_event_type: ClickEventType = ClickEvent.none
+	click_event_type: ClickEventType = "none"
 	click_event_value = ""
 
-	hover_event_type: HoverEventType = HoverEventType.none;
+	hover_event_type: HoverEventType = "none";
 	hover_event_value = '';
 	hover_event_object: object = {};
 	hover_event_children: Array<Snippet> = [];

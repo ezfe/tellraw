@@ -1,8 +1,9 @@
 <script lang="ts">
+	import { ClickEvent } from '$lib/classes/Snippets/ClickEvent';
+	import { HoverEvent } from '$lib/classes/Snippets/HoverEvent';
 	import { Button, Col, Row } from 'sveltestrap';
 	import type { Color } from '../../classes/Color';
 	import { getCSSHEX, minecraftColorSet } from '../../classes/Color';
-	import { HoverEventType } from '../../classes/Snippets/HoverEvent';
 	import { genericSnippet } from '../../classes/Snippets/SnippetTypes/GenericFieldCompatable';
 	import { GroupSnippet } from '../../classes/Snippets/SnippetTypes/GroupSnippet';
 	import { NBTSnippet } from '../../classes/Snippets/SnippetTypes/NBTSnippet';
@@ -280,55 +281,49 @@
 					value={snippet.click_event_type}
 					on:input={changeClickEventType}
 				>
-					<option
-						selected={snippet.click_event_type == ClickEventType.none}
-						value={ClickEventType.none}
-					>
+					<option selected={snippet.click_event_type == 'none'} value={ClickEvent.none}>
 						None
 					</option>
-					<option
-						selected={snippet.click_event_type == ClickEventType.open_url}
-						value={ClickEventType.open_url}
-					>
+					<option selected={snippet.click_event_type == 'open_url'} value={ClickEvent.open_url}>
 						Open URL
 					</option>
 					<option
-						selected={snippet.click_event_type == ClickEventType.run_command}
-						value={ClickEventType.run_command}
+						selected={snippet.click_event_type == 'run_command'}
+						value={ClickEvent.run_command}
 					>
 						Run Command
 					</option>
 					<option
-						selected={snippet.click_event_type == ClickEventType.suggest_command}
-						value={ClickEventType.suggest_command}
+						selected={snippet.click_event_type == 'suggest_command'}
+						value={ClickEvent.suggest_command}
 					>
 						Suggest Command
 					</option>
 					{#if isFeatureAvailable(commandType, $version, FeatureType.pages)}
 						<option
-							selected={snippet.click_event_type == ClickEventType.change_page}
-							value={ClickEventType.change_page}
+							selected={snippet.click_event_type == 'change_page'}
+							value={ClickEvent.change_page}
 						>
 							Change Page
 						</option>
 					{:else}
 						<option
 							disabled
-							selected={snippet.click_event_type == ClickEventType.change_page}
-							value={ClickEventType.change_page}
+							selected={snippet.click_event_type == 'change_page'}
+							value={ClickEvent.change_page}
 						>
 							Change Page (Books Only)
 						</option>
 					{/if}
 					<option
-						selected={snippet.click_event_type == ClickEventType.copy_to_clipboard}
-						value={ClickEventType.copy_to_clipboard}
+						selected={snippet.click_event_type == 'copy_to_clipboard'}
+						value={ClickEvent.copy_to_clipboard}
 					>
 						Copy to Clipboard
 					</option>
 				</select>
 			</div>
-			{#if snippet.click_event_type != ClickEventType.none}
+			{#if snippet.click_event_type != 'none'}
 				<div class="col">
 					<div class="row">
 						<div class="col">
@@ -370,33 +365,24 @@
 					value={snippet.hover_event_type}
 					on:input={changeHoverEventType}
 				>
-					<option
-						selected={snippet.hover_event_type == HoverEventType.none}
-						value={HoverEventType.none}
-					>
+					<option selected={snippet.hover_event_type == 'none'} value={HoverEvent.none}>
 						None
 					</option>
 					<option
-						selected={snippet.hover_event_type == HoverEventType.show_entity}
-						value={HoverEventType.show_entity}
+						selected={snippet.hover_event_type == 'show_entity'}
+						value={HoverEvent.show_entity}
 					>
 						Show Entity
 					</option>
-					<option
-						selected={snippet.hover_event_type == HoverEventType.show_item}
-						value={HoverEventType.show_item}
-					>
+					<option selected={snippet.hover_event_type == 'show_item'} value={HoverEvent.show_item}>
 						Show Item
 					</option>
-					<option
-						selected={snippet.hover_event_type == HoverEventType.show_text}
-						value={HoverEventType.show_text}
-					>
+					<option selected={snippet.hover_event_type == 'show_text'} value={HoverEvent.show_text}>
 						Show Text
 					</option>
 				</select>
 			</div>
-			{#if snippet.hover_event_type == HoverEventType.show_text}
+			{#if snippet.hover_event_type == 'show_text'}
 				<div class="col">
 					<div class="row">
 						<div class="col inline-snippet-collection">
@@ -413,7 +399,7 @@
 						</div>
 					</div>
 				</div>
-			{:else if snippet.hover_event_type != HoverEventType.none}
+			{:else if snippet.hover_event_type != 'none'}
 				<div class="col">
 					<input
 						type="text"
@@ -446,16 +432,20 @@
 				class="btn btn-secondary w-100"
 				on:click={() => {
 					stopEditing(false);
-				}}>Cancel</button
+				}}
 			>
+				Cancel
+			</button>
 		</div>
 		<div class="col-2">
 			<button
 				class="btn btn-primary w-100"
 				on:click={() => {
 					stopEditing(true);
-				}}>Save</button
+				}}
 			>
+				Save
+			</button>
 		</div>
 	</div>
 {/if}

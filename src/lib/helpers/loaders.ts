@@ -1,3 +1,4 @@
+import type { HoverEventType } from '$lib/classes/Snippets/HoverEvent';
 import { SHADOW_ITEM_MARKER_PROPERTY_NAME } from 'svelte-dnd-action';
 import type { Color } from '../classes/Color';
 import { GroupSnippet } from '../classes/Snippets/SnippetTypes/GroupSnippet';
@@ -42,11 +43,14 @@ export function legacyStatePreparation() {
 
 export function upgradeV7State(source_array: Array<object>): Array<object> {
 	const clickEventTypeLookup: ClickEventType[] = ["none", "open_url", "run_command", "suggest_command", "change_page", "copy_to_clipboard"]
+	const hoverEventTypeLookup: HoverEventType[] = ["none", "show_text", "show_item", "show_entity"]
 	return source_array.map((s): object => {
 		const found_click_event_type = s["click_event_type"];
+		const found_hover_event_type = s["hover_event_type"];
 		return {
 			...s,
 			click_event_type: clickEventTypeLookup[found_click_event_type] ?? "none",
+			hover_event_type: hoverEventTypeLookup[found_hover_event_type] ?? "none",
 		};
 	})
 }
