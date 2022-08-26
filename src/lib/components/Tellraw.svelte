@@ -86,6 +86,10 @@
 						<span>
 							For the month of September, I'm helping raise money for St. Jude Children's Hospital and looking
 							for any support you can give.
+							<br />
+							<a class="alert-link" href="https://www.stjude.org/about-st-jude/why-support-st-jude.html?sc_icid=us-mm-support" target="_blank">
+								Learn more...
+							</a>
 						</span>
 					</p>
 					<a
