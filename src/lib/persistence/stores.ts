@@ -11,7 +11,8 @@ import {
 	LSKEY_PREVIEW_BGC,
 	LSKEY_SHOW_FAST_EDIT_TIP,
 	LSKEY_SNIPPET_ARR,
-	LSKEY_VERSION
+	LSKEY_VERSION,
+	LSKEY_ST_JUDE,
 } from '../constants';
 import { template_lookup } from '../data/templates';
 import { loadCurrentVersionState } from '../helpers/loaders';
@@ -69,3 +70,7 @@ export const customLanguageTranslations = buildStore(
 // Glowing Sign Color
 const INITIAL_LIT_SIGN = getItem(LSKEY_LIT_SIGN, false);
 export const litSign = buildStore(INITIAL_LIT_SIGN, LSKEY_LIT_SIGN);
+
+// St Jude
+const INITIAL_ST_JUDE = getItem(LSKEY_ST_JUDE, new Date() < new Date('2022-10-01'));
+export const stJude = buildStore(INITIAL_ST_JUDE, LSKEY_ST_JUDE);

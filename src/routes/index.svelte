@@ -30,10 +30,6 @@
 		if (localStorage.getItem('initialTimestamp') === null) {
 			localStorage.setItem('initialTimestamp', new Date().getTime().toString());
 		}
-
-		if (localStorage.getItem('donateStatus') === null) {
-			localStorage.setItem('donateStatus', 'unprompted');
-		}
 	});
 </script>
 
