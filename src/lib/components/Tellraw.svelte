@@ -12,7 +12,6 @@
 		customLanguageTranslations,
 		litSign,
 		snippets,
-		stJude,
 		version
 	} from '../persistence/stores';
 	import SiteActions from './buttons/SiteActions.svelte';
@@ -28,7 +27,6 @@
 	import PreviewContainer from './Previews/PreviewContainer.svelte';
 	import Settings from './Settings.svelte';
 	import SnippetCollection from './SnippetCollection.svelte';
-	import StJude from './StJude.svg';
 
 	let exporting = false;
 	let importing = false;
@@ -77,34 +75,6 @@
 
 <div id="spacer-temp-fix" />
 <div class="container">
-	{#if $stJude}
-		<div class="row">
-			<div class="col">
-				<div class="alert alert-info" role="alert">
-					<p class="d-flex align-items-center	gap-3">
-						<img src={StJude} alt="St. Jude Children's Hospital Logo" />
-						<span>
-							For the month of September, I'm helping raise money for St. Jude Children's Hospital and looking
-							for any support you can give.
-						</span>
-					</p>
-					<a
-						class="btn btn-primary"
-						href="https://donate.tiltify.com/@ezfe/st-judes-2022"
-						target="_blank"
-					>
-						Donate
-					</a>
-					<button
-						class="btn btn-secondary"
-						on:click={() => {$stJude = false}}
-					>
-						Hide
-					</button>
-				</div>
-			</div>
-		</div>
-	{/if}
 	{#if importing}
 		<Importing bind:importing />
 	{:else if exporting}

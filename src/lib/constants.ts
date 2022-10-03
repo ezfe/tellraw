@@ -12,6 +12,5 @@ export const LSKEY_CUSTOM_COLORS = '2020-06-29-custom-colors';
 export const LSKEY_SHOW_FAST_EDIT_TIP = '20190913-fast-edit-tip';
 export const LSKEY_CUSTOM_LANGUAGE_TRANSLATIONS = '2021-05-08-custom-translations';
 export const LSKEY_LIT_SIGN = '2021-05-27-lit-sign';
-export const LSKEY_ST_JUDE = '2022-08-26-st-jude';
 
 export const DEFAULT_COMMAND_TYPE = CommandType.tellraw;
