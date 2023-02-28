@@ -16,17 +16,17 @@
 	import TachometerAlt from '../generic/Icons/TachometerAlt.svelte';
 
 	export let title: String | undefined = undefined;
-	export let addSnippet: (snippet: Snippet, fast: Boolean) => void = () => {};
+	export let addSnippet: (snippet: Snippet, fast: boolean) => void = () => {};
 	export let commandType: CommandType = CommandType.tellraw;
 	let optionPressed = false;
 
-	function keyDown(event) {
+	function keyDown(event: any) {
 		if (event.key === 'Alt' || event.keyCode === 18) {
 			optionPressed = true;
 		}
 	}
 
-	function keyUp(event) {
+	function keyUp(event: any) {
 		if (event.key === 'Alt' || event.keyCode === 18) {
 			optionPressed = false;
 		}

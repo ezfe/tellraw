@@ -1,14 +1,13 @@
-<script type="typescript">
+<script lang="ts">
 	import { createEventDispatcher } from 'svelte';
-	import { v4 as uuidv4 } from 'uuid';
 
 	const dispatch = createEventDispatcher();
 
 	export let checked: boolean;
 
-	let randomUUID = uuidv4();
+	let randomUUID = crypto.randomUUID();
 
-	function onChange(event) {
+	function onChange(event: any) {
 		dispatch('change', event.currentTarget.checked);
 	}
 </script>

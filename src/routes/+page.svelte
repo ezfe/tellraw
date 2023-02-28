@@ -1,7 +1,3 @@
-<script context="module">
-	export const ssr = false;
-</script>
-
 <script lang="ts">
 	import { legacyStatePreparation } from '$lib/helpers/loaders';
 	import { onMount } from 'svelte';

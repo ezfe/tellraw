@@ -2,7 +2,6 @@
 	import { dndzone } from 'svelte-dnd-action';
 	import { flip } from 'svelte/animate';
 	import { Button, Row } from 'sveltestrap';
-	import { v4 as uuidv4 } from 'uuid';
 	import type { Snippet } from '../classes/Snippets/SnippetTypes/Snippet';
 	import { CommandType } from '../data/templates';
 	import { duplicate_snippet } from '../helpers/duplicate_snippet';
@@ -14,7 +13,7 @@
 	import SnippetDetailController from './SnippetControllers/SnippetDetailController.svelte';
 
 	export let hideExteriorWrapper: boolean = false;
-	let editing: Snippet = null;
+	let editing: Snippet | null = null;
 
 	export let commandType: CommandType = CommandType.tellraw;
 	export let colorManaging: boolean = false;
@@ -106,7 +105,7 @@
 	function duplicateSnippet(snippet: Snippet) {
 		let now = [...snippets];
 		let newSnippet = duplicate_snippet(snippet);
-		newSnippet.id = uuidv4();
+		newSnippet.id = crypto.randomUUID();
 
 		let i = now.indexOf(snippet);
 		now.splice(i, 0, newSnippet);
@@ -114,12 +113,12 @@
 		updateSnippets(now);
 	}
 
-	function handleDndConsider(event) {
+	function handleDndConsider(event: any) {
 		console.log('Considering event', event);
 		snippets = loadCurrentVersionState(event.detail.items, false);
 	}
 
-	function handleDndFinalize(event) {
+	function handleDndFinalize(event: any) {
 		console.log('Finalizing event', event);
 		// snippets =
 		snippets = loadCurrentVersionState(event.detail.items, false);

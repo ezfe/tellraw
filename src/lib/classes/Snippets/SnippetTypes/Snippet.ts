@@ -1,6 +1,5 @@
 import type { ClickEventType } from "../ClickEvent";
 import type { HoverEventType } from '../HoverEvent';
-import { v4 as uuidv4 } from 'uuid';
 import type { Color } from '../../Color';
 
 export type FieldType = 'string';
@@ -21,7 +20,7 @@ export abstract class Snippet {
 	strikethrough = false;
 	obfuscated = false;
 
-	font: string = null;
+	font: string | null = null;
 
 	color: Color = 'none';
 
@@ -35,11 +34,11 @@ export abstract class Snippet {
 	hover_event_object: object = {};
 	hover_event_children: Array<Snippet> = [];
 
-	constructor(id: string = null) {
+	constructor(id: string | null = null) {
 		if (id !== null) {
 			this.id = id;
 		} else {
-			this.id = uuidv4();
+			this.id = crypto.randomUUID();
 		}
 	}
 

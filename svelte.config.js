@@ -1,20 +1,17 @@
 import adapterCf from '@sveltejs/adapter-cloudflare';
 import adapterStatic from '@sveltejs/adapter-static';
-import preprocess from 'svelte-preprocess';
+import { vitePreprocess } from '@sveltejs/kit/vite';
 
 const adapter = process.env.CF_PAGES ? adapterCf : adapterStatic;
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	// Consult https://github.com/sveltejs/svelte-preprocess
+	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
 	// for more information about preprocessors
-	preprocess: preprocess(),
+	preprocess: vitePreprocess(),
 
 	kit: {
-		adapter: adapter(),
-		prerender: {
-			default: true,
-		}
+		adapter: adapter()
 	}
 };
 
