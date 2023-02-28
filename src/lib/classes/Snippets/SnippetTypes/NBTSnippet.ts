@@ -8,17 +8,15 @@ export enum NBTType {
 }
 
 export class NBTSnippet extends Snippet {
-	id: string;
-
 	type: NBTType = NBTType.entity;
-	nbt: string = '';
+	nbt = '';
 	// This has to remain storage for legacy reasons, but
 	// it's actually going to be compiled to whichever field
 	// type specifies
-	storage: string = '';
-	interpret: boolean = false;
+	storage = '';
+	interpret = false;
 
-	constructor(id: string = null) {
+	constructor(id: string | null = null) {
 		super(id);
 	}
 

@@ -3,8 +3,6 @@ import type { FieldSpecifier } from './Snippet';
 import { Snippet } from './Snippet';
 
 export class KeybindSnippet extends Snippet {
-	id: string;
-
 	keybind = '';
 
 	copy(): KeybindSnippet {

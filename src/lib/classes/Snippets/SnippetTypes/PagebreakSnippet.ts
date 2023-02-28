@@ -1,9 +1,6 @@
 import { Snippet } from './Snippet';
 
 export class PagebreakSnippet extends Snippet {
-	// TODO: huh
-	// declare id: string;
-
 	// This is to allow detection of this snippet
 	// since it has no identifiable traits when
 	// serialized

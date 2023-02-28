@@ -3,11 +3,9 @@ import type { FieldSpecifier } from './Snippet';
 import { Snippet } from './Snippet';
 
 export class TextSnippet extends Snippet {
-	id: string;
-
 	text = '';
 
-	constructor(id: string = null) {
+	constructor(id: string | null = null) {
 		super(id);
 	}
 

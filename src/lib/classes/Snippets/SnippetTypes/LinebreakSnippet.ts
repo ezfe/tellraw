@@ -1,7 +1,7 @@
 import { TextSnippet } from './TextSnippet';
 
 export class LinebreakSnippet extends TextSnippet {
-	constructor(id: string = null) {
+	constructor(id: string | null = null) {
 		super(id);
 
 		this.text = '\n';

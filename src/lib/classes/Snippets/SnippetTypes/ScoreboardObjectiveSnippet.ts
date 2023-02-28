@@ -4,11 +4,9 @@ import type { FieldSpecifier } from './Snippet';
 import { Snippet } from './Snippet';
 
 export class ScoreboardObjectiveSnippet extends Snippet {
-	id: string;
-
 	score_name = '';
 	score_objective = '';
-	score_value: string = null;
+	score_value: string | null = null;
 
 	// Shared Formatting
 	bold = false;

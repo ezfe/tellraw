@@ -3,17 +3,15 @@ import { duplicate_snippet } from '../../../helpers/duplicate_snippet';
 import { Snippet } from './Snippet';
 
 export class TranslateSnippet extends Snippet {
-	id: string;
-
-	translate: string = '';
+	translate = '';
 	parameters: Snippet[] = [];
 
-	constructor(id: string = null) {
+	constructor(id: string | null = null) {
 		super(id);
 	}
 
 	copy(): TranslateSnippet {
-		let newValue = new TranslateSnippet(this.id);
+		const newValue = new TranslateSnippet(this.id);
 
 		newValue.translate = this.translate;
 		newValue.parameters = this.parameters.map((s) => duplicate_snippet(s));
