@@ -58,14 +58,14 @@ export function upgradeV7State(source_array: Array<object>): Array<object> {
 // Version 8
 export function loadCurrentVersionState(
 	source_array: Array<object>,
-	filterShadowItems: boolean = true
+	filterShadowItems = true
 ): Array<Snippet> {
 	if (!Array.isArray(source_array)) {
 		console.error('Received a non-array', source_array);
 		return [];
 	}
 	return source_array
-		.filter((s) => {
+		.filter((s: any) => {
 			if (filterShadowItems && s[SHADOW_ITEM_MARKER_PROPERTY_NAME]) {
 				console.log('Filtering shadow item', s, source_array);
 				return false;

@@ -10,12 +10,14 @@
 
 	function importTranslations() {
 		const valueString = prompt('Paste translation file here:');
-		const object = JSON.parse(valueString);
-		if (object.constructor != Object) {
-			alert('Unexpected format?');
-			return;
+		if (valueString) {
+			const object = JSON.parse(valueString);
+			if (object.constructor != Object) {
+				alert('Unexpected format?');
+				return;
+			}
+			customLanguageTranslations.set(object);
 		}
-		customLanguageTranslations.set(object);
 	}
 
 	function resetTranslations() {
