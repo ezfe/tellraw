@@ -52,7 +52,9 @@
 			label: 'Duplicate',
 			icon: Clone,
 			onClick: () => {
-				duplicateSnippet(snippet);
+				if (duplicateSnippet) {
+					duplicateSnippet(snippet);
+				}
 			}
 		};
 

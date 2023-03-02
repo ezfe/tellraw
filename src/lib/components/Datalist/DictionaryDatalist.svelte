@@ -19,14 +19,14 @@
 	]);
 
 	$: {
-		if (newFileContents) {
-			jsonPromise.then((json) => {
+		jsonPromise.then((json) => {
+			if (newFileContents) {
 				newFileContents({
 					...json,
 					...mergeContents
 				});
-			});
-		}
+			}
+		});
 	}
 </script>
 

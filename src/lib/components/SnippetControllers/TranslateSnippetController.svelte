@@ -23,7 +23,7 @@
 
 	$: targetParameterCount = countParameters(snippet.translate, translationSet);
 
-	function updateTranslate(event) {
+	function updateTranslate(event: any) {
 		const newSnippet = snippet.copy();
 		newSnippet.translate = event.target.value;
 		updateSnippet(newSnippet);
@@ -56,7 +56,7 @@
 		if (save) {
 			const newSnippet = snippet.copy();
 			newSnippet.parameters = newSnippet.parameters.map((param) => {
-				if (param.id == editing.id) {
+				if (param.id == editing?.id) {
 					return editing;
 				} else {
 					return param;
@@ -112,7 +112,7 @@
 				removeSnippet={() => {
 					deleteParameter(paramIndex);
 				}}
-				duplicateSnippet={null}
+				duplicateSnippet={undefined}
 				{commandType}
 			/>
 		{/each}

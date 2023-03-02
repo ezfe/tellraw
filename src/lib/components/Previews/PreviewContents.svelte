@@ -31,7 +31,7 @@
 		}
 	}
 
-	function findPageStartIndex(bookPage: number, snippets: Snippet[]) {
+	function findPageStartIndex(bookPage: number | undefined, snippets: Snippet[]) {
 		let found = 0;
 		if (bookPage && bookPage > 1) {
 			found = nthPageBreak(snippets, bookPage - 1);
@@ -39,7 +39,7 @@
 		return Math.max(found, 0);
 	}
 
-	function findPageEndIndex(bookPage: number, snippets: Snippet[]) {
+	function findPageEndIndex(bookPage: number | undefined, snippets: Snippet[]) {
 		let found = snippets.length;
 		if (bookPage) {
 			found = nthPageBreak(snippets, bookPage) - 1;

@@ -111,7 +111,7 @@
 	<div class="row mb-2">
 		<div class="col">
 			<p>
-				<PreviewContents snippets={[snippet]} bookPage={null} {translationSet} />
+				<PreviewContents snippets={[snippet]} bookPage={undefined} {translationSet} />
 			</p>
 		</div>
 	</div>
