@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable no-prototype-builtins */
+import type { ClickEventType } from '$lib/classes/Snippets/ClickEvent';
 import type { HoverEventType } from '$lib/classes/Snippets/HoverEvent';
 import { SHADOW_ITEM_MARKER_PROPERTY_NAME } from 'svelte-dnd-action';
-import type { Color } from '../classes/Color';
 import { GroupSnippet } from '../classes/Snippets/SnippetTypes/GroupSnippet';
 import { KeybindSnippet } from '../classes/Snippets/SnippetTypes/KeybindSnippet';
 import { LinebreakSnippet } from '../classes/Snippets/SnippetTypes/LinebreakSnippet';
@@ -106,7 +108,7 @@ export function loadCurrentVersionState(
 				return (Object as any).assign(new NBTSnippet(), s);
 			} else if (s.hasOwnProperty('translate')) {
 				if (Array.isArray(s['parameters'])) {
-					const singlesFlattened = [];
+					const singlesFlattened: object[] = [];
 					s['parameters'].forEach((param) => {
 						if (Array.isArray(param)) {
 							if (param.length === 1) {
@@ -130,7 +132,7 @@ export function loadCurrentVersionState(
 				s['children'] = loadCurrentVersionState(s['children']);
 				return (Object as any).assign(new GroupSnippet(), s);
 			} else {
-				let snippet = new TextSnippet();
+				const snippet = new TextSnippet();
 				snippet.text = `Failed to claim ${JSON.stringify(s)}`;
 				return snippet;
 			}
