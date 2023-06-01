@@ -12,16 +12,6 @@
 		<List />
 	</DropdownToggle>
 	<DropdownMenu>
-		<DropdownItem
-			href="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Fwww.minecraftjson.com%2F&text=%2Ftellraw%20generator%20for%20minecraft&tw_p=tweetbutton&url=http%3A%2F%2Fwww.minecraftjson.com%2F&via=superezfe"
-		>
-			<Twitter />
-			Tweet
-		</DropdownItem>
-		<DropdownItem href="https://stats.uptimerobot.com/3109Jiml4L">
-			<WiFi />
-			Uptime
-		</DropdownItem>
 		<DropdownItem href="https://github.com/ezfe/tellraw/releases/latest">
 			<FileDownload />
 			Download Website
