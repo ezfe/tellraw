@@ -4,7 +4,7 @@
   "repository": "https://github.com/ezfe/tellraw",
   "author": "ezfe",
   "license": "MIT",
-  "version": "7.4.0",
+  "version": "8.0.0",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
