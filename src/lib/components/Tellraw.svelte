@@ -159,17 +159,6 @@
 
 		<CommandTemplatesController />
 
-		{#if versionAtLeast($version, '1.20') && $commandType == CommandType.sign}
-		<div class="mb-5">
-			<Alert>
-				<p>
-					Signs aren't working in 1.20 at the moment! Please reach out if you're able to craft
-					a `/give` command for a sign with text on it that works in 1.20.
-				</p>
-			</Alert>
-		</div>
-		{/if}
-
 		<div class="mb-5">
 			<LightWell>
 				<SnippetCollection
