@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button, Row } from 'sveltestrap';
+	import { Alert, Button, Row } from 'sveltestrap';
 	import { TextSnippet } from '../classes/Snippets/SnippetTypes/TextSnippet';
 	import { CommandType, FeatureType, isFeatureAvailable, template_lookup } from '../data/templates';
 	import { compile } from '../helpers/compile';
@@ -27,6 +27,7 @@
 	import PreviewContainer from './Previews/PreviewContainer.svelte';
 	import Settings from './Settings.svelte';
 	import SnippetCollection from './SnippetCollection.svelte';
+	import { versionAtLeast } from '$lib/helpers/versions';
 
 	let exporting = false;
 	let importing = false;
@@ -157,6 +158,17 @@
 		{/if}
 
 		<CommandTemplatesController />
+
+		{#if versionAtLeast($version, '1.20') && $commandType == CommandType.sign}
+		<div class="mb-5">
+			<Alert>
+				<p>
+					Signs aren't working in 1.20 at the moment! Please reach out if you're able to craft
+					a `/give` command for a sign with text on it that works in 1.20.
+				</p>
+			</Alert>
+		</div>
+		{/if}
 
 		<div class="mb-5">
 			<LightWell>
