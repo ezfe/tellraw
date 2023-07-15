@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { createEventDispatcher } from 'svelte';
 	import { CommandType, template_lookup } from '../data/templates';
 	import { command, commandType } from '../persistence/stores';
 	import CheckCircle from './generic/Icons/CheckCircle.svelte';

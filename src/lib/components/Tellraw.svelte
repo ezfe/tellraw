@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button, Row } from 'sveltestrap';
+	import { Alert, Button, Row } from 'sveltestrap';
 	import { TextSnippet } from '../classes/Snippets/SnippetTypes/TextSnippet';
 	import { CommandType, FeatureType, isFeatureAvailable, template_lookup } from '../data/templates';
 	import { compile } from '../helpers/compile';
@@ -27,6 +27,7 @@
 	import PreviewContainer from './Previews/PreviewContainer.svelte';
 	import Settings from './Settings.svelte';
 	import SnippetCollection from './SnippetCollection.svelte';
+	import { versionAtLeast } from '$lib/helpers/versions';
 
 	let exporting = false;
 	let importing = false;

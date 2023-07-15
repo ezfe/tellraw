@@ -84,6 +84,6 @@ export function template_lookup(ct: CommandType): Array<string> {
 const templates = {
 	tellraw: ['/tellraw @p %s', '/execute @a ~ ~ ~ tellraw @p %s'],
 	overlay: ['/title @a title %s', '/title @a subtitle %s', '/title @a actionbar %s'],
-	sign: ['/give @p oak_sign{BlockEntityTag:{%s,id:"Sign"}}', '/data merge block [x] [y] [z] {%s}'],
+	sign: ['/give @p oak_sign{BlockEntityTag:{%s}}', '/data merge block [x] [y] [z] {%s}'],
 	book: ['/give @p written_book{pages:%s,title:"Custom Book",author:Player}']
 };

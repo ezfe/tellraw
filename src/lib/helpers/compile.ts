@@ -179,21 +179,38 @@ export function compile_section_list(
 		);
 	} else if (type == CommandType.sign) {
 		let ret = '';
-		if (results.length >= 1) {
-			const l1 = JSON.stringify(results[0]);
-			ret = ret.concat(`Text1:${JSON.stringify(l1)}`);
+		if (versionAtLeast(version, '1.20')) {
+			const front_text_results = [...results].slice(0, 4);
+			const front_text_lines = [...front_text_results, '', '', '', ''].slice(0, 4);
+			const front_text_mapped = front_text_lines.map((line) => JSON.stringify(JSON.stringify(line)));
+			const front_text_return = `front_text:{messages:[${front_text_mapped.join(',')}]}`;
 
-			if (results.length >= 2) {
-				const l2 = JSON.stringify(results[1]);
-				ret = ret.concat(`,Text2:${JSON.stringify(l2)}`);
+			let back_text_return = '';
+			if (results.length > 4) {
+				const back_text_results = [...results].slice(4);
+				const back_text_lines = [...back_text_results, '', '', '', ''].slice(0, 4);
+				const back_text_mapped = back_text_lines.map((line) => JSON.stringify(JSON.stringify(line)));
+				back_text_return = `,back_text:{messages:[${back_text_mapped.join(',')}]}`;
+			}
 
-				if (results.length >= 3) {
-					const l3 = JSON.stringify(results[2]);
-					ret = ret.concat(`,Text3:${JSON.stringify(l3)}`);
+			ret = front_text_return + back_text_return;
+		} else {
+			if (results.length >= 1) {
+				const l1 = JSON.stringify(results[0]);
+				ret = ret.concat(`Text1:${JSON.stringify(l1)}`);
 
-					if (results.length >= 4) {
-						const l4 = JSON.stringify(results[3]);
-						ret = ret.concat(`,Text4:${JSON.stringify(l4)}`);
+				if (results.length >= 2) {
+					const l2 = JSON.stringify(results[1]);
+					ret = ret.concat(`,Text2:${JSON.stringify(l2)}`);
+
+					if (results.length >= 3) {
+						const l3 = JSON.stringify(results[2]);
+						ret = ret.concat(`,Text3:${JSON.stringify(l3)}`);
+
+						if (results.length >= 4) {
+							const l4 = JSON.stringify(results[3]);
+							ret = ret.concat(`,Text4:${JSON.stringify(l4)}`);
+						}
 					}
 				}
 			}

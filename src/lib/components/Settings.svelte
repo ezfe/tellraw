@@ -38,7 +38,8 @@
 			<option value="1.16">1.16</option>
 			<option value="1.17">1.17</option>
 			<option value="1.18">1.18</option>
-			<option value="1.19">1.19 (Current Version)</option>
+			<option value="1.19">1.19</option>
+			<option value="1.20">1.20 (Current Version)</option>
 		</select>
 
 		<label id="bg-color-label" for="bg-color-input"> Preview Background Color: </label>
