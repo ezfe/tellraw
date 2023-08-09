@@ -29,4 +29,9 @@ export class TextSnippet extends Snippet {
 			}
 		];
 	}
+
+	setText(text: string) {
+		this.text = text;
+		return this;
+	}
 }
