@@ -32,7 +32,15 @@ function parse_tellraw_type(input: string): Snippet[] {
 }
 
 function parse_overlay_type(input: string): Snippet[] {
-	return [];
+	const extract_regex = /title [^ ]+ [a-z]+ (({.*})|(".*")|(\[.*\]))$/;
+	const matches = input.match(extract_regex);
+	if (matches) {
+		const inserted_value = matches[1];
+
+		return parse_snippet_multiobj(JSON.parse(inserted_value));
+	} else {
+		return [];
+	}
 }
 
 function parse_sign_type(input: string): Snippet[] {
