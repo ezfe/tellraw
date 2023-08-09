@@ -29,4 +29,9 @@ export class SelectorSnippet extends Snippet {
 			}
 		];
 	}
+
+	setSelector(value: string): this {
+		this.selector = value;
+		return this;
+	}
 }
