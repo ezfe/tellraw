@@ -20,7 +20,56 @@
 	}
 
 	function doImport() {
+		if (isJson(importingString)) {
+			doTraditionalImport();
+		} else {
+			doMinecraftImport();
+		}
+	}
+
+	function doMinecraftImport() {
 		snippets.set(parse_mc_command(importingString));
+		importing = false;
+	}
+
+	function doTraditionalImport() {
+		let import_data: Array<object>;
+		try {
+			import_data = JSON.parse(importingString) as Array<object>;
+		} catch (e) {
+			console.error(e);
+			alert(
+				`An error occurred importing your command.\n\nFeel free to use the "Report an Issue" option on the main page to report this`
+			);
+			return;
+		}
+
+		if (!('command' in import_data && 'jobject' in import_data && 'jtemplate' in import_data)) {
+			console.error('Missing one of command, jobject, jtemplate');
+			alert(
+				`An error occurred importing your command.\n\nFeel free to use the "Report an Issue" option on the main page to report this`
+			);
+			return;
+		}
+
+		if ('jtemplate' in import_data && import_data['jformat'] >= 7) {
+			command.set(import_data['command']);
+
+			commandType.set(import_data['jtemplate']);
+
+			let jobject = import_data['jobject'] as object[];
+
+			if (import_data['jformat'] == 7) {
+				jobject = upgradeV7State(jobject);
+			}
+
+			snippets.set(loadCurrentVersionState(jobject));
+		} else {
+			alert(
+				'Your export data is incorrectly formatted - and may be too old, and cannot be imported.'
+			);
+		}
+
 		importing = false;
 	}
 
