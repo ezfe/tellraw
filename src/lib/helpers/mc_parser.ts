@@ -1,12 +1,15 @@
 import { SelectorSnippet } from '$lib/classes/Snippets/SnippetTypes/SelectorSnippet';
 import type { Snippet } from '$lib/classes/Snippets/SnippetTypes/Snippet';
 import { TextSnippet } from '$lib/classes/Snippets/SnippetTypes/TextSnippet';
+import { LinebreakSnippet } from '$lib/classes/Snippets/SnippetTypes/LinebreakSnippet';
+import { ScoreboardObjectiveSnippet } from '$lib/classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet';
 import { HoverEvent } from '$lib/classes/Snippets/HoverEvent';
 
 const type_handlers = [
 	{ regex: /(\/| )tellraw/, routine: parse_tellraw_type },
 	{ regex: /^\/?title/, routine: parse_overlay_type },
-	{ regex: /Text[0-9]:/, routine: parse_sign_type },
+	// { regex: /Text[0-9]:/, routine: parse_legacy_sign_type },
+	{ regex: /[a-z]+_sign\{.*messages:.*\}/, routine: parse_sign_type },
 	{ regex: /pages:/, routine: parse_book_type }
 ];
 
@@ -44,7 +47,28 @@ function parse_overlay_type(input: string): Snippet[] {
 }
 
 function parse_sign_type(input: string): Snippet[] {
-	return [];
+	const extract_regex =
+		/[a-z]+_sign\{.*BlockEntityTag:\{.*front_text:\{messages:(\[.*\])\}.*\}.*\}$/;
+	const matches = input.match(extract_regex);
+	if (matches) {
+		const inserted_value = matches[1];
+		const front_sign_lines = JSON.parse(inserted_value)
+			.map((str) => JSON.parse(str))
+			.map((line) => parse_snippet_multiobj(line));
+
+		const full_list = [];
+		for (const line of front_sign_lines) {
+			for (const el of line) {
+				full_list.push(el);
+			}
+			full_list.push(new LinebreakSnippet());
+		}
+		console.log(full_list);
+		return full_list;
+	} else {
+		console.log('no matches');
+		return [];
+	}
 }
 
 function parse_book_type(input: string): Snippet[] {
@@ -98,6 +122,9 @@ function parse_snippet_multiobj(parsed: any): Snippet[] {
 				// and that logic isn't accounted for here
 				console.error("Array doesn't start with empty string");
 			}
+		} else if (parsed.length == 1 && parsed[0] == '') {
+			// Single length lists of empty strings should be ignored
+			return [];
 		}
 		// Handle plain strings remaining inside the list
 		parsed = parsed.map((item) => {
@@ -125,6 +152,11 @@ function parse_snippet(obj): Snippet {
 		snippet = new TextSnippet().setText(obj['text']);
 	} else if (typeof obj['selector'] == 'string') {
 		snippet = new SelectorSnippet().setSelector(obj['selector']);
+	} else if (typeof obj['score'] == 'object') {
+		snippet = new ScoreboardObjectiveSnippet()
+			.setScoreName(obj['score']['name'] ?? '')
+			.setScoreObjective(obj['score']['objective'] ?? '')
+			.setScoreValue(obj['score']['value'] ?? null);
 	} else {
 		console.error('Failed to parse tellraw', obj);
 		return new TextSnippet().setText('Failed to parse tellraw');

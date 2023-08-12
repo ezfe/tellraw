@@ -47,4 +47,19 @@ export class ScoreboardObjectiveSnippet extends Snippet {
 			}
 		];
 	}
+
+	setScoreName(value: string): this {
+		this.score_name = value;
+		return this;
+	}
+
+	setScoreObjective(value: string): this {
+		this.score_objective = value;
+		return this;
+	}
+
+	setScoreValue(value: string): this {
+		this.score_value = value;
+		return this;
+	}
 }
