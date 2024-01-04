@@ -114,16 +114,16 @@
 				<div class="alert alert-info">
 					<p>
 						Incomplete support for importing raw Minecraft commands is now available. At this time,
-						<code>/tellraw</code> commands should import most contents correctly.
+						<code>/tellraw</code> and <code>/title</code> commands should import most contents correctly.
 					</p>
 					<p>
 						Please raise an issue (use the Report an Issue button on the main screen) <b>only</b>
-						if importing regular <code>/tellraw</code> commands fails. Please include the command you
-						tried to import and what failed.
+						if importing regular <code>/tellraw</code> or <code>/title</code> commands fails. Please
+						include the command you tried to import and what failed.
 					</p>
 					<p>
 						Do not raise issues for any other commands. This message will be updated when other
-						command formats (books, title, etc.) are available.
+						command formats (books, signs, etc.) are available.
 					</p>
 				</div>
 			</div>
