@@ -91,7 +91,7 @@
 		<small id="translation-string-help">
 			Choose a translation identifier (specified in Minecraft translation files) or type out a
 			translation string directly.
-			<a href="https://minecraft.fandom.com/wiki/Raw_JSON_text_format#Translated_Text" target="_">
+			<a href="https://minecraft.wiki/w/Raw_JSON_text_format#Translated_Text" target="_">
 				Read more
 			</a>
 		</small>
