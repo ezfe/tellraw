@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button, ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'sveltestrap';
+	import { Button, ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle } from '@sveltestrap/sveltestrap';
 	import { KeybindSnippet } from '../../classes/Snippets/SnippetTypes/KeybindSnippet';
 	import { LinebreakSnippet } from '../../classes/Snippets/SnippetTypes/LinebreakSnippet';
 	import { NBTSnippet } from '../../classes/Snippets/SnippetTypes/NBTSnippet';

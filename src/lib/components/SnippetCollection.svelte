@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { dndzone } from 'svelte-dnd-action';
 	import { flip } from 'svelte/animate';
-	import { Button, Row } from 'sveltestrap';
+	import { Button, Row } from '@sveltestrap/sveltestrap';
 	import type { Snippet } from '../classes/Snippets/SnippetTypes/Snippet';
 	import { CommandType } from '../data/templates';
 	import { duplicate_snippet } from '../helpers/duplicate_snippet';

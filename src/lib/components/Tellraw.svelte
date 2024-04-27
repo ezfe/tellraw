@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Alert, Button, Row } from 'sveltestrap';
+	import { Alert, Button, Row } from '@sveltestrap/sveltestrap';
 	import { TextSnippet } from '../classes/Snippets/SnippetTypes/TextSnippet';
 	import { CommandType, FeatureType, isFeatureAvailable, template_lookup } from '../data/templates';
 	import { compile } from '../helpers/compile';

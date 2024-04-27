@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { ClickEvent } from '$lib/classes/Snippets/ClickEvent';
 	import { HoverEvent } from '$lib/classes/Snippets/HoverEvent';
-	import { Button, Col, Row } from 'sveltestrap';
+	import { Button, Col, Row } from '@sveltestrap/sveltestrap';
 	import type { Color } from '../../classes/Color';
 	import { getCSSHEX, minecraftColorSet } from '../../classes/Color';
 	import { genericSnippet } from '../../classes/Snippets/SnippetTypes/GenericFieldCompatable';

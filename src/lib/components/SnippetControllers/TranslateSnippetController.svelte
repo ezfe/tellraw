@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { FormGroup, Row } from 'sveltestrap';
+	import { FormGroup, Row } from '@sveltestrap/sveltestrap';
 	import type { Snippet } from '../../classes/Snippets/SnippetTypes/Snippet';
 	import { TranslateSnippet } from '../../classes/Snippets/SnippetTypes/TranslateSnippet';
 	import { CommandType } from '../../data/templates';

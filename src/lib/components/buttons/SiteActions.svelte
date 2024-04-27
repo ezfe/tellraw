@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'sveltestrap';
+	import { ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle } from '@sveltestrap/sveltestrap';
 	import CodeBranch from '../generic/Icons/CodeBranch.svelte';
 	import FileDownload from '../generic/Icons/FileDownload.svelte';
 	import List from '../generic/Icons/List.svelte';

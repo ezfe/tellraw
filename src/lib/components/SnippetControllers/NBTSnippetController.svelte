@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Col, Row } from 'sveltestrap';
+	import { Col, Row } from '@sveltestrap/sveltestrap';
 	import { NBTSnippet, NBTType } from '../../classes/Snippets/SnippetTypes/NBTSnippet';
 	import type { Snippet } from '../../classes/Snippets/SnippetTypes/Snippet';
 	import { FeatureType, isFeatureAvailable } from '../../data/templates';

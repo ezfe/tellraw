@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button } from 'sveltestrap';
+	import { Button } from '@sveltestrap/sveltestrap';
 	import type { Snippet } from '../../classes/Snippets/SnippetTypes/Snippet';
 	import { CommandType, FeatureType, isFeatureAvailable } from '../../data/templates';
 	import type { TranslationSet } from '../../helpers/translation_processor';

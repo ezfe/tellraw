@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button, Row } from 'sveltestrap';
+	import { Button, Row } from '@sveltestrap/sveltestrap';
 	import {
 		customLanguageTranslations,
 		previewBackgroundColor,

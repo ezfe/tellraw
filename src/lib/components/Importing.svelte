@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { parse_mc_command } from '$lib/helpers/mc_parser';
-	import { Button } from 'sveltestrap';
+	import { Button } from '@sveltestrap/sveltestrap';
 	import { loadCurrentVersionState, upgradeV7State } from '../helpers/loaders';
 	import { command, commandType, snippets } from '../persistence/stores';
 	import CheckCircle from './generic/Icons/CheckCircle.svelte';

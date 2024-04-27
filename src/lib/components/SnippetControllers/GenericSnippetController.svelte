@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Row } from 'sveltestrap';
+	import { Row } from '@sveltestrap/sveltestrap';
 	import type { GenericFieldCompatable } from '../../classes/Snippets/SnippetTypes/GenericFieldCompatable';
 	import type { FieldSpecifier, Snippet } from '../../classes/Snippets/SnippetTypes/Snippet';
 

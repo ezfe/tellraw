@@ -8,7 +8,7 @@
 		DropdownItem,
 		DropdownMenu,
 		DropdownToggle
-	} from 'sveltestrap';
+	} from '@sveltestrap/sveltestrap';
 
 	type ButtonColor =
 		| 'primary'
