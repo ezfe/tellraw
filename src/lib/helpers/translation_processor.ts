@@ -18,7 +18,7 @@ function reverse(str: string): string {
 
 function findTranslationString(enteredText: string, translationSet: TranslationSet): string {
 	let translationString = enteredText;
-	if (enteredText in translationSet) {
+	if (translationSet[enteredText] && typeof translationSet[enteredText] == 'string') {
 		translationString = translationSet[enteredText];
 	}
 	return translationString;
