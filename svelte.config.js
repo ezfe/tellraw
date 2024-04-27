@@ -1,6 +1,6 @@
 import adapterCf from '@sveltejs/adapter-cloudflare';
 import adapterStatic from '@sveltejs/adapter-static';
-import { vitePreprocess } from '@sveltejs/kit/vite';
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 const adapter = process.env.CF_PAGES ? adapterCf : adapterStatic;
 
