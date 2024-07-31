@@ -20,7 +20,7 @@ function compile_section(
 ): Record<string, unknown>[] {
 	const results: Record<string, unknown>[] = [];
 	for (const snippet of section_snippets) {
-		const pending = {};
+		const pending: Record<string, any> = {};
 
 		if (snippet instanceof TextSnippet) {
 			pending['text'] = snippet.text;
@@ -108,7 +108,7 @@ function compile_section(
 					CommandType.hovertext,
 					version
 				);
-				const contents_key = versionAtLeast(version, '1.16') ? 'contents' : 'value'
+				const contents_key = versionAtLeast(version, '1.16') ? 'contents' : 'value';
 				pending['hoverEvent'] = {
 					action: snippet.hover_event_type,
 					[contents_key]: recursive_result
@@ -182,14 +182,18 @@ export function compile_section_list(
 		if (versionAtLeast(version, '1.20')) {
 			const front_text_results = [...results].slice(0, 4);
 			const front_text_lines = [...front_text_results, '', '', '', ''].slice(0, 4);
-			const front_text_mapped = front_text_lines.map((line) => JSON.stringify(JSON.stringify(line)));
+			const front_text_mapped = front_text_lines.map((line) =>
+				JSON.stringify(JSON.stringify(line))
+			);
 			const front_text_return = `front_text:{messages:[${front_text_mapped.join(',')}]}`;
 
 			let back_text_return = '';
 			if (results.length > 4) {
 				const back_text_results = [...results].slice(4);
 				const back_text_lines = [...back_text_results, '', '', '', ''].slice(0, 4);
-				const back_text_mapped = back_text_lines.map((line) => JSON.stringify(JSON.stringify(line)));
+				const back_text_mapped = back_text_lines.map((line) =>
+					JSON.stringify(JSON.stringify(line))
+				);
 				back_text_return = `,back_text:{messages:[${back_text_mapped.join(',')}]}`;
 			}
 
