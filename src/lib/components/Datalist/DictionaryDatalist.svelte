@@ -29,7 +29,7 @@
 		...Object.keys(mergeContents)
 	]));
 
-	run(() => {
+	$effect(() => {
 		jsonPromise.then((json) => {
 			if (newFileContents) {
 				newFileContents({
