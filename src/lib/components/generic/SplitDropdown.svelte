@@ -28,21 +28,32 @@
 		disabled?: boolean;
 	}
 
-	export let color: ButtonColor;
-	export let disabled = false;
-	export let block = false;
-	export let dropdowns: DropdownAction[];
+	interface Props {
+		color: ButtonColor;
+		disabled?: boolean;
+		block?: boolean;
+		dropdowns: DropdownAction[];
+		children?: import('svelte').Snippet;
+	}
+
+	let {
+		color,
+		disabled = false,
+		block = false,
+		dropdowns,
+		children
+	}: Props = $props();
 </script>
 
 <ButtonDropdown class={block ? 'w-100' : ''}>
 	<Button {color} {disabled} {block} on:click>
-		<slot />
+		{@render children?.()}
 	</Button>
 	<DropdownToggle split {color} />
 	<DropdownMenu>
 		{#each dropdowns as dropdown}
 			<DropdownItem on:click={dropdown.onClick}>
-				<svelte:component this={dropdown.icon} />
+				<dropdown.icon />
 				{#if dropdown.label}
 					{#if dropdown.icon}
 						{' '}
@@ -52,7 +63,7 @@
 						{' '}
 					{/if}
 				{/if}
-				<svelte:component this={dropdown.iconRight} />
+				<dropdown.iconRight />
 			</DropdownItem>
 		{/each}
 	</DropdownMenu>

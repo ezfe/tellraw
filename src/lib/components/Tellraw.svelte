@@ -29,15 +29,15 @@
 	import SnippetCollection from './SnippetCollection.svelte';
 	import { versionAtLeast } from '$lib/helpers/versions';
 
-	let exporting = false;
-	let importing = false;
+	let exporting = $state(false);
+	let importing = $state(false);
 
-	let colorManaging = false;
-	let hideWrapper = false;
+	let colorManaging = $state(false);
+	let hideWrapper = $state(false);
 
-	let translationSet: TranslationSet = {};
+	let translationSet: TranslationSet = $state({});
 
-	$: compiled = compile($snippets, $command, $commandType, $version, $litSign);
+	let compiled = $derived(compile($snippets, $command, $commandType, $version, $litSign));
 
 	function clearAllSnippets() {
 		const titleString = 'Are you sure!?!';
@@ -89,7 +89,7 @@
 					<textarea
 						readOnly={true}
 						class="form-control mb-3"
-						on:click={(event) => {
+						onclick={(event) => {
 							event.currentTarget.select();
 						}}
 						value={export_snippets($snippets, $command, $commandType)}
@@ -197,7 +197,7 @@
 					<textarea
 						readOnly={true}
 						class="form-control"
-						on:click={(event) => {
+						onclick={(event) => {
 							event.currentTarget.select();
 						}}
 						value={compiled}
@@ -246,7 +246,7 @@
 					and materials are trademarks and copyrights of Mojang and its licensors. This site is not affiliated
 					with Mojang.
 				</span>
-				<button on:click={speedtest} style="display: none;">speedtest</button>
+				<button onclick={speedtest} style="display: none;">speedtest</button>
 			</div>
 		</div>
 	{/if}

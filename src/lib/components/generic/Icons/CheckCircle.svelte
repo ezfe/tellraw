@@ -2,7 +2,11 @@
 	import { faCheckCircle as icon } from '@fortawesome/free-solid-svg-icons/faCheckCircle';
 	import IconContainer from './IconContainer.svelte';
 
-	export let style = '';
+	interface Props {
+		style?: string;
+	}
+
+	let { style = '' }: Props = $props();
 </script>
 
 <IconContainer {icon} {style} />

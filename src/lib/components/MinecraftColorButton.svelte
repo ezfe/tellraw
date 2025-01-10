@@ -4,15 +4,19 @@
 	import { highContrastColor } from '../helpers/high_contrast';
 	import CheckCircle from './generic/Icons/CheckCircle.svelte';
 
-	export let checked: boolean;
-	export let color: Color;
-	export let onClick: (color: Color) => void;
+	interface Props {
+		checked: boolean;
+		color: Color;
+		onClick: (color: Color) => void;
+	}
+
+	let { checked, color, onClick }: Props = $props();
 </script>
 
 <div
 	class="d-flex justify-content-center align-items-center color-button"
 	style={`background-color: ${getCSSHEX(color)}`}
-	on:click={() => {
+	onclick={() => {
 		onClick(color);
 	}}
 >

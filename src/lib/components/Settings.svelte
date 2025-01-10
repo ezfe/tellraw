@@ -6,7 +6,7 @@
 		version
 	} from '../persistence/stores';
 
-	$: translationsCount = Object.keys($customLanguageTranslations).length;
+	let translationsCount = $derived(Object.keys($customLanguageTranslations).length);
 
 	function importTranslations() {
 		const valueString = prompt('Paste translation file here:');

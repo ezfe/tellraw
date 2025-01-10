@@ -7,15 +7,19 @@
 	import ArrowCircleRight from '../generic/Icons/ArrowCircleRight.svelte';
 	import PreviewContents from './PreviewContents.svelte';
 
-	export let snippets: Snippet[];
-	export let translationSet: TranslationSet;
+	interface Props {
+		snippets: Snippet[];
+		translationSet: TranslationSet;
+	}
 
-	let bookPage = 1;
+	let { snippets, translationSet }: Props = $props();
 
-	$: pageCount =
-		snippets.filter((s) => {
+	let bookPage = $state(1);
+
+	let pageCount =
+		$derived(snippets.filter((s) => {
 			return s instanceof PagebreakSnippet;
-		}).length + 1;
+		}).length + 1);
 </script>
 
 <div>

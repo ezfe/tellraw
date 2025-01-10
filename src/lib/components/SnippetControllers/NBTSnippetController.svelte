@@ -6,8 +6,12 @@
 	import { commandType, version } from '../../persistence/stores';
 	import Checkbox from '../generic/Checkbox.svelte';
 
-	export let snippet: NBTSnippet;
-	export let updateSnippet: (snippet: Snippet) => void;
+	interface Props {
+		snippet: NBTSnippet;
+		updateSnippet: (snippet: Snippet) => void;
+	}
+
+	let { snippet, updateSnippet }: Props = $props();
 
 	function updateField(field: string, event: any) {
 		updateFieldValue(field, event.target.value);
@@ -35,7 +39,7 @@
 {:else}
 	<Row class="mb-2">
 		<Col>
-			<select class="form-select" value={snippet.type} on:input={changeNBTType}>
+			<select class="form-select" value={snippet.type} oninput={changeNBTType}>
 				<option
 					value={NBTType.storage}
 					disabled={!isFeatureAvailable($commandType, $version, FeatureType.nbtStorageComponent)}
@@ -54,7 +58,7 @@
 				class="form-control"
 				value={snippet.storage}
 				placeholder="Identifier"
-				on:change={(evt) => {
+				onchange={(evt) => {
 					updateField('storage', evt);
 				}}
 			/>
@@ -66,7 +70,7 @@
 				class="form-control"
 				value={snippet.nbt}
 				placeholder="NBT Path"
-				on:input={(evt) => {
+				oninput={(evt) => {
 					updateField('nbt', evt);
 				}}
 			/>

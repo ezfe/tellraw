@@ -1,24 +1,35 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import { version } from '../../persistence/stores';
 	import Datalist from './Datalist.svelte';
 
-	export let fileIdentifier: string;
-	export let versioned: boolean = false;
-	export let newFileContents: ((fileContents: { [key: string]: string }) => void) | undefined;
 
-	export let mergeContents: { [key: string]: string } = {};
+	interface Props {
+		fileIdentifier: string;
+		versioned?: boolean;
+		newFileContents: ((fileContents: { [key: string]: string }) => void) | undefined;
+		mergeContents?: { [key: string]: string };
+	}
 
-	$: url = versioned
+	let {
+		fileIdentifier,
+		versioned = false,
+		newFileContents,
+		mergeContents = {}
+	}: Props = $props();
+
+	let url = $derived(versioned
 		? `datafiles/${$version}/${fileIdentifier}.json`
-		: `datafiles/${fileIdentifier}.json`;
-	$: responsePromise = fetch(url);
-	$: jsonPromise = responsePromise.then((res) => (res.ok ? res.json() : {}));
-	$: listPromise = jsonPromise.then((json) => [
+		: `datafiles/${fileIdentifier}.json`);
+	let responsePromise = $derived(fetch(url));
+	let jsonPromise = $derived(responsePromise.then((res) => (res.ok ? res.json() : {})));
+	let listPromise = $derived(jsonPromise.then((json) => [
 		...Object.keys(json),
 		...Object.keys(mergeContents)
-	]);
+	]));
 
-	$: {
+	run(() => {
 		jsonPromise.then((json) => {
 			if (newFileContents) {
 				newFileContents({
@@ -27,7 +38,7 @@
 				});
 			}
 		});
-	}
+	});
 </script>
 
 <Datalist {fileIdentifier} values={listPromise} />

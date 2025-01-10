@@ -21,19 +21,24 @@
 	import NbtSnippetController from './NBTSnippetController.svelte';
 	import TranslateSnippetController from './TranslateSnippetController.svelte';
 
-	export let snippet: Snippet;
-	export let stopEditing: (save: boolean) => void;
-	export let colorManaging: boolean;
-	export let commandType: CommandType;
-	export let translationSet: TranslationSet;
+	interface Props {
+		snippet: Snippet;
+		stopEditing: (save: boolean) => void;
+		colorManaging: boolean;
+		commandType: CommandType;
+		translationSet: TranslationSet;
+	}
 
-	let nestedEditing = false;
+	let {
+		snippet = $bindable(),
+		stopEditing,
+		colorManaging = $bindable(),
+		commandType,
+		translationSet
+	}: Props = $props();
 
-	$: filteredColorSet = fullColorSet().filter((color) => {
-		return color != 'none';
-	});
-	$: clickEventTypeIsCommand =
-		snippet.click_event_type == 'run_command' || snippet.click_event_type == 'suggest_command';
+	let nestedEditing = $state(false);
+
 
 	function changeClickEventType(event: any) {
 		updateField('click_event_type', event.target.value);
@@ -97,6 +102,11 @@
 	function fullColorSet(): Color[] {
 		return [...Object.keys(minecraftColorSet), ...$customColors];
 	}
+	let filteredColorSet = $derived(fullColorSet().filter((color) => {
+		return color != 'none';
+	}));
+	let clickEventTypeIsCommand =
+		$derived(snippet.click_event_type == 'run_command' || snippet.click_event_type == 'suggest_command');
 </script>
 
 {#if !nestedEditing}
@@ -183,7 +193,7 @@
 						<input
 							type="color"
 							value={getCSSHEX(snippet.color)}
-							on:input={(evt) => {
+							oninput={(evt) => {
 								updateField('color', evt.currentTarget.value.toUpperCase());
 							}}
 						/>
@@ -258,7 +268,7 @@
 				<div class="row">
 					<div class="col">
 						{#if snippet.font !== null}
-							<input type="text" class="form-control" value={snippet.font} on:input={changeFont} />
+							<input type="text" class="form-control" value={snippet.font} oninput={changeFont} />
 						{/if}
 					</div>
 				</div>
@@ -279,7 +289,7 @@
 				<select
 					class="form-select"
 					value={snippet.click_event_type}
-					on:input={changeClickEventType}
+					oninput={changeClickEventType}
 				>
 					<option selected={snippet.click_event_type == 'none'} value={ClickEvent.none}>
 						None
@@ -332,7 +342,7 @@
 								type="text"
 								class="form-control"
 								value={snippet.click_event_value}
-								on:input={changeClickEventValue}
+								oninput={changeClickEventValue}
 							/>
 						</div>
 					</div>
@@ -363,7 +373,7 @@
 				<select
 					class="form-select"
 					value={snippet.hover_event_type}
-					on:input={changeHoverEventType}
+					oninput={changeHoverEventType}
 				>
 					<option selected={snippet.hover_event_type == 'none'} value={HoverEvent.none}>
 						None
@@ -405,7 +415,7 @@
 						type="text"
 						class="form-control"
 						value={snippet.hover_event_value}
-						on:change={changeHoverEventValue}
+						onchange={changeHoverEventValue}
 					/>
 				</div>
 			{/if}
@@ -419,7 +429,7 @@
 				<h4>Insertion:</h4>
 			</div>
 			<div class="col">
-				<input class="form-control" value={snippet.insertion} on:input={changeInsertion} />
+				<input class="form-control" value={snippet.insertion} oninput={changeInsertion} />
 			</div>
 		</div>
 	{/if}
@@ -430,7 +440,7 @@
 		<div class="offset-8 col-2">
 			<button
 				class="btn btn-secondary w-100"
-				on:click={() => {
+				onclick={() => {
 					stopEditing(false);
 				}}
 			>
@@ -440,7 +450,7 @@
 		<div class="col-2">
 			<button
 				class="btn btn-primary w-100"
-				on:click={() => {
+				onclick={() => {
 					stopEditing(true);
 				}}
 			>

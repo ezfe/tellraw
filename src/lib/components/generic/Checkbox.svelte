@@ -3,7 +3,12 @@
 
 	const dispatch = createEventDispatcher();
 
-	export let checked: boolean;
+	interface Props {
+		checked: boolean;
+		children?: import('svelte').Snippet;
+	}
+
+	let { checked, children }: Props = $props();
 
 	let randomUUID = crypto.randomUUID();
 
@@ -15,10 +20,10 @@
 <div class="custom-control custom-checkbox">
 	<input
 		{checked}
-		on:change={onChange}
+		onchange={onChange}
 		type="checkbox"
 		class="custom-control-input"
 		id={randomUUID}
 	/>
-	<label class="custom-control-label" for={randomUUID}><slot /></label>
+	<label class="custom-control-label" for={randomUUID}>{@render children?.()}</label>
 </div>

@@ -4,8 +4,12 @@
 	import { previewBackgroundColor } from '../../persistence/stores';
 	import PreviewContents from './PreviewContents.svelte';
 
-	export let snippets: Snippet[];
-	export let translationSet: TranslationSet;
+	interface Props {
+		snippets: Snippet[];
+		translationSet: TranslationSet;
+	}
+
+	let { snippets, translationSet }: Props = $props();
 </script>
 
 <div class="preview p-3" style={`background-color: ${$previewBackgroundColor}`}>

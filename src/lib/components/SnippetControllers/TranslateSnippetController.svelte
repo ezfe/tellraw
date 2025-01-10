@@ -10,18 +10,29 @@
 	import InlineSnippetController from './InlineSnippetController.svelte';
 	import SnippetDetailController from './SnippetDetailController.svelte';
 
-	export let snippet: TranslateSnippet = new TranslateSnippet();
-	export let commandType: CommandType = CommandType.tellraw;
-	export let colorManaging: boolean = false;
-	export let translationSet: TranslationSet = {};
-	export let updateSnippet: (snippet: Snippet) => void = () => {};
 
-	export let hideExteriorWrapper: boolean;
-	let editing: Snippet | null = null;
+	interface Props {
+		snippet?: TranslateSnippet;
+		commandType?: CommandType;
+		colorManaging?: boolean;
+		translationSet?: TranslationSet;
+		updateSnippet?: (snippet: Snippet) => void;
+		hideExteriorWrapper: boolean;
+	}
+
+	let {
+		snippet = new TranslateSnippet(),
+		commandType = CommandType.tellraw,
+		colorManaging = $bindable(false),
+		translationSet = {},
+		updateSnippet = () => {},
+		hideExteriorWrapper = $bindable()
+	}: Props = $props();
+	let editing: Snippet | null = $state(null);
 
 	let hideWrapper = false;
 
-	$: targetParameterCount = countParameters(snippet.translate, translationSet);
+	let targetParameterCount = $derived(countParameters(snippet.translate, translationSet));
 
 	function updateTranslate(event: any) {
 		const newSnippet = snippet.copy();
@@ -86,7 +97,7 @@
 			id="translation-string-input"
 			value={snippet.translate}
 			list="datalist-translations"
-			on:input={updateTranslate}
+			oninput={updateTranslate}
 		/>
 		<small id="translation-string-help">
 			Choose a translation identifier (specified in Minecraft translation files) or type out a

@@ -12,15 +12,27 @@
 	import InlineSnippetController from './SnippetControllers/InlineSnippetController.svelte';
 	import SnippetDetailController from './SnippetControllers/SnippetDetailController.svelte';
 
-	export let hideExteriorWrapper: boolean = false;
-	let editing: Snippet | null = null;
+	let editing: Snippet | null = $state(null);
 
-	export let commandType: CommandType = CommandType.tellraw;
-	export let colorManaging: boolean = false;
-	export let snippets: Snippet[] = [];
-	export let translationSet: TranslationSet = {};
-	export let updateSnippets: (newValue: Snippet[]) => void = () => {};
-	export let deleteAll: () => void = () => {};
+	interface Props {
+		hideExteriorWrapper?: boolean;
+		commandType?: CommandType;
+		colorManaging?: boolean;
+		snippets?: Snippet[];
+		translationSet?: TranslationSet;
+		updateSnippets?: (newValue: Snippet[]) => void;
+		deleteAll?: () => void;
+	}
+
+	let {
+		hideExteriorWrapper = $bindable(false),
+		commandType = CommandType.tellraw,
+		colorManaging = $bindable(false),
+		snippets = $bindable([]),
+		translationSet = {},
+		updateSnippets = () => {},
+		deleteAll = () => {}
+	}: Props = $props();
 
 	/**
 	 * Add a new snippet to the list.
@@ -137,8 +149,8 @@
 {:else}
 	<section
 		use:dndzone={{ items: snippets, flipDurationMs: 300 }}
-		on:consider={handleDndConsider}
-		on:finalize={handleDndFinalize}
+		onconsider={handleDndConsider}
+		onfinalize={handleDndFinalize}
 	>
 		{#each snippets as snippet (snippet.id)}
 			<div animate:flip={{ duration: 300 }}>

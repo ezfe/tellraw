@@ -1,4 +1,5 @@
 <script lang="ts">
+	import PreviewContents from './PreviewContents.svelte';
 	import { getCSSHEX } from '../../classes/Color';
 	import { GroupSnippet } from '../../classes/Snippets/SnippetTypes/GroupSnippet';
 	import { KeybindSnippet } from '../../classes/Snippets/SnippetTypes/KeybindSnippet';
@@ -50,16 +51,20 @@
 		return Math.min(found, snippets.length);
 	}
 
-	export let snippets: Snippet[];
-	export let bookPage: number | undefined;
 
-	export let translationSet: TranslationSet;
+	interface Props {
+		snippets: Snippet[];
+		bookPage: number | undefined;
+		translationSet: TranslationSet;
+	}
 
-	$: pageStartIndex = findPageStartIndex(bookPage, snippets);
-	$: pageEndIndex = findPageEndIndex(bookPage, snippets);
+	let { snippets, bookPage, translationSet }: Props = $props();
 
-	$: slicedSnippets = snippets.slice(pageStartIndex, pageEndIndex);
-	$: decoratedSnippets = slicedSnippets
+	let pageStartIndex = $derived(findPageStartIndex(bookPage, snippets));
+	let pageEndIndex = $derived(findPageEndIndex(bookPage, snippets));
+
+	let slicedSnippets = $derived(snippets.slice(pageStartIndex, pageEndIndex));
+	let decoratedSnippets = $derived(slicedSnippets
 		.map((snippet) => {
 			if (snippet instanceof TranslateSnippet) {
 				return previewGroupFromTranslate(snippet, translationSet);
@@ -104,7 +109,7 @@
 				color,
 				icon
 			};
-		});
+		}));
 </script>
 
 {#each decoratedSnippets as snippetInfo}<!--
@@ -117,8 +122,7 @@
 			style={`color: ${snippetInfo.color}`}
 			><!--
     -->{#if snippetInfo.icon}<!--
-      --><svelte:component
-					this={snippetInfo.icon}
+      --><snippetInfo.icon
 				/><!--
     -->{/if}<!--
     -->{#if snippetInfo.snippet instanceof TextSnippet}<!--
@@ -142,7 +146,7 @@
 					.snippet.nbt}@{snippetInfo.snippet
 					.storage}<!--
     -->{:else if snippetInfo.snippet instanceof GroupSnippet}<!--
-      --><svelte:self
+      --><PreviewContents
 					snippets={snippetInfo.snippet.children}
 					{translationSet}
 				/><!--

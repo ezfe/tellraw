@@ -2,13 +2,17 @@
 	import type { Color } from '../classes/Color';
 	import { getCSSHEX } from '../classes/Color';
 
-	export let color: Color;
+	interface Props {
+		color: Color;
+	}
+
+	let { color }: Props = $props();
 </script>
 
 {#if color == 'none'}
-	<div class="color-well-none" />
+	<div class="color-well-none"></div>
 {:else}
-	<div class="color-well cw-filled" style={`background-color: ${getCSSHEX(color)}`} />
+	<div class="color-well cw-filled" style={`background-color: ${getCSSHEX(color)}`}></div>
 {/if}
 
 <style>

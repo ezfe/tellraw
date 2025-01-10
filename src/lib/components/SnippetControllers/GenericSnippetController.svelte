@@ -3,8 +3,12 @@
 	import type { GenericFieldCompatable } from '../../classes/Snippets/SnippetTypes/GenericFieldCompatable';
 	import type { FieldSpecifier, Snippet } from '../../classes/Snippets/SnippetTypes/Snippet';
 
-	export let snippet: GenericFieldCompatable;
-	export let updateSnippet: (snippet: Snippet) => void;
+	interface Props {
+		snippet: GenericFieldCompatable;
+		updateSnippet: (snippet: Snippet) => void;
+	}
+
+	let { snippet, updateSnippet }: Props = $props();
 
 	function updateField(field: FieldSpecifier, value: any) {
 		let newSnippet = snippet.copy();
@@ -26,7 +30,7 @@
 					class="form-control"
 					placeholder={field.placeholder}
 					value={snippet[field.field]}
-					on:input={(evt) => {
+					oninput={(evt) => {
 						updateField(field, evt.currentTarget.value);
 					}}
 				/>

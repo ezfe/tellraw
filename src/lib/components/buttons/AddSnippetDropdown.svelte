@@ -15,10 +15,14 @@
 	import PlusCircle from '../generic/Icons/PlusCircle.svelte';
 	import TachometerAlt from '../generic/Icons/TachometerAlt.svelte';
 
-	export let title: String | undefined = undefined;
-	export let addSnippet: (snippet: Snippet, fast: boolean) => void = () => {};
-	export let commandType: CommandType = CommandType.tellraw;
-	let optionPressed = false;
+	interface Props {
+		title?: String | undefined;
+		addSnippet?: (snippet: Snippet, fast: boolean) => void;
+		commandType?: CommandType;
+	}
+
+	let { title = undefined, addSnippet = () => {}, commandType = CommandType.tellraw }: Props = $props();
+	let optionPressed = $state(false);
 
 	function keyDown(event: any) {
 		if (event.key === 'Alt' || event.keyCode === 18) {
@@ -48,12 +52,12 @@
 		fastEditTipShown.set(false);
 	}
 
-	$: nbtStorageAvailable = isFeatureAvailable(commandType, $version, FeatureType.nbtComponent);
-	$: pageBreakAvailalbe = isFeatureAvailable(commandType, $version, FeatureType.pages);
-	$: linebreakAvailable = isFeatureAvailable(commandType, $version, FeatureType.linebreak);
+	let nbtStorageAvailable = $derived(isFeatureAvailable(commandType, $version, FeatureType.nbtComponent));
+	let pageBreakAvailalbe = $derived(isFeatureAvailable(commandType, $version, FeatureType.pages));
+	let linebreakAvailable = $derived(isFeatureAvailable(commandType, $version, FeatureType.linebreak));
 </script>
 
-<svelte:window on:keydown={keyDown} on:keyup={keyUp} />
+<svelte:window onkeydown={keyDown} onkeyup={keyUp} />
 
 <ButtonDropdown class="w-100">
 	<DropdownToggle color="primary" caret>
@@ -121,7 +125,7 @@
 			</DropdownItem>
 		{/if}
 		{#if $fastEditTipShown}
-			<div class="dropdown-divider" />
+			<div class="dropdown-divider"></div>
 			<p class="text-muted px-4 mb-0 d-flex justify-content-between align-items-center">
 				Hold option to add without editing
 				<Button color="danger" size="sm" outline on:click={hideFastEditTip}>OK</Button>

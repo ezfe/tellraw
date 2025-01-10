@@ -8,12 +8,16 @@
 	import BookPreview from './BookPreview.svelte';
 	import RegularPreview from './RegularPreview.svelte';
 
-	export let snippets: Snippet[];
-	export let commandType: CommandType;
-	export let translationSet: TranslationSet;
+	interface Props {
+		snippets: Snippet[];
+		commandType: CommandType;
+		translationSet: TranslationSet;
+	}
 
-	$: isBookPreview = isFeatureAvailable(commandType, $version, FeatureType.bookPreview);
-	$: bookPreviewClass = isBookPreview ? 'd-flex align-items-center justify-content-center' : '';
+	let { snippets, commandType, translationSet }: Props = $props();
+
+	let isBookPreview = $derived(isFeatureAvailable(commandType, $version, FeatureType.bookPreview));
+	let bookPreviewClass = $derived(isBookPreview ? 'd-flex align-items-center justify-content-center' : '');
 </script>
 
 <div class="row mb-2">

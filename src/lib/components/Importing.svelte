@@ -7,10 +7,13 @@
 	import TimesCircle from './generic/Icons/TimesCircle.svelte';
 	import LightWell from './generic/LightWell.svelte';
 
-	let importingString = '';
-	export let importing: boolean;
+	let importingString = $state('');
+	interface Props {
+		importing: boolean;
+	}
 
-	$: isUsingNewImport = !isJson(importingString) && importingString.length > 0;
+	let { importing = $bindable() }: Props = $props();
+
 
 	function formSubmit(e: any): boolean {
 		e.preventDefault();
@@ -81,14 +84,15 @@
 		}
 		return true;
 	}
+	let isUsingNewImport = $derived(!isJson(importingString) && importingString.length > 0);
 </script>
 
-<form on:submit={formSubmit}>
+<form onsubmit={formSubmit}>
 	<div class="row mb-5">
 		<div class="col-md-6 offset-md-3 text-center">
 			<LightWell>
 				<p class="mb-3">Please enter the string you were given when you exported your command</p>
-				<!-- svelte-ignore a11y-autofocus -->
+				<!-- svelte-ignore a11y_autofocus -->
 				<input autoFocus class="form-control mb-3" bind:value={importingString} />
 				<Button
 					type="button"

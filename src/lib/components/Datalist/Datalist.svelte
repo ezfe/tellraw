@@ -1,14 +1,18 @@
 <script lang="ts">
-	export let fileIdentifier: string;
-	let valuesPromise: string[] | Promise<string[]>;
+	interface Props {
+		fileIdentifier: string;
+		values: string[] | Promise<string[]>;
+	}
 
-	export { valuesPromise as values };
+	let { fileIdentifier, values: valuesPromise }: Props = $props();
+
+	
 </script>
 
 <datalist id={`datalist-${fileIdentifier}`}>
 	{#await valuesPromise then list}
 		{#each list as value}
-			<option {value} />
+			<option {value}></option>
 		{/each}
 	{/await}
 </datalist>

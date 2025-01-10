@@ -23,13 +23,25 @@
 	type SnippetFn = (snippet: Snippet) => void;
 	type OptionalSnippetFn = SnippetFn | undefined;
 
-	export let snippet: Snippet = new TextSnippet();
-	export let commandType: CommandType = CommandType.tellraw;
-	export let colorManaging: boolean = false;
-	export let startEditing: SnippetFn = () => {};
-	export let updateSnippet: SnippetFn = () => {};
-	export let removeSnippet: SnippetFn = () => {};
-	export let duplicateSnippet: OptionalSnippetFn = () => {};
+	interface Props {
+		snippet?: Snippet;
+		commandType?: CommandType;
+		colorManaging?: boolean;
+		startEditing?: SnippetFn;
+		updateSnippet?: SnippetFn;
+		removeSnippet?: SnippetFn;
+		duplicateSnippet?: OptionalSnippetFn;
+	}
+
+	let {
+		snippet = new TextSnippet(),
+		commandType = CommandType.tellraw,
+		colorManaging = $bindable(false),
+		startEditing = () => {},
+		updateSnippet = () => {},
+		removeSnippet = () => {},
+		duplicateSnippet = () => {}
+	}: Props = $props();
 
 	function changeGroupSnippetChildren(snippets: Array<Snippet>) {
 		let newSnippet = duplicate_snippet(snippet);
@@ -65,7 +77,7 @@
 		}
 	}
 
-	$: editingEnabled = !(snippet instanceof LinebreakSnippet || snippet instanceof PagebreakSnippet);
+	let editingEnabled = $derived(!(snippet instanceof LinebreakSnippet || snippet instanceof PagebreakSnippet));
 </script>
 
 <Row class="mb-2">
