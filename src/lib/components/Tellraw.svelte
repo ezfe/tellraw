@@ -74,7 +74,7 @@
 	}
 </script>
 
-<div id="spacer-temp-fix" />
+<div id="spacer-temp-fix"></div>
 <div class="container">
 	{#if importing}
 		<Importing bind:importing />
@@ -93,7 +93,7 @@
 							event.currentTarget.select();
 						}}
 						value={export_snippets($snippets, $command, $commandType)}
-					/>
+					></textarea>
 					<Button
 						color="success"
 						on:click={() => {
@@ -126,14 +126,13 @@
 					role="toolbar"
 					aria-label="Toolbar with button groups"
 				>
-					<Button
-						size="sm"
-						color="danger"
+					<a
+						class="btn btn-sm btn-danger"
 						href="https://github.com/ezfe/tellraw/issues/new"
 						target="_"
 					>
 						<ExclamationTriangle /> Report an Issue
-					</Button>
+					</a>
 					<SiteActions />
 				</div>
 			</div>
@@ -198,11 +197,11 @@
 					<textarea
 						readOnly={true}
 						class="form-control"
-						onClick={(event) => {
+						on:click={(event) => {
 							event.currentTarget.select();
 						}}
 						value={compiled}
-					/>
+					></textarea>
 				</div>
 			</div>
 
