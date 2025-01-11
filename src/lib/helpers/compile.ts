@@ -223,26 +223,44 @@ export function compile_section_list(
 		let ret = '';
 		if (versionAtLeast(version, '1.20')) {
 			const front_text_results = [...results].slice(0, 4);
-			const front_text_lines = [
-				...front_text_results,
-				{ text: '' },
-				{ text: '' },
-				{ text: '' },
-				{ text: '' }
-			].slice(0, 4);
-			const front_text_return = `front_text:${compileSnbt({ messages: front_text_lines })}`;
 
-			let back_text_return = '';
-			if (results.length > 4) {
-				const back_text_results = [...results].slice(4);
-				const back_text_lines = [
-					...back_text_results,
+			let front_text_return: string;
+			if (versionAtLeast(version, '1.22')) {
+				const front_text_lines = [
+					...front_text_results,
 					{ text: '' },
 					{ text: '' },
 					{ text: '' },
 					{ text: '' }
 				].slice(0, 4);
-				back_text_return = `,back_text:${compileSnbt({ messages: back_text_lines })}`;
+				front_text_return = `front_text:${compileSnbt({ messages: front_text_lines })}`;
+			} else {
+				const front_text_lines = [...front_text_results, '', '', '', ''].slice(0, 4);
+				const front_text_mapped = front_text_lines.map((line) =>
+					JSON.stringify(JSON.stringify(line))
+				);
+				front_text_return = `front_text:{messages:[${front_text_mapped.join(',')}]}`;
+			}
+
+			let back_text_return = '';
+			if (results.length > 4) {
+				const back_text_results = [...results].slice(4);
+				if (versionAtLeast(version, '1.22')) {
+					const back_text_lines = [
+						...back_text_results,
+						{ text: '' },
+						{ text: '' },
+						{ text: '' },
+						{ text: '' }
+					].slice(0, 4);
+					back_text_return = `,back_text:${compileSnbt({ messages: back_text_lines })}`;
+				} else {
+					const back_text_lines = [...back_text_results, '', '', '', ''].slice(0, 4);
+					const back_text_mapped = back_text_lines.map((line) =>
+						JSON.stringify(JSON.stringify(line))
+					);
+					back_text_return = `,back_text:{messages:[${back_text_mapped.join(',')}]}`;
+				}
 			}
 
 			ret = front_text_return + back_text_return;
