@@ -214,7 +214,15 @@ export function compile_section_list(
 	}
 
 	if (type == CommandType.book) {
-		return compileSnbt(results);
+		if (versionAtLeast(version, '1.22')) {
+			return compileSnbt(results);
+		} else {
+			return JSON.stringify(
+				results.map((e) => {
+					return JSON.stringify(e);
+				})
+			);
+		}
 	} else if (type == CommandType.sign) {
 		let ret = '';
 		if (versionAtLeast(version, '1.20')) {
