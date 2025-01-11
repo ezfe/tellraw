@@ -27,7 +27,7 @@
 	import PreviewContainer from './Previews/PreviewContainer.svelte';
 	import Settings from './Settings.svelte';
 	import SnippetCollection from './SnippetCollection.svelte';
-	import { versionAtLeast } from '$lib/helpers/versions';
+	import { compile as snbtCompile } from '../snbt/compile';
 
 	let exporting = $state(false);
 	let importing = $state(false);
@@ -38,6 +38,10 @@
 	let translationSet: TranslationSet = $state({});
 
 	let compiled = $derived(compile($snippets, $command, $commandType, $version, $litSign));
+
+	$effect(() => {
+		console.log(snbtCompile($snippets));
+	})
 
 	function clearAllSnippets() {
 		const titleString = 'Are you sure!?!';

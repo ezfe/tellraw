@@ -12,6 +12,7 @@ import { TranslateSnippet } from '../classes/Snippets/SnippetTypes/TranslateSnip
 import { CommandType, FeatureType, isFeatureAvailable } from '../data/templates';
 import type { Version } from './versions';
 import { versionAtLeast } from './versions';
+import { compile as compileSnbt } from '../snbt/compile';
 
 function compile_section(
 	section_snippets: Snippet[],
@@ -94,40 +95,86 @@ function compile_section(
 				isFeatureAvailable(type, version, FeatureType.clicking) &&
 				!(type == CommandType.sign && section_snippets.length > 1)
 			) {
-				pending['clickEvent'] = {
-					action: snippet.click_event_type,
-					value: snippet.click_event_value
-				};
+				const clickEventKey = versionAtLeast(version, '1.22') ? 'click_event' : 'clickEvent';
+				if (snippet.click_event_type == 'open_url') {
+					const urlKey = versionAtLeast(version, '1.22') ? 'url' : 'value';
+					pending[clickEventKey] = {
+						action: snippet.click_event_type,
+						[urlKey]: snippet.click_event_value
+					};
+				} else if (
+					snippet.click_event_type == 'run_command' ||
+					snippet.click_event_type == 'suggest_command'
+				) {
+					const commandKey = versionAtLeast(version, '1.22') ? 'command' : 'value';
+					pending[clickEventKey] = {
+						action: snippet.click_event_type,
+						[commandKey]: snippet.click_event_value
+					};
+				} else if (snippet.click_event_type == 'change_page') {
+					if (versionAtLeast(version, '1.22')) {
+						try {
+							pending[clickEventKey] = {
+								action: snippet.click_event_type,
+								page: parseInt(snippet.click_event_value)
+							};
+						} catch (error) {
+							console.warn(
+								'Failed to parse page number for change_page click event',
+								snippet.click_event_value
+							);
+						}
+					} else {
+						pending[clickEventKey] = {
+							action: snippet.click_event_type,
+							value: snippet.click_event_value
+						};
+					}
+				} else {
+					pending[clickEventKey] = {
+						action: snippet.click_event_type,
+						value: snippet.click_event_value
+					};
+				}
 			}
 		}
 
 		if (isFeatureAvailable(type, version, FeatureType.hovering)) {
+			const hoverEventKey = versionAtLeast(version, '1.22') ? 'hover_event' : 'hoverEvent';
 			if (snippet.hover_event_type == 'show_text') {
 				const recursive_result = compile_section(
 					snippet.hover_event_children,
 					CommandType.hovertext,
 					version
 				);
-				const contents_key = versionAtLeast(version, '1.16') ? 'contents' : 'value';
-				pending['hoverEvent'] = {
+				const contents_key = determineHoverEventShowTextContentsKey(version);
+				pending[hoverEventKey] = {
 					action: snippet.hover_event_type,
 					[contents_key]: recursive_result
 				};
 			} else if (snippet.hover_event_type != 'none') {
 				if (versionAtLeast(version, '1.16')) {
 					try {
-						pending['hoverEvent'] = {
-							action: snippet.hover_event_type,
-							contents: JSON.parse(snippet.hover_event_value)
-						};
+						const parsedValue = JSON.parse(snippet.hover_event_value);
+						if (versionAtLeast(version, '1.22')) {
+							pending[hoverEventKey] = {
+								...parsedValue,
+								action: snippet.hover_event_type
+							};
+						} else {
+							pending[hoverEventKey] = {
+								action: snippet.hover_event_type,
+								contents: parsedValue
+							};
+						}
 					} catch (error) {
-						pending['hoverEvent'] = {
+						pending[hoverEventKey] = {
 							action: HoverEvent.show_text,
 							contents: `Cannot parse as JSON:\n${snippet.hover_event_value}`
 						};
 					}
 				} else {
-					pending['hoverEvent'] = {
+					pending[hoverEventKey] = {
 						action: snippet.hover_event_type,
 						value: snippet.hover_event_value
 					};
@@ -135,12 +182,7 @@ function compile_section(
 			}
 		}
 
-		const keys = Object.keys(pending);
-		if (keys.length === 1 && keys[0] === 'text') {
-			results.push(pending['text']);
-		} else {
-			results.push(pending);
-		}
+		results.push(pending);
 	}
 	return results;
 }
@@ -159,7 +201,7 @@ export function compile_section_list(
 	const results = Array<FullType>();
 
 	for (const section_snippets of sections) {
-		const section_results = ['', ...compile_section(section_snippets, type, version)];
+		const section_results = [{ text: '' }, ...compile_section(section_snippets, type, version)];
 
 		// If there are 2 elements
 		// (the first element is always "")
@@ -222,7 +264,11 @@ export function compile_section_list(
 
 		return ret;
 	} else if (results.length > 0) {
-		return JSON.stringify(results[0]);
+		if (versionAtLeast(version, '1.22')) {
+			return compileSnbt(results[0]);
+		} else {
+			return JSON.stringify(results[0]);
+		}
 	} else {
 		console.error('No elements case identified to compile this');
 		return '';
@@ -286,5 +332,15 @@ export function compile(
 		return results;
 	} else {
 		return command.replace('%s', results);
+	}
+}
+
+function determineHoverEventShowTextContentsKey(version: Version): string {
+	if (versionAtLeast(version, '1.22')) {
+		return 'text';
+	} else if (versionAtLeast(version, '1.16')) {
+		return 'contents';
+	} else {
+		return 'value';
 	}
 }

@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { run } from 'svelte/legacy';
-
 	import { version } from '../../persistence/stores';
 	import Datalist from './Datalist.svelte';
 

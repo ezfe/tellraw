@@ -20,6 +20,7 @@
 	import GenericSnippetController from './GenericSnippetController.svelte';
 	import NbtSnippetController from './NBTSnippetController.svelte';
 	import TranslateSnippetController from './TranslateSnippetController.svelte';
+	import { versionAtLeast } from '$lib/helpers/versions';
 
 	interface Props {
 		snippet: Snippet;
@@ -378,6 +379,9 @@
 					<option selected={snippet.hover_event_type == 'none'} value={HoverEvent.none}>
 						None
 					</option>
+					<option selected={snippet.hover_event_type == 'show_text'} value={HoverEvent.show_text}>
+						Show Text
+					</option>
 					<option
 						selected={snippet.hover_event_type == 'show_entity'}
 						value={HoverEvent.show_entity}
@@ -386,9 +390,6 @@
 					</option>
 					<option selected={snippet.hover_event_type == 'show_item'} value={HoverEvent.show_item}>
 						Show Item
-					</option>
-					<option selected={snippet.hover_event_type == 'show_text'} value={HoverEvent.show_text}>
-						Show Text
 					</option>
 				</select>
 			</div>

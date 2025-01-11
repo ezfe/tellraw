@@ -41,6 +41,7 @@
 			<option value="1.19">1.19</option>
 			<option value="1.20">1.20</option>
 			<option value="1.21">1.21 (Current Version)</option>
+			<option value="1.22">1.22 (Snapshot Version - Preview)</option>
 		</select>
 
 		<label id="bg-color-label" for="bg-color-input"> Preview Background Color: </label>

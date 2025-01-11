@@ -19,6 +19,8 @@
 	import SnippetCollection from '../SnippetCollection.svelte';
 	import GenericSnippetController from './GenericSnippetController.svelte';
 	import NBTSnippetController from './NBTSnippetController.svelte';
+	import { version } from '$lib/persistence/stores';
+	import { versionAtLeast } from '$lib/helpers/versions';
 
 	type SnippetFn = (snippet: Snippet) => void;
 	type OptionalSnippetFn = SnippetFn | undefined;
@@ -102,7 +104,11 @@
     -->
 	<Col class="d-flex flex-column justify-content-center">
 		{#if snippet instanceof LinebreakSnippet}
-			<span>Line Break ⏎</span>
+			{#if versionAtLeast($version, '1.22')}
+				<span>Line Break ⏎ (incompatible)</span>
+			{:else}
+				<span>Line Break ⏎</span>
+			{/if}
 		{:else if snippet instanceof PagebreakSnippet}
 			<span>Page Break <FileAlt /></span>
 		{:else if snippet instanceof NBTSnippet}
