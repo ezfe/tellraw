@@ -214,11 +214,7 @@ export function compile_section_list(
 	}
 
 	if (type == CommandType.book) {
-		return JSON.stringify(
-			results.map((e) => {
-				return JSON.stringify(e);
-			})
-		);
+		return compileSnbt(results);
 	} else if (type == CommandType.sign) {
 		let ret = '';
 		if (versionAtLeast(version, '1.20')) {
