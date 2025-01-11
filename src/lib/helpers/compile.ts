@@ -190,7 +190,8 @@ function compile_section(
 export function compile_section_list(
 	sections: Snippet[][],
 	type: CommandType,
-	version: Version
+	version: Version,
+	litSign: boolean
 ): string {
 	// Depending on whether a sign click
 	// event is used, sections may be single
@@ -226,68 +227,61 @@ export function compile_section_list(
 	} else if (type == CommandType.sign) {
 		let ret = '';
 		if (versionAtLeast(version, '1.20')) {
-			const front_text_results = [...results].slice(0, 4);
+			let blockEntityData: Record<string, any> = {
+				id: 'sign'
+			};
 
-			let front_text_return: string;
+			const front_text_results = [...results].slice(0, 4);
+			const front_text_lines = [...front_text_results, [''], [''], [''], ['']].slice(0, 4);
 			if (versionAtLeast(version, '1.22')) {
-				const front_text_lines = [
-					...front_text_results,
-					{ text: '' },
-					{ text: '' },
-					{ text: '' },
-					{ text: '' }
-				].slice(0, 4);
-				front_text_return = `front_text:${compileSnbt({ messages: front_text_lines })}`;
+				blockEntityData['front_text'] = {
+					messages: front_text_lines,
+					has_glowing_text: litSign ? true : undefined
+				};
 			} else {
-				const front_text_lines = [...front_text_results, '', '', '', ''].slice(0, 4);
-				const front_text_mapped = front_text_lines.map((line) =>
-					JSON.stringify(JSON.stringify(line))
-				);
-				front_text_return = `front_text:{messages:[${front_text_mapped.join(',')}]}`;
+				const front_text_mapped = front_text_lines.map((line) => JSON.stringify(line));
+				blockEntityData['front_text'] = {
+					messages: front_text_mapped,
+					has_glowing_text: litSign ? true : undefined
+				};
 			}
 
-			let back_text_return = '';
 			if (results.length > 4) {
 				const back_text_results = [...results].slice(4);
+				const back_text_lines = [...back_text_results, [''], [''], [''], ['']].slice(0, 4);
 				if (versionAtLeast(version, '1.22')) {
-					const back_text_lines = [
-						...back_text_results,
-						{ text: '' },
-						{ text: '' },
-						{ text: '' },
-						{ text: '' }
-					].slice(0, 4);
-					back_text_return = `,back_text:${compileSnbt({ messages: back_text_lines })}`;
+					blockEntityData['back_text'] = { messages: back_text_lines };
 				} else {
-					const back_text_lines = [...back_text_results, '', '', '', ''].slice(0, 4);
-					const back_text_mapped = back_text_lines.map((line) =>
-						JSON.stringify(JSON.stringify(line))
-					);
-					back_text_return = `,back_text:{messages:[${back_text_mapped.join(',')}]}`;
+					const back_text_mapped = back_text_lines.map((line) => JSON.stringify(line));
+					blockEntityData['back_text'] = { messages: back_text_mapped };
 				}
 			}
 
-			ret = front_text_return + back_text_return;
+			ret = `[block_entity_data=${compileSnbt(blockEntityData)}]`;
 		} else {
+			let blockEntityData: Record<string, any> = {
+				id: 'sign'
+			};
 			if (results.length >= 1) {
-				const l1 = JSON.stringify(results[0]);
-				ret = ret.concat(`Text1:${JSON.stringify(l1)}`);
+				blockEntityData['Text1'] = JSON.stringify(results[0]);
 
 				if (results.length >= 2) {
-					const l2 = JSON.stringify(results[1]);
-					ret = ret.concat(`,Text2:${JSON.stringify(l2)}`);
+					blockEntityData['Text2'] = JSON.stringify(results[1]);
 
 					if (results.length >= 3) {
-						const l3 = JSON.stringify(results[2]);
-						ret = ret.concat(`,Text3:${JSON.stringify(l3)}`);
+						blockEntityData['Text3'] = JSON.stringify(results[2]);
 
 						if (results.length >= 4) {
-							const l4 = JSON.stringify(results[3]);
-							ret = ret.concat(`,Text4:${JSON.stringify(l4)}`);
+							blockEntityData['Text4'] = JSON.stringify(results[3]);
 						}
 					}
 				}
 			}
+			if (litSign && isFeatureAvailable(type, version, FeatureType.litSign)) {
+				blockEntityData['GlowingText'] = true;
+			}
+
+			ret = compileSnbt({ BlockEntityTag: blockEntityData });
 		}
 
 		return ret;
@@ -344,10 +338,7 @@ export function compile(
 		);
 	}
 
-	let results = compile_section_list(section_list, type, version);
-	if (litSign && isFeatureAvailable(type, version, FeatureType.litSign)) {
-		results = `${results},GlowingText:1b`;
-	}
+	let results = compile_section_list(section_list, type, version, litSign);
 
 	if (!command) {
 		console.error("Command isn't available", command);

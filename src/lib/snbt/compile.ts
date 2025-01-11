@@ -2,14 +2,15 @@
  * Compile an object to SNBT
  * @param obj A JSON object to compile to SNBT
  */
-export function compile(obj: any): string {
-	if (obj === null) {
-		return 'null';
+export function compile(obj: any): string | undefined {
+	if (obj === undefined || obj === null) {
+		return obj;
 	} else if (typeof obj === 'object') {
 		if (Array.isArray(obj)) {
 			return `[${obj.map(compile).join(',')}]`;
 		} else {
 			return `{${Object.entries(obj)
+				.filter(([, value]) => value !== undefined)
 				.map(([key, value]) => `${key}:${compile(value)}`)
 				.join(',')}}`;
 		}
