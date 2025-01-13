@@ -1,6 +1,7 @@
 export type Version =
 	| '1.22'
 	| '1.21'
+	| '1.20.5'
 	| '1.20'
 	| '1.19'
 	| '1.18'
@@ -24,6 +25,7 @@ export const versionKeys = {
 	'1.18': 5,
 	'1.19': 6,
 	'1.20': 7,
+	'1.20.5': 8,
 	'1.21': 9,
 	'1.22': 100 // snbt output starts here
 };

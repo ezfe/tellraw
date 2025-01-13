@@ -39,7 +39,8 @@
 			<option value="1.17">1.17</option>
 			<option value="1.18">1.18</option>
 			<option value="1.19">1.19</option>
-			<option value="1.20">1.20</option>
+			<option value="1.20">1.20.0-1.20.4</option>
+			<option value="1.20.5">1.20.5-1.20.6</option>
 			<option value="1.21">1.21 (Current Version)</option>
 			<option value="1.22">1.22 (Snapshot Version - Preview)</option>
 		</select>

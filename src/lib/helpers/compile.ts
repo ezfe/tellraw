@@ -216,7 +216,7 @@ export function compile_section_list(
 
 	if (type == CommandType.book) {
 		if (versionAtLeast(version, '1.22')) {
-			return compileSnbt(results);
+			return compileSnbt(results) ?? '';
 		} else {
 			return JSON.stringify(
 				results.map((e) => {
@@ -257,7 +257,11 @@ export function compile_section_list(
 				}
 			}
 
-			ret = `[block_entity_data=${compileSnbt(blockEntityData)}]`;
+			if (versionAtLeast(version, '1.20.5')) {
+				ret = `[block_entity_data=${compileSnbt(blockEntityData)}]`;
+			} else {
+				ret = compileSnbt({ BlockEntityTag: blockEntityData }) ?? '';
+			}
 		} else {
 			let blockEntityData: Record<string, any> = {
 				id: 'sign'
@@ -281,13 +285,13 @@ export function compile_section_list(
 				blockEntityData['GlowingText'] = true;
 			}
 
-			ret = compileSnbt({ BlockEntityTag: blockEntityData });
+			ret = compileSnbt({ BlockEntityTag: blockEntityData }) ?? '';
 		}
 
 		return ret;
 	} else if (results.length > 0) {
 		if (versionAtLeast(version, '1.22')) {
-			return compileSnbt(results[0]);
+			return compileSnbt(results[0]) ?? '';
 		} else {
 			return JSON.stringify(results[0]);
 		}
