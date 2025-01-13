@@ -42,7 +42,7 @@
 			<option value="1.20">1.20.0-1.20.4</option>
 			<option value="1.20.5">1.20.5-1.20.6</option>
 			<option value="1.21">1.21 (Current Version)</option>
-			<option value="1.22">1.22 (Snapshot Version - Preview)</option>
+			<option value="1.22">1.22 (Snapshot 25w02a)</option>
 		</select>
 
 		<label id="bg-color-label" for="bg-color-input"> Preview Background Color: </label>
