@@ -360,7 +360,7 @@ export function compile(
 
 function determineHoverEventShowTextContentsKey(version: Version): string {
 	if (versionAtLeast(version, '1.22')) {
-		return 'text';
+		return 'value';
 	} else if (versionAtLeast(version, '1.16')) {
 		return 'contents';
 	} else {
