@@ -42,7 +42,7 @@
 		startEditing = () => {},
 		updateSnippet = () => {},
 		removeSnippet = () => {},
-		duplicateSnippet = () => {}
+		duplicateSnippet,
 	}: Props = $props();
 
 	function changeGroupSnippetChildren(snippets: Array<Snippet>) {
