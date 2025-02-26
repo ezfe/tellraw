@@ -202,7 +202,7 @@ export function compile_section_list(
 	const results = Array<FullType>();
 
 	for (const section_snippets of sections) {
-		const section_results = [{ text: '' }, ...compile_section(section_snippets, type, version)];
+		const section_results = ['', ...compile_section(section_snippets, type, version)];
 
 		// If there are 2 elements
 		// (the first element is always "")
@@ -232,7 +232,7 @@ export function compile_section_list(
 			};
 
 			const front_text_results = [...results].slice(0, 4);
-			const front_text_lines = [...front_text_results, [''], [''], [''], ['']].slice(0, 4);
+			const front_text_lines = [...front_text_results, '', '', '', ''].slice(0, 4);
 			if (versionAtLeast(version, '1.22')) {
 				blockEntityData['front_text'] = {
 					messages: front_text_lines,
@@ -248,7 +248,7 @@ export function compile_section_list(
 
 			if (results.length > 4) {
 				const back_text_results = [...results].slice(4);
-				const back_text_lines = [...back_text_results, [''], [''], [''], ['']].slice(0, 4);
+				const back_text_lines = [...back_text_results, '', '', '', ''].slice(0, 4);
 				if (versionAtLeast(version, '1.22')) {
 					blockEntityData['back_text'] = { messages: back_text_lines };
 				} else {
