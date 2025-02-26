@@ -42,7 +42,7 @@
 		startEditing = () => {},
 		updateSnippet = () => {},
 		removeSnippet = () => {},
-		duplicateSnippet,
+		duplicateSnippet
 	}: Props = $props();
 
 	function changeGroupSnippetChildren(snippets: Array<Snippet>) {
@@ -79,7 +79,9 @@
 		}
 	}
 
-	let editingEnabled = $derived(!(snippet instanceof LinebreakSnippet || snippet instanceof PagebreakSnippet));
+	let editingEnabled = $derived(
+		!(snippet instanceof LinebreakSnippet || snippet instanceof PagebreakSnippet)
+	);
 </script>
 
 <Row class="mb-2">
@@ -99,16 +101,12 @@
 	</div>
 
 	<!--
-      Flex justification is for text fields
-      which are used for page and linebreaks
-    -->
+	  Flex justification is for text fields
+	  which are used for page and linebreaks
+	-->
 	<Col class="d-flex flex-column justify-content-center">
 		{#if snippet instanceof LinebreakSnippet}
-			{#if versionAtLeast($version, '1.22')}
-				<span>Line Break ⏎ (incompatible)</span>
-			{:else}
-				<span>Line Break ⏎</span>
-			{/if}
+			<span>Line Break ⏎</span>
 		{:else if snippet instanceof PagebreakSnippet}
 			<span>Page Break <FileAlt /></span>
 		{:else if snippet instanceof NBTSnippet}
