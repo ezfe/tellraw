@@ -1,3 +1,5 @@
+// 1.22 is actually 1.21.5...whoops, easier to leave it as is
+
 export type Version =
 	| '1.22'
 	| '1.21'
@@ -11,7 +13,7 @@ export type Version =
 	| '1.14'
 	| '1.13';
 
-export const releaseVersion: Version = '1.21';
+export const releaseVersion: Version = '1.22';
 export const snapshotVersion: Version = '1.22';
 
 export const defaultVersion: Version = releaseVersion;
