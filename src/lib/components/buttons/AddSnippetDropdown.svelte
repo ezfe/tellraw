@@ -1,5 +1,11 @@
 <script lang="ts">
-	import { Button, ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle } from '@sveltestrap/sveltestrap';
+	import {
+		Button,
+		ButtonDropdown,
+		DropdownItem,
+		DropdownMenu,
+		DropdownToggle
+	} from '@sveltestrap/sveltestrap';
 	import { KeybindSnippet } from '../../classes/Snippets/SnippetTypes/KeybindSnippet';
 	import { LinebreakSnippet } from '../../classes/Snippets/SnippetTypes/LinebreakSnippet';
 	import { NBTSnippet } from '../../classes/Snippets/SnippetTypes/NBTSnippet';
@@ -21,7 +27,11 @@
 		commandType?: CommandType;
 	}
 
-	let { title = undefined, addSnippet = () => {}, commandType = CommandType.tellraw }: Props = $props();
+	let {
+		title = undefined,
+		addSnippet = () => {},
+		commandType = CommandType.tellraw
+	}: Props = $props();
 	let optionPressed = $state(false);
 
 	function keyDown(event: any) {
@@ -52,9 +62,19 @@
 		fastEditTipShown.set(false);
 	}
 
-	let nbtStorageAvailable = $derived(isFeatureAvailable(commandType, $version, FeatureType.nbtComponent));
+	let nbtStorageAvailable = $derived(
+		isFeatureAvailable(commandType, $version, FeatureType.nbtComponent)
+	);
+	let selectorAvailable = $derived(
+		isFeatureAvailable(commandType, $version, FeatureType.nbtComponent)
+	);
+	let scoreboardAvailable = $derived(
+		isFeatureAvailable(commandType, $version, FeatureType.nbtComponent)
+	);
 	let pageBreakAvailalbe = $derived(isFeatureAvailable(commandType, $version, FeatureType.pages));
-	let linebreakAvailable = $derived(isFeatureAvailable(commandType, $version, FeatureType.linebreak));
+	let linebreakAvailable = $derived(
+		isFeatureAvailable(commandType, $version, FeatureType.linebreak)
+	);
 </script>
 
 <svelte:window onkeydown={keyDown} onkeyup={keyUp} />
@@ -76,20 +96,24 @@
 		>
 			Text
 		</DropdownItem>
-		<DropdownItem
-			on:click={() => {
-				_addSnippet(new SelectorSnippet(null));
-			}}
-		>
-			Selector
-		</DropdownItem>
-		<DropdownItem
-			on:click={() => {
-				_addSnippet(new ScoreboardObjectiveSnippet(null));
-			}}
-		>
-			Scoreboard Objective
-		</DropdownItem>
+		{#if selectorAvailable}
+			<DropdownItem
+				on:click={() => {
+					_addSnippet(new SelectorSnippet(null));
+				}}
+			>
+				Selector
+			</DropdownItem>
+		{/if}
+		{#if scoreboardAvailable}
+			<DropdownItem
+				on:click={() => {
+					_addSnippet(new ScoreboardObjectiveSnippet(null));
+				}}
+			>
+				Scoreboard Objective
+			</DropdownItem>
+		{/if}
 		{#if nbtStorageAvailable}
 			<DropdownItem
 				on:click={() => {

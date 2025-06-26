@@ -1,6 +1,7 @@
 // 1.22 is actually 1.21.5...whoops, easier to leave it as is
 
 export type Version =
+	| '1.21.6'
 	| '1.22'
 	| '1.21'
 	| '1.20.5'
@@ -29,7 +30,8 @@ export const versionKeys = {
 	'1.20': 7,
 	'1.20.5': 8,
 	'1.21': 9,
-	'1.22': 100 // snbt output starts here
+	'1.22': 100, // snbt output starts here; actually 1.21.5
+	'1.21.6': 101 // dialog
 };
 
 export function versionAtLeast(version: Version, minVersion: Version): boolean {

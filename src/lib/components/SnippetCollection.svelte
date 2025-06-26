@@ -26,7 +26,7 @@
 
 	let {
 		hideExteriorWrapper = $bindable(false),
-		commandType = CommandType.tellraw,
+		commandType = $bindable(CommandType.tellraw),
 		colorManaging = $bindable(false),
 		snippets = $bindable([]),
 		translationSet = {},

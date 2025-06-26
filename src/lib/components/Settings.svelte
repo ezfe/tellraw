@@ -42,7 +42,7 @@
 			<option value="1.20">1.20.0-1.20.4</option>
 			<option value="1.20.5">1.20.5-1.20.6</option>
 			<option value="1.21">1.21.0-1.20.4</option>
-			<option value="1.22">1.21.5 (Current Version)</option>
+			<option value="1.22">1.21.5 & 1.21.6 (Current Version)</option>
 		</select>
 
 		<label id="bg-color-label" for="bg-color-input"> Preview Background Color: </label>

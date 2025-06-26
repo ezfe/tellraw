@@ -12,7 +12,7 @@ export interface FieldSpecifier {
 }
 
 export abstract class Snippet {
-	id: string;
+	id?: string;
 
 	bold = false;
 	italic = false;

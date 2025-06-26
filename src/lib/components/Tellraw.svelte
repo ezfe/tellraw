@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Alert, Button, Row } from '@sveltestrap/sveltestrap';
+	import { Button, Row } from '@sveltestrap/sveltestrap';
 	import { TextSnippet } from '../classes/Snippets/SnippetTypes/TextSnippet';
 	import { CommandType, FeatureType, isFeatureAvailable, template_lookup } from '../data/templates';
 	import { compile } from '../helpers/compile';
@@ -41,7 +41,7 @@
 
 	$effect(() => {
 		console.log(snbtCompile($snippets));
-	})
+	});
 
 	function clearAllSnippets() {
 		const titleString = 'Are you sure!?!';
@@ -120,7 +120,7 @@
 			{/each}
 		</ul>
 	{:else}
-		<div class="row">
+		<Row>
 			<div class="col-sm-8 col-md mb-2">
 				<h4>Tellraw Generator for Minecraft</h4>
 			</div>
@@ -140,7 +140,7 @@
 					<SiteActions />
 				</div>
 			</div>
-		</div>
+		</Row>
 
 		{#if !hideWrapper}
 			<Row>

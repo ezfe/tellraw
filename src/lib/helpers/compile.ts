@@ -289,6 +289,14 @@ export function compile_section_list(
 		}
 
 		return ret;
+	} else if (type == CommandType.dialog_plain_text) {
+		return (
+			compileSnbt({
+				type: 'minecraft:notice',
+				title: 'Test',
+				body: { type: 'minecraft:plain_message', contents: results[0] }
+			}) ?? ''
+		);
 	} else if (results.length > 0) {
 		if (versionAtLeast(version, '1.22')) {
 			return compileSnbt(results[0]) ?? '';

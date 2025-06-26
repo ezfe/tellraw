@@ -7,7 +7,8 @@ export enum CommandType {
 	sign = 'sign',
 	book = 'book',
 	hovertext = 'hovertext',
-	children = 'children'
+	children = 'children',
+	dialog_plain_text = 'dialog_plain_text'
 }
 
 export enum FeatureType {
@@ -20,6 +21,8 @@ export enum FeatureType {
 	customColor,
 	nbtComponent,
 	nbtStorageComponent,
+	selectorComponent,
+	scoreboardComponent,
 	litSign,
 	linebreak
 }
@@ -65,9 +68,13 @@ export function isFeatureAvailable(
 	} else if (feature == FeatureType.font || feature == FeatureType.customColor) {
 		return versionAtLeast(version, '1.16');
 	} else if (feature == FeatureType.nbtComponent) {
-		return versionAtLeast(version, '1.14');
+		return versionAtLeast(version, '1.14') && commandType != CommandType.dialog_plain_text;
 	} else if (feature == FeatureType.nbtStorageComponent) {
-		return versionAtLeast(version, '1.15');
+		return versionAtLeast(version, '1.15') && commandType != CommandType.dialog_plain_text;
+	} else if (feature == FeatureType.selectorComponent) {
+		return commandType != CommandType.dialog_plain_text;
+	} else if (feature == FeatureType.scoreboardComponent) {
+		return commandType != CommandType.dialog_plain_text;
 	} else if (feature == FeatureType.litSign) {
 		return commandType == CommandType.sign && versionAtLeast(version, '1.17');
 	} else if (feature == FeatureType.linebreak) {
