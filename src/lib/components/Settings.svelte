@@ -41,7 +41,7 @@
 			<option value="1.19">1.19</option>
 			<option value="1.20">1.20.0-1.20.4</option>
 			<option value="1.20.5">1.20.5-1.20.6</option>
-			<option value="1.21">1.21.0-1.20.4</option>
+			<option value="1.21">1.21.0-1.21.4</option>
 			<option value="1.22">1.21.5 & 1.21.6 (Current Version)</option>
 		</select>
 
