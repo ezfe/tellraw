@@ -1,8 +1,5 @@
-import adapterCf from '@sveltejs/adapter-cloudflare';
-import adapterStatic from '@sveltejs/adapter-static';
+import adapter from '@sveltejs/adapter-netlify';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
-
-const adapter = process.env.CF_PAGES ? adapterCf : adapterStatic;
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -11,7 +8,10 @@ const config = {
 	preprocess: vitePreprocess(),
 
 	kit: {
-		adapter: adapter()
+		adapter: adapter({
+			edge: false,
+			split: false
+		})
 	}
 };
 
