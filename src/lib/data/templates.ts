@@ -24,7 +24,9 @@ export enum FeatureType {
 	selectorComponent,
 	scoreboardComponent,
 	litSign,
-	linebreak
+	linebreak,
+	atlasObject,
+	playerObject
 }
 
 /**
@@ -79,6 +81,8 @@ export function isFeatureAvailable(
 		return commandType == CommandType.sign && versionAtLeast(version, '1.17');
 	} else if (feature == FeatureType.linebreak) {
 		return commandType != CommandType.overlay;
+	} else if (feature == FeatureType.atlasObject || feature == FeatureType.playerObject) {
+		return commandType == CommandType.tellraw && versionAtLeast(version, '1.21.8');
 	} else {
 		return true;
 	}

@@ -1,3 +1,5 @@
+import { AtlasObjectSnippet } from '$lib/classes/Snippets/SnippetTypes/AtlasObjectSnippet';
+import { PlayerObjectSnippet } from '$lib/classes/Snippets/SnippetTypes/PlayerObjectSnippet';
 import { GroupSnippet } from '../classes/Snippets/SnippetTypes/GroupSnippet';
 import { KeybindSnippet } from '../classes/Snippets/SnippetTypes/KeybindSnippet';
 import { LinebreakSnippet } from '../classes/Snippets/SnippetTypes/LinebreakSnippet';
@@ -27,6 +29,10 @@ export function duplicate_snippet(snippet: Snippet) {
 	} else if (snippet instanceof TranslateSnippet) {
 		return snippet.copy();
 	} else if (snippet instanceof GroupSnippet) {
+		return snippet.copy();
+	} else if (snippet instanceof PlayerObjectSnippet) {
+		return snippet.copy();
+	} else if (snippet instanceof AtlasObjectSnippet) {
 		return snippet.copy();
 	} else {
 		console.error(

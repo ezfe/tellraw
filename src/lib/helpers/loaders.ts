@@ -14,6 +14,8 @@ import { Snippet } from '../classes/Snippets/SnippetTypes/Snippet';
 import { TextSnippet } from '../classes/Snippets/SnippetTypes/TextSnippet';
 import { TranslateSnippet } from '../classes/Snippets/SnippetTypes/TranslateSnippet';
 import { LSKEY_SNIPPET_ARR, VERSION } from '../constants';
+import { PlayerObjectSnippet } from '$lib/classes/Snippets/SnippetTypes/PlayerObjectSnippet';
+import { AtlasObjectSnippet } from '$lib/classes/Snippets/SnippetTypes/AtlasObjectSnippet';
 
 export function legacyStatePreparation() {
 	let lsformat = parseInt(localStorage.getItem('jformat') || VERSION.toString());
@@ -22,39 +24,46 @@ export function legacyStatePreparation() {
 	console.log('Wanted', VERSION);
 
 	if (lsformat < 7) {
-		console.warn("Resetting local state instead of upgrading")
-		localStorage.clear()
-		return
+		console.warn('Resetting local state instead of upgrading');
+		localStorage.clear();
+		return;
 	}
 
 	if (lsformat == 7) {
-		console.log(`Upgrading ClickEvent types from numerical to strings`)
+		console.log(`Upgrading ClickEvent types from numerical to strings`);
 
-		const source_str = localStorage.getItem(LSKEY_SNIPPET_ARR)
-		const source_array = JSON.parse(source_str || "[]") as Array<object>
+		const source_str = localStorage.getItem(LSKEY_SNIPPET_ARR);
+		const source_array = JSON.parse(source_str || '[]') as Array<object>;
 
-		const correctedSnippetArray = upgradeV7State(source_array)
+		const correctedSnippetArray = upgradeV7State(source_array);
 
-		localStorage.setItem(LSKEY_SNIPPET_ARR, JSON.stringify(correctedSnippetArray))
+		localStorage.setItem(LSKEY_SNIPPET_ARR, JSON.stringify(correctedSnippetArray));
 
-		lsformat = 8
+		lsformat = 8;
 	}
 
 	localStorage.setItem('jformat', VERSION.toString());
 }
 
 export function upgradeV7State(source_array: Array<object>): Array<object> {
-	const clickEventTypeLookup: ClickEventType[] = ["none", "open_url", "run_command", "suggest_command", "change_page", "copy_to_clipboard"]
-	const hoverEventTypeLookup: HoverEventType[] = ["none", "show_text", "show_item", "show_entity"]
+	const clickEventTypeLookup: ClickEventType[] = [
+		'none',
+		'open_url',
+		'run_command',
+		'suggest_command',
+		'change_page',
+		'copy_to_clipboard'
+	];
+	const hoverEventTypeLookup: HoverEventType[] = ['none', 'show_text', 'show_item', 'show_entity'];
 	return source_array.map((s): object => {
-		const found_click_event_type = s["click_event_type"];
-		const found_hover_event_type = s["hover_event_type"];
+		const found_click_event_type = s['click_event_type'];
+		const found_hover_event_type = s['hover_event_type'];
 		return {
 			...s,
-			click_event_type: clickEventTypeLookup[found_click_event_type] ?? "none",
-			hover_event_type: hoverEventTypeLookup[found_hover_event_type] ?? "none",
+			click_event_type: clickEventTypeLookup[found_click_event_type] ?? 'none',
+			hover_event_type: hoverEventTypeLookup[found_hover_event_type] ?? 'none'
 		};
-	})
+	});
 }
 
 // Version 8
@@ -131,6 +140,10 @@ export function loadCurrentVersionState(
 			} else if (s.hasOwnProperty('children')) {
 				s['children'] = loadCurrentVersionState(s['children']);
 				return (Object as any).assign(new GroupSnippet(), s);
+			} else if (s.hasOwnProperty('playerName')) {
+				return (Object as any).assign(new PlayerObjectSnippet(), s);
+			} else if (s.hasOwnProperty('atlas')) {
+				return (Object as any).assign(new AtlasObjectSnippet(), s);
 			} else {
 				const snippet = new TextSnippet();
 				snippet.text = `Failed to claim ${JSON.stringify(s)}`;

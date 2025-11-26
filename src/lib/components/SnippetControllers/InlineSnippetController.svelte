@@ -19,8 +19,6 @@
 	import SnippetCollection from '../SnippetCollection.svelte';
 	import GenericSnippetController from './GenericSnippetController.svelte';
 	import NBTSnippetController from './NBTSnippetController.svelte';
-	import { version } from '$lib/persistence/stores';
-	import { versionAtLeast } from '$lib/helpers/versions';
 
 	type SnippetFn = (snippet: Snippet) => void;
 	type OptionalSnippetFn = SnippetFn | undefined;

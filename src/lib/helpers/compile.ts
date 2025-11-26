@@ -13,6 +13,8 @@ import { CommandType, FeatureType, isFeatureAvailable } from '../data/templates'
 import type { Version } from './versions';
 import { versionAtLeast } from './versions';
 import { compile as compileSnbt } from '../snbt/compile';
+import { PlayerObjectSnippet } from '$lib/classes/Snippets/SnippetTypes/PlayerObjectSnippet';
+import { AtlasObjectSnippet } from '$lib/classes/Snippets/SnippetTypes/AtlasObjectSnippet';
 
 function compile_section(
 	section_snippets: Snippet[],
@@ -28,10 +30,7 @@ function compile_section(
 		} else if (snippet instanceof SelectorSnippet) {
 			pending['selector'] = snippet.selector;
 		} else if (snippet instanceof ScoreboardObjectiveSnippet) {
-			pending['score'] = {
-				name: snippet.score_name,
-				objective: snippet.score_objective
-			};
+			pending['score'] = { name: snippet.score_name, objective: snippet.score_objective };
 
 			if (snippet.score_value !== null) {
 				pending['score']['value'] = snippet.score_value;
@@ -65,6 +64,13 @@ function compile_section(
 		} else if (snippet instanceof GroupSnippet) {
 			pending['text'] = '';
 			pending['extra'] = compile_section(snippet.children, type, version);
+		} else if (snippet instanceof PlayerObjectSnippet) {
+			pending['object'] = 'player';
+			pending['player'] = { name: snippet.name };
+		} else if (snippet instanceof AtlasObjectSnippet) {
+			pending['object'] = 'atlas';
+			pending['atlas'] = snippet.atlas;
+			pending['sprite'] = snippet.sprite;
 		}
 
 		/* Style Transfer */
@@ -157,15 +163,9 @@ function compile_section(
 					try {
 						const parsedValue = JSON.parse(snippet.hover_event_value);
 						if (versionAtLeast(version, '1.22')) {
-							pending[hoverEventKey] = {
-								...parsedValue,
-								action: snippet.hover_event_type
-							};
+							pending[hoverEventKey] = { ...parsedValue, action: snippet.hover_event_type };
 						} else {
-							pending[hoverEventKey] = {
-								action: snippet.hover_event_type,
-								contents: parsedValue
-							};
+							pending[hoverEventKey] = { action: snippet.hover_event_type, contents: parsedValue };
 						}
 					} catch (error) {
 						pending[hoverEventKey] = {
@@ -227,9 +227,7 @@ export function compile_section_list(
 	} else if (type == CommandType.sign) {
 		let ret = '';
 		if (versionAtLeast(version, '1.20')) {
-			let blockEntityData: Record<string, any> = {
-				id: 'sign'
-			};
+			let blockEntityData: Record<string, any> = { id: 'sign' };
 
 			const front_text_results = [...results].slice(0, 4);
 			const front_text_lines = [...front_text_results, '', '', '', ''].slice(0, 4);
@@ -263,9 +261,7 @@ export function compile_section_list(
 				ret = compileSnbt({ BlockEntityTag: blockEntityData }) ?? '';
 			}
 		} else {
-			let blockEntityData: Record<string, any> = {
-				id: 'sign'
-			};
+			let blockEntityData: Record<string, any> = { id: 'sign' };
 			if (results.length >= 1) {
 				blockEntityData['Text1'] = JSON.stringify(results[0]);
 

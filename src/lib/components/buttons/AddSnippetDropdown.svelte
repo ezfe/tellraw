@@ -20,6 +20,8 @@
 	import FileAlt from '../generic/Icons/FileAlt.svelte';
 	import PlusCircle from '../generic/Icons/PlusCircle.svelte';
 	import TachometerAlt from '../generic/Icons/TachometerAlt.svelte';
+	import { PlayerObjectSnippet } from '$lib/classes/Snippets/SnippetTypes/PlayerObjectSnippet';
+	import { AtlasObjectSnippet } from '$lib/classes/Snippets/SnippetTypes/AtlasObjectSnippet';
 
 	interface Props {
 		title?: String | undefined;
@@ -74,6 +76,10 @@
 	let pageBreakAvailalbe = $derived(isFeatureAvailable(commandType, $version, FeatureType.pages));
 	let linebreakAvailable = $derived(
 		isFeatureAvailable(commandType, $version, FeatureType.linebreak)
+	);
+	let atlasAvailable = $derived(isFeatureAvailable(commandType, $version, FeatureType.atlasObject));
+	let playerAvailable = $derived(
+		isFeatureAvailable(commandType, $version, FeatureType.playerObject)
 	);
 </script>
 
@@ -137,6 +143,24 @@
 		>
 			Translation
 		</DropdownItem>
+		{#if atlasAvailable}
+			<DropdownItem
+				on:click={() => {
+					_addSnippet(new AtlasObjectSnippet(null));
+				}}
+			>
+				Atlas Object
+			</DropdownItem>
+		{/if}
+		{#if playerAvailable}
+			<DropdownItem
+				on:click={() => {
+					_addSnippet(new PlayerObjectSnippet(null));
+				}}
+			>
+				Player Object
+			</DropdownItem>
+		{/if}
 		<!-- <DropdownItem on:click={() => { addSnippet(new GroupSnippet(null)) }}>
       Snippet Group
     </DropdownItem> -->
