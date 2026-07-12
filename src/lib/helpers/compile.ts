@@ -69,11 +69,21 @@ function compile_section(
 			pending['extra'] = compile_section(snippet.children, type, version);
 		} else if (snippet instanceof PlayerObjectSnippet) {
 			pending['object'] = 'player';
-			pending['player'] = { name: snippet.name };
+			pending['player'] = { name: snippet.playerName };
+			if (isFeatureAvailable(type, version, FeatureType.objectFallbackAttribute)) {
+				if (snippet.fallback) {
+					pending['fallback'] = snippet.fallback;
+				}
+			}
 		} else if (snippet instanceof AtlasObjectSnippet) {
 			pending['object'] = 'atlas';
 			pending['atlas'] = snippet.atlas;
 			pending['sprite'] = snippet.sprite;
+			if (isFeatureAvailable(type, version, FeatureType.objectFallbackAttribute)) {
+				if (snippet.fallback) {
+					pending['fallback'] = snippet.fallback;
+				}
+			}
 		}
 
 		/* Style Transfer */
