@@ -21,7 +21,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.5.0",
     "@sveltejs/adapter-cloudflare": "^7.2.9",
     "@sveltejs/adapter-static": "^3.0.10",
-    "@sveltejs/kit": "^2.69.2",
+    "@sveltejs/kit": "^2.70.2",
     "@sveltejs/vite-plugin-svelte": "^7.2.0",
     "@sveltestrap/sveltestrap": "^6.2.7",
     "@typescript-eslint/eslint-plugin": "^5.10.1",
