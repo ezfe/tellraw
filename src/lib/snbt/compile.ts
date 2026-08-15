@@ -2,9 +2,9 @@
  * Compile an object to SNBT
  * @param obj A JSON object to compile to SNBT
  */
-export function compile(obj: any): string | undefined {
+export function compile(obj?: object | string | number | boolean): string | undefined {
 	if (obj === undefined || obj === null) {
-		return obj;
+		return undefined;
 	} else if (typeof obj === 'object') {
 		if (Array.isArray(obj)) {
 			return `[${obj.map(compile).join(',')}]`;
@@ -20,9 +20,6 @@ export function compile(obj: any): string | undefined {
 		return compile_number(obj);
 	} else if (typeof obj === 'boolean') {
 		return obj ? 'true' : 'false';
-	} else {
-		console.warn(`Unknown type for SNBT: ${typeof obj}`);
-		return obj.toString();
 	}
 }
 
@@ -37,16 +34,17 @@ export function compile(obj: any): string | undefined {
  * @param obj
  * @returns
  */
-function compile_number(val: number): string {
-	if (Number.isInteger(val)) {
-		if (val >= -128 && val <= 127) {
-			return `${val}b`;
-		} else if (val >= -32768 && val <= 32767) {
-			return `${val}s`;
-		} else if (val >= -2147483648 && val <= 2147483647) {
-			return `${val}`;
-		} else if (val >= -9223372036854775808 && val <= 9223372036854775807) {
-			return `${val}l`;
+function compile_number(val: number | bigint): string {
+	if (typeof val == 'bigint' || Number.isInteger(val)) {
+		const big_int = BigInt(val);
+		if (big_int >= -128n && big_int <= 127n) {
+			return `${big_int}b`;
+		} else if (big_int >= -32768n && big_int <= 32767n) {
+			return `${big_int}s`;
+		} else if (big_int >= -2147483648n && big_int <= 2147483647n) {
+			return `${big_int}`;
+		} else if (big_int >= -9223372036854775808n && big_int <= 9223372036854775807n) {
+			return `${big_int}l`;
 		}
 	}
 	return `${val}d`;
