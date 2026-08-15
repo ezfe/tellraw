@@ -1,7 +1,11 @@
 <script lang="ts">
-	import type { IconDefinition, IconPathData } from '@fortawesome/fontawesome-common-types';
+	import type {
+		IconDefinition as IconDefinition1,
+		IconPathData
+	} from '@fortawesome/fontawesome-common-types';
+	import type { IconDefinition as IconDefinition2 } from '@fortawesome/free-solid-svg-icons';
 
-	export let icon: IconDefinition;
+	export let icon: IconDefinition1 | IconDefinition2;
 
 	export let width = '1em';
 	export let height = '1em';
