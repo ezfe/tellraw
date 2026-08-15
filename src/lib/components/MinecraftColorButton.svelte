@@ -13,7 +13,7 @@
 	let { checked, color, onClick }: Props = $props();
 </script>
 
-<div
+<button
 	class="d-flex justify-content-center align-items-center color-button"
 	style={`background-color: ${getCSSHEX(color)}`}
 	onclick={() => {
@@ -23,11 +23,15 @@
 	{#if checked}
 		<CheckCircle style={`color: ${highContrastColor(getCSSHEX(color), 'white', 'black')}`} />
 	{/if}
-</div>
+</button>
 
 <style>
 	.color-button {
 		width: calc(1.5em + 0.75rem + 2px);
 		height: calc(1.5em + 0.75rem + 2px);
+	}
+
+	button {
+		border: none;
 	}
 </style>
