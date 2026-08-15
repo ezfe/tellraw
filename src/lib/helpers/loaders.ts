@@ -16,6 +16,7 @@ import { TranslateSnippet } from '../classes/Snippets/SnippetTypes/TranslateSnip
 import { LSKEY_SNIPPET_ARR, VERSION } from '../constants';
 import { PlayerObjectSnippet } from '$lib/classes/Snippets/SnippetTypes/PlayerObjectSnippet';
 import { AtlasObjectSnippet } from '$lib/classes/Snippets/SnippetTypes/AtlasObjectSnippet';
+import * as v from 'valibot';
 
 export function legacyStatePreparation() {
 	let lsformat = parseInt(localStorage.getItem('jformat') || VERSION.toString());
@@ -85,6 +86,7 @@ export function loadCurrentVersionState(
 			}
 		})
 		.map((s): Snippet => {
+			console.log('parsing snippet candidate', s);
 			if (s instanceof Snippet) {
 				return s;
 			} else if (typeof s === 'string') {
@@ -101,12 +103,17 @@ export function loadCurrentVersionState(
 				s['hover_event_children'] = loadCurrentVersionState(s['hover_event_children']);
 			}
 
-			if (s.hasOwnProperty('text')) {
-				if (s['text'] === '\n') {
-					return (Object as any).assign(new LinebreakSnippet(), s);
-				} else {
-					return (Object as any).assign(new TextSnippet(), s);
-				}
+			const LinebreakSchema = v.object({
+				text: v.literal('\n')
+			});
+			const TextSchema = v.object({
+				text: v.string()
+			});
+
+			if (v.is(LinebreakSchema, s)) {
+				return (Object as any).assign(new LinebreakSnippet(), s);
+			} else if (v.is(TextSchema, s)) {
+				return (Object as any).assign(new TextSnippet(), s);
 			} else if (s.hasOwnProperty('keybind')) {
 				return (Object as any).assign(new KeybindSnippet(), s);
 			} else if (s.hasOwnProperty('score') || s.hasOwnProperty('score_name')) {

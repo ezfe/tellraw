@@ -6,6 +6,8 @@
 	import CheckCircle from './generic/Icons/CheckCircle.svelte';
 	import TimesCircle from './generic/Icons/TimesCircle.svelte';
 	import LightWell from './generic/LightWell.svelte';
+	import * as v from 'valibot';
+	import { CommandType } from '$lib/data/templates';
 
 	let importingString = $state('');
 	interface Props {
@@ -13,7 +15,6 @@
 	}
 
 	let { importing = $bindable() }: Props = $props();
-
 
 	function formSubmit(e: any): boolean {
 		e.preventDefault();
@@ -36,41 +37,37 @@
 	}
 
 	function doTraditionalImport() {
-		let import_data: Array<object>;
+		const JsonSchema = v.object({
+			jtemplate: v.pipe(v.string(), v.enum(CommandType, 'Invalid command type')),
+			jformat: v.pipe(
+				v.number(),
+				v.minValue(7, 'Your export data is too old and cannot be imported')
+			),
+			command: v.string(),
+			jobject: v.array(v.looseObject({}))
+		});
+		const ImportSchema = v.pipe(v.string(), v.parseJson(), JsonSchema);
+
 		try {
-			import_data = JSON.parse(importingString) as Array<object>;
-		} catch (e) {
-			console.error(e);
-			alert(
-				`An error occurred importing your command.\n\nFeel free to use the "Report an Issue" option on the main page to report this`
-			);
-			return;
-		}
+			const import_data = v.parse(ImportSchema, importingString);
 
-		if (!('command' in import_data && 'jobject' in import_data && 'jtemplate' in import_data)) {
-			console.error('Missing one of command, jobject, jtemplate');
-			alert(
-				`An error occurred importing your command.\n\nFeel free to use the "Report an Issue" option on the main page to report this`
-			);
-			return;
-		}
+			console.log(import_data);
 
-		if ('jtemplate' in import_data && import_data['jformat'] >= 7) {
-			command.set(import_data['command']);
-
-			commandType.set(import_data['jtemplate']);
-
-			let jobject = import_data['jobject'] as object[];
-
-			if (import_data['jformat'] == 7) {
+			command.set(import_data.command);
+			commandType.set(import_data.jtemplate);
+			let jobject = import_data.jobject;
+			if (import_data.jformat == 7) {
 				jobject = upgradeV7State(jobject);
 			}
-
 			snippets.set(loadCurrentVersionState(jobject));
-		} else {
-			alert(
-				'Your export data is incorrectly formatted - and may be too old, and cannot be imported.'
-			);
+		} catch (error) {
+			if (error instanceof Error) {
+				alert(
+					`An error occurred:\n\n${error.message}\n\nPlease use the Report an Issue button if you think there's something wrong.`
+				);
+			} else {
+				alert('An unknown issue occurred importing your data');
+			}
 		}
 
 		importing = false;
@@ -122,8 +119,8 @@
 					</p>
 					<p>
 						Please raise an issue (use the Report an Issue button on the main screen) <b>only</b>
-						if importing regular <code>/tellraw</code> or <code>/title</code> commands fails. Please
-						include the command you tried to import and what failed.
+						if importing regular <code>/tellraw</code> or <code>/title</code> commands fails. Please include
+						the command you tried to import and what failed.
 					</p>
 					<p>
 						Do not raise issues for any other commands. This message will be updated when other
