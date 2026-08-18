@@ -234,27 +234,27 @@
 			</div>
 		</div>
 		<div class="col-4">
-			<Checkbox checked={snippet.bold} on:change={(event) => updateField('bold', event.detail)}>
+			<Checkbox checked={snippet.bold} change={(newValue) => updateField('bold', newValue)}>
 				Bold
 			</Checkbox>
-			<Checkbox checked={snippet.italic} on:change={(event) => updateField('italic', event.detail)}>
+			<Checkbox checked={snippet.italic} change={(newValue) => updateField('italic', newValue)}>
 				Italic
 			</Checkbox>
 			<Checkbox
 				checked={snippet.underlined}
-				on:change={(event) => updateField('underlined', event.detail)}
+				change={(newValue) => updateField('underlined', newValue)}
 			>
 				Underlined
 			</Checkbox>
 			<Checkbox
 				checked={snippet.strikethrough}
-				on:change={(event) => updateField('strikethrough', event.detail)}
+				change={(newValue) => updateField('strikethrough', newValue)}
 			>
 				Strikethrough
 			</Checkbox>
 			<Checkbox
 				checked={snippet.obfuscated}
-				on:change={(event) => updateField('obfuscated', event.detail)}
+				change={(newValue) => updateField('obfuscated', newValue)}
 			>
 				Obfuscated
 			</Checkbox>
@@ -265,8 +265,8 @@
 					<div class="col">
 						<Checkbox
 							checked={snippet.font !== null}
-							on:change={(event) => {
-								updateFontCheckbox(event.detail);
+							change={(newValue) => {
+								updateFontCheckbox(newValue);
 							}}
 						>
 							Custom Font
