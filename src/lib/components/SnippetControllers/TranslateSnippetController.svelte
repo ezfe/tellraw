@@ -10,7 +10,6 @@
 	import InlineSnippetController from './InlineSnippetController.svelte';
 	import SnippetDetailController from './SnippetDetailController.svelte';
 
-
 	interface Props {
 		snippet?: TranslateSnippet;
 		commandType?: CommandType;
@@ -67,7 +66,7 @@
 		if (save) {
 			const newSnippet = snippet.copy();
 			newSnippet.parameters = newSnippet.parameters.map((param) => {
-				if (param.id == editing?.id) {
+				if (editing && param.id == editing?.id) {
 					return editing;
 				} else {
 					return param;

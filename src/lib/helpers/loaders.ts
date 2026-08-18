@@ -46,7 +46,7 @@ export function legacyStatePreparation() {
 	localStorage.setItem('jformat', VERSION.toString());
 }
 
-export function upgradeV7State(source_array: Array<object>): Array<object> {
+export function upgradeV7State(source_array: Array<object>): Array<Record<string, unknown>> {
 	const clickEventTypeLookup: ClickEventType[] = [
 		'none',
 		'open_url',
@@ -56,7 +56,7 @@ export function upgradeV7State(source_array: Array<object>): Array<object> {
 		'copy_to_clipboard'
 	];
 	const hoverEventTypeLookup: HoverEventType[] = ['none', 'show_text', 'show_item', 'show_entity'];
-	return source_array.map((s): object => {
+	return source_array.map((s): Record<string, unknown> => {
 		const Schema = v.object({
 			click_event_type: v.optional(v.number()),
 			hover_event_type: v.optional(v.number())
