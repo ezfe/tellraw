@@ -14,7 +14,7 @@
 </script>
 
 <button
-	class="d-flex justify-content-center align-items-center color-button"
+	class="d-flex justify-content-center align-items-center"
 	style={`background-color: ${getCSSHEX(color)}`}
 	onclick={() => {
 		onClick(color);
@@ -26,12 +26,9 @@
 </button>
 
 <style>
-	.color-button {
+	button {
 		width: calc(1.5em + 0.75rem + 2px);
 		height: calc(1.5em + 0.75rem + 2px);
-	}
-
-	button {
 		border: none;
 	}
 </style>
