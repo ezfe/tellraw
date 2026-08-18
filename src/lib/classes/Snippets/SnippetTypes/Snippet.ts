@@ -45,10 +45,6 @@ export abstract class Snippet {
 		return [];
 	}
 
-	value(field: FieldSpecifier): string {
-		return this[field.field] as string;
-	}
-
 	setBold(value: boolean): this {
 		this.bold = value;
 		return this;
