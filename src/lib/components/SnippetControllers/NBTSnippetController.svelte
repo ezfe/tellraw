@@ -13,11 +13,13 @@
 
 	let { snippet, updateSnippet }: Props = $props();
 
-	function updateField(field: string, event: any) {
-		updateFieldValue(field, event.target.value);
+	function updateStringValue(field: 'nbt' | 'storage', target: HTMLInputElement) {
+		let newSnippet = snippet.copy();
+		newSnippet[field] = target.value;
+		updateSnippet(newSnippet);
 	}
 
-	function updateFieldValue(field: string, value: any) {
+	function updateBooleanValue(field: 'plain' | 'interpret', value: boolean) {
 		let newSnippet = snippet.copy();
 		newSnippet[field] = value;
 		updateSnippet(newSnippet);
@@ -41,7 +43,7 @@
 		<Col>
 			<select class="form-select" value={snippet.type} oninput={changeNBTType}>
 				<option
-					value={NBTType.storage}
+					value={`${NBTType.storage}`}
 					disabled={!isFeatureAvailable($commandType, $version, FeatureType.nbtStorageComponent)}
 				>
 					Storage
@@ -49,8 +51,8 @@
 						{' (Requires 1.15+)'}
 					{/if}
 				</option>
-				<option value={NBTType.entity}>Entity</option>
-				<option value={NBTType.block}>Block</option>
+				<option value={`${NBTType.entity}`}>Entity</option>
+				<option value={`${NBTType.block}`}>Block</option>
 			</select>
 		</Col>
 		<Col>
@@ -59,7 +61,7 @@
 				value={snippet.storage}
 				placeholder="Identifier"
 				onchange={(evt) => {
-					updateField('storage', evt);
+					updateStringValue('storage', evt.currentTarget);
 				}}
 			/>
 		</Col>
@@ -71,7 +73,7 @@
 				value={snippet.nbt}
 				placeholder="NBT Path"
 				oninput={(evt) => {
-					updateField('nbt', evt);
+					updateStringValue('nbt', evt.currentTarget);
 				}}
 			/>
 		</Col>
@@ -80,8 +82,8 @@
 		<Col>
 			<Checkbox
 				checked={snippet.interpret}
-				on:change={(event) => {
-					updateFieldValue('interpret', event.detail);
+				change={(newValue) => {
+					updateBooleanValue('interpret', newValue);
 				}}
 			>
 				Interpret
@@ -89,8 +91,8 @@
 			{#if isFeatureAvailable($commandType, $version, FeatureType.nbtPlainAttribute)}
 				<Checkbox
 					checked={snippet.plain}
-					on:change={(event) => {
-						updateFieldValue('plain', event.detail);
+					change={(newValue) => {
+						updateBooleanValue('plain', newValue);
 					}}
 				>
 					Plain

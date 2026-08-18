@@ -1,26 +1,21 @@
 <script lang="ts">
-	import { createEventDispatcher } from 'svelte';
-
-	const dispatch = createEventDispatcher();
-
 	interface Props {
 		checked: boolean;
 		children?: import('svelte').Snippet;
+		change: (newValue: boolean) => void;
 	}
 
-	let { checked, children }: Props = $props();
+	let { checked, children, change }: Props = $props();
 
 	let randomUUID = crypto.randomUUID();
-
-	function onChange(event: any) {
-		dispatch('change', event.currentTarget.checked);
-	}
 </script>
 
 <div class="custom-control custom-checkbox">
 	<input
 		{checked}
-		onchange={onChange}
+		onchange={(evt) => {
+			change(evt.currentTarget.checked);
+		}}
 		type="checkbox"
 		class="custom-control-input"
 		id={randomUUID}

@@ -2,9 +2,9 @@ import { copy_standard_attributes } from '../../../helpers/copy_standard_attribu
 import { Snippet } from './Snippet';
 
 export enum NBTType {
-	storage,
-	entity,
-	block
+	storage = 0,
+	entity = 1,
+	block = 2
 }
 
 export class NBTSnippet extends Snippet {

@@ -22,7 +22,7 @@
 </script>
 
 <Row>
-	{#each snippet.editor_fields() as field, index}
+	{#each snippet.editor_fields() as field}
 		{#if field.fieldType == 'string'}
 			<div class="col-6">
 				<input

@@ -20,7 +20,7 @@
 	import GenericSnippetController from './GenericSnippetController.svelte';
 	import NbtSnippetController from './NBTSnippetController.svelte';
 	import TranslateSnippetController from './TranslateSnippetController.svelte';
-	import { versionAtLeast } from '$lib/helpers/versions';
+	import * as v from 'valibot';
 
 	interface Props {
 		snippet: Snippet;
@@ -39,7 +39,6 @@
 	}: Props = $props();
 
 	let nestedEditing = $state(false);
-
 
 	function changeClickEventType(event: any) {
 		updateField('click_event_type', event.target.value);
@@ -71,9 +70,14 @@
 		updateField('font', event.target.value);
 	}
 
-	function updateField(field: string, value: any) {
+	function updateField(field: string, value: unknown) {
 		let newSnippet = duplicate_snippet(snippet);
-		newSnippet[field] = value;
+		if (v.is(v.looseObject({ [field]: v.unknown() }), newSnippet)) {
+			newSnippet[field] = value;
+		} else {
+			console.error('Unable to update property', field, value, newSnippet);
+			alert(`Critical error: unable to update field ${field}`);
+		}
 		snippet = newSnippet;
 	}
 
@@ -103,11 +107,14 @@
 	function fullColorSet(): Color[] {
 		return [...Object.keys(minecraftColorSet), ...$customColors];
 	}
-	let filteredColorSet = $derived(fullColorSet().filter((color) => {
-		return color != 'none';
-	}));
-	let clickEventTypeIsCommand =
-		$derived(snippet.click_event_type == 'run_command' || snippet.click_event_type == 'suggest_command');
+	let filteredColorSet = $derived(
+		fullColorSet().filter((color) => {
+			return color != 'none';
+		})
+	);
+	let clickEventTypeIsCommand = $derived(
+		snippet.click_event_type == 'run_command' || snippet.click_event_type == 'suggest_command'
+	);
 </script>
 
 {#if !nestedEditing}
@@ -287,11 +294,7 @@
 
 		<Row class="mb-2">
 			<div class="col-4">
-				<select
-					class="form-select"
-					value={snippet.click_event_type}
-					oninput={changeClickEventType}
-				>
+				<select class="form-select" value={snippet.click_event_type} oninput={changeClickEventType}>
 					<option selected={snippet.click_event_type == 'none'} value={ClickEvent.none}>
 						None
 					</option>
@@ -371,11 +374,7 @@
 		</div>
 		<div class="row mb-2">
 			<div class="col-4">
-				<select
-					class="form-select"
-					value={snippet.hover_event_type}
-					oninput={changeHoverEventType}
-				>
+				<select class="form-select" value={snippet.hover_event_type} oninput={changeHoverEventType}>
 					<option selected={snippet.hover_event_type == 'none'} value={HoverEvent.none}>
 						None
 					</option>
