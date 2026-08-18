@@ -57,19 +57,26 @@ export function upgradeV7State(source_array: Array<object>): Array<object> {
 	];
 	const hoverEventTypeLookup: HoverEventType[] = ['none', 'show_text', 'show_item', 'show_entity'];
 	return source_array.map((s): object => {
-		const found_click_event_type = s['click_event_type'];
-		const found_hover_event_type = s['hover_event_type'];
+		const Schema = v.object({
+			click_event_type: v.optional(v.number()),
+			hover_event_type: v.optional(v.number())
+		});
+		const parsed = v.parse(Schema, s);
 		return {
 			...s,
-			click_event_type: clickEventTypeLookup[found_click_event_type] ?? 'none',
-			hover_event_type: hoverEventTypeLookup[found_hover_event_type] ?? 'none'
+			click_event_type: parsed.click_event_type
+				? (clickEventTypeLookup[parsed.click_event_type] ?? 'none')
+				: 'none',
+			hover_event_type: parsed.hover_event_type
+				? (hoverEventTypeLookup[parsed.hover_event_type] ?? 'none')
+				: 'none'
 		};
 	});
 }
 
 // Version 8
 export function loadCurrentVersionState(
-	source_array: Array<object>,
+	source_array: Array<Record<string, unknown>>,
 	filterShadowItems = true
 ): Array<Snippet> {
 	if (!Array.isArray(source_array)) {
@@ -99,61 +106,144 @@ export function loadCurrentVersionState(
 				return group;
 			}
 
-			if (s.hasOwnProperty('hover_event_children')) {
-				s['hover_event_children'] = loadCurrentVersionState(s['hover_event_children']);
-			}
-
-			const LinebreakSchema = v.object({
-				text: v.literal('\n')
-			});
-			const TextSchema = v.object({
-				text: v.string()
+			const HoverEventChildrenSchema = v.object({
+				hover_event_children: v.optional(
+					v.pipe(
+						v.array(v.looseObject({})),
+						v.transform((children) => loadCurrentVersionState(children))
+					)
+				)
 			});
 
-			if (v.is(LinebreakSchema, s)) {
-				return (Object as any).assign(new LinebreakSnippet(), s);
-			} else if (v.is(TextSchema, s)) {
-				return (Object as any).assign(new TextSnippet(), s);
-			} else if (s.hasOwnProperty('keybind')) {
-				return (Object as any).assign(new KeybindSnippet(), s);
-			} else if (s.hasOwnProperty('score') || s.hasOwnProperty('score_name')) {
-				return (Object as any).assign(new ScoreboardObjectiveSnippet(), s);
-			} else if (s.hasOwnProperty('selector')) {
-				return (Object as any).assign(new SelectorSnippet(), s);
-			} else if (s.hasOwnProperty('nbt')) {
-				return (Object as any).assign(new NBTSnippet(), s);
-			} else if (s.hasOwnProperty('translate')) {
-				if (Array.isArray(s['parameters'])) {
-					const singlesFlattened: object[] = [];
-					s['parameters'].forEach((param) => {
-						if (Array.isArray(param)) {
-							if (param.length === 1) {
-								singlesFlattened.push(param[0]);
-							} else {
-								singlesFlattened.push(param);
-							}
-						} else {
-							singlesFlattened.push(param);
-						}
-					});
-					s['parameters'] = loadCurrentVersionState(singlesFlattened);
-				} else {
-					console.error('Found unexpected non-array parameter value', s);
-					s['parameters'] = [];
-				}
-				return (Object as any).assign(new TranslateSnippet(), s);
-			} else if (s.hasOwnProperty('isPagebreak')) {
-				return (Object as any).assign(new PagebreakSnippet(), s);
-			} else if (s.hasOwnProperty('children')) {
-				s['children'] = loadCurrentVersionState(s['children']);
-				return (Object as any).assign(new GroupSnippet(), s);
-			} else if (s.hasOwnProperty('playerName')) {
-				return (Object as any).assign(new PlayerObjectSnippet(), s);
-			} else if (s.hasOwnProperty('atlas')) {
-				return (Object as any).assign(new AtlasObjectSnippet(), s);
-			} else {
+			const LinebreakSchema = v.pipe(
+				v.looseObject({
+					text: v.literal('\n'),
+					...HoverEventChildrenSchema.entries
+				}),
+				v.transform((s) => (Object as any).assign(new LinebreakSnippet(), s))
+			);
+
+			const TextSchema = v.pipe(
+				v.looseObject({
+					text: v.string(),
+					...HoverEventChildrenSchema.entries
+				}),
+				v.transform((s) => (Object as any).assign(new TextSnippet(), s))
+			);
+			const KeybindSchema = v.pipe(
+				v.looseObject({
+					keybind: v.string(),
+					...HoverEventChildrenSchema.entries
+				}),
+				v.transform((s) => (Object as any).assign(new KeybindSnippet(), s))
+			);
+			const SelectorSchema = v.pipe(
+				v.looseObject({
+					selector: v.string(),
+					...HoverEventChildrenSchema.entries
+				}),
+				v.transform((s) => (Object as any).assign(new SelectorSnippet(), s))
+			);
+			const ScoreboardObjectiveSchema = v.pipe(
+				v.looseObject({
+					score_name: v.string(),
+					...HoverEventChildrenSchema.entries
+				}),
+				v.transform((s) => (Object as any).assign(new ScoreboardObjectiveSnippet(), s))
+			);
+			const NBTSchema = v.pipe(
+				v.looseObject({
+					nbt: v.string(),
+					...HoverEventChildrenSchema.entries
+				}),
+				v.transform((s) => (Object as any).assign(new NBTSnippet(), s))
+			);
+			const TranslateSchema = v.pipe(
+				v.looseObject({
+					translate: v.string(),
+					parameters: v.optional(
+						v.pipe(
+							v.array(
+								v.pipe(
+									v.unknown(),
+									v.transform((param) => {
+										console.log('transforming translate param', param);
+										if (Array.isArray(param)) {
+											console.log('found an array, len', param.length);
+											if (param.length === 1) {
+												return param[0];
+											} else {
+												return param;
+											}
+										} else {
+											return param;
+										}
+									})
+								)
+							),
+							v.transform((params) => {
+								console.log('sending translate params to loader', params);
+								return loadCurrentVersionState(params);
+							})
+						)
+					),
+					...HoverEventChildrenSchema.entries
+				}),
+				v.transform((s) => (Object as any).assign(new TranslateSnippet(), s))
+			);
+			const PagebreakSchema = v.pipe(
+				v.looseObject({
+					isPagebreak: v.literal(true),
+					...HoverEventChildrenSchema.entries
+				}),
+				v.transform((s) => (Object as any).assign(new PagebreakSnippet(), s))
+			);
+			const GroupSchema = v.pipe(
+				v.looseObject({
+					children: v.pipe(
+						v.array(v.record(v.string(), v.unknown())),
+						v.transform((children) => loadCurrentVersionState(children))
+					),
+					...HoverEventChildrenSchema.entries
+				}),
+				v.transform((s) => (Object as any).assign(new GroupSnippet(), s))
+			);
+			const PlayerObjectSchema = v.pipe(
+				v.looseObject({
+					playerName: v.string(),
+					...HoverEventChildrenSchema.entries
+				}),
+				v.transform((s) => (Object as any).assign(new PlayerObjectSnippet(), s))
+			);
+			const AtlasObjectSchema = v.pipe(
+				v.looseObject({
+					atlas: v.string(),
+					...HoverEventChildrenSchema.entries
+				}),
+				v.transform((s) => (Object as any).assign(new AtlasObjectSnippet(), s))
+			);
+
+			const ComboSchema = v.union([
+				LinebreakSchema,
+				TextSchema,
+				KeybindSchema,
+				SelectorSchema,
+				ScoreboardObjectiveSchema,
+				NBTSchema,
+				TranslateSchema,
+				PagebreakSchema,
+				GroupSchema,
+				PlayerObjectSchema,
+				AtlasObjectSchema
+			]);
+
+			try {
+				return v.parse(ComboSchema, s);
+			} catch (error) {
+				console.error(error);
+				alert(`Failed to load state: ${error instanceof Error ? error.message : 'unknown error'}`);
 				const snippet = new TextSnippet();
-				snippet.text = `Failed to claim ${JSON.stringify(s)}`;
+				snippet.text = `Failed to claim: ${error instanceof Error ? error.message : 'unknown error'}`;
 				return snippet;
 			}
 		});
