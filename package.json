@@ -40,5 +40,14 @@
     "valibot": "^1.4.2",
     "vite": "^8.2.0"
   },
-  "type": "module"
+  "type": "module",
+  "allowScripts": {
+    "@fortawesome/fontawesome-common-types": false,
+    "@fortawesome/fontawesome-svg-core": false,
+    "@fortawesome/free-brands-svg-icons": false,
+    "@fortawesome/free-solid-svg-icons": false,
+    "esbuild": false,
+    "fsevents": false,
+    "workerd": false
+  }
 }
