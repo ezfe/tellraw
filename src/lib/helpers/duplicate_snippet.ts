@@ -1,5 +1,5 @@
-import { AtlasObjectSnippet } from '$lib/classes/Snippets/SnippetTypes/AtlasObjectSnippet';
-import { PlayerObjectSnippet } from '$lib/classes/Snippets/SnippetTypes/PlayerObjectSnippet';
+import { AtlasObjectSnippet } from '#lib/classes/Snippets/SnippetTypes/AtlasObjectSnippet.js';
+import { PlayerObjectSnippet } from '#lib/classes/Snippets/SnippetTypes/PlayerObjectSnippet.js';
 import { GroupSnippet } from '../classes/Snippets/SnippetTypes/GroupSnippet';
 import { KeybindSnippet } from '../classes/Snippets/SnippetTypes/KeybindSnippet';
 import { LinebreakSnippet } from '../classes/Snippets/SnippetTypes/LinebreakSnippet';

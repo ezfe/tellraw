@@ -1,9 +1,9 @@
-import { SelectorSnippet } from '$lib/classes/Snippets/SnippetTypes/SelectorSnippet';
-import type { Snippet } from '$lib/classes/Snippets/SnippetTypes/Snippet';
-import { TextSnippet } from '$lib/classes/Snippets/SnippetTypes/TextSnippet';
-import { LinebreakSnippet } from '$lib/classes/Snippets/SnippetTypes/LinebreakSnippet';
-import { ScoreboardObjectiveSnippet } from '$lib/classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet';
-import { HoverEvent } from '$lib/classes/Snippets/HoverEvent';
+import { SelectorSnippet } from '#lib/classes/Snippets/SnippetTypes/SelectorSnippet.js';
+import type { Snippet } from '#lib/classes/Snippets/SnippetTypes/Snippet.js';
+import { TextSnippet } from '#lib/classes/Snippets/SnippetTypes/TextSnippet.js';
+import { LinebreakSnippet } from '#lib/classes/Snippets/SnippetTypes/LinebreakSnippet.js';
+import { ScoreboardObjectiveSnippet } from '#lib/classes/Snippets/SnippetTypes/ScoreboardObjectiveSnippet.js';
+import { HoverEvent } from '#lib/classes/Snippets/HoverEvent.js';
 
 const type_handlers = [
 	{ regex: /(\/| )tellraw/, routine: parse_tellraw_type },

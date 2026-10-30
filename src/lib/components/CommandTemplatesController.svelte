@@ -43,13 +43,15 @@
 		command.set(template || template_lookup(type)[0]);
 	}
 
-	let mapped = $derived(selectableStates.map((typeInfo, index) => {
-		return {
-			...typeInfo,
-			isSelected: typeInfo.type === $commandType,
-			isLast: index >= selectableStates.length - 1
-		};
-	}));
+	let mapped = $derived(
+		selectableStates.map((typeInfo, index) => {
+			return {
+				...typeInfo,
+				isSelected: typeInfo.type === $commandType,
+				isLast: index >= selectableStates.length - 1
+			};
+		})
+	);
 </script>
 
 <div class="row">

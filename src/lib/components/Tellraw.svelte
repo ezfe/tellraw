@@ -96,8 +96,7 @@
 						onclick={(event) => {
 							event.currentTarget.select();
 						}}
-						value={export_snippets($snippets, $command, $commandType)}
-					></textarea>
+						value={export_snippets($snippets, $command, $commandType)}></textarea>
 					<Button
 						color="success"
 						on:click={() => {
@@ -204,8 +203,7 @@
 						onclick={(event) => {
 							event.currentTarget.select();
 						}}
-						value={compiled}
-					></textarea>
+						value={compiled}></textarea>
 				</div>
 			</div>
 

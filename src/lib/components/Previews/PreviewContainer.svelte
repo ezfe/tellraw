@@ -17,7 +17,9 @@
 	let { snippets, commandType, translationSet }: Props = $props();
 
 	let isBookPreview = $derived(isFeatureAvailable(commandType, $version, FeatureType.bookPreview));
-	let bookPreviewClass = $derived(isBookPreview ? 'd-flex align-items-center justify-content-center' : '');
+	let bookPreviewClass = $derived(
+		isBookPreview ? 'd-flex align-items-center justify-content-center' : ''
+	);
 </script>
 
 <div class="row mb-2">

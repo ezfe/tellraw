@@ -2,7 +2,6 @@
 	import { version } from '../../persistence/stores';
 	import Datalist from './Datalist.svelte';
 
-
 	interface Props {
 		fileIdentifier: string;
 		versioned?: boolean;
@@ -10,22 +9,16 @@
 		mergeContents?: { [key: string]: string };
 	}
 
-	let {
-		fileIdentifier,
-		versioned = false,
-		newFileContents,
-		mergeContents = {}
-	}: Props = $props();
+	let { fileIdentifier, versioned = false, newFileContents, mergeContents = {} }: Props = $props();
 
-	let url = $derived(versioned
-		? `datafiles/${$version}/${fileIdentifier}.json`
-		: `datafiles/${fileIdentifier}.json`);
+	let url = $derived(
+		versioned ? `datafiles/${$version}/${fileIdentifier}.json` : `datafiles/${fileIdentifier}.json`
+	);
 	let responsePromise = $derived(fetch(url));
 	let jsonPromise = $derived(responsePromise.then((res) => (res.ok ? res.json() : {})));
-	let listPromise = $derived(jsonPromise.then((json) => [
-		...Object.keys(json),
-		...Object.keys(mergeContents)
-	]));
+	let listPromise = $derived(
+		jsonPromise.then((json) => [...Object.keys(json), ...Object.keys(mergeContents)])
+	);
 
 	$effect(() => {
 		jsonPromise.then((json) => {

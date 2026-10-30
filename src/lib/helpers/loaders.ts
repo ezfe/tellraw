@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-prototype-builtins */
-import type { ClickEventType } from '$lib/classes/Snippets/ClickEvent';
-import type { HoverEventType } from '$lib/classes/Snippets/HoverEvent';
+import type { ClickEventType } from '#lib/classes/Snippets/ClickEvent.js';
+import type { HoverEventType } from '#lib/classes/Snippets/HoverEvent.js';
 import { SHADOW_ITEM_MARKER_PROPERTY_NAME } from 'svelte-dnd-action';
 import { GroupSnippet } from '../classes/Snippets/SnippetTypes/GroupSnippet';
 import { KeybindSnippet } from '../classes/Snippets/SnippetTypes/KeybindSnippet';
@@ -14,8 +14,8 @@ import { Snippet } from '../classes/Snippets/SnippetTypes/Snippet';
 import { TextSnippet } from '../classes/Snippets/SnippetTypes/TextSnippet';
 import { TranslateSnippet } from '../classes/Snippets/SnippetTypes/TranslateSnippet';
 import { LSKEY_SNIPPET_ARR, VERSION } from '../constants';
-import { PlayerObjectSnippet } from '$lib/classes/Snippets/SnippetTypes/PlayerObjectSnippet';
-import { AtlasObjectSnippet } from '$lib/classes/Snippets/SnippetTypes/AtlasObjectSnippet';
+import { PlayerObjectSnippet } from '#lib/classes/Snippets/SnippetTypes/PlayerObjectSnippet.js';
+import { AtlasObjectSnippet } from '#lib/classes/Snippets/SnippetTypes/AtlasObjectSnippet.js';
 import * as v from 'valibot';
 
 export function legacyStatePreparation() {

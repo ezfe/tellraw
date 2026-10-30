@@ -51,7 +51,6 @@
 		return Math.min(found, snippets.length);
 	}
 
-
 	interface Props {
 		snippets: Snippet[];
 		bookPage?: number;
@@ -64,93 +63,89 @@
 	let pageEndIndex = $derived(findPageEndIndex(bookPage, snippets));
 
 	let slicedSnippets = $derived(snippets.slice(pageStartIndex, pageEndIndex));
-	let decoratedSnippets = $derived(slicedSnippets
-		.map((snippet) => {
-			if (snippet instanceof TranslateSnippet) {
-				return previewGroupFromTranslate(snippet, translationSet);
-			} else {
-				return snippet;
-			}
-		})
-		.map((snippet) => {
-			if (snippet instanceof LinebreakSnippet) {
+	let decoratedSnippets = $derived(
+		slicedSnippets
+			.map((snippet) => {
+				if (snippet instanceof TranslateSnippet) {
+					return previewGroupFromTranslate(snippet, translationSet);
+				} else {
+					return snippet;
+				}
+			})
+			.map((snippet) => {
+				if (snippet instanceof LinebreakSnippet) {
+					return {
+						snippet,
+						linebreak: true
+					};
+				}
+
+				let classes: string[] = [];
+
+				if (snippet.underlined) {
+					classes.push('underline');
+				}
+				if (snippet.strikethrough) {
+					classes.push('line-through');
+				}
+				if (snippet.italic) {
+					classes.push('italic');
+				}
+				if (snippet.bold) {
+					classes.push('bold');
+				}
+
+				let icon = iconForSnippet(snippet);
+				if (icon !== null) classes.push('bordered-formatter-preview');
+
+				let color = 'none';
+				if (snippet.color !== 'none') {
+					color = getCSSHEX(snippet.color);
+				}
+
 				return {
 					snippet,
-					linebreak: true
+					className: classes.join(' '),
+					color,
+					icon
 				};
-			}
-
-			let classes: string[] = [];
-
-			if (snippet.underlined) {
-				classes.push('underline');
-			}
-			if (snippet.strikethrough) {
-				classes.push('line-through');
-			}
-			if (snippet.italic) {
-				classes.push('italic');
-			}
-			if (snippet.bold) {
-				classes.push('bold');
-			}
-
-			let icon = iconForSnippet(snippet);
-			if (icon !== null) classes.push('bordered-formatter-preview');
-
-			let color = 'none';
-			if (snippet.color !== 'none') {
-				color = getCSSHEX(snippet.color);
-			}
-
-			return {
-				snippet,
-				className: classes.join(' '),
-				color,
-				icon
-			};
-		}));
+			})
+	);
 </script>
 
 {#each decoratedSnippets as snippetInfo}
-{#if snippetInfo.linebreak}
-  <br
-		/>
-{:else}
-  <span
-			class={snippetInfo.className}
-			style={`color: ${snippetInfo.color}`}
-			>
-    {#if snippetInfo.icon}
-      <snippetInfo.icon
-				/>
-    {/if}
-    {#if snippetInfo.snippet instanceof TextSnippet}
-      {snippetInfo.snippet.text.replace(/ /g, '\u00a0')}
-    {:else if snippetInfo.snippet instanceof KeybindSnippet}
-      {snippetInfo.snippet.keybind}
-    {:else if snippetInfo.snippet instanceof ScoreboardObjectiveSnippet}
-      {snippetInfo.snippet.score_objective}
-		@
-		{snippetInfo.snippet.score_name}
-    {:else if snippetInfo.snippet instanceof SelectorSnippet}
-      {snippetInfo.snippet.selector}
-    {:else if snippetInfo.snippet instanceof NBTSnippet}
-      {snippetInfo.snippet.nbt}
-		@
-		{snippetInfo.snippet.storage}
-    {:else if snippetInfo.snippet instanceof GroupSnippet}
-      <PreviewContents snippets={snippetInfo.snippet.children} {translationSet} />
-    {:else if snippetInfo.snippet instanceof LinebreakSnippet}
-      <br />
-    {:else if snippetInfo.snippet instanceof PagebreakSnippet}
-      <br />
-      -- page break
-      <br />
-    {/if}
-  </span
-		>
-{/if}
+	{#if snippetInfo.linebreak}
+		<br />
+	{:else}
+		<span class={snippetInfo.className} style={`color: ${snippetInfo.color}`}>
+			{#if snippetInfo.icon}
+				<snippetInfo.icon />
+			{/if}
+			{#if snippetInfo.snippet instanceof TextSnippet}
+				{snippetInfo.snippet.text.replace(/ /g, '\u00a0')}
+			{:else if snippetInfo.snippet instanceof KeybindSnippet}
+				{snippetInfo.snippet.keybind}
+			{:else if snippetInfo.snippet instanceof ScoreboardObjectiveSnippet}
+				{snippetInfo.snippet.score_objective}
+				@
+				{snippetInfo.snippet.score_name}
+			{:else if snippetInfo.snippet instanceof SelectorSnippet}
+				{snippetInfo.snippet.selector}
+			{:else if snippetInfo.snippet instanceof NBTSnippet}
+				{snippetInfo.snippet.nbt}
+				@
+				{snippetInfo.snippet.storage}
+			{:else if snippetInfo.snippet instanceof GroupSnippet}
+				<PreviewContents snippets={snippetInfo.snippet.children} {translationSet} />
+			{:else if snippetInfo.snippet instanceof LinebreakSnippet}
+				<br />
+			{:else if snippetInfo.snippet instanceof PagebreakSnippet}
+				<br />
+				-- page break
+				<br />
+			{/if}
+		</span>
+	{/if}
 {/each}
 
 <style>

@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { Snippet } from '$lib/classes/Snippets/SnippetTypes/Snippet';
-	import SnippetCollection from '$lib/components/SnippetCollection.svelte';
-	import { CommandType } from '$lib/data/templates';
-	import { compile } from '$lib/helpers/compile';
+	import type { Snippet } from '#lib/classes/Snippets/SnippetTypes/Snippet.js';
+	import SnippetCollection from '#lib/components/SnippetCollection.svelte';
+	import { CommandType } from '#lib/data/templates.js';
+	import { compile } from '#lib/helpers/compile.js';
 	import { Col, Row } from '@sveltestrap/sveltestrap';
 
 	let body: Snippet[] = $state([]);

@@ -20,8 +20,8 @@
 	import FileAlt from '../generic/Icons/FileAlt.svelte';
 	import PlusCircle from '../generic/Icons/PlusCircle.svelte';
 	import TachometerAlt from '../generic/Icons/TachometerAlt.svelte';
-	import { PlayerObjectSnippet } from '$lib/classes/Snippets/SnippetTypes/PlayerObjectSnippet';
-	import { AtlasObjectSnippet } from '$lib/classes/Snippets/SnippetTypes/AtlasObjectSnippet';
+	import { PlayerObjectSnippet } from '#lib/classes/Snippets/SnippetTypes/PlayerObjectSnippet.js';
+	import { AtlasObjectSnippet } from '#lib/classes/Snippets/SnippetTypes/AtlasObjectSnippet.js';
 
 	interface Props {
 		title?: String | undefined;

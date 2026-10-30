@@ -1,4 +1,4 @@
-import { copy_standard_attributes } from '$lib/helpers/copy_standard_attributes';
+import { copy_standard_attributes } from '#lib/helpers/copy_standard_attributes.js';
 import type { FieldSpecifier } from './Snippet';
 import { Snippet } from './Snippet';
 

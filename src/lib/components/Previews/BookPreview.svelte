@@ -16,10 +16,11 @@
 
 	let bookPage = $state(1);
 
-	let pageCount =
-		$derived(snippets.filter((s) => {
+	let pageCount = $derived(
+		snippets.filter((s) => {
 			return s instanceof PagebreakSnippet;
-		}).length + 1);
+		}).length + 1
+	);
 </script>
 
 <div>

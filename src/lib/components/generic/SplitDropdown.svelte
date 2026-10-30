@@ -11,14 +11,7 @@
 	} from '@sveltestrap/sveltestrap';
 
 	type ButtonColor =
-		| 'primary'
-		| 'secondary'
-		| 'success'
-		| 'danger'
-		| 'warning'
-		| 'info'
-		| 'light'
-		| 'dark';
+		'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark';
 
 	interface DropdownAction {
 		label?: string;
@@ -36,13 +29,7 @@
 		children?: import('svelte').Snippet;
 	}
 
-	let {
-		color,
-		disabled = false,
-		block = false,
-		dropdowns,
-		children
-	}: Props = $props();
+	let { color, disabled = false, block = false, dropdowns, children }: Props = $props();
 </script>
 
 <ButtonDropdown class={block ? 'w-100' : ''}>

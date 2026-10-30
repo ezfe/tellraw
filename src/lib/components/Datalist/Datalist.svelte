@@ -5,8 +5,6 @@
 	}
 
 	let { fileIdentifier, values: valuesPromise }: Props = $props();
-
-	
 </script>
 
 <datalist id={`datalist-${fileIdentifier}`}>

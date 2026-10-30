@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { parse_mc_command } from '$lib/helpers/mc_parser';
+	import { parse_mc_command } from '#lib/helpers/mc_parser.js';
 	import { Button } from '@sveltestrap/sveltestrap';
 	import { loadCurrentVersionState, upgradeV7State } from '../helpers/loaders';
 	import { command, commandType, snippets } from '../persistence/stores';
@@ -7,7 +7,7 @@
 	import TimesCircle from './generic/Icons/TimesCircle.svelte';
 	import LightWell from './generic/LightWell.svelte';
 	import * as v from 'valibot';
-	import { CommandType } from '$lib/data/templates';
+	import { CommandType } from '#lib/data/templates.js';
 
 	let importingString = $state('');
 	interface Props {

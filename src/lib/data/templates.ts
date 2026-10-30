@@ -1,5 +1,5 @@
-import type { Version } from '$lib/helpers/versions';
-import { versionAtLeast } from '$lib/helpers/versions';
+import type { Version } from '#lib/helpers/versions.js';
+import { versionAtLeast } from '#lib/helpers/versions.js';
 
 export enum CommandType {
 	tellraw = 'tellraw',

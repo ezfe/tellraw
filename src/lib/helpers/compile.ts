@@ -1,4 +1,4 @@
-import { HoverEvent } from '$lib/classes/Snippets/HoverEvent';
+import { HoverEvent } from '#lib/classes/Snippets/HoverEvent.js';
 import { GroupSnippet } from '../classes/Snippets/SnippetTypes/GroupSnippet';
 import { KeybindSnippet } from '../classes/Snippets/SnippetTypes/KeybindSnippet';
 import { LinebreakSnippet } from '../classes/Snippets/SnippetTypes/LinebreakSnippet';
@@ -13,8 +13,8 @@ import { CommandType, FeatureType, isFeatureAvailable } from '../data/templates'
 import type { Version } from './versions';
 import { versionAtLeast } from './versions';
 import { compile as compileSnbt } from '../snbt/compile';
-import { PlayerObjectSnippet } from '$lib/classes/Snippets/SnippetTypes/PlayerObjectSnippet';
-import { AtlasObjectSnippet } from '$lib/classes/Snippets/SnippetTypes/AtlasObjectSnippet';
+import { PlayerObjectSnippet } from '#lib/classes/Snippets/SnippetTypes/PlayerObjectSnippet.js';
+import { AtlasObjectSnippet } from '#lib/classes/Snippets/SnippetTypes/AtlasObjectSnippet.js';
 
 function compile_section(
 	section_snippets: Snippet[],
