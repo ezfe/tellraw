@@ -1,3 +1,7 @@
+# Minecraft JSON Formatter
+
+Note: The canonical location for this project is [tangled.org/ezekiel.dev/tellraw](https://tangled.org/ezekiel.dev/tellraw)
+
 To build and run this project locally:
 
 ```sh
